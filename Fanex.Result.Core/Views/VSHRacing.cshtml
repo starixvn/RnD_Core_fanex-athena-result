@@ -1,0 +1,118 @@
+﻿@{
+    var lang = (Fanex.Result.Core.DTO.LangResources)Model.Resource;
+    const int colspan = 7;
+}
+<table class="fanex-result">
+    <thead>
+        <tr class="row-header">
+            <th class="column-race" colspan="3">
+                @lang.Race
+            </th>
+            <th class="column-result">
+                @Raw(lang.Result)
+            </th>
+            <th class="column-win">
+                @Raw(lang.Win)
+            </th>
+            <th class="column-plae">
+                @Raw(lang.Place)
+            </th>
+            <th class="column-status">
+                @lang.Status
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Data.Count > 0)
+        {
+            var currentLeagueId = 0;
+            var currentRace = DateTime.MinValue;
+            var newLeague = false;
+            for (int index = 0, j = Model.Data.Count; index < j; index++)
+            {
+                var item = (Fanex.Result.Core.ViewModels.VSHRacingViewModel)Model.Data[index];
+                if (item.Place > 4) { continue; }
+
+                if (!Model.IsPopUp)
+                {
+                    var leagueId = item.LeagueId;
+                    newLeague = currentLeagueId == 0 || currentLeagueId != leagueId;
+                    if (newLeague)
+                    {
+                        currentLeagueId = leagueId;
+
+            <tr class="row-data">
+                <td colspan="@colspan" class="column-league">
+                    @item.LeagueName
+                </td>
+            </tr>
+                    }
+                }
+
+                if (newLeague || currentRace != item.EvenTime)
+                {
+                    currentRace = item.EvenTime;
+                    var counter = 0;
+            <tr class="row-data @item.Color(index, "format-even", "format-odd")">
+                <td class="column-race-name" rowspan="@item.RowCount">
+                    @Raw(item.KickOffTime)
+                </td>
+                <td class="column-placeing">
+                    @item.Placing
+                </td>
+                <td class="column-engine-no">
+                    @item.HorseNo
+                </td>
+                <td class="column-result">
+                    @item.Result
+                </td>
+                <td class="column-win">
+                    @item.WinOdd
+                </td>
+                <td class="column-place">
+                    @item.PlaceOdd
+                </td>
+                <td class="column-eventstatus">
+                    @item.Status
+                </td>
+            </tr>
+
+                }
+                else
+                {
+            <tr class="row-data @item.Color(index, "format-even", "format-odd")">
+                <td class="column-placeing">
+                    @item.Placing
+                </td>
+                <td class="column-engine-no">
+                    @item.HorseNo
+                </td>
+                <td class="column-result">
+                    @item.Result
+                </td>
+                <td class="column-win">
+                    @item.WinOdd
+                </td>
+                <td class="column-place">
+                    @item.PlaceOdd
+                </td>
+                <td class="column-eventstatus">
+                    @item.Status
+                </td>
+            </tr>
+                }
+
+            }
+        }
+        else
+        {
+            <!--NoInfo-->
+            <tr class="row-noinfo">
+                <td colspan="@colspan">
+                    @Model.Resource.NoInfo
+                </td>
+            </tr>
+            <!--/NoInfo-->
+        }
+    </tbody>
+</table>

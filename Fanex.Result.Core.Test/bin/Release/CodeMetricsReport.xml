@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeMetricsReport Version="10.0">
+  <Targets>
+    <Target Name="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.Core.Test\bin\Release\Fanex.Result.Core.Test.dll">
+      <Modules>
+        <Module Name="Fanex.Result.Core.Test.dll" AssemblyVersion="1.0.0.0">
+          <Metrics>
+            <Metric Name="MaintainabilityIndex" Value="100" />
+            <Metric Name="CyclomaticComplexity" Value="0" />
+            <Metric Name="ClassCoupling" Value="0" />
+            <Metric Name="DepthOfInheritance" Value="0" />
+            <Metric Name="LinesOfCode" Value="0" />
+          </Metrics>
+        </Module>
+      </Modules>
+    </Target>
+  </Targets>
+</CodeMetricsReport>

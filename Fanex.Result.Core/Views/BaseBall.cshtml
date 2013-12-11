@@ -1,0 +1,181 @@
+﻿@{
+    var lang = (Fanex.Result.Core.DTO.LangResources)Model.Resource;
+    const int colspan = 15;
+}
+<table class="fanex-result">
+    <thead>
+        <tr class="row-header">
+            <th class="column-kickofftime">
+                @lang.KickOffTime
+            </th>
+            <th class="column-match">
+                    @Raw(lang.Match)
+            </th>
+            <th class="column-n">
+                1
+            </th>
+            <th class="column-n">
+                2
+            </th>
+            <th class="column-n">
+                3
+            </th>
+            <th class="column-n">
+                4
+            </th>
+            <th class="column-n">
+                5
+            </th>
+            <th class="column-n">
+                6
+            </th>
+            <th class="column-n">
+                7
+            </th>
+            <th class="column-n">
+                8
+            </th>
+            <th class="column-n">
+                9
+            </th>
+            <th class="column-ei">
+                E.I
+            </th>
+            <th class="column-firsthaftscore">
+                    @Raw(lang.FirstHalfScore)
+            </th>
+            <th class="column-finalscore">
+                @lang.FinalScore
+            </th>
+            <th class="column-status">
+                @lang.Status
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Data.Count > 0)
+        {
+            var currentLeagueId = 0;
+            var index = 0;
+            foreach (var itemObj in Model.Data)
+            {
+                var item = (Fanex.Result.Core.ViewModels.BaseBallViewModel)itemObj;
+                index++;
+                if (!Model.IsPopUp)
+                {
+                    var leagueId = item.LeagueId;
+                    if (currentLeagueId == 0 || currentLeagueId != leagueId)
+                    {
+                        currentLeagueId = leagueId;
+        
+            <tr class="row-data">
+                <td colspan="@colspan" class="column-league">
+                    @item.LeagueName
+                </td>
+            </tr>
+                    }
+                }
+        
+ <tr class="row-data @item.Color(index, "format-even", "format-odd")">               
+                <td class="column-kickofftime" rowspan="2">
+                    @Raw(item.KickOffTime)
+                </td>
+                <td class="column-match">
+                    @Raw(item.HomeTeam)
+                </td>
+                <td class="column-n">
+                @item.GetHomeAwaySet(0,true)
+                </td>
+                <td class="column-n">
+                @item.GetHomeAwaySet(1,true)
+                </td>
+                <td class="column-n">
+                @item.GetHomeAwaySet(2,true)
+                </td>
+                <td class="column-n">
+                @item.GetHomeAwaySet(3,true)
+                </td>
+                <td class="column-n">
+                @item.GetHomeAwaySet(4,true)
+                </td>
+                <td class="column-n">
+                @item.GetHomeAwaySet(5,true)
+                </td>
+                <td class="column-n">
+                @item.GetHomeAwaySet(6,true)
+                </td>
+                <td class="column-n">
+                @item.GetHomeAwaySet(7,true)
+                </td>
+                 <td class="column-n">
+                @item.GetHomeAwaySet(8,true)
+                </td>
+                 <td class="column-ei">
+                @item.EIHome
+                </td>
+                <td class="column-ht-homescore">
+                    @item.HTHomeScore
+                </td>
+                <td char="column-final-homescore">
+                    @item.FinalHomeScore
+                </td>
+                <td rowspan="2" class="column-eventstatus">
+                    @item.EventStatus
+                </td>
+            </tr>
+ <tr class="row-data @item.Color(index, "format-even", "format-odd")">               
+                <td class="column-match">
+                    @Raw(item.AwayTeam)
+                </td>
+                <td class="column-n">
+                @item.GetHomeAwaySet(0,true)
+                </td>
+                <td class="column-n">
+                @item.GetHomeAwaySet(1, false)
+                </td>
+                <td class="column-n">
+                @item.GetHomeAwaySet(2, false)
+                </td>
+                <td class="column-n">
+                @item.GetHomeAwaySet(3, false)
+                </td>
+                <td class="column-n">
+                @item.GetHomeAwaySet(4, false)
+                </td>
+                <td class="column-n">
+                @item.GetHomeAwaySet(5, false)
+                </td>
+                <td class="column-n">
+                @item.GetHomeAwaySet(6, false)
+                </td>
+                <td class="column-n">
+                @item.GetHomeAwaySet(7, false)
+                </td>
+                 <td class="column-n">
+                @item.GetHomeAwaySet(8,false)
+                </td>
+                 <td class="column-ei">
+                @item.EIAway
+                </td>
+                <td class="column-ht-awayscore">
+                    @item.HTAwayScore
+                </td>
+                <td class="column-ht-finalscore">
+                    @item.FinalAwayScore
+                </td>
+            </tr>
+           
+            }
+        }
+        else
+        {
+            <!--NoInfo-->
+            <tr class="row-noinfo">
+                <td colspan="@colspan">
+                    @Model.Resource.NoInfo
+                </td>
+            </tr>
+            <!--/NoInfo-->
+        }
+    </tbody>
+</table>

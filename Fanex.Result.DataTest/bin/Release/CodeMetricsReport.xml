@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeMetricsReport Version="10.0">
+  <Targets>
+    <Target Name="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.DataTest\bin\Release\Fanex.Result.DataTest.dll">
+      <Modules>
+        <Module Name="Fanex.Result.DataTest.dll" AssemblyVersion="1.0.0.0" FileVersion="1.0.0.0">
+          <Metrics>
+            <Metric Name="MaintainabilityIndex" Value="60" />
+            <Metric Name="CyclomaticComplexity" Value="38" />
+            <Metric Name="ClassCoupling" Value="8" />
+            <Metric Name="DepthOfInheritance" Value="1" />
+            <Metric Name="LinesOfCode" Value="106" />
+          </Metrics>
+          <Namespaces>
+            <Namespace Name="Fanex.Result.DataTest">
+              <Metrics>
+                <Metric Name="MaintainabilityIndex" Value="60" />
+                <Metric Name="CyclomaticComplexity" Value="38" />
+                <Metric Name="ClassCoupling" Value="8" />
+                <Metric Name="DepthOfInheritance" Value="1" />
+                <Metric Name="LinesOfCode" Value="106" />
+              </Metrics>
+              <Types>
+                <Type Name="ResultModel">
+                  <Metrics>
+                    <Metric Name="MaintainabilityIndex" Value="60" />
+                    <Metric Name="CyclomaticComplexity" Value="38" />
+                    <Metric Name="ClassCoupling" Value="8" />
+                    <Metric Name="DepthOfInheritance" Value="1" />
+                    <Metric Name="LinesOfCode" Value="106" />
+                  </Metrics>
+                  <Members>
+                    <Member Name="Lrf_Result_SportSelByDate(DateTime) : DataTable" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.DataTest\ResultModel.cs" Line="31">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="61" />
+                        <Metric Name="CyclomaticComplexity" Value="4" />
+                        <Metric Name="ClassCoupling" Value="8" />
+                        <Metric Name="LinesOfCode" Value="10" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="Lrf_Result_LeagueSelByDate(DateTime, int, bool, string) : DataTable" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.DataTest\ResultModel.cs" Line="58">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="58" />
+                        <Metric Name="CyclomaticComplexity" Value="4" />
+                        <Metric Name="ClassCoupling" Value="8" />
+                        <Metric Name="LinesOfCode" Value="12" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="Lrf_Result_MatchSelByLeague(DateTime, int, int, bool, string) : DataTable" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.DataTest\ResultModel.cs" Line="89">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="57" />
+                        <Metric Name="CyclomaticComplexity" Value="4" />
+                        <Metric Name="ClassCoupling" Value="8" />
+                        <Metric Name="LinesOfCode" Value="13" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="Lrf_Result_RaceSelByMeeting(DateTime, int, int, bool) : DataTable" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.DataTest\ResultModel.cs" Line="119">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="57" />
+                        <Metric Name="CyclomaticComplexity" Value="4" />
+                        <Metric Name="ClassCoupling" Value="8" />
+                        <Metric Name="LinesOfCode" Value="13" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="Lrf_Result_MatchSelNumberGameByLeague(DateTime, int, bool, string) : DataTable" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.DataTest\ResultModel.cs" Line="149">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="58" />
+                        <Metric Name="CyclomaticComplexity" Value="4" />
+                        <Metric Name="ClassCoupling" Value="8" />
+                        <Metric Name="LinesOfCode" Value="12" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="Lrf_BetList_SelMatchResultNumberGame(int) : DataTable" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.DataTest\ResultModel.cs" Line="175">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="61" />
+                        <Metric Name="CyclomaticComplexity" Value="4" />
+                        <Metric Name="ClassCoupling" Value="7" />
+                        <Metric Name="LinesOfCode" Value="10" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="Lrf_BetList_SelMatchResultParlay(long) : DataTable" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.DataTest\ResultModel.cs" Line="200">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="61" />
+                        <Metric Name="CyclomaticComplexity" Value="4" />
+                        <Metric Name="ClassCoupling" Value="7" />
+                        <Metric Name="LinesOfCode" Value="10" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="Lrf_BetList_SelMatchResult(int, string) : DataTable" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.DataTest\ResultModel.cs" Line="226">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="57" />
+                        <Metric Name="CyclomaticComplexity" Value="5" />
+                        <Metric Name="ClassCoupling" Value="7" />
+                        <Metric Name="LinesOfCode" Value="13" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="Lrf_Result_Outright(DateTime, DateTime, bool) : DataTable" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.DataTest\ResultModel.cs" Line="255">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="58" />
+                        <Metric Name="CyclomaticComplexity" Value="4" />
+                        <Metric Name="ClassCoupling" Value="8" />
+                        <Metric Name="LinesOfCode" Value="12" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="ResultModel()">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="100" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="0" />
+                        <Metric Name="LinesOfCode" Value="1" />
+                      </Metrics>
+                    </Member>
+                  </Members>
+                </Type>
+              </Types>
+            </Namespace>
+          </Namespaces>
+        </Module>
+      </Modules>
+    </Target>
+  </Targets>
+</CodeMetricsReport>

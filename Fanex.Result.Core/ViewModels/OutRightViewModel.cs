@@ -1,0 +1,93 @@
+﻿// -----------------------------------------------------------------------
+// <copyright file="OutRightViewModel.cs" company="Nexcel">
+// TODO: Update copyright text.
+// </copyright>
+// -----------------------------------------------------------------------
+
+namespace Fanex.Result.Core.ViewModels
+{
+    using System.Globalization;
+    using Fanex.Result.Core.DTO;
+    using Fanex.Result.Core.Utilities;
+    using RemotingRef;
+
+    /// <summary>
+    /// Outright view model class.
+    /// </summary>
+    public sealed class OutRightViewModel : BaseViewModel
+    {
+        private readonly OutRight _outRight;
+
+        public OutRightViewModel(OutRight outRight, string languageCode, LangResources resource)
+        {
+            this._outRight = outRight;
+            this.LanguageCode = languageCode;
+            this.Lang = resource;
+        }
+
+        public int SportId
+        {
+            get { return this._outRight.SportType; }
+        }
+
+        public override int LeagueId
+        {
+            get
+            {
+                return this._outRight.LeagueId;
+            }
+        }
+
+        public override string LeagueName
+        {
+            get
+            {
+                return RefData.GetLeagueName(this._outRight.LeagueId.ToString(CultureInfo.InvariantCulture), this.GetTWLanguage, string.Empty);
+            }
+        }
+
+        public string Team
+        {
+            get
+            {
+                return RefData.GetTeamName(this._outRight.TeamId.ToString(CultureInfo.InvariantCulture), this.GetTWLanguage, string.Empty);
+            }
+        }
+
+        public override string EventStatus
+        {
+            get
+            {
+                switch (this._outRight.Status)
+                {
+                    case "running":
+                        return Lang.Running;
+                    case "completed":
+                        return Lang.Completed;
+                    case "postponed":
+                        return Lang.PostPoned;
+                    case "internal":
+                        return Lang.Internal;
+                    case "refund":
+                        return Lang.Refund;
+                    case "refund ft":
+                        return Lang.Refundft;
+                    case "refund ht":
+                        return Lang.Refundht;
+                    case "won":
+                        return Lang.Won;
+                    default:
+                        return this._outRight.Status;
+                }
+            }
+        }
+
+        public override string KickOffTime
+        {
+            get
+            {
+                return Helper.FullDateFormat(this._outRight.EventDate);
+            }
+        }
+    }
+}

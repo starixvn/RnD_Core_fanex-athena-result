@@ -1,0 +1,82 @@
+﻿@{
+    var lang = (Fanex.Result.Core.DTO.LangResources)Model.Resource;
+    const int colspan = 4;
+}
+<table class="fanex-result">
+    <thead>
+        <tr class="row-header">
+            <th class="column-kickofftime">
+                @lang.KickOffTime
+            </th>
+            <th class="column-match">
+                    @Raw(lang.Match)
+            </th>
+            <th class="column-finalscore">
+                @lang.FinalScore
+            </th>
+            <th class="column-status">
+                @lang.Status
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+    
+        @if (Model.Data.Count > 0)
+        {
+            var currentLeagueId = 0;
+            var index = 0;
+            foreach (var itemObj in Model.Data)
+            {
+                var item = (Fanex.Result.Core.ViewModels.BilliardViewModel)itemObj;
+                index++;
+                if (!Model.IsPopUp)
+                {
+                    var leagueId = item.LeagueId;
+                    if (currentLeagueId == 0 || currentLeagueId != leagueId)
+                    {
+                        currentLeagueId = leagueId;
+        
+            <tr class="row-data">
+                <td colspan="@colspan" class="column-league">
+                    @item.LeagueName
+                </td>
+            </tr>
+                    }
+                }
+ <tr class="row-data @item.Color(index, "format-even", "format-odd")">                
+                <td class="column-kickofftime" rowspan="2">
+                    @Raw(item.KickOffTime)
+                </td>
+                <td class="column-match">
+                    @Raw(item.HomeTeam)
+                </td>
+                <td char="column-final-homescore">
+                    @item.FinalHomeScore
+                </td>
+                <td rowspan="2" class="column-eventstatus">
+                    @item.EventStatus
+                </td>
+            </tr>
+ <tr class="row-data @item.Color(index, "format-even", "format-odd")">              
+                <td class="column-match">
+                    @Raw(item.AwayTeam)
+                </td>
+                <td class="column-ht-finalscore">
+                    @item.FinalAwayScore
+                </td>
+            </tr>
+       
+            }
+        }
+        else
+        {
+            <!--NoInfo-->
+            <tr class="row-noinfo">
+                <td colspan="@colspan">
+                    @Model.Resource.NoInfo
+                </td>
+            </tr>
+            <!--/NoInfo-->
+        }
+    </tbody>
+</table>

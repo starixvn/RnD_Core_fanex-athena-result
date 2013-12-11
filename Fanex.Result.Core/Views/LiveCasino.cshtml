@@ -1,0 +1,85 @@
+﻿@{
+    var lang = (Fanex.Result.Core.DTO.LangResources)Model.Resource;
+    const int colspan = 5;
+}
+<table class="fanex-result">
+    <thead>
+        <tr class="row-header">
+            <th class="column-kickofftime">
+                @lang.KickOffTime
+            </th>
+            <th class="column-match">
+                @Raw(lang.GameTypeAndTableNumber)
+            </th>
+            <th class="column-finalscore">
+                @lang.FinalScore
+            </th>
+            <th class="column-result">
+                @lang.Result
+            </th>
+            <th class="column-status">
+                @lang.Status
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Data.Count > 0)
+        {
+            var currentLeagueId = 0;
+            var index = 0;
+            foreach (var itemObj in Model.Data)
+            {
+                var item = (Fanex.Result.Core.ViewModels.LiveCasinoViewModel)itemObj;
+                index++;
+                if (!Model.IsPopUp)
+                {
+                    var leagueId = item.LeagueId;
+                    if (currentLeagueId == 0 || currentLeagueId != leagueId)
+                    {
+                        currentLeagueId = leagueId;
+         
+            <tr class="row-data">
+                <td class="column-league" colspan="2">
+                    @item.LeagueName
+                </td>
+                <td class="column-league center">
+                    @item.PlayerAndBanker
+                </td>
+                <td class="column-league" colspan="2">
+                </td>
+            </tr>
+                    }
+                }
+         
+            <tr class="row-data @item.Color(index, "format-even", "format-odd")">
+                <td class="column-kickofftime">
+                    @Raw(item.KickOffTime)
+                </td>
+                <td class="column-match">
+                    @item.GameType
+                </td>
+                <td char="column-final-homescore">
+                    @item.FinalScore
+                </td>
+                <td class="column-result">
+                    @Raw(item.Result)
+                </td>
+                <td class="column-eventstatus">
+                    @item.EventStatus
+                </td>
+            </tr>
+          
+            }
+        }
+        else
+        {
+            <!--NoInfo-->
+            <tr class="row-noinfo">
+                <td colspan="@colspan">
+                    @Model.Resource.NoInfo
+                </td>
+            </tr>
+            <!--/NoInfo-->
+        }
+    </tbody>
+</table>

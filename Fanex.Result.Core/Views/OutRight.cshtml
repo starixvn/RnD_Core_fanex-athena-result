@@ -1,0 +1,70 @@
+﻿@{
+    var lang = (Fanex.Result.Core.DTO.LangResources)Model.Resource;
+}
+<table class="fanex-result" border="0" cellpadding="0" cellspacing="0">
+    <thead>
+        <tr class="row-header">
+            <th class="column-time">
+                @lang.Time
+            </th>
+            <th class="column-team">
+                @lang.Team
+            </th>
+            <th class="column-result">
+                @lang.Result
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <!--RowData-->
+        @if (Model.Data.Count > 0)
+        {
+            var currentLeagueId = 0;
+            var index = 0;
+            foreach (var itemObj in Model.Data)
+            {
+                var item = (Fanex.Result.Core.ViewModels.OutRightViewModel)itemObj;
+                index++;
+                if (!Model.IsPopUp)
+                {
+                    var leagueId = item.LeagueId;
+                    if (currentLeagueId == 0 || currentLeagueId != leagueId)
+                    {
+                        currentLeagueId = leagueId;
+            <!--League-->
+            <tr class="row-data">
+                <td colspan="3" class="column-league">
+                    @item.LeagueName
+                </td>
+            </tr>
+            <!--/League-->
+                    }
+                }
+            <!--Row-->
+            <tr class="row-data @item.Color(index, "format-even", "format-odd")">
+                <td class="column-kickofftime">
+                    @item.KickOffTime
+                </td>
+                <td class="column-team">
+                    @item.Team
+                </td>
+                <td class="column-result">
+                    @item.EventStatus
+                </td>
+            </tr>
+            <!--/Row-->
+            <!--/RowData-->
+            }
+        }
+        else
+        { 
+            <!--NoInfo-->
+            <tr class="row-noinfo">
+                <td colspan="3">
+                    @Model.Resource.NoInfo
+                </td>
+            </tr>
+            <!--/NoInfo-->
+        }
+    </tbody>
+</table>

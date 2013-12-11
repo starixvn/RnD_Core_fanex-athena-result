@@ -1,0 +1,83 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core", "Fanex.Result.Core\Fanex.Result.Core.csproj", "{F8CF6236-68F3-445F-8541-1D21EAEDA385}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.UI", "Fanex.Result.UI\Fanex.Result.UI.csproj", "{FA14D5CB-B702-4D24-A938-A091E3032D06}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Test", "Fanex.Result.Core.Test\Fanex.Result.Core.Test.csproj", "{9CA744A9-7C1F-4270-87B7-508B1E780562}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{18C9D1F9-E4FA-4A08-A927-52F5AE2EA113}"
+	ProjectSection(SolutionItems) = preProject
+		Fanex.Result.vsmdi = Fanex.Result.vsmdi
+		Local.testsettings = Local.testsettings
+		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.DataTest", "Fanex.Result.DataTest\Fanex.Result.DataTest.csproj", "{5B97E7FC-A01C-4F85-A63D-F39838FC1B74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.WebFormTest", "Fanex.Result.WebFormTest\Fanex.Result.WebFormTest.csproj", "{C83A5BA1-AA7E-4B7F-BB5E-18BB3B928D01}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeAnalysis", "CodeAnalysis", "{849463FE-155B-463A-9801-7985CD39DC11}"
+	ProjectSection(SolutionItems) = preProject
+		CodeAnalysis\CodeAnalysisConfiguration.xml = CodeAnalysis\CodeAnalysisConfiguration.xml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 7
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://10.18.200.210:8080/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Fanex.Result.Core\\Fanex.Result.Core.csproj
+		SccProjectName1 = Fanex.Result.Core
+		SccLocalPath1 = Fanex.Result.Core
+		SccProjectUniqueName2 = Fanex.Result.UI\\Fanex.Result.UI.csproj
+		SccProjectName2 = Fanex.Result.UI
+		SccLocalPath2 = Fanex.Result.UI
+		SccProjectUniqueName3 = Fanex.Result.Core.Test\\Fanex.Result.Core.Test.csproj
+		SccProjectName3 = Fanex.Result.Core.Test
+		SccLocalPath3 = Fanex.Result.Core.Test
+		SccProjectUniqueName4 = MVCTest\\Fanex.Result.MVCTest.csproj
+		SccProjectName4 = MVCTest
+		SccLocalPath4 = MVCTest
+		SccProjectUniqueName5 = Fanex.Result.DataTest\\Fanex.Result.DataTest.csproj
+		SccProjectName5 = Fanex.Result.DataTest
+		SccLocalPath5 = Fanex.Result.DataTest
+		SccProjectUniqueName6 = Fanex.Result.WebFormTest\\Fanex.Result.WebFormTest.csproj
+		SccProjectName6 = Fanex.Result.WebFormTest
+		SccLocalPath6 = Fanex.Result.WebFormTest
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = Fanex.Result.vsmdi
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F8CF6236-68F3-445F-8541-1D21EAEDA385}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8CF6236-68F3-445F-8541-1D21EAEDA385}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8CF6236-68F3-445F-8541-1D21EAEDA385}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8CF6236-68F3-445F-8541-1D21EAEDA385}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA14D5CB-B702-4D24-A938-A091E3032D06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA14D5CB-B702-4D24-A938-A091E3032D06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA14D5CB-B702-4D24-A938-A091E3032D06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA14D5CB-B702-4D24-A938-A091E3032D06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CA744A9-7C1F-4270-87B7-508B1E780562}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CA744A9-7C1F-4270-87B7-508B1E780562}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CA744A9-7C1F-4270-87B7-508B1E780562}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CA744A9-7C1F-4270-87B7-508B1E780562}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B97E7FC-A01C-4F85-A63D-F39838FC1B74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B97E7FC-A01C-4F85-A63D-F39838FC1B74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B97E7FC-A01C-4F85-A63D-F39838FC1B74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B97E7FC-A01C-4F85-A63D-F39838FC1B74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C83A5BA1-AA7E-4B7F-BB5E-18BB3B928D01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C83A5BA1-AA7E-4B7F-BB5E-18BB3B928D01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C83A5BA1-AA7E-4B7F-BB5E-18BB3B928D01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C83A5BA1-AA7E-4B7F-BB5E-18BB3B928D01}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

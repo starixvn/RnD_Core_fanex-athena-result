@@ -1,0 +1,132 @@
+﻿// -----------------------------------------------------------------------
+// <copyright file="Validate.cs" company="Nexcel">
+// TODO: Update copyright text.
+// </copyright>
+// -----------------------------------------------------------------------
+
+namespace Fanex.Result.Core.Models
+{
+    using System;
+    using System.Diagnostics.CodeAnalysis;
+    using Fanex.Result.Core.DTO;
+
+    /// <summary>
+    /// TODO: Update summary.
+    /// </summary>
+    internal sealed class Validate : IValidate
+    {
+        /*singleton*/
+        private static readonly object SynceObject = new object();
+        private static IValidate instance;
+
+        private Validate()
+        {
+        }
+
+        public static IValidate Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    lock (SynceObject)
+                    {
+                        if (instance == null)
+                        {
+                            instance = new Validate();
+                        }
+                    }
+                }
+
+                return instance;
+            }
+        }
+
+        public bool ValidateRazorTemplate(string template)
+        {
+            throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// Validate DTO and sport type.
+        /// </summary>
+        /// <param name="dtoName">The DTO name.</param>
+        /// <param name="sportType">The sport type.</param>
+        /// <returns>True if DTO name match with sport type.</returns>
+        [SuppressMessage(
+           "StyleCop.CSharp.Nexcel.NexcelCustomRules",
+           "SP2101:MethodMustNotContainMoreLinesThan",
+           Justification = "Reviewed. Suppression is OK here.")]
+        public bool ValidateNormal(string dtoName, SportType sportType)
+        {
+            if (string.IsNullOrEmpty(dtoName))
+            {
+                return false;
+            }
+
+            if ((short)sportType < 1)
+            {
+                return false;
+            }
+
+            var sportTypeValid = Enum.IsDefined(typeof(SportType), sportType);
+            if (sportTypeValid)
+            {
+                switch (sportType)
+                {
+                    case SportType.HorseRacing:
+                    case SportType.Greyhound:
+                    case SportType.Harness:
+                    case SportType.VirtualHorseRacing:
+                    case SportType.VirtualGreyhounds:
+                    case SportType.VirtualMotorRacing:
+                        if (dtoName == DataDomain.RACING)
+                        {
+                            return true;
+                        }
+
+                        return false;
+                    case SportType.NumberGame:
+                        if (dtoName == DataDomain.NUMBERGAME)
+                        {
+                            return true;
+                        }
+
+                        return false;
+                    case SportType.LiveCasino:
+                        if (dtoName == DataDomain.LIVECASINO)
+                        {
+                            return true;
+                        }
+
+                        return false;
+
+                    default:
+                        if (dtoName == DataDomain.SPORTBOOK)
+                        {
+                            return true;
+                        }
+
+                        return false;
+                }
+            }
+
+            return false;
+        }
+
+        public bool ValidateOutRight(string dtoName)
+        {
+            return !string.IsNullOrEmpty(dtoName) && dtoName == DataDomain.OUTRIGHT;
+        }
+
+        public bool ValidateParlay(string dtoName)
+        {
+            return !string.IsNullOrEmpty(dtoName) && dtoName == DataDomain.PARLAY;
+        }
+
+        public bool ValidateLangResource(LangResources currentResource, string currentLanguageCode)
+        {
+            throw new NotImplementedException();
+        }
+    }
+}

@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F8CF6236-68F3-445F-8541-1D21EAEDA385}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fanex.Result.Core</RootNamespace>
+    <AssemblyName>Fanex.Result.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Fanex.Common">
+      <HintPath>..\NexcelDependencies\Fanex\Fanex.Common.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IBCFile, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\NexcelDependencies\3rds\IBCFile.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\NexcelDependencies\Fanex\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorEngine, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\RazorEngine.3.2.0\lib\net40\RazorEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="RemotingRef, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\NexcelDependencies\3rds\RemotingRef.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DTO\DataDomain.cs" />
+    <Compile Include="DTO\LangResources.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LangResources.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DTO\LiveCasino.cs" />
+    <Compile Include="DTO\NumberGame.cs" />
+    <Compile Include="DTO\OutRight.cs" />
+    <Compile Include="DTO\Parlay.cs" />
+    <Compile Include="DTO\Racing.cs" />
+    <Compile Include="DTO\Sportbook.cs" />
+    <Compile Include="DTO\StringResources.cs" />
+    <Compile Include="ExcelModels\BadmintonExcel.cs" />
+    <Compile Include="ExcelModels\BaseBallExcel.cs" />
+    <Compile Include="ExcelModels\BasketballExcel.cs" />
+    <Compile Include="ExcelModels\BilliardExcel.cs" />
+    <Compile Include="ExcelModels\ExcelBase.cs" />
+    <Compile Include="ExcelModels\HockeyExcel.cs" />
+    <Compile Include="ExcelModels\NumberGameExcel.cs" />
+    <Compile Include="ExcelModels\OtherSportExcel.cs" />
+    <Compile Include="ExcelModels\OutRightExcel.cs" />
+    <Compile Include="ExcelModels\RacingExcel.cs" />
+    <Compile Include="ExcelModels\LiveCasinoExcel.cs" />
+    <Compile Include="ExcelModels\SoccerExcel.cs" />
+    <Compile Include="ExcelModels\TennisExcel.cs" />
+    <Compile Include="ExcelModels\VSHRacingExcel.cs" />
+    <Compile Include="ExcelModels\VSTennisExcel.cs" />
+    <Compile Include="Models\RazorBinderModel.cs" />
+    <Compile Include="ResultSetting.cs" />
+    <Compile Include="SportType.cs" />
+    <Compile Include="Extension\StringValueAttribute.cs" />
+    <Compile Include="Utilities\MapEventStatus.cs" />
+    <Compile Include="Extension\Extension.cs" />
+    <Compile Include="Utilities\Helper.cs" />
+    <Compile Include="Models\Builder.cs" />
+    <Compile Include="Models\ExcelParser.cs" />
+    <Compile Include="Models\IBuilder.cs" />
+    <Compile Include="Models\IExcelParser.cs" />
+    <Compile Include="Models\IResource.cs" />
+    <Compile Include="Models\ITemplate.cs" />
+    <Compile Include="Models\IValidate.cs" />
+    <Compile Include="Models\Resources.cs" />
+    <Compile Include="Models\Template.cs" />
+    <Compile Include="Models\Validate.cs" />
+    <Compile Include="Models\ViewModelConcreteFactory.cs" />
+    <Compile Include="Models\ViewModelFactory.cs" />
+    <Compile Include="ResultEngine.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\BadmintonViewModel.cs" />
+    <Compile Include="ViewModels\BaseBallViewModel.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\BasketBallViewModel.cs" />
+    <Compile Include="ViewModels\BilliardViewModel.cs" />
+    <Compile Include="ViewModels\HockeyViewModel.cs" />
+    <Compile Include="ViewModels\LiveCasinoViewModel.cs" />
+    <Compile Include="ViewModels\NumberGameViewModel.cs" />
+    <Compile Include="ViewModels\OtherViewModel.cs" />
+    <Compile Include="ViewModels\OutRightViewModel.cs" />
+    <Compile Include="ViewModels\ParlayViewModel.cs" />
+    <Compile Include="ViewModels\RacingViewModel.cs" />
+    <Compile Include="ViewModels\SoccerViewModel.cs" />
+    <Compile Include="ViewModels\SportbookBaseViewModel.cs" />
+    <Compile Include="ViewModels\TennisDetailViewModel.cs" />
+    <Compile Include="ViewModels\TennisViewModel.cs" />
+    <Compile Include="ViewModels\VSHRacingViewModel.cs" />
+    <Compile Include="ViewModels\VSTennisViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="DTO\LangResources.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LangResources.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EmbeddedResource Include="Views\Soccer.cshtml" />
+    <EmbeddedResource Include="Views\Parlay.cshtml" />
+    <EmbeddedResource Include="Views\BasketBall.cshtml" />
+    <EmbeddedResource Include="Views\OutRight.cshtml" />
+    <EmbeddedResource Include="Views\Racing.cshtml" />
+    <EmbeddedResource Include="Views\Hockey.cshtml" />
+    <EmbeddedResource Include="Views\Tennis.cshtml" />
+    <EmbeddedResource Include="Views\Badminton.cshtml" />
+    <EmbeddedResource Include="Views\BaseBall.cshtml" />
+    <EmbeddedResource Include="Views\Billiard.cshtml" />
+    <EmbeddedResource Include="Views\Other.cshtml" />
+    <EmbeddedResource Include="Views\NumberGame.cshtml" />
+    <EmbeddedResource Include="Views\LiveCasino.cshtml" />
+    <EmbeddedResource Include="Views\VSHRacing.cshtml" />
+    <EmbeddedResource Include="Views\VSTennis.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\zh-TW.xml" />
+    <EmbeddedResource Include="Resources\ja-JP.xml" />
+    <EmbeddedResource Include="Resources\th-TH.xml" />
+    <EmbeddedResource Include="Resources\ko-KR.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\zh-CN.xml" />
+    <EmbeddedResource Include="Resources\vi-VN.xml" />
+    <EmbeddedResource Include="Resources\en-US.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

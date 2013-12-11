@@ -1,0 +1,575 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeMetricsReport Version="10.0">
+  <Targets>
+    <Target Name="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.WebFormTest.dll">
+      <Modules>
+        <Module Name="Fanex.Result.WebFormTest.dll" AssemblyVersion="1.0.0.0" FileVersion="1.0.0.0">
+          <Metrics>
+            <Metric Name="MaintainabilityIndex" Value="88" />
+            <Metric Name="CyclomaticComplexity" Value="177" />
+            <Metric Name="ClassCoupling" Value="53" />
+            <Metric Name="DepthOfInheritance" Value="5" />
+            <Metric Name="LinesOfCode" Value="227" />
+          </Metrics>
+          <Namespaces>
+            <Namespace Name="Fanex.Result.WebFormTest">
+              <Metrics>
+                <Metric Name="MaintainabilityIndex" Value="86" />
+                <Metric Name="CyclomaticComplexity" Value="167" />
+                <Metric Name="ClassCoupling" Value="47" />
+                <Metric Name="DepthOfInheritance" Value="5" />
+                <Metric Name="LinesOfCode" Value="216" />
+              </Metrics>
+              <Types>
+                <Type Name="Global">
+                  <Metrics>
+                    <Metric Name="MaintainabilityIndex" Value="100" />
+                    <Metric Name="CyclomaticComplexity" Value="6" />
+                    <Metric Name="ClassCoupling" Value="2" />
+                    <Metric Name="DepthOfInheritance" Value="2" />
+                    <Metric Name="LinesOfCode" Value="1" />
+                  </Metrics>
+                  <Members>
+                    <Member Name="Application_Start(object, EventArgs) : void" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\Global.asax.cs" Line="20">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="100" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="1" />
+                        <Metric Name="LinesOfCode" Value="0" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="Application_End(object, EventArgs) : void" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\Global.asax.cs" Line="24">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="100" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="1" />
+                        <Metric Name="LinesOfCode" Value="0" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="Application_Error(object, EventArgs) : void" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\Global.asax.cs" Line="28">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="100" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="1" />
+                        <Metric Name="LinesOfCode" Value="0" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="Session_Start(object, EventArgs) : void" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\Global.asax.cs" Line="32">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="100" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="1" />
+                        <Metric Name="LinesOfCode" Value="0" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="Session_End(object, EventArgs) : void" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\Global.asax.cs" Line="36">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="100" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="1" />
+                        <Metric Name="LinesOfCode" Value="0" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="Global()">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="100" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="1" />
+                        <Metric Name="LinesOfCode" Value="1" />
+                      </Metrics>
+                    </Member>
+                  </Members>
+                </Type>
+                <Type Name="About">
+                  <Metrics>
+                    <Metric Name="MaintainabilityIndex" Value="100" />
+                    <Metric Name="CyclomaticComplexity" Value="2" />
+                    <Metric Name="ClassCoupling" Value="2" />
+                    <Metric Name="DepthOfInheritance" Value="4" />
+                    <Metric Name="LinesOfCode" Value="1" />
+                  </Metrics>
+                  <Members>
+                    <Member Name="Page_Load(object, EventArgs) : void" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\About.aspx.cs" Line="21">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="100" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="1" />
+                        <Metric Name="LinesOfCode" Value="0" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="About()">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="100" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="1" />
+                        <Metric Name="LinesOfCode" Value="1" />
+                      </Metrics>
+                    </Member>
+                  </Members>
+                </Type>
+                <Type Name="Example">
+                  <Metrics>
+                    <Metric Name="MaintainabilityIndex" Value="100" />
+                    <Metric Name="CyclomaticComplexity" Value="2" />
+                    <Metric Name="ClassCoupling" Value="2" />
+                    <Metric Name="DepthOfInheritance" Value="4" />
+                    <Metric Name="LinesOfCode" Value="1" />
+                  </Metrics>
+                  <Members>
+                    <Member Name="Page_Load(object, EventArgs) : void" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\Example.aspx.cs" Line="20">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="100" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="1" />
+                        <Metric Name="LinesOfCode" Value="0" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="Example()">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="100" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="1" />
+                        <Metric Name="LinesOfCode" Value="1" />
+                      </Metrics>
+                    </Member>
+                  </Members>
+                </Type>
+                <Type Name="_Default">
+                  <Metrics>
+                    <Metric Name="MaintainabilityIndex" Value="83" />
+                    <Metric Name="CyclomaticComplexity" Value="3" />
+                    <Metric Name="ClassCoupling" Value="5" />
+                    <Metric Name="DepthOfInheritance" Value="4" />
+                    <Metric Name="LinesOfCode" Value="8" />
+                  </Metrics>
+                  <Members>
+                    <Member Name="InitializeCulture() : void" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\Default.aspx.cs" Line="26">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="70" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="3" />
+                        <Metric Name="LinesOfCode" Value="6" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="Page_Load(object, EventArgs) : void" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\Default.aspx.cs" Line="39">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="95" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="2" />
+                        <Metric Name="LinesOfCode" Value="1" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="_Default()">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="100" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="1" />
+                        <Metric Name="LinesOfCode" Value="1" />
+                      </Metrics>
+                    </Member>
+                  </Members>
+                </Type>
+                <Type Name="SiteMaster">
+                  <Metrics>
+                    <Metric Name="MaintainabilityIndex" Value="100" />
+                    <Metric Name="CyclomaticComplexity" Value="2" />
+                    <Metric Name="ClassCoupling" Value="5" />
+                    <Metric Name="DepthOfInheritance" Value="5" />
+                    <Metric Name="LinesOfCode" Value="1" />
+                  </Metrics>
+                  <Members>
+                    <Member Name="Page_Load(object, EventArgs) : void" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\Site.Master.cs" Line="20">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="100" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="1" />
+                        <Metric Name="LinesOfCode" Value="0" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="SiteMaster()">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="100" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="1" />
+                        <Metric Name="LinesOfCode" Value="1" />
+                      </Metrics>
+                    </Member>
+                  </Members>
+                </Type>
+                <Type Name="OutRight">
+                  <Metrics>
+                    <Metric Name="MaintainabilityIndex" Value="100" />
+                    <Metric Name="CyclomaticComplexity" Value="2" />
+                    <Metric Name="ClassCoupling" Value="2" />
+                    <Metric Name="DepthOfInheritance" Value="4" />
+                    <Metric Name="LinesOfCode" Value="1" />
+                  </Metrics>
+                  <Members>
+                    <Member Name="Page_Load(object, EventArgs) : void" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\OutRight.aspx.cs" Line="20">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="100" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="1" />
+                        <Metric Name="LinesOfCode" Value="0" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="OutRight()">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="100" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="1" />
+                        <Metric Name="LinesOfCode" Value="1" />
+                      </Metrics>
+                    </Member>
+                  </Members>
+                </Type>
+                <Type Name="Normal">
+                  <Metrics>
+                    <Metric Name="MaintainabilityIndex" Value="100" />
+                    <Metric Name="CyclomaticComplexity" Value="2" />
+                    <Metric Name="ClassCoupling" Value="2" />
+                    <Metric Name="DepthOfInheritance" Value="4" />
+                    <Metric Name="LinesOfCode" Value="1" />
+                  </Metrics>
+                  <Members>
+                    <Member Name="Page_Load(object, EventArgs) : void" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\Normal.aspx.cs" Line="20">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="100" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="1" />
+                        <Metric Name="LinesOfCode" Value="0" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="Normal()">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="100" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="1" />
+                        <Metric Name="LinesOfCode" Value="1" />
+                      </Metrics>
+                    </Member>
+                  </Members>
+                </Type>
+                <Type Name="GetData">
+                  <Metrics>
+                    <Metric Name="MaintainabilityIndex" Value="51" />
+                    <Metric Name="CyclomaticComplexity" Value="61" />
+                    <Metric Name="ClassCoupling" Value="36" />
+                    <Metric Name="DepthOfInheritance" Value="1" />
+                    <Metric Name="LinesOfCode" Value="78" />
+                  </Metrics>
+                  <Members>
+                    <Member Name="IsReusable.get() : bool" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\GetData.ashx.cs" Line="36">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="98" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="0" />
+                        <Metric Name="LinesOfCode" Value="1" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="ProcessRequest(HttpContext) : void" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\GetData.ashx.cs" Line="46">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="57" />
+                        <Metric Name="CyclomaticComplexity" Value="5" />
+                        <Metric Name="ClassCoupling" Value="5" />
+                        <Metric Name="LinesOfCode" Value="11" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="GetOutRightData(HttpContext, DateTime, DateTime, string) : void" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\GetData.ashx.cs" Line="76">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="57" />
+                        <Metric Name="CyclomaticComplexity" Value="3" />
+                        <Metric Name="ClassCoupling" Value="15" />
+                        <Metric Name="LinesOfCode" Value="10" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="GetDataBySport(HttpContext, DateTime, int, int, string) : void" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\GetData.ashx.cs" Line="129">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="30" />
+                        <Metric Name="CyclomaticComplexity" Value="46" />
+                        <Metric Name="ClassCoupling" Value="29" />
+                        <Metric Name="LinesOfCode" Value="44" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="ResponseResult(HttpContext, string, string, string, MemoryStream) : void" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\GetData.ashx.cs" Line="347">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="60" />
+                        <Metric Name="CyclomaticComplexity" Value="5" />
+                        <Metric Name="ClassCoupling" Value="4" />
+                        <Metric Name="LinesOfCode" Value="10" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="GetData()" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\GetData.ashx.cs" Line="29">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="83" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="2" />
+                        <Metric Name="LinesOfCode" Value="2" />
+                      </Metrics>
+                    </Member>
+                  </Members>
+                </Type>
+                <Type Name="Parlay">
+                  <Metrics>
+                    <Metric Name="MaintainabilityIndex" Value="100" />
+                    <Metric Name="CyclomaticComplexity" Value="2" />
+                    <Metric Name="ClassCoupling" Value="2" />
+                    <Metric Name="DepthOfInheritance" Value="4" />
+                    <Metric Name="LinesOfCode" Value="1" />
+                  </Metrics>
+                  <Members>
+                    <Member Name="Page_Load(object, EventArgs) : void" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\Parlay.aspx.cs" Line="20">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="100" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="1" />
+                        <Metric Name="LinesOfCode" Value="0" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="Parlay()">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="100" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="1" />
+                        <Metric Name="LinesOfCode" Value="1" />
+                      </Metrics>
+                    </Member>
+                  </Members>
+                </Type>
+                <Type Name="GetPopUpData">
+                  <Metrics>
+                    <Metric Name="MaintainabilityIndex" Value="50" />
+                    <Metric Name="CyclomaticComplexity" Value="73" />
+                    <Metric Name="ClassCoupling" Value="34" />
+                    <Metric Name="DepthOfInheritance" Value="1" />
+                    <Metric Name="LinesOfCode" Value="100" />
+                  </Metrics>
+                  <Members>
+                    <Member Name="IsReusable.get() : bool" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\GetPopUpData.ashx.cs" Line="39">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="98" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="0" />
+                        <Metric Name="LinesOfCode" Value="1" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="ProcessRequest(HttpContext) : void" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\GetPopUpData.ashx.cs" Line="53">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="59" />
+                        <Metric Name="CyclomaticComplexity" Value="3" />
+                        <Metric Name="ClassCoupling" Value="4" />
+                        <Metric Name="LinesOfCode" Value="11" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="ProcessNormal(HttpContext, int, SportType, string, string) : void" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\GetPopUpData.ashx.cs" Line="92">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="35" />
+                        <Metric Name="CyclomaticComplexity" Value="36" />
+                        <Metric Name="ClassCoupling" Value="26" />
+                        <Metric Name="LinesOfCode" Value="34" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="ResponseResult(HttpContext, string, string, string) : void" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\GetPopUpData.ashx.cs" Line="282">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="73" />
+                        <Metric Name="CyclomaticComplexity" Value="4" />
+                        <Metric Name="ClassCoupling" Value="2" />
+                        <Metric Name="LinesOfCode" Value="4" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="ProcessParlay(HttpContext, long, string) : void" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\GetPopUpData.ashx.cs" Line="311">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="43" />
+                        <Metric Name="CyclomaticComplexity" Value="15" />
+                        <Metric Name="ClassCoupling" Value="22" />
+                        <Metric Name="LinesOfCode" Value="28" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="ProcessNumgerGame(HttpContext, int, string) : void" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\GetPopUpData.ashx.cs" Line="392">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="48" />
+                        <Metric Name="CyclomaticComplexity" Value="13" />
+                        <Metric Name="ClassCoupling" Value="19" />
+                        <Metric Name="LinesOfCode" Value="18" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="GetPopUpData()" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\GetPopUpData.ashx.cs" Line="29">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="75" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="2" />
+                        <Metric Name="LinesOfCode" Value="4" />
+                      </Metrics>
+                    </Member>
+                  </Members>
+                </Type>
+                <Type Name="GetFilter">
+                  <Metrics>
+                    <Metric Name="MaintainabilityIndex" Value="62" />
+                    <Metric Name="CyclomaticComplexity" Value="12" />
+                    <Metric Name="ClassCoupling" Value="15" />
+                    <Metric Name="DepthOfInheritance" Value="1" />
+                    <Metric Name="LinesOfCode" Value="23" />
+                  </Metrics>
+                  <Members>
+                    <Member Name="IsReusable.get() : bool" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\GetFilter.ashx.cs" Line="28">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="98" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="0" />
+                        <Metric Name="LinesOfCode" Value="1" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="ProcessRequest(HttpContext) : void" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\GetFilter.ashx.cs" Line="42">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="48" />
+                        <Metric Name="CyclomaticComplexity" Value="10" />
+                        <Metric Name="ClassCoupling" Value="14" />
+                        <Metric Name="LinesOfCode" Value="21" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="GetFilter()">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="100" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="0" />
+                        <Metric Name="LinesOfCode" Value="1" />
+                      </Metrics>
+                    </Member>
+                  </Members>
+                </Type>
+              </Types>
+            </Namespace>
+            <Namespace Name="Fanex.Result.WebFormTest.Account">
+              <Metrics>
+                <Metric Name="MaintainabilityIndex" Value="93" />
+                <Metric Name="CyclomaticComplexity" Value="10" />
+                <Metric Name="ClassCoupling" Value="12" />
+                <Metric Name="DepthOfInheritance" Value="4" />
+                <Metric Name="LinesOfCode" Value="11" />
+              </Metrics>
+              <Types>
+                <Type Name="ChangePassword">
+                  <Metrics>
+                    <Metric Name="MaintainabilityIndex" Value="100" />
+                    <Metric Name="CyclomaticComplexity" Value="2" />
+                    <Metric Name="ClassCoupling" Value="3" />
+                    <Metric Name="DepthOfInheritance" Value="4" />
+                    <Metric Name="LinesOfCode" Value="1" />
+                  </Metrics>
+                  <Members>
+                    <Member Name="Page_Load(object, EventArgs) : void" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\Account\ChangePassword.aspx.cs" Line="20">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="100" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="1" />
+                        <Metric Name="LinesOfCode" Value="0" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="ChangePassword()">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="100" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="1" />
+                        <Metric Name="LinesOfCode" Value="1" />
+                      </Metrics>
+                    </Member>
+                  </Members>
+                </Type>
+                <Type Name="Register">
+                  <Metrics>
+                    <Metric Name="MaintainabilityIndex" Value="82" />
+                    <Metric Name="CyclomaticComplexity" Value="4" />
+                    <Metric Name="ClassCoupling" Value="8" />
+                    <Metric Name="DepthOfInheritance" Value="4" />
+                    <Metric Name="LinesOfCode" Value="7" />
+                  </Metrics>
+                  <Members>
+                    <Member Name="Page_Load(object, EventArgs) : void" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\Account\Register.aspx.cs" Line="21">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="90" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="5" />
+                        <Metric Name="LinesOfCode" Value="1" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="RegisterUser_CreatedUser(object, EventArgs) : void" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\Account\Register.aspx.cs" Line="31">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="71" />
+                        <Metric Name="CyclomaticComplexity" Value="2" />
+                        <Metric Name="ClassCoupling" Value="5" />
+                        <Metric Name="LinesOfCode" Value="5" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="Register()">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="100" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="1" />
+                        <Metric Name="LinesOfCode" Value="1" />
+                      </Metrics>
+                    </Member>
+                  </Members>
+                </Type>
+                <Type Name="Login">
+                  <Metrics>
+                    <Metric Name="MaintainabilityIndex" Value="90" />
+                    <Metric Name="CyclomaticComplexity" Value="2" />
+                    <Metric Name="ClassCoupling" Value="7" />
+                    <Metric Name="DepthOfInheritance" Value="4" />
+                    <Metric Name="LinesOfCode" Value="2" />
+                  </Metrics>
+                  <Members>
+                    <Member Name="Page_Load(object, EventArgs) : void" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\Account\Login.aspx.cs" Line="21">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="88" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="6" />
+                        <Metric Name="LinesOfCode" Value="1" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="Login()">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="100" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="1" />
+                        <Metric Name="LinesOfCode" Value="1" />
+                      </Metrics>
+                    </Member>
+                  </Members>
+                </Type>
+                <Type Name="ChangePasswordSuccess">
+                  <Metrics>
+                    <Metric Name="MaintainabilityIndex" Value="100" />
+                    <Metric Name="CyclomaticComplexity" Value="2" />
+                    <Metric Name="ClassCoupling" Value="2" />
+                    <Metric Name="DepthOfInheritance" Value="4" />
+                    <Metric Name="LinesOfCode" Value="1" />
+                  </Metrics>
+                  <Members>
+                    <Member Name="Page_Load(object, EventArgs) : void" File="D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\Account\ChangePasswordSuccess.aspx.cs" Line="20">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="100" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="1" />
+                        <Metric Name="LinesOfCode" Value="0" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="ChangePasswordSuccess()">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="100" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="1" />
+                        <Metric Name="LinesOfCode" Value="1" />
+                      </Metrics>
+                    </Member>
+                  </Members>
+                </Type>
+              </Types>
+            </Namespace>
+          </Namespaces>
+        </Module>
+      </Modules>
+    </Target>
+  </Targets>
+</CodeMetricsReport>

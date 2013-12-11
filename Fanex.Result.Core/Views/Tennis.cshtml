@@ -1,0 +1,175 @@
+﻿@{
+    var lang = (Fanex.Result.Core.DTO.LangResources)Model.Resource;
+    const int colspan = 10;
+}
+<table class="fanex-result">
+    <thead>
+        <tr class="row-header">
+            <th class="column-kickofftime">
+                @lang.KickOffTime
+            </th>
+            <th class="column-match">
+                @Raw(lang.Match)
+            </th>
+            <th class="column-1s">
+                @lang.Lbl1S
+            </th>
+            <th class="column-2s">
+                @lang.Lbl2S
+            </th>
+            <th class="column-3s">
+                @lang.Lbl3S
+            </th>
+            <th class="column-4s">
+                @lang.Lbl4S
+            </th>
+            <th class="column-5s">
+                @lang.Lbl5S
+            </th>
+            <th class="column-totalgames">
+                @lang.TotalGames
+            </th>
+            <th class="column-totalset">
+                @lang.TotalSet
+            </th>
+            <th class="column-status">
+                @lang.Status
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Data.Count > 0)
+        {
+            var currentLeagueId = 0;
+            var index = 0;
+            foreach (var itemObj in Model.Data)
+            {
+                var item = (Fanex.Result.Core.ViewModels.TennisViewModel)itemObj;
+                index++;
+                if (!Model.IsPopUp)
+                {
+                    var leagueId = item.LeagueId;
+                    if (currentLeagueId == 0 || currentLeagueId != leagueId)
+                    {
+                        currentLeagueId = leagueId;
+          
+            <tr class="row-data">
+                <td colspan="@colspan" class="column-league">
+                    @item.LeagueName
+                </td>
+            </tr>
+                    }
+                }
+            <tr class="row-data @item.Color(index, "format-even", "format-odd")">
+                <td class="column-kickofftime" rowspan="2">
+                    @Raw(item.KickOffTime)
+                </td>
+                <td class="column-match">
+                    @Raw(item.HomeTeam)
+                </td>
+                <td class="column-1s">
+                    @item.GetHomeAwaySet(0, true)
+                </td>
+                <td class="column-2s">
+                    @item.GetHomeAwaySet(1, true)
+                </td>
+                <td class="column-3s">
+                    @item.GetHomeAwaySet(2, true)
+                </td>
+                <td class="column-4s">
+                    @item.GetHomeAwaySet(3, true)
+                </td>
+                <td class="column-5s">
+                    @item.GetHomeAwaySet(4, true)
+                </td>
+                <td class="column-totalgames">
+                    @item.TotalGameHome
+                </td>
+                <td class="column-totalset">
+                    @item.TotalSetHome
+                </td>
+                <td rowspan="2" class="column-eventstatus">
+                    @item.EventStatus
+                </td>
+            </tr>
+            <tr class="row-data @item.Color(index, "format-even", "format-odd")">
+                <td class="column-match">
+                    @Raw(item.AwayTeam)
+                </td>
+                <td class="column-1s">
+                    @item.GetHomeAwaySet(0, false)
+                </td>
+                <td class="column-2s">
+                    @item.GetHomeAwaySet(1, false)
+                </td>
+                <td class="column-3s">
+                    @item.GetHomeAwaySet(2, false)
+                </td>
+                <td class="column-4s">
+                    @item.GetHomeAwaySet(3, false)
+                </td>
+                <td class="column-5s">
+                    @item.GetHomeAwaySet(4, false)
+                </td>
+                <td class="column-totalgames">
+                    @item.TotalGameAway
+                </td>
+                <td class="column-totalset">
+                    @item.TotalSetAWay
+                </td>
+            </tr>
+     
+            }
+
+        }
+        else
+        {
+
+            <!--NoInfo-->
+            <tr class="row-noinfo">
+                <td colspan="@colspan">
+                    @Model.Resource.NoInfo
+                </td>
+            </tr>
+            <!--/NoInfo-->
+        }
+    </tbody>
+</table>
+<!--SetDetail-->
+@if (Model.IsPopUp && Model.Data.Count == 1)
+{
+    var detail = (Fanex.Result.Core.ViewModels.TennisViewModel)Model.Data[0];
+    if (detail.SetDetail != null && detail.SetDetail.Count > 0)
+    {
+    <table class="fanex-result-tenis-setdetail" id="fanex-result-tenis-setdetail">
+        <tr class="row-header">
+            <td rowspan="3" class="column-set-name">
+                @detail.DetailName
+            </td>
+            @foreach (var item in detail.SetDetail)
+            {
+                <td class="column-set-id">
+                    @item.SetId
+                </td>
+            }
+        </tr>
+        <tr class="row-data-setScore">
+            @foreach (var item in detail.SetDetail)
+            {
+                <td class="column-score">
+                    @item.SetScore1
+                </td>
+            }
+        </tr>
+        <tr class="row-data-SetScore">
+            @foreach (var item in detail.SetDetail)
+            {
+                <td class="column-score">
+                    @item.SetScore2
+                </td>
+            }
+        </tr>
+    </table>
+    }
+}
+<!--/SetDetail-->

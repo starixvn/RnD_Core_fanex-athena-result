@@ -1,0 +1,101 @@
+﻿@{
+    var lang = (Fanex.Result.Core.DTO.LangResources)Model.Resource;
+    const int colspan = 8;
+}
+<table class="fanex-result">
+    <thead>
+        <tr class="row-header">
+            <th class="column-kickofftime">
+                @lang.KickOffTime
+            </th>
+            <th class="column-match">
+                @Raw(lang.Match)
+            </th>
+            <th class="column-result">
+                @Raw(lang.Result)
+            </th>
+            <th class="column-warrior">
+                @Raw(lang.Warrior)
+            </th>
+            <th class="column-lblOEFT">
+                @Raw(lang.LblOEFT)
+            </th>
+            <th class="column-lbl1stball">
+                @Raw(lang.Lbl1stBall)
+            </th>
+            <th class="column-lastball">
+                @lang.LastBall
+            </th>
+            <th class="column-status">
+                @lang.Status
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Data.Count > 0)
+        {
+            var currentLeagueId = 0;
+            var index = 0;
+            foreach (var itemObj in Model.Data)
+            {
+                var item = (Fanex.Result.Core.ViewModels.NumberGameViewModel)itemObj;
+                index++;
+                if (!Model.IsPopUp)
+                {
+                    var leagueId = item.LeagueId;
+                    if (currentLeagueId == 0 || currentLeagueId != leagueId)
+                    {
+                        currentLeagueId = leagueId;
+
+            <tr class="row-data">
+                <td colspan="@colspan" class="column-league">
+                    @item.LeagueName
+                </td>
+            </tr>
+                    }
+                }
+
+                <tr class="row-data @item.Color(index, "format-even", "format-odd")">
+                    <td class="column-kickofftime">
+                                               @Raw(item.KickOffTime)
+                                           </td>
+                    <td class="column-match">
+                        @lang.NumberGameNo&nbsp;@item.GameNo
+                    </td>
+                    <td class="column-result">
+                        @foreach (var ball in item.Result)
+                        {
+                            <span class="ball">@item.FormatTwoDigit(ball)</span> 
+                        }
+                    </td>
+                    <td class="column-warrior">
+                        @item.Warrior
+                    </td>
+                    <td class="column-lblOEFT">
+                        @item.OEFT
+                    </td>
+                    <td class="column-lbl1stball">
+                        <span class="ball">@item.FirstBall</span>
+                    </td>
+                    <td class="column-lastball">
+                        <span class="ball">@item.LastBall</span>
+                    </td>
+                    <td class="column-eventstatus">
+                        @item.EventStatus
+                    </td>
+                </tr>
+
+            }
+        }
+        else
+        {
+            <!--NoInfo-->
+            <tr class="row-noinfo">
+                <td colspan="@colspan">
+                    @Model.Resource.NoInfo
+                </td>
+            </tr>
+            <!--/NoInfo-->
+        }
+    </tbody>
+</table>

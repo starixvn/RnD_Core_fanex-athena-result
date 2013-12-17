@@ -27,7 +27,7 @@
                         1.2</a> </li>
                     <li>Update : version 1.3 - 11/18/2013 - Support ko-KR language. <a href="DownLoad/Fanex.Result_rev1_3.zip">
                         1.3</a> </li>
-                    <li>Update : version 1.4 - 11/29/2013 <a href="DownLoad/Fanex.Result_rev1_4.zip">1.4</a>
+                    <li>Update : version 1.4 - 11/29/2013 <a href="DownLoad/Fanex.Result_rev1_4.zip">1.4</a>,&nbsp;<a href="DownLoad/Fanex.Result_CssTpl_rev1.4.zip">Css Template</a>,&nbsp;<a href="DownLoad/Fanex.Result_ExcelTPl_rev1.4.zip">Excel Template</a>
                         <br />
                         Changes:
                         <ul>
@@ -48,9 +48,9 @@
                 <ul>
                     <li>Dowload:
                         <ul>
-                            <li><a href="DownLoad/Fanex.Result_rev1_3.zip">Core & dll dependecy: </a></li>
-                            <li><a href="DownLoad/Fanex.Result_CssTpl.zip">Css Template</a> </li>
-                            <li><a href="DownLoad/Fanex.Result_ExcelTPl_rev1.2.zip">Excel Template</a> </li>
+                            <li><a href="DownLoad/Fanex.Result_rev1_4.zip">Core & dll dependecy: </a></li>
+                            <li><a href="DownLoad/Fanex.Result_CssTpl_rev1.4.zip">Css Template</a> </li>
+                            <li><a href="DownLoad/Fanex.Result_ExcelTPl_rev1.4.zip">Excel Template</a> </li>
                         </ul>
                     </li>
                     <li>Installing:<br />

@@ -69,7 +69,7 @@
     <None Include="App_Data\Fanex.Result\Basketball.xls" />
     <None Include="App_Data\Fanex.Result\Billiard.xls" />
     <None Include="App_Data\Fanex.Result\VSTennis.xls" />
-    <None Include="App_Data\Fanex.Result\VSHHorseRacing.xls" />
+    <None Include="App_Data\Fanex.Result\VSHRacing.xls" />
     <None Include="App_Data\Fanex.Result\Hockey.xls" />
     <None Include="App_Data\Fanex.Result\HorseRacing.xls" />
     <None Include="App_Data\Fanex.Result\LiveCasino.xls" />

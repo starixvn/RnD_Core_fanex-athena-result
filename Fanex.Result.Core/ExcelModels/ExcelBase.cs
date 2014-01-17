@@ -8,8 +8,7 @@ namespace Fanex.Result.Core.ExcelModels
 {
     using System.Collections.Generic;
     using System.IO;
-    using Fanex.Common;
-    using Fanex.Common.Extensions;
+    using Fanex.Npoil.Extension;
     using Fanex.Result.Core.DTO;
     using NPOI.HSSF.UserModel;
     using NPOI.SS.UserModel;
@@ -40,7 +39,8 @@ namespace Fanex.Result.Core.ExcelModels
         private int _rowContentTemplate = 3;
 
         private int _columnStatus = 4;
-        #endregion
+
+        #endregion Fields
 
         protected ExcelBase(string templatePath, string reportTitle, LangResources resource)
         {
@@ -150,7 +150,7 @@ namespace Fanex.Result.Core.ExcelModels
             return excelStream;
         }
 
-        #endregion
+        #endregion Export
 
         #region Template
 
@@ -183,7 +183,7 @@ namespace Fanex.Result.Core.ExcelModels
             this.Workbook.RemoveSheet("Template");
         }
 
-        #endregion
+        #endregion Template
 
         protected virtual void MergeResultCells(ISheet sheet, int currentRow, int rowSpan, int colSpanKichOffTime, int colSpanStatus)
         {
@@ -223,8 +223,10 @@ namespace Fanex.Result.Core.ExcelModels
             }
             else
             {
-                var homeScore = Converter.ToInt(finalHomeScore);
-                var awayScore = Converter.ToInt(finalAwayScore);
+                int homeScore = 0;
+                int awayScore = 0;
+                int.TryParse(finalHomeScore, out homeScore);
+                int.TryParse(finalAwayScore, out awayScore);
                 /*-----------------------------------------------------
                  * Row 3 is row in excel template formated bold
                  * Row 4 is row in excel template formated no bold
@@ -253,7 +255,8 @@ namespace Fanex.Result.Core.ExcelModels
         {
             return html.Replace("<br/>", "\n").Replace("<b>", string.Empty).Replace("</b>", string.Empty);
         }
-        #endregion
+
+        #endregion Export Excel Methods
 
         #region Set Content Excel
 
@@ -300,7 +303,7 @@ namespace Fanex.Result.Core.ExcelModels
             return cellIndex;
         }
 
-        #endregion
+        #endregion Set Content Excel
 
         #region Utility
 
@@ -380,6 +383,6 @@ namespace Fanex.Result.Core.ExcelModels
             }
         }
 
-        #endregion
+        #endregion Utility
     }
 }

@@ -6,7 +6,6 @@
 
 namespace Fanex.Result.Core.Models
 {
-    using System;
     using Fanex.Result.Core.DTO;
 
     /// <summary>
@@ -15,9 +14,9 @@ namespace Fanex.Result.Core.Models
     internal abstract class ViewModelFactory
     {
         public abstract object GetViewModel(object obj, SportType sportType, string languageCode, LangResources resource);
-        
+
         public abstract object GetOutRightViewModel(object obj, string languageCode, LangResources resource);
-        
+
         public abstract object GetParlayViewModel(object obj, string languageCode, LangResources resource);
     }
 }

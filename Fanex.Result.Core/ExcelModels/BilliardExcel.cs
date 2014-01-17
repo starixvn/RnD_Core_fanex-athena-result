@@ -7,7 +7,7 @@
 namespace Fanex.Result.Core.ExcelModels
 {
     using System.Collections.Generic;
-    using Fanex.Common.Extensions;
+    using Fanex.Npoil.Extension;
     using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.ViewModels;
     using NPOI.SS.UserModel;
@@ -18,8 +18,10 @@ namespace Fanex.Result.Core.ExcelModels
     public sealed class BilliardExcel : ExcelBase
     {
         #region Fields
+
         private IList<BilliardViewModel> _billiardData;
-        #endregion
+
+        #endregion Fields
 
         public BilliardExcel(string templatePath, string reporTitle, IList<BilliardViewModel> data, LangResources resource)
             : base(templatePath, reporTitle, resource)
@@ -51,6 +53,7 @@ namespace Fanex.Result.Core.ExcelModels
                 SetMatch(sheet, exportRow, ref currentRow);
             }
         }
+
         #region Assign Cell Data
 
         /// <summary>
@@ -87,6 +90,6 @@ namespace Fanex.Result.Core.ExcelModels
             currentRow++;
         }
 
-        #endregion
+        #endregion Assign Cell Data
     }
 }

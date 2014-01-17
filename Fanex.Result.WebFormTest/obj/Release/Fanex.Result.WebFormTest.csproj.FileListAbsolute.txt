@@ -23,7 +23,6 @@ D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fane
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.Core.dll
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.DataTest.dll
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\NPOI.dll
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Common.dll
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\RemotingRef.dll
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\RazorEngine.dll
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\Newtonsoft.Json.dll
@@ -31,10 +30,11 @@ D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\IBCF
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.Core.pdb
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.DataTest.pdb
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\NPOI.xml
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Common.pdb
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\RazorEngine.pdb
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\RazorEngine.xml
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\Newtonsoft.Json.xml
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\obj\Release\Fanex.Result.WebFormTest.csprojResolveAssemblyReference.cache
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\obj\Release\Fanex.Result.WebFormTest.dll
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\obj\Release\Fanex.Result.WebFormTest.pdb
+D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\obj\Release\ResolveAssemblyReference.cache
+D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Npoil.Extension.dll
+D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Npoil.Extension.pdb

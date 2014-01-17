@@ -8,7 +8,7 @@ namespace Fanex.Result.Core.ExcelModels
 {
     using System;
     using System.Collections.Generic;
-    using Fanex.Common.Extensions;
+    using Fanex.Npoil.Extension;
     using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.ViewModels;
     using NPOI.SS.UserModel;
@@ -19,9 +19,11 @@ namespace Fanex.Result.Core.ExcelModels
     internal sealed class BadmintonExcel : ExcelBase
     {
         #region Fields
+
         private IList<BadmintonViewModel> _badmintonData;
-        #endregion
-        
+
+        #endregion Fields
+
         public BadmintonExcel(string templatePath, string reporTitle, IList<BadmintonViewModel> data, LangResources resource)
             : base(templatePath, reporTitle, resource)
         {

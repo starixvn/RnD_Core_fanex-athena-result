@@ -15,12 +15,12 @@ namespace Fanex.Result.Core.Models
     internal interface IExcelParser
     {
         MemoryStream Parser<T>(
-            IList<T> dataList, 
+            IList<T> dataList,
             SportType sportType,
             string lang,
             string templatePath,
             string excelTitle);
-        
+
         MemoryStream ParserOutRight<T>(
             IList<T> dataList,
             string lang,

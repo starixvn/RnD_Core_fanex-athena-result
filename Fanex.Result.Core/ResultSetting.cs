@@ -20,7 +20,7 @@ namespace Fanex.Result.Core
         public bool IsOutRight { get; set; }
 
         public SportType SportType { get; set; }
-       
+
         /// <summary>
         /// Gets or sets Excel source Path.
         /// Must be physical path .

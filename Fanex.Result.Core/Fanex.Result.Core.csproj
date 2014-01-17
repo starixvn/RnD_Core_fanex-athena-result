@@ -47,9 +47,8 @@
     </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Fanex.Common">
-      <HintPath>..\NexcelDependencies\Fanex\Fanex.Common.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Fanex.Npoil.Extension">
+      <HintPath>..\NexcelDependencies\Fanex\Fanex.Npoil.Extension.dll</HintPath>
     </Reference>
     <Reference Include="IBCFile, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\NexcelDependencies\3rds\IBCFile.dll</HintPath>

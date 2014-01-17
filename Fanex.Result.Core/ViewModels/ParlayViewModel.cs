@@ -6,7 +6,6 @@
 
 namespace Fanex.Result.Core.ViewModels
 {
-    using System;
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
@@ -21,7 +20,7 @@ namespace Fanex.Result.Core.ViewModels
     /// </summary>
     public sealed class ParlayViewModel : BaseViewModel
     {
-       private readonly Parlay _parlay;
+        private readonly Parlay _parlay;
 
         public ParlayViewModel(Parlay parlay, string languageCode, LangResources resource)
         {

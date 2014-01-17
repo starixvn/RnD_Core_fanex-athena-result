@@ -7,8 +7,7 @@
 namespace Fanex.Result.Core.ExcelModels
 {
     using System.Collections.Generic;
-
-    using Fanex.Common.Extensions;
+    using Fanex.Npoil.Extension;
     using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.ViewModels;
     using NPOI.SS.UserModel;
@@ -37,7 +36,7 @@ namespace Fanex.Result.Core.ExcelModels
             this.ColumnStatus = 7;
             this.RowContentTemplate = 3;
         }
-        
+
         /// <summary>
         /// Assign value to header section.
         /// </summary>

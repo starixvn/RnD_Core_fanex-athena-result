@@ -7,7 +7,7 @@
 namespace Fanex.Result.Core.ExcelModels
 {
     using System.Collections.Generic;
-    using Fanex.Common.Extensions;
+    using Fanex.Npoil.Extension;
     using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.ViewModels;
     using NPOI.SS.UserModel;
@@ -66,18 +66,18 @@ namespace Fanex.Result.Core.ExcelModels
                         rowLeague.Cells[2].SetCellValue(string.Empty);
                     }
                 }
-                
+
                 var rowMatch = sheet.CopyRow(TemplateSheet, RowContentTemplate, currentRow, ColumnTemplateIndexList);
-                
+
                 currentRow++;
-                
+
                 AssignStringData(
                     rowMatch,
-                    ColumnKickOffTime, 
+                    ColumnKickOffTime,
                     this.ToRtfString(exportRow.KickOffTime),
-                    exportRow.GameType, 
-                    exportRow.FinalScore, 
-                    this.ToRtfString(exportRow.Result), 
+                    exportRow.GameType,
+                    exportRow.FinalScore,
+                    this.ToRtfString(exportRow.Result),
                     exportRow.EventStatus);
             }
         }

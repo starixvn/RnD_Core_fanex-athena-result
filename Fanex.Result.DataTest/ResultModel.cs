@@ -19,7 +19,7 @@ namespace Fanex.Result.DataTest
     public class ResultModel
     {
         private const string Connection = @"packet size=4096;
-            Data Source=10.18.200.215;Initial Catalog=bodb02;integrated security=false; User Id=bodbLicenseeNet;Password=%bodbLicenseeNetLogin0112";
+            Data Source=10.18.200.231;Initial Catalog=bodb02;integrated security=false; User Id=bodbLicenseeNet;Password=%bodbLicenseeNetLogin0112";
 
         /// <summary>
         /// Get sports.

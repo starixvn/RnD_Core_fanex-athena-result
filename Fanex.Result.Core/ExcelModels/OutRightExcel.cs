@@ -7,7 +7,7 @@
 namespace Fanex.Result.Core.ExcelModels
 {
     using System.Collections.Generic;
-    using Fanex.Common.Extensions;
+    using Fanex.Npoil.Extension;
     using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.ViewModels;
     using NPOI.SS.UserModel;
@@ -18,11 +18,12 @@ namespace Fanex.Result.Core.ExcelModels
     internal sealed class OutRightExcel : ExcelBase
     {
         #region Fields
+
         private const int ColumnTime = 0;
         private const int ColumnTeam = 1;
         private const int ColumnResults = 2;
         private const int RowNoInfo = 4;
-       
+
         private IList<OutRightViewModel> _outRightdata;
 
         #endregion Fields
@@ -81,6 +82,7 @@ namespace Fanex.Result.Core.ExcelModels
                              exportRow.EventStatus);
             currentRow++;
         }
+
         #endregion Assign Cell Data
     }
 }

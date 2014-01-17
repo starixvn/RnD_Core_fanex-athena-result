@@ -27,13 +27,25 @@
                         1.2</a> </li>
                     <li>Update : version 1.3 - 11/18/2013 - Support ko-KR language. <a href="DownLoad/Fanex.Result_rev1_3.zip">
                         1.3</a> </li>
-                    <li>Update : version 1.4 - 11/29/2013 <a href="DownLoad/Fanex.Result_rev1_4.zip">1.4</a>,&nbsp;<a href="DownLoad/Fanex.Result_CssTpl_rev1.4.zip">Css Template</a>,&nbsp;<a href="DownLoad/Fanex.Result_ExcelTPl_rev1.4.zip">Excel Template</a>
+                    <li>Update : version 1.4 - 11/29/2013 <a href="DownLoad/Fanex.Result_rev1_4.zip">1.4</a>,&nbsp;<a
+                        href="DownLoad/Fanex.Result_CssTpl_rev1.4.zip">Css Template</a>,&nbsp;<a href="DownLoad/Fanex.Result_ExcelTPl_rev1.4.zip">Excel
+                            Template</a>
                         <br />
                         Changes:
                         <ul>
                             <li>Suport virtual greyhounds and virutal motor racing. </li>
                             <li>Because Fanex.Result.Core.DTO.Racing is used for all racing sports now.We Renamed
                                 HorseNo to EngineNo and HorseId to EngineId </li>
+                        </ul>
+                    </li>
+                    <li>Update : version 1.4.1 - 01/17/2014 <a href="DownLoad/Fanex.Result_rev1_4_1.zip">
+                        1.4.1</a>,&nbsp;<a href="DownLoad/Fanex.Result_CssTpl_rev1.4.zip">Css Template</a>,&nbsp;<a
+                            href="DownLoad/Fanex.Result_ExcelTPl_rev1.4.zip">Excel Template</a>
+                        <br />
+                        Changes:
+                        <ul>
+                            <li>Remove Fanex.common </li>
+                            <li>Add Fanex.Npoil.Extension</li>
                         </ul>
                     </li>
                 </ul>
@@ -63,7 +75,7 @@
                             * Required DLL:
                             <ul>
                                 <li>Fanex.Result.Core </li>
-                                <li>Fanex.Common.dll</li>
+                                <li>Fanex.Common.dll - removed in version 1.4.1</li>
                                 <li>RemotingRef.dll</li>
                                 <li>IBCFile.dll (be used in remotingRef.dll)</li>
                             </ul>
@@ -75,6 +87,7 @@
                                 <li>Export Excel file:
                                     <ul>
                                         <li>NPOI.dll</li>
+                                        <li>Fanex.Npoil.Extension.dll</li>
                                         <li>Put excel template in App_Data folder
                                             <br />
                                             <img src="DownLoad/templateGuide.png" alt="structure" />

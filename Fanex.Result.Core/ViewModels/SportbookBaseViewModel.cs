@@ -127,6 +127,7 @@ namespace Fanex.Result.Core.ViewModels
         }
 
         #endregion common properties
+
         #region Utilities
 
         /// <summary>

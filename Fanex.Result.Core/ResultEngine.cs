@@ -173,7 +173,9 @@ namespace Fanex.Result.Core
 
             return builder.JSONSportTypeBuilder(dataList, setting.SportType, setting.LanguageCode);
         }
+
         #region HtmlParser-SubFunction
+
         /// <summary>
         /// Render html for popup page.
         /// </summary>
@@ -221,6 +223,6 @@ namespace Fanex.Result.Core
                 builder.OutRightHtmlBuilder(dataList, setting.LanguageCode));
         }
 
-        #endregion
+        #endregion HtmlParser-SubFunction
     }
 }

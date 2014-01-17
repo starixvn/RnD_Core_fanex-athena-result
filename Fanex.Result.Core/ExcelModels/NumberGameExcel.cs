@@ -7,7 +7,7 @@
 namespace Fanex.Result.Core.ExcelModels
 {
     using System.Collections.Generic;
-    using Fanex.Common.Extensions;
+    using Fanex.Npoil.Extension;
     using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.ViewModels;
 
@@ -21,7 +21,7 @@ namespace Fanex.Result.Core.ExcelModels
         private const string Match = "{0} {1}";
 
         private IList<NumberGameViewModel> _numberGameData;
-       
+
         #endregion Fields
 
         public NumberGameExcel(string templatePath, string reporTitle, IList<NumberGameViewModel> data, LangResources resource)

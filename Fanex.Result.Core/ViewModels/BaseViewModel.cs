@@ -36,10 +36,6 @@ namespace Fanex.Result.Core.ViewModels
 
         private LangResources _lang;
 
-        protected BaseViewModel()
-        {
-        }
-
         public string GetTWLanguage
         {
             get

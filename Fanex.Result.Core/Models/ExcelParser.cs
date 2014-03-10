@@ -68,6 +68,7 @@ namespace Fanex.Result.Core.Models
                 case SportType.Taekwondo:
                 case SportType.Triathlon:
                 case SportType.Wrestling:
+                case SportType.HorseRacingFixedOdd:
                     return ParserBillard<T>(dataList, sportType, language, templatePath, excelTitle, lang, out realTemplatePath);
                 case SportType.HorseRacing:
                 case SportType.Greyhound:

@@ -107,6 +107,9 @@ namespace Fanex.Result.Core
         [StringValue("Billiard")]
         Winter = 29,
 
+        [StringValue("Billiard")]
+        HorseRacingFixedOdd = 154,
+
         #endregion Billiard
 
         #region Racing

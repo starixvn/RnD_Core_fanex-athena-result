@@ -46,6 +46,7 @@
                         <ul>
                             <li>Remove Fanex.common </li>
                             <li>Add Fanex.Npoil.Extension</li>
+                            <li>Support new sport:Horse Racing Fixed Odd(154)</li>
                         </ul>
                     </li>
                 </ul>

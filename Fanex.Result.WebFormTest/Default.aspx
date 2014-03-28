@@ -9,7 +9,7 @@
             <legend>Project description </legend>
             <div>
                 The library help you easily to display result of games.Currently Fanex.Result.Core
-                supports to render HTML , excel and json string.and support 4 languages are english,
+                supports to render HTML , excel and json string.and also support 4 languages are english,
                 chinese , traditional chinese and korean.
                 <br />
                 <br />
@@ -50,7 +50,7 @@
                         </ul>
                     </li>
                      <li>Update : version 1.4.2 - 03/20/2014 <a href="DownLoad/Fanex.Result_rev1_4_2.zip">
-                        1.4.1</a>,&nbsp;<a href="DownLoad/Fanex.Result_CssTpl_rev1.4.zip">Css Template</a>,&nbsp;<a
+                        1.4.2</a>,&nbsp;<a href="DownLoad/Fanex.Result_CssTpl_rev1.4.zip">Css Template</a>,&nbsp;<a
                             href="DownLoad/Fanex.Result_ExcelTPl_rev1.4.zip">Excel Template</a>
                         <br />
                         Changes:
@@ -87,7 +87,7 @@
                             * Required DLL:
                             <ul>
                                 <li>Fanex.Result.Core </li>
-                                <li>Fanex.Common.dll - removed in version 1.4.1</li>
+                                <li>Fanex.Common.dll - (removed from version 1.4.1)</li>
                                 <li>RemotingRef.dll</li>
                                 <li>IBCFile.dll (be used in remotingRef.dll)</li>
                             </ul>
@@ -99,7 +99,7 @@
                                 <li>Export Excel file:
                                     <ul>
                                         <li>NPOI.dll</li>
-                                        <li>Fanex.Npoil.Extension.dll</li>
+                                        <li>Fanex.Npoil.Extension.dll (removed from version 1.4.2)</li>
                                         <li>Put excel template in App_Data folder
                                             <br />
                                             <img src="DownLoad/templateGuide.png" alt="structure" />
@@ -108,9 +108,9 @@
                                 </li>
                                 <li>html string:
                                     <ul>
-                                        <li>System.Web.Razor.dll </li>
+                                        <li>System.Web.Razor.dll (2.0) </li>
                                         <li>RazorEngine.dll</li>
-                                        <li>pull css template into your project.
+                                        <li>Place css template into your project.
                                             <br />
                                             <img src="DownLoad/css_guide.png" alt="structure" />
                                         </li>
@@ -125,7 +125,7 @@
                         </div>
                     </li>
                     <li>Examples:
-                        <div>
+                        <div style="font-size:large;">
                             Render sportbook game:
                             <ul>
                                 <li>

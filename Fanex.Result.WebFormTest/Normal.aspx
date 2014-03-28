@@ -65,13 +65,13 @@
                 var date = $("#date").val();
                 var sportId = $(this).val();
 
-                if (date == null || date.length == 0) alert("fuck date");
+                if (date == null || date.length == 0) alert("not found a date value");
                 $.ajax({
                     url: "GetFilter.ashx?dateTime=" + date + "&sportId=" + sportId + "&leagueId=0",
                     type: "GET",
                     async: false,
                     success: function (response) {
-                        $("#league").html('<option value="0">FUCK ALL</option>');
+                        $("#league").html('<option value="0"> ALL</option>');
                         $.each(response.League, function (index, value) {
                             $("#league").append('<option data-sportype="' + value.sporttype + '" data-eventdate="' + value.eventdate + '" value="' + value.leagueId + '">' + value.leaguename + '</option>');
                         });

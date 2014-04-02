@@ -239,3 +239,12 @@ table.fanex-result-tenis-setdetail tr.row-header td.column-set-name
     background-image: none !important;
 }
 /*end-popup*/
+/*keno*/
+div.fanex-result-keno {
+	
+}
+div.fanex-result-keno iframe {
+	width:1050px;
+	height: 720px;
+}
+/*end-keno*/

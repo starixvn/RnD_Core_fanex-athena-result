@@ -6,6 +6,7 @@
 
 namespace Fanex.Result.Core.Models
 {
+    using System;
     using System.Collections.Generic;
     using System.IO;
 
@@ -31,5 +32,7 @@ namespace Fanex.Result.Core.Models
         string OutRightHtmlBuilder<T>(IList<T> dataList, string language);
 
         MemoryStream OutRightExcelBuilder<T>(IList<T> dataList, string language, string templatePath, string excelTitle);
+
+        string KenoHtmlParser(KenoResultSetting setting, string userId, DateTime resultDate);
     }
 }

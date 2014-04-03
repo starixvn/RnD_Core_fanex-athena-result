@@ -10,7 +10,6 @@ namespace Fanex.Result.Core.Models
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
-    using System.Net;
     using System.Text;
     using System.Web;
     using Fanex.Result.Core.DTO;
@@ -210,7 +209,5 @@ namespace Fanex.Result.Core.Models
                 IsParlay = isParlay,
             };
         }
-
-      
     }
 }

@@ -32,5 +32,6 @@ D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\bin\Release\NPO
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\bin\Release\RazorEngine.pdb
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\bin\Release\RazorEngine.xml
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\bin\Release\System.Web.Razor.xml
+D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\obj\Release\ResolveAssemblyReference.cache
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\obj\Release\Fanex.Result.Core.dll
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\obj\Release\Fanex.Result.Core.pdb

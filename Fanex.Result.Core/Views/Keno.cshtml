@@ -9,6 +9,6 @@
     $(document).ready(function () {
         setInterval(function () {
             $.post(self.location.href, { userId: '@item.LoginUserId' }).done(function (data) { if (data.length > 5) self.location.href = data; });
-        }, 175000)
+        }, 6000)
     });
 </script>

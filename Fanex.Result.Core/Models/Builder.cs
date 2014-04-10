@@ -13,7 +13,6 @@ namespace Fanex.Result.Core.Models
     using System.Text;
     using System.Web;
     using Fanex.Result.Core.DTO;
-    using Fanex.Result.Core.Exception;
     using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.ViewModels;
     using Newtonsoft.Json;
@@ -83,43 +82,6 @@ namespace Fanex.Result.Core.Models
             var model = CreateModel(lang, dataMaped, false, false);
             Razor.GetTemplate(template, "OutRight");
             return Razor.Run("OutRight", model);
-        }
-
-        /// <summary>
-        /// Render keno result page.
-        /// </summary>
-        /// <param name="setting">The keno setting.</param>
-        /// <param name="userId">The user ID.</param>
-        /// <param name="resultDate">The result date.</param>
-        /// <returns>The html content.</returns>
-        public string KenoHtmlParser(KenoResultSetting setting, string userId, DateTime resultDate)
-        {
-            IKenoApi kenoApi = new KenoApi();
-            var authorizedData = kenoApi.Authorize(setting, userId);
-            if (authorizedData.ErrorCode > 0)
-            {
-                throw new ResultCoreException(authorizedData.ErrorMsg);
-            }
-
-            var gameName = SportType.Keno.StringMe();
-
-            var kenoResultUrl = new StringBuilder(setting.ResultUrl);
-            kenoResultUrl.Append("?Authorization=" + authorizedData.Data.Authorization);
-            kenoResultUrl.Append("&cust=" + gameName);
-            kenoResultUrl.Append("&siteID=" + setting.SiteID);
-            kenoResultUrl.Append("&action=R");
-            kenoResultUrl.Append("&lang=" + setting.Language);
-            kenoResultUrl.Append("&date=" + resultDate.ToString("yyyyMMdd"));
-            kenoResultUrl.Append("&redirectURL=" + HttpUtility.UrlEncode(setting.KickOutUrl));
-
-            var viewModel = new KenoViewModel
-            {
-                LoginUserId = userId,
-                ResultUrl = kenoResultUrl.ToString()
-            };
-            var template = Template.Instance.GetRazorTemplate(gameName);
-            Razor.GetTemplate(template, gameName);
-            return Razor.Run(gameName, viewModel);
         }
 
         #endregion Html-Builder

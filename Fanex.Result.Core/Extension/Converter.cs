@@ -15,16 +15,16 @@ namespace Fanex.Result.Core.Extension
     using System.Diagnostics;
 
     /// <summary>
-    /// Convert to specific type
+    /// Convert to specific type.
     /// </summary>
     internal static class Converter
     {
         /// <summary>
-        /// if object type in T is null or DBNull.Value, return default(T)
+        /// If object type in T is null or DBNull.Value, return default(T).
         /// </summary>
-        /// <typeparam name="T">type of converted value</typeparam>
-        /// <param name="item">The item.</param>
-        /// <returns>T or default(T)</returns>
+        /// <typeparam name="T">Type of converted value.</typeparam>
+        /// <param name="item">The original item value.</param>
+        /// <returns>T or default(T).</returns>
         [DebuggerStepThrough]
         public static T To<T>(object item)
         {
@@ -39,9 +39,9 @@ namespace Fanex.Result.Core.Extension
         /// <summary>
         ///   <see cref="ToBool(object item, bool defaultValue = false)"/>
         /// </summary>
-        /// <param name="item">The item.</param>
+        /// <param name="item">The original item value.</param>
         /// <param name="defaultValue">The default value.</param>
-        /// <returns>int</returns>
+        /// <returns>The integer value.</returns>
         [DebuggerStepThrough]
         public static int ToInt(object item, int defaultValue = 0)
         {
@@ -57,12 +57,12 @@ namespace Fanex.Result.Core.Extension
         }
 
         /// <summary>
-        /// Convert object to bool
-        /// If object is null or DBNull.Value then return defaultValue
+        /// Convert object to BOOL.
+        /// If object is null or DBNull.Value then return default Value.
         /// </summary>
-        /// <param name="item">The item.</param>
-        /// <param name="defaultValue">if set to <c>true</c> [default value].</param>
-        /// <returns>bool</returns>
+        /// <param name="item">The original item value.</param>
+        /// <param name="defaultValue">If set to <c>true</c> [default value].</param>
+        /// <returns>The BOOL value.</returns>
         [DebuggerStepThrough]
         public static bool ToBool(object item, bool defaultValue = false)
         {
@@ -80,9 +80,9 @@ namespace Fanex.Result.Core.Extension
         /// <summary>
         ///   <see cref="ToBool(object item, bool defaultValue = false)"/>
         /// </summary>
-        /// <param name="item">The item.</param>
+        /// <param name="item">The original item value.</param>
         /// <param name="defaultValue">The default value.</param>
-        /// <returns>decimal</returns>
+        /// <returns>The decimal value.</returns>
         [DebuggerStepThrough]
         public static decimal ToDecimal(object item, decimal defaultValue = 0)
         {
@@ -98,10 +98,10 @@ namespace Fanex.Result.Core.Extension
         }
 
         /// <summary>
-        /// return newGuid if item is nullor dbnull
+        /// Return new GUIDE if item is null or DBNULL.
         /// </summary>
-        /// <param name="item">The item.</param>
-        /// <returns>guid</returns>
+        /// <param name="item">The original item value.</param>
+        /// <returns>The GUIDE value.</returns>
         [DebuggerStepThrough]
         public static Guid ToGuid(object item)
         {
@@ -114,10 +114,10 @@ namespace Fanex.Result.Core.Extension
         }
 
         /// <summary>
-        /// return DateTime.MinValue if item is null or DBNull.Value
+        /// Return DateTime Min Value if item is null or DBNULL Value.
         /// </summary>
-        /// <param name="item">The item.</param>
-        /// <returns>Datetime</returns>
+        /// <param name="item">The original item value.</param>
+        /// <returns>The date time value.</returns>
         [DebuggerStepThrough]
         public static DateTime ToDateTime(object item)
         {
@@ -127,9 +127,9 @@ namespace Fanex.Result.Core.Extension
         /// <summary>
         ///   <see cref="ToBool(object item, bool defaultValue = false)"/>
         /// </summary>
-        /// <param name="item">The item.</param>
+        /// <param name="item">The original item value.</param>
         /// <param name="defaultValue">The default value.</param>
-        /// <returns>Datetime</returns>
+        /// <returns>The date time value.</returns>
         public static DateTime ToDateTime(object item, DateTime defaultValue)
         {
             DateTime result = defaultValue;
@@ -144,11 +144,11 @@ namespace Fanex.Result.Core.Extension
         }
 
         /// <summary>
-        /// return ' ' if object is null or DBNull.Value
+        /// Return empty if object is null or DBNULL value.
         /// </summary>
-        /// <param name="item">The item.</param>
+        /// <param name="item">The original item value.</param>
         /// <param name="defaultValue">The default value.</param>
-        /// <returns>char</returns>
+        /// <returns>The char value.</returns>
         [DebuggerStepThrough]
         public static char ToChar(object item, char defaultValue = char.MinValue)
         {
@@ -166,8 +166,8 @@ namespace Fanex.Result.Core.Extension
         /// <summary>
         /// Toes the byte array.
         /// </summary>
-        /// <param name="item">The item.</param>
-        /// <returns>byte[]</returns>
+        /// <param name="item">The original item value.</param>
+        /// <returns>The array byte.</returns>
         [DebuggerStepThrough]
         public static byte[] ToByteArray(object item)
         {
@@ -175,10 +175,10 @@ namespace Fanex.Result.Core.Extension
         }
 
         /// <summary>
-        /// If object item in type T equal null, return string empty
+        /// If object item in type T equal null, return string empty.
         /// </summary>
-        /// <param name="item">The item.</param>
-        /// <returns>string</returns>
+        /// <param name="item">The original item value.</param>
+        /// <returns>The string value.</returns>
         [DebuggerStepThrough]
         public static string ToString2(object item)
         {

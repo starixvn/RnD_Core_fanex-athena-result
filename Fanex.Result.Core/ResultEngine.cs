@@ -177,19 +177,6 @@ namespace Fanex.Result.Core
 
         #region KenoResult
 
-        public static string KenoHtmlParser(KenoResultSetting setting, string userId, DateTime resultDate)
-        {
-            return (new Builder()).KenoHtmlParser(setting, userId, resultDate);
-        }
-
-        public static string KeepKenoLived(KenoResultSetting setting, string userId, out string errorMsg)
-        {
-            var kenoApi = new KenoApi();
-            var result = kenoApi.ExtendToken(setting, userId);
-            errorMsg = result.ErrorCode > 0 ? string.Format("code={0},Msg={1}", result.ErrorCode, result.ErrorMsg) : string.Empty;
-            return result.ErrorCode > 0 ? setting.KickOutUrl : string.Empty;
-        }
-
         #endregion KenoResult
 
         #region HtmlParser-SubFunction

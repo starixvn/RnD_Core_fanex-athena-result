@@ -107,7 +107,9 @@
     <Compile Include="ExcelModels\TennisExcel.cs" />
     <Compile Include="ExcelModels\VSHRacingExcel.cs" />
     <Compile Include="ExcelModels\VSTennisExcel.cs" />
-    <Compile Include="Extension\Converter.cs" />
+    <Compile Include="Extension\Converter.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Extension\HSSFCellExtension.cs" />
     <Compile Include="Extension\HSSFSheetExtension.cs" />
     <Compile Include="Extension\HSSFWorkbookExtension.cs" />

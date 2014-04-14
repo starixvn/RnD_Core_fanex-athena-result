@@ -49,6 +49,17 @@
                             <li>Support new sport:Horse Racing Fixed Odd(154)</li>
                         </ul>
                     </li>
+                     <li>Update : version 1.4.2 - 03/20/2014 <a href="DownLoad/Fanex.Result_rev1_4_2.zip">
+                        1.4.1</a>,&nbsp;<a href="DownLoad/Fanex.Result_CssTpl_rev1.4.zip">Css Template</a>,&nbsp;<a
+                            href="DownLoad/Fanex.Result_ExcelTPl_rev1.4.zip">Excel Template</a>
+                        <br />
+                        Changes:
+                        <ul>
+                            <li>Remove Fanex.common.dll </li>
+                            <li>Remove Fanex.Npoil.Extension.dll </li>
+                            <li>Upgrade NPOIL 2.0.6.0 </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <div>

@@ -47,9 +47,6 @@
     </AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Fanex.Npoil.Extension">
-      <HintPath>..\NexcelDependencies\Fanex\Fanex.Npoil.Extension.dll</HintPath>
-    </Reference>
     <Reference Include="IBCFile, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\NexcelDependencies\3rds\IBCFile.dll</HintPath>
     </Reference>
@@ -110,7 +107,10 @@
     <Compile Include="ExcelModels\TennisExcel.cs" />
     <Compile Include="ExcelModels\VSHRacingExcel.cs" />
     <Compile Include="ExcelModels\VSTennisExcel.cs" />
-    <Compile Include="Exception\ObjectNullException.cs" />
+    <Compile Include="Extension\Converter.cs" />
+    <Compile Include="Extension\HSSFCellExtension.cs" />
+    <Compile Include="Extension\HSSFSheetExtension.cs" />
+    <Compile Include="Extension\HSSFWorkbookExtension.cs" />
     <Compile Include="Models\RazorBinderModel.cs" />
     <Compile Include="ResultSetting.cs" />
     <Compile Include="SportType.cs" />

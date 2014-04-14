@@ -36,5 +36,3 @@ D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\Newt
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\obj\Release\Fanex.Result.WebFormTest.dll
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\obj\Release\Fanex.Result.WebFormTest.pdb
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\obj\Release\ResolveAssemblyReference.cache
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Npoil.Extension.dll
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Npoil.Extension.pdb

@@ -8,7 +8,7 @@ namespace Fanex.Result.Core.ExcelModels
 {
     using System.Collections.Generic;
     using System.IO;
-    using Fanex.Npoil.Extension;
+    using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.Utilities;
     using NPOI.HSSF.UserModel;

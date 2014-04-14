@@ -10,6 +10,7 @@ namespace Fanex.Result.Core.ExcelModels
     using System.IO;
     using Fanex.Npoil.Extension;
     using Fanex.Result.Core.DTO;
+    using Fanex.Result.Core.Utilities;
     using NPOI.HSSF.UserModel;
     using NPOI.SS.UserModel;
 
@@ -183,6 +184,20 @@ namespace Fanex.Result.Core.ExcelModels
             this.Workbook.RemoveSheet("Template");
         }
 
+        /// <summary>
+        ///     Clear the template from header row.
+        /// </summary>
+        /// <param name="sheet">Current sheet.</param>
+        /// <param name="startRowIndex">Index of row.</param>
+        protected static void ClearTemplate(ISheet sheet, int startRowIndex)
+        {
+            var lastRowNum = sheet.LastRowNum;
+            for (var i = startRowIndex; i <= lastRowNum; i++)
+            {
+                sheet.DeleteRow(i);
+            }
+        }
+
         #endregion Template
 
         protected virtual void MergeResultCells(ISheet sheet, int currentRow, int rowSpan, int colSpanKichOffTime, int colSpanStatus)
@@ -216,17 +231,16 @@ namespace Fanex.Result.Core.ExcelModels
         {
             var arrRowTeam = new int[2];
 
-            if (finalAwayScore == string.Empty || finalAwayScore == string.Empty)
+            if (string.IsNullOrEmpty(finalAwayScore) || string.IsNullOrEmpty(finalAwayScore))
             {
                 arrRowTeam[0] = 4;
                 arrRowTeam[1] = 4;
             }
             else
             {
-                int homeScore = 0;
-                int awayScore = 0;
-                int.TryParse(finalHomeScore, out homeScore);
-                int.TryParse(finalAwayScore, out awayScore);
+                int homeScore = Helper.IsIntegerNumber(finalHomeScore) ? int.Parse(finalHomeScore) : 0;
+                int awayScore = Helper.IsIntegerNumber(finalAwayScore) ? int.Parse(finalHomeScore) : 0;
+
                 /*-----------------------------------------------------
                  * Row 3 is row in excel template formated bold
                  * Row 4 is row in excel template formated no bold
@@ -251,20 +265,20 @@ namespace Fanex.Result.Core.ExcelModels
             return arrRowTeam;
         }
 
-        protected string ToRtfString(string html)
-        {
-            return html.Replace("<br/>", "\n").Replace("<b>", string.Empty).Replace("</b>", string.Empty);
-        }
-
         #endregion Export Excel Methods
 
         #region Set Content Excel
 
         protected void SetTextRowValue(ISheet sheet, int sourceRowIndex, int destRowIndex, int columnCount, string value)
         {
-            var row = sheet.CopyRow(this.TemplateSheet, sourceRowIndex, destRowIndex);
-            sheet.MergeCells(destRowIndex, 0, destRowIndex, columnCount - 1);
-            row.Cells[0].SetCellValue(value);
+            checked
+            {
+                var destColumn = columnCount - 1;
+
+                var row = sheet.CopyRow(this.TemplateSheet, sourceRowIndex, destRowIndex);
+                sheet.MergeCells(destRowIndex, 0, destRowIndex, destColumn);
+                row.Cells[0].SetCellValue(value);
+            }
         }
 
         /// <summary>
@@ -297,92 +311,15 @@ namespace Fanex.Result.Core.ExcelModels
             foreach (var t in stringValues)
             {
                 row.Cells[cellIndex].SetCellValue(t);
-                cellIndex++;
+                checked
+                {
+                    cellIndex++;
+                }
             }
 
             return cellIndex;
         }
 
         #endregion Set Content Excel
-
-        #region Utility
-
-        /// <summary>
-        /// Hide columns.
-        /// </summary>
-        /// <param name="sheet">The current sheet.</param>
-        /// <param name="columnIndex">The column list.</param>
-        protected void HideColumn(ISheet sheet, params int[] columnIndex)
-        {
-            // Clear content
-            var firstRowNum = sheet.FirstRowNum;
-            var lastRowNum = sheet.LastRowNum;
-
-            for (var i = firstRowNum; i <= lastRowNum; i++)
-            {
-                foreach (var j in columnIndex)
-                {
-                    var cell = sheet.GetCell(i, j);
-                    if (cell != null)
-                    {
-                        cell.SetCellValue(string.Empty);
-                    }
-                }
-            }
-
-            /*Hide column*/
-            foreach (var i in columnIndex)
-            {
-                sheet.SetColumnWidth(i, 0);
-                sheet.SetColumnHidden(i, true);
-            }
-        }
-
-        /// <summary>
-        /// Hide rows.
-        /// </summary>
-        /// <param name="sheet">The current sheet.</param>
-        /// <param name="rowIndex">The row list.</param>
-        protected void HideRow(ISheet sheet, params int[] rowIndex)
-        {
-            // Clear content
-            foreach (var i in rowIndex)
-            {
-                for (var j = 0; j < 255; j++)
-                {
-                    var cell = sheet.GetCell(i, j);
-                    if (cell != null)
-                    {
-                        cell.SetCellValue(string.Empty);
-                    }
-                }
-            }
-
-            // Hide row
-            foreach (var i in rowIndex)
-            {
-                var row = sheet.GetRow(i);
-                if (row != null)
-                {
-                    row.ZeroHeight = true;
-                }
-            }
-        }
-
-        /// <summary>
-        ///     Clear the template from header row.
-        /// </summary>
-        /// <param name="sheet">Current sheet.</param>
-        /// <param name="startRowIndex">Index of row.</param>
-        protected void ClearTemplate(ISheet sheet, int startRowIndex)
-        {
-            var lastRowNum = sheet.LastRowNum;
-            for (var i = startRowIndex; i <= lastRowNum; i++)
-            {
-                sheet.DeleteRow(i);
-            }
-        }
-
-        #endregion Utility
     }
 }

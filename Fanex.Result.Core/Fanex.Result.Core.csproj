@@ -110,6 +110,7 @@
     <Compile Include="ExcelModels\TennisExcel.cs" />
     <Compile Include="ExcelModels\VSHRacingExcel.cs" />
     <Compile Include="ExcelModels\VSTennisExcel.cs" />
+    <Compile Include="Exception\ObjectNullException.cs" />
     <Compile Include="Models\RazorBinderModel.cs" />
     <Compile Include="ResultSetting.cs" />
     <Compile Include="SportType.cs" />
@@ -150,12 +151,16 @@
     <Compile Include="ViewModels\VSHRacingViewModel.cs" />
     <Compile Include="ViewModels\VSTennisViewModel.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <Content Include="CodeAnalysis\CodeAnalysisConfiguration.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="CodeAnalysis\fxCorp.ruleset" />
     <None Include="DTO\LangResources.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>LangResources.cs</LastGenOutput>
     </None>
+    <None Include="fxCorp.ruleset" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>

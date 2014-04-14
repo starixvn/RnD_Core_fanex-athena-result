@@ -11,7 +11,7 @@ namespace Fanex.Result.Core.Extension
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    internal class StringValueAttribute : Attribute
+    internal sealed class StringValueAttribute : Attribute
     {
         private readonly string _value;
 

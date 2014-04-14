@@ -54,7 +54,7 @@ namespace Fanex.Result.Core.ViewModels
                         if (!string.IsNullOrEmpty(betStatus) && betStatus.Contains(":"))
                         {
                             string[] refundArray = betStatus.Split(';');
-                            if (refundArray.Length == 2 && refundArray[1] != string.Empty)
+                            if (refundArray.Length == 2 && !string.IsNullOrEmpty(refundArray[1]))
                             {
                                 var fglgArray = refundArray[1].Split(':');
                                 if (refundArray[1].Length <= 1 || string.Compare(fglgArray[0], "FL", StringComparison.OrdinalIgnoreCase) != 0)
@@ -111,7 +111,7 @@ namespace Fanex.Result.Core.ViewModels
                         if (!string.IsNullOrEmpty(betStatus) && betStatus.Contains(":"))
                         {
                             string[] refundArray = betStatus.Split(';');
-                            if (refundArray.Length == 2 && refundArray[1] != string.Empty)
+                            if (refundArray.Length == 2 && !string.IsNullOrEmpty(refundArray[1]))
                             {
                                 var fglgArray = refundArray[1].Split(':');
                                 if (refundArray[1].Length <= 1 || string.Compare(fglgArray[0], "FL", StringComparison.OrdinalIgnoreCase) != 0)
@@ -167,7 +167,7 @@ namespace Fanex.Result.Core.ViewModels
                         if (!string.IsNullOrEmpty(betStatus) && betStatus.Contains(":"))
                         {
                             string[] refundArray = betStatus.Split(';');
-                            if (refundArray.Length == 2 && refundArray[1] != string.Empty)
+                            if (refundArray.Length == 2 && !string.IsNullOrEmpty(refundArray[1]))
                             {
                                 var fglgArray = refundArray[1].Split(':');
                                 if (refundArray[1].Length <= 1 || string.Compare(fglgArray[0], "FL", StringComparison.OrdinalIgnoreCase) != 0)
@@ -223,7 +223,7 @@ namespace Fanex.Result.Core.ViewModels
                         if (!string.IsNullOrEmpty(betStatus) && betStatus.Contains(":"))
                         {
                             string[] refundArray = betStatus.Split(';');
-                            if (refundArray.Length == 2 && refundArray[1] != string.Empty)
+                            if (refundArray.Length == 2 && !string.IsNullOrEmpty(refundArray[1]))
                             {
                                 var fglgArray = refundArray[1].Split(':');
                                 if (refundArray[1].Length <= 1 || string.Compare(fglgArray[0], "FL", StringComparison.OrdinalIgnoreCase) != 0)

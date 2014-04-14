@@ -158,7 +158,7 @@ namespace Fanex.Result.Core.Models
 
         #endregion JsonBuilder
 
-        private RazorBinderModel CreateModel(LangResources lang, dynamic data, bool isPopUp, bool isParlay)
+        private static RazorBinderModel CreateModel(LangResources lang, dynamic data, bool isPopUp, bool isParlay)
         {
             return new RazorBinderModel
             {

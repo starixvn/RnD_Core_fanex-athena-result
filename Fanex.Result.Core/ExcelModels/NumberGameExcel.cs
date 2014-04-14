@@ -9,6 +9,7 @@ namespace Fanex.Result.Core.ExcelModels
     using System.Collections.Generic;
     using Fanex.Npoil.Extension;
     using Fanex.Result.Core.DTO;
+    using Fanex.Result.Core.Utilities;
     using Fanex.Result.Core.ViewModels;
 
     /// <summary>
@@ -74,13 +75,13 @@ namespace Fanex.Result.Core.ExcelModels
 
                 foreach (var ball in exportRow.Result)
                 {
-                    results.Add(exportRow.FormatTwoDigit(ball));
+                    results.Add(Helper.FormatTwoDigit(ball));
                 }
 
                 AssignStringData(
                             rowMatch,
                                 ColumnKickOffTime,
-                                 this.ToRtfString(exportRow.KickOffTime),
+                                 Helper.ToRtfString(exportRow.KickOffTime),
                                   string.Format(Match, Lang.NumberGameNo, exportRow.GameNo),
                                   string.Join("-", results),
                                   exportRow.Warrior,

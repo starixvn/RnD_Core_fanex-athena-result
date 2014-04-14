@@ -94,7 +94,7 @@ namespace Fanex.Result.Core.Utilities
 
                 /* Get status from resource lang, if have.*/
                 var str = GetLogResource(eventstatus, lang);
-                if (str != string.Empty)
+                if (!string.IsNullOrEmpty(str))
                 {
                     return GetLogResource(eventstatus.ToLower(), lang);
                 }

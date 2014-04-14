@@ -8,6 +8,7 @@ namespace Fanex.Result.Core.ExcelModels
     using System.Collections.Generic;
     using Fanex.Npoil.Extension;
     using Fanex.Result.Core.DTO;
+    using Fanex.Result.Core.Utilities;
     using Fanex.Result.Core.ViewModels;
     using NPOI.SS.UserModel;
 
@@ -84,8 +85,8 @@ namespace Fanex.Result.Core.ExcelModels
             AssignStringData(
                 rowHome,
                              ColumnKickOffTime,
-                             this.ToRtfString(exportRow.KickOffTime),
-                             this.ToRtfString(exportRow.HomeTeam),
+                             Helper.ToRtfString(exportRow.KickOffTime),
+                             Helper.ToRtfString(exportRow.HomeTeam),
                            exportRow.GetQHomeAway(0, true),
                             exportRow.GetQHomeAway(1, true),
                              exportRow.GetQHomeAway(3, true),
@@ -99,8 +100,8 @@ namespace Fanex.Result.Core.ExcelModels
             AssignStringData(
                 rowAway,
                 ColumnKickOffTime,
-                             this.ToRtfString(exportRow.KickOffTime),
-                             this.ToRtfString(exportRow.AwayTeam),
+                             Helper.ToRtfString(exportRow.KickOffTime),
+                             Helper.ToRtfString(exportRow.AwayTeam),
                            exportRow.GetQHomeAway(0, false),
                             exportRow.GetQHomeAway(1, false),
                              exportRow.GetQHomeAway(3, false),

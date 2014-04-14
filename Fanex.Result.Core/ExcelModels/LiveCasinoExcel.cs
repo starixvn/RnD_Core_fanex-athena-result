@@ -9,6 +9,7 @@ namespace Fanex.Result.Core.ExcelModels
     using System.Collections.Generic;
     using Fanex.Npoil.Extension;
     using Fanex.Result.Core.DTO;
+    using Fanex.Result.Core.Utilities;
     using Fanex.Result.Core.ViewModels;
     using NPOI.SS.UserModel;
 
@@ -74,10 +75,10 @@ namespace Fanex.Result.Core.ExcelModels
                 AssignStringData(
                     rowMatch,
                     ColumnKickOffTime,
-                    this.ToRtfString(exportRow.KickOffTime),
+                    Helper.ToRtfString(exportRow.KickOffTime),
                     exportRow.GameType,
                     exportRow.FinalScore,
-                    this.ToRtfString(exportRow.Result),
+                    Helper.ToRtfString(exportRow.Result),
                     exportRow.EventStatus);
             }
         }

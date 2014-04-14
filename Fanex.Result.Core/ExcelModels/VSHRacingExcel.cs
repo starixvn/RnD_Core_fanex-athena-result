@@ -11,6 +11,7 @@ namespace Fanex.Result.Core.ExcelModels
     using System.Linq;
     using Fanex.Npoil.Extension;
     using Fanex.Result.Core.DTO;
+    using Fanex.Result.Core.Utilities;
     using Fanex.Result.Core.ViewModels;
     using NPOI.SS.UserModel;
 
@@ -70,6 +71,11 @@ namespace Fanex.Result.Core.ExcelModels
 
         #region Assign Cell Data
 
+        private static void MergeKickOffTimeCell(ISheet sheet, int currentRow, int rowSpan, int colSpanKichOffTime)
+        {
+            sheet.MergeCells(currentRow, colSpanKichOffTime, rowSpan, colSpanKichOffTime);
+        }
+
         /// <summary>
         /// Set data for match row.
         /// </summary>
@@ -106,7 +112,7 @@ namespace Fanex.Result.Core.ExcelModels
             this.AssignStringData(
                 rowHome,
                 cellIndex,
-                this.ToRtfString(exportRow.KickOffTime),
+                Helper.ToRtfString(exportRow.KickOffTime),
                 exportRow.Placing,
                 exportRow.HorseNo,
                 exportRow.Result,
@@ -115,11 +121,6 @@ namespace Fanex.Result.Core.ExcelModels
                 exportRow.Status);
 
             currentRow++;
-        }
-
-        private void MergeKickOffTimeCell(ISheet sheet, int currentRow, int rowSpan, int colSpanKichOffTime)
-        {
-            sheet.MergeCells(currentRow, colSpanKichOffTime, rowSpan, colSpanKichOffTime);
         }
 
         #endregion Assign Cell Data

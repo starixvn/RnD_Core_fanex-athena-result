@@ -10,6 +10,7 @@ namespace Fanex.Result.Core
     using System.Collections.Generic;
     using System.Globalization;
     using System.IO;
+    using Fanex.Result.Core.Exception;
     using Fanex.Result.Core.Models;
 
     /// <summary>
@@ -32,7 +33,7 @@ namespace Fanex.Result.Core
         {
             if (setting == null || dataList == null)
             {
-                throw new ArgumentNullException();
+                throw new ObjectNullException("The data is null or setting is null");
             }
 
             if (string.IsNullOrEmpty(setting.LanguageCode))
@@ -64,7 +65,7 @@ namespace Fanex.Result.Core
 
             if (!Validate.Instance.ValidateNormal(dtoName, setting.SportType))
             {
-                throw new ArgumentException(string.Format(ARGUEMENTMES, dtoName));
+                throw new ObjectNullException(string.Format(ARGUEMENTMES, dtoName));
             }
 
             return Utilities.Helper.RemoveWhiteSpace(
@@ -82,7 +83,7 @@ namespace Fanex.Result.Core
         {
             if (setting == null || dataList == null)
             {
-                throw new ArgumentNullException();
+                throw new ObjectNullException("The data is null or setting is null");
             }
 
             if (string.IsNullOrEmpty(setting.LanguageCode))
@@ -101,7 +102,7 @@ namespace Fanex.Result.Core
             {
                 if (!Validate.Instance.ValidateOutRight(dtoName))
                 {
-                    throw new ArgumentException(string.Format(ARGUEMENTMESOUTRIGHT, dtoName));
+                    throw new ObjectNullException(string.Format(ARGUEMENTMESOUTRIGHT, dtoName));
                 }
 
                 return builder.OutRightExcelBuilder(dataList, setting.LanguageCode, setting.ExcelTemplatePath, setting.ExcelTitle);
@@ -114,7 +115,7 @@ namespace Fanex.Result.Core
 
             if (!Validate.Instance.ValidateNormal(dtoName, setting.SportType))
             {
-                throw new ArgumentException(string.Format(ARGUEMENTMES, dtoName));
+                throw new ObjectNullException(string.Format(ARGUEMENTMES, dtoName));
             }
 
             return builder.ExcelBuilder(dataList, setting.SportType, setting.LanguageCode, setting.ExcelTemplatePath, setting.ExcelTitle);
@@ -131,7 +132,7 @@ namespace Fanex.Result.Core
         {
             if (setting == null || dataList == null)
             {
-                throw new ArgumentNullException();
+                throw new ObjectNullException("The data is null or setting is null");
             }
 
             if (string.IsNullOrEmpty(setting.LanguageCode))
@@ -150,7 +151,7 @@ namespace Fanex.Result.Core
             {
                 if (!Validate.Instance.ValidateOutRight(dtoName))
                 {
-                    throw new ArgumentException(string.Format(ARGUEMENTMESOUTRIGHT, dtoName));
+                    throw new ObjectNullException(string.Format(ARGUEMENTMESOUTRIGHT, dtoName));
                 }
 
                 return builder.JSONOutRightBuilder(dataList, setting.LanguageCode);
@@ -160,7 +161,7 @@ namespace Fanex.Result.Core
             {
                 if (!Validate.Instance.ValidateParlay(dtoName))
                 {
-                    throw new ArgumentException(string.Format(ARGUEMENTMES, dtoName));
+                    throw new ObjectNullException(string.Format(ARGUEMENTMES, dtoName));
                 }
 
                 return builder.JSONParlayBuilder(dataList, setting.LanguageCode);
@@ -168,7 +169,7 @@ namespace Fanex.Result.Core
 
             if (!Validate.Instance.ValidateNormal(dtoName, setting.SportType))
             {
-                throw new ArgumentException(string.Format(ARGUEMENTMES, dtoName));
+                throw new ObjectNullException(string.Format(ARGUEMENTMES, dtoName));
             }
 
             return builder.JSONSportTypeBuilder(dataList, setting.SportType, setting.LanguageCode);
@@ -189,7 +190,7 @@ namespace Fanex.Result.Core
         {
             if (!Validate.Instance.ValidateNormal(dtoName, setting.SportType))
             {
-                throw new ArgumentException(string.Format(ARGUEMENTMES, dtoName));
+                throw new ObjectNullException(string.Format(ARGUEMENTMES, dtoName));
             }
 
             return
@@ -205,7 +206,7 @@ namespace Fanex.Result.Core
         {
             if (!Validate.Instance.ValidateParlay(dtoName))
             {
-                throw new ArgumentException(string.Format(ARGUEMENTMES, dtoName));
+                throw new ObjectNullException(string.Format(ARGUEMENTMES, dtoName));
             }
 
             return Utilities.Helper.RemoveWhiteSpace(
@@ -216,7 +217,7 @@ namespace Fanex.Result.Core
         {
             if (!Validate.Instance.ValidateOutRight(dtoName))
             {
-                throw new ArgumentException(string.Format(ARGUEMENTMESOUTRIGHT, dtoName));
+                throw new ObjectNullException(string.Format(ARGUEMENTMESOUTRIGHT, dtoName));
             }
 
             return Utilities.Helper.RemoveWhiteSpace(

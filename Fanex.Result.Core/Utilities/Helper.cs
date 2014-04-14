@@ -51,5 +51,21 @@ namespace Fanex.Result.Core.Utilities
         {
             return value.ToString("N" + decDigits);
         }
+
+        public static string FormatTwoDigit(int number)
+        {
+            return number < 10 ? "0" + number : number.ToString(CultureInfo.InvariantCulture);
+        }
+
+        public static string ToRtfString(string html)
+        {
+            return html.Replace("<br/>", "\n").Replace("<b>", string.Empty).Replace("</b>", string.Empty);
+        }
+
+        public static bool IsIntegerNumber(string inputvalue)
+        {
+            Regex isnumber = new Regex("[^0-9]");
+            return !isnumber.IsMatch(inputvalue);
+        }
     }
 }

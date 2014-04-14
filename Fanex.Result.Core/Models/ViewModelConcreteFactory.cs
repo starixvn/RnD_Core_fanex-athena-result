@@ -8,6 +8,7 @@ namespace Fanex.Result.Core.Models
 {
     using System;
     using Fanex.Result.Core.DTO;
+    using Fanex.Result.Core.Exception;
     using Fanex.Result.Core.Extension;
 
     /// <summary>
@@ -61,7 +62,7 @@ namespace Fanex.Result.Core.Models
 
             if (viewModel == null)
             {
-                throw new NullReferenceException(dtoName);
+                throw new ObjectNullException(dtoName);
             }
 
             return Activator.CreateInstance(viewModel, obj, languageCode, resource);
@@ -73,7 +74,7 @@ namespace Fanex.Result.Core.Models
             Type viewModel = Type.GetType(NAMESPACE + DtoName + EXTNAME);
             if (viewModel == null)
             {
-                throw new NullReferenceException(DtoName);
+                throw new ObjectNullException(DtoName);
             }
 
             return Activator.CreateInstance(viewModel, obj, languageCode, resource);
@@ -85,7 +86,7 @@ namespace Fanex.Result.Core.Models
             Type viewModel = Type.GetType(NAMESPACE + DtoName + EXTNAME);
             if (viewModel == null)
             {
-                throw new NullReferenceException(DtoName);
+                throw new ObjectNullException(DtoName);
             }
 
             return Activator.CreateInstance(viewModel, obj, languageCode, resource);

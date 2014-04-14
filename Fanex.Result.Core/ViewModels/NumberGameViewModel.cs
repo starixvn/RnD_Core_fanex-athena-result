@@ -7,7 +7,6 @@
 namespace Fanex.Result.Core.ViewModels
 {
     using System.Collections.Generic;
-    using System.Globalization;
     using System.Linq;
     using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.Utilities;
@@ -62,12 +61,12 @@ namespace Fanex.Result.Core.ViewModels
 
         public string FirstBall
         {
-            get { return this._numberGame.Ball.Count > 0 ? this.FormatTwoDigit(this._numberGame.Ball[0]) : string.Empty; }
+            get { return this._numberGame.Ball.Count > 0 ? Helper.FormatTwoDigit(this._numberGame.Ball[0]) : string.Empty; }
         }
 
         public string LastBall
         {
-            get { return this._numberGame.Ball.Count > 0 ? this.FormatTwoDigit(this._numberGame.Ball[this._numberGame.Ball.Count - 1]) : string.Empty; }
+            get { return this._numberGame.Ball.Count > 0 ? Helper.FormatTwoDigit(this._numberGame.Ball[this._numberGame.Ball.Count - 1]) : string.Empty; }
         }
 
         public string Warrior
@@ -97,11 +96,6 @@ namespace Fanex.Result.Core.ViewModels
             {
                 return MapEventStatus.MapEventStatusString(this._numberGame.EventStatus, this._numberGame.IsPending, false, false, this.Lang);
             }
-        }
-
-        public string FormatTwoDigit(int number)
-        {
-            return number < 10 ? "0" + number : number.ToString(CultureInfo.InvariantCulture);
         }
     }
 }

@@ -61,7 +61,7 @@ namespace Fanex.Result.Core.Models
 
             if (!this._langs.Keys.Contains(languageCode))
             {
-                this._langs.Add(languageCode, this.GetResources(languageCode));
+                this._langs.Add(languageCode, GetResources(languageCode));
             }
 
             return this._langs[languageCode];
@@ -72,7 +72,7 @@ namespace Fanex.Result.Core.Models
         /// </summary>
         /// <param name="languageCode">The language code.</param>
         /// <returns>The language object.</returns>
-        private LangResources GetResources(string languageCode)
+        private static LangResources GetResources(string languageCode)
         {
             var lang = new LangResources();
             if (string.IsNullOrEmpty(languageCode) || string.IsNullOrWhiteSpace(languageCode))

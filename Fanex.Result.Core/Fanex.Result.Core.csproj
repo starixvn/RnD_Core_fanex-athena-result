@@ -107,6 +107,8 @@
     <Compile Include="ExcelModels\TennisExcel.cs" />
     <Compile Include="ExcelModels\VSHRacingExcel.cs" />
     <Compile Include="ExcelModels\VSTennisExcel.cs" />
+    <Compile Include="Exception\ObjectNullException.cs" />
+    <Compile Include="Exception\ResultCoreException.cs" />
     <Compile Include="Extension\Converter.cs">
       <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
     </Compile>

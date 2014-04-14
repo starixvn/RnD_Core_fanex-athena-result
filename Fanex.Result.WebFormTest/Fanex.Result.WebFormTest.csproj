@@ -76,7 +76,9 @@
     <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
     <Content Include="Content\themes\base\jquery-ui.css" />
     <Content Include="DownLoad\untitled_page.png" />
-    <Content Include="Example.aspx" />
+    <Content Include="Example.aspx">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Content>
     <Content Include="Normal.aspx" />
     <Content Include="OutRight.aspx" />
     <Content Include="Parlay.aspx" />
@@ -146,7 +148,9 @@
     <Content Include="Styles\Fanex.Result\images\last-goal.gif" />
     <Content Include="Styles\Fanex.Result\images\tab_topbg.gif" />
     <Content Include="Styles\Site.css" />
-    <Content Include="Default.aspx" />
+    <Content Include="Default.aspx">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Content>
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

@@ -9,6 +9,9 @@
   <project key="1447357812">
     <configuration>TRACE</configuration>
   </project>
+  <project key="1912341308">
+    <configuration>TRACE</configuration>
+  </project>
   <sourcecode name="AssemblyInfo.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>

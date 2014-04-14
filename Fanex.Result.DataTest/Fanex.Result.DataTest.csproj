@@ -45,7 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ResultModel.cs" />
+    <Compile Include="ResultModel.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Fanex.Result.DataTest.licenseheader" />

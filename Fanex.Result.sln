@@ -5,8 +5,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core", "Fanex.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.UI", "Fanex.Result.UI\Fanex.Result.UI.csproj", "{FA14D5CB-B702-4D24-A938-A091E3032D06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Test", "Fanex.Result.Core.Test\Fanex.Result.Core.Test.csproj", "{9CA744A9-7C1F-4270-87B7-508B1E780562}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{18C9D1F9-E4FA-4A08-A927-52F5AE2EA113}"
 	ProjectSection(SolutionItems) = preProject
 		Fanex.Result.vsmdi = Fanex.Result.vsmdi
@@ -64,10 +62,6 @@ Global
 		{FA14D5CB-B702-4D24-A938-A091E3032D06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA14D5CB-B702-4D24-A938-A091E3032D06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA14D5CB-B702-4D24-A938-A091E3032D06}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9CA744A9-7C1F-4270-87B7-508B1E780562}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9CA744A9-7C1F-4270-87B7-508B1E780562}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9CA744A9-7C1F-4270-87B7-508B1E780562}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9CA744A9-7C1F-4270-87B7-508B1E780562}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5B97E7FC-A01C-4F85-A63D-F39838FC1B74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5B97E7FC-A01C-4F85-A63D-F39838FC1B74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B97E7FC-A01C-4F85-A63D-F39838FC1B74}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -55,35 +55,35 @@
                     }
                 }
 
-                <tr class="row-data @item.Color(index, "format-even", "format-odd")">
-                    <td class="column-kickofftime">
-                                               @Raw(item.KickOffTime)
-                                           </td>
-                    <td class="column-match">
-                        @lang.NumberGameNo&nbsp;@item.GameNo
-                    </td>
-                    <td class="column-result">
-                        @foreach (var ball in item.Result)
-                        {
-                            <span class="ball">@item.FormatTwoDigit(ball)</span> 
-                        }
-                    </td>
-                    <td class="column-warrior">
-                        @item.Warrior
-                    </td>
-                    <td class="column-lblOEFT">
-                        @item.OEFT
-                    </td>
-                    <td class="column-lbl1stball">
-                        <span class="ball">@item.FirstBall</span>
-                    </td>
-                    <td class="column-lastball">
-                        <span class="ball">@item.LastBall</span>
-                    </td>
-                    <td class="column-eventstatus">
-                        @item.EventStatus
-                    </td>
-                </tr>
+            <tr class="row-data @item.Color(index, "format-even", "format-odd")">
+                <td class="column-kickofftime">
+                    @Raw(item.KickOffTime)
+                </td>
+                <td class="column-match">
+                    @lang.NumberGameNo&nbsp;@item.GameNo
+                </td>
+                <td class="column-result">
+                    @foreach (var ball in item.Result)
+                    {
+                        <span class="ball">@ball</span> 
+                    }
+                </td>
+                <td class="column-warrior">
+                    @item.Warrior
+                </td>
+                <td class="column-lblOEFT">
+                    @item.OEFT
+                </td>
+                <td class="column-lbl1stball">
+                    <span class="ball">@item.FirstBall</span>
+                </td>
+                <td class="column-lastball">
+                    <span class="ball">@item.LastBall</span>
+                </td>
+                <td class="column-eventstatus">
+                    @item.EventStatus
+                </td>
+            </tr>
 
             }
         }

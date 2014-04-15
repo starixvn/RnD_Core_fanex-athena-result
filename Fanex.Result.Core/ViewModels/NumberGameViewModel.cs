@@ -85,9 +85,9 @@ namespace Fanex.Result.Core.ViewModels
             get { return this._numberGame.Ball.Sum() % 2 == 1 ? Lang.Odd : Lang.Even; }
         }
 
-        public IList<int> Result
+        public IList<string> Result
         {
-            get { return this._numberGame.Ball; }
+            get { return this._numberGame.Ball.Select(i => Helper.FormatTwoDigit(i)).ToList(); }
         }
 
         public override string EventStatus
@@ -96,6 +96,11 @@ namespace Fanex.Result.Core.ViewModels
             {
                 return MapEventStatus.MapEventStatusString(this._numberGame.EventStatus, this._numberGame.IsPending, false, false, this.Lang);
             }
+        }
+
+        public static string ShowBall(int ball)
+        {
+            return Helper.FormatTwoDigit(ball);
         }
     }
 }

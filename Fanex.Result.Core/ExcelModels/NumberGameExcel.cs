@@ -75,7 +75,7 @@ namespace Fanex.Result.Core.ExcelModels
 
                 foreach (var ball in exportRow.Result)
                 {
-                    results.Add(Helper.FormatTwoDigit(ball));
+                    results.Add(ball);
                 }
 
                 AssignStringData(

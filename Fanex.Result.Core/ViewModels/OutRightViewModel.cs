@@ -58,7 +58,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                switch (this._outRight.Status)
+                switch (this._outRight.Status.ToLower())
                 {
                     case "running":
                         return Lang.Running;

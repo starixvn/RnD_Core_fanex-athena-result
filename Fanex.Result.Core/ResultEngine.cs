@@ -38,7 +38,7 @@ namespace Fanex.Result.Core
 
             if (string.IsNullOrEmpty(setting.LanguageCode))
             {
-                setting.LanguageCode = CultureInfo.CurrentUICulture.IetfLanguageTag;
+                setting.LanguageCode = CultureInfo.CurrentUICulture.Name;
             }
 
             if (string.IsNullOrEmpty(setting.ExcelTemplatePath))
@@ -88,7 +88,7 @@ namespace Fanex.Result.Core
 
             if (string.IsNullOrEmpty(setting.LanguageCode))
             {
-                setting.LanguageCode = CultureInfo.CurrentUICulture.IetfLanguageTag;
+                setting.LanguageCode = CultureInfo.CurrentUICulture.Name;
             }
 
             if (string.IsNullOrEmpty(setting.ExcelTemplatePath))
@@ -137,7 +137,7 @@ namespace Fanex.Result.Core
 
             if (string.IsNullOrEmpty(setting.LanguageCode))
             {
-                setting.LanguageCode = CultureInfo.CurrentUICulture.IetfLanguageTag;
+                setting.LanguageCode = CultureInfo.CurrentUICulture.Name;
             }
 
             if (string.IsNullOrEmpty(setting.ExcelTemplatePath))

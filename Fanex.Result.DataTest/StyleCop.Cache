@@ -6,9 +6,6 @@
   <project key="2088511287">
     <configuration>TRACE</configuration>
   </project>
-  <project key="1076140695">
-    <configuration>TRACE</configuration>
-  </project>
   <sourcecode name="ResultModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
@@ -35,6 +32,9 @@
     <violations />
   </sourcecode>
   <project key="-1327331851">
+    <configuration>TRACE</configuration>
+  </project>
+  <project key="1076140695">
     <configuration>TRACE</configuration>
   </project>
   <sourcecode name="AssemblyInfo.cs" parser="StyleCop.CSharp.CsParser">

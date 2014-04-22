@@ -1,0 +1,371 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AC71A17B-541F-4810-83FF-1930D0C5271B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fanex.Result.Core</RootNamespace>
+    <AssemblyName>Fanex.Result.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\Build\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="IBCFile">
+      <HintPath>..\..\NexcelDependencies\3rds\IBCFile.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI">
+      <HintPath>..\..\NexcelDependencies\Fanex\NPOI1.2.5.0\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="RazorEngine">
+      <HintPath>..\packages\RazorEngine.3.2.0\lib\net40\RazorEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="RemotingRef">
+      <HintPath>..\..\NexcelDependencies\3rds\RemotingRef.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Fanex.Result.Core\DTO\DataDomain.cs">
+      <Link>DTO\DataDomain.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\DTO\KenoAuthorization.cs">
+      <Link>DTO\KenoAuthorization.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\DTO\KenoAuthorizedData.cs">
+      <Link>DTO\KenoAuthorizedData.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\DTO\KenoExtendedToken.cs">
+      <Link>DTO\KenoExtendedToken.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\DTO\LangResources.cs">
+      <Link>DTO\LangResources.cs</Link>
+      <AutoGen>False</AutoGen>
+      <DesignTime>False</DesignTime>
+      <DependentUpon>LangResources.tt</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\DTO\LiveCasino.cs">
+      <Link>DTO\LiveCasino.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\DTO\NumberGame.cs">
+      <Link>DTO\NumberGame.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\DTO\OutRight.cs">
+      <Link>DTO\OutRight.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\DTO\Parlay.cs">
+      <Link>DTO\Parlay.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\DTO\Racing.cs">
+      <Link>DTO\Racing.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\DTO\Sportbook.cs">
+      <Link>DTO\Sportbook.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\DTO\StringResources.cs">
+      <Link>DTO\StringResources.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ExcelModels\BadmintonExcel.cs">
+      <Link>ExcelModels\BadmintonExcel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ExcelModels\BaseBallExcel.cs">
+      <Link>ExcelModels\BaseBallExcel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ExcelModels\BasketballExcel.cs">
+      <Link>ExcelModels\BasketballExcel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ExcelModels\BilliardExcel.cs">
+      <Link>ExcelModels\BilliardExcel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ExcelModels\ExcelBase.cs">
+      <Link>ExcelModels\ExcelBase.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ExcelModels\HockeyExcel.cs">
+      <Link>ExcelModels\HockeyExcel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ExcelModels\LiveCasinoExcel.cs">
+      <Link>ExcelModels\LiveCasinoExcel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ExcelModels\NumberGameExcel.cs">
+      <Link>ExcelModels\NumberGameExcel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ExcelModels\OtherSportExcel.cs">
+      <Link>ExcelModels\OtherSportExcel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ExcelModels\OutRightExcel.cs">
+      <Link>ExcelModels\OutRightExcel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ExcelModels\RacingExcel.cs">
+      <Link>ExcelModels\RacingExcel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ExcelModels\SoccerExcel.cs">
+      <Link>ExcelModels\SoccerExcel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ExcelModels\TennisExcel.cs">
+      <Link>ExcelModels\TennisExcel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ExcelModels\VSHRacingExcel.cs">
+      <Link>ExcelModels\VSHRacingExcel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ExcelModels\VSTennisExcel.cs">
+      <Link>ExcelModels\VSTennisExcel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\Exception\ObjectNullException.cs">
+      <Link>Exception\ObjectNullException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\Exception\ResultCoreException.cs">
+      <Link>Exception\ResultCoreException.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\Extension\Converter.cs">
+      <Link>Extension\Converter.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\Extension\Extension.cs">
+      <Link>Extension\Extension.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\Extension\HSSFCellExtension.cs">
+      <Link>Extension\HSSFCellExtension.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\Extension\HSSFWorkbookExtension.cs">
+      <Link>Extension\HSSFWorkbookExtension.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\Extension\StringValueAttribute.cs">
+      <Link>Extension\StringValueAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\Models\Builder.cs">
+      <Link>Models\Builder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\Models\ExcelParser.cs">
+      <Link>Models\ExcelParser.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\Models\IBuilder.cs">
+      <Link>Models\IBuilder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\Models\IExcelParser.cs">
+      <Link>Models\IExcelParser.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\Models\IResource.cs">
+      <Link>Models\IResource.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\Models\ITemplate.cs">
+      <Link>Models\ITemplate.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\Models\IValidate.cs">
+      <Link>Models\IValidate.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\Models\RazorBinderModel.cs">
+      <Link>Models\RazorBinderModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\Models\Resources.cs">
+      <Link>Models\Resources.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\Models\Template.cs">
+      <Link>Models\Template.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\Models\Validate.cs">
+      <Link>Models\Validate.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\Models\ViewModelConcreteFactory.cs">
+      <Link>Models\ViewModelConcreteFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\Models\ViewModelFactory.cs">
+      <Link>Models\ViewModelFactory.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ResultEngine.cs">
+      <Link>ResultEngine.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ResultSetting.cs">
+      <Link>ResultSetting.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\SportType.cs">
+      <Link>SportType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\Utilities\Helper.cs">
+      <Link>Utilities\Helper.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\Utilities\MapEventStatus.cs">
+      <Link>Utilities\MapEventStatus.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ViewModels\BadmintonViewModel.cs">
+      <Link>ViewModels\BadmintonViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ViewModels\BaseBallViewModel.cs">
+      <Link>ViewModels\BaseBallViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ViewModels\BaseViewModel.cs">
+      <Link>ViewModels\BaseViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ViewModels\BasketBallViewModel.cs">
+      <Link>ViewModels\BasketBallViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ViewModels\BilliardViewModel.cs">
+      <Link>ViewModels\BilliardViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ViewModels\HockeyViewModel.cs">
+      <Link>ViewModels\HockeyViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ViewModels\KenoViewModel.cs">
+      <Link>ViewModels\KenoViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ViewModels\LiveCasinoViewModel.cs">
+      <Link>ViewModels\LiveCasinoViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ViewModels\NumberGameViewModel.cs">
+      <Link>ViewModels\NumberGameViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ViewModels\OtherViewModel.cs">
+      <Link>ViewModels\OtherViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ViewModels\OutRightViewModel.cs">
+      <Link>ViewModels\OutRightViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ViewModels\ParlayViewModel.cs">
+      <Link>ViewModels\ParlayViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ViewModels\RacingViewModel.cs">
+      <Link>ViewModels\RacingViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ViewModels\SoccerViewModel.cs">
+      <Link>ViewModels\SoccerViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ViewModels\SportbookBaseViewModel.cs">
+      <Link>ViewModels\SportbookBaseViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ViewModels\TennisDetailViewModel.cs">
+      <Link>ViewModels\TennisDetailViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ViewModels\TennisViewModel.cs">
+      <Link>ViewModels\TennisViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ViewModels\VSHRacingViewModel.cs">
+      <Link>ViewModels\VSHRacingViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ViewModels\VSTennisViewModel.cs">
+      <Link>ViewModels\VSTennisViewModel.cs</Link>
+    </Compile>
+    <Compile Include="Extension\HSSFSheetExtension.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\Fanex.Result.Core\Resources\en-US.xml">
+      <Link>Resources\en-US.xml</Link>
+    </Content>
+    <Content Include="..\..\Fanex.Result.Core\Resources\ja-JP.xml">
+      <Link>Resources\ja-JP.xml</Link>
+    </Content>
+    <Content Include="..\..\Fanex.Result.Core\Resources\ko-KR.xml">
+      <Link>Resources\ko-KR.xml</Link>
+    </Content>
+    <Content Include="..\..\Fanex.Result.Core\Resources\th-TH.xml">
+      <Link>Resources\th-TH.xml</Link>
+    </Content>
+    <Content Include="..\..\Fanex.Result.Core\Resources\vi-VN.xml">
+      <Link>Resources\vi-VN.xml</Link>
+    </Content>
+    <Content Include="..\..\Fanex.Result.Core\Resources\zh-CN.xml">
+      <Link>Resources\zh-CN.xml</Link>
+    </Content>
+    <Content Include="..\..\Fanex.Result.Core\Resources\zh-TW.xml">
+      <Link>Resources\zh-TW.xml</Link>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\..\Fanex.Result.Core\Views\Badminton.cshtml">
+      <Link>Views\Badminton.cshtml</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Fanex.Result.Core\Views\BaseBall.cshtml">
+      <Link>Views\BaseBall.cshtml</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Fanex.Result.Core\Views\BasketBall.cshtml">
+      <Link>Views\BasketBall.cshtml</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Fanex.Result.Core\Views\Billiard.cshtml">
+      <Link>Views\Billiard.cshtml</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Fanex.Result.Core\Views\Hockey.cshtml">
+      <Link>Views\Hockey.cshtml</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Fanex.Result.Core\Views\Keno.cshtml">
+      <Link>Views\Keno.cshtml</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Fanex.Result.Core\Views\LiveCasino.cshtml">
+      <Link>Views\LiveCasino.cshtml</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Fanex.Result.Core\Views\NumberGame.cshtml">
+      <Link>Views\NumberGame.cshtml</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Fanex.Result.Core\Views\Other.cshtml">
+      <Link>Views\Other.cshtml</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Fanex.Result.Core\Views\OutRight.cshtml">
+      <Link>Views\OutRight.cshtml</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Fanex.Result.Core\Views\Parlay.cshtml">
+      <Link>Views\Parlay.cshtml</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Fanex.Result.Core\Views\Racing.cshtml">
+      <Link>Views\Racing.cshtml</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Fanex.Result.Core\Views\Soccer.cshtml">
+      <Link>Views\Soccer.cshtml</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Fanex.Result.Core\Views\Tennis.cshtml">
+      <Link>Views\Tennis.cshtml</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Fanex.Result.Core\Views\VSHRacing.cshtml">
+      <Link>Views\VSHRacing.cshtml</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Fanex.Result.Core\Views\VSTennis.cshtml">
+      <Link>Views\VSTennis.cshtml</Link>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Fanex.Result.Core\DTO\LangResources.tt">
+      <Link>DTO\LangResources.tt</Link>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LangResources.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

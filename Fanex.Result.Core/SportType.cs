@@ -213,12 +213,17 @@ namespace Fanex.Result.Core
         VirtualGreyhounds = 182,
 
         [StringValue("VSHRacing")]
+        VSSpeedway = 183,
+
+        [StringValue("VSHRacing")]
         VirtualMotorRacing = 184,
+
+        [StringValue("VSHRacing")]
+        VSCycling = 185,
 
         [StringValue("VSTennis")]
         VSTennis = 186,
-        [StringValue("Keno")]
-        Keno = 202
+
         #endregion VirtualSport
     }
 }

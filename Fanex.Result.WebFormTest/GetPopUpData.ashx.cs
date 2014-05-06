@@ -100,6 +100,8 @@ namespace Fanex.Result.WebFormTest
                     case SportType.VirtualHorseRacing:
                     case SportType.VirtualGreyhounds:
                     case SportType.VirtualMotorRacing:
+                    case SportType.VirtualSpeedway:
+                    case SportType.VirtualCycling:
                         var dataListRC =
                             data.AsEnumerable()
                                 .Select(

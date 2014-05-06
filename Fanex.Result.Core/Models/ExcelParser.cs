@@ -77,6 +77,8 @@ namespace Fanex.Result.Core.Models
                 case SportType.VirtualHorseRacing:
                 case SportType.VirtualGreyhounds:
                 case SportType.VirtualMotorRacing:
+                case SportType.VirtualSpeedway:
+                case SportType.VirtualCycling:
                     return ParserVirtualHorseRacing<T>(dataList, sportType, language, templatePath, excelTitle, lang, out realTemplatePath);
                 case SportType.NumberGame:
                     return ParserNumberGame<T>(dataList, sportType, language, templatePath, excelTitle, lang, out realTemplatePath);
@@ -84,7 +86,7 @@ namespace Fanex.Result.Core.Models
                     return ParserLiveCasino<T>(dataList, sportType, language, templatePath, excelTitle, lang, out realTemplatePath);
                 case SportType.Soccer:
                     return ParserSoccer<T>(dataList, sportType, language, templatePath, excelTitle, lang, out realTemplatePath);
-                case SportType.VSTennis:
+                case SportType.VirtualTennis:
                     return
                     ParserVSTennis<T>(dataList, sportType, language, templatePath, excelTitle, lang, out realTemplatePath);
                 default:

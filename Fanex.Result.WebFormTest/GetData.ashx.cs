@@ -138,6 +138,8 @@ namespace Fanex.Result.WebFormTest
                 case SportType.VirtualHorseRacing:
                 case SportType.VirtualGreyhounds:
                 case SportType.VirtualMotorRacing:
+                case SportType.VirtualSpeedway:
+                case SportType.VirtualCycling:
                     var dataRC = _model.Lrf_Result_RaceSelByMeeting(date, sportId, leagueId, true);
                     var dataListRC = dataRC.AsEnumerable().Select(i => new Racing
                     {

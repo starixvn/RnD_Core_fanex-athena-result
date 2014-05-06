@@ -80,6 +80,8 @@ namespace Fanex.Result.Core.Models
                     case SportType.VirtualHorseRacing:
                     case SportType.VirtualGreyhounds:
                     case SportType.VirtualMotorRacing:
+                    case SportType.VirtualSpeedway:
+                    case SportType.VirtualCycling:
                         if (dtoName == DataDomain.RACING)
                         {
                             return true;

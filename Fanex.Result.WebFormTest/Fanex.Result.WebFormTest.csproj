@@ -177,6 +177,8 @@
     <Content Include="Scripts\jquery.ui.widget.js" />
     <Content Include="Scripts\jquery.ui.widget.min.js" />
     <Content Include="Styles\Fanex.Result\fanex.result.css" />
+    <Content Include="Styles\Fanex.Result\images\1F.gif" />
+    <Content Include="Styles\Fanex.Result\images\1L.gif" />
     <Content Include="Styles\Fanex.Result\images\bg_header03.jpg" />
     <Content Include="Styles\Fanex.Result\images\first-goal.gif" />
     <Content Include="Styles\Fanex.Result\images\last-goal.gif" />

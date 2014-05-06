@@ -7,6 +7,7 @@
 namespace Fanex.Result.Core.ViewModels
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
     using Fanex.Result.Core.DTO;
 
@@ -43,7 +44,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return IsShowedFirstLastGoal(true, true,false);
+                return IsShowedFirstLastGoal(true, true, false);
             }
         }
 
@@ -51,7 +52,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return IsShowedFirstLastGoal(false, true,false);
+                return IsShowedFirstLastGoal(false, true, false);
             }
         }
 
@@ -59,7 +60,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return IsShowedFirstLastGoal(true, false,false);
+                return IsShowedFirstLastGoal(true, false, false);
             }
         }
 
@@ -67,7 +68,39 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return IsShowedFirstLastGoal(false, false,false);
+                return IsShowedFirstLastGoal(false, false, false);
+            }
+        }
+
+        public bool IsShowedFirstHalfFGHome
+        {
+            get
+            {
+                return IsShowedFirstLastGoal(true, true, true);
+            }
+        }
+
+        public bool IsShowedFirstHalfFGAway
+        {
+            get
+            {
+                return IsShowedFirstLastGoal(false, true, true);
+            }
+        }
+
+        public bool IsShowedFirstHalfLGHome
+        {
+            get
+            {
+                return IsShowedFirstLastGoal(true, false, true);
+            }
+        }
+
+        public bool IsShowedFirstHalfLGAway
+        {
+            get
+            {
+                return IsShowedFirstLastGoal(false, false, true);
             }
         }
 
@@ -150,9 +183,23 @@ namespace Fanex.Result.Core.ViewModels
         /// <param name="isHome">Is home Team.</param>
         /// <param name="isFirstGoal">Is first goal.</param>
         /// <param name="isFirstHalf">Is first half bet type.</param>
-        /// <returns></returns>
+        /// <returns>The True or False.</returns>
+        [SuppressMessage(
+"StyleCop.CSharp.Nexcel.NexcelCustomRules",
+"SP2101:MethodMustNotContainMoreLinesThan",
+Justification = "Reviewed. Suppression is OK here.")]
         private bool IsShowedFirstLastGoal(bool isHome, bool isFirstGoal, bool isFirstHalf)
         {
+            /*
+         // Possible formats:
+         // Refund HT;1FL:1-2;FL:2-0
+         // 1FL:1-2;FL:2-0
+         // Refund HT;FL:2-0
+         // Refund HT;1FL:1-2
+         // FL:2-0
+         // Refund HT
+         // 1FL:1-2
+         */
             string betStatus;
             var homeOrAway = isHome ? "1" : "2";
             var firstOrLast = isFirstGoal ? 0 : 1;
@@ -195,7 +242,6 @@ namespace Fanex.Result.Core.ViewModels
                         {
                             return false;
                         }
-
 
                         var fglgArray = refundArray.Length == 1 ?
                             betStatus.Split(':') : isFirstHalf ? refundArray[0].Split(':') : refundArray[1].Split(':');

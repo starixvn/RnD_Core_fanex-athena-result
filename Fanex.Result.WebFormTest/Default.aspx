@@ -60,6 +60,28 @@
                             <li>Upgrade NPOIL 2.0.6.0 </li>
                         </ul>
                     </li>
+                      <li>Update : version 1.5.0 - 06/05/2014 
+                      
+                      <a href="DownLoad/Fanex.Result_Npoi_1_2_5_rev1_5_0.zip">
+                       Npoi 1.2.5.0 </a>,&nbsp;
+                        or 
+                          <a href="DownLoad/Fanex.Result_Npoi_2_0_6_rev1_5_0.zip">
+                        Npoi 2.0.6.0 </a>,&nbsp;
+                      
+                        <a href="DownLoad/Fanex.Result_CssTpl_rev1.5.0.zip">Css Template</a>
+                       
+                        <br />
+                        Changes:
+                        <br />
+                        Support:
+                        <br />
+                        <ul>
+                            <li> Both NPOI 1.2.50 and 2.0.6.0 </li>
+                            <li> New bet type: 126 and 127 </li>
+                            <li> New sport: Virtual Speedway(183) and   Virtual Cycling (185)</li>
+                        </ul>
+                       
+                    </li>
                 </ul>
             </div>
             <div>

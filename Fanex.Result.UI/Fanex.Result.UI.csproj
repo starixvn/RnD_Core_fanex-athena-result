@@ -61,11 +61,11 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Content\Fanex.Result\images\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Content\Fanex.Result\fanex.result.css" />
+    <Content Include="Content\Fanex.Result\images\1F.gif" />
+    <Content Include="Content\Fanex.Result\images\1L.gif" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App_Data\Fanex.Result\Badminton.xls" />

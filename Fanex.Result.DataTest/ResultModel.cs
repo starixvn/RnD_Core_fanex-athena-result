@@ -227,7 +227,7 @@ namespace Fanex.Result.DataTest
             var dataTable = new DataTable("SelMatchResult");
             using (var sql = new SqlConnection(Connection))
             {
-                using (var sqlCmd = new SqlCommand("Lrf_BetList_SelMatchResult", sql))
+                using (var sqlCmd = new SqlCommand("Lrf_BetList_SelMatchResult_15189", sql))
                 {
                     sqlCmd.CommandType = CommandType.StoredProcedure;
                     sqlCmd.Parameters.AddWithValue("@matchId", matchId);

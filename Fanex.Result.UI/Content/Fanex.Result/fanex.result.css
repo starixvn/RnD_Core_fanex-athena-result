@@ -144,7 +144,22 @@ table.fanex-result tr.row-data td.column-match div.last-goal
     display: inline;
     padding: 0 4px;
 }
-
+table.fanex-result tr.row-data td.column-match div.first-half-first-goal
+{
+    background: url(images/1F.gif) no-repeat center center;
+    height: 10px;
+    width: 14px;
+    display: inline;
+    padding: 0 4px;
+}
+table.fanex-result tr.row-data td.column-match div.first-half-last-goal
+{
+    background: url(images/1L.gif) no-repeat center center;
+    height: 10px;
+    width: 14px;
+    display: inline;
+    padding: 0 4px;
+}
 
 table.fanex-result tr.row-data td.column-lblOEFT
 {
@@ -239,12 +254,3 @@ table.fanex-result-tenis-setdetail tr.row-header td.column-set-name
     background-image: none !important;
 }
 /*end-popup*/
-/*keno*/
-div.fanex-result-keno {
-	
-}
-div.fanex-result-keno iframe {
-	width:1050px;
-	height: 720px;
-}
-/*end-keno*/

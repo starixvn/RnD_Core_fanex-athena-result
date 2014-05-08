@@ -277,27 +277,27 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\Fanex.Result.Core\Resources\en-US.xml">
+    <EmbeddedResource Include="..\..\Fanex.Result.Core\Resources\en-US.xml">
       <Link>Resources\en-US.xml</Link>
-    </Content>
-    <Content Include="..\..\Fanex.Result.Core\Resources\ja-JP.xml">
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Fanex.Result.Core\Resources\ja-JP.xml">
       <Link>Resources\ja-JP.xml</Link>
-    </Content>
-    <Content Include="..\..\Fanex.Result.Core\Resources\ko-KR.xml">
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Fanex.Result.Core\Resources\ko-KR.xml">
       <Link>Resources\ko-KR.xml</Link>
-    </Content>
-    <Content Include="..\..\Fanex.Result.Core\Resources\th-TH.xml">
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Fanex.Result.Core\Resources\th-TH.xml">
       <Link>Resources\th-TH.xml</Link>
-    </Content>
-    <Content Include="..\..\Fanex.Result.Core\Resources\vi-VN.xml">
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Fanex.Result.Core\Resources\vi-VN.xml">
       <Link>Resources\vi-VN.xml</Link>
-    </Content>
-    <Content Include="..\..\Fanex.Result.Core\Resources\zh-CN.xml">
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Fanex.Result.Core\Resources\zh-CN.xml">
       <Link>Resources\zh-CN.xml</Link>
-    </Content>
-    <Content Include="..\..\Fanex.Result.Core\Resources\zh-TW.xml">
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Fanex.Result.Core\Resources\zh-TW.xml">
       <Link>Resources\zh-TW.xml</Link>
-    </Content>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="..\..\Fanex.Result.Core\Views\Badminton.cshtml">

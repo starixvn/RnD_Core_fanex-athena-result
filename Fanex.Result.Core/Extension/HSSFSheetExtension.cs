@@ -171,7 +171,7 @@ namespace Fanex.Result.Core.Extension
             sheet.ShiftRows(rowNum, sheet.LastRowNum, 1);
 
             var newRow = sheet.CreateRow(rowNum);
-            var sourceRow = sheet.GetRow(sourceRowNum + 1);
+            var sourceRow = sheet.GetRow(checked(sourceRowNum + 1));
 
             for (int i = 0; i < sourceRow.LastCellNum; i++)
             {

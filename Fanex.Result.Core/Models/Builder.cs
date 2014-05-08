@@ -163,13 +163,14 @@ namespace Fanex.Result.Core.Models
 
         private static RazorBinderModel CreateModel(LangResources lang, dynamic data, bool isPopUp, bool isParlay)
         {
-            return new RazorBinderModel
-            {
-                Resource = lang,
-                Data = data,
-                IsPopUp = isPopUp,
-                IsParlay = isParlay,
-            };
+            var model = new RazorBinderModel
+             {
+                 Resource = lang,
+                 IsPopUp = isPopUp,
+                 IsParlay = isParlay,
+             };
+            model.Data.AddRange(data);
+            return model;
         }
     }
 }

@@ -31,7 +31,7 @@ namespace Fanex.Result.DataTest
             var dataTable = new DataTable("SportSelByDate");
             using (var sql = new SqlConnection(Connection))
             {
-                using (var sqlCmd = new SqlCommand("Lrf_Result_SportSelByDate", sql))
+                using (var sqlCmd = new SqlCommand("Lrf_Result_SportSelByDate_15189", sql))
                 {
                     sqlCmd.CommandType = CommandType.StoredProcedure;
                     sqlCmd.Parameters.AddWithValue("@eventdate", date);
@@ -120,7 +120,7 @@ namespace Fanex.Result.DataTest
             var dataTable = new DataTable("RaceSelByMeeting");
             using (var sql = new SqlConnection(Connection))
             {
-                using (var sqlCmd = new SqlCommand("Lrf_Result_RaceSelByMeeting", sql))
+                using (var sqlCmd = new SqlCommand("Lrf_Result_RaceSelByMeeting_15189", sql))
                 {
                     sqlCmd.CommandType = CommandType.StoredProcedure;
                     sqlCmd.Parameters.AddWithValue("@fromdate", date);

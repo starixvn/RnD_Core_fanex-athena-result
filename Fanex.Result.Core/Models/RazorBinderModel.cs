@@ -14,9 +14,17 @@ namespace Fanex.Result.Core.Models
     /// </summary>
     public class RazorBinderModel
     {
+        private List<object> _data = new List<object>();
+
         public LangResources Resource { get; set; }
 
-        public IList<object> Data { get; set; }
+        public List<object> Data
+        {
+            get
+            {
+                return _data;
+            }
+        }
 
         public bool Settlement { get; set; }
 

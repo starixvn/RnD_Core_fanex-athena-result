@@ -131,7 +131,7 @@
                                 <li>html string:
                                     <ul>
                                         <li>System.Web.Razor.dll (2.0) </li>
-                                        <li>RazorEngine.dll</li>
+                                        <li>RazorEngine.dll (3.2.0.0)</li>
                                         <li>Place css template into your project.
                                             <br />
                                             <img src="DownLoad/css_guide.png" alt="structure" />

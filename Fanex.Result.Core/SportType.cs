@@ -212,7 +212,7 @@ namespace Fanex.Result.Core
         [StringValue("VSHRacing")]
         VirtualGreyhounds = 182,
 
-        [StringValue("VSHRacing")]
+        [StringValue("VSSpeedWay")]
         VirtualSpeedway = 183,
 
         [StringValue("VSHRacing")]

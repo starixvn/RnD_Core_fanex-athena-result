@@ -138,6 +138,9 @@
     <Compile Include="..\..\Fanex.Result.Core\ExcelModels\VSHRacingExcel.cs">
       <Link>ExcelModels\VSHRacingExcel.cs</Link>
     </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ExcelModels\VSSpeedWayExcel.cs">
+      <Link>ExcelModels\VSSpeedWayExcel.cs</Link>
+    </Compile>
     <Compile Include="..\..\Fanex.Result.Core\ExcelModels\VSTennisExcel.cs">
       <Link>ExcelModels\VSTennisExcel.cs</Link>
     </Compile>
@@ -270,6 +273,9 @@
     <Compile Include="..\..\Fanex.Result.Core\ViewModels\VSHRacingViewModel.cs">
       <Link>ViewModels\VSHRacingViewModel.cs</Link>
     </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ViewModels\VSSpeedWayViewModel.cs">
+      <Link>ViewModels\VSSpeedWayViewModel.cs</Link>
+    </Compile>
     <Compile Include="..\..\Fanex.Result.Core\ViewModels\VSTennisViewModel.cs">
       <Link>ViewModels\VSTennisViewModel.cs</Link>
     </Compile>
@@ -358,6 +364,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>LangResources.cs</LastGenOutput>
     </None>
+    <EmbeddedResource Include="..\..\Fanex.Result.Core\Views\VSSpeedWay.cshtml">
+      <Link>Views\VSSpeedWay.cshtml</Link>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

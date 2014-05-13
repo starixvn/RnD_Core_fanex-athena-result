@@ -97,6 +97,7 @@
     <Compile Include="ExcelModels\BaseBallExcel.cs" />
     <Compile Include="ExcelModels\BasketballExcel.cs" />
     <Compile Include="ExcelModels\BilliardExcel.cs" />
+    <Compile Include="ExcelModels\VSSpeedWayExcel.cs" />
     <Compile Include="ExcelModels\ExcelBase.cs" />
     <Compile Include="ExcelModels\HockeyExcel.cs" />
     <Compile Include="ExcelModels\NumberGameExcel.cs" />
@@ -139,6 +140,7 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\BasketBallViewModel.cs" />
     <Compile Include="ViewModels\BilliardViewModel.cs" />
+    <Compile Include="ViewModels\VSSpeedWayViewModel.cs" />
     <Compile Include="ViewModels\HockeyViewModel.cs" />
     <Compile Include="ViewModels\LiveCasinoViewModel.cs" />
     <Compile Include="ViewModels\NumberGameViewModel.cs" />
@@ -181,6 +183,7 @@
     <EmbeddedResource Include="Views\LiveCasino.cshtml" />
     <EmbeddedResource Include="Views\VSHRacing.cshtml" />
     <EmbeddedResource Include="Views\VSTennis.cshtml" />
+    <EmbeddedResource Include="Views\VSSpeedWay.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\zh-TW.xml" />

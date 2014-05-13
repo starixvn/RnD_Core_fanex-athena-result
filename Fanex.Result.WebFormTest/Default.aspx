@@ -71,6 +71,9 @@
                         <a href="DownLoad/Fanex.Result_CssTpl_rev1.5.0.zip">Css Template</a>
                        
                         <br />
+                          <a href="DownLoad/Fanex.Result_ExcelTPl_rev1.5.0.zip">Excel Template</a>
+                       
+                        <br />
                         Changes:
                         <br />
                         Support:

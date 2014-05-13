@@ -312,6 +312,7 @@
     <None Include="App_Data\Fanex.Result\BaseBall.xls" />
     <None Include="App_Data\Fanex.Result\Basketball.xls" />
     <None Include="App_Data\Fanex.Result\Billiard.xls" />
+    <None Include="App_Data\Fanex.Result\VSSpeedWay.xls" />
     <None Include="App_Data\Fanex.Result\Hockey.xls" />
     <None Include="App_Data\Fanex.Result\HorseRacing.xls" />
     <None Include="App_Data\Fanex.Result\LiveCasino.xls" />

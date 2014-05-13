@@ -72,6 +72,7 @@
     <None Include="App_Data\Fanex.Result\BaseBall.xls" />
     <None Include="App_Data\Fanex.Result\Basketball.xls" />
     <None Include="App_Data\Fanex.Result\Billiard.xls" />
+    <None Include="App_Data\Fanex.Result\VSSpeedWay.xls" />
     <None Include="App_Data\Fanex.Result\VSTennis.xls" />
     <None Include="App_Data\Fanex.Result\VSHRacing.xls" />
     <None Include="App_Data\Fanex.Result\Hockey.xls" />

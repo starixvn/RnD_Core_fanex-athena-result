@@ -77,9 +77,11 @@ namespace Fanex.Result.Core.Models
                 case SportType.VirtualHorseRacing:
                 case SportType.VirtualGreyhounds:
                 case SportType.VirtualMotorRacing:
-                case SportType.VirtualSpeedway:
                 case SportType.VirtualCycling:
                     return ParserVirtualHorseRacing<T>(dataList, sportType, language, templatePath, excelTitle, lang, out realTemplatePath);
+                case SportType.VirtualSpeedway:
+                    return ParserVirtualSpeedWay<T>(dataList, sportType, language, templatePath, excelTitle, lang, out realTemplatePath);
+
                 case SportType.NumberGame:
                     return ParserNumberGame<T>(dataList, sportType, language, templatePath, excelTitle, lang, out realTemplatePath);
                 case SportType.LiveCasino:
@@ -223,6 +225,24 @@ namespace Fanex.Result.Core.Models
     .ToList();
             realTemplatePath = templatePath + "VSHRacing.xls";
             var ctx = new VSHRacingExcel(realTemplatePath, excelTitle, dataViewModels, lang);
+            return ctx.Export();
+        }
+
+        private static MemoryStream ParserVirtualSpeedWay<T>(
+            IList<T> dataList,
+            SportType sportType,
+            string language,
+            string templatePath,
+            string excelTitle,
+            DTO.LangResources lang,
+            out string realTemplatePath)
+        {
+            var dataViewModels =
+   dataList
+   .Select(i => (VSSpeedWayViewModel)ViewModelConcreteFactory.Instance.GetViewModel(i, sportType, language, lang))
+   .ToList();
+            realTemplatePath = templatePath + "VSSpeedWay.xls";
+            var ctx = new VSSpeedWayExcel(realTemplatePath, excelTitle, dataViewModels, lang);
             return ctx.Export();
         }
 

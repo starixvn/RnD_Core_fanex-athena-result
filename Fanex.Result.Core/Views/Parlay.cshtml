@@ -19,10 +19,10 @@
             var bindModle = new Fanex.Result.Core.Models.RazorBinderModel
             {
                 Resource = lang,
-                Data = item.ItemView,
                 IsPopUp = true,
                 IsParlay = true,
             };
+            bindModle.Data.AddRange(item.ItemView);
                     }
                     @Raw(item.Render(bindModle))
                 </td>

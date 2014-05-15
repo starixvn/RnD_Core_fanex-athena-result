@@ -29,3 +29,7 @@ bin/
 _ReSharper*/
 [Tt]est[Rr]esult*
 
+
+/Fanex.Result.WebFormTest/bin
+/Fanex.Result.WebFormTest/obj
+/Fanex.Result.Core/obj

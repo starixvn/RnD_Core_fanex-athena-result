@@ -160,23 +160,6 @@ namespace Fanex.Result.Core.ViewModels
             }
         }
 
-        public bool IsShowEventStatusLink
-        {
-            // only used for settlement site
-            get
-            {
-                if (this.SPORTBOOK.EventStatus.ToLower() == StringResources.CompletedLower)
-                {
-                    if (!string.IsNullOrEmpty(this.SPORTBOOK.GoalRecord) && this.SPORTBOOK.BetStatus.IndexOf("FL:", StringComparison.Ordinal) > -1)
-                    {
-                        return true;
-                    }
-                }
-
-                return false;
-            }
-        }
-
         /// <summary>
         /// Show or don't show goal ICON.
         /// </summary>
@@ -208,7 +191,6 @@ Justification = "Reviewed. Suppression is OK here.")]
             {
                 case StringResources.REFUND:
                 case StringResources.REFUNDHT:
-                    return false;
                 case StringResources.REFUNDFT:
                     betStatus = this.SPORTBOOK.BetStatus.Trim();
                     if (!string.IsNullOrEmpty(betStatus) && betStatus.Contains(":"))
@@ -238,15 +220,11 @@ Justification = "Reviewed. Suppression is OK here.")]
                     if (!string.IsNullOrEmpty(betStatus) && betStatus.Contains(":"))
                     {
                         string[] refundArray = betStatus.Split(';');
-                        if (isFirstHalf && refundArray.Length < 2)
-                        {
-                            return false;
-                        }
 
                         var fglgArray = refundArray.Length == 1 ?
                             betStatus.Split(':') : isFirstHalf ? refundArray[0].Split(':') : refundArray[1].Split(':');
 
-                        if (betStatus.Length <= 1 || string.Compare(fglgArray[0], firsHalfOrFullTime, StringComparison.OrdinalIgnoreCase) != 0)
+                        if (fglgArray.Length <= 1 || string.Compare(fglgArray[0], firsHalfOrFullTime, StringComparison.OrdinalIgnoreCase) != 0)
                         {
                             return false;
                         }

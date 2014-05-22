@@ -93,11 +93,8 @@ namespace Fanex.Result.Core.Utilities
                 }
 
                 /* Get status from resource lang, if have.*/
-                var str = GetLogResource(eventstatus, lang);
-                if (!string.IsNullOrEmpty(str))
-                {
-                    return GetLogResource(eventstatus.ToLower(), lang);
-                }
+                var str = eventstatus.Replace(" ", string.Empty);
+                return GetLogResource(str.ToLower(), lang);
             }
 
             return UppercaseFirst(eventstatus);

@@ -85,6 +85,26 @@
                         </ul>
                        
                     </li>
+                     <li>Update : version 1.5.1 - 23/05/2014 
+                      
+                      <a href="DownLoad/Fanex.Result_Npoi_1_2_5_rev1_5_1.zip">
+                       Npoi 1.2.5.0 </a>,&nbsp;
+                        or 
+                          <a href="DownLoad/Fanex.Result_Npoi_2_0_6_rev1_5_1.zip">
+                        Npoi 2.0.6.0 </a>,&nbsp;
+                      
+                       
+                        <br />
+                        Changes:
+                        <br />
+                       Fix bugs:
+                       <br />
+                        <ul>
+                            <li>Don't rightly show Q3 column when exporting data of basketball  to export. </li>
+                          
+                        </ul>
+                       
+                    </li>
                 </ul>
             </div>
             <div>

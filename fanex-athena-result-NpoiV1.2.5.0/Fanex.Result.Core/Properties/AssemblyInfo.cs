@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Fanex.Result.Core")]
-[assembly: AssemblyDescription("Fanex.Result.Core 1.5.0")]
+[assembly: AssemblyDescription("Fanex.Result.Core 1.5.1")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Nexcel.vn")]
 [assembly: AssemblyProduct("Fanex.Result.Core")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.5.0")]
-[assembly: AssemblyFileVersion("1.5.0")]
+[assembly: AssemblyVersion("1.5.1")]
+[assembly: AssemblyFileVersion("1.5.1")]

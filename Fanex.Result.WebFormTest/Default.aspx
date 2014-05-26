@@ -100,8 +100,8 @@
                        Fix bugs:
                        <br />
                         <ul>
-                            <li>Don't rightly show Q3 column when exporting data of basketball  to export. </li>
-                          
+                            <li> Wrong ly show Q3 column when exporting data of basketball  to export. </li>
+                          <li>Wrong ly show result of baseball.</li>
                         </ul>
                        
                     </li>

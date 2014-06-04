@@ -8,9 +8,9 @@
         <fieldset>
             <legend>Project description </legend>
             <div>
-                The library help you easily to display result of games.Currently Fanex.Result.Core
-                supports to render HTML , excel and json string.and also support 4 languages are english,
-                chinese , traditional chinese and korean.
+                This library helps you easily to present data of result of games in your site.Currently Fanex.Result.Core
+                has supported HTML table , Excel file and json-data and it also presents data in four languages( english,
+                chinese , traditional chinese and korean).
                 <br />
                 <br />
             </div>
@@ -175,7 +175,7 @@
                             <ul>
                                 <li>
                                     <br />
-                                    Transfer from your datatable to Fanex.Result.Core.DTO object.
+                                    Transfer from your datatable to Fanex.Result.Core.DTO object.<a href="Download/ResultService.cs.txt">Download example code</a>
                                     <br />
                                     <img src="DownLoad/dataaccess.png" alt="structure" style="width: 807px" />
                                 </li>
@@ -184,7 +184,7 @@
                                     <br />
                                     <img src="DownLoad/setting.png" alt="structure" />
                                 </li>
-                                <li>Export HTML:
+                                <li>Export HTML:<a href="Download/ReportController.ResultPage.cs.txt">Download example code</a>
                                     <pre>var htmlResult= ResultEngine.HtmlParser(data, setting);</pre>
                                 </li>
                                 <li>Export Excel:

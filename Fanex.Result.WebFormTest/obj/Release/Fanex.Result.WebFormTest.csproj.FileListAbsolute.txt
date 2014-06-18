@@ -36,3 +36,15 @@ D:\teamproject\git_lab\lrf\fanex-athena-result\Fanex.Result.WebFormTest\bin\Razo
 D:\teamproject\git_lab\lrf\fanex-athena-result\Fanex.Result.WebFormTest\bin\RazorEngine.xml
 D:\teamproject\git_lab\lrf\fanex-athena-result\Fanex.Result.WebFormTest\obj\Release\Fanex.Result.WebFormTest.dll
 D:\teamproject\git_lab\lrf\fanex-athena-result\Fanex.Result.WebFormTest\obj\Release\Fanex.Result.WebFormTest.pdb
+D:\Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.WebFormTest.dll
+D:\Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.WebFormTest.pdb
+D:\Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.DataTest.dll
+D:\Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.DataTest.pdb
+D:\Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.Core.pdb
+D:\Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\Newtonsoft.Json.xml
+D:\Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\NPOI.xml
+D:\Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\RazorEngine.pdb
+D:\Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\RazorEngine.xml
+D:\Project\fanex-athena-result\Fanex.Result.WebFormTest\obj\Release\ResolveAssemblyReference.cache
+D:\Project\fanex-athena-result\Fanex.Result.WebFormTest\obj\Release\Fanex.Result.WebFormTest.dll
+D:\Project\fanex-athena-result\Fanex.Result.WebFormTest\obj\Release\Fanex.Result.WebFormTest.pdb

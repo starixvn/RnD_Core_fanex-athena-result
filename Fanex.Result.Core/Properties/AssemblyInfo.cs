@@ -5,11 +5,14 @@
 // -----------------------------------------------------------------------
 
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
+[assembly: InternalsVisibleTo("Fanex.Result.Core.UnitTest")]
+[assembly: InternalsVisibleTo("Fanex.Result.WebFormTest")]
 [assembly: AssemblyTitle("Fanex.Result.Core")]
 [assembly: AssemblyDescription("Fanex.Result.Core 1.5.1")]
 [assembly: AssemblyConfiguration("")]

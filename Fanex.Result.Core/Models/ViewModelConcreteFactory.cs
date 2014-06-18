@@ -57,38 +57,27 @@ namespace Fanex.Result.Core.Models
         /// <returns>The view model.</returns>
         public override object GetViewModel(object obj, SportType sportType, string languageCode, LangResources resource)
         {
-            var dtoName = sportType.StringMe();
-            var viewModel = Type.GetType(NAMESPACE + dtoName + EXTNAME);
-
-            if (viewModel == null)
+            if ((int)sportType <= 0)
             {
-                throw new ObjectNullException(dtoName);
+                return null;
             }
 
+            var dtoName = sportType.StringMe();
+            var viewModel = Type.GetType(NAMESPACE + dtoName + EXTNAME);
             return Activator.CreateInstance(viewModel, obj, languageCode, resource);
         }
 
         public override object GetOutRightViewModel(object obj, string languageCode, LangResources resource)
         {
-            const string DtoName = "OutRight";
-            Type viewModel = Type.GetType(NAMESPACE + DtoName + EXTNAME);
-            if (viewModel == null)
-            {
-                throw new ObjectNullException(DtoName);
-            }
-
+            const string DTOName = "OutRight";
+            var viewModel = Type.GetType(NAMESPACE + DTOName + EXTNAME);
             return Activator.CreateInstance(viewModel, obj, languageCode, resource);
         }
 
         public override object GetParlayViewModel(object obj, string languageCode, LangResources resource)
         {
-            const string DtoName = "Parlay";
-            Type viewModel = Type.GetType(NAMESPACE + DtoName + EXTNAME);
-            if (viewModel == null)
-            {
-                throw new ObjectNullException(DtoName);
-            }
-
+            const string DTOName = "Parlay";
+            var viewModel = Type.GetType(NAMESPACE + DTOName + EXTNAME);
             return Activator.CreateInstance(viewModel, obj, languageCode, resource);
         }
     }

@@ -21,31 +21,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeAnalysis", "CodeAnalysi
 		CodeAnalysis\CodeAnalysisConfiguration.xml = CodeAnalysis\CodeAnalysisConfiguration.xml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.UnitTest", "Fanex.Result.Core.UnitTest\Fanex.Result.Core.UnitTest.csproj", "{614017C9-1881-45DE-8B63-C9363BE5D5F1}"
+EndProject
 Global
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 7
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = http://10.18.200.210:8080/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Fanex.Result.Core\\Fanex.Result.Core.csproj
-		SccProjectName1 = Fanex.Result.Core
-		SccLocalPath1 = Fanex.Result.Core
-		SccProjectUniqueName2 = Fanex.Result.UI\\Fanex.Result.UI.csproj
-		SccProjectName2 = Fanex.Result.UI
-		SccLocalPath2 = Fanex.Result.UI
-		SccProjectUniqueName3 = Fanex.Result.Core.Test\\Fanex.Result.Core.Test.csproj
-		SccProjectName3 = Fanex.Result.Core.Test
-		SccLocalPath3 = Fanex.Result.Core.Test
-		SccProjectUniqueName4 = MVCTest\\Fanex.Result.MVCTest.csproj
-		SccProjectName4 = MVCTest
-		SccLocalPath4 = MVCTest
-		SccProjectUniqueName5 = Fanex.Result.DataTest\\Fanex.Result.DataTest.csproj
-		SccProjectName5 = Fanex.Result.DataTest
-		SccLocalPath5 = Fanex.Result.DataTest
-		SccProjectUniqueName6 = Fanex.Result.WebFormTest\\Fanex.Result.WebFormTest.csproj
-		SccProjectName6 = Fanex.Result.WebFormTest
-		SccLocalPath6 = Fanex.Result.WebFormTest
-	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Fanex.Result.vsmdi
 	EndGlobalSection
@@ -70,6 +48,10 @@ Global
 		{C83A5BA1-AA7E-4B7F-BB5E-18BB3B928D01}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C83A5BA1-AA7E-4B7F-BB5E-18BB3B928D01}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C83A5BA1-AA7E-4B7F-BB5E-18BB3B928D01}.Release|Any CPU.Build.0 = Release|Any CPU
+		{614017C9-1881-45DE-8B63-C9363BE5D5F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{614017C9-1881-45DE-8B63-C9363BE5D5F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{614017C9-1881-45DE-8B63-C9363BE5D5F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{614017C9-1881-45DE-8B63-C9363BE5D5F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

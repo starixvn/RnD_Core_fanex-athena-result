@@ -6,6 +6,7 @@
 // <history>
 //   <change who="" date="">Created</change>
 // </history>
+
 namespace Fanex.Result.WebFormTest
 {
     using System;
@@ -15,6 +16,9 @@ namespace Fanex.Result.WebFormTest
     /// </summary>
     public partial class Normal : System.Web.UI.Page
     {
+        private const string EXTNAME = "ViewModel";
+        private const string NAMESPACE = "Fanex.Result.Core";
+
         protected void Page_Load(object sender, EventArgs e)
         {
         }

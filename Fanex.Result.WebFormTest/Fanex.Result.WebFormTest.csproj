@@ -43,9 +43,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Fanex.Result.Core, Version=1.4.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Build\Fanex.Result.Core.dll</HintPath>
+    <Reference Include="IBCCrypt">
+      <HintPath>..\NexcelDependencies\3rds\IBCCrypt.dll</HintPath>
     </Reference>
     <Reference Include="IBCFile, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -67,6 +66,9 @@
     <Reference Include="RemotingRef, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Build\RemotingRef.dll</HintPath>
+    </Reference>
+    <Reference Include="SPSRemoting">
+      <HintPath>..\NexcelDependencies\3rds\SPSRemoting.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -293,6 +295,10 @@
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Fanex.Result.Core\Fanex.Result.Core.csproj">
+      <Project>{F8CF6236-68F3-445F-8541-1D21EAEDA385}</Project>
+      <Name>Fanex.Result.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.DataTest\Fanex.Result.DataTest.csproj">
       <Project>{5B97E7FC-A01C-4F85-A63D-F39838FC1B74}</Project>
       <Name>Fanex.Result.DataTest</Name>

@@ -34,3 +34,5 @@ _ReSharper*/
 /Fanex.Result.WebFormTest/bin
 /Fanex.Result.WebFormTest/obj
 /Fanex.Result.Core/obj
+/Fanex.Result.Core.UnitTest/Code Coverage/Report
+/Fanex.Result.Core.UnitTest/bin

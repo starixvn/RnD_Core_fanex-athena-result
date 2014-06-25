@@ -15,11 +15,22 @@ namespace Fanex.Result.Core
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public static class ResultEngine
+    public class ResultEngine
     {
         private const string EXCELTEMPLATEPATH = "App_Data/Fanex.Result/";
         private const string ARGUEMENTMES = "Sport Type is invalid or DTO ({0}) doesn't match with sportType";
         private const string ARGUEMENTMESOUTRIGHT = "DTO ({0}) is invalid";
+        private readonly IBuilder _builderTest;
+
+        public ResultEngine()
+            : this(null)
+        {
+        }
+
+        public ResultEngine(IBuilder builder)
+        {
+            _builderTest = builder ?? new Builder();
+        }
 
         /// <summary>
         /// Render html result.
@@ -69,55 +80,6 @@ namespace Fanex.Result.Core
 
             return Utilities.Helper.RemoveWhiteSpace(
                 builder.HtmlBuilder(dataList, setting.SportType, setting.LanguageCode));
-        }
-
-        /// <summary>
-        /// Create excel file.
-        /// </summary>
-        /// <typeparam name="T">The DTO object (FANEX.Result.Core.DTO).</typeparam>
-        /// <param name="dataList">The DTO list.</param>
-        /// <param name="setting">The result setting.</param>
-        /// <returns>The memory stream.</returns>
-        public static MemoryStream ExcelParser<T>(IList<T> dataList, ResultSetting setting)
-        {
-            if (setting == null || dataList == null)
-            {
-                throw new ObjectNullException("The data is null or setting is null");
-            }
-
-            if (string.IsNullOrEmpty(setting.LanguageCode))
-            {
-                setting.LanguageCode = CultureInfo.CurrentUICulture.Name;
-            }
-
-            if (string.IsNullOrEmpty(setting.ExcelTemplatePath))
-            {
-                setting.ExcelTemplatePath = EXCELTEMPLATEPATH;
-            }
-
-            var dtoName = typeof(T).Name;
-            var builder = new Builder();
-            if (setting.IsOutRight)
-            {
-                if (!Validate.Instance.ValidateOutRight(dtoName))
-                {
-                    throw new ObjectNullException(string.Format(ARGUEMENTMESOUTRIGHT, dtoName));
-                }
-
-                return builder.OutRightExcelBuilder(dataList, setting.LanguageCode, setting.ExcelTemplatePath, setting.ExcelTitle);
-            }
-
-            if (setting.IsPopUp || setting.IsParlayPopUp)
-            {
-                return null;
-            }
-
-            if (!Validate.Instance.ValidateNormal(dtoName, setting.SportType))
-            {
-                throw new ObjectNullException(string.Format(ARGUEMENTMES, dtoName));
-            }
-
-            return builder.ExcelBuilder(dataList, setting.SportType, setting.LanguageCode, setting.ExcelTemplatePath, setting.ExcelTitle);
         }
 
         /// <summary>
@@ -177,6 +139,54 @@ namespace Fanex.Result.Core
         #region KenoResult
 
         #endregion KenoResult
+
+        /// <summary>
+        /// Create excel file.
+        /// </summary>
+        /// <typeparam name="T">The DTO object (FANEX.Result.Core.DTO).</typeparam>
+        /// <param name="dataList">The DTO list.</param>
+        /// <param name="setting">The result setting.</param>
+        /// <returns>The memory stream.</returns>
+        public MemoryStream ExcelParser<T>(IList<T> dataList, ResultSetting setting)
+        {
+            if (setting == null || dataList == null)
+            {
+                throw new ObjectNullException("The data is null or setting is null");
+            }
+
+            if (string.IsNullOrEmpty(setting.LanguageCode))
+            {
+                setting.LanguageCode = CultureInfo.CurrentUICulture.Name;
+            }
+
+            if (string.IsNullOrEmpty(setting.ExcelTemplatePath))
+            {
+                setting.ExcelTemplatePath = EXCELTEMPLATEPATH;
+            }
+
+            var dtoName = typeof(T).Name;
+            if (setting.IsOutRight)
+            {
+                if (!Validate.Instance.ValidateOutRight(dtoName))
+                {
+                    throw new ObjectNullException(string.Format(ARGUEMENTMESOUTRIGHT, dtoName));
+                }
+
+                return _builderTest.OutRightExcelBuilder(dataList, setting.LanguageCode, setting.ExcelTemplatePath, setting.ExcelTitle);
+            }
+
+            if (setting.IsPopUp || setting.IsParlayPopUp)
+            {
+                return null;
+            }
+
+            if (!Validate.Instance.ValidateNormal(dtoName, setting.SportType))
+            {
+                throw new ObjectNullException(string.Format(ARGUEMENTMES, dtoName));
+            }
+
+            return _builderTest.ExcelBuilder(dataList, setting.SportType, setting.LanguageCode, setting.ExcelTemplatePath, setting.ExcelTitle);
+        }
 
         #region HtmlParser-SubFunction
 

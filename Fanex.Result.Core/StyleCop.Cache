@@ -1,8 +1,5 @@
 <stylecopresultscache>
   <version>12</version>
-  <project key="26161105">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
   <sourcecode name="DataDomain.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2014/04/01 10:18:24.000</styleCop>
@@ -857,7 +854,7 @@
     <timestamps>
       <styleCop>2014/04/01 10:18:24.000</styleCop>
       <settingsFile>2014/05/19 13:05:19.536</settingsFile>
-      <sourceFile>2014/06/25 09:44:27.859</sourceFile>
+      <sourceFile>2014/06/25 15:53:53.220</sourceFile>
       <parser>2014/04/01 10:18:24.000</parser>
       <StyleCop.CSharp.DocumentationRules>2014/04/01 10:18:24.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -1157,7 +1154,7 @@
     <timestamps>
       <styleCop>2014/04/01 10:18:24.000</styleCop>
       <settingsFile>2014/05/19 13:05:19.536</settingsFile>
-      <sourceFile>2014/06/18 15:45:06.898</sourceFile>
+      <sourceFile>2014/06/25 17:30:04.168</sourceFile>
       <parser>2014/04/01 10:18:24.000</parser>
       <StyleCop.CSharp.DocumentationRules>2014/04/01 10:18:24.000</StyleCop.CSharp.DocumentationRules>
       <StyleCop.CSharp.DocumentationRules.FilesHashCode>1157575881</StyleCop.CSharp.DocumentationRules.FilesHashCode>
@@ -1753,4 +1750,7 @@
     </timestamps>
     <violations />
   </sourcecode>
+  <project key="26161105">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
 </stylecopresultscache>

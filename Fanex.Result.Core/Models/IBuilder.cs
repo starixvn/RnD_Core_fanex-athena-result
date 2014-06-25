@@ -12,7 +12,7 @@ namespace Fanex.Result.Core.Models
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    internal interface IBuilder
+    public interface IBuilder
     {
         string JSONSportTypeBuilder<T>(IList<T> dataList, SportType sportType, string language);
 

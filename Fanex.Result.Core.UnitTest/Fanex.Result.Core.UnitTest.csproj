@@ -52,6 +52,8 @@
     <Compile Include="Models\ValidateTest.cs" />
     <Compile Include="Models\ViewModelConcreteFactoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResultEngineTest.cs" />
+    <Compile Include="Stub\BuilderStub.cs" />
     <Compile Include="Utilities\Helper.cs" />
     <Compile Include="ViewModels\BadmintonViewModelTest.cs" />
   </ItemGroup>

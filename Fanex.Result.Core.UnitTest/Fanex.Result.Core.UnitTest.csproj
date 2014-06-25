@@ -54,6 +54,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResultEngineTest.cs" />
     <Compile Include="Stub\BuilderStub.cs" />
+    <Compile Include="Stub\ExcelParserStub.cs" />
     <Compile Include="Utilities\Helper.cs" />
     <Compile Include="ViewModels\BadmintonViewModelTest.cs" />
   </ItemGroup>

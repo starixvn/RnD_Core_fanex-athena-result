@@ -23,6 +23,18 @@ namespace Fanex.Result.Core.Models
     /// </summary>
     internal sealed class Builder : IBuilder
     {
+        private readonly IExcelParser _excelParser;
+
+        public Builder()
+            : this(null)
+        {
+        }
+
+        public Builder(IExcelParser excelParser)
+        {
+            _excelParser = excelParser ?? new ExcelParser();
+        }
+
         #region Html-Builder
 
         public string HtmlBuilder<T>(IList<T> dataList, SportType sportType, string language)
@@ -90,9 +102,7 @@ namespace Fanex.Result.Core.Models
 
         public MemoryStream ExcelBuilder<T>(IList<T> dataList, SportType sportType, string language, string templatePath, string excelTitle)
         {
-            var excelParser = new ExcelParser();
-
-            return excelParser.Parser(dataList, sportType, language, templatePath, excelTitle);
+            return _excelParser.Parser(dataList, sportType, language, templatePath, excelTitle);
         }
 
         /// <summary>
@@ -106,9 +116,7 @@ namespace Fanex.Result.Core.Models
         /// <returns>The memory stream.</returns>
         public MemoryStream OutRightExcelBuilder<T>(IList<T> dataList, string language, string templatePath, string excelTitle)
         {
-            var excelParser = new ExcelParser();
-
-            return excelParser.ParserOutRight(dataList, language, templatePath, excelTitle);
+            return _excelParser.ParserOutRight(dataList, language, templatePath, excelTitle);
         }
 
         #endregion ExcelBuilder
@@ -145,7 +153,8 @@ namespace Fanex.Result.Core.Models
         {
             var lang = Resources.Instance.GetLanguage(language);
             var items = dataList
-                .Select(i => ViewModelConcreteFactory.Instance.GetParlayViewModel(i, language, lang)).ToList();
+                .Select(i => ViewModelConcreteFactory.Instance.GetParlayViewModel(i, language, lang))
+                .ToList();
             var parlayItems = items.Select(i => (ParlayViewModel)i);
             return JsonConvert.SerializeObject(parlayItems);
         }

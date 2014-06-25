@@ -16,8 +16,10 @@
     public class ResultEngineTest
     {
         private const string ARGUEMENTMESOUTRIGHT = "DTO ({0}) is invalid";
-        private Sportbook _sportsBookInfo = null;
-        private IList<Sportbook> _listData = new List<Sportbook>();
+        private Sportbook _sportsbookInfo = null;
+        private IList<Sportbook> _sportsbookList = new List<Sportbook>();
+        private IList<OutRight> _outrightList = new List<OutRight>();
+        private IList<Parlay> _parlayList = new List<Parlay>();
         private ResultEngine _resultEngine = null;
 
         /// <summary>
@@ -26,7 +28,7 @@
         [SetUp]
         public void Setup()
         {
-            _sportsBookInfo = new Sportbook
+            _sportsbookInfo = new Sportbook
             {
                 AwayId = 1,
                 HomeId = 2,
@@ -39,10 +41,10 @@
                 Color = string.Empty,
                 FinalHomeScore = 1,
                 HtHomeScore = 2,
-                EventDate = DateTime.Parse("01-01-2014"),
+                EventDate = DateTime.Now,
                 IsNeutral = false,
                 IsPending = false,
-                KickOffTime = DateTime.Parse("01-01-2014"),
+                KickOffTime = DateTime.Now,
                 MatchCode = "01",
                 GoalRecord = string.Empty,
                 ResultValue = "6-1 *30-40 40-30* *40-0 40-0* *40-0 40-0* *40-0",
@@ -51,7 +53,25 @@
                 RefNo = "12"
             };
 
-            _listData.Add(_sportsBookInfo);
+            _sportsbookList.Add(_sportsbookInfo);
+
+            var outright = new OutRight
+            {
+                EventDate = DateTime.Now,
+                SportType = (int)SportType.Soccer,
+                LeagueId = 1,
+                TeamId = 1,
+                Status = string.Empty
+            };
+            _outrightList.Add(outright);
+
+            var parlay = new Parlay
+            {
+                SportId = (int)SportType.Soccer,
+                LeagueId = 1,
+                Sportbook = _sportsbookList
+            };
+            _parlayList.Add(parlay);
         }
 
         #region HtmlParser
@@ -65,7 +85,7 @@
         {
             List<Sportbook> dataList = null;
             ResultSetting setting = null;
-            ResultEngine.HtmlParser<Sportbook>(dataList, setting);
+            ResultEngine.HtmlParser(dataList, setting);
         }
 
         /// <summary>
@@ -81,14 +101,14 @@
             var expected = "Sport Type is invalid or DTO";
 
             // ACT
-            var exception = Assert.Catch<Exception>(() => ResultEngine.HtmlParser<Sportbook>(_listData, setting));
+            var exception = Assert.Catch<Exception>(() => ResultEngine.HtmlParser(_sportsbookList, setting));
 
             // Assert
             StringAssert.Contains(expected, exception.Message, "Sport Type is invalid or DTO name doesn't match with sportType.");
         }
 
         /// <summary>
-        /// Testing for render html result. When setting sports book, popup is false and data list parameter is null.
+        /// Testing for render html result. When setting sports book, popup is false.
         /// </summary>
         [Test]
         public void HtmlParser_ResultSettingIsSportsbookAndDataListIsNotNull_ReturnHtmlValue()
@@ -99,19 +119,17 @@
                 IsPopUp = false
             };
 
-            var result = ResultEngine.HtmlParser<Sportbook>(_listData, setting);
+            var result = ResultEngine.HtmlParser(_sportsbookList, setting);
 
             Assert.IsNotNullOrEmpty(result);
         }
 
         /// <summary>
-        /// Testing for render html result. When setting outright and data list parameter is null.
+        /// Testing for render html result. When setting outright is true.
         /// </summary>
         [Test]
         public void HtmlParser_ResultSettingIsOutrightAndDataListIsNotNull_ReturnHtmlValue()
         {
-            var _listOutright = new List<OutRight>();
-
             var setting = new ResultSetting
             {
                 SportType = SportType.Soccer,
@@ -119,45 +137,41 @@
                 IsOutRight = true
             };
 
-            var result = ResultEngine.HtmlParser<OutRight>(_listOutright, setting);
+            var result = ResultEngine.HtmlParser<OutRight>(_outrightList, setting);
 
             Assert.IsNotNullOrEmpty(result);
         }
 
         /// <summary>
-        /// Testing for render html result. When setting parlay and data list parameter is null.
+        /// Testing for render html result. When setting parlay popup is true.
         /// </summary>
         [Test]
         public void HtmlParser_ResultSettingIsParlayPopupAndDataListIsNotNull_ReturnHtmlValue()
         {
-            var _listParlay = new List<Parlay>();
-
             var setting = new ResultSetting
             {
                 SportType = SportType.Soccer,
                 IsParlayPopUp = true
             };
 
-            var result = ResultEngine.HtmlParser<Parlay>(_listParlay, setting);
+            var result = ResultEngine.HtmlParser<Parlay>(_parlayList, setting);
 
             Assert.IsNotNullOrEmpty(result);
         }
 
         /// <summary>
-        /// Testing for render html result. When setting Popup and data list parameter is null.
+        /// Testing for render html result. When setting Popup is true.
         /// </summary>
         [Test]
         public void HtmlParser_ResultSettingIsPopupAndDataListIsNotNull_ReturnHtmlValue()
         {
-            var _listParlay = new List<Sportbook>();
-
             var setting = new ResultSetting
             {
                 SportType = SportType.Soccer,
                 IsPopUp = true
             };
 
-            var result = ResultEngine.HtmlParser<Sportbook>(_listParlay, setting);
+            var result = ResultEngine.HtmlParser(_sportsbookList, setting);
 
             Assert.IsNotNullOrEmpty(result);
         }
@@ -177,7 +191,7 @@
             ResultSetting setting = null;
             _resultEngine = new ResultEngine();
 
-            _resultEngine.ExcelParser<Sportbook>(dataList, setting);
+            _resultEngine.ExcelParser(dataList, setting);
         }
 
         /// <summary>
@@ -194,20 +208,18 @@
             var expected = "Sport Type is invalid or DTO";
 
             // ACT
-            var exception = Assert.Catch<Exception>(() => _resultEngine.ExcelParser<Sportbook>(_listData, setting));
+            var exception = Assert.Catch<Exception>(() => _resultEngine.ExcelParser(_sportsbookList, setting));
 
             // Assert
             StringAssert.Contains(expected, exception.Message, "Sport Type is invalid or DTO name doesn't match with sportType.");
         }
 
         /// <summary>
-        /// We need to implement method testing by Stub. When outright setting and data list parameter is null.
+        /// We need to implement method testing by Stub. When setting Outright is true.
         /// </summary>
         [Test]
         public void ExcelParser_ResultSettingIsOutrightDTOIsOutrightAndDataListIsNotNull_ReturnMemoryStream()
         {
-            var _listOutright = new List<OutRight>();
-
             var setting = new ResultSetting
             {
                 SportType = SportType.Soccer,
@@ -217,14 +229,14 @@
             IBuilder builder = new BuilderStub();
             _resultEngine = new ResultEngine(builder);
 
-            var result = _resultEngine.ExcelParser<OutRight>(_listOutright, setting);
+            var result = _resultEngine.ExcelParser(_outrightList, setting);
 
             Assert.IsInstanceOf<MemoryStream>(result);
         }
 
         /// <summary>
         /// We need to implement method testing by Stub.
-        /// When the parameters are outright setting, DTO Name not OutRight and data list.
+        /// When the parameters are outright setting, DTO Name doesn't match with sportType.
         /// </summary>
         [Test]
         public void ExcelParser_ResultSettingIsOutrightDTOIsNotOutrightAndDataListIsNotNull_ThrowsException()
@@ -240,7 +252,7 @@
             _resultEngine = new ResultEngine(builder);
 
             // ACT
-            var exception = Assert.Catch<Exception>(() => _resultEngine.ExcelParser<Sportbook>(_listData, setting));
+            var exception = Assert.Catch<Exception>(() => _resultEngine.ExcelParser(_sportsbookList, setting));
 
             // Assert
             StringAssert.Contains(expected, exception.Message, "Sport Type is invalid or DTO name doesn't match with sportType.");
@@ -261,7 +273,7 @@
 
             _resultEngine = new ResultEngine();
 
-            var result = _resultEngine.ExcelParser<Sportbook>(_listData, setting);
+            var result = _resultEngine.ExcelParser(_sportsbookList, setting);
 
             Assert.IsNull(result);
         }
@@ -280,17 +292,149 @@
             IBuilder builder = new BuilderStub();
             _resultEngine = new ResultEngine(builder);
 
-            var result = _resultEngine.ExcelParser<Sportbook>(_listData, setting);
+            var result = _resultEngine.ExcelParser(_sportsbookList, setting);
 
             Assert.IsInstanceOf<MemoryStream>(result);
         }
 
         #endregion ExcelParser
 
+        #region JsonParser
+
+        /// <summary>
+        /// Testing for JsonParser method. When result setting or data list parameter is null.
+        /// </summary>
+        [Test]
+        [ExpectedException(typeof(ObjectNullException), ExpectedMessage = "The data is null or setting is null")]
+        public void JsonParser_ResultSettingOrDataListIsNull_ThrowsException()
+        {
+            List<Sportbook> dataList = null;
+            ResultSetting setting = null;
+
+            ResultEngine.JsonParser(dataList, setting);
+        }
+
+        /// <summary>
+        /// Testing for JsonParser method. When Sport Type is invalid or DTO name doesn't match with sportType.
+        /// </summary>
+        [Test]
+        public void JsonParser_SportTypeOrDTONameInvalid_ThrowsException()
+        {
+            var setting = new ResultSetting
+            {
+                SportType = (SportType)(-1),
+            };
+            var expected = "Sport Type is invalid or DTO";
+
+            // ACT
+            var exception = Assert.Catch<Exception>(() => ResultEngine.JsonParser(_sportsbookList, setting));
+
+            // Assert
+            StringAssert.Contains(expected, exception.Message, "Sport Type is invalid or DTO name doesn't match with sportType.");
+        }
+
+        /// <summary>
+        /// Testing for JsonParser method. When Setting Outright is true and DTO name doesn't match with sportType.
+        /// </summary>
+        [Test]
+        public void JsonParser_ResultSettingIsOutrightAndDTONameInvalid_ThrowsException()
+        {
+            var setting = new ResultSetting
+            {
+                SportType = SportType.Soccer,
+                IsOutRight = true
+            };
+            var expected = "DTO (Sportbook) is invalid";
+
+            // ACT
+            var exception = Assert.Catch<Exception>(() => ResultEngine.JsonParser(_sportsbookList, setting));
+
+            // Assert
+            StringAssert.Contains(expected, exception.Message, "DTO name doesn't match with sportType. When setting result is Outright.");
+        }
+
+        /// <summary>
+        /// Testing for JsonParser method. When Setting Outright is true and DTO name does match with sportType.
+        /// </summary>
+        [Test]
+        public void JsonParser_ResultSettingIsOutrightAndDTONameValid_ReturnValue()
+        {
+            var setting = new ResultSetting
+            {
+                SportType = SportType.Soccer,
+                IsOutRight = true
+            };
+
+            // ACT
+            var result = ResultEngine.JsonParser(_outrightList, setting);
+
+            // Assert
+            Assert.IsNotNullOrEmpty(result);
+        }
+
+        /// <summary>
+        /// Testing for JsonParser method. When Setting Parlay Popup is true and DTO name doesn't match with sportType.
+        /// </summary>
+        [Test]
+        public void JsonParser_ResultSettingIsParlayAndDTONameInvalid_ThrowsException()
+        {
+            var setting = new ResultSetting
+            {
+                SportType = SportType.Soccer,
+                IsParlayPopUp = true
+            };
+            var expected = "Sport Type is invalid or DTO (Sportbook) doesn't match with sportType";
+
+            // ACT
+            var exception = Assert.Catch<Exception>(() => ResultEngine.JsonParser(_sportsbookList, setting));
+
+            // Assert
+            StringAssert.Contains(expected, exception.Message, "DTO name doesn't match with sportType. When setting result is ParlayPopup.");
+        }
+
+        /// <summary>
+        /// Testing for JsonParser method. When Setting Parlay Popup is true and DTO name does match with sportType.
+        /// </summary>
+        [Test]
+        public void JsonParser_ResultSettingIsParlayAndDTONameValid_ReturnValue()
+        {
+            var setting = new ResultSetting
+            {
+                SportType = SportType.Soccer,
+                IsParlayPopUp = true
+            };
+
+            // ACT
+            var result = ResultEngine.JsonParser(_parlayList, setting);
+
+            // Assert
+            Assert.IsNotNullOrEmpty(result);
+        }
+
+        /// <summary>
+        /// Testing for JsonParser method. When Setting Parlay Popup and Outright is false.
+        /// </summary>
+        [Test]
+        public void JsonParser_ResultSettingIsParlayAndIsOutrightFalse_ReturnSportsbookValue()
+        {
+            var setting = new ResultSetting
+            {
+                SportType = SportType.Soccer,
+            };
+
+            // ACT
+            var result = ResultEngine.JsonParser(_sportsbookList, setting);
+
+            // Assert
+            Assert.IsNotNullOrEmpty(result);
+        }
+
+        #endregion JsonParser
+
         [TearDown]
         public void TearDown()
         {
-            _sportsBookInfo = null;
+            _sportsbookInfo = null;
         }
     }
 }

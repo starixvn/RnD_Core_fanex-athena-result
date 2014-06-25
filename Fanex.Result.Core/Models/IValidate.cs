@@ -13,14 +13,10 @@ namespace Fanex.Result.Core.Models
     /// </summary>
     internal interface IValidate
     {
-        bool ValidateRazorTemplate(string template);
-
         bool ValidateNormal(string dtoName, SportType sportType);
 
         bool ValidateOutRight(string dtoName);
 
         bool ValidateParlay(string dtoName);
-
-        bool ValidateLangResource(LangResources currentResource, string currentLanguageCode);
     }
 }

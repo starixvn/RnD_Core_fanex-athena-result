@@ -42,11 +42,6 @@ namespace Fanex.Result.Core.Models
             }
         }
 
-        public bool ValidateRazorTemplate(string template)
-        {
-            throw new NotImplementedException();
-        }
-
         /// <summary>
         /// Validate DTO and sport type.
         /// </summary>
@@ -124,11 +119,6 @@ namespace Fanex.Result.Core.Models
         public bool ValidateParlay(string dtoName)
         {
             return !string.IsNullOrEmpty(dtoName) && dtoName == DataDomain.PARLAY;
-        }
-
-        public bool ValidateLangResource(LangResources currentResource, string currentLanguageCode)
-        {
-            throw new NotImplementedException();
         }
     }
 }

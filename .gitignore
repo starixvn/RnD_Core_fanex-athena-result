@@ -24,15 +24,10 @@ Thumbs.db
 [Dd]ebug*/
 *.lib
 *.sbr
-obj/
-bin/
+/obj
+/bin
 [Rr]elease*/
 _ReSharper*/
 [Tt]est[Rr]esult*
-
-
-/Fanex.Result.WebFormTest/bin
-/Fanex.Result.WebFormTest/obj
-/Fanex.Result.Core/obj
 /Fanex.Result.Core.UnitTest/Code Coverage/Report
-/Fanex.Result.Core.UnitTest/bin
+

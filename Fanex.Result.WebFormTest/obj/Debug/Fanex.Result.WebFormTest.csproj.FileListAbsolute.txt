@@ -1,113 +1,15 @@
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\Fanex.Result.WebFormTest.dll
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\Fanex.Result.WebFormTest.pdb
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\Fanex.Result.Core.dll
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\Fanex.Result.DataTest.dll
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\NPOI.dll
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\RemotingRef.dll
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\Fanex.Common.dll
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\RazorEngine.dll
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\Newtonsoft.Json.dll
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\Ionic.Zip.dll
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\SPSRemoting.dll
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\IBCFile.dll
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\Fanex.Result.Core.pdb
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\Fanex.Result.DataTest.pdb
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\NPOI.xml
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\Fanex.Common.pdb
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\RazorEngine.pdb
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\RazorEngine.xml
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\Newtonsoft.Json.xml
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\obj\Debug\Fanex.Result.WebFormTest.csprojResolveAssemblyReference.cache
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\obj\Debug\Fanex.Result.WebFormTest.dll
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\obj\Debug\Fanex.Result.WebFormTest.pdb
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\Fanex.Result.WebFormTest.dll
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\Fanex.Result.WebFormTest.pdb
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\Fanex.Result.Core.dll
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\Fanex.Result.DataTest.dll
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\NPOI.dll
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\RemotingRef.dll
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\Fanex.Common.dll
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\RazorEngine.dll
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\Newtonsoft.Json.dll
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\Ionic.Zip.dll
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\SPSRemoting.dll
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\IBCFile.dll
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\Fanex.Result.Core.pdb
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\Fanex.Result.DataTest.pdb
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\NPOI.xml
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\Fanex.Common.pdb
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\RazorEngine.pdb
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\RazorEngine.xml
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\bin\Newtonsoft.Json.xml
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\obj\Debug\Fanex.Result.WebFormTest.csprojResolveAssemblyReference.cache
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\obj\Debug\Fanex.Result.WebFormTest.dll
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.WebFormTest\obj\Debug\Fanex.Result.WebFormTest.pdb
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.WebFormTest.dll
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.WebFormTest.pdb
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.Core.dll
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.DataTest.dll
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\NPOI.dll
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\RazorEngine.dll
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\Newtonsoft.Json.dll
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Common.dll
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\RemotingRef.dll
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\IBCFile.dll
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.Core.pdb
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.DataTest.pdb
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\NPOI.xml
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\RazorEngine.pdb
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\RazorEngine.xml
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\Newtonsoft.Json.xml
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Common.pdb
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\obj\Debug\Fanex.Result.WebFormTest.csprojResolveAssemblyReference.cache
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\obj\Debug\Fanex.Result.WebFormTest.dll
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\obj\Debug\Fanex.Result.WebFormTest.pdb
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.WebFormTest.dll
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.WebFormTest.pdb
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.Core.dll
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.DataTest.dll
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\IBCFile.dll
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\Newtonsoft.Json.dll
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\NPOI.dll
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\RazorEngine.dll
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\RemotingRef.dll
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.DataTest.pdb
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.Core.pdb
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\Newtonsoft.Json.xml
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\NPOI.xml
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\RazorEngine.pdb
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\RazorEngine.xml
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\obj\Debug\Fanex.Result.WebFormTest.dll
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\obj\Debug\Fanex.Result.WebFormTest.pdb
-D:\Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.WebFormTest.dll
-D:\Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.WebFormTest.pdb
-D:\Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.DataTest.dll
-D:\Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.DataTest.pdb
-D:\Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.Core.pdb
-D:\Project\fanex-athena-result\Fanex.Result.WebFormTest\obj\Debug\ResolveAssemblyReference.cache
-D:\Project\fanex-athena-result\Fanex.Result.WebFormTest\obj\Debug\Fanex.Result.WebFormTest.dll
-D:\Project\fanex-athena-result\Fanex.Result.WebFormTest\obj\Debug\Fanex.Result.WebFormTest.pdb
-D:\Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.Core.dll
-D:\Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\SPSRemoting.dll
-D:\Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\IBCCrypt.dll
-D:\Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\Newtonsoft.Json.xml
-D:\Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\NPOI.xml
-D:\Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\RazorEngine.pdb
-D:\Project\fanex-athena-result\Fanex.Result.WebFormTest\bin\RazorEngine.xml
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\obj\Debug\Fanex.Result.WebFormTest.csprojResolveAssemblyReference.cache
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\SPSRemoting.dll
-D:\Git LAB\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.WebFormTest.dll
-D:\Git LAB\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.WebFormTest.pdb
-D:\Git LAB\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.DataTest.dll
-D:\Git LAB\fanex-athena-result\Fanex.Result.WebFormTest\bin\IBCFile.dll
-D:\Git LAB\fanex-athena-result\Fanex.Result.WebFormTest\bin\RemotingRef.dll
-D:\Git LAB\fanex-athena-result\Fanex.Result.WebFormTest\bin\SPSRemoting.dll
-D:\Git LAB\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.DataTest.pdb
-D:\Git LAB\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.Core.pdb
-D:\Git LAB\fanex-athena-result\Fanex.Result.WebFormTest\bin\Newtonsoft.Json.xml
-D:\Git LAB\fanex-athena-result\Fanex.Result.WebFormTest\bin\NPOI.xml
-D:\Git LAB\fanex-athena-result\Fanex.Result.WebFormTest\bin\RazorEngine.pdb
-D:\Git LAB\fanex-athena-result\Fanex.Result.WebFormTest\bin\RazorEngine.xml
-D:\Git LAB\fanex-athena-result\Fanex.Result.WebFormTest\obj\Debug\ResolveAssemblyReference.cache
-D:\Git LAB\fanex-athena-result\Fanex.Result.WebFormTest\obj\Debug\Fanex.Result.WebFormTest.dll
-D:\Git LAB\fanex-athena-result\Fanex.Result.WebFormTest\obj\Debug\Fanex.Result.WebFormTest.pdb
+D:\Project\Fanex.Result.Core\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.WebFormTest.dll
+D:\Project\Fanex.Result.Core\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.WebFormTest.pdb
+D:\Project\Fanex.Result.Core\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.Core.dll
+D:\Project\Fanex.Result.Core\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.DataTest.dll
+D:\Project\Fanex.Result.Core\fanex-athena-result\Fanex.Result.WebFormTest\bin\IBCCrypt.dll
+D:\Project\Fanex.Result.Core\fanex-athena-result\Fanex.Result.WebFormTest\bin\SPSRemoting.dll
+D:\Project\Fanex.Result.Core\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.Core.pdb
+D:\Project\Fanex.Result.Core\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.DataTest.pdb
+D:\Project\Fanex.Result.Core\fanex-athena-result\Fanex.Result.WebFormTest\bin\Newtonsoft.Json.xml
+D:\Project\Fanex.Result.Core\fanex-athena-result\Fanex.Result.WebFormTest\bin\NPOI.xml
+D:\Project\Fanex.Result.Core\fanex-athena-result\Fanex.Result.WebFormTest\bin\RazorEngine.pdb
+D:\Project\Fanex.Result.Core\fanex-athena-result\Fanex.Result.WebFormTest\bin\RazorEngine.xml
+D:\Project\Fanex.Result.Core\fanex-athena-result\Fanex.Result.WebFormTest\obj\Debug\ResolveAssemblyReference.cache
+D:\Project\Fanex.Result.Core\fanex-athena-result\Fanex.Result.WebFormTest\obj\Debug\Fanex.Result.WebFormTest.dll
+D:\Project\Fanex.Result.Core\fanex-athena-result\Fanex.Result.WebFormTest\obj\Debug\Fanex.Result.WebFormTest.pdb

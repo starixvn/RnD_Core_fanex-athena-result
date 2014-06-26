@@ -4,6 +4,9 @@
     using System.IO;
     using Fanex.Result.Core.Models;
 
+    /// <summary>
+    ///  Define stub ExcelParser.
+    /// </summary>
     public class ExcelParserStub : IExcelParser
     {
         public MemoryStream Parser<T>(

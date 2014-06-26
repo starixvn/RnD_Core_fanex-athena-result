@@ -302,7 +302,7 @@
         #region JsonParser
 
         /// <summary>
-        /// Testing for JsonParser method. When result setting or data list parameter is null.
+        /// Testing for JSONParser method. When result setting or data list parameter is null.
         /// </summary>
         [Test]
         [ExpectedException(typeof(ObjectNullException), ExpectedMessage = "The data is null or setting is null")]
@@ -315,7 +315,7 @@
         }
 
         /// <summary>
-        /// Testing for JsonParser method. When Sport Type is invalid or DTO name doesn't match with sportType.
+        /// Testing for JSONParser method. When Sport Type is invalid or DTO name doesn't match with sportType.
         /// </summary>
         [Test]
         public void JsonParser_SportTypeOrDTONameInvalid_ThrowsException()
@@ -334,7 +334,7 @@
         }
 
         /// <summary>
-        /// Testing for JsonParser method. When Setting Outright is true and DTO name doesn't match with sportType.
+        /// Testing for JSONParser method. When Setting Outright is true and DTO name doesn't match with sportType.
         /// </summary>
         [Test]
         public void JsonParser_ResultSettingIsOutrightAndDTONameInvalid_ThrowsException()
@@ -354,7 +354,7 @@
         }
 
         /// <summary>
-        /// Testing for JsonParser method. When Setting Outright is true and DTO name does match with sportType.
+        /// Testing for JSONParser method. When Setting Outright is true and DTO name does match with sportType.
         /// </summary>
         [Test]
         public void JsonParser_ResultSettingIsOutrightAndDTONameValid_ReturnValue()
@@ -373,7 +373,7 @@
         }
 
         /// <summary>
-        /// Testing for JsonParser method. When Setting Parlay Popup is true and DTO name doesn't match with sportType.
+        /// Testing for JSONParser method. When Setting Parlay Popup is true and DTO name doesn't match with sportType.
         /// </summary>
         [Test]
         public void JsonParser_ResultSettingIsParlayAndDTONameInvalid_ThrowsException()
@@ -393,7 +393,7 @@
         }
 
         /// <summary>
-        /// Testing for JsonParser method. When Setting Parlay Popup is true and DTO name does match with sportType.
+        /// Testing for JSONParser method. When Setting Parlay Popup is true and DTO name does match with sportType.
         /// </summary>
         [Test]
         public void JsonParser_ResultSettingIsParlayAndDTONameValid_ReturnValue()
@@ -412,7 +412,7 @@
         }
 
         /// <summary>
-        /// Testing for JsonParser method. When Setting Parlay Popup and Outright is false.
+        /// Testing for JSONParser method. When Setting Parlay Popup and Outright is false.
         /// </summary>
         [Test]
         public void JsonParser_ResultSettingIsParlayAndIsOutrightFalse_ReturnSportsbookValue()

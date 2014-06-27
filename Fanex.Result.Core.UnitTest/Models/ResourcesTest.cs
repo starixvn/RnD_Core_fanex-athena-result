@@ -31,8 +31,7 @@
         {
             var languageCode = string.Empty;
 
-            var exception = Assert.Throws<TargetInvocationException>(() =>
-                            Helper.RunStaticMethod(typeof(Resources), "GetResources", new object[1] { languageCode }));
+            var exception = Assert.Throws<TargetInvocationException>(() => Helper.RunStaticMethod(typeof(Resources), "GetResources", new object[1] { languageCode }));
 
             Assert.IsInstanceOf<Exception>(exception.InnerException);
         }

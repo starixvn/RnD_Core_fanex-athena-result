@@ -56,7 +56,6 @@
     <Compile Include="Stub\BuilderStub.cs" />
     <Compile Include="Stub\ExcelParserStub.cs" />
     <Compile Include="Utilities\Helper.cs" />
-    <Compile Include="ViewModels\BadmintonViewModelTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fanex.Result.Core\Fanex.Result.Core.csproj">

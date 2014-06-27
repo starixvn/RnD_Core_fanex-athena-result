@@ -15,7 +15,7 @@ namespace Fanex.Result.Core
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    internal sealed class ResultEngine
+    public class ResultEngine
     {
         private const string EXCELTEMPLATEPATH = "App_Data/Fanex.Result/";
         private const string ARGUEMENTMES = "Sport Type is invalid or DTO ({0}) doesn't match with sportType";

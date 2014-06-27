@@ -20,7 +20,6 @@
         private IList<Sportbook> _sportsbookList = new List<Sportbook>();
         private IList<OutRight> _outrightList = new List<OutRight>();
         private IList<Parlay> _parlayList = new List<Parlay>();
-        private ResultEngine _resultEngine = null;
 
         /// <summary>
         /// Setup data.
@@ -189,9 +188,9 @@
         {
             List<Sportbook> dataList = null;
             ResultSetting setting = null;
-            _resultEngine = new ResultEngine();
+            //var _resultEngine = new ResultEngine();
 
-            _resultEngine.ExcelParser(dataList, setting);
+            ResultEngine.ExcelParser(dataList, setting);
         }
 
         /// <summary>
@@ -200,7 +199,7 @@
         [Test]
         public void ExcelParser_SportTypeOrDTONameInvalid_ThrowsException()
         {
-            _resultEngine = new ResultEngine();
+            //_resultEngine = new ResultEngine();
             var setting = new ResultSetting
             {
                 SportType = (SportType)(-1),
@@ -208,7 +207,7 @@
             var expected = "Sport Type is invalid or DTO";
 
             // ACT
-            var exception = Assert.Catch<Exception>(() => _resultEngine.ExcelParser(_sportsbookList, setting));
+            var exception = Assert.Catch<Exception>(() => ResultEngine.ExcelParser(_sportsbookList, setting));
 
             // Assert
             StringAssert.Contains(expected, exception.Message, "Sport Type is invalid or DTO name doesn't match with sportType.");
@@ -227,9 +226,9 @@
             };
 
             IBuilder builder = new BuilderStub();
-            _resultEngine = new ResultEngine(builder);
+            ResultEngine.Reset(builder);
 
-            var result = _resultEngine.ExcelParser(_outrightList, setting);
+            var result = ResultEngine.ExcelParser(_outrightList, setting);
 
             Assert.IsInstanceOf<MemoryStream>(result);
         }
@@ -249,10 +248,10 @@
             var expected = string.Format(ARGUEMENTMESOUTRIGHT, "Sportbook");
 
             IBuilder builder = new BuilderStub();
-            _resultEngine = new ResultEngine(builder);
+            ResultEngine.Reset(builder);
 
             // ACT
-            var exception = Assert.Catch<Exception>(() => _resultEngine.ExcelParser(_sportsbookList, setting));
+            var exception = Assert.Catch<Exception>(() => ResultEngine.ExcelParser(_sportsbookList, setting));
 
             // Assert
             StringAssert.Contains(expected, exception.Message, "Sport Type is invalid or DTO name doesn't match with sportType.");
@@ -271,9 +270,7 @@
                 IsPopUp = true
             };
 
-            _resultEngine = new ResultEngine();
-
-            var result = _resultEngine.ExcelParser(_sportsbookList, setting);
+            var result = ResultEngine.ExcelParser(_sportsbookList, setting);
 
             Assert.IsNull(result);
         }
@@ -290,9 +287,9 @@
             };
 
             IBuilder builder = new BuilderStub();
-            _resultEngine = new ResultEngine(builder);
+            ResultEngine.Reset(builder);
 
-            var result = _resultEngine.ExcelParser(_sportsbookList, setting);
+            var result = ResultEngine.ExcelParser(_sportsbookList, setting);
 
             Assert.IsInstanceOf<MemoryStream>(result);
         }

@@ -15,21 +15,22 @@ namespace Fanex.Result.Core
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public class ResultEngine
+    public static class ResultEngine
     {
         private const string EXCELTEMPLATEPATH = "App_Data/Fanex.Result/";
         private const string ARGUEMENTMES = "Sport Type is invalid or DTO ({0}) doesn't match with sportType";
         private const string ARGUEMENTMESOUTRIGHT = "DTO ({0}) is invalid";
-        private readonly IBuilder _builderTest;
 
-        public ResultEngine()
-            : this(null)
+        private static IBuilder _builder;
+
+        static ResultEngine()
         {
+            Reset(null);
         }
 
-        public ResultEngine(IBuilder builder)
+        public static void Reset(IBuilder builder)
         {
-            _builderTest = builder ?? new Builder();
+            _builder = builder ?? new Builder();
         }
 
         /// <summary>
@@ -136,10 +137,6 @@ namespace Fanex.Result.Core
             return builder.JSONSportTypeBuilder(dataList, setting.SportType, setting.LanguageCode);
         }
 
-        #region KenoResult
-
-        #endregion KenoResult
-
         /// <summary>
         /// Create excel file.
         /// </summary>
@@ -147,7 +144,7 @@ namespace Fanex.Result.Core
         /// <param name="dataList">The DTO list.</param>
         /// <param name="setting">The result setting.</param>
         /// <returns>The memory stream.</returns>
-        public MemoryStream ExcelParser<T>(IList<T> dataList, ResultSetting setting)
+        public static MemoryStream ExcelParser<T>(IList<T> dataList, ResultSetting setting)
         {
             if (setting == null || dataList == null)
             {
@@ -172,7 +169,7 @@ namespace Fanex.Result.Core
                     throw new ObjectNullException(string.Format(ARGUEMENTMESOUTRIGHT, dtoName));
                 }
 
-                return _builderTest.OutRightExcelBuilder(dataList, setting.LanguageCode, setting.ExcelTemplatePath, setting.ExcelTitle);
+                return _builder.OutRightExcelBuilder(dataList, setting.LanguageCode, setting.ExcelTemplatePath, setting.ExcelTitle);
             }
 
             if (setting.IsPopUp || setting.IsParlayPopUp)
@@ -185,7 +182,7 @@ namespace Fanex.Result.Core
                 throw new ObjectNullException(string.Format(ARGUEMENTMES, dtoName));
             }
 
-            return _builderTest.ExcelBuilder(dataList, setting.SportType, setting.LanguageCode, setting.ExcelTemplatePath, setting.ExcelTitle);
+            return _builder.ExcelBuilder(dataList, setting.SportType, setting.LanguageCode, setting.ExcelTemplatePath, setting.ExcelTitle);
         }
 
         #region HtmlParser-SubFunction

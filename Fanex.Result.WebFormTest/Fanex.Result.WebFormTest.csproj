@@ -248,6 +248,9 @@
     <Compile Include="Example.aspx.designer.cs">
       <DependentUpon>Example.aspx</DependentUpon>
     </Compile>
+    <Compile Include="GetData.ashx.cs">
+      <DependentUpon>GetData.ashx</DependentUpon>
+    </Compile>
     <Compile Include="GetFilter.ashx.cs">
       <DependentUpon>GetFilter.ashx</DependentUpon>
     </Compile>
@@ -329,6 +332,7 @@
     <Content Include="DownLoad\Fanex.Result_rev1_1.zip" />
     <None Include="App_Data\Fanex.Result\VSTennis.xls" />
     <None Include="Fanex.Result.WebFormTest.licenseheader" />
+    <Content Include="GetData.ashx" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

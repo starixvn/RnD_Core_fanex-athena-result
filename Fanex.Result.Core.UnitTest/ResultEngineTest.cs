@@ -188,7 +188,6 @@
         {
             List<Sportbook> dataList = null;
             ResultSetting setting = null;
-            //var _resultEngine = new ResultEngine();
 
             ResultEngine.ExcelParser(dataList, setting);
         }
@@ -199,7 +198,6 @@
         [Test]
         public void ExcelParser_SportTypeOrDTONameInvalid_ThrowsException()
         {
-            //_resultEngine = new ResultEngine();
             var setting = new ResultSetting
             {
                 SportType = (SportType)(-1),

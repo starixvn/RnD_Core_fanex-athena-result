@@ -15,6 +15,9 @@
   <project key="-693215973">
     <configuration>DEBUG;TRACE</configuration>
   </project>
+  <project key="1325457955">
+    <configuration>DEBUG;TRACE</configuration>
+  </project>
   <sourcecode name="GetData.ashx.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2014/04/01 10:18:24.000</styleCop>
@@ -40,9 +43,6 @@
     </timestamps>
     <violations />
   </sourcecode>
-  <project key="1325457955">
-    <configuration>DEBUG;TRACE</configuration>
-  </project>
   <sourcecode name="GetFilter.ashx.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2014/04/01 10:18:24.000</styleCop>

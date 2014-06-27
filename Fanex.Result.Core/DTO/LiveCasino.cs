@@ -7,10 +7,12 @@
 namespace Fanex.Result.Core.DTO
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
+    [ExcludeFromCodeCoverage]
     public sealed class LiveCasino
     {
         public int LeagueId { get; set; }

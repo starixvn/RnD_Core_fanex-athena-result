@@ -31,6 +31,6 @@ D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\bin\Release\Raz
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\bin\Release\System.Web.Razor.xml
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Build\Fanex.Result.Core.dll
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Build\Fanex.Result.Core.pdb
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\obj\Release\ResolveAssemblyReference.cache
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\obj\Release\Fanex.Result.Core.dll
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\obj\Release\Fanex.Result.Core.pdb
+D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\obj\Release\Fanex.Result.Core.csprojResolveAssemblyReference.cache

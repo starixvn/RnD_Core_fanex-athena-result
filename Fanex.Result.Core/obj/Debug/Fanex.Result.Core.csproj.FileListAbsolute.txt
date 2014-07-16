@@ -55,20 +55,17 @@ D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.Core\obj\Debu
 D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.pdb
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\bin\Debug\Fanex.Result.Core.dll
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\bin\Debug\Fanex.Result.Core.pdb
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\bin\Debug\Fanex.Npoil.Extension.dll
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\bin\Debug\IBCFile.dll
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\bin\Debug\Newtonsoft.Json.dll
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\bin\Debug\NPOI.dll
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\bin\Debug\RazorEngine.dll
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\bin\Debug\RemotingRef.dll
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\bin\Debug\System.Web.Razor.dll
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\bin\Debug\Fanex.Npoil.Extension.pdb
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\bin\Debug\Newtonsoft.Json.xml
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\bin\Debug\NPOI.xml
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\bin\Debug\RazorEngine.pdb
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\bin\Debug\RazorEngine.xml
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\bin\Debug\System.Web.Razor.xml
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\obj\Debug\ResolveAssemblyReference.cache
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.dll
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.pdb
 D:\Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\Fanex.Result.Core.dll
@@ -88,3 +85,4 @@ D:\Project\fanex-athena-result\Fanex.Result.Core\obj\Debug\ResolveAssemblyRefere
 D:\Project\fanex-athena-result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.dll
 D:\Project\fanex-athena-result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.pdb
 D:\Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\SPSRemoting.dll
+D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.csprojResolveAssemblyReference.cache

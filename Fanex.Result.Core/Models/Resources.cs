@@ -79,7 +79,7 @@ namespace Fanex.Result.Core.Models
             {
                 throw new ArgumentNullException("languageCode");
             }
-
+            
             using (var stream = Assembly.GetExecutingAssembly()
                 .GetManifestResourceStream("Fanex.Result.Core.Resources." + languageCode + ".xml"))
             {

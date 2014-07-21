@@ -19,9 +19,9 @@ namespace Fanex.Result.Core.ViewModels
     public abstract class BaseViewModel
     {
         public const string NA = "N/A";
-        private const string englishLanguageCode = "en-US";
+
         protected static readonly Dictionary<string, string> TWLanguage = new
-             Dictionary<string, string>
+     Dictionary<string, string>
              {
         { "en-US", "en" },
         { "zh-TW", "ch" },
@@ -32,7 +32,8 @@ namespace Fanex.Result.Core.ViewModels
         { "vi-VN", "vn" }
         };
 
-        private string _languageCode = englishLanguageCode;
+        private const string EnglishLanguageCode = "en-US";
+        private string _languageCode = EnglishLanguageCode;
 
         private LangResources _lang;
 
@@ -40,7 +41,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return TWLanguage.ContainsKey(this.LanguageCode) ? TWLanguage[this.LanguageCode] : TWLanguage[englishLanguageCode];
+                return TWLanguage.ContainsKey(this.LanguageCode) ? TWLanguage[this.LanguageCode] : TWLanguage[EnglishLanguageCode];
             }
         }
 

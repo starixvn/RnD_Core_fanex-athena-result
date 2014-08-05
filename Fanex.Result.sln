@@ -19,6 +19,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeAnalysis", "CodeAnalysis", "{849463FE-155B-463A-9801-7985CD39DC11}"
 	ProjectSection(SolutionItems) = preProject
 		CodeAnalysis\CodeAnalysisConfiguration.xml = CodeAnalysis\CodeAnalysisConfiguration.xml
+		..\..\fxcop\FxCopDictionary.xml = ..\..\fxcop\FxCopDictionary.xml
 	EndProjectSection
 EndProject
 Global

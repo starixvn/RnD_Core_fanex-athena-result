@@ -19,3 +19,4 @@ D:\Project\fanex-athena-result\Fanex.Result.DataTest\bin\Debug\Fanex.Result.Data
 D:\Project\fanex-athena-result\Fanex.Result.DataTest\obj\Debug\ResolveAssemblyReference.cache
 D:\Project\fanex-athena-result\Fanex.Result.DataTest\obj\Debug\Fanex.Result.DataTest.dll
 D:\Project\fanex-athena-result\Fanex.Result.DataTest\obj\Debug\Fanex.Result.DataTest.pdb
+D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.DataTest\obj\Debug\Fanex.Result.DataTest.csprojResolveAssemblyReference.cache

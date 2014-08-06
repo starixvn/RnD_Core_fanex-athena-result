@@ -6,7 +6,7 @@
    <Modules>
     <Module Name="fanex.result.webformtest.dll">
      <Messages>
-      <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Status="Active" Created="2014-07-24 02:37:41Z" FixCategory="NonBreaking">
+      <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Status="Active" Created="2014-08-06 05:39:57Z" FixCategory="NonBreaking">
        <Issue Certainty="95" Level="Error">Mark 'Fanex.Result.WebFormTest.dll' with CLSCompliant(true) because it exposes externally visible types.</Issue>
       </Message>
      </Messages>
@@ -15,7 +15,7 @@
        <Types>
         <Type Name="_Default" Kind="Class" Accessibility="Public" ExternallyVisible="True">
          <Messages>
-          <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2014-07-24 02:37:41Z" FixCategory="Breaking">
+          <Message TypeName="IdentifiersShouldNotContainUnderscores" Category="Microsoft.Naming" CheckId="CA1707" Status="Active" Created="2014-08-06 05:39:57Z" FixCategory="Breaking">
            <Issue Name="Type" Certainty="95" Level="Error">Remove the underscores from type name '_Default'.</Issue>
           </Message>
          </Messages>
@@ -24,15 +24,8 @@
          <Members>
           <Member Name="#_serrialize" Kind="Field" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="Active" Created="2014-07-24 02:37:41Z" FixCategory="NonBreaking">
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="Active" Created="2014-08-06 05:39:57Z" FixCategory="NonBreaking">
              <Issue Certainty="75" Level="Warning">It appears that field 'GetData._serrialize' is never used or is only ever assigned to. Use this field or remove it.</Issue>
-            </Message>
-           </Messages>
-          </Member>
-          <Member Name="#GetDataBySport(System.Web.HttpContext,System.DateTime,System.Int32,System.Int32,System.String)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
-           <Messages>
-            <Message Id="matchs" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2014-07-24 02:37:41Z" FixCategory="NonBreaking">
-             <Issue Certainty="95" Level="Warning" Path="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest" File="GetData.ashx.cs" Line="229">'GetData.GetDataBySport(HttpContext, DateTime, int, int, string)' declares a variable, 'matchs', of type 'OrderedEnumerableRowCollection&lt;DataRow&gt;', which is never used or is only assigned to. Use this variable or remove it.</Issue>
             </Message>
            </Messages>
           </Member>
@@ -42,26 +35,19 @@
          <Members>
           <Member Name="#_serrialize" Kind="Field" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="Active" Created="2014-07-24 02:37:41Z" FixCategory="NonBreaking">
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="Active" Created="2014-08-06 05:39:57Z" FixCategory="NonBreaking">
              <Issue Certainty="75" Level="Warning">It appears that field 'GetPopUpData._serrialize' is never used or is only ever assigned to. Use this field or remove it.</Issue>
-            </Message>
-           </Messages>
-          </Member>
-          <Member Name="#ProcessNormal(System.Web.HttpContext,System.Int32,Fanex.Result.Core.SportType,System.String,System.String)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
-           <Messages>
-            <Message Id="matchs" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2014-07-24 02:37:41Z" FixCategory="NonBreaking">
-             <Issue Certainty="95" Level="Warning" Path="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest" File="GetPopUpData.ashx.cs" Line="176">'GetPopUpData.ProcessNormal(HttpContext, int, SportType, string, string)' declares a variable, 'matchs', of type 'OrderedEnumerableRowCollection&lt;DataRow&gt;', which is never used or is only assigned to. Use this variable or remove it.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#ProcessRequest(System.Web.HttpContext)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
            <Messages>
-            <Message Id="System.Int32.TryParse(System.String,System.Int32@)" TypeName="DoNotIgnoreMethodResults" Category="Microsoft.Usage" CheckId="CA1806" Status="Active" Created="2014-07-24 02:37:41Z" FixCategory="NonBreaking">
+            <Message Id="System.Int32.TryParse(System.String,System.Int32@)" TypeName="DoNotIgnoreMethodResults" Category="Microsoft.Usage" CheckId="CA1806" Status="Active" Created="2014-08-06 05:39:57Z" FixCategory="NonBreaking">
              <Issue Name="TryParse" Certainty="95" Level="Warning" Path="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest" File="GetPopUpData.ashx.cs" Line="55">'GetPopUpData.ProcessRequest(HttpContext)' calls 'int.TryParse(string, out int)' but does not explicitly check whether the conversion succeeded. Either use the return value in a conditional statement or verify that the call site expects that the out argument will be set to the default value when the conversion fails.</Issue>
              <Issue Name="TryParse" Certainty="95" Level="Warning" Path="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest" File="GetPopUpData.ashx.cs" Line="57">'GetPopUpData.ProcessRequest(HttpContext)' calls 'int.TryParse(string, out int)' but does not explicitly check whether the conversion succeeded. Either use the return value in a conditional statement or verify that the call site expects that the out argument will be set to the default value when the conversion fails.</Issue>
              <Issue Name="TryParse" Certainty="95" Level="Warning" Path="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest" File="GetPopUpData.ashx.cs" Line="59">'GetPopUpData.ProcessRequest(HttpContext)' calls 'int.TryParse(string, out int)' but does not explicitly check whether the conversion succeeded. Either use the return value in a conditional statement or verify that the call site expects that the out argument will be set to the default value when the conversion fails.</Issue>
             </Message>
-            <Message Id="System.Int64.TryParse(System.String,System.Int64@)" TypeName="DoNotIgnoreMethodResults" Category="Microsoft.Usage" CheckId="CA1806" Status="Active" Created="2014-07-24 02:37:41Z" FixCategory="NonBreaking">
+            <Message Id="System.Int64.TryParse(System.String,System.Int64@)" TypeName="DoNotIgnoreMethodResults" Category="Microsoft.Usage" CheckId="CA1806" Status="Active" Created="2014-08-06 05:39:57Z" FixCategory="NonBreaking">
              <Issue Name="TryParse" Certainty="95" Level="Warning" Path="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest" File="GetPopUpData.ashx.cs" Line="56">'GetPopUpData.ProcessRequest(HttpContext)' calls 'long.TryParse(string, out long)' but does not explicitly check whether the conversion succeeded. Either use the return value in a conditional statement or verify that the call site expects that the out argument will be set to the default value when the conversion fails.</Issue>
             </Message>
            </Messages>
@@ -72,36 +58,36 @@
          <Members>
           <Member Name="#Application_End(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-07-24 02:37:41Z" FixCategory="NonBreaking">
-             <Issue Certainty="75" Level="Warning" Path="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest" File="Global.asax.cs" Line="23">'Global.Application_End(object, EventArgs)' appears to have no upstream public or protected callers.</Issue>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-08-06 05:39:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest" File="Global.asax.cs" Line="24">'Global.Application_End(object, EventArgs)' appears to have no upstream public or protected callers.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#Application_Error(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-07-24 02:37:41Z" FixCategory="NonBreaking">
-             <Issue Certainty="75" Level="Warning" Path="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest" File="Global.asax.cs" Line="27">'Global.Application_Error(object, EventArgs)' appears to have no upstream public or protected callers.</Issue>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-08-06 05:39:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest" File="Global.asax.cs" Line="28">'Global.Application_Error(object, EventArgs)' appears to have no upstream public or protected callers.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#Application_Start(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-07-24 02:37:41Z" FixCategory="NonBreaking">
-             <Issue Certainty="75" Level="Warning" Path="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest" File="Global.asax.cs" Line="19">'Global.Application_Start(object, EventArgs)' appears to have no upstream public or protected callers.</Issue>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-08-06 05:39:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest" File="Global.asax.cs" Line="20">'Global.Application_Start(object, EventArgs)' appears to have no upstream public or protected callers.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#Session_End(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-07-24 02:37:41Z" FixCategory="NonBreaking">
-             <Issue Certainty="75" Level="Warning" Path="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest" File="Global.asax.cs" Line="35">'Global.Session_End(object, EventArgs)' appears to have no upstream public or protected callers.</Issue>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-08-06 05:39:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest" File="Global.asax.cs" Line="36">'Global.Session_End(object, EventArgs)' appears to have no upstream public or protected callers.</Issue>
             </Message>
            </Messages>
           </Member>
           <Member Name="#Session_Start(System.Object,System.EventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
            <Messages>
-            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-07-24 02:37:41Z" FixCategory="NonBreaking">
-             <Issue Certainty="75" Level="Warning" Path="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest" File="Global.asax.cs" Line="31">'Global.Session_Start(object, EventArgs)' appears to have no upstream public or protected callers.</Issue>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-08-06 05:39:57Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest" File="Global.asax.cs" Line="32">'Global.Session_Start(object, EventArgs)' appears to have no upstream public or protected callers.</Issue>
             </Message>
            </Messages>
           </Member>
@@ -164,16 +150,6 @@
    <Email>[none]</Email>
    <MessageLevel Certainty="95">Error</MessageLevel>
    <File Name="designrules.dll" Version="10.0.0.0" />
-  </Rule>
-  <Rule TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804">
-   <Name>Remove unused locals</Name>
-   <Description>Remove locals that are not used or are only assigned to in method implementations.</Description>
-   <Resolution Name="Default">{0} declares a variable, {1}, of type {2}, which is never used or is only assigned to. Use this variable or remove it.</Resolution>
-   <Owner />
-   <Url>http://msdn.microsoft.com/library/ms182278(VS.100).aspx</Url>
-   <Email>[none]</Email>
-   <MessageLevel Certainty="95">Warning</MessageLevel>
-   <File Name="performancerules.dll" Version="10.0.0.0" />
   </Rule>
  </Rules>
  <Localized>

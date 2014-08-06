@@ -7,6 +7,7 @@
 namespace Fanex.Result.Core.ViewModels
 {
     using System.Globalization;
+    using System.Linq;
     using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.Utilities;
     using RemotingRef;
@@ -16,7 +17,7 @@ namespace Fanex.Result.Core.ViewModels
     /// </summary>
     public sealed class LiveCasinoViewModel : BaseViewModel
     {
-        private const int Roulette = 1102;
+        private readonly int[] RouletteBettype = new int[2] { 1102, 1104 };
 
         private readonly LiveCasino _liveCasino;
 
@@ -59,7 +60,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                if (this._liveCasino.Bettype == Roulette)
+                if (RouletteBettype.Contains(this._liveCasino.Bettype))
                 {
                     return string.Empty;
                 }
@@ -207,7 +208,7 @@ namespace Fanex.Result.Core.ViewModels
             }
             else
             {
-                if (this._liveCasino.Bettype == Roulette)
+                if (RouletteBettype.Contains(this._liveCasino.Bettype))
                 {
                     if (this._liveCasino.FinalHomeScore.HasValue)
                     {

@@ -105,6 +105,26 @@
                         </ul>
                        
                     </li>
+                     <li>Update : version 1.5.3 - 05/08/2014 
+                      
+                      <a href="DownLoad/Fanex.Result_Npoi_1_2_5_rev1_5_3.zip">
+                       Npoi 1.2.5.0 </a>,&nbsp;
+                        or 
+                          <a href="DownLoad/Fanex.Result_Npoi_2_0_6_rev1_5_3.zip">
+                        Npoi 2.0.6.0 </a>,&nbsp;
+                      
+                       
+                        <br />
+                        Changes:
+                        <br />
+                       Fix bugs:
+                       <br />
+                        <ul>
+                            <li> Support Live casino Bettype 1102 ,1104 </li>
+                         
+                        </ul>
+                       
+                    </li>
                 </ul>
             </div>
             <div>

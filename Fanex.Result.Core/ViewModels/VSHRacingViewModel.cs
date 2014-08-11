@@ -38,7 +38,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.GetLeagueName(this._racing.LeagueId);
+                return this.GetLeagueNameFromRemotingRef(this._racing.LeagueId);
             }
         }
 
@@ -46,7 +46,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return GetKickOffTime(this._racing.KickOffTime);
+                return GetAndFormatKickOffTime(this._racing.KickOffTime);
             }
         }
 
@@ -97,7 +97,7 @@ namespace Fanex.Result.Core.ViewModels
 
         public string Result
         {
-            get { return RefData.GetHorseTeamName(this._racing.EngineId, this.GetTWLanguage, string.Empty); }
+            get { return RefData.GetHorseTeamName(this._racing.EngineId, this.GetSupportedLanguage, string.Empty); }
         }
 
         public string WinOdd

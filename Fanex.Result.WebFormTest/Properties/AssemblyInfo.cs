@@ -1,17 +1,19 @@
-﻿// --------------------------------------------------------------------------
-// <copyright file="AssemblyInfo.cs" company="Nexcel Solutions Vietnam">
-// Copyright (coffee) Nexcel Solutions Vietnam. All rights reserved.
-// </copyright>
-// --------------------------------------------------------------------------
-// <history>
-//   <change who="" date="">Created</change>
-// </history>
+﻿/// --------------------------------------------------------------------------
+/// <copyright file="AssemblyInfo.cs" company="Nexcel Solutions Vietnam">
+/// Copyright (coffee) Nexcel Solutions Vietnam. All rights reserved.
+/// </copyright>
+/// --------------------------------------------------------------------------
+/// <history>
+///   <change who="" date="">Created</change>
+/// </history>
+using System;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
+[assembly: CLSCompliant(false)]
 [assembly: AssemblyTitle("Fanex.Result.WebFormTest")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]

@@ -4,15 +4,15 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using System;
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: InternalsVisibleTo("Fanex.Result.Core.UnitTest")]
-[assembly: InternalsVisibleTo("Fanex.Result.WebFormTest")]
+[assembly: CLSCompliant(false)]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1020:AvoidNamespacesWithFewTypes", Justification = "Reviews.")]
 [assembly: AssemblyTitle("Fanex.Result.Core")]
 [assembly: AssemblyDescription("Fanex.Result.Core 1.5.1")]
 [assembly: AssemblyConfiguration("")]
@@ -40,5 +40,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.5.3")]
-[assembly: AssemblyFileVersion("1.5.3")]
+[assembly: AssemblyVersion("1.5.4")]
+[assembly: AssemblyFileVersion("1.5.4")]

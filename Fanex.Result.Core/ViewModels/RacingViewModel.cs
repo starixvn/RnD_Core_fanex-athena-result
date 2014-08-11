@@ -37,7 +37,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.GetLeagueName(this._racing.LeagueId);
+                return this.GetLeagueNameFromRemotingRef(this._racing.LeagueId);
             }
         }
 
@@ -93,7 +93,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return RefData.GetHorseTeamName(this._racing.EngineId, this.GetTWLanguage, string.Empty);
+                return RefData.GetHorseTeamName(this._racing.EngineId, this.GetSupportedLanguage, string.Empty);
             }
         }
 

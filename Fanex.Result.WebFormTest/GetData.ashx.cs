@@ -16,7 +16,6 @@ namespace Fanex.Result.WebFormTest
     using System.IO;
     using System.Linq;
     using System.Web;
-    using System.Web.Script.Serialization;
     using Fanex.Result.Core;
     using Fanex.Result.Core.DTO;
     using Fanex.Result.DataTest;
@@ -27,7 +26,6 @@ namespace Fanex.Result.WebFormTest
     public class GetData : IHttpHandler
     {
         private ResultModel _model = new ResultModel();
-        private JavaScriptSerializer _serrialize = new JavaScriptSerializer();
 
         public bool IsReusable
         {
@@ -226,8 +224,6 @@ namespace Fanex.Result.WebFormTest
 
                 case SportType.NumberGame:
                     var dataNG = _model.Lrf_Result_MatchSelNumberGameByLeague(date, leagueId, true, "en-US");
-                    var matchs = dataNG.AsEnumerable().OrderBy(i => i["leagueId"])
-                        .OrderBy(i => i["matchid"]).OrderBy(i => i["seq"]);
                     var dataListNG = new List<NumberGame>();
                     foreach (var mtc in dataNG.AsEnumerable())
                     {

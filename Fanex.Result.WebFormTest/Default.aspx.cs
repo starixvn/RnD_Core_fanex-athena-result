@@ -9,6 +9,7 @@
 namespace Fanex.Result.WebFormTest
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
     using System.Threading;
     using System.Web.Security;
@@ -16,6 +17,7 @@ namespace Fanex.Result.WebFormTest
     /// <summary>
     /// The default page class.
     /// </summary>
+    [SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores", Justification = "Reviewed.")]
     public partial class _Default : System.Web.UI.Page
     {
         /// <summary>

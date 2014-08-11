@@ -6,14 +6,16 @@
 
 namespace Fanex.Result.Core
 {
-    using System.Diagnostics.CodeAnalysis;
-    using Fanex.Result.Core.Extension;
+    using System;
+using System.Diagnostics.CodeAnalysis;
+using Fanex.Result.Core.Extension;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1602:EnumerationItemsMustBeDocumented", Justification = "Reviewed.")]
-    public enum SportType : short
+    [SuppressMessage("Microsoft.Design", "CA1008:EnumsShouldHaveZeroValue", Justification = "Reviewed.")]
+    public enum SportType : int
     {
         [StringValue("Soccer")]
         Soccer = 1,

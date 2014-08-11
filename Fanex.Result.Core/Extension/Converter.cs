@@ -13,6 +13,7 @@ namespace Fanex.Result.Core.Extension
 {
     using System;
     using System.Diagnostics;
+    using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     /// Convert to specific type.
@@ -37,26 +38,6 @@ namespace Fanex.Result.Core.Extension
         }
 
         /// <summary>
-        ///   <see cref="ToBool(object item, bool defaultValue = false)"/>
-        /// </summary>
-        /// <param name="item">The original item value.</param>
-        /// <param name="defaultValue">The default value.</param>
-        /// <returns>The integer value.</returns>
-        [DebuggerStepThrough]
-        public static int ToInt(object item, int defaultValue = 0)
-        {
-            int result = defaultValue;
-            bool b = false;
-
-            if (!ReferenceEquals(item, null) && item != DBNull.Value)
-            {
-                b = int.TryParse(item.ToString(), out result);
-            }
-
-            return b ? result : defaultValue;
-        }
-
-        /// <summary>
         /// Convert object to BOOL.
         /// If object is null or DBNull.Value then return default Value.
         /// </summary>
@@ -64,6 +45,7 @@ namespace Fanex.Result.Core.Extension
         /// <param name="defaultValue">If set to <c>true</c> [default value].</param>
         /// <returns>The BOOL value.</returns>
         [DebuggerStepThrough]
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         public static bool ToBool(object item, bool defaultValue = false)
         {
             bool result = defaultValue;
@@ -78,116 +60,15 @@ namespace Fanex.Result.Core.Extension
         }
 
         /// <summary>
-        ///   <see cref="ToBool(object item, bool defaultValue = false)"/>
-        /// </summary>
-        /// <param name="item">The original item value.</param>
-        /// <param name="defaultValue">The default value.</param>
-        /// <returns>The decimal value.</returns>
-        [DebuggerStepThrough]
-        public static decimal ToDecimal(object item, decimal defaultValue = 0)
-        {
-            decimal result = defaultValue;
-            bool b = false;
-
-            if (!ReferenceEquals(item, null) && item != DBNull.Value)
-            {
-                b = decimal.TryParse(item.ToString(), out result);
-            }
-
-            return b ? result : defaultValue;
-        }
-
-        /// <summary>
-        /// Return new GUIDE if item is null or DBNULL.
-        /// </summary>
-        /// <param name="item">The original item value.</param>
-        /// <returns>The GUIDE value.</returns>
-        [DebuggerStepThrough]
-        public static Guid ToGuid(object item)
-        {
-            if (!ReferenceEquals(item, null) && item != DBNull.Value)
-            {
-                return Guid.Parse(item.ToString());
-            }
-
-            return new Guid();
-        }
-
-        /// <summary>
-        /// Return DateTime Min Value if item is null or DBNULL Value.
-        /// </summary>
-        /// <param name="item">The original item value.</param>
-        /// <returns>The date time value.</returns>
-        [DebuggerStepThrough]
-        public static DateTime ToDateTime(object item)
-        {
-            return ToDateTime(item, DateTime.MinValue);
-        }
-
-        /// <summary>
-        ///   <see cref="ToBool(object item, bool defaultValue = false)"/>
-        /// </summary>
-        /// <param name="item">The original item value.</param>
-        /// <param name="defaultValue">The default value.</param>
-        /// <returns>The date time value.</returns>
-        public static DateTime ToDateTime(object item, DateTime defaultValue)
-        {
-            DateTime result = defaultValue;
-            bool b = false;
-
-            if (!ReferenceEquals(item, null) && item != DBNull.Value)
-            {
-                b = DateTime.TryParse(item.ToString(), out result);
-            }
-
-            return b ? result : defaultValue;
-        }
-
-        /// <summary>
-        /// Return empty if object is null or DBNULL value.
-        /// </summary>
-        /// <param name="item">The original item value.</param>
-        /// <param name="defaultValue">The default value.</param>
-        /// <returns>The char value.</returns>
-        [DebuggerStepThrough]
-        public static char ToChar(object item, char defaultValue = char.MinValue)
-        {
-            char result = defaultValue;
-            bool b = false;
-
-            if (!ReferenceEquals(item, null) && item != DBNull.Value)
-            {
-                b = char.TryParse(item.ToString(), out result);
-            }
-
-            return b ? result : defaultValue;
-        }
-
-        /// <summary>
         /// Toes the byte array.
         /// </summary>
         /// <param name="item">The original item value.</param>
         /// <returns>The array byte.</returns>
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         public static byte[] ToByteArray(object item)
         {
             return To<byte[]>(item);
-        }
-
-        /// <summary>
-        /// If object item in type T equal null, return string empty.
-        /// </summary>
-        /// <param name="item">The original item value.</param>
-        /// <returns>The string value.</returns>
-        [DebuggerStepThrough]
-        public static string ToString2(object item)
-        {
-            if (!ReferenceEquals(item, null) && item != DBNull.Value)
-            {
-                return item.ToString();
-            }
-
-            return string.Empty;
         }
     }
 }

@@ -8,6 +8,7 @@ namespace Fanex.Result.Core.Utilities
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using Fanex.Result.Core.DTO;
 
     /// <summary>
@@ -72,6 +73,7 @@ namespace Fanex.Result.Core.Utilities
     "Microsoft.StyleCop.CSharp.NamingRules",
     "SA1305:FieldNamesMustNotUseHungarianNotation",
     Justification = "Using Win32 naming for consistency.")]
+        [SuppressMessage("Microsoft.Globalization", "CA1308:NormalizeStringsToUppercase", Justification = "Reviewed.")]
         public static string MapEventStatusString(string eventstatus, bool isPending, bool isHTcal, bool calculate, LangResources lang)
         {
             var pending = Convert.ToInt32(isPending);

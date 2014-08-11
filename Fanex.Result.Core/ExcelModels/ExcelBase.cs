@@ -7,6 +7,7 @@
 namespace Fanex.Result.Core.ExcelModels
 {
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.Extension;
@@ -206,6 +207,7 @@ namespace Fanex.Result.Core.ExcelModels
             sheet.MergeCells(currentRow, colSpanStatus, rowSpan, colSpanStatus);
         }
 
+        [SuppressMessage("Microsoft.Design", "CA1045:DoNotPassTypesByReference", Justification = "Reviewed.")]
         protected virtual void SetLeague(ISheet sheet, int leagueId, string leagueName, ref int currentLeagueId, ref int currentRow)
         {
             if (currentLeagueId == 0 || currentLeagueId != leagueId)
@@ -216,6 +218,7 @@ namespace Fanex.Result.Core.ExcelModels
             }
         }
 
+        [SuppressMessage("Microsoft.Design", "CA1024:UsePropertiesWhereAppropriate", Justification = "Reviews.")]
         protected virtual IList<int> GetColumnTemplateIndex()
         {
             return new List<int>();
@@ -304,11 +307,11 @@ namespace Fanex.Result.Core.ExcelModels
         /// </summary>
         /// <param name="row">Row in sheet export excel.</param>
         /// <param name="cellIndex">Position cell will insert.</param>
-        /// <param name="stringValues">Array string values.</param>
+        /// <param name="values">Array string values.</param>
         /// <returns>Cell position after insert.</returns>
-        protected virtual int AssignStringData(IRow row, int cellIndex, params string[] stringValues)
+        protected virtual int AssignStringData(IRow row, int cellIndex, params string[] values)
         {
-            foreach (var t in stringValues)
+            foreach (var t in values)
             {
                 row.Cells[cellIndex].SetCellValue(t);
                 checked

@@ -18,9 +18,9 @@ namespace Fanex.Result.Core.ViewModels
     /// </summary>
     public abstract class BaseViewModel
     {
-        public const string NA = "N/A";
+        private const string EnglishLanguageCode = "en-US";
 
-        protected static readonly Dictionary<string, string> TWLanguage = new
+        private static Dictionary<string, string> supportedLanguage = new
      Dictionary<string, string>
              {
         { "en-US", "en" },
@@ -32,16 +32,16 @@ namespace Fanex.Result.Core.ViewModels
         { "vi-VN", "vn" }
         };
 
-        private const string EnglishLanguageCode = "en-US";
         private string _languageCode = EnglishLanguageCode;
 
         private LangResources _lang;
+        public const string NA = "N/A";
 
-        public string GetTWLanguage
+        public string GetSupportedLanguage
         {
             get
             {
-                return TWLanguage.ContainsKey(this.LanguageCode) ? TWLanguage[this.LanguageCode] : TWLanguage[EnglishLanguageCode];
+                return supportedLanguage.ContainsKey(this.LanguageCode) ? supportedLanguage[this.LanguageCode] : supportedLanguage[EnglishLanguageCode];
             }
         }
 
@@ -91,15 +91,15 @@ namespace Fanex.Result.Core.ViewModels
             return index % 2 == 0 ? bg : oddbg;
         }
 
-        public virtual string GetLeagueName(int leagueId)
+        public virtual string GetLeagueNameFromRemotingRef(int leagueId)
         {
             return RefData.GetLeagueName(
                 leagueId.ToString(CultureInfo.InvariantCulture),
-                this.GetTWLanguage,
+                this.GetSupportedLanguage,
                 string.Empty);
         }
 
-        public virtual string GetKickOffTime(DateTime kickOffTime)
+        public virtual string GetAndFormatKickOffTime(DateTime kickOffTime)
         {
             return Helper.FullDateFormat2Ln(kickOffTime);
         }

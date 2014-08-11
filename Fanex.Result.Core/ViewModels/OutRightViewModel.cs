@@ -42,7 +42,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return RefData.GetLeagueName(this._outRight.LeagueId.ToString(CultureInfo.InvariantCulture), this.GetTWLanguage, string.Empty);
+                return RefData.GetLeagueName(this._outRight.LeagueId.ToString(CultureInfo.InvariantCulture), this.GetSupportedLanguage, string.Empty);
             }
         }
 
@@ -50,7 +50,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return RefData.GetTeamName(this._outRight.TeamId.ToString(CultureInfo.InvariantCulture), this.GetTWLanguage, string.Empty);
+                return RefData.GetTeamName(this._outRight.TeamId.ToString(CultureInfo.InvariantCulture), this.GetSupportedLanguage, string.Empty);
             }
         }
 

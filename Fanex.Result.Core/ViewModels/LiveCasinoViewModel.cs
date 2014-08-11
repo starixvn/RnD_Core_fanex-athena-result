@@ -17,7 +17,7 @@ namespace Fanex.Result.Core.ViewModels
     /// </summary>
     public sealed class LiveCasinoViewModel : BaseViewModel
     {
-        private readonly int[] RouletteBettype = new int[2] { 1102, 1104 };
+        private readonly int[] _rouletteBettype = new int[2] { 1102, 1104 };
 
         private readonly LiveCasino _liveCasino;
 
@@ -44,7 +44,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.GetLeagueName(this._liveCasino.LeagueId);
+                return this.GetLeagueNameFromRemotingRef(this._liveCasino.LeagueId);
             }
         }
 
@@ -52,7 +52,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.GetKickOffTime(this._liveCasino.KickOffTime);
+                return this.GetAndFormatKickOffTime(this._liveCasino.KickOffTime);
             }
         }
 
@@ -60,7 +60,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                if (RouletteBettype.Contains(this._liveCasino.Bettype))
+                if (_rouletteBettype.Contains(this._liveCasino.Bettype))
                 {
                     return string.Empty;
                 }
@@ -133,7 +133,7 @@ namespace Fanex.Result.Core.ViewModels
 
             for (int i = 0; i < arr.Length; i++)
             {
-                statusName = RefData.GetRouletteBetItem(arr[i], this.GetTWLanguage, string.Empty);
+                statusName = RefData.GetRouletteBetItem(arr[i], this.GetSupportedLanguage, string.Empty);
 
                 if (i < arr.Length - 1)
                 {
@@ -170,7 +170,7 @@ namespace Fanex.Result.Core.ViewModels
 
             for (int i = 0; i < arr.Length; i++)
             {
-                statusName = RefData.GetCasinoBetItem(arr[i], this.GetTWLanguage, string.Empty);
+                statusName = RefData.GetCasinoBetItem(arr[i], this.GetSupportedLanguage, string.Empty);
 
                 if (i < arr.Length - 1)
                 {
@@ -208,7 +208,7 @@ namespace Fanex.Result.Core.ViewModels
             }
             else
             {
-                if (RouletteBettype.Contains(this._liveCasino.Bettype))
+                if (_rouletteBettype.Contains(this._liveCasino.Bettype))
                 {
                     if (this._liveCasino.FinalHomeScore.HasValue)
                     {

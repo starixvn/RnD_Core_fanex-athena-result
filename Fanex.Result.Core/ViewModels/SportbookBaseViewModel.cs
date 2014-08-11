@@ -47,7 +47,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.GetKickOffTime(this.SPORTBOOK.KickOffTime);
+                return this.GetAndFormatKickOffTime(this.SPORTBOOK.KickOffTime);
             }
         }
 
@@ -60,7 +60,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.GetLeagueName(this.SPORTBOOK.LeagueId);
+                return this.GetLeagueNameFromRemotingRef(this.SPORTBOOK.LeagueId);
             }
         }
 
@@ -140,7 +140,7 @@ namespace Fanex.Result.Core.ViewModels
         /// <returns>The home team.</returns>
         private string GetSportbookHomeTeam(int homeId, bool isNeutral, int? finalHomeScore, int? finalAwayScore)
         {
-            var homeTeam = RefData.GetTeamName(homeId.ToString(CultureInfo.InvariantCulture), this.GetTWLanguage, string.Empty)
+            var homeTeam = RefData.GetTeamName(homeId.ToString(CultureInfo.InvariantCulture), this.GetSupportedLanguage, string.Empty)
                 + (isNeutral ? Lang.IsNeutral : string.Empty);
             var homeScore = finalHomeScore.HasValue ? finalHomeScore.Value : 0;
             var awayScore = finalAwayScore.HasValue ? finalAwayScore.Value : 0;
@@ -161,7 +161,7 @@ namespace Fanex.Result.Core.ViewModels
         /// <returns>The away team.</returns>
         private string GetSportbookAwayTeam(int awayId, int? finalHomeScore, int? finalAwayScore)
         {
-            var awayTeam = RefData.GetTeamName(awayId.ToString(CultureInfo.InvariantCulture), this.GetTWLanguage, string.Empty);
+            var awayTeam = RefData.GetTeamName(awayId.ToString(CultureInfo.InvariantCulture), this.GetSupportedLanguage, string.Empty);
 
             var homeScore = finalHomeScore.HasValue ? finalHomeScore.Value : 0;
             var awayScore = finalAwayScore.HasValue ? finalAwayScore.Value : 0;

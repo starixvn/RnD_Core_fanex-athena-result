@@ -3,7 +3,6 @@
 // TODO: Update copyright text.
 // </copyright>
 // -----------------------------------------------------------------------
-
 namespace Fanex.Result.Core
 {
     using System;

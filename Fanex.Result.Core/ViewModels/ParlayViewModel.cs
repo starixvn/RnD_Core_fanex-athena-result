@@ -31,14 +31,14 @@ namespace Fanex.Result.Core.ViewModels
 
         public string SportName
         {
-            get { return RefData.GetSportName(this._parlay.SportId.ToString(CultureInfo.InvariantCulture), this.GetTWLanguage, string.Empty); }
+            get { return RefData.GetSportName(this._parlay.SportId.ToString(CultureInfo.InvariantCulture), this.GetSupportedLanguage, string.Empty); }
         }
 
         public override string LeagueName
         {
             get
             {
-                return this.GetLeagueName(this._parlay.LeagueId);
+                return this.GetLeagueNameFromRemotingRef(this._parlay.LeagueId);
             }
         }
 

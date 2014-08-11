@@ -16,6 +16,7 @@ namespace Fanex.Result.DataTest
     /// <summary>
     /// Result model class.
     /// </summary>
+    [SuppressMessage("Microsoft.Naming", "CA1704:IdentifiersShouldBeSpelledCorrectly", Justification = "Reviewed.")]
     public class ResultModel
     {
         private const string Connection = @"packet size=4096;
@@ -26,6 +27,8 @@ namespace Fanex.Result.DataTest
         /// </summary>
         /// <param name="date">The date parameters.</param>
         /// <returns>The data table.</returns>
+        [SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Design", "CA1020:AvoidNamespacesWithFewTypes", Justification = "Reviewed.")]
         public DataTable Lrf_Result_SportSelByDate(DateTime date)
         {
             var dataTable = new DataTable("SportSelByDate");
@@ -54,6 +57,8 @@ namespace Fanex.Result.DataTest
         /// <param name="isShowAll">Show all leagues.</param>
         /// <param name="language">The language code.</param>
         /// <returns>The data table.</returns>
+        [SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", Justification = "Reviewed.")]
         public DataTable Lrf_Result_LeagueSelByDate(DateTime date, int sportId, bool isShowAll, string language)
         {
             var dataTable = new DataTable("LeagueSelByDate");
@@ -85,6 +90,8 @@ namespace Fanex.Result.DataTest
         /// <param name="isShowAll">Show all result.</param>
         /// <param name="language">The language code.</param>
         /// <returns>The data table.</returns>
+        [SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", Justification = "Reviewed.")]
         public DataTable Lrf_Result_MatchSelByLeague(DateTime date, int sportId, int leaugeId, bool isShowAll, string language)
         {
             var dataTable = new DataTable("MatchSelByLeague");
@@ -115,6 +122,7 @@ namespace Fanex.Result.DataTest
         /// <param name="leagueId">The league id.</param>
         /// <param name="isShowAll">Show all result.</param>
         /// <returns>The data table.</returns>
+        [SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores", Justification = "Reviewed.")]
         public DataTable Lrf_Result_RaceSelByMeeting(DateTime date, int sportType, int leagueId, bool isShowAll)
         {
             var dataTable = new DataTable("RaceSelByMeeting");
@@ -145,6 +153,8 @@ namespace Fanex.Result.DataTest
         /// <param name="isShowAll">Show all result.</param>
         /// <param name="language">The language code.</param>
         /// <returns>The data table.</returns>
+        [SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores", Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", Justification = "Reviewed.")]
         public DataTable Lrf_Result_MatchSelNumberGameByLeague(DateTime date, int leaugeId, bool isShowAll, string language)
         {
             var dataTable = new DataTable("MatchSelNumberGameByLeague");
@@ -171,6 +181,7 @@ namespace Fanex.Result.DataTest
         /// </summary>
         /// <param name="matchId">The match id.</param>
         /// <returns>The data table.</returns>
+        [SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores", Justification = "Reviewed.")]
         public DataTable Lrf_BetList_SelMatchResultNumberGame(int matchId)
         {
             var dataTable = new DataTable("SelMatchResultNumberGame");
@@ -196,6 +207,7 @@ namespace Fanex.Result.DataTest
         /// </summary>
         /// <param name="refno">The referent number.</param>
         /// <returns>The data table.</returns>
+        [SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores", Justification = "Reviewed.")]
         public DataTable Lrf_BetList_SelMatchResultParlay(long refno)
         {
             var dataTable = new DataTable("SelMatchResultParlay");
@@ -222,6 +234,7 @@ namespace Fanex.Result.DataTest
         /// <param name="matchId">The match id.</param>
         /// <param name="raceno">The racing number.</param>
         /// <returns>The data table.</returns>
+        [SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores", Justification = "Reviewed.")]
         public DataTable Lrf_BetList_SelMatchResult(int matchId, string raceno)
         {
             var dataTable = new DataTable("SelMatchResult");
@@ -251,6 +264,7 @@ namespace Fanex.Result.DataTest
         /// <param name="dateTo">The end date.</param>
         /// <param name="isShowAll">Show all result.</param>
         /// <returns>The data table.</returns>
+        [SuppressMessage("Microsoft.Naming", "CA1707:IdentifiersShouldNotContainUnderscores", Justification = "Reviewed.")]
         public DataTable Lrf_Result_Outright(DateTime dateFrom, DateTime dateTo, bool isShowAll)
         {
             var dataTable = new DataTable("Result_Outright");

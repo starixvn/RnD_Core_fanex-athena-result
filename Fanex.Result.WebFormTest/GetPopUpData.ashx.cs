@@ -16,7 +16,6 @@ namespace Fanex.Result.WebFormTest
     using System.Globalization;
     using System.Linq;
     using System.Web;
-    using System.Web.Script.Serialization;
     using Fanex.Result.Core;
     using Fanex.Result.Core.DTO;
     using Fanex.Result.DataTest;
@@ -30,8 +29,6 @@ namespace Fanex.Result.WebFormTest
         private string _htmlResult = string.Empty;
         private string _jsonResult = string.Empty;
 
-        private JavaScriptSerializer _serrialize = new JavaScriptSerializer();
-
         public bool IsReusable
         {
             get
@@ -44,6 +41,7 @@ namespace Fanex.Result.WebFormTest
         /// Process request.
         /// </summary>
         /// <param name="context">The context.</param>
+        [SuppressMessage("Microsoft.Usage", "CA1806:DoNotIgnoreMethodResults", Justification = "Reviewed.")]
         public void ProcessRequest(HttpContext context)
         {
             long refno;
@@ -173,11 +171,6 @@ namespace Fanex.Result.WebFormTest
 
                     case SportType.NumberGame:
 
-                        var matchs =
-                            data.AsEnumerable()
-                                .OrderBy(i => i["leagueId"])
-                                .OrderBy(i => i["matchid"])
-                                .OrderBy(i => i["seq"]);
                         var dataListNG = new List<NumberGame>();
                         foreach (var mtc in data.AsEnumerable())
                         {

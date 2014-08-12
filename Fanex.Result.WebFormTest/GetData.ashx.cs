@@ -122,6 +122,7 @@ namespace Fanex.Result.WebFormTest
           "StyleCop.CSharp.Nexcel.NexcelCustomRules",
           "SP2101:MethodMustNotContainMoreLinesThan",
           Justification = "Reviewed. Suppression is OK here.")]
+        [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Reviews.")]
         private void GetDataBySport(HttpContext context, DateTime date, int sportId, int leagueId, string viewBy)
         {
             var sportType = (SportType)sportId;

@@ -11,3 +11,4 @@ D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.DataTest\bin\Release
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.DataTest\bin\Release\Fanex.Result.DataTest.pdb
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.DataTest\obj\Release\Fanex.Result.DataTest.dll
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.DataTest\obj\Release\Fanex.Result.DataTest.pdb
+D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.DataTest\obj\Release\Fanex.Result.DataTest.csprojResolveAssemblyReference.cache

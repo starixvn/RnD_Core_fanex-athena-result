@@ -20,7 +20,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -28,7 +28,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>..\..\Build\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>TRACE;CODE_ANALYSIS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -62,15 +62,6 @@
   <ItemGroup>
     <Compile Include="..\..\Fanex.Result.Core\DTO\DataDomain.cs">
       <Link>DTO\DataDomain.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Fanex.Result.Core\DTO\KenoAuthorization.cs">
-      <Link>DTO\KenoAuthorization.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Fanex.Result.Core\DTO\KenoAuthorizedData.cs">
-      <Link>DTO\KenoAuthorizedData.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Fanex.Result.Core\DTO\KenoExtendedToken.cs">
-      <Link>DTO\KenoExtendedToken.cs</Link>
     </Compile>
     <Compile Include="..\..\Fanex.Result.Core\DTO\LangResources.cs">
       <Link>DTO\LangResources.cs</Link>
@@ -239,9 +230,6 @@
     </Compile>
     <Compile Include="..\..\Fanex.Result.Core\ViewModels\HockeyViewModel.cs">
       <Link>ViewModels\HockeyViewModel.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Fanex.Result.Core\ViewModels\KenoViewModel.cs">
-      <Link>ViewModels\KenoViewModel.cs</Link>
     </Compile>
     <Compile Include="..\..\Fanex.Result.Core\ViewModels\LiveCasinoViewModel.cs">
       <Link>ViewModels\LiveCasinoViewModel.cs</Link>

@@ -18,6 +18,7 @@ namespace Fanex.Result.Core.ViewModels
     /// </summary>
     public abstract class BaseViewModel
     {
+        public const string NA = "N/A";
         private const string EnglishLanguageCode = "en-US";
 
         private static Dictionary<string, string> supportedLanguage = new
@@ -35,7 +36,6 @@ namespace Fanex.Result.Core.ViewModels
         private string _languageCode = EnglishLanguageCode;
 
         private LangResources _lang;
-        public const string NA = "N/A";
 
         public string GetSupportedLanguage
         {

@@ -85,6 +85,7 @@ namespace Fanex.Result.WebFormTest
           "StyleCop.CSharp.Nexcel.NexcelCustomRules",
           "SP2101:MethodMustNotContainMoreLinesThan",
           Justification = "Reviewed. Suppression is OK here.")]
+        [SuppressMessage("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity", Justification = "Reviews.")]
         private void ProcessNormal(HttpContext context, int matchid, SportType sportType, string raceno, string viewBy)
         {
             var data = _model.Lrf_BetList_SelMatchResult(matchid, raceno);

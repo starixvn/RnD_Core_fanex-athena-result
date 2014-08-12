@@ -11,6 +11,7 @@ namespace Fanex.Result.Core.Extension
     #region Using
 
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using NPOI.SS.UserModel;
     using NPOI.SS.Util;
 
@@ -191,6 +192,7 @@ namespace Fanex.Result.Core.Extension
         /// <param name="sourceCell">Source cell.</param>
         /// <param name="destCell">Destination cell.</param>
         /// <returns>Returns copied cell.</returns>
+        [SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", Justification = "Reviews.")]
         public static ICell CopyCell(this ISheet sheet, ICell sourceCell, ICell destCell)
         {
             if (sourceCell == null)

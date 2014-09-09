@@ -4,12 +4,22 @@
 }
 <table class="fanex-result">
     <thead>
+        @if (Model.IsShowTitle && Model.Data.Count > 0)
+        {
+            var item = (Fanex.Result.Core.ViewModels.BaseBallViewModel)Model.Data[0];
+            <tr class="row-title">
+                <th class="column-title" colspan="@colspan">
+                    <span class="sport">@item.GetSportName((int)Model.SportType)</span> &nbsp;-&nbsp;
+                    <span class="leagueName">@item.LeagueName</span>
+                </th>
+            </tr>
+        }
         <tr class="row-header">
             <th class="column-kickofftime">
                 @lang.KickOffTime
             </th>
             <th class="column-match">
-                    @Raw(lang.Match)
+                @Raw(lang.Match)
             </th>
             <th class="column-n">
                 1
@@ -42,7 +52,7 @@
                 E.I
             </th>
             <th class="column-firsthaftscore">
-                    @Raw(lang.FirstHalfScore)
+                @Raw(lang.FirstHalfScore)
             </th>
             <th class="column-finalscore">
                 @lang.FinalScore
@@ -67,7 +77,7 @@
                     if (currentLeagueId == 0 || currentLeagueId != leagueId)
                     {
                         currentLeagueId = leagueId;
-        
+
             <tr class="row-data">
                 <td colspan="@colspan" class="column-league">
                     @item.LeagueName
@@ -75,8 +85,8 @@
             </tr>
                     }
                 }
-        
- <tr class="row-data @item.Color(index, "format-even", "format-odd")">               
+
+            <tr class="row-data @item.Color(index, "format-even", "format-odd")">
                 <td class="column-kickofftime" rowspan="2">
                     @Raw(item.KickOffTime)
                 </td>
@@ -84,34 +94,34 @@
                     @Raw(item.HomeTeam)
                 </td>
                 <td class="column-n">
-                @item.GetHomeAwaySet(0,true)
+                    @item.GetHomeAwaySet(0, true)
                 </td>
                 <td class="column-n">
-                @item.GetHomeAwaySet(1,true)
+                    @item.GetHomeAwaySet(1, true)
                 </td>
                 <td class="column-n">
-                @item.GetHomeAwaySet(2,true)
+                    @item.GetHomeAwaySet(2, true)
                 </td>
                 <td class="column-n">
-                @item.GetHomeAwaySet(3,true)
+                    @item.GetHomeAwaySet(3, true)
                 </td>
                 <td class="column-n">
-                @item.GetHomeAwaySet(4,true)
+                    @item.GetHomeAwaySet(4, true)
                 </td>
                 <td class="column-n">
-                @item.GetHomeAwaySet(5,true)
+                    @item.GetHomeAwaySet(5, true)
                 </td>
                 <td class="column-n">
-                @item.GetHomeAwaySet(6,true)
+                    @item.GetHomeAwaySet(6, true)
                 </td>
                 <td class="column-n">
-                @item.GetHomeAwaySet(7,true)
+                    @item.GetHomeAwaySet(7, true)
                 </td>
-                 <td class="column-n">
-                @item.GetHomeAwaySet(8,true)
+                <td class="column-n">
+                    @item.GetHomeAwaySet(8, true)
                 </td>
-                 <td class="column-ei">
-                @item.EIHome
+                <td class="column-ei">
+                    @item.EIHome
                 </td>
                 <td class="column-ht-homescore">
                     @item.HTHomeScore
@@ -123,39 +133,39 @@
                     @item.EventStatus
                 </td>
             </tr>
- <tr class="row-data @item.Color(index, "format-even", "format-odd")">               
+            <tr class="row-data @item.Color(index, "format-even", "format-odd")">
                 <td class="column-match">
                     @Raw(item.AwayTeam)
                 </td>
                 <td class="column-n">
-                @item.GetHomeAwaySet(0,false)
+                    @item.GetHomeAwaySet(0, false)
                 </td>
                 <td class="column-n">
-                @item.GetHomeAwaySet(1, false)
+                    @item.GetHomeAwaySet(1, false)
                 </td>
                 <td class="column-n">
-                @item.GetHomeAwaySet(2, false)
+                    @item.GetHomeAwaySet(2, false)
                 </td>
                 <td class="column-n">
-                @item.GetHomeAwaySet(3, false)
+                    @item.GetHomeAwaySet(3, false)
                 </td>
                 <td class="column-n">
-                @item.GetHomeAwaySet(4, false)
+                    @item.GetHomeAwaySet(4, false)
                 </td>
                 <td class="column-n">
-                @item.GetHomeAwaySet(5, false)
+                    @item.GetHomeAwaySet(5, false)
                 </td>
                 <td class="column-n">
-                @item.GetHomeAwaySet(6, false)
+                    @item.GetHomeAwaySet(6, false)
                 </td>
                 <td class="column-n">
-                @item.GetHomeAwaySet(7, false)
+                    @item.GetHomeAwaySet(7, false)
                 </td>
-                 <td class="column-n">
-                @item.GetHomeAwaySet(8,false)
+                <td class="column-n">
+                    @item.GetHomeAwaySet(8, false)
                 </td>
-                 <td class="column-ei">
-                @item.EIAway
+                <td class="column-ei">
+                    @item.EIAway
                 </td>
                 <td class="column-ht-awayscore">
                     @item.HTAwayScore
@@ -164,7 +174,7 @@
                     @item.FinalAwayScore
                 </td>
             </tr>
-           
+
             }
         }
         else

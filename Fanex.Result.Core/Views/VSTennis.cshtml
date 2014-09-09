@@ -4,12 +4,22 @@
 }
 <table class="fanex-result">
     <thead>
+        @if (Model.IsShowTitle && Model.Data.Count > 0)
+        {
+            var item = (Fanex.Result.Core.ViewModels.VSTennisViewModel)Model.Data[0];
+            <tr class="row-title">
+                <th class="column-title" colspan="@colspan">
+                    <span class="sport">@item.GetSportName((int)Model.SportType)</span> &nbsp;-&nbsp;
+                    <span class="leagueName">@item.LeagueName</span>
+                </th>
+            </tr>
+        }
         <tr class="row-header">
             <th class="column-kickofftime">
                 @lang.KickOffTime
             </th>
             <th class="column-match">
-                @Raw(lang.Team)
+                @Raw(lang.Match)
             </th>
             <th class="column-totalpoint">
                 @Raw(lang.TotalPoints)

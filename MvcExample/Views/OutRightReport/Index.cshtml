@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Fanex.Result.Core - OutRight report.";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Headline {
+    <ul class="breadcrumb title">
+        <li>Demo</li>
+        <li class="current">OutRight</li>
+    </ul>
+}
+<form role="form" action="/" class="form-inline col-sm-12 filter-form bet-setting">
+<div class="form-group">
+    <label for="date">
+        Date</label>
+    <input id="date" class="width-160" type="text" />
+</div>
+
+<div class="form-group">
+    <label for="league">
+        Language</label>
+    <select id="language" class="width-100">
+        <option value="en-US">en-US</option>
+        <option value="ko-KR">ko-KR</option>
+        <option value="zh-TW">zh-TW</option>
+        <option value="zh-CN">zh-CN</option>
+    </select>
+</div>
+<div class="form-group">
+    <input type="button" id="gen-html" value="Gen Html" class="btn-primary" />
+</div>
+<div class="form-group">
+    <input type="button" id="gen-excel" value="Gen Excel" class="btn-primary" />
+</div>
+<div class="form-group">
+    <input type="button" id="gen-json" value="Gen Json" class="btn-primary" />
+</div>
+</form>
+<div id="report-content">
+</div>
+@section FooterJs
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            outRightReport.setup();
+        });
+    </script>
+}

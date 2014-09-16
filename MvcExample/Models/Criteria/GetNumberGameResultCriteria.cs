@@ -11,9 +11,7 @@ namespace MvcExample.Models.Criteria
 
         public int LeagueID { get; set; }
 
-        public bool isShowAll { get; set; }
-
-        public string Langkey { get; set; }
+        public string Language { get; set; }
 
         public override string GetSettingKey()
         {

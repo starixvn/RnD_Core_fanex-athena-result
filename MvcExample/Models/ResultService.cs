@@ -8,6 +8,7 @@ namespace MvcExample.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.Data;
     using System.Linq;
     using Fanex.Data;
     using Fanex.Result.Core.DTO;
@@ -39,7 +40,7 @@ namespace MvcExample.Models
             var result = new List<Racing>();
             using (var db = new ObjectDb(criteria.GetSettingKey()))
             {
-                using (var reader = db.ExecuteReader())
+                using (var reader = db.ExecuteReader(criteria.GetSpParams()))
                 {
                     while (reader.Read())
                     {
@@ -55,7 +56,7 @@ namespace MvcExample.Models
             var result = new List<NumberGame>();
             using (var db = new ObjectDb(criteria.GetSettingKey()))
             {
-                using (var reader = db.ExecuteReader())
+                using (var reader = db.ExecuteReader(criteria.GetSpParams()))
                 {
                     while (reader.Read())
                     {
@@ -71,7 +72,7 @@ namespace MvcExample.Models
             var result = new List<LiveCasino>();
             using (var db = new ObjectDb(criteria.GetSettingKey()))
             {
-                using (var reader = db.ExecuteReader())
+                using (var reader = db.ExecuteReader(criteria.GetSpParams()))
                 {
                     while (reader.Read())
                     {
@@ -184,29 +185,31 @@ namespace MvcExample.Models
                     while (reader.Read())
                     {
                         var newLeagueId = int.Parse(reader["LeagueID"].ToString());
+                        var newsportId = int.Parse(reader["sporttype"].ToString());
 
-                        if (leagueId != newLeagueId)
+                        if (leagueId != newLeagueId && leagueId > 0)
                         {
-                            sportId = int.Parse(reader["sporttype"].ToString());
-                            if (leagueId > 0)
+                            result.Add(new Parlay
                             {
-                                result.Add(new Parlay
-                                {
-                                    SportId = sportId,
-                                    LeagueId = leagueId,
-                                    Sportbook = sportbooks
-                                });
+                                SportId = sportId,
+                                LeagueId = leagueId,
+                                Sportbook = sportbooks
+                            });
+                            sportbooks = new List<Sportbook>();
+                        }
 
-                                sportbooks = new List<Sportbook>();
-                            }
-                        }
-                        else
-                        {
-                            sportbooks.Add(BindSportbook(reader));
-                        }
+                        sportbooks.Add(BindSportbook(reader));
 
                         leagueId = newLeagueId;
+                        sportId = newsportId;
                     }
+                    /* add the latest row*/
+                    result.Add(new Parlay
+                    {
+                        SportId = sportId,
+                        LeagueId = leagueId,
+                        Sportbook = sportbooks
+                    });
                 }
             }
             return result;
@@ -255,7 +258,7 @@ namespace MvcExample.Models
                         : new Nullable<int>(),
                 HtAwayScore =
                     reader["htawayscore"] != DBNull.Value ? int.Parse(reader["htawayscore"].ToString()) : new Nullable<int>(),
-                Color = reader.GetOrdinal("lcolor") >= 0 && reader["lcolor"] != DBNull.Value ? reader["lcolor"].ToString() : string.Empty,
+                Color = ColumnExisted(reader, "lcolor") && reader["lcolor"] != DBNull.Value ? reader["lcolor"].ToString() : string.Empty,
                 FinalHomeScore =
                     reader["finalhomescore"] != DBNull.Value
                         ? int.Parse(reader["finalhomescore"].ToString())
@@ -343,6 +346,19 @@ namespace MvcExample.Models
                     Ball = new List<int> { int.Parse(reader["number"].ToString()) }
                 });
             }
+        }
+
+        private static bool ColumnExisted(IDataReader reader, string columnName)
+        {
+            for (int i = 0; i < reader.FieldCount; i++)
+            {
+                if (reader.GetName(i) == columnName)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         #endregion Utilites

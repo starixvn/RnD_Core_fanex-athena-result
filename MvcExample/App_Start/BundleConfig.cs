@@ -23,18 +23,20 @@ namespace MvcExample
             .Include("~/Content/bootstrap/bootstrap.less")
            .Include("~/Content/Core/site.less")
               .Include("~/Content/Fanex.Result/fanex.result.css");
+
             css.Builder = nullBuilder;
             css.Transforms.Add(cssTransformer);
             css.Orderer = nullOrderer;
 
             bundles.Add(css);
 
-          
-
             var coreJs = new Bundle("~/bundles/coreJs")
                 .Include("~/Scripts/jquery-1.9.0.js",
                 "~/Scripts/jquery-ui-1.11.1.js",
-                "~/Scripts/bootstrap.js", "~/Scripts/Core/site.js",
+                "~/Scripts/bootstrap.js",
+                "~/Scripts/Core/site.js",
+               "~/Scripts/crel.js",
+                  "~/Scripts/json.human.js",
                 "~/Scripts/Page/normal-report.js",
                "~/Scripts/Page/outright-report.js",
                "~/Scripts/Page/popup-report.js"

@@ -17,6 +17,7 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>false</UseIISExpress>
     <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
+    <JSLintSkip>\Scripts\json.human.js|\Scripts\crel.js</JSLintSkip>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -101,8 +102,9 @@
     <Reference Include="RazorEngine">
       <HintPath>..\packages\RazorEngine.3.2.0\lib\net40\RazorEngine.dll</HintPath>
     </Reference>
-    <Reference Include="RemotingRef">
-      <HintPath>..\packages\RemotingRef.1.0.0\lib\net40\RemotingRef.dll</HintPath>
+    <Reference Include="RemotingRef, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\RemotingRef.1.0.0.1\lib\net40\RemotingRef.dll</HintPath>
     </Reference>
     <Reference Include="SPSRemoting">
       <HintPath>..\packages\SPSRemoting.1.0.0\lib\net40\SPSRemoting.dll</HintPath>
@@ -179,8 +181,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Controllers\DocsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NormalReportController.cs" />
+    <Compile Include="Controllers\OutRightReportController.cs" />
+    <Compile Include="Controllers\PopUpReportController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -199,6 +204,7 @@
     <Compile Include="Models\Criteria\GetParlayResultCriteria.cs" />
     <Compile Include="Models\Criteria\GetOutRightResult.cs" />
     <Compile Include="Models\IResultService.cs" />
+    <Compile Include="Models\MetaModel\ResultPopupMetalModel.cs" />
     <Compile Include="Models\ResultService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -218,7 +224,10 @@
     <None Include="ClearScript.V8\v8-x64.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Content Include="App_Data\SpName.xml" />
+    <Content Include="%40JSense.js" />
+    <Content Include="App_Data\SpName.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Content\Core\img\btn-close.png" />
     <Content Include="Content\Core\img\favicon.ico" />
     <Content Include="Content\Core\img\icon-calendar.png" />
@@ -268,14 +277,17 @@
     <Content Include="Content\jquery-ui\base\tabs.css" />
     <Content Include="Content\jquery-ui\base\theme.css" />
     <Content Include="Content\jquery-ui\base\tooltip.css" />
+    <Content Include="DownLoad\untitled_page.png" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\crel.js" />
     <Content Include="Scripts\jquery-1.9.0-vsdoc.js" />
     <Content Include="Scripts\jquery-1.9.0.js" />
     <Content Include="Scripts\jquery-1.9.0.min.js" />
     <Content Include="Scripts\jquery-ui-1.11.1.js" />
     <Content Include="Scripts\jquery-ui.min-1.11.1.js" />
+    <Content Include="Scripts\json.human.js" />
     <Content Include="Scripts\Page\outright-report.js" />
     <Content Include="Scripts\Page\popup-report.js" />
     <Content Include="Scripts\Page\normal-report.js" />
@@ -288,26 +300,29 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\NormalReport\Index.cshtml" />
+    <Content Include="Views\OutRightReport\Index.cshtml" />
+    <Content Include="Views\Docs\Index.cshtml" />
+    <Content Include="Views\PopUpReport\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App_Data\Fanex.Result\Badminton.xls" />
-    <None Include="App_Data\Fanex.Result\BaseBall.xls" />
-    <None Include="App_Data\Fanex.Result\Basketball.xls" />
-    <None Include="App_Data\Fanex.Result\Billiard.xls" />
-    <None Include="App_Data\Fanex.Result\Hockey.xls" />
-    <None Include="App_Data\Fanex.Result\HorseRacing.xls" />
-    <None Include="App_Data\Fanex.Result\LiveCasino.xls" />
-    <None Include="App_Data\Fanex.Result\NumberGame.xls" />
-    <None Include="App_Data\Fanex.Result\OtherSport.xls" />
-    <None Include="App_Data\Fanex.Result\Outright.xls" />
-    <None Include="App_Data\Fanex.Result\Soccer.xls" />
-    <None Include="App_Data\Fanex.Result\Tennis.xls" />
-    <None Include="App_Data\Fanex.Result\VSHRacing.xls" />
-    <None Include="App_Data\Fanex.Result\VSTennis.xls" />
+    <Content Include="App_Data\Fanex.Result\Badminton.xls" />
+    <Content Include="App_Data\Fanex.Result\BaseBall.xls" />
+    <Content Include="App_Data\Fanex.Result\Basketball.xls" />
+    <Content Include="App_Data\Fanex.Result\Billiard.xls" />
+    <Content Include="App_Data\Fanex.Result\Hockey.xls" />
+    <Content Include="App_Data\Fanex.Result\HorseRacing.xls" />
+    <Content Include="App_Data\Fanex.Result\LiveCasino.xls" />
+    <Content Include="App_Data\Fanex.Result\NumberGame.xls" />
+    <Content Include="App_Data\Fanex.Result\OtherSport.xls" />
+    <Content Include="App_Data\Fanex.Result\Outright.xls" />
+    <Content Include="App_Data\Fanex.Result\Soccer.xls" />
+    <Content Include="App_Data\Fanex.Result\Tennis.xls" />
+    <Content Include="App_Data\Fanex.Result\VSHRacing.xls" />
+    <Content Include="App_Data\Fanex.Result\VSTennis.xls" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -388,6 +403,11 @@
     <None Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <None Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <None Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="DownLoad\Fanex.Result.zip" />
+    <Content Include="DownLoad\Fanex.Result_CssTpl.zip" />
+    <Content Include="DownLoad\Fanex.Result_ExcelTPl.zip" />
+    <Content Include="DownLoad\Fanex.Result_ExcelTPl_rev1.1.zip" />
+    <Content Include="DownLoad\Fanex.Result_rev1_1.zip" />
     <None Include="Scripts\jquery-1.9.0.min.map" />
     <Content Include="Views\Error\AccessDenied.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />

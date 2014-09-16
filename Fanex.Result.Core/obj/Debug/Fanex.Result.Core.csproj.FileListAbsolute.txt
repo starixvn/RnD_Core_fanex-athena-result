@@ -87,3 +87,20 @@ D:\Project\fanex-athena-result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.pdb
 D:\Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\SPSRemoting.dll
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.csprojResolveAssemblyReference.cache
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\bin\Debug\SPSRemoting.dll
+D:\Git LAB\fanex-athena-result\Fanex.Result.Core\obj\Debug\ResolveAssemblyReference.cache
+D:\Git LAB\fanex-athena-result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.dll
+D:\Git LAB\fanex-athena-result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.pdb
+D:\Git LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\Fanex.Result.Core.dll
+D:\Git LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\Fanex.Result.Core.pdb
+D:\Git LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\IBCFile.dll
+D:\Git LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\Newtonsoft.Json.dll
+D:\Git LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\NPOI.dll
+D:\Git LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\RazorEngine.dll
+D:\Git LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\RemotingRef.dll
+D:\Git LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\SPSRemoting.dll
+D:\Git LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\System.Web.Razor.dll
+D:\Git LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\Newtonsoft.Json.xml
+D:\Git LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\NPOI.xml
+D:\Git LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\RazorEngine.pdb
+D:\Git LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\RazorEngine.xml
+D:\Git LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\System.Web.Razor.xml

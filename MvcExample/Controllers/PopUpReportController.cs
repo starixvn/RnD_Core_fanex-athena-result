@@ -9,14 +9,7 @@
 
     public class PopUpReportController : Controller
     {
-        private readonly IResultService _resultService;
-
-        //
-        // GET: /Home/
-        public PopUpReportController()
-        {
-            _resultService = new ResultService();
-        }
+        private readonly IResultService _resultService = new ResultService();
 
         //
         // GET: /PopUpReport/
@@ -34,7 +27,6 @@
 
         private string GetPopUpData(ResultPopupMetaModel metalModel)
         {
-            IResultService resultService = new ResultService();
             var sportType = (SportType)metalModel.SportType;
             var licenseeId = 1;
             var userId = 68;
@@ -129,7 +121,7 @@
                    MatchID = metalModel.MatchId,
                    UserID = userId
                });
-                   
+
                     if (data != null)
                     {
                         return ResultEngine.HtmlParser(data.ToList(), setting);

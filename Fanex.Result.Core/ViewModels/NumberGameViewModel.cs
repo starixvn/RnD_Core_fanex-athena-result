@@ -29,7 +29,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.GetAndFormatKickOffTime(this._numberGame.KickOffTime);
+                return this.GetFormatedKickOffTime(this._numberGame.KickOffTime);
             }
         }
 
@@ -42,7 +42,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.GetLeagueNameFromRemotingRef(this._numberGame.LeagueId);
+                return this.GetLeagueNameByLanguage(this._numberGame.LeagueId);
             }
         }
 

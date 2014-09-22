@@ -91,8 +91,7 @@ namespace Fanex.Result.Core.ViewModels
             return index % 2 == 0 ? bg : oddbg;
         }
 
-        public virtual string GetLeagueName(int leagueId)
-
+        public virtual string GetLeagueNameByLanguage(int leagueId)
         {
             return RefData.GetLeagueName(
                 leagueId.ToString(CultureInfo.InvariantCulture),
@@ -104,11 +103,11 @@ namespace Fanex.Result.Core.ViewModels
         {
             return RefData.GetSportName(
                 sportType.ToString(CultureInfo.InvariantCulture),
-                this.GetTWLanguage,
+                this.GetSupportedLanguage,
                 string.Empty);
         }
 
-        public virtual string GetKickOffTime(DateTime kickOffTime)
+        public virtual string GetFormatedKickOffTime(DateTime kickOffTime)
         {
             return Helper.FullDateFormat2Ln(kickOffTime);
         }

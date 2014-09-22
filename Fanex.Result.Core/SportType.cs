@@ -6,9 +6,8 @@
 
 namespace Fanex.Result.Core
 {
-    using System;
-using System.Diagnostics.CodeAnalysis;
-using Fanex.Result.Core.Extension;
+    using System.Diagnostics.CodeAnalysis;
+    using Fanex.Result.Core.Extension;
 
     /// <summary>
     /// TODO: Update summary.
@@ -105,6 +104,9 @@ using Fanex.Result.Core.Extension;
 
         [StringValue("Billiard")]
         Wrestling = 42,
+
+        [StringValue("Billiard")]
+        ESport = 43,
 
         [StringValue("Billiard")]
         Winter = 29,

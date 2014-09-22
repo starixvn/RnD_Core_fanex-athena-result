@@ -18,7 +18,6 @@ D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\b
 D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\obj\Release\Fanex.Result.WebFormTest.csprojResolveAssemblyReference.cache
 D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\obj\Release\Fanex.Result.WebFormTest.dll
 D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.WebFormTest\obj\Release\Fanex.Result.WebFormTest.pdb
-D:\teamproject\git_lab\lrf\fanex-athena-result\Fanex.Result.WebFormTest\obj\Release\ResolveAssemblyReference.cache
 D:\teamproject\git_lab\lrf\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.WebFormTest.dll
 D:\teamproject\git_lab\lrf\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.WebFormTest.pdb
 D:\teamproject\git_lab\lrf\fanex-athena-result\Fanex.Result.WebFormTest\bin\Fanex.Result.Core.dll
@@ -54,3 +53,6 @@ D:\Work\Git\fanex-athena-result\Fanex.Result.WebFormTest\bin\Newtonsoft.Json.dll
 D:\Work\Git\fanex-athena-result\Fanex.Result.WebFormTest\bin\NPOI.dll
 D:\Work\Git\fanex-athena-result\Fanex.Result.WebFormTest\bin\RazorEngine.dll
 D:\Work\Git\fanex-athena-result\Fanex.Result.WebFormTest\bin\RemotingRef.dll
+D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\SPSRemoting.dll
+D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\bin\IBCCrypt.dll
+D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.WebFormTest\obj\Release\Fanex.Result.WebFormTest.csprojResolveAssemblyReference.cache

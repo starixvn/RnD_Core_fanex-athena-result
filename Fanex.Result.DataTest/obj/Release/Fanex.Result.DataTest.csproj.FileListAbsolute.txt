@@ -4,7 +4,6 @@ D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.DataTest\obj\
 D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.DataTest\obj\Release\Fanex.Result.DataTest.pdb
 D:\teamproject\git_lab\lrf\fanex-athena-result\Fanex.Result.DataTest\bin\Release\Fanex.Result.DataTest.dll
 D:\teamproject\git_lab\lrf\fanex-athena-result\Fanex.Result.DataTest\bin\Release\Fanex.Result.DataTest.pdb
-D:\teamproject\git_lab\lrf\fanex-athena-result\Fanex.Result.DataTest\obj\Release\ResolveAssemblyReference.cache
 D:\teamproject\git_lab\lrf\fanex-athena-result\Fanex.Result.DataTest\obj\Release\Fanex.Result.DataTest.dll
 D:\teamproject\git_lab\lrf\fanex-athena-result\Fanex.Result.DataTest\obj\Release\Fanex.Result.DataTest.pdb
 D:\Work\Git\fanex-athena-result\Fanex.Result.DataTest\bin\Release\Fanex.Result.DataTest.dll

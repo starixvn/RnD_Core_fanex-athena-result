@@ -99,7 +99,7 @@ namespace Fanex.Result.Core.ViewModels
                 string.Empty);
         }
 
-        public virtual string GetSportName(int sportType)
+        public virtual string GetSportNameByLanguage(int sportType)
         {
             return RefData.GetSportName(
                 sportType.ToString(CultureInfo.InvariantCulture),

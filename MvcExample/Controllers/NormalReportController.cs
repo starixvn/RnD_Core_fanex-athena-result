@@ -1,11 +1,7 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="NormalReport.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-namespace MvcExample.Controllers
+﻿namespace MvcExample.Controllers
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
     using System.Web.Mvc;
@@ -14,12 +10,13 @@ namespace MvcExample.Controllers
     using MvcExample.Models;
     using MvcExample.Models.Criteria;
 
+    /// <summary>
+    /// Normal result page.
+    /// </summary>
     public class NormalReportController : Controller
     {
         private readonly IResultService _resultService;
 
-        //
-        // GET: /Home/
         public NormalReportController()
         {
             _resultService = new ResultService();
@@ -31,6 +28,18 @@ namespace MvcExample.Controllers
             return View();
         }
 
+        /// <summary>
+        /// Gen html result.
+        /// </summary>
+        /// <param name="date">The result date.</param>
+        /// <param name="sportId">The sport ID.</param>
+        /// <param name="leagueId">The league ID.</param>
+        /// <param name="languageCode">The language code.</param>
+        /// <returns>The html table result.</returns>
+        [SuppressMessage(
+          "StyleCop.CSharp.Nexcel.NexcelCustomRules",
+          "SP2101:MethodMustNotContainMoreLinesThan",
+          Justification = "Reviewed. Suppression is OK here.")]
         [HttpPost]
         public string GenHtml(DateTime date, short sportId, int leagueId, string languageCode)
         {
@@ -79,7 +88,7 @@ namespace MvcExample.Controllers
                     htmlResult = ResultEngine.HtmlParser<NumberGame>(dataNg.ToList(), resultSetting);
 
                     break;
-                ///sportbook
+
                 default:
                     var dataSb = _resultService.GetSportbookResult(new GetSportbookResultCriteria
                     {
@@ -92,9 +101,22 @@ namespace MvcExample.Controllers
 
                     break;
             }
+
             return htmlResult;
         }
 
+        /// <summary>
+        /// Gen Excel result.
+        /// </summary>
+        /// <param name="date">The result date.</param>
+        /// <param name="sportId">The sport ID.</param>
+        /// <param name="leagueId">The league ID.</param>
+        /// <param name="languageCode">The language code.</param>
+        /// <returns>The Excel file.</returns>
+        [SuppressMessage(
+          "StyleCop.CSharp.Nexcel.NexcelCustomRules",
+          "SP2101:MethodMustNotContainMoreLinesThan",
+          Justification = "Reviewed. Suppression is OK here.")]
         [HttpGet]
         public ActionResult GenExcel(DateTime date, short sportId, int leagueId, string languageCode)
         {
@@ -149,7 +171,7 @@ namespace MvcExample.Controllers
                     excelResult = ResultEngine.ExcelParser<NumberGame>(dataNg.ToList(), resultSetting);
 
                     break;
-                ///sportbook
+
                 default:
                     var dataSb = _resultService.GetSportbookResult(new GetSportbookResultCriteria
                     {
@@ -166,6 +188,18 @@ namespace MvcExample.Controllers
             return File(excelResult.ToArray(), "application/vnd.ms-excel", "result-report.xls");
         }
 
+        /// <summary>
+        /// Gen JSON result.
+        /// </summary>
+        /// <param name="date">The result date.</param>
+        /// <param name="sportId">The sport ID.</param>
+        /// <param name="leagueId">The league ID.</param>
+        /// <param name="languageCode">The language code.</param>
+        /// <returns>The JSON  result.</returns>
+        [SuppressMessage(
+          "StyleCop.CSharp.Nexcel.NexcelCustomRules",
+          "SP2101:MethodMustNotContainMoreLinesThan",
+          Justification = "Reviewed. Suppression is OK here.")]
         [HttpPost]
         public string GenJson(DateTime date, short sportId, int leagueId, string languageCode)
         {
@@ -218,34 +252,34 @@ namespace MvcExample.Controllers
                     jsonResult = ResultEngine.JsonParser<NumberGame>(dataNg.ToList(), resultSetting);
 
                     break;
-                ///sportbook
+
                 default:
-                    var dataSb = _resultService.GetSportbookResult(new GetSportbookResultCriteria
-                    {
-                        FromDate = date,
-                        sporttype = (byte)sportId,
-                        isShowAll = true,
-                        LeagueID = leagueId
-                    });
+                    var dataSb = _resultService.GetSportbookResult(
+                        new GetSportbookResultCriteria
+                        {
+                            FromDate = date,
+                            sporttype = (byte)sportId,
+                            isShowAll = true,
+                            LeagueID = leagueId
+                        });
                     jsonResult = ResultEngine.JsonParser<Sportbook>(dataSb.ToList(), resultSetting);
 
                     break;
             }
+
             return jsonResult;
         }
 
         [HttpGet]
         public ActionResult GetSports(GetSportByDateCriteria criteria)
         {
-            return Json(_resultService.GetSports(criteria),
-                JsonRequestBehavior.AllowGet);
+            return Json(_resultService.GetSports(criteria), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
         public ActionResult GetLeagues(GetLeaguesBySportCriteria criteria)
         {
-            return Json(_resultService.GetLeagues(criteria),
-                JsonRequestBehavior.AllowGet);
+            return Json(_resultService.GetLeagues(criteria), JsonRequestBehavior.AllowGet);
         }
     }
 }

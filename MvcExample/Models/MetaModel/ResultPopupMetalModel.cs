@@ -1,13 +1,11 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="ResultPopupMetalModel.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-namespace MvcExample.Models.MetaModel
+﻿namespace MvcExample.Models.MetaModel
 {
     using System;
     using System.ComponentModel.DataAnnotations;
 
+    /// <summary>
+    /// POPUP meta model.
+    /// </summary>
     [Serializable]
     public class ResultPopupMetaModel
     {
@@ -31,6 +29,7 @@ namespace MvcExample.Models.MetaModel
         public long? RefNo { get; set; }
 
         public DateTime? WinLossDate { get; set; }
+
         public string LanguageCode { get; set; }
     }
 }

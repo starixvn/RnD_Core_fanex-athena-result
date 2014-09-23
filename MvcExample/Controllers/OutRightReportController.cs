@@ -7,25 +7,29 @@
     using Fanex.Result.Core;
     using MvcExample.Models;
 
+    /// <summary>
+    /// OutRight result page.
+    /// </summary>
     public class OutRightReportController : Controller
     {
         private readonly IResultService _resultService;
 
-        //
-        // GET: /Home/
         public OutRightReportController()
         {
             _resultService = new ResultService();
         }
-
-        //
-        // GET: /OutRightReport/
 
         public ActionResult Index()
         {
             return View();
         }
 
+        /// <summary>
+        /// Gen HTML result.
+        /// </summary>
+        /// <param name="date">The result date.</param>
+        /// <param name="languageCode">The language code.</param>
+        /// <returns>The html result.</returns>
         [HttpPost]
         public string GenHtml(DateTime date, string languageCode)
         {
@@ -48,6 +52,12 @@
             return htmlResult;
         }
 
+        /// <summary>
+        /// Gen Excel result.
+        /// </summary>
+        /// <param name="date">The result date.</param>
+        /// <param name="languageCode">The language code.</param>
+        /// <returns>The Excel result.</returns>
         [HttpGet]
         public ActionResult GenExcel(DateTime date, string languageCode)
         {
@@ -73,6 +83,12 @@
             return File(excelResult.ToArray(), "application/vnd.ms-excel", "result-report.xls");
         }
 
+        /// <summary>
+        /// Gen JSON result.
+        /// </summary>
+        /// <param name="date">The result date.</param>
+        /// <param name="languageCode">The language code.</param>
+        /// <returns>The JSON result.</returns>
         [HttpPost]
         public string GenJson(DateTime date, string languageCode)
         {

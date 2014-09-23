@@ -1,5 +1,6 @@
 ﻿namespace MvcExample.Controllers
 {
+    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using System.Web.Mvc;
     using Fanex.Result.Core;
@@ -7,12 +8,13 @@
     using MvcExample.Models.Criteria;
     using MvcExample.Models.MetaModel;
 
+    /// <summary>
+    /// POPUP result page.
+    /// </summary>
     public class PopUpReportController : Controller
     {
         private readonly IResultService _resultService = new ResultService();
 
-        //
-        // GET: /PopUpReport/
         [HttpGet]
         public ActionResult Index()
         {
@@ -25,6 +27,11 @@
             return GetPopUpData(metalModel);
         }
 
+        /// <summary>
+        /// Get result data for POPUP page.
+        /// </summary>
+        /// <param name="metalModel">The metal model.</param>
+        /// <returns>The html result.</returns>
         private string GetPopUpData(ResultPopupMetaModel metalModel)
         {
             var sportType = (SportType)metalModel.SportType;
@@ -53,9 +60,23 @@
             {
                 return GenNormalPopUp(metalModel, sportType, licenseeId, userId, setting);
             }
+
             return string.Empty;
         }
 
+        /// <summary>
+        /// Get normal POPUP result.
+        /// </summary>
+        /// <param name="metalModel">The metal model.</param>
+        /// <param name="sportType">The sport type.</param>
+        /// <param name="licenseeId">The licensee ID.</param>
+        /// <param name="userId">The user ID.</param>
+        /// <param name="setting">The result setting.</param>
+        /// <returns>The html result.</returns>
+        [SuppressMessage(
+          "StyleCop.CSharp.Nexcel.NexcelCustomRules",
+          "SP2101:MethodMustNotContainMoreLinesThan",
+          Justification = "Reviewed. Suppression is OK here.")]
         private string GenNormalPopUp(ResultPopupMetaModel metalModel, SportType sportType, int licenseeId, int userId, ResultSetting setting)
         {
             switch (sportType)
@@ -129,6 +150,7 @@
 
                     break;
             }
+
             return string.Empty;
         }
     }

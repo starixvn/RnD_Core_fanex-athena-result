@@ -15,6 +15,9 @@ namespace MvcExample.Models
     using MvcExample.Models.Criteria;
     using MvcExample.Models.DTO;
 
+    /// <summary>
+    /// The result service.
+    /// </summary>
     public class ResultService : IResultService
     {
         public IEnumerable<Sport> GetSports(GetSportByDateCriteria criteria)
@@ -35,6 +38,11 @@ namespace MvcExample.Models
 
         #region Normal-Report
 
+        /// <summary>
+        /// Get racing result.
+        /// </summary>
+        /// <param name="criteria">The criterion.</param>
+        /// <returns>The racing data.</returns>
         public IEnumerable<Racing> GetRacingResult(GetRacingResultCriteria criteria)
         {
             var result = new List<Racing>();
@@ -48,9 +56,15 @@ namespace MvcExample.Models
                     }
                 }
             }
+
             return result;
         }
 
+        /// <summary>
+        /// Get number game result.
+        /// </summary>
+        /// <param name="criteria">The criterion.</param>
+        /// <returns>The number game data.</returns>
         public IEnumerable<Fanex.Result.Core.DTO.NumberGame> GetNumberGameResult(GetNumberGameResultCriteria criteria)
         {
             var result = new List<NumberGame>();
@@ -64,9 +78,15 @@ namespace MvcExample.Models
                     }
                 }
             }
+
             return result;
         }
 
+        /// <summary>
+        /// Get live casino result.
+        /// </summary>
+        /// <param name="criteria">The criterion.</param>
+        /// <returns>The live casino data.</returns>
         public IEnumerable<Fanex.Result.Core.DTO.LiveCasino> GetLiveCasinoResult(GetLiveCasinoResultCriteria criteria)
         {
             var result = new List<LiveCasino>();
@@ -80,9 +100,15 @@ namespace MvcExample.Models
                     }
                 }
             }
+
             return result;
         }
 
+        /// <summary>
+        /// Get SPORTBOOK result.
+        /// </summary>
+        /// <param name="criteria">The criterion.</param>
+        /// <returns>The SPORTBOOK data.</returns>
         public IEnumerable<Fanex.Result.Core.DTO.Sportbook> GetSportbookResult(GetSportbookResultCriteria criteria)
         {
             var result = new List<Sportbook>();
@@ -97,6 +123,7 @@ namespace MvcExample.Models
                     }
                 }
             }
+
             return result;
         }
 
@@ -104,6 +131,11 @@ namespace MvcExample.Models
 
         #region PopUp
 
+        /// <summary>
+        /// Get racing POPUP result.
+        /// </summary>
+        /// <param name="criteria">The criterion.</param>
+        /// <returns>The racing POPUP data.</returns>
         public IEnumerable<Fanex.Result.Core.DTO.Racing> GetRacingPopupResult(GetRacingPopupResultCriteria criteria)
         {
             var result = new List<Racing>();
@@ -117,9 +149,15 @@ namespace MvcExample.Models
                     }
                 }
             }
+
             return result;
         }
 
+        /// <summary>
+        /// Get number game POPUP result.
+        /// </summary>
+        /// <param name="criteria">The criterion.</param>
+        /// <returns>The number game POPUP data.</returns>
         public IEnumerable<Fanex.Result.Core.DTO.NumberGame> GetNumberGamePopupResult(GetNumberGamePopupResultCriteria criteria)
         {
             var result = new List<NumberGame>();
@@ -133,9 +171,15 @@ namespace MvcExample.Models
                     }
                 }
             }
+
             return result;
         }
 
+        /// <summary>
+        /// Get live casino POPUP result.
+        /// </summary>
+        /// <param name="criteria">The criterion.</param>
+        /// <returns>The live casino POPUP data.</returns>
         public IEnumerable<Fanex.Result.Core.DTO.LiveCasino> GetLiveCasinoPopupResult(GetLiveCasinoPopupResultCriteria criteria)
         {
             var result = new List<LiveCasino>();
@@ -149,9 +193,15 @@ namespace MvcExample.Models
                     }
                 }
             }
+
             return result;
         }
 
+        /// <summary>
+        /// Get SPORTBOOK POPUP result.
+        /// </summary>
+        /// <param name="criteria">The criterion.</param>
+        /// <returns>The SPORTBOOK POPUP data.</returns>
         public IEnumerable<Fanex.Result.Core.DTO.Sportbook> GetSportbookPopupResult(GetSportbookPopupResultCriteria criteria)
         {
             var result = new List<Sportbook>();
@@ -166,11 +216,17 @@ namespace MvcExample.Models
                     }
                 }
             }
+
             return result;
         }
 
         #endregion PopUp
 
+        /// <summary>
+        /// Get Parlay result.
+        /// </summary>
+        /// <param name="criteria">The criterion.</param>
+        /// <returns>The Parlay data.</returns>
         public IEnumerable<Fanex.Result.Core.DTO.Parlay> GetParlayResult(GetParlayResultCriteria criteria)
         {
             var result = new List<Parlay>();
@@ -203,6 +259,7 @@ namespace MvcExample.Models
                         leagueId = newLeagueId;
                         sportId = newsportId;
                     }
+
                     /* add the latest row*/
                     result.Add(new Parlay
                     {
@@ -212,9 +269,15 @@ namespace MvcExample.Models
                     });
                 }
             }
+
             return result;
         }
 
+        /// <summary>
+        /// Get Out Right result.
+        /// </summary>
+        /// <param name="criteria">The criterion.</param>
+        /// <returns>The Out Right data.</returns>
         public IEnumerable<Fanex.Result.Core.DTO.OutRight> GetOutRightResult(GetOutRightResult criteria)
         {
             var result = new List<OutRight>();
@@ -236,11 +299,17 @@ namespace MvcExample.Models
                     }
                 }
             }
+
             return result;
         }
 
         #region Utilites
 
+        /// <summary>
+        /// Bind data from IDATAREADER to DTO.
+        /// </summary>
+        /// <param name="reader">The IDATAREADER.</param>
+        /// <returns>The SPORTBOOK DTO.</returns>
         private static Sportbook BindSportbook(System.Data.IDataReader reader)
         {
             return new Sportbook
@@ -255,18 +324,18 @@ namespace MvcExample.Models
                 FinalAwayScore =
                     reader["finalawayscore"] != DBNull.Value
                         ? int.Parse(reader["finalawayscore"].ToString())
-                        : new Nullable<int>(),
+                        : new int?(),
                 HtAwayScore =
-                    reader["htawayscore"] != DBNull.Value ? int.Parse(reader["htawayscore"].ToString()) : new Nullable<int>(),
+                    reader["htawayscore"] != DBNull.Value ? int.Parse(reader["htawayscore"].ToString()) : new int?(),
                 Color = ColumnExisted(reader, "lcolor") && reader["lcolor"] != DBNull.Value ? reader["lcolor"].ToString() : string.Empty,
                 FinalHomeScore =
                     reader["finalhomescore"] != DBNull.Value
                         ? int.Parse(reader["finalhomescore"].ToString())
-                        : new Nullable<int>(),
+                        : new int?(),
                 HtHomeScore =
                     reader["hthomescore"] != DBNull.Value
                         ? int.Parse(reader["hthomescore"].ToString())
-                        : new Nullable<int>(),
+                        : new int?(),
                 EventDate = DateTime.Parse(reader["eventdate"].ToString()),
                 IsNeutral = bool.Parse(reader["IsNeutral"].ToString()),
                 IsPending = bool.Parse(reader["IsPending"].ToString()),
@@ -280,6 +349,11 @@ namespace MvcExample.Models
             };
         }
 
+        /// <summary>
+        /// Bind data from IDATAREADER to DTO.
+        /// </summary>
+        /// <param name="reader">The IDATAREADER.</param>
+        /// <returns>The live casino DTO.</returns>
         private static LiveCasino BindLiveCasino(System.Data.IDataReader reader)
         {
             return new LiveCasino
@@ -288,9 +362,9 @@ namespace MvcExample.Models
                 LeagueId = int.Parse(reader["leagueid"].ToString()),
                 EventStatus = reader["eventstatus"].ToString(),
                 FinalAwayScore =
-                    reader["finalawayscore"] != DBNull.Value ? int.Parse(reader["finalawayscore"].ToString()) : new Nullable<int>(),
+                    reader["finalawayscore"] != DBNull.Value ? int.Parse(reader["finalawayscore"].ToString()) : new int?(),
                 FinalHomeScore =
-                    reader["finalhomescore"] != DBNull.Value ? int.Parse(reader["finalhomescore"].ToString()) : new Nullable<int>(),
+                    reader["finalhomescore"] != DBNull.Value ? int.Parse(reader["finalhomescore"].ToString()) : new int?(),
                 EventDate = DateTime.Parse(reader["eventdate"].ToString()),
                 IsPending = bool.Parse(reader["IsPending"].ToString()),
                 KickOffTime = DateTime.Parse(reader["kickofftime"].ToString()),
@@ -301,6 +375,11 @@ namespace MvcExample.Models
             };
         }
 
+        /// <summary>
+        /// Bind data from IDATAREADER to DTO.
+        /// </summary>
+        /// <param name="reader">The IDATAREADER.</param>
+        /// <returns>The Racing DTO.</returns>
         private static Racing BindRacing(System.Data.IDataReader reader)
         {
             return new Racing
@@ -322,6 +401,11 @@ namespace MvcExample.Models
             };
         }
 
+        /// <summary>
+        /// Bind data from IDATAREADER to DTO.
+        /// </summary>
+        /// <param name="result">The result list.</param>
+        /// <param name="reader">The IDATAREADER.</param>
         private static void BindNumberGame(List<NumberGame> result, System.Data.IDataReader reader)
         {
             var matchId = int.Parse(reader["matchid"].ToString());
@@ -348,6 +432,12 @@ namespace MvcExample.Models
             }
         }
 
+        /// <summary>
+        /// Check the column existed in data reader.
+        /// </summary>
+        /// <param name="reader">The data reader.</param>
+        /// <param name="columnName">The column name.</param>
+        /// <returns>True or False.</returns>
         private static bool ColumnExisted(IDataReader reader, string columnName)
         {
             for (int i = 0; i < reader.FieldCount; i++)

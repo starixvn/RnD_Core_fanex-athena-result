@@ -1,20 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-
-namespace MvcExample.Controllers
+﻿namespace MvcExample.Controllers
 {
+    using System.Web.Mvc;
+
+    /// <summary>
+    /// Home controller.
+    /// </summary>
     public class HomeController : Controller
     {
-        //
-        // GET: /Home/
-
         public ActionResult Index()
         {
             return View();
         }
-
     }
 }

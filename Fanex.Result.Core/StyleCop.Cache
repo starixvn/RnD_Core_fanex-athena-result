@@ -4,7 +4,7 @@
     <configuration>DEBUG;TRACE</configuration>
   </project>
   <project key="815609119">
-    <configuration>TRACE;CODE_ANALYSIS</configuration>
+    <configuration>TRACE;DEBUG;CODE_ANALYSIS</configuration>
   </project>
   <sourcecode name="DataDomain.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>

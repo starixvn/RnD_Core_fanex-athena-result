@@ -23,7 +23,7 @@ namespace Fanex.Result.Core.UnitTest.Models
         private IList<OutRight> _outrightList = new List<OutRight>();
         private IList<Parlay> _parlayList = new List<Parlay>();
         private string _language = "en-US";
-
+        private ResultSetting _setting = new ResultSetting();
         /// <summary>
         /// Setup data.
         /// </summary>
@@ -75,6 +75,7 @@ namespace Fanex.Result.Core.UnitTest.Models
                 Sportbook = _sportsbookList
             };
             _parlayList.Add(parlay);
+            
         }
 
         #region Html Builder
@@ -85,9 +86,8 @@ namespace Fanex.Result.Core.UnitTest.Models
         [Test]
         public void HtmlBuilder_InputSportTypeAndLanguage_ReturnHtmlValue()
         {
-            var sportType = SportType.Soccer;
 
-            var expected = _builder.HtmlBuilder<Sportbook>(_sportsbookList, sportType, _language);
+            var expected = _builder.HtmlBuilder<Sportbook>(_sportsbookList, _setting);
             Assert.IsNotNullOrEmpty(expected);
         }
 
@@ -97,10 +97,8 @@ namespace Fanex.Result.Core.UnitTest.Models
         [Test]
         public void PopUpHtmlBuilder_InputSportTypeLanguageAndOutrightIsFalse_ReturnHtmlValue()
         {
-            var sportType = SportType.Soccer;
-            var isOutRight = false;
 
-            var expected = _builder.PopUpHtmlBuilder<Sportbook>(_sportsbookList, sportType, isOutRight, _language);
+            var expected = _builder.PopUpHtmlBuilder<Sportbook>(_sportsbookList, _setting);
             Assert.IsNotNullOrEmpty(expected);
         }
 
@@ -110,10 +108,8 @@ namespace Fanex.Result.Core.UnitTest.Models
         [Test]
         public void PopUpHtmlBuilder_InputSportTypeLanguageAndOutrightIsTrue_ReturnHtmlValue()
         {
-            var sportType = SportType.Soccer;
-            var isOutRight = true;
 
-            var expected = _builder.PopUpHtmlBuilder<OutRight>(_outrightList, sportType, isOutRight, _language);
+            var expected = _builder.PopUpHtmlBuilder<OutRight>(_outrightList, _setting);
             Assert.IsNotNullOrEmpty(expected);
         }
 
@@ -125,7 +121,7 @@ namespace Fanex.Result.Core.UnitTest.Models
         {
             var listParlay = new List<Parlay>();
 
-            var expected = _builder.PopUpParalyBuilder<Parlay>(listParlay, _language);
+            var expected = _builder.PopUpParalyBuilder<Parlay>(listParlay, _setting);
             Assert.IsNotNullOrEmpty(expected);
         }
 
@@ -135,7 +131,7 @@ namespace Fanex.Result.Core.UnitTest.Models
         [Test]
         public void OutRightHtmlBuilder_InputOutrightListAndLanguage_ReturnHtmlValue()
         {
-            var expected = _builder.OutRightHtmlBuilder<OutRight>(_outrightList, _language);
+            var expected = _builder.OutRightHtmlBuilder<OutRight>(_outrightList, _setting);
             Assert.IsNotNullOrEmpty(expected);
         }
 

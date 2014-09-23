@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 [assembly: CLSCompliant(false)]
 [assembly: AssemblyTitle("Fanex.Result.Core")]
-[assembly: AssemblyDescription("Fanex.Result.Core 1.5.1")]
+[assembly: AssemblyDescription("Fanex.Result.Core 1.5.4")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Nexcel.vn")]
 [assembly: AssemblyProduct("Fanex.Result.Core")]

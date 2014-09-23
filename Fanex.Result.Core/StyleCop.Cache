@@ -368,23 +368,23 @@
     </timestamps>
     <violations />
   </sourcecode>
-  <project key="18883926">
-    <configuration>TRACE</configuration>
-  </project>
   <project key="1123025514">
     <configuration>DEBUG;TRACE</configuration>
-  </project>
-  <project key="815609119">
-    <configuration>TRACE;DEBUG;CODE_ANALYSIS</configuration>
   </project>
   <project key="-1338930249">
     <configuration>TRACE;DEBUG;CODE_ANALYSIS</configuration>
   </project>
+  <project key="815609119">
+    <configuration>TRACE;CODE_ANALYSIS</configuration>
+  </project>
+  <project key="18883926">
+    <configuration>TRACE;CODE_ANALYSIS</configuration>
+  </project>
   <sourcecode name="DataDomain.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.751</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/01/17 10:57:14.602</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -408,8 +408,8 @@
   <sourcecode name="LangResources.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.752</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/05/23 10:40:23.035</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -433,8 +433,8 @@
   <sourcecode name="LiveCasino.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.753</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/09/22 14:44:34.506</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -458,8 +458,8 @@
   <sourcecode name="NumberGame.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.753</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/08/06 12:57:51.953</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -483,8 +483,8 @@
   <sourcecode name="OutRight.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.753</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/01/17 10:57:16.307</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -508,8 +508,8 @@
   <sourcecode name="Parlay.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.754</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/08/06 12:57:52.075</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -533,8 +533,8 @@
   <sourcecode name="Racing.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.754</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/01/17 10:57:17.231</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -558,8 +558,8 @@
   <sourcecode name="Sportbook.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.754</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/01/17 10:57:17.900</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -583,8 +583,8 @@
   <sourcecode name="StringResources.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.755</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/01/17 10:57:18.285</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -608,8 +608,8 @@
   <sourcecode name="BadmintonExcel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.755</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/04/22 12:33:17.617</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -633,8 +633,8 @@
   <sourcecode name="BaseBallExcel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.756</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/04/22 12:33:17.710</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -658,8 +658,8 @@
   <sourcecode name="BasketballExcel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.756</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/05/23 17:48:43.004</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -683,8 +683,8 @@
   <sourcecode name="BilliardExcel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.756</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/04/22 12:33:17.894</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -708,8 +708,8 @@
   <sourcecode name="ExcelBase.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.757</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/09/22 14:42:06.704</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -733,8 +733,8 @@
   <sourcecode name="HockeyExcel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.757</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/04/22 12:33:18.089</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -758,8 +758,8 @@
   <sourcecode name="LiveCasinoExcel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.758</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/04/22 12:33:18.149</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -783,8 +783,8 @@
   <sourcecode name="NumberGameExcel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.758</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/04/22 12:33:18.211</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -808,8 +808,8 @@
   <sourcecode name="OtherSportExcel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.758</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/04/22 12:33:18.268</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -833,8 +833,8 @@
   <sourcecode name="OutRightExcel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.758</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/04/22 12:33:18.328</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -858,8 +858,8 @@
   <sourcecode name="RacingExcel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.759</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/04/22 12:33:18.385</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -883,8 +883,8 @@
   <sourcecode name="SoccerExcel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.759</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/04/22 12:33:18.441</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -908,8 +908,8 @@
   <sourcecode name="TennisExcel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.759</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/04/22 12:33:18.559</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -933,8 +933,8 @@
   <sourcecode name="VSHRacingExcel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.760</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/04/22 12:33:18.619</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -958,8 +958,8 @@
   <sourcecode name="VSSpeedWayExcel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.760</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/05/23 10:40:23.069</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -983,8 +983,8 @@
   <sourcecode name="VSTennisExcel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.760</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/04/22 12:33:18.675</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1008,8 +1008,8 @@
   <sourcecode name="ObjectNullException.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.761</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/04/14 11:21:07.502</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1033,8 +1033,8 @@
   <sourcecode name="Converter.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.762</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/09/22 14:42:06.705</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1058,8 +1058,8 @@
   <sourcecode name="Extension.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.762</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/01/17 10:57:25.707</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1083,8 +1083,8 @@
   <sourcecode name="HSSFCellExtension.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.763</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/04/22 12:33:18.798</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1108,8 +1108,8 @@
   <sourcecode name="HSSFSheetExtension.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.763</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/09/22 14:42:06.707</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1133,8 +1133,8 @@
   <sourcecode name="HSSFWorkbookExtension.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.763</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/05/23 10:40:23.082</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1158,8 +1158,8 @@
   <sourcecode name="StringValueAttribute.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.764</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/04/14 11:21:07.503</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1183,8 +1183,8 @@
   <sourcecode name="Builder.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.765</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/09/23 08:47:19.777</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1208,8 +1208,8 @@
   <sourcecode name="ExcelParser.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.765</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/09/22 14:46:04.542</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1233,8 +1233,8 @@
   <sourcecode name="IBuilder.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.766</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/09/23 08:47:19.805</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1258,8 +1258,8 @@
   <sourcecode name="IExcelParser.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.766</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/01/17 10:57:28.905</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1283,8 +1283,8 @@
   <sourcecode name="IResource.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.767</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/01/17 10:57:29.157</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1308,8 +1308,8 @@
   <sourcecode name="ITemplate.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.767</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/01/17 10:57:29.392</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1333,8 +1333,8 @@
   <sourcecode name="IValidate.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.767</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/09/22 14:44:34.508</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1358,8 +1358,8 @@
   <sourcecode name="RazorBinderModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.768</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/09/23 08:47:19.807</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1383,8 +1383,8 @@
   <sourcecode name="Resources.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.768</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/09/22 14:42:06.709</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1408,8 +1408,8 @@
   <sourcecode name="Template.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.769</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/09/22 14:41:36.214</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1433,8 +1433,8 @@
   <sourcecode name="Validate.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.769</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/09/22 14:44:34.509</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1458,8 +1458,8 @@
   <sourcecode name="ViewModelConcreteFactory.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.769</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/09/22 14:44:34.509</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1483,8 +1483,8 @@
   <sourcecode name="ViewModelFactory.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.770</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/01/17 10:57:32.642</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1508,8 +1508,8 @@
   <sourcecode name="AssemblyInfo.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.770</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/09/22 14:42:06.709</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1533,8 +1533,8 @@
   <sourcecode name="ResultEngine.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.773</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/09/23 08:47:19.826</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1558,8 +1558,8 @@
   <sourcecode name="ResultSetting.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.774</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/09/23 08:47:19.828</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1583,8 +1583,8 @@
   <sourcecode name="SportType.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 16:29:11.825</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/09/22 14:46:04.542</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1608,8 +1608,8 @@
   <sourcecode name="Helper.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.775</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/04/14 11:21:07.506</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1633,8 +1633,8 @@
   <sourcecode name="MapEventStatus.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.776</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/09/22 14:42:06.712</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1658,8 +1658,8 @@
   <sourcecode name="BadmintonViewModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.776</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/08/06 12:57:52.162</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1683,8 +1683,8 @@
   <sourcecode name="BaseBallViewModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.777</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/01/17 10:57:40.447</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1708,8 +1708,8 @@
   <sourcecode name="BaseViewModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.777</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/09/23 08:47:19.866</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1733,8 +1733,8 @@
   <sourcecode name="BasketBallViewModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.777</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/08/06 12:57:52.201</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1758,8 +1758,8 @@
   <sourcecode name="BilliardViewModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.778</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/01/17 10:57:42.308</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1783,8 +1783,8 @@
   <sourcecode name="HockeyViewModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.778</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/01/17 10:57:42.797</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1808,8 +1808,8 @@
   <sourcecode name="LiveCasinoViewModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.779</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/09/23 08:47:19.883</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1833,8 +1833,8 @@
   <sourcecode name="NumberGameViewModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.779</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/09/23 08:47:19.886</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1858,8 +1858,8 @@
   <sourcecode name="OtherViewModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.779</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/01/17 10:57:44.515</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1883,8 +1883,8 @@
   <sourcecode name="OutRightViewModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.780</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/09/22 14:42:06.740</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1908,8 +1908,8 @@
   <sourcecode name="ParlayViewModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.780</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/09/23 08:47:19.900</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1933,8 +1933,8 @@
   <sourcecode name="RacingViewModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.780</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/09/23 08:47:19.906</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1958,8 +1958,8 @@
   <sourcecode name="SoccerViewModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.781</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/05/23 10:40:23.206</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -1983,8 +1983,8 @@
   <sourcecode name="SportbookBaseViewModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.781</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/09/23 08:47:19.914</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -2008,8 +2008,8 @@
   <sourcecode name="TennisDetailViewModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.781</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/01/17 10:57:48.652</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -2033,8 +2033,8 @@
   <sourcecode name="TennisViewModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.782</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/01/17 10:57:49.204</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -2058,8 +2058,8 @@
   <sourcecode name="VSHRacingViewModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.782</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/09/23 08:47:19.955</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -2083,8 +2083,8 @@
   <sourcecode name="VSSpeedWayViewModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.782</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/09/23 08:47:19.965</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>
@@ -2108,8 +2108,8 @@
   <sourcecode name="VSTennisViewModel.cs" parser="StyleCop.CSharp.CsParser">
     <timestamps>
       <styleCop>2013/12/15 15:29:26.000</styleCop>
-      <settingsFile>2014/05/15 13:28:01.194</settingsFile>
-      <sourceFile>2014/09/15 13:53:13.783</sourceFile>
+      <settingsFile>2014/05/15 13:26:59.139</settingsFile>
+      <sourceFile>2014/01/17 10:57:50.343</sourceFile>
       <parser>2013/12/15 15:29:26.000</parser>
       <StyleCop.CSharp.ReadabilityRules>2013/12/15 15:29:26.000</StyleCop.CSharp.ReadabilityRules>
       <StyleCop.CSharp.ReadabilityRules.FilesHashCode>0</StyleCop.CSharp.ReadabilityRules.FilesHashCode>

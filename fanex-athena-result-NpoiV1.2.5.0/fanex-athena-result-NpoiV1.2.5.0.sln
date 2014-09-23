@@ -1,11 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.DataTest", "..\Fanex.Result.DataTest\Fanex.Result.DataTest.csproj", "{5B97E7FC-A01C-4F85-A63D-F39838FC1B74}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.UI", "..\Fanex.Result.UI\Fanex.Result.UI.csproj", "{FA14D5CB-B702-4D24-A938-A091E3032D06}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.WebFormTest", "..\Fanex.Result.WebFormTest\Fanex.Result.WebFormTest.csproj", "{C83A5BA1-AA7E-4B7F-BB5E-18BB3B928D01}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core", "Fanex.Result.Core\Fanex.Result.Core.csproj", "{AC71A17B-541F-4810-83FF-1930D0C5271B}"
 EndProject
@@ -28,18 +24,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5B97E7FC-A01C-4F85-A63D-F39838FC1B74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5B97E7FC-A01C-4F85-A63D-F39838FC1B74}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5B97E7FC-A01C-4F85-A63D-F39838FC1B74}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5B97E7FC-A01C-4F85-A63D-F39838FC1B74}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FA14D5CB-B702-4D24-A938-A091E3032D06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FA14D5CB-B702-4D24-A938-A091E3032D06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA14D5CB-B702-4D24-A938-A091E3032D06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA14D5CB-B702-4D24-A938-A091E3032D06}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C83A5BA1-AA7E-4B7F-BB5E-18BB3B928D01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C83A5BA1-AA7E-4B7F-BB5E-18BB3B928D01}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C83A5BA1-AA7E-4B7F-BB5E-18BB3B928D01}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C83A5BA1-AA7E-4B7F-BB5E-18BB3B928D01}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AC71A17B-541F-4810-83FF-1930D0C5271B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AC71A17B-541F-4810-83FF-1930D0C5271B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC71A17B-541F-4810-83FF-1930D0C5271B}.Release|Any CPU.ActiveCfg = Release|Any CPU

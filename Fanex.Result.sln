@@ -20,6 +20,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeAnalysis", "CodeAnalysi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcExample", "MvcExample\MvcExample.csproj", "{EBD31F24-8F67-4E36-BD6D-1BB78A71E54B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.UnitTest", "Fanex.Result.Core.UnitTest\Fanex.Result.Core.UnitTest.csproj", "{614017C9-1881-45DE-8B63-C9363BE5D5F1}"
+EndProject
 Global
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = Fanex.Result.vsmdi
@@ -41,6 +43,10 @@ Global
 		{EBD31F24-8F67-4E36-BD6D-1BB78A71E54B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EBD31F24-8F67-4E36-BD6D-1BB78A71E54B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EBD31F24-8F67-4E36-BD6D-1BB78A71E54B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{614017C9-1881-45DE-8B63-C9363BE5D5F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{614017C9-1881-45DE-8B63-C9363BE5D5F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{614017C9-1881-45DE-8B63-C9363BE5D5F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{614017C9-1881-45DE-8B63-C9363BE5D5F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,0 +1,12 @@
+﻿namespace Fanex.Result.Core.UnitTest.ViewModels
+{
+    using NUnit.Framework;
+
+    /// <summary>
+    /// Apply unit testing for BadmintonViewModel class.
+    /// </summary>
+    [TestFixture]
+    public class BadmintonViewModelTest
+    {
+    }
+}

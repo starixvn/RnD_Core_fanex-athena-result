@@ -50,12 +50,14 @@
     <Compile Include="Models\ResourcesTest.cs" />
     <Compile Include="Models\TemplateTest.cs" />
     <Compile Include="Models\ValidateTest.cs" />
+    <Compile Include="Models\ViewModelConcreteFactory.cs" />
     <Compile Include="Models\ViewModelConcreteFactoryTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResultEngineTest.cs" />
     <Compile Include="Stub\BuilderStub.cs" />
     <Compile Include="Stub\ExcelParserStub.cs" />
     <Compile Include="Utilities\Helper.cs" />
+    <Compile Include="ViewModels\BadmintonViewModelTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fanex.Result.Core\Fanex.Result.Core.csproj">

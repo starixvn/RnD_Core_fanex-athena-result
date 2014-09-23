@@ -7,17 +7,21 @@
 namespace Fanex.Result.Core.Models
 {
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.IO;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    internal interface IBuilder
+    public interface IBuilder
     {
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", Justification = "Reviewed")]
         string JSONSportTypeBuilder<T>(IList<T> dataList, SportType sportType, string language);
 
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", Justification = "Reviewed")]
         string JSONParlayBuilder<T>(IList<T> dataList, string language);
 
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", Justification = "Reviewed")]
         string JSONOutRightBuilder<T>(IList<T> dataList, string language);
 
         string HtmlBuilder<T>(IList<T> dataList, SportType sportType, string language);

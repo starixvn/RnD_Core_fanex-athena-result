@@ -6,16 +6,16 @@
   <project key="-381165040">
     <configuration>TRACE</configuration>
   </project>
+  <project key="1912341308">
+    <configuration>TRACE</configuration>
+  </project>
   <project key="612602859">
     <configuration>DEBUG;TRACE</configuration>
   </project>
-  <project key="1221763683">
-    <configuration>TRACE;DEBUG;CODE_ANALYSIS</configuration>
+  <project key="-1304276760">
+    <configuration>DEBUG;TRACE</configuration>
   </project>
   <project key="1447357812">
-    <configuration>TRACE;CODE_ANALYSIS</configuration>
-  </project>
-  <project key="1912341308">
     <configuration>TRACE;CODE_ANALYSIS</configuration>
   </project>
   <sourcecode name="AssemblyInfo.cs" parser="StyleCop.CSharp.CsParser">

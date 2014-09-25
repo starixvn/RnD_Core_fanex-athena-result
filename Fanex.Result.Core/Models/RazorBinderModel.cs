@@ -32,7 +32,7 @@ namespace Fanex.Result.Core.Models
 
         public bool IsParlay { get; set; }
 
-        public bool IsShowTitle { get; set; }
+        public bool IsShowPopUpTitle { get; set; }
 
         public SportType SportType { get; set; }
     }

@@ -42,7 +42,7 @@ namespace Fanex.Result.Core.Models
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode);
             var template = Template.Instance.GetRazorTemplate(setting.SportType.StringMe());
             var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(i, setting.SportType, setting.LanguageCode, lang)).ToList();
-            var model = CreateModel(lang, dataMaped, false, false, setting.IsShowTitle, setting.SportType);
+            var model = CreateModel(lang, dataMaped, false, false, setting.IsShowPopUpTitle, setting.SportType);
             Razor.GetTemplate(template, setting.SportType.StringMe());
             return Razor.Run(setting.SportType.StringMe(), model);
         }
@@ -64,14 +64,14 @@ namespace Fanex.Result.Core.Models
             {
                 template = Template.Instance.GetRazorTemplate("OutRight");
                 var dataMapedOutRight = dataList.Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting.LanguageCode, lang)).ToList();
-                var modelOutRight = CreateModel(lang, dataMapedOutRight, true, false, setting.IsShowTitle, setting.SportType);
+                var modelOutRight = CreateModel(lang, dataMapedOutRight, true, false, setting.IsShowPopUpTitle, setting.SportType);
                 Razor.GetTemplate(template, "OutRight");
                 return Razor.Run("OutRight", modelOutRight);
             }
 
             template = Template.Instance.GetRazorTemplate(setting.SportType.StringMe());
             var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(i, setting.SportType, setting.LanguageCode, lang)).ToList();
-            var model = CreateModel(lang, dataMaped, true, false, setting.IsShowTitle, setting.SportType);
+            var model = CreateModel(lang, dataMaped, true, false, setting.IsShowPopUpTitle, setting.SportType);
             Razor.GetTemplate(template, setting.SportType.StringMe());
             return Razor.Run(setting.SportType.StringMe(), model);
         }
@@ -81,7 +81,7 @@ namespace Fanex.Result.Core.Models
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode);
             var template = Template.Instance.GetRazorTemplate("Parlay");
             var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetParlayViewModel(i, setting.LanguageCode, lang)).ToList();
-            var model = CreateModel(lang, dataMaped, true, true, setting.IsShowTitle, setting.SportType);
+            var model = CreateModel(lang, dataMaped, true, true, setting.IsShowPopUpTitle, setting.SportType);
             Razor.GetTemplate(template, "Parlay");
             return Razor.Run("Parlay", model);
         }
@@ -91,7 +91,7 @@ namespace Fanex.Result.Core.Models
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode);
             var template = Template.Instance.GetRazorTemplate("OutRight");
             var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting.LanguageCode, lang)).ToList();
-            var model = CreateModel(lang, dataMaped, false, false, setting.IsShowTitle, setting.SportType);
+            var model = CreateModel(lang, dataMaped, false, false, setting.IsShowPopUpTitle, setting.SportType);
             Razor.GetTemplate(template, "OutRight");
             return Razor.Run("OutRight", model);
         }
@@ -195,7 +195,7 @@ namespace Fanex.Result.Core.Models
                  Resource = lang,
                  IsPopUp = isPopUp,
                  IsParlay = isParlay,
-                 IsShowTitle = isShowTitle,
+                 IsShowPopUpTitle = isShowTitle,
                  SportType = sportType
              };
             model.Data.AddRange(data);

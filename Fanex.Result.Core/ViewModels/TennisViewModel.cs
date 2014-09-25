@@ -19,8 +19,8 @@ namespace Fanex.Result.Core.ViewModels
         private int _totalGameHome;
         private int _totalGameAway;
 
-        public TennisViewModel(Sportbook sportbook, string languageCode, LangResources resources)
-            : base(sportbook, languageCode, resources)
+        public TennisViewModel(Sportbook sportbook, SportType sport, string languageCode, LangResources resources)
+            : base(sportbook, sport, languageCode, resources)
         {
             this.GetHomeAwaySet(0, true);
         }
@@ -111,7 +111,7 @@ namespace Fanex.Result.Core.ViewModels
                 this.AwaySet = new[] { "-", "-", "-", "-", "-" };
                 if (this.SPORTBOOK.BetStatus.IndexOf(",", StringComparison.Ordinal) >= 0)
                 {
-                    string[] betStatusList = this.SPORTBOOK.BetStatus.Split(',');
+                    string[] betStatusList = this.GetCoreInfoFromBetStatus.Split(',');
                     for (int j = 0; j < betStatusList.Length && j < 5; j++)
                     {
                         var values = betStatusList[j].Trim().Split('-');

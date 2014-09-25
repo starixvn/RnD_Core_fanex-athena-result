@@ -15,8 +15,8 @@ namespace Fanex.Result.Core.ViewModels
     /// </summary>
     public sealed class BilliardViewModel : SportbookBaseViewModel
     {
-        public BilliardViewModel(Sportbook sportbook, string languageCode, LangResources resouces)
-            : base(sportbook, languageCode, resouces)
+        public BilliardViewModel(Sportbook sportbook, SportType sport, string languageCode, LangResources resouces)
+            : base(sportbook, sport, languageCode, resouces)
         {
         }
 

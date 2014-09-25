@@ -16,8 +16,8 @@ namespace Fanex.Result.Core.ViewModels
     /// </summary>
     public sealed class SoccerViewModel : SportbookBaseViewModel
     {
-        public SoccerViewModel(Sportbook soccer, string languageCode, LangResources resource)
-            : base(soccer, languageCode, resource)
+        public SoccerViewModel(Sportbook soccer, SportType sport, string languageCode, LangResources resource)
+            : base(soccer, sport, languageCode, resource)
         {
         }
 

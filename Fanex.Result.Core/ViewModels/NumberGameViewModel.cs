@@ -18,11 +18,12 @@ namespace Fanex.Result.Core.ViewModels
     {
         private readonly NumberGame _numberGame;
 
-        public NumberGameViewModel(NumberGame numberGame, string languageCode, LangResources resouces)
+        public NumberGameViewModel(NumberGame numberGame, SportType sport, string languageCode, LangResources resouces)
         {
             this._numberGame = numberGame;
             this.LanguageCode = languageCode;
             this.Lang = resouces;
+            this.Sport = sport;
         }
 
         public override string KickOffTime

@@ -19,11 +19,12 @@ namespace Fanex.Result.Core.ViewModels
     {
         private readonly Racing _racing;
 
-        public VSSpeedWayViewModel(Racing racing, string languageCode, LangResources resouces)
+        public VSSpeedWayViewModel(Racing racing, SportType sport, string languageCode, LangResources resouces)
         {
             this._racing = racing;
             this.LanguageCode = languageCode;
             this.Lang = resouces;
+            this.Sport = sport;
         }
 
         public override int LeagueId

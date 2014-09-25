@@ -8,7 +8,6 @@ namespace Fanex.Result.Core.Models
 {
     using System;
     using Fanex.Result.Core.DTO;
-    using Fanex.Result.Core.Exception;
     using Fanex.Result.Core.Extension;
 
     /// <summary>
@@ -64,7 +63,7 @@ namespace Fanex.Result.Core.Models
 
             var dtoName = sportType.StringMe();
             var viewModel = Type.GetType(NAMESPACE + dtoName + EXTNAME);
-            return Activator.CreateInstance(viewModel, obj, languageCode, resource);
+            return Activator.CreateInstance(viewModel, obj, sportType, languageCode, resource);
         }
 
         public override object GetOutRightViewModel(object obj, string languageCode, LangResources resource)

@@ -25,11 +25,12 @@ namespace Fanex.Result.Core.ViewModels
 
         private string _result;
 
-        public LiveCasinoViewModel(LiveCasino livecasino, string languageCode, LangResources resource)
+        public LiveCasinoViewModel(LiveCasino livecasino, SportType sport, string languageCode, LangResources resource)
         {
             this._liveCasino = livecasino;
             this.LanguageCode = languageCode;
             this.Lang = resource;
+            this.Sport = sport;
         }
 
         public override int LeagueId

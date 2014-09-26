@@ -13,9 +13,10 @@
     /// </summary>
     public class PopUpReportController : Controller
     {
-        private readonly IResultService _resultService = new ResultService();
         private const int MixParlayBettype = 9;
         private const int SystemParlayBettype = 29;
+
+        private readonly IResultService _resultService = new ResultService();
 
         [HttpGet]
         public ActionResult Index()

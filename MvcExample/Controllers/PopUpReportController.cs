@@ -43,7 +43,7 @@
                 IsOutRight = metalModel.IsOutRight.HasValue && metalModel.IsOutRight.Value > 0,
                 IsParlayPopUp = metalModel.Bettype == 9 || metalModel.Bettype == 29,
                 IsPopUp = true,
-                IsShowPopUpTitle=true,
+                IsShowPopUpTitle = true,
                 LanguageCode = metalModel.LanguageCode
             };
             if (setting.IsParlayPopUp)

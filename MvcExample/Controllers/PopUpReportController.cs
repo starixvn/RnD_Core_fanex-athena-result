@@ -14,6 +14,8 @@
     public class PopUpReportController : Controller
     {
         private readonly IResultService _resultService = new ResultService();
+        private const int MixParlayBettype = 9;
+        private const int SystemParlayBettype = 29;
 
         [HttpGet]
         public ActionResult Index()
@@ -41,7 +43,7 @@
             {
                 SportType = sportType,
                 IsOutRight = metalModel.IsOutRight.HasValue && metalModel.IsOutRight.Value > 0,
-                IsParlayPopUp = metalModel.Bettype == 9 || metalModel.Bettype == 29,
+                IsParlayPopUp = metalModel.Bettype == MixParlayBettype || metalModel.Bettype == SystemParlayBettype,
                 IsPopUp = true,
                 IsShowPopUpTitle = true,
                 LanguageCode = metalModel.LanguageCode

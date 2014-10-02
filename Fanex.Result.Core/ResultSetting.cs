@@ -19,6 +19,8 @@ namespace Fanex.Result.Core
 
         public bool IsOutRight { get; set; }
 
+        public bool IsShowPopUpTitle { get; set; }
+
         public SportType SportType { get; set; }
 
         /// <summary>

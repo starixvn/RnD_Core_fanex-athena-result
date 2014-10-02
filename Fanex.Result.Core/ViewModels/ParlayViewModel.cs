@@ -7,13 +7,12 @@
 namespace Fanex.Result.Core.ViewModels
 {
     using System.Collections.Generic;
-    using System.Globalization;
+    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.Models;
     using RazorEngine;
-    using RemotingRef;
 
     /// <summary>
     /// Parlay view model class.
@@ -29,16 +28,20 @@ namespace Fanex.Result.Core.ViewModels
             this.Lang = resource;
         }
 
-        public string SportName
+        [SuppressMessage("Microsoft.Naming", "CA1721:PropertyNamesShouldNotMatchGetMethods", Justification = "Reviewed")]
+        public override string SportName
         {
-            get { return RefData.GetSportName(this._parlay.SportId.ToString(CultureInfo.InvariantCulture), this.GetSupportedLanguage, string.Empty); }
+            get
+            {
+                return this.GetSportNameByLanguage(this._parlay.SportId);
+            }
         }
 
         public override string LeagueName
         {
             get
             {
-                return this.GetLeagueNameFromRemotingRef(this._parlay.LeagueId);
+                return this.GetLeagueNameByLanguage(this._parlay.LeagueId);
             }
         }
 

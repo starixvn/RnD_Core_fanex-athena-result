@@ -5,7 +5,6 @@
 // -----------------------------------------------------------------------
 namespace Fanex.Result.Core
 {
-    using System;
     using System.Collections.Generic;
     using System.Globalization;
     using System.IO;
@@ -80,7 +79,7 @@ namespace Fanex.Result.Core
             }
 
             return Utilities.Helper.RemoveWhiteSpace(
-                builder.HtmlBuilder(dataList, setting.SportType, setting.LanguageCode));
+                builder.HtmlBuilder(dataList, setting));
         }
 
         /// <summary>
@@ -205,11 +204,7 @@ namespace Fanex.Result.Core
 
             return
                 Utilities.Helper.RemoveWhiteSpace(
-                builder.PopUpHtmlBuilder(
-                dataList,
-                setting.SportType,
-                setting.IsOutRight,
-                setting.LanguageCode));
+                builder.PopUpHtmlBuilder(dataList, setting));
         }
 
         private static string HtmlParlayParser<T>(IList<T> dataList, ResultSetting setting, string dtoName, Builder builder)
@@ -220,7 +215,7 @@ namespace Fanex.Result.Core
             }
 
             return Utilities.Helper.RemoveWhiteSpace(
-                builder.PopUpParalyBuilder(dataList, setting.LanguageCode));
+                builder.PopUpParalyBuilder(dataList, setting));
         }
 
         private static string HtmlOutRightParser<T>(IList<T> dataList, ResultSetting setting, string dtoName, Builder builder)
@@ -231,7 +226,7 @@ namespace Fanex.Result.Core
             }
 
             return Utilities.Helper.RemoveWhiteSpace(
-                builder.OutRightHtmlBuilder(dataList, setting.LanguageCode));
+                builder.OutRightHtmlBuilder(dataList, setting));
         }
 
         #endregion HtmlParser-SubFunction

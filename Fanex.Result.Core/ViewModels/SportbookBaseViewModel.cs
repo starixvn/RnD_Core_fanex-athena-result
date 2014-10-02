@@ -6,6 +6,7 @@
 
 namespace Fanex.Result.Core.ViewModels
 {
+    using System;
     using System.Globalization;
     using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.Utilities;
@@ -22,11 +23,12 @@ namespace Fanex.Result.Core.ViewModels
 
         private Sportbook _sportbook;
 
-        public SportbookBaseViewModel(Sportbook sportbook, string languageCode, LangResources resource)
+        public SportbookBaseViewModel(Sportbook sportbook, SportType sport, string languageCode, LangResources resource)
         {
             this.SPORTBOOK = sportbook;
             this.LanguageCode = languageCode;
             this.Lang = resource;
+            this.Sport = sport;
         }
 
         public string[] HomeSet
@@ -47,7 +49,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.GetAndFormatKickOffTime(this.SPORTBOOK.KickOffTime);
+                return this.GetFormatedKickOffTime(this.SPORTBOOK.KickOffTime);
             }
         }
 
@@ -60,7 +62,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.GetLeagueNameFromRemotingRef(this.SPORTBOOK.LeagueId);
+                return this.GetLeagueNameByLanguage(this.SPORTBOOK.LeagueId);
             }
         }
 
@@ -129,6 +131,25 @@ namespace Fanex.Result.Core.ViewModels
         #endregion common properties
 
         #region Utilities
+
+        protected string GetCoreInfoFromBetStatus
+        {
+            get
+            {
+                var realStatus = this.SPORTBOOK.BetStatus;
+                var refundIndex = this.SPORTBOOK.BetStatus.IndexOf(";", StringComparison.Ordinal);
+                if (refundIndex >= 0)
+                {
+                    var startCoreIndex = refundIndex + 1;
+                    if (this.SPORTBOOK.BetStatus.Length > startCoreIndex)
+                    {
+                        realStatus = this.SPORTBOOK.BetStatus.Substring(startCoreIndex);
+                    }
+                }
+
+                return realStatus;
+            }
+        }
 
         /// <summary>
         /// Get sport-book home team.

@@ -36,6 +36,7 @@ namespace Fanex.Result.Core.ViewModels
         private string _languageCode = EnglishLanguageCode;
 
         private LangResources _lang;
+        private SportType _sportType = SportType.Soccer;
 
         public string GetSupportedLanguage
         {
@@ -70,7 +71,15 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return string.Empty;
+                return GetLeagueNameByLanguage(this.LeagueId);
+            }
+        }
+
+        public virtual string SportName
+        {
+            get
+            {
+                return this.GetSportNameByLanguage((int)this._sportType);
             }
         }
 
@@ -86,12 +95,18 @@ namespace Fanex.Result.Core.ViewModels
             set { _lang = value; }
         }
 
+        protected SportType Sport
+        {
+            get { return _sportType; }
+            set { _sportType = value; }
+        }
+
         public virtual string Color(int index, string bg, string oddbg)
         {
             return index % 2 == 0 ? bg : oddbg;
         }
 
-        public virtual string GetLeagueNameFromRemotingRef(int leagueId)
+        protected virtual string GetLeagueNameByLanguage(int leagueId)
         {
             return RefData.GetLeagueName(
                 leagueId.ToString(CultureInfo.InvariantCulture),
@@ -99,7 +114,15 @@ namespace Fanex.Result.Core.ViewModels
                 string.Empty);
         }
 
-        public virtual string GetAndFormatKickOffTime(DateTime kickOffTime)
+        protected virtual string GetSportNameByLanguage(int sportType)
+        {
+            return RefData.GetSportName(
+                sportType.ToString(CultureInfo.InvariantCulture),
+                this.GetSupportedLanguage,
+                string.Empty);
+        }
+
+        protected virtual string GetFormatedKickOffTime(DateTime kickOffTime)
         {
             return Helper.FullDateFormat2Ln(kickOffTime);
         }

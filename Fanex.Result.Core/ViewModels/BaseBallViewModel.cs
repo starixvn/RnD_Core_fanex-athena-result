@@ -15,8 +15,8 @@ namespace Fanex.Result.Core.ViewModels
     /// </summary>
     public sealed class BaseBallViewModel : SportbookBaseViewModel
     {
-        public BaseBallViewModel(Sportbook sportbook, string languageCode, LangResources resource)
-            : base(sportbook, languageCode, resource)
+        public BaseBallViewModel(Sportbook sportbook, SportType sport, string languageCode, LangResources resource)
+            : base(sportbook, sport, languageCode, resource)
         {
             this.GetHomeAwaySet(0, true);
         }
@@ -97,7 +97,7 @@ namespace Fanex.Result.Core.ViewModels
                 this.AwaySet = new[] { "-", "-", "-", "-", "-", "-", "-", "-", "-", "-1" };
                 if (this.SPORTBOOK.BetStatus.IndexOf(",", StringComparison.Ordinal) >= 0)
                 {
-                    string[] betStatusList = this.SPORTBOOK.BetStatus.Split(',');
+                    string[] betStatusList = this.GetCoreInfoFromBetStatus.Split(',');
                     for (int j = 0; j < betStatusList.Length && j < 10; j++)
                     {
                         var values = betStatusList[j].Trim().Split('-');

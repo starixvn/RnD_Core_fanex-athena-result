@@ -4,6 +4,16 @@
 }
 <table class="fanex-result">
     <thead>
+        @if (Model.IsShowPopUpTitle && Model.Data.Count > 0)
+        {
+            var item = (Fanex.Result.Core.ViewModels.NumberGameViewModel)Model.Data[0];
+            <tr class="row-title">
+                <th class="column-title" colspan="@colspan">
+                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp;
+                    <span class="leagueName">@item.LeagueName</span>
+                </th>
+            </tr>
+        }
         <tr class="row-header">
             <th class="column-kickofftime">
                 @lang.KickOffTime
@@ -65,7 +75,7 @@
                 <td class="column-result">
                     @foreach (var ball in item.Result)
                     {
-                        <span class="ball">@ball</span> 
+                        <span class="ball">@ball</span>
                     }
                 </td>
                 <td class="column-warrior">

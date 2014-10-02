@@ -18,11 +18,12 @@ namespace Fanex.Result.Core.ViewModels
     {
         private readonly Racing _racing;
 
-        public RacingViewModel(Racing racing, string languageCode, LangResources resouces)
+        public RacingViewModel(Racing racing, SportType sport, string languageCode, LangResources resouces)
         {
             this._racing = racing;
             this.LanguageCode = languageCode;
             this.Lang = resouces;
+            this.Sport = sport;
         }
 
         public override int LeagueId
@@ -37,7 +38,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.GetLeagueNameFromRemotingRef(this._racing.LeagueId);
+                return this.GetLeagueNameByLanguage(this._racing.LeagueId);
             }
         }
 

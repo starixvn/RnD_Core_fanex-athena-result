@@ -25,11 +25,12 @@ namespace Fanex.Result.Core.ViewModels
 
         private string _result;
 
-        public LiveCasinoViewModel(LiveCasino livecasino, string languageCode, LangResources resource)
+        public LiveCasinoViewModel(LiveCasino livecasino, SportType sport, string languageCode, LangResources resource)
         {
             this._liveCasino = livecasino;
             this.LanguageCode = languageCode;
             this.Lang = resource;
+            this.Sport = sport;
         }
 
         public override int LeagueId
@@ -44,7 +45,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.GetLeagueNameFromRemotingRef(this._liveCasino.LeagueId);
+                return this.GetLeagueNameByLanguage(this._liveCasino.LeagueId);
             }
         }
 
@@ -52,7 +53,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.GetAndFormatKickOffTime(this._liveCasino.KickOffTime);
+                return this.GetFormatedKickOffTime(this._liveCasino.KickOffTime);
             }
         }
 

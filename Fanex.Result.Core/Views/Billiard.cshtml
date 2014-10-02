@@ -4,12 +4,22 @@
 }
 <table class="fanex-result">
     <thead>
+        @if (Model.IsShowPopUpTitle && Model.Data.Count > 0)
+        {
+            var item = (Fanex.Result.Core.ViewModels.BilliardViewModel)Model.Data[0];
+            <tr class="row-title">
+                <th class="column-title" colspan="@colspan">
+                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp;
+                    <span class="leagueName">@item.LeagueName</span>
+                </th>
+            </tr>
+        }
         <tr class="row-header">
             <th class="column-kickofftime">
                 @lang.KickOffTime
             </th>
             <th class="column-match">
-                    @Raw(lang.Match)
+                @Raw(lang.Match)
             </th>
             <th class="column-finalscore">
                 @lang.FinalScore
@@ -20,7 +30,6 @@
         </tr>
     </thead>
     <tbody>
-    
         @if (Model.Data.Count > 0)
         {
             var currentLeagueId = 0;
@@ -35,7 +44,7 @@
                     if (currentLeagueId == 0 || currentLeagueId != leagueId)
                     {
                         currentLeagueId = leagueId;
-        
+
             <tr class="row-data">
                 <td colspan="@colspan" class="column-league">
                     @item.LeagueName
@@ -43,7 +52,7 @@
             </tr>
                     }
                 }
- <tr class="row-data @item.Color(index, "format-even", "format-odd")">                
+            <tr class="row-data @item.Color(index, "format-even", "format-odd")">
                 <td class="column-kickofftime" rowspan="2">
                     @Raw(item.KickOffTime)
                 </td>
@@ -57,7 +66,7 @@
                     @item.EventStatus
                 </td>
             </tr>
- <tr class="row-data @item.Color(index, "format-even", "format-odd")">              
+            <tr class="row-data @item.Color(index, "format-even", "format-odd")">
                 <td class="column-match">
                     @Raw(item.AwayTeam)
                 </td>
@@ -65,7 +74,7 @@
                     @item.FinalAwayScore
                 </td>
             </tr>
-       
+
             }
         }
         else

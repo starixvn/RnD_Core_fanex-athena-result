@@ -42,7 +42,15 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return RefData.GetLeagueName(this._outRight.LeagueId.ToString(CultureInfo.InvariantCulture), this.GetSupportedLanguage, string.Empty);
+                return this.GetLeagueNameByLanguage(this._outRight.LeagueId);
+            }
+        }
+
+        public override string SportName
+        {
+            get
+            {
+                return this.GetSportNameByLanguage(this._outRight.SportType);
             }
         }
 

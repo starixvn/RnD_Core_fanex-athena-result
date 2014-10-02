@@ -44,29 +44,29 @@ namespace Fanex.Result.Core.UnitTest.Stub
             return "Test";
         }
 
-        public string HtmlBuilder<T>(IList<T> dataList, SportType sportType, string language)
-        {
-            return "Test";
-        }
-
-        public string PopUpParalyBuilder<T>(IList<T> dataList, string language)
-        {
-            return "Test";
-        }
-
-        public string PopUpHtmlBuilder<T>(IList<T> dataList, SportType sportType, bool isOutRight, string language)
-        {
-            return "Test";
-        }
-
         public MemoryStream ExcelBuilder<T>(IList<T> dataList, SportType sportType, string language, string templatePath, string excelTitle)
         {
             return new MemoryStream();
         }
 
-        public string OutRightHtmlBuilder<T>(IList<T> dataList, string language)
+        public string HtmlBuilder<T>(IList<T> dataList, ResultSetting setting)
         {
-            return "Test";
+            throw new System.NotImplementedException();
+        }
+
+        public string PopUpParalyBuilder<T>(IList<T> dataList, ResultSetting setting)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public string PopUpHtmlBuilder<T>(IList<T> dataList, ResultSetting setting)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public string OutRightHtmlBuilder<T>(IList<T> dataList, ResultSetting setting)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

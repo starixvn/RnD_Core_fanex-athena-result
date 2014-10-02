@@ -16,8 +16,8 @@ namespace Fanex.Result.Core.ViewModels
     /// </summary>
     public sealed class SoccerViewModel : SportbookBaseViewModel
     {
-        public SoccerViewModel(Sportbook soccer, string languageCode, LangResources resource)
-            : base(soccer, languageCode, resource)
+        public SoccerViewModel(Sportbook soccer, SportType sport, string languageCode, LangResources resource)
+            : base(soccer, sport, languageCode, resource)
         {
         }
 
@@ -195,7 +195,7 @@ Justification = "Reviewed. Suppression is OK here.")]
                     betStatus = this.SPORTBOOK.BetStatus.Trim();
                     if (!string.IsNullOrEmpty(betStatus) && betStatus.Contains(":"))
                     {
-                        string[] refundArray = betStatus.Split(';');
+                        string[] refundArray = betStatus.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
                         if (refundArray.Length >= 2 && !string.IsNullOrEmpty(refundArray[1]))
                         {
                             var goadRecord = refundArray.Length == 2 ? refundArray[1] : isFirstHalf ? refundArray[1] : refundArray[2];
@@ -219,7 +219,7 @@ Justification = "Reviewed. Suppression is OK here.")]
                     betStatus = this.SPORTBOOK.BetStatus.Trim();
                     if (!string.IsNullOrEmpty(betStatus) && betStatus.Contains(":"))
                     {
-                        string[] refundArray = betStatus.Split(';');
+                        string[] refundArray = betStatus.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
 
                         var fglgArray = refundArray.Length == 1 ?
                             betStatus.Split(':') : isFirstHalf ? refundArray[0].Split(':') : refundArray[1].Split(':');

@@ -3,12 +3,13 @@ D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.UI\bin\Fanex.
 D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.UI\obj\Release\Fanex.Result.UI.dll
 D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.UI\obj\Release\Fanex.Result.UI.pdb
 D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.UI\obj\Release\Fanex.Result.UI.csprojResolveAssemblyReference.cache
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.UI\bin\Fanex.Result.UI.dll
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.UI\bin\Fanex.Result.UI.pdb
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.UI\obj\Release\Fanex.Result.UI.dll
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.UI\obj\Release\Fanex.Result.UI.pdb
-D:\Git LAB\fanex-athena-result\Fanex.Result.UI\bin\Fanex.Result.UI.dll
-D:\Git LAB\fanex-athena-result\Fanex.Result.UI\bin\Fanex.Result.UI.pdb
-D:\Git LAB\fanex-athena-result\Fanex.Result.UI\obj\Release\ResolveAssemblyReference.cache
-D:\Git LAB\fanex-athena-result\Fanex.Result.UI\obj\Release\Fanex.Result.UI.dll
-D:\Git LAB\fanex-athena-result\Fanex.Result.UI\obj\Release\Fanex.Result.UI.pdb
+D:\teamproject\git_lab\lrf\fanex-athena-result\Fanex.Result.UI\bin\Fanex.Result.UI.dll
+D:\teamproject\git_lab\lrf\fanex-athena-result\Fanex.Result.UI\bin\Fanex.Result.UI.pdb
+D:\teamproject\git_lab\lrf\fanex-athena-result\Fanex.Result.UI\obj\Release\Fanex.Result.UI.dll
+D:\teamproject\git_lab\lrf\fanex-athena-result\Fanex.Result.UI\obj\Release\Fanex.Result.UI.pdb
+D:\Work\Git\fanex-athena-result\Fanex.Result.UI\bin\Fanex.Result.UI.dll
+D:\Work\Git\fanex-athena-result\Fanex.Result.UI\bin\Fanex.Result.UI.pdb
+D:\Work\Git\fanex-athena-result\Fanex.Result.UI\obj\Release\Fanex.Result.UI.csprojResolveAssemblyReference.cache
+D:\Work\Git\fanex-athena-result\Fanex.Result.UI\obj\Release\Fanex.Result.UI.dll
+D:\Work\Git\fanex-athena-result\Fanex.Result.UI\obj\Release\Fanex.Result.UI.pdb
+D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.UI\obj\Release\Fanex.Result.UI.csprojResolveAssemblyReference.cache

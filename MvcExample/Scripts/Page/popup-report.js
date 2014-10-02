@@ -36,12 +36,12 @@ var popupReport = (function () {
 
             var criteria = {
                 WinLossDate: $.datepicker.formatDate('mm/dd/yy', $("#date").datepicker('getDate')),
-                SportType: 9,
+                SportType: 1,
                 IsOutRight: false,
                 RefNo: null,
                 RaceNo: null,
-                Bettype: 3,
-                MatchId: 10406057,
+                Bettype: 1,
+                MatchId: 10315089,
                 languageCode: $("#language").val()
             };
             genData(criteria);
@@ -53,7 +53,7 @@ var popupReport = (function () {
                 WinLossDate: $.datepicker.formatDate('mm/dd/yy', $("#date").datepicker('getDate')),
                 SportType: 9,
                 IsOutRight: false,
-                RefNo: 100507341187,
+                RefNo: 100510626147,
                 RaceNo: null,
                 Bettype: 9,
                 MatchId: 1,

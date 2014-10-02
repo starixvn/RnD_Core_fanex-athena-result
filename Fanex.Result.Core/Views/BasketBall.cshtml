@@ -4,6 +4,16 @@
 }
 <table class="fanex-result">
     <thead>
+        @if (Model.IsShowPopUpTitle && Model.Data.Count > 0)
+        {
+            var item = (Fanex.Result.Core.ViewModels.BasketBallViewModel)Model.Data[0];
+            <tr class="row-title">
+                <th class="column-title" colspan="@colspan">
+                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp;
+                    <span class="leagueName">@item.LeagueName</span>
+                </th>
+            </tr>
+        }
         <tr class="row-header">
             <th class="column-kickofftime">
                 @lang.KickOffTime
@@ -59,7 +69,7 @@
             </tr>
                     }
                 }
- <tr class="row-data @item.Color(index, "format-even", "format-odd")">               
+            <tr class="row-data @item.Color(index, "format-even", "format-odd")">
                 <td class="column-kickofftime" rowspan="2">
                     @Raw(item.KickOffTime)
                 </td>
@@ -91,7 +101,7 @@
                     @item.EventStatus
                 </td>
             </tr>
- <tr class="row-data @item.Color(index, "format-even", "format-odd")">              
+            <tr class="row-data @item.Color(index, "format-even", "format-odd")">
                 <td class="column-match">
                     @Raw(item.AwayTeam)
                 </td>
@@ -121,7 +131,7 @@
         }
         else
         {
-          
+
             <!--NoInfo-->
             <tr class="row-noinfo">
                 <td colspan="@colspan">

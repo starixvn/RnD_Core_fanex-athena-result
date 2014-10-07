@@ -41,6 +41,9 @@ table.fanex-result tr.row-header th, table.fanex-result-tenis-setdetail tr.row-h
     border-bottom: 1px solid #A3D1E1;
 }
 /*header-column*/
+table.fanex-result tr.row-header th.column-matchcode
+{
+}
 table.fanex-result tr.row-header th.column-kickofftime
 {
 }
@@ -75,7 +78,7 @@ table.fanex-result tr.row-header th.column-lastball
 table.fanex-result tr.row-header th.column-warrior
 {
 }
-table.fanex-result tr.row-title 
+table.fanex-result tr.row-title
 {
 }
 table.fanex-result tr.row-title th.column-title
@@ -128,7 +131,19 @@ table.fanex-result tr.row-data td.column-league
     text-align: left !important;
     text-transform: uppercase;
 }
+table.fanex-result tr.row-data td.column-matchcode
+{
+    
+}
 
+table.fanex-result tr.row-data td.column-matchcode div.m-code
+{
+    /*for match code*/
+}
+table.fanex-result tr.row-data td.column-matchcode div.m-id
+{
+    /*for number match id*/
+}
 table.fanex-result tr.row-data td.column-kickofftime
 {
     font-size: 10px !important;
@@ -214,7 +229,6 @@ table.fanex-result .red
 {
     color: #dc143c !important;
 }
-
 
 table.fanex-result .ball
 {

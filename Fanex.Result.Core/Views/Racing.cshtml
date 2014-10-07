@@ -1,16 +1,24 @@
 ﻿@{
-    var lang = (Fanex.Result.Core.DTO.LangResources)Model.Resource;
+    var viewModel = (Fanex.Result.Core.Models.RazorBinderModel)Model;
+
+    var lang = (Fanex.Result.Core.DTO.LangResources)viewModel.Resource;
     const int colspan = 7;
 }
 <table class="fanex-result">
+    <colgroup>
+        <col class="column-race" colspan="3" />
+        <col class="column-result" />
+        <col class="column-win" />
+        <col class="column-plae" />
+        <col class="column-status" />
+    </colgroup>
     <thead>
-        @if (Model.IsShowPopUpTitle && Model.Data.Count > 0)
+        @if (viewModel.IsShowPopUpTitle && viewModel.Data.Count > 0)
         {
-            var item = (Fanex.Result.Core.ViewModels.RacingViewModel)Model.Data[0];
+            var item = (Fanex.Result.Core.ViewModels.RacingViewModel)viewModel.Data[0];
             <tr class="row-title">
                 <th class="column-title" colspan="@colspan">
-                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp;
-                    <span class="leagueName">@item.LeagueName</span>
+                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
                 </th>
             </tr>
         }
@@ -33,19 +41,19 @@
         </tr>
     </thead>
     <tbody>
-        @if (Model.Data.Count > 0)
+        @if (viewModel.Data.Count > 0)
         {
             var currentLeagueId = 0;
 
             var currentRace = string.Empty;
             var newLeague = false;
-            for (int index = 0, j = Model.Data.Count; index < j; index++)
+            for (int index = 0, j = viewModel.Data.Count; index < j; index++)
             {
 
-                var item = (Fanex.Result.Core.ViewModels.RacingViewModel)Model.Data[index];
+                var item = (Fanex.Result.Core.ViewModels.RacingViewModel)viewModel.Data[index];
                 if (item.Place > 4) { continue; }
 
-                if (!Model.IsPopUp)
+                if (!viewModel.IsPopUp)
                 {
                     var leagueId = item.LeagueId;
                     newLeague = currentLeagueId == 0 || currentLeagueId != leagueId;
@@ -128,7 +136,7 @@
             <!--NoInfo-->
             <tr class="row-noinfo">
                 <td colspan="@colspan">
-                    @Model.Resource.NoInfo
+                    @viewModel.Resource.NoInfo
                 </td>
             </tr>
             <!--/NoInfo-->

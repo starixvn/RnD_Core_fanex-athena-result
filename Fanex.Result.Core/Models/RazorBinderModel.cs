@@ -26,8 +26,6 @@ namespace Fanex.Result.Core.Models
             }
         }
 
-        public bool Settlement { get; set; }
-
         public bool IsPopUp { get; set; }
 
         public bool IsParlay { get; set; }
@@ -35,5 +33,9 @@ namespace Fanex.Result.Core.Models
         public bool IsShowPopUpTitle { get; set; }
 
         public SportType SportType { get; set; }
+
+        public bool IsShowMatchCodeAndId { get; set; }
+
+        public bool IsShowDetailGoalRecord { get; set; }
     }
 }

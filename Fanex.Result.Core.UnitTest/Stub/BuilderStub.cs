@@ -68,5 +68,30 @@ namespace Fanex.Result.Core.UnitTest.Stub
         {
             throw new System.NotImplementedException();
         }
+
+        public string JSONSportTypeBuilder<T>(IList<T> dataList, ResultSetting setting)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public string JSONParlayBuilder<T>(IList<T> dataList, ResultSetting setting)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public string JSONOutRightBuilder<T>(IList<T> dataList, ResultSetting setting)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public MemoryStream ExcelBuilder<T>(IList<T> dataList, ResultSetting setting)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public MemoryStream OutRightExcelBuilder<T>(IList<T> dataList, ResultSetting setting)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

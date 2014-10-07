@@ -189,6 +189,17 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\en-US.xml" />
+    <None Include="Resources\ja-JP.xml" />
+    <None Include="Resources\ko-KR.xml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Resources\th-TH.xml" />
+    <None Include="Resources\vi-VN.xml" />
+    <None Include="Resources\zh-CN.xml" />
+    <None Include="Resources\zh-TW.xml" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

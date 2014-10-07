@@ -38,5 +38,7 @@ namespace Fanex.Result.Core.DTO
         public bool IsHTCal { get; set; }
 
         public bool Calculate { get; set; }
+
+        public string MatchCode { get; set; }
     }
 }

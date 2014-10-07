@@ -40,5 +40,9 @@ namespace Fanex.Result.Core
         public string ResourcePath { get; set; }
 
         public string ExcelTitle { get; set; }
+
+        public bool IsShowMatchCodeAndId { get; set; }
+
+        public bool IsShowDetailGoalRecord { get; set; }
     }
 }

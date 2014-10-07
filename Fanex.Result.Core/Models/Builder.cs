@@ -25,10 +25,10 @@ namespace Fanex.Result.Core.Models
 
         public string HtmlBuilder<T>(IList<T> dataList, ResultSetting setting)
         {
-            var lang = Resources.Instance.GetLanguage(setting.LanguageCode,setting.ResourcePath);
+            var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
             var template = Template.Instance.GetRazorTemplate(setting.SportType.StringMe());
             var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(i, setting.SportType, setting.LanguageCode, lang)).ToList();
-            var model = CreateModel(lang, dataMaped, false, false, setting.IsShowPopUpTitle, setting.SportType);
+            var model = CreateModel(lang, dataMaped, false, false, setting);
             Razor.GetTemplate(template, setting.SportType.StringMe());
             return Razor.Run(setting.SportType.StringMe(), model);
         }
@@ -44,30 +44,30 @@ namespace Fanex.Result.Core.Models
         /// </returns>
         public string PopUpHtmlBuilder<T>(IList<T> dataList, ResultSetting setting)
         {
-            var lang = Resources.Instance.GetLanguage(setting.LanguageCode,setting.ResourcePath);
+            var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
             string template;
             if (setting.IsOutRight)
             {
                 template = Template.Instance.GetRazorTemplate("OutRight");
                 var dataMapedOutRight = dataList.Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting.LanguageCode, lang)).ToList();
-                var modelOutRight = CreateModel(lang, dataMapedOutRight, true, false, setting.IsShowPopUpTitle, setting.SportType);
+                var modelOutRight = CreateModel(lang, dataMapedOutRight, true, false, setting);
                 Razor.GetTemplate(template, "OutRight");
                 return Razor.Run("OutRight", modelOutRight);
             }
 
             template = Template.Instance.GetRazorTemplate(setting.SportType.StringMe());
             var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(i, setting.SportType, setting.LanguageCode, lang)).ToList();
-            var model = CreateModel(lang, dataMaped, true, false, setting.IsShowPopUpTitle, setting.SportType);
+            var model = CreateModel(lang, dataMaped, true, false, setting);
             Razor.GetTemplate(template, setting.SportType.StringMe());
             return Razor.Run(setting.SportType.StringMe(), model);
         }
 
         public string PopUpParalyBuilder<T>(IList<T> dataList, ResultSetting setting)
         {
-            var lang = Resources.Instance.GetLanguage(setting.LanguageCode,setting.ResourcePath);
+            var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
             var template = Template.Instance.GetRazorTemplate("Parlay");
             var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetParlayViewModel(i, setting.LanguageCode, lang)).ToList();
-            var model = CreateModel(lang, dataMaped, true, true, setting.IsShowPopUpTitle, setting.SportType);
+            var model = CreateModel(lang, dataMaped, true, true, setting);
             Razor.GetTemplate(template, "Parlay");
             return Razor.Run("Parlay", model);
         }
@@ -77,7 +77,7 @@ namespace Fanex.Result.Core.Models
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
             var template = Template.Instance.GetRazorTemplate("OutRight");
             var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting.LanguageCode, lang)).ToList();
-            var model = CreateModel(lang, dataMaped, false, false, setting.IsShowPopUpTitle, setting.SportType);
+            var model = CreateModel(lang, dataMaped, false, false, setting);
             Razor.GetTemplate(template, "OutRight");
             return Razor.Run("OutRight", model);
         }
@@ -104,7 +104,7 @@ namespace Fanex.Result.Core.Models
         /// <returns>The memory stream.</returns>
         public MemoryStream OutRightExcelBuilder<T>(IList<T> dataList, ResultSetting setting)
         {
-            var lang = Resources.Instance.GetLanguage(setting.LanguageCode,setting.ResourcePath);
+            var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
             var outRightData =
                 dataList
                 .Select(i => (OutRightViewModel)ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting.LanguageCode, lang))
@@ -129,7 +129,7 @@ namespace Fanex.Result.Core.Models
         /// <returns>The JSON result.</returns>
         public string JSONSportTypeBuilder<T>(IList<T> dataList, ResultSetting setting)
         {
-            var lang = Resources.Instance.GetLanguage(setting.LanguageCode,setting.ResourcePath);
+            var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
             var items = dataList
                 .Select(i => ViewModelConcreteFactory.Instance.GetViewModel(i, setting.SportType, setting.LanguageCode, lang))
                 .ToList();
@@ -144,9 +144,9 @@ namespace Fanex.Result.Core.Models
         /// <param name="dataList">The DTO list.</param>
         /// <param name="language">The language code.</param>
         /// <returns>The JSON result.</returns>
-        public string JSONParlayBuilder<T>(IList<T> dataList,ResultSetting setting)
+        public string JSONParlayBuilder<T>(IList<T> dataList, ResultSetting setting)
         {
-            var lang = Resources.Instance.GetLanguage(setting.LanguageCode,setting.ResourcePath);
+            var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
             var items = dataList
                 .Select(i => ViewModelConcreteFactory.Instance.GetParlayViewModel(i, setting.LanguageCode, lang));
             var parlayItems = items.Select(i => (ParlayViewModel)i);
@@ -181,16 +181,17 @@ namespace Fanex.Result.Core.Models
             dynamic data,
             bool isPopUp,
             bool isParlay,
-            bool isShowTitle,
-            SportType sportType)
+           ResultSetting setting)
         {
             var model = new RazorBinderModel
              {
                  Resource = lang,
                  IsPopUp = isPopUp,
                  IsParlay = isParlay,
-                 IsShowPopUpTitle = isShowTitle,
-                 SportType = sportType
+                 IsShowPopUpTitle = setting.IsShowPopUpTitle,
+                 SportType = setting.SportType,
+                 IsShowMatchCodeAndId = setting.IsShowMatchCodeAndId,
+                 IsShowDetailGoalRecord = setting.IsShowDetailGoalRecord
              };
             model.Data.AddRange(data);
             return model;

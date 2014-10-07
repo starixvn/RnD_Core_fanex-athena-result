@@ -44,7 +44,7 @@
         public string GenHtml(DateTime date, short sportId, int leagueId, string languageCode)
         {
             var sportType = (SportType)sportId;
-            var resultSetting = new ResultSetting { SportType = sportType, LanguageCode = languageCode };
+            var resultSetting = new ResultSetting { SportType = sportType, LanguageCode = languageCode, IsShowMatchCodeAndId = true };
             var htmlResult = string.Empty;
             switch (sportType)
             {

@@ -1,20 +1,48 @@
 ﻿@{
-    var lang = (Fanex.Result.Core.DTO.LangResources)Model.Resource;
-    const int colspan = 15;
+    var viewModel = (Fanex.Result.Core.Models.RazorBinderModel)Model;
+    var lang = (Fanex.Result.Core.DTO.LangResources)viewModel.Resource;
+    var colspan = viewModel.IsShowMatchCodeAndId ? 16 : 15;
 }
 <table class="fanex-result">
-    <thead>
-        @if (Model.IsShowPopUpTitle && Model.Data.Count > 0)
+    <colgroup>
+        @if (viewModel.IsShowMatchCodeAndId)
         {
-            var item = (Fanex.Result.Core.ViewModels.BaseBallViewModel)Model.Data[0];
+            <col class="column-matchcode" />
+
+        }
+        <col class="column-kickofftime" />
+        <col class="column-match" />
+        <col class="column-n" />
+        <col class="column-n" />
+        <col class="column-n" />
+        <col class="column-n" />
+        <col class="column-n" />
+        <col class="column-n" />
+        <col class="column-n" />
+        <col class="column-n" />
+        <col class="column-n" />
+        <col class="column-ei" />
+        <col class="column-firsthaftscore" />
+        <col class="column-finalscore" />
+        <col class="column-status" />
+    </colgroup>
+    <thead>
+        @if (viewModel.IsShowPopUpTitle && viewModel.Data.Count > 0)
+        {
+            var item = (Fanex.Result.Core.ViewModels.BaseBallViewModel)viewModel.Data[0];
             <tr class="row-title">
                 <th class="column-title" colspan="@colspan">
-                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp;
-                    <span class="leagueName">@item.LeagueName</span>
+                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
                 </th>
             </tr>
         }
         <tr class="row-header">
+            @if (viewModel.IsShowMatchCodeAndId)
+            {
+                <th class="column-matchcode">
+                    @lang.MatchCode/@lang.ID
+                </th>
+            }
             <th class="column-kickofftime">
                 @lang.KickOffTime
             </th>
@@ -63,11 +91,11 @@
         </tr>
     </thead>
     <tbody>
-        @if (Model.Data.Count > 0)
+        @if (viewModel.Data.Count > 0)
         {
             var currentLeagueId = 0;
             var index = 0;
-            foreach (var itemObj in Model.Data)
+            foreach (var itemObj in viewModel.Data)
             {
                 var item = (Fanex.Result.Core.ViewModels.BaseBallViewModel)itemObj;
                 index++;
@@ -87,6 +115,14 @@
                 }
 
             <tr class="row-data @item.Color(index, "format-even", "format-odd")">
+                @if (viewModel.IsShowMatchCodeAndId)
+                {
+                    <td class="column-matchcode">
+                      <div class="m-code">
+                            @item.MatchCode
+                        </div>
+                    </td>
+                }
                 <td class="column-kickofftime" rowspan="2">
                     @Raw(item.KickOffTime)
                 </td>
@@ -134,6 +170,12 @@
                 </td>
             </tr>
             <tr class="row-data @item.Color(index, "format-even", "format-odd")">
+                @if (viewModel.IsShowMatchCodeAndId)
+                {
+                    <td class="column-matchcode">
+                        @item.MatchId
+                    </td>
+                }
                 <td class="column-match">
                     @Raw(item.AwayTeam)
                 </td>
@@ -182,7 +224,7 @@
             <!--NoInfo-->
             <tr class="row-noinfo">
                 <td colspan="@colspan">
-                    @Model.Resource.NoInfo
+                    @viewModel.Resource.NoInfo
                 </td>
             </tr>
             <!--/NoInfo-->

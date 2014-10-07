@@ -22,7 +22,6 @@ namespace Fanex.Result.Core.UnitTest.Models
         private IList<Sportbook> _sportsbookList = new List<Sportbook>();
         private IList<OutRight> _outrightList = new List<OutRight>();
         private IList<Parlay> _parlayList = new List<Parlay>();
-        private string _language = "en-US";
         private ResultSetting _setting = new ResultSetting();
         /// <summary>
         /// Setup data.

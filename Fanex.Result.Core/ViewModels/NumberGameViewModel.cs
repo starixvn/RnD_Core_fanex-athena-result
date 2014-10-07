@@ -7,6 +7,7 @@
 namespace Fanex.Result.Core.ViewModels
 {
     using System.Collections.Generic;
+    using System.Globalization;
     using System.Linq;
     using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.Utilities;
@@ -52,6 +53,14 @@ namespace Fanex.Result.Core.ViewModels
             get
             {
                 return this._numberGame.MatchCode;
+            }
+        }
+
+        public string MatchId
+        {
+            get
+            {
+                return this._numberGame.MatchId.ToString(CultureInfo.InvariantCulture);
             }
         }
 

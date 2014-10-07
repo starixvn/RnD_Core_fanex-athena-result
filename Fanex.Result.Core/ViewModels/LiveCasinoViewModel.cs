@@ -78,6 +78,14 @@ namespace Fanex.Result.Core.ViewModels
             }
         }
 
+        public string MatchCode
+        {
+            get
+            {
+                return this._liveCasino.MatchCode;
+            }
+        }
+
         public string FinalScore
         {
             get

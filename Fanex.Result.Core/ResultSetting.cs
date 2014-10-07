@@ -25,10 +25,19 @@ namespace Fanex.Result.Core
 
         /// <summary>
         /// Gets or sets Excel source Path.
+        /// Default path ="App_Data/Fanex.Result"
         /// Must be physical path .
         /// </summary>
         /// <value>String value.</value>
         public string ExcelTemplatePath { get; set; }
+
+        /// <summary>
+        /// Gets or sets Resource Path.
+        /// Default path ="App_Data/Fanex.Result.Resource"
+        /// Must be physical path .
+        /// </summary>
+        /// <value>String value.</value>
+        public string ResourcePath { get; set; }
 
         public string ExcelTitle { get; set; }
     }

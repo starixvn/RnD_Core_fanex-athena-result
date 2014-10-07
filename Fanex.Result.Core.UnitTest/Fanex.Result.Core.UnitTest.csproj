@@ -66,9 +66,6 @@
     <Compile Include="Stub\BuilderStub.cs">
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
-    <Compile Include="Stub\ExcelParserStub.cs">
-      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
-    </Compile>
     <Compile Include="Utilities\Helper.cs">
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>

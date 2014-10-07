@@ -97,6 +97,7 @@
                         isShowAll = true,
                         LeagueID = leagueId
                     });
+
                     htmlResult = ResultEngine.HtmlParser<Sportbook>(dataSb.ToList(), resultSetting);
 
                     break;

@@ -6,7 +6,6 @@
 namespace Fanex.Result.Core
 {
     using System.Collections.Generic;
-    using System.Globalization;
     using System.IO;
     using Fanex.Result.Core.Exception;
     using Fanex.Result.Core.Models;
@@ -17,9 +16,10 @@ namespace Fanex.Result.Core
     public static class ResultEngine
     {
         private const string EXCELTEMPLATEPATH = "App_Data/Fanex.Result/";
+        private const string RESOURCEPATH = "App_Data/Fanex.Result.Resource/";
         private const string ARGUEMENTMES = "Sport Type is invalid or DTO ({0}) doesn't match with sportType";
         private const string ARGUEMENTMESOUTRIGHT = "DTO ({0}) is invalid";
-
+        private const string ENGLISHLANGCODE = "en-US";
         private static IBuilder _builder;
 
         static ResultEngine()
@@ -41,20 +41,7 @@ namespace Fanex.Result.Core
         /// <returns>The html string.</returns>
         public static string HtmlParser<T>(IList<T> dataList, ResultSetting setting)
         {
-            if (setting == null || dataList == null)
-            {
-                throw new ObjectNullException("The data is null or setting is null");
-            }
-
-            if (string.IsNullOrEmpty(setting.LanguageCode))
-            {
-                setting.LanguageCode = CultureInfo.CurrentUICulture.Name;
-            }
-
-            if (string.IsNullOrEmpty(setting.ExcelTemplatePath))
-            {
-                setting.ExcelTemplatePath = EXCELTEMPLATEPATH;
-            }
+            ReCheckSetting<T>(dataList, setting);
 
             var dtoName = typeof(T).Name;
             var builder = new Builder();
@@ -91,20 +78,7 @@ namespace Fanex.Result.Core
         /// <returns>The JSON string.</returns>
         public static string JsonParser<T>(IList<T> dataList, ResultSetting setting)
         {
-            if (setting == null || dataList == null)
-            {
-                throw new ObjectNullException("The data is null or setting is null");
-            }
-
-            if (string.IsNullOrEmpty(setting.LanguageCode))
-            {
-                setting.LanguageCode = CultureInfo.CurrentUICulture.Name;
-            }
-
-            if (string.IsNullOrEmpty(setting.ExcelTemplatePath))
-            {
-                setting.ExcelTemplatePath = EXCELTEMPLATEPATH;
-            }
+            ReCheckSetting<T>(dataList, setting);
 
             var dtoName = typeof(T).Name;
             var builder = new Builder();
@@ -115,7 +89,7 @@ namespace Fanex.Result.Core
                     throw new ObjectNullException(string.Format(ARGUEMENTMESOUTRIGHT, dtoName));
                 }
 
-                return builder.JSONOutRightBuilder(dataList, setting.LanguageCode);
+                return builder.JSONOutRightBuilder(dataList, setting);
             }
 
             if (setting.IsParlayPopUp)
@@ -125,7 +99,7 @@ namespace Fanex.Result.Core
                     throw new ObjectNullException(string.Format(ARGUEMENTMES, dtoName));
                 }
 
-                return builder.JSONParlayBuilder(dataList, setting.LanguageCode);
+                return builder.JSONParlayBuilder(dataList, setting);
             }
 
             if (!Validate.Instance.ValidateNormal(dtoName, setting.SportType))
@@ -133,7 +107,7 @@ namespace Fanex.Result.Core
                 throw new ObjectNullException(string.Format(ARGUEMENTMES, dtoName));
             }
 
-            return builder.JSONSportTypeBuilder(dataList, setting.SportType, setting.LanguageCode);
+            return builder.JSONSportTypeBuilder(dataList, setting);
         }
 
         /// <summary>
@@ -145,20 +119,7 @@ namespace Fanex.Result.Core
         /// <returns>The memory stream.</returns>
         public static MemoryStream ExcelParser<T>(IList<T> dataList, ResultSetting setting)
         {
-            if (setting == null || dataList == null)
-            {
-                throw new ObjectNullException("The data is null or setting is null");
-            }
-
-            if (string.IsNullOrEmpty(setting.LanguageCode))
-            {
-                setting.LanguageCode = CultureInfo.CurrentUICulture.Name;
-            }
-
-            if (string.IsNullOrEmpty(setting.ExcelTemplatePath))
-            {
-                setting.ExcelTemplatePath = EXCELTEMPLATEPATH;
-            }
+            ReCheckSetting<T>(dataList, setting);
 
             var dtoName = typeof(T).Name;
             if (setting.IsOutRight)
@@ -168,7 +129,7 @@ namespace Fanex.Result.Core
                     throw new ObjectNullException(string.Format(ARGUEMENTMESOUTRIGHT, dtoName));
                 }
 
-                return _builder.OutRightExcelBuilder(dataList, setting.LanguageCode, setting.ExcelTemplatePath, setting.ExcelTitle);
+                return _builder.OutRightExcelBuilder(dataList, setting);
             }
 
             if (setting.IsPopUp || setting.IsParlayPopUp)
@@ -181,10 +142,33 @@ namespace Fanex.Result.Core
                 throw new ObjectNullException(string.Format(ARGUEMENTMES, dtoName));
             }
 
-            return _builder.ExcelBuilder(dataList, setting.SportType, setting.LanguageCode, setting.ExcelTemplatePath, setting.ExcelTitle);
+            return _builder.ExcelBuilder(dataList, setting);
         }
 
         #region HtmlParser-SubFunction
+
+        private static void ReCheckSetting<T>(IList<T> dataList, ResultSetting setting)
+        {
+            if (setting == null || dataList == null)
+            {
+                throw new ObjectNullException("The data is null or setting is null");
+            }
+
+            if (string.IsNullOrEmpty(setting.LanguageCode))
+            {
+                setting.LanguageCode = ENGLISHLANGCODE;
+            }
+
+            if (string.IsNullOrEmpty(setting.ExcelTemplatePath))
+            {
+                setting.ExcelTemplatePath = System.AppDomain.CurrentDomain.BaseDirectory + EXCELTEMPLATEPATH;
+            }
+
+            if (string.IsNullOrEmpty(setting.ResourcePath))
+            {
+                setting.ResourcePath = System.AppDomain.CurrentDomain.BaseDirectory + RESOURCEPATH;
+            }
+        }
 
         /// <summary>
         /// Render html for popup page.

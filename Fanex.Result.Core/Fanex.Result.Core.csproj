@@ -130,9 +130,7 @@
     <Compile Include="Extension\Extension.cs" />
     <Compile Include="Utilities\Helper.cs" />
     <Compile Include="Models\Builder.cs" />
-    <Compile Include="Models\ExcelParser.cs" />
     <Compile Include="Models\IBuilder.cs" />
-    <Compile Include="Models\IExcelParser.cs" />
     <Compile Include="Models\IResource.cs" />
     <Compile Include="Models\ITemplate.cs" />
     <Compile Include="Models\IValidate.cs" />
@@ -187,17 +185,6 @@
     <EmbeddedResource Include="Views\VSHRacing.cshtml" />
     <EmbeddedResource Include="Views\VSTennis.cshtml" />
     <EmbeddedResource Include="Views\VSSpeedWay.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resources\zh-TW.xml" />
-    <EmbeddedResource Include="Resources\ja-JP.xml" />
-    <EmbeddedResource Include="Resources\th-TH.xml" />
-    <EmbeddedResource Include="Resources\ko-KR.xml">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources\zh-CN.xml" />
-    <EmbeddedResource Include="Resources\vi-VN.xml" />
-    <EmbeddedResource Include="Resources\en-US.xml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

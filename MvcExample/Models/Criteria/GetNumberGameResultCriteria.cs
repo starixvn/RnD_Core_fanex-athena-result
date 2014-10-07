@@ -13,6 +13,7 @@ namespace MvcExample.Models.Criteria
 
         public int LeagueID { get; set; }
 
+        [SpParam(Ignored = true)]
         public string Language { get; set; }
 
         public override string GetSettingKey()

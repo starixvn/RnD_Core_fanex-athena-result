@@ -8,8 +8,8 @@ namespace Fanex.Result.Core.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
-    using System.Reflection;
     using System.Xml.Linq;
     using Fanex.Result.Core.DTO;
 
@@ -52,7 +52,7 @@ namespace Fanex.Result.Core.Models
         /// </summary>
         /// <param name="languageCode">Option with en-US, vi-VN.</param>
         /// <returns>Return language object.</returns>
-        public LangResources GetLanguage(string languageCode)
+        public LangResources GetLanguage(string languageCode, string languagePath)
         {
             if (!LangCodes.Contains(languageCode))
             {
@@ -61,7 +61,7 @@ namespace Fanex.Result.Core.Models
 
             if (!this._langs.Keys.Contains(languageCode))
             {
-                this._langs.Add(languageCode, GetResources(languageCode));
+                this._langs.Add(languageCode, GetResources(languageCode, languagePath));
             }
 
             return this._langs[languageCode];
@@ -72,16 +72,15 @@ namespace Fanex.Result.Core.Models
         /// </summary>
         /// <param name="languageCode">The language code.</param>
         /// <returns>The language object.</returns>
-        private static LangResources GetResources(string languageCode)
+        private static LangResources GetResources(string languageCode, string languagePath)
         {
             var lang = new LangResources();
             if (string.IsNullOrEmpty(languageCode) || string.IsNullOrWhiteSpace(languageCode))
             {
                 throw new ArgumentNullException("languageCode");
             }
-            
-            using (var stream = Assembly.GetExecutingAssembly()
-                .GetManifestResourceStream("Fanex.Result.Core.Resources." + languageCode + ".xml"))
+            var realPath = languagePath + languageCode + ".xml";
+            using (var stream = new FileStream(realPath, FileMode.Open, FileAccess.Read))
             {
                 if (stream != null)
                 {

@@ -22,7 +22,7 @@ namespace Fanex.Result.Core.ExcelModels
         #region Fields
 
         private IList<BadmintonViewModel> _badmintonData;
-
+        
         #endregion Fields
 
         public BadmintonExcel(string templatePath, string reporTitle, IList<BadmintonViewModel> data, LangResources resource)

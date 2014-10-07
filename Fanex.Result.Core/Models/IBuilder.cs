@@ -16,13 +16,13 @@ namespace Fanex.Result.Core.Models
     public interface IBuilder
     {
         [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", Justification = "Reviewed")]
-        string JSONSportTypeBuilder<T>(IList<T> dataList, SportType sportType, string language);
+        string JSONSportTypeBuilder<T>(IList<T> dataList, ResultSetting setting);
 
         [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", Justification = "Reviewed")]
-        string JSONParlayBuilder<T>(IList<T> dataList, string language);
+        string JSONParlayBuilder<T>(IList<T> dataList, ResultSetting setting);
 
         [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", Justification = "Reviewed")]
-        string JSONOutRightBuilder<T>(IList<T> dataList, string language);
+        string JSONOutRightBuilder<T>(IList<T> dataList, ResultSetting setting);
 
         string HtmlBuilder<T>(IList<T> dataList, ResultSetting setting);
 
@@ -30,10 +30,10 @@ namespace Fanex.Result.Core.Models
 
         string PopUpHtmlBuilder<T>(IList<T> dataList, ResultSetting setting);
 
-        MemoryStream ExcelBuilder<T>(IList<T> dataList, SportType sportType, string language, string templatePath, string excelTitle);
+        MemoryStream ExcelBuilder<T>(IList<T> dataList, ResultSetting setting);
 
         string OutRightHtmlBuilder<T>(IList<T> dataList, ResultSetting setting);
 
-        MemoryStream OutRightExcelBuilder<T>(IList<T> dataList, string language, string templatePath, string excelTitle);
+        MemoryStream OutRightExcelBuilder<T>(IList<T> dataList, ResultSetting setting);
     }
 }

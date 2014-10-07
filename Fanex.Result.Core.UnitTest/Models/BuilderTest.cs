@@ -137,86 +137,8 @@ namespace Fanex.Result.Core.UnitTest.Models
 
         #endregion Html Builder
 
-        #region ExcelBuilder
 
-        /// <summary>
-        /// Testing for normal method export to excel.
-        /// </summary>
-        [Test]
-        public void ExcelBuilder_ReturnMemoryStream()
-        {
-            var sportType = SportType.Soccer;
-
-            IExcelParser excelParser = new ExcelParserStub();
-            var excelBuilder = new Builder(excelParser);
-
-            var result = excelBuilder.ExcelBuilder(_sportsbookList, sportType, _language, string.Empty, string.Empty);
-
-            Assert.IsInstanceOf<MemoryStream>(result);
-        }
-
-        /// <summary>
-        /// Testing for Outright method export to Excel.
-        /// </summary>
-        [Test]
-        public void OutRightExcelBuilder_ReturnMemoryStream()
-        {
-            IExcelParser excelParser = new ExcelParserStub();
-            var excelBuilder = new Builder(excelParser);
-
-            var result = excelBuilder.OutRightExcelBuilder(_outrightList, _language, string.Empty, string.Empty);
-
-            Assert.IsInstanceOf<MemoryStream>(result);
-        }
-
-        #endregion ExcelBuilder
-
-        #region JsonBuilder
-
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly")]
-        /// <summary>
-        /// Testing for normal method to render JSON result.
-        /// </summary>
-        [Test]
-        public void JSONSportTypeBuilder_ReturnString()
-        {
-            var sportType = SportType.Soccer;
-            var excelBuilder = new Builder();
-
-            var result = excelBuilder.JSONSportTypeBuilder(_sportsbookList, sportType, _language);
-
-            Assert.IsNotNullOrEmpty(result);
-        }
-
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly")]
-        /// <summary>
-        /// Testing for Parlay method to render JSON result.
-        /// </summary>
-        [Test]
-        public void JSONParlayBuilder_ReturnString()
-        {
-            var excelBuilder = new Builder();
-
-            var result = excelBuilder.JSONParlayBuilder(_parlayList, _language);
-
-            Assert.IsNotNullOrEmpty(result);
-        }
-
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly")]
-        /// <summary>
-        /// Testing for Outright method to render JSON result.
-        /// </summary>
-        [Test]
-        public void JSONOutRightBuilder_ReturnString()
-        {
-            var excelBuilder = new Builder();
-
-            var result = excelBuilder.JSONOutRightBuilder(_outrightList, _language);
-
-            Assert.IsNotNullOrEmpty(result);
-        }
-
-        #endregion JsonBuilder
+        
 
         [TearDown]
         public void Teardown()

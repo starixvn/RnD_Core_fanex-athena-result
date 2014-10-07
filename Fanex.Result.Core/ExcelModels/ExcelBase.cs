@@ -67,6 +67,8 @@ namespace Fanex.Result.Core.ExcelModels
 
         public string ReportTitle { get; set; }
 
+        protected string LanguageCode { get; set; }
+
         protected int ColumnStatus
         {
             get { return this._columnStatus; }

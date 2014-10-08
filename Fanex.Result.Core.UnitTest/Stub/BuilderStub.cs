@@ -21,32 +21,48 @@ namespace Fanex.Result.Core.UnitTest.Stub
         /// <param name="templatePath">The physical template path.</param>
         /// <param name="excelTitle">The excel title.</param>
         /// <returns>The memory stream.</returns>
+        [SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters")]
         public MemoryStream OutRightExcelBuilder<T>(IList<T> dataList, string language, string templatePath, string excelTitle)
         {
             return new MemoryStream();
         }
 
         [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly")]
+        [SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters")]
         public string JSONSportTypeBuilder<T>(IList<T> dataList, SportType sportType, string language)
         {
             return "Test";
         }
 
         [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly")]
+        [SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters")]
         public string JSONParlayBuilder<T>(IList<T> dataList, string language)
         {
             return "Test";
         }
 
         [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly")]
+        [SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters")]
         public string JSONOutRightBuilder<T>(IList<T> dataList, string language)
         {
             return "Test";
         }
 
-        public MemoryStream ExcelBuilder<T>(IList<T> dataList, SportType sportType, string language, string templatePath, string excelTitle)
+
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly")]
+        public string JSONSportTypeBuilder<T>(IList<T> dataList, ResultSetting setting)
         {
-            return new MemoryStream();
+            throw new System.NotImplementedException();
+        }
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly")]
+        public string JSONParlayBuilder<T>(IList<T> dataList, ResultSetting setting)
+        {
+            throw new System.NotImplementedException();
+        }
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly",Justification="Reviewed.")]
+        public string JSONOutRightBuilder<T>(IList<T> dataList, ResultSetting setting)
+        {
+            throw new System.NotImplementedException();
         }
 
         public string HtmlBuilder<T>(IList<T> dataList, ResultSetting setting)
@@ -64,27 +80,12 @@ namespace Fanex.Result.Core.UnitTest.Stub
             throw new System.NotImplementedException();
         }
 
-        public string OutRightHtmlBuilder<T>(IList<T> dataList, ResultSetting setting)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public string JSONSportTypeBuilder<T>(IList<T> dataList, ResultSetting setting)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public string JSONParlayBuilder<T>(IList<T> dataList, ResultSetting setting)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public string JSONOutRightBuilder<T>(IList<T> dataList, ResultSetting setting)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public MemoryStream ExcelBuilder<T>(IList<T> dataList, ResultSetting setting)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public string OutRightHtmlBuilder<T>(IList<T> dataList, ResultSetting setting)
         {
             throw new System.NotImplementedException();
         }

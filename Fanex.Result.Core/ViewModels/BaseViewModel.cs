@@ -8,6 +8,7 @@ namespace Fanex.Result.Core.ViewModels
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
     using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.Utilities;
@@ -19,6 +20,8 @@ namespace Fanex.Result.Core.ViewModels
     public abstract class BaseViewModel
     {
         public const string NA = "N/A";
+
+        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", Justification = "Reviewed.")]
         public const string HYPHEN = "-";
 
         private const string EnglishLanguageCode = "en-US";
@@ -42,9 +45,9 @@ namespace Fanex.Result.Core.ViewModels
         private LangResources _lang;
         private SportType _sportType = SportType.Soccer;
 
-        public BaseViewModel(ResultSetting _setting)
+        protected BaseViewModel(ResultSetting setting)
         {
-            this.DateTimeFormat = _setting.DateTimeFormat;
+            this.DateTimeFormat = setting.DateTimeFormat;
         }
 
         public string DateTimeFormat

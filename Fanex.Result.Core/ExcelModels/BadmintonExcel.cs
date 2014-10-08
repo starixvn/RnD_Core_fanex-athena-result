@@ -22,7 +22,7 @@ namespace Fanex.Result.Core.ExcelModels
         #region Fields
 
         private IList<BadmintonViewModel> _badmintonData;
-        
+
         #endregion Fields
 
         public BadmintonExcel(string physicalTemplatePath, ResultSetting setting, IList<BadmintonViewModel> data, LangResources resource)
@@ -30,7 +30,7 @@ namespace Fanex.Result.Core.ExcelModels
         {
             this._badmintonData = data;
             this.NumofRow = this._badmintonData.Count;
-            this.ColumnTemplateCount =  11 ;
+            this.ColumnTemplateCount = 11;
             this.ColumnStatus = 10;
             this.RowContentTemplate = 3;
         }
@@ -59,13 +59,10 @@ namespace Fanex.Result.Core.ExcelModels
             row.Cells[colidx++].SetCellValue(Lang.TotalPoints);
             row.Cells[colidx++].SetCellValue(Lang.TotalSet);
             row.Cells[colidx].SetCellValue(Lang.Status);
-           
-            
         }
 
         protected override void AssignSheetData(ISheet sheet)
         {
-           
             var currentRow = 2;
             var currentLeagueId = 0;
             foreach (var exportRow in this._badmintonData)
@@ -75,7 +72,6 @@ namespace Fanex.Result.Core.ExcelModels
             }
         }
 
-      
         #region Assign Cell Data
 
         /// <summary>
@@ -92,7 +88,7 @@ namespace Fanex.Result.Core.ExcelModels
 
             var rowAway = sheet.CopyRow(TemplateSheet, getRowTeamWin[1], currentRow + 1);
 
-           MergeResultCells(sheet, currentRow, currentRow + 1, ColumnKickOffTime, this.ColumnStatus);
+            MergeResultCells(sheet, currentRow, currentRow + 1, ColumnKickOffTime, this.ColumnStatus);
 
             AssignStringData(
                 rowHome,

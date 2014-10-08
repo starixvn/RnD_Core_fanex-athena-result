@@ -147,6 +147,12 @@ namespace Fanex.Result.Core
 
         #region HtmlParser-SubFunction
 
+        /// <summary>
+        /// Valid result setting and set default setting value.
+        /// </summary>
+        /// <typeparam name="T">The DTO type.</typeparam>
+        /// <param name="dataList">The data list.</param>
+        /// <param name="setting">The setting.</param>
         private static void ReCheckSetting<T>(IList<T> dataList, ResultSetting setting)
         {
             if (setting == null || dataList == null)

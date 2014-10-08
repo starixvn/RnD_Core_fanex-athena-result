@@ -101,7 +101,8 @@ namespace Fanex.Result.Core.ExcelModels
 
             AssignStringData(
                 rowAway,
-                ColumnMatchCode, exportRow.MatchId,
+                ColumnMatchCode,
+                exportRow.MatchId,
                              Helper.ToRtfString(exportRow.KickOffTime),
                              Helper.ToRtfString(exportRow.AwayTeam),
                            exportRow.GetQHomeAway(0, false),

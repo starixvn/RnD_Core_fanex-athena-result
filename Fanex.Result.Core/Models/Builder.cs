@@ -98,9 +98,7 @@ namespace Fanex.Result.Core.Models
         /// </summary>
         /// <typeparam name="T">The DTO object.</typeparam>
         /// <param name="dataList">The DTO list.</param>
-        /// <param name="language">The language code.</param>
-        /// <param name="templatePath">The physical template path.</param>
-        /// <param name="excelTitle">The excel title.</param>
+        /// <param name="setting">The result setting.</param>
         /// <returns>The memory stream.</returns>
         public MemoryStream OutRightExcelBuilder<T>(IList<T> dataList, ResultSetting setting)
         {
@@ -124,8 +122,7 @@ namespace Fanex.Result.Core.Models
         /// </summary>
         /// <typeparam name="T">The DTO object.</typeparam>
         /// <param name="dataList">The DTO list.</param>
-        /// <param name="sportType">The sport type.</param>
-        /// <param name="language">The language code.</param>
+        /// <param name="setting">The result setting.</param>
         /// <returns>The JSON result.</returns>
         public string JSONSportTypeBuilder<T>(IList<T> dataList, ResultSetting setting)
         {
@@ -142,7 +139,7 @@ namespace Fanex.Result.Core.Models
         /// </summary>
         /// <typeparam name="T">The DTO object.</typeparam>
         /// <param name="dataList">The DTO list.</param>
-        /// <param name="language">The language code.</param>
+        /// <param name="setting">The result setting.</param>
         /// <returns>The JSON result.</returns>
         public string JSONParlayBuilder<T>(IList<T> dataList, ResultSetting setting)
         {
@@ -171,8 +168,7 @@ namespace Fanex.Result.Core.Models
         /// <param name="data">The data list.</param>
         /// <param name="isPopUp">Is popup or not.</param>
         /// <param name="isParlay">Is parlay or not.</param>
-        /// <param name="isShowTitle">Is show title or not.</param>
-        /// <param name="sportType">Type of the sport.</param>
+        /// <param name="setting">The result setting.</param>
         /// <returns>
         /// Returns RAZOR model.
         /// </returns>

@@ -35,6 +35,7 @@
         /// <param name="sportId">The sport ID.</param>
         /// <param name="leagueId">The league ID.</param>
         /// <param name="languageCode">The language code.</param>
+        /// <param name="showMatchCode">Visible match code column.</param>
         /// <returns>The html table result.</returns>
         [SuppressMessage(
           "StyleCop.CSharp.Nexcel.NexcelCustomRules",
@@ -120,6 +121,7 @@
         /// <param name="sportId">The sport ID.</param>
         /// <param name="leagueId">The league ID.</param>
         /// <param name="languageCode">The language code.</param>
+        /// <param name="showMatchCode">Visible match code column.</param>
         /// <returns>The Excel file.</returns>
         [SuppressMessage(
           "StyleCop.CSharp.Nexcel.NexcelCustomRules",

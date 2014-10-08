@@ -29,8 +29,8 @@ namespace Fanex.Result.Core.ExcelModels
         {
             this._otherSportData = data;
             this.NumofRow = this._otherSportData.Count;
-            this.ColumnTemplateCount =  6 ;
-            this.ColumnStatus =  5 ;
+            this.ColumnTemplateCount = 6;
+            this.ColumnStatus = 5;
             this.RowContentTemplate = 3;
         }
 

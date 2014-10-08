@@ -78,6 +78,7 @@ namespace Fanex.Result.Core.ExcelModels
             {
                 eventStatus = Helper.ToRtfString(exportRow.EventStatus + "<br />[" + Lang.PS + ":" + exportRow.PenaltyShootoutResult + "]");
             }
+
             AssignStringData(
                             rowHome,
                              ColumnMatchCode,

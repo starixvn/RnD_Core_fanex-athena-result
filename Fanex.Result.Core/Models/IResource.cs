@@ -13,6 +13,6 @@ namespace Fanex.Result.Core.Models
     /// </summary>
     public interface IResource
     {
-        LangResources GetLanguage(string languageCode,string languagePath);
+        LangResources GetLanguage(string languageCode, string languagePath);
     }
 }

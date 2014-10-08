@@ -31,16 +31,14 @@ namespace Fanex.Result.Core.ExcelModels
         protected const int RowLeagueTemplate = 2;
 
         protected const int RowNoInfoTemplate = 4;
-
-        protected int ColumnKickOffTime = 1;
-
         protected const string Na = "N/A";
+        protected const int ColumnMatchCode = 0;
+
+        protected const int ColumnKickOffTime = 1;
 
         private int _rowContentTemplate = 3;
 
         private int _columnStatus = 4;
-
-        protected const int ColumnMatchCode = 0;
 
         #endregion Fields
 
@@ -86,7 +84,35 @@ namespace Fanex.Result.Core.ExcelModels
 
         protected int ColumnTemplateCount { get; set; }
 
+        #region Export
+
+        public MemoryStream Export()
+        {
+            this.LoadTemplate();
+            this.AssignData();
+            this.RemoveTemplate();
+            var excelStream = new MemoryStream();
+            this.Workbook.Write(excelStream);
+            return excelStream;
+        }
+
+        #endregion Export
+
         #region Export Excel Methods
+
+        /// <summary>
+        ///     Clear the template from header row.
+        /// </summary>
+        /// <param name="sheet">Current sheet.</param>
+        /// <param name="startRowIndex">Index of row.</param>
+        protected static void ClearTemplate(ISheet sheet, int startRowIndex)
+        {
+            var lastRowNum = sheet.LastRowNum;
+            for (var i = startRowIndex; i <= lastRowNum; i++)
+            {
+                sheet.DeleteRow(i);
+            }
+        }
 
         protected virtual void AssignTitle(ISheet sheet)
         {
@@ -149,20 +175,6 @@ namespace Fanex.Result.Core.ExcelModels
             }
         }
 
-        #region Export
-
-        public MemoryStream Export()
-        {
-            this.LoadTemplate();
-            this.AssignData();
-            this.RemoveTemplate();
-            var excelStream = new MemoryStream();
-            this.Workbook.Write(excelStream);
-            return excelStream;
-        }
-
-        #endregion Export
-
         #region Template
 
         /// <summary>
@@ -192,20 +204,6 @@ namespace Fanex.Result.Core.ExcelModels
         protected virtual void RemoveTemplate()
         {
             this.Workbook.RemoveSheet("Template");
-        }
-
-        /// <summary>
-        ///     Clear the template from header row.
-        /// </summary>
-        /// <param name="sheet">Current sheet.</param>
-        /// <param name="startRowIndex">Index of row.</param>
-        protected static void ClearTemplate(ISheet sheet, int startRowIndex)
-        {
-            var lastRowNum = sheet.LastRowNum;
-            for (var i = startRowIndex; i <= lastRowNum; i++)
-            {
-                sheet.DeleteRow(i);
-            }
         }
 
         #endregion Template

@@ -17,7 +17,7 @@ namespace Fanex.Result.Core.Utilities
     {
         private static readonly CultureInfo Cult = new CultureInfo("en-US");
 
-        public static string FullDateFormat(object obj,string formatPattern)
+        public static string FullDateFormat(object obj, string formatPattern)
         {
             if (Convert.IsDBNull(obj) || obj == null)
             {

@@ -11,6 +11,8 @@ namespace Fanex.Result.Core
     /// </summary>
     public class ResultSetting
     {
+        private string _dateTimeFormat = "{0:MM/dd/yyyy<br/>hh:mm:ss tt}";
+
         public string LanguageCode { get; set; }
 
         public bool IsPopUp { get; set; }
@@ -24,8 +26,8 @@ namespace Fanex.Result.Core
         public SportType SportType { get; set; }
 
         /// <summary>
-        /// Gets or sets Excel source Path.
-        /// Default path ="App_Data/Fanex.Result"
+        /// Gets or sets Excel source path.
+        /// Default path ="APP_DATA/FANEX.RESUST"
         /// Must be physical path .
         /// </summary>
         /// <value>String value.</value>
@@ -33,7 +35,7 @@ namespace Fanex.Result.Core
 
         /// <summary>
         /// Gets or sets Resource Path.
-        /// Default path ="App_Data/Fanex.Result.Resource"
+        /// Default path ="APP_DATA/FANEX.RESUST.RESOURCE"
         /// Must be physical path .
         /// </summary>
         /// <value>String value.</value>
@@ -44,10 +46,16 @@ namespace Fanex.Result.Core
         public bool VisibleMatchCodeIDColumn { get; set; }
 
         public bool VisibleDetailedLink { get; set; }
+
         /// <summary>
-        /// Gets or Sets Kick Of Time formate.
-        /// Default is {0:MM/dd/yyyy<br/>hh:mm:ss tt}
+        /// Gets or sets Kick Of Time format.
+        /// Default is {0:MM/DD/YYYY<BR/>HH:MM:SS TT}.
         /// </summary>
-        public string DateTimeFormat = "{0:MM/dd/yyyy<br/>hh:mm:ss tt}";
+        /// <value>The Date Time Format.</value>
+        public string DateTimeFormat
+        {
+            get { return _dateTimeFormat; }
+            set { _dateTimeFormat = value; }
+        }
     }
 }

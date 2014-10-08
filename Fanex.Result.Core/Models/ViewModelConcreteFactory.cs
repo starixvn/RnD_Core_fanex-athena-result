@@ -51,9 +51,8 @@ namespace Fanex.Result.Core.Models
         /// Get view model.
         /// Used for render html result.
         /// </summary>
-        /// <param name="obj">The object.</param>
-        /// <param name="sportType">The sport type.</param>
-        /// <param name="languageCode">The language code.</param>
+        /// <param name="obj">The DTO type.</param>
+        /// <param name="setting">The result setting.</param>
         /// <param name="resource">The language resource.</param>
         /// <returns>The view model.</returns>
         public override object GetViewModel(object obj, ResultSetting setting, LangResources resource)
@@ -109,6 +108,14 @@ namespace Fanex.Result.Core.Models
             return new ParlayViewModel((Parlay)obj, setting, resource);
         }
 
+        /// <summary>
+        /// Get Excel View Model.
+        /// </summary>
+        /// <typeparam name="T">The Result DTO.</typeparam>
+        /// <param name="dataList">The data list.</param>
+        /// <param name="setting">The result setting.</param>
+        /// <param name="resource">The resource.</param>
+        /// <returns>The excel view model.</returns>
         public override ExcelBase GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting, LangResources resource)
         {
             var templateName = setting.SportType.StringMe();
@@ -117,7 +124,6 @@ namespace Fanex.Result.Core.Models
             switch (viewName)
             {
                 case "BasketBallExcel":
-
                     return new BasketballExcel(realTemplatePath, setting, ParserExcelData<T, BasketBallViewModel>(dataList, setting, resource), resource);
                 case "HockeyExcel":
                     return new HockeyExcel(realTemplatePath, setting, ParserExcelData<T, HockeyViewModel>(dataList, setting, resource), resource);

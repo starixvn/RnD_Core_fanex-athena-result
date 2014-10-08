@@ -51,6 +51,7 @@ namespace Fanex.Result.Core.Models
         /// Get language from xml resource file.
         /// </summary>
         /// <param name="languageCode">Option with en-US, vi-VN.</param>
+        /// <param name="languagePath">The path of resources.</param>
         /// <returns>Return language object.</returns>
         public LangResources GetLanguage(string languageCode, string languagePath)
         {
@@ -71,6 +72,7 @@ namespace Fanex.Result.Core.Models
         /// Get language resource.
         /// </summary>
         /// <param name="languageCode">The language code.</param>
+        /// <param name="languagePath">The path of resources.</param>
         /// <returns>The language object.</returns>
         private static LangResources GetResources(string languageCode, string languagePath)
         {
@@ -79,6 +81,7 @@ namespace Fanex.Result.Core.Models
             {
                 throw new ArgumentNullException("languageCode");
             }
+
             var realPath = languagePath + languageCode + ".xml";
             using (var stream = new FileStream(realPath, FileMode.Open, FileAccess.Read))
             {

@@ -66,12 +66,14 @@ namespace Fanex.Result.Core.ExcelModels
                 SetMatch(sheet, exportRow, ref currentLeagueId, ref currentRow, ref endRowSpan);
             }
         }
+
         protected override void ProcessUI(ISheet sheet)
         {
             /*
              * Void processing UI
              */
         }
+
         #region Assign Cell Data
 
         /// <summary>

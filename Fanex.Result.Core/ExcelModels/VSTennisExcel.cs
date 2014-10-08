@@ -29,8 +29,8 @@ namespace Fanex.Result.Core.ExcelModels
         {
             this._tennisData = data;
             this.NumofRow = this._tennisData.Count;
-            this.ColumnTemplateCount = 6 ;
-            this.ColumnStatus = 4 ;
+            this.ColumnTemplateCount = 6;
+            this.ColumnStatus = 4;
             this.RowContentTemplate = 3;
         }
 

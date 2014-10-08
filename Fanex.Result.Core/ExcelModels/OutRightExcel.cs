@@ -56,12 +56,14 @@ namespace Fanex.Result.Core.ExcelModels
                 SetDataForMatch(sheet, exportRow, ref currentRow);
             }
         }
+
         protected override void ProcessUI(ISheet sheet)
         {
             /*
             * Void processing UI
             */
         }
+
         #region Assign Cell Data
 
         protected override void AssignNoInfoRow(ISheet sheet)

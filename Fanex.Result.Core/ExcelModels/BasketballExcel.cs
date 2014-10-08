@@ -23,13 +23,13 @@ namespace Fanex.Result.Core.ExcelModels
 
         #endregion Fields
 
-        public BasketballExcel(string templatePath, string reporTitle, IList<BasketBallViewModel> data, LangResources resource)
-            : base(templatePath, reporTitle, resource)
+        public BasketballExcel(string templatePath, ResultSetting setting, IList<BasketBallViewModel> data, LangResources resource)
+            : base(templatePath, setting, resource)
         {
             this._basketBalllData = data;
             this.NumofRow = this._basketBalllData.Count;
-            this.ColumnTemplateCount = 10;
-            this.ColumnStatus = 9;
+            this.ColumnTemplateCount = 11;
+            this.ColumnStatus = 10;
             this.RowContentTemplate = 3;
         }
 
@@ -37,10 +37,11 @@ namespace Fanex.Result.Core.ExcelModels
         /// Assign value to header section.
         /// </summary>
         /// <param name="sheet">The current sheet.</param>
-        public override void AssignHeader(ISheet sheet)
+        protected override void AssignHeader(ISheet sheet)
         {
             var colidx = 0;
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
+            row.Cells[colidx++].SetCellValue(Lang.MatchCode + "/" + Lang.ID);
             row.Cells[colidx++].SetCellValue(Lang.KickOffTime);
             row.Cells[colidx++].SetCellValue(Lang.Match);
             row.Cells[colidx++].SetCellValue(Lang.Lbl1Q);
@@ -53,7 +54,7 @@ namespace Fanex.Result.Core.ExcelModels
             row.Cells[colidx].SetCellValue(Lang.Status);
         }
 
-        public override void AssignSheetData(ISheet sheet)
+        protected override void AssignSheetData(ISheet sheet)
         {
             var currentRow = 2;
             var currentLeagueId = 0;
@@ -84,7 +85,8 @@ namespace Fanex.Result.Core.ExcelModels
 
             AssignStringData(
                 rowHome,
-                             ColumnKickOffTime,
+                             ColumnMatchCode,
+                             exportRow.MatchCode,
                              Helper.ToRtfString(exportRow.KickOffTime),
                              Helper.ToRtfString(exportRow.HomeTeam),
                            exportRow.GetQHomeAway(0, true),
@@ -99,7 +101,7 @@ namespace Fanex.Result.Core.ExcelModels
 
             AssignStringData(
                 rowAway,
-                ColumnKickOffTime,
+                ColumnMatchCode, exportRow.MatchId,
                              Helper.ToRtfString(exportRow.KickOffTime),
                              Helper.ToRtfString(exportRow.AwayTeam),
                            exportRow.GetQHomeAway(0, false),

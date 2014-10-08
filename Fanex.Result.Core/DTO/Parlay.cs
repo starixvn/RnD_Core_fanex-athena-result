@@ -21,6 +21,6 @@ namespace Fanex.Result.Core.DTO
 
         public int LeagueId { get; set; }
 
-        public IList<Sportbook> Sportbook { get; set; }
+        public IList<Sportsbook> Sportbook { get; set; }
     }
 }

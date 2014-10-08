@@ -99,7 +99,7 @@
     <Compile Include="DTO\OutRight.cs" />
     <Compile Include="DTO\Parlay.cs" />
     <Compile Include="DTO\Racing.cs" />
-    <Compile Include="DTO\Sportbook.cs" />
+    <Compile Include="DTO\Sportsbook.cs" />
     <Compile Include="DTO\StringResources.cs" />
     <Compile Include="ExcelModels\BadmintonExcel.cs" />
     <Compile Include="ExcelModels\BaseBallExcel.cs" />

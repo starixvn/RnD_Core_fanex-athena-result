@@ -15,11 +15,11 @@ using System.Collections.Generic;
     /// </summary>
     internal abstract class ViewModelFactory
     {
-        public abstract object GetViewModel(object obj, SportType sportType, string languageCode, LangResources resource);
+        public abstract object GetViewModel(object obj, ResultSetting setting, LangResources resource);
 
-        public abstract object GetOutRightViewModel(object obj, string languageCode, LangResources resource);
+        public abstract object GetOutRightViewModel(object obj, ResultSetting setting, LangResources resource);
 
-        public abstract object GetParlayViewModel(object obj, string languageCode, LangResources resource);
+        public abstract object GetParlayViewModel(object obj, ResultSetting setting, LangResources resource);
         public abstract ExcelBase GetExcelViewModel<T>(IList<T> dataList,ResultSetting setting,LangResources resource);
 
     }

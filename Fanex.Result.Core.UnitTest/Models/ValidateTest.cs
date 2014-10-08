@@ -43,7 +43,7 @@ namespace Fanex.Result.Core.UnitTest.Models
         public void ValidateNormal_NotExistSportType_ReturnFalse()
         {
             // Arrange
-            var dtoName = DataDomain.SPORTBOOK;
+            var dtoName = DataDomain.SPORTSBOOK;
             var sportType = (SportType)(-1);
 
             var result = Validate.Instance.ValidateNormal(dtoName, sportType);
@@ -104,7 +104,7 @@ namespace Fanex.Result.Core.UnitTest.Models
         /// </summary>
         /// <param name="dtoName">The DTO name.</param>
         /// <param name="expected">Expected data.</param>
-        [TestCase(DataDomain.SPORTBOOK, true)]
+        [TestCase(DataDomain.SPORTSBOOK, true)]
         [TestCase("WrongDTO_Sportsbook", false)]
         public void ValidateNormal_SportTypeIsSportsbook_CheckDTOName(string dtoName, bool expected)
         {

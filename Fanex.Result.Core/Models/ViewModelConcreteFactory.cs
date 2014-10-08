@@ -56,57 +56,57 @@ namespace Fanex.Result.Core.Models
         /// <param name="languageCode">The language code.</param>
         /// <param name="resource">The language resource.</param>
         /// <returns>The view model.</returns>
-        public override object GetViewModel(object obj, SportType sportType, string languageCode, LangResources resource)
+        public override object GetViewModel(object obj, ResultSetting setting, LangResources resource)
         {
-            if ((int)sportType <= 0)
+            if ((int)setting.SportType <= 0)
             {
                 return null;
             }
 
-            var viewModel = sportType.StringMe() + EXTNAME;
+            var viewModel = setting.SportType.StringMe() + EXTNAME;
             switch (viewModel)
             {
                 case "BadmintonViewModel":
-                    return new BadmintonViewModel((Sportbook)obj, sportType, languageCode, resource);
+                    return new BadmintonViewModel((Sportsbook)obj, setting, resource);
                 case "BaseBallViewModel":
-                    return new BaseBallViewModel((Sportbook)obj, sportType, languageCode, resource);
+                    return new BaseBallViewModel((Sportsbook)obj, setting, resource);
                 case "BasketBallViewModel":
-                    return new BasketBallViewModel((Sportbook)obj, sportType, languageCode, resource);
+                    return new BasketBallViewModel((Sportsbook)obj, setting, resource);
                 case "BilliardViewModel":
-                    return new BilliardViewModel((Sportbook)obj, sportType, languageCode, resource);
+                    return new BilliardViewModel((Sportsbook)obj, setting, resource);
                 case "HockeyViewModel":
-                    return new HockeyViewModel((Sportbook)obj, sportType, languageCode, resource);
+                    return new HockeyViewModel((Sportsbook)obj, setting, resource);
                 case "LiveCasinoViewModel":
-                    return new LiveCasinoViewModel((LiveCasino)obj, sportType, languageCode, resource);
+                    return new LiveCasinoViewModel((LiveCasino)obj, setting, resource);
                 case "NumberGameViewModel":
-                    return new NumberGameViewModel((NumberGame)obj, sportType, languageCode, resource);
+                    return new NumberGameViewModel((NumberGame)obj, setting, resource);
                 case "OtherViewModel":
-                    return new OtherViewModel((Sportbook)obj, sportType, languageCode, resource);
+                    return new OtherViewModel((Sportsbook)obj, setting, resource);
                 case "RacingViewModel":
-                    return new RacingViewModel((Racing)obj, sportType, languageCode, resource);
+                    return new RacingViewModel((Racing)obj, setting, resource);
                 case "SoccerViewModel":
-                    return new SoccerViewModel((Sportbook)obj, sportType, languageCode, resource);
+                    return new SoccerViewModel((Sportsbook)obj, setting, resource);
                 case "TennisViewModel":
-                    return new TennisViewModel((Sportbook)obj, sportType, languageCode, resource);
+                    return new TennisViewModel((Sportsbook)obj, setting, resource);
                 case "VSHRacingViewModel":
-                    return new VSHRacingViewModel((Racing)obj, sportType, languageCode, resource);
+                    return new VSHRacingViewModel((Racing)obj, setting, resource);
                 case "VSSpeedWayViewModel":
-                    return new VSSpeedWayViewModel((Racing)obj, sportType, languageCode, resource);
+                    return new VSSpeedWayViewModel((Racing)obj, setting, resource);
                 case "VSTennisViewModel":
-                    return new VSTennisViewModel((Sportbook)obj, sportType, languageCode, resource);
+                    return new VSTennisViewModel((Sportsbook)obj, setting, resource);
                 default:
                     return null;
             }
         }
 
-        public override object GetOutRightViewModel(object obj, string languageCode, LangResources resource)
+        public override object GetOutRightViewModel(object obj, ResultSetting setting, LangResources resource)
         {
-            return new OutRightViewModel((OutRight)obj, languageCode, resource);
+            return new OutRightViewModel((OutRight)obj, setting, resource);
         }
 
-        public override object GetParlayViewModel(object obj, string languageCode, LangResources resource)
+        public override object GetParlayViewModel(object obj, ResultSetting setting, LangResources resource)
         {
-            return new ParlayViewModel((Parlay)obj, languageCode, resource);
+            return new ParlayViewModel((Parlay)obj, setting, resource);
         }
 
         public override ExcelBase GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting, LangResources resource)
@@ -118,55 +118,55 @@ namespace Fanex.Result.Core.Models
             {
                 case "BasketBallExcel":
 
-                    return new BasketballExcel(realTemplatePath, setting.ExcelTitle, ParserExcelData<T, BasketBallViewModel>(dataList, setting.SportType, setting.LanguageCode, resource), resource);
+                    return new BasketballExcel(realTemplatePath, setting, ParserExcelData<T, BasketBallViewModel>(dataList, setting, resource), resource);
                 case "HockeyExcel":
-                    return new HockeyExcel(realTemplatePath, setting.ExcelTitle, ParserExcelData<T, HockeyViewModel>(dataList, setting.SportType, setting.LanguageCode, resource), resource);
+                    return new HockeyExcel(realTemplatePath, setting, ParserExcelData<T, HockeyViewModel>(dataList, setting, resource), resource);
 
                 case "TennisExcel":
-                    return new TennisExcel(realTemplatePath, setting.ExcelTitle, ParserExcelData<T, TennisViewModel>(dataList, setting.SportType, setting.LanguageCode, resource), resource);
+                    return new TennisExcel(realTemplatePath, setting, ParserExcelData<T, TennisViewModel>(dataList, setting, resource), resource);
 
                 case "BadmintonExcel":
-                    return new BadmintonExcel(realTemplatePath, setting.ExcelTitle, ParserExcelData<T, BadmintonViewModel>(dataList, setting.SportType, setting.LanguageCode, resource), resource);
+                    return new BadmintonExcel(realTemplatePath, setting, ParserExcelData<T, BadmintonViewModel>(dataList, setting, resource), resource);
 
                 case "BaseBallExcel":
-                    return new BaseBallExcel(realTemplatePath, setting.ExcelTitle, ParserExcelData<T, BaseBallViewModel>(dataList, setting.SportType, setting.LanguageCode, resource), resource);
+                    return new BaseBallExcel(realTemplatePath, setting, ParserExcelData<T, BaseBallViewModel>(dataList, setting, resource), resource);
 
                 case "BilliardExcel":
 
-                    return new BilliardExcel(realTemplatePath, setting.ExcelTitle, ParserExcelData<T, BilliardViewModel>(dataList, setting.SportType, setting.LanguageCode, resource), resource);
+                    return new BilliardExcel(realTemplatePath, setting, ParserExcelData<T, BilliardViewModel>(dataList, setting, resource), resource);
 
                 case "RacingExcel":
 
-                    return new RacingExcel(realTemplatePath, setting.ExcelTitle, ParserExcelData<T, RacingViewModel>(dataList, setting.SportType, setting.LanguageCode, resource), resource);
+                    return new RacingExcel(realTemplatePath, setting, ParserExcelData<T, RacingViewModel>(dataList, setting, resource), resource);
 
                 case "VSHRacingExcel":
-                    return new VSHRacingExcel(realTemplatePath, setting.ExcelTitle, ParserExcelData<T, VSHRacingViewModel>(dataList, setting.SportType, setting.LanguageCode, resource), resource);
+                    return new VSHRacingExcel(realTemplatePath, setting, ParserExcelData<T, VSHRacingViewModel>(dataList, setting, resource), resource);
 
                 case "VSSpeedWayExcel":
-                    return new VSSpeedWayExcel(realTemplatePath, setting.ExcelTitle, ParserExcelData<T, VSSpeedWayViewModel>(dataList, setting.SportType, setting.LanguageCode, resource), resource);
+                    return new VSSpeedWayExcel(realTemplatePath, setting, ParserExcelData<T, VSSpeedWayViewModel>(dataList, setting, resource), resource);
 
                 case "NumberGameExcel":
-                    return new NumberGameExcel(realTemplatePath, setting.ExcelTitle, ParserExcelData<T, NumberGameViewModel>(dataList, setting.SportType, setting.LanguageCode, resource), resource);
+                    return new NumberGameExcel(realTemplatePath, setting, ParserExcelData<T, NumberGameViewModel>(dataList, setting, resource), resource);
 
                 case "LiveCasinoExcel":
-                    return new LiveCasinoExcel(realTemplatePath, setting.ExcelTitle, ParserExcelData<T, LiveCasinoViewModel>(dataList, setting.SportType, setting.LanguageCode, resource), resource);
+                    return new LiveCasinoExcel(realTemplatePath, setting, ParserExcelData<T, LiveCasinoViewModel>(dataList, setting, resource), resource);
 
                 case "SoccerExcel":
-                    return new SoccerExcel(realTemplatePath, setting.ExcelTitle, ParserExcelData<T, SoccerViewModel>(dataList, setting.SportType, setting.LanguageCode, resource), resource);
+                    return new SoccerExcel(realTemplatePath, setting, ParserExcelData<T, SoccerViewModel>(dataList, setting, resource), resource);
 
                 case "VSTennisExcel":
-                    return new VSTennisExcel(realTemplatePath, setting.ExcelTitle, ParserExcelData<T, VSTennisViewModel>(dataList, setting.SportType, setting.LanguageCode, resource), resource);
+                    return new VSTennisExcel(realTemplatePath, setting, ParserExcelData<T, VSTennisViewModel>(dataList, setting, resource), resource);
 
                 default:
-                    return new OtherSportExcel(realTemplatePath, setting.ExcelTitle, ParserExcelData<T, OtherViewModel>(dataList, setting.SportType, setting.LanguageCode, resource), resource);
+                    return new OtherSportExcel(realTemplatePath, setting, ParserExcelData<T, OtherViewModel>(dataList, setting, resource), resource);
             }
         }
 
-        private IList<T1> ParserExcelData<T, T1>(IList<T> dataList, SportType sportType, string languageCode, LangResources resource)
+        private IList<T1> ParserExcelData<T, T1>(IList<T> dataList, ResultSetting setting, LangResources resource)
         {
             return
                 dataList
-                .Select(i => (T1)ViewModelConcreteFactory.Instance.GetViewModel(i, sportType, languageCode, resource))
+                .Select(i => (T1)ViewModelConcreteFactory.Instance.GetViewModel(i, setting, resource))
                 .ToList();
         }
     }

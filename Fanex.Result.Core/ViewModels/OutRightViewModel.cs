@@ -18,10 +18,11 @@ namespace Fanex.Result.Core.ViewModels
     {
         private readonly OutRight _outRight;
 
-        public OutRightViewModel(OutRight outRight, string languageCode, LangResources resource)
+        public OutRightViewModel(OutRight outRight, ResultSetting setting, LangResources resource)
+            : base(setting)
         {
             this._outRight = outRight;
-            this.LanguageCode = languageCode;
+            this.LanguageCode = setting.LanguageCode;
             this.Lang = resource;
         }
 
@@ -94,7 +95,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return Helper.FullDateFormat(this._outRight.EventDate);
+                return Helper.FullDateFormat(this._outRight.EventDate, this.DateTimeFormat);
             }
         }
     }

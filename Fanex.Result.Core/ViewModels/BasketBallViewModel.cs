@@ -15,8 +15,8 @@ namespace Fanex.Result.Core.ViewModels
     /// </summary>
     public sealed class BasketBallViewModel : SportbookBaseViewModel
     {
-        public BasketBallViewModel(Sportbook sportbook, SportType sport, string languageCode, LangResources resource)
-            : base(sportbook, sport, languageCode, resource)
+        public BasketBallViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resource)
+            : base(sportbook, setting, resource)
         {
             this.GetQHomeAway(0, true);
         }
@@ -26,7 +26,7 @@ namespace Fanex.Result.Core.ViewModels
             get
             {
                 var temp = this.GetQHomeAway(4, true);
-                return Convert.ToInt32(temp) > 0 ? temp : string.Empty;
+                return Convert.ToInt32(temp) > 0 ? temp : HYPHEN;
             }
         }
 
@@ -35,7 +35,7 @@ namespace Fanex.Result.Core.ViewModels
             get
             {
                 var temp = this.GetQHomeAway(4, false);
-                return Convert.ToInt32(temp) > 0 ? temp : string.Empty;
+                return Convert.ToInt32(temp) > 0 ? temp : HYPHEN;
             }
         }
 

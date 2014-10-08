@@ -2,11 +2,11 @@
     var viewModel = (Fanex.Result.Core.Models.RazorBinderModel)Model;
 
     var lang = (Fanex.Result.Core.DTO.LangResources)viewModel.Resource;
-    var colspan = viewModel.IsShowMatchCodeAndId ? 6 : 5;
+    var colspan = viewModel.VisibleMatchCodeIDColumn ? 6 : 5;
 }
 <table class="fanex-result">
     <colgroup>
-        @if (viewModel.IsShowMatchCodeAndId)
+        @if (viewModel.VisibleMatchCodeIDColumn)
         {
             <col class="column-matchcode" />
 
@@ -28,7 +28,7 @@
             </tr>
         }
         <tr class="row-header">
-            @if (viewModel.IsShowMatchCodeAndId)
+            @if (viewModel.VisibleMatchCodeIDColumn)
             {
                 <th class="column-matchcode">
                     @lang.MatchCode/@lang.ID
@@ -75,7 +75,7 @@
                     }
                 }
             <tr class="row-data @item.Color(index, "format-even", "format-odd")">
-                @if (viewModel.IsShowMatchCodeAndId)
+                @if (viewModel.VisibleMatchCodeIDColumn)
                 {
                     <td class="column-matchcode">
                         <div class="m-code">
@@ -117,10 +117,23 @@
                 </td>
                 <td rowspan="2" class="column-eventstatus">
                     @item.EventStatus
+                    @if (item.VisibleDetailedLink)
+                    {
+                        <br />
+                        <span class="detail-link soccer-detail-link" data-league-id="@item.LeagueId"
+                                         data-home-id="@item.HomeId" data-away-id="@item.AwayId" data-goal-record="@item.GoalRecord">
+                            [i] </span>
+                    }
+                    @if (!string.IsNullOrEmpty(item.PenaltyShootoutResult))
+                    {
+                         <br />
+                        <span class="detail-link penalty-result" original-title="@item.PenaltyShootoutTooltip">[PS:@item.PenaltyShootoutResult]
+                        </span>
+                    }
                 </td>
             </tr>
             <tr class="row-data @item.Color(index, "format-even", "format-odd")">
-                @if (viewModel.IsShowMatchCodeAndId)
+                @if (viewModel.VisibleMatchCodeIDColumn)
                 {
                     <td class="column-matchcode">
                         @item.MatchId

@@ -19,20 +19,20 @@ namespace Fanex.Result.Core.ViewModels
         private int _totalGameHome;
         private int _totalGameAway;
 
-        public TennisViewModel(Sportbook sportbook, SportType sport, string languageCode, LangResources resources)
-            : base(sportbook, sport, languageCode, resources)
+        public TennisViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resources)
+            : base(sportbook, setting, resources)
         {
             this.GetHomeAwaySet(0, true);
         }
 
         public string TotalGameHome
         {
-            get { return this._totalGameHome > 0 ? this._totalGameHome.ToString(CultureInfo.InvariantCulture) : string.Empty; }
+            get { return this._totalGameHome > 0 ? this._totalGameHome.ToString(CultureInfo.InvariantCulture) : HYPHEN; }
         }
 
         public string TotalGameAway
         {
-            get { return this._totalGameAway > 0 ? this._totalGameAway.ToString(CultureInfo.InvariantCulture) : string.Empty; }
+            get { return this._totalGameAway > 0 ? this._totalGameAway.ToString(CultureInfo.InvariantCulture) : HYPHEN; }
         }
 
         public string TotalSetHome

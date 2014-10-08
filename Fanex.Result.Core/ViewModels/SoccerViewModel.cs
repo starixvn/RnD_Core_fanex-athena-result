@@ -16,9 +16,12 @@ namespace Fanex.Result.Core.ViewModels
     /// </summary>
     public sealed class SoccerViewModel : SportbookBaseViewModel
     {
-        public SoccerViewModel(Sportbook soccer, SportType sport, string languageCode, LangResources resource)
-            : base(soccer, sport, languageCode, resource)
+        private bool _visibleDetailedLink = false;
+
+        public SoccerViewModel(Sportsbook soccer, ResultSetting setting, LangResources resource)
+            : base(soccer, setting, resource)
         {
+            this._visibleDetailedLink = setting.VisibleDetailedLink;
         }
 
         #region Setttlement Site
@@ -35,7 +38,25 @@ namespace Fanex.Result.Core.ViewModels
 
         public string GoalRecord
         {
-            get { return this.SPORTBOOK.GoalRecord; }
+            get
+            {
+                return string.IsNullOrEmpty(this.SPORTBOOK.GoalRecord) ? string.Empty : this.SPORTBOOK.GoalRecord.Replace(";", string.Empty);
+            }
+        }
+
+        public bool VisibleDetailedLink
+        {
+            get { return this._visibleDetailedLink && !string.IsNullOrEmpty(this.SPORTBOOK.GoalRecord); }
+        }
+
+        public string PenaltyShootoutResult
+        {
+            get { return this.SPORTBOOK.PenaltyShootoutResult; }
+        }
+
+        public string PenaltyShootoutTooltip
+        {
+            get { return this.PenaltyShootoutResult.Equals("Y", StringComparison.Ordinal) ? Lang.PenaltyShootoutYes : Lang.PenaltyShootoutNo; }
         }
 
         #endregion Setttlement Site

@@ -18,18 +18,19 @@ namespace Fanex.Result.Core.ExcelModels
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public sealed class VSSpeedWayExcel : ExcelBase
+    internal sealed class VSSpeedWayExcel : ExcelBase
     {
         #region Fields
 
         private const string FormatStatus = "Offical {0} {1}";
+        private const int ColumnRace = 0;
 
         private IList<VSSpeedWayViewModel> _racingData;
 
         #endregion Fields
 
-        public VSSpeedWayExcel(string templatePath, string reporTitle, IList<VSSpeedWayViewModel> data, LangResources resource)
-            : base(templatePath, reporTitle, resource)
+        public VSSpeedWayExcel(string templatePath, ResultSetting setting, IList<VSSpeedWayViewModel> data, LangResources resource)
+            : base(templatePath, setting, resource)
         {
             this._racingData = data;
             this.NumofRow = this._racingData.Count;
@@ -38,11 +39,11 @@ namespace Fanex.Result.Core.ExcelModels
             this.RowContentTemplate = 3;
         }
 
-        public override void AssignHeader(ISheet sheet)
+        protected override void AssignHeader(ISheet sheet)
         {
             var colidx = 3;
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
-            row.Cells[0].SetCellValue(Lang.Race);
+            row.Cells[ColumnRace].SetCellValue(Lang.Race);
             row.Cells[colidx++].SetCellValue(Lang.Results);
             row.Cells[colidx++].SetCellValue(Lang.Win);
             row.Cells[colidx].SetCellValue(Lang.Status);
@@ -52,7 +53,7 @@ namespace Fanex.Result.Core.ExcelModels
         /// Assign data to sheet.
         /// </summary>
         /// <param name="sheet">The current sheet.</param>
-        public override void AssignSheetData(ISheet sheet)
+        protected override void AssignSheetData(ISheet sheet)
         {
             var currentRow = 2;
             var currentLeagueId = 0;
@@ -103,7 +104,7 @@ namespace Fanex.Result.Core.ExcelModels
                 if (currentRow == 3 || endRowSpan < currentRow)
                 {
                     endRowSpan = currentRow + rowsTopRace - 1;
-                    MergeKickOffTimeCell(sheet, currentRow, endRowSpan, colSpanKichOffTime: ColumnIndex);
+                    MergeKickOffTimeCell(sheet, currentRow, endRowSpan, colSpanKichOffTime: ColumnRace);
                 }
             }
 

@@ -12,7 +12,7 @@
 <div class="form-group">
     <label for="date">
         Date</label>
-    <input id="date" class="width-160" type="text" />
+    <input id="date" class="width-100" type="text" />
 </div>
 <div class="form-group">
     <label for="sport">
@@ -23,7 +23,7 @@
 <div class="form-group">
     <label for="league">
         Leagues</label>
-    <select id="league" class="width-250">
+    <select id="league" class="width-200">
     </select>
 </div>
 <div class="form-group">
@@ -37,6 +37,11 @@
     </select>
 </div>
 <div class="form-group">
+    <label for="league">
+        Show MatchCode</label>
+    <input type="checkbox" id="showmatchcode" checked="checked" />
+</div>
+<div class="form-group">
     <input type="button" id="gen-html" value="Gen Html" class="btn-primary" />
 </div>
 <div class="form-group">
@@ -47,7 +52,6 @@
 </div>
 </form>
 <div id="report-content">
- 
 </div>
 @section FooterJs
 {

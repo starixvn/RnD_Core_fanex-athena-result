@@ -27,7 +27,7 @@ namespace Fanex.Result.Core.Models
         {
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
             var template = Template.Instance.GetRazorTemplate(setting.SportType.StringMe());
-            var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(i, setting.SportType, setting.LanguageCode, lang)).ToList();
+            var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(i, setting, lang)).ToList();
             var model = CreateModel(lang, dataMaped, false, false, setting);
             Razor.GetTemplate(template, setting.SportType.StringMe());
             return Razor.Run(setting.SportType.StringMe(), model);
@@ -49,14 +49,14 @@ namespace Fanex.Result.Core.Models
             if (setting.IsOutRight)
             {
                 template = Template.Instance.GetRazorTemplate("OutRight");
-                var dataMapedOutRight = dataList.Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting.LanguageCode, lang)).ToList();
+                var dataMapedOutRight = dataList.Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting, lang)).ToList();
                 var modelOutRight = CreateModel(lang, dataMapedOutRight, true, false, setting);
                 Razor.GetTemplate(template, "OutRight");
                 return Razor.Run("OutRight", modelOutRight);
             }
 
             template = Template.Instance.GetRazorTemplate(setting.SportType.StringMe());
-            var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(i, setting.SportType, setting.LanguageCode, lang)).ToList();
+            var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(i, setting, lang)).ToList();
             var model = CreateModel(lang, dataMaped, true, false, setting);
             Razor.GetTemplate(template, setting.SportType.StringMe());
             return Razor.Run(setting.SportType.StringMe(), model);
@@ -66,7 +66,7 @@ namespace Fanex.Result.Core.Models
         {
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
             var template = Template.Instance.GetRazorTemplate("Parlay");
-            var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetParlayViewModel(i, setting.LanguageCode, lang)).ToList();
+            var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetParlayViewModel(i, setting, lang)).ToList();
             var model = CreateModel(lang, dataMaped, true, true, setting);
             Razor.GetTemplate(template, "Parlay");
             return Razor.Run("Parlay", model);
@@ -76,7 +76,7 @@ namespace Fanex.Result.Core.Models
         {
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
             var template = Template.Instance.GetRazorTemplate("OutRight");
-            var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting.LanguageCode, lang)).ToList();
+            var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting, lang)).ToList();
             var model = CreateModel(lang, dataMaped, false, false, setting);
             Razor.GetTemplate(template, "OutRight");
             return Razor.Run("OutRight", model);
@@ -107,10 +107,10 @@ namespace Fanex.Result.Core.Models
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
             var outRightData =
                 dataList
-                .Select(i => (OutRightViewModel)ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting.LanguageCode, lang))
+                .Select(i => (OutRightViewModel)ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting, lang))
                 .ToList();
             var realTemplatePath = setting.ExcelTemplatePath + "Outright.xls";
-            var excelParser = new OutRightExcel(realTemplatePath, setting.ExcelTitle, outRightData, lang);
+            var excelParser = new OutRightExcel(realTemplatePath, setting, outRightData, lang);
             return excelParser.Export();
         }
 
@@ -131,7 +131,7 @@ namespace Fanex.Result.Core.Models
         {
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
             var items = dataList
-                .Select(i => ViewModelConcreteFactory.Instance.GetViewModel(i, setting.SportType, setting.LanguageCode, lang))
+                .Select(i => ViewModelConcreteFactory.Instance.GetViewModel(i, setting, lang))
                 .ToList();
             return JsonConvert.SerializeObject(items);
         }
@@ -148,7 +148,7 @@ namespace Fanex.Result.Core.Models
         {
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
             var items = dataList
-                .Select(i => ViewModelConcreteFactory.Instance.GetParlayViewModel(i, setting.LanguageCode, lang));
+                .Select(i => ViewModelConcreteFactory.Instance.GetParlayViewModel(i, setting, lang));
             var parlayItems = items.Select(i => (ParlayViewModel)i);
             return JsonConvert.SerializeObject(parlayItems);
         }
@@ -157,7 +157,7 @@ namespace Fanex.Result.Core.Models
         {
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
             var items = dataList
-                .Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting.LanguageCode, lang))
+                .Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting, lang))
                 .ToList();
             return JsonConvert.SerializeObject(items);
         }
@@ -190,8 +190,8 @@ namespace Fanex.Result.Core.Models
                  IsParlay = isParlay,
                  IsShowPopUpTitle = setting.IsShowPopUpTitle,
                  SportType = setting.SportType,
-                 IsShowMatchCodeAndId = setting.IsShowMatchCodeAndId,
-                 IsShowDetailGoalRecord = setting.IsShowDetailGoalRecord
+                 VisibleMatchCodeIDColumn = setting.VisibleMatchCodeIDColumn,
+                 VisibleDetailedLink = setting.VisibleDetailedLink
              };
             model.Data.AddRange(data);
             return model;

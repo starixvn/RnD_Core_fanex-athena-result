@@ -15,8 +15,8 @@ namespace Fanex.Result.Core.ViewModels
     /// </summary>
     public sealed class BaseBallViewModel : SportbookBaseViewModel
     {
-        public BaseBallViewModel(Sportbook sportbook, SportType sport, string languageCode, LangResources resource)
-            : base(sportbook, sport, languageCode, resource)
+        public BaseBallViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resource)
+            : base(sportbook, setting, resource)
         {
             this.GetHomeAwaySet(0, true);
         }

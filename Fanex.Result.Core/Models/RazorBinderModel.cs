@@ -34,8 +34,8 @@ namespace Fanex.Result.Core.Models
 
         public SportType SportType { get; set; }
 
-        public bool IsShowMatchCodeAndId { get; set; }
+        public bool VisibleMatchCodeIDColumn { get; set; }
 
-        public bool IsShowDetailGoalRecord { get; set; }
+        public bool VisibleDetailedLink { get; set; }
     }
 }

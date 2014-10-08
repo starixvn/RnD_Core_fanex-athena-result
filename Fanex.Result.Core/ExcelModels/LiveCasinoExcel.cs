@@ -22,22 +22,23 @@ namespace Fanex.Result.Core.ExcelModels
 
         public LiveCasinoExcel(
             string templatePath,
-            string reporTitle,
+            ResultSetting setting,
             IList<LiveCasinoViewModel> data,
             LangResources resource)
-            : base(templatePath, reporTitle, resource)
+            : base(templatePath, setting, resource)
         {
             this._liveCasinoData = data;
             this.NumofRow = this._liveCasinoData.Count;
-            this.ColumnTemplateCount = 5;
-            this.ColumnStatus = 4;
+            this.ColumnTemplateCount = 6;
+            this.ColumnStatus = 5;
             this.RowContentTemplate = 3;
         }
 
-        public override void AssignHeader(ISheet sheet)
+        protected override void AssignHeader(ISheet sheet)
         {
             var colidx = 0;
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
+            row.Cells[colidx++].SetCellValue(Lang.MatchCode);
             row.Cells[colidx++].SetCellValue(this.Lang.KickOffTime);
             row.Cells[colidx++].SetCellValue(this.Lang.GameTypeAndTableNumber);
             row.Cells[colidx++].SetCellValue(this.Lang.FinalScore);
@@ -49,7 +50,7 @@ namespace Fanex.Result.Core.ExcelModels
         /// Assign value to sheet.
         /// </summary>
         /// <param name="sheet">The current sheet.</param>
-        public override void AssignSheetData(ISheet sheet)
+        protected override void AssignSheetData(ISheet sheet)
         {
             var currentRow = RowLeagueTemplate;
             var currentLeagueId = 0;
@@ -74,7 +75,8 @@ namespace Fanex.Result.Core.ExcelModels
 
                 AssignStringData(
                     rowMatch,
-                    ColumnKickOffTime,
+                    ColumnMatchCode,
+                    exportRow.MatchCode,
                     Helper.ToRtfString(exportRow.KickOffTime),
                     exportRow.GameType,
                     exportRow.FinalScore,
@@ -85,7 +87,7 @@ namespace Fanex.Result.Core.ExcelModels
 
         protected override IList<int> GetColumnTemplateIndex()
         {
-            return new List<int> { 0, 1, 2, 3, 4 };
+            return new List<int> { 0, 1, 2, 3, 4, 5 };
         }
     }
 }

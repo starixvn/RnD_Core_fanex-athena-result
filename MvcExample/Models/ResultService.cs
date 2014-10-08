@@ -109,9 +109,9 @@ namespace MvcExample.Models
         /// </summary>
         /// <param name="criteria">The criterion.</param>
         /// <returns>The SPORTBOOK data.</returns>
-        public IEnumerable<Fanex.Result.Core.DTO.Sportbook> GetSportbookResult(GetSportbookResultCriteria criteria)
+        public IEnumerable<Fanex.Result.Core.DTO.Sportsbook> GetSportbookResult(GetSportbookResultCriteria criteria)
         {
-            var result = new List<Sportbook>();
+            var result = new List<Sportsbook>();
 
             using (var db = new ObjectDb(criteria.GetSettingKey()))
             {
@@ -202,9 +202,9 @@ namespace MvcExample.Models
         /// </summary>
         /// <param name="criteria">The criterion.</param>
         /// <returns>The SPORTBOOK POPUP data.</returns>
-        public IEnumerable<Fanex.Result.Core.DTO.Sportbook> GetSportbookPopupResult(GetSportbookPopupResultCriteria criteria)
+        public IEnumerable<Fanex.Result.Core.DTO.Sportsbook> GetSportbookPopupResult(GetSportbookPopupResultCriteria criteria)
         {
-            var result = new List<Sportbook>();
+            var result = new List<Sportsbook>();
 
             using (var db = new ObjectDb(criteria.GetSettingKey()))
             {
@@ -237,7 +237,7 @@ namespace MvcExample.Models
                 {
                     var leagueId = 0;
                     var sportId = 0;
-                    IList<Sportbook> sportbooks = new List<Sportbook>();
+                    IList<Sportsbook> sportbooks = new List<Sportsbook>();
                     while (reader.Read())
                     {
                         var newLeagueId = int.Parse(reader["LeagueID"].ToString());
@@ -251,7 +251,7 @@ namespace MvcExample.Models
                                 LeagueId = leagueId,
                                 Sportbook = sportbooks
                             });
-                            sportbooks = new List<Sportbook>();
+                            sportbooks = new List<Sportsbook>();
                         }
 
                         sportbooks.Add(BindSportbook(reader));
@@ -310,9 +310,9 @@ namespace MvcExample.Models
         /// </summary>
         /// <param name="reader">The IDATAREADER.</param>
         /// <returns>The SPORTBOOK DTO.</returns>
-        private static Sportbook BindSportbook(System.Data.IDataReader reader)
+        private static Sportsbook BindSportbook(System.Data.IDataReader reader)
         {
-            return new Sportbook
+            return new Sportsbook
             {
                 AwayId = int.Parse(reader["awayID"].ToString()),
                 HomeId = int.Parse(reader["homeID"].ToString()),
@@ -341,8 +341,9 @@ namespace MvcExample.Models
                 IsPending = bool.Parse(reader["IsPending"].ToString()),
                 KickOffTime = DateTime.Parse(reader["kickofftime"].ToString()),
                 MatchCode = reader["matchcode"].ToString(),
-                GoalRecord = reader["goalrecord"].ToString(),
+                GoalRecord =reader["goalrecord"].ToString(),
                 ResultValue = string.Empty,
+                PenaltyShootoutResult="Y",
                 IsHTCal = Convert.ToBoolean(reader["IsHTCal"]),
                 Calculate = Convert.ToBoolean(reader["Calculate"]),
                 RefNo = string.Empty

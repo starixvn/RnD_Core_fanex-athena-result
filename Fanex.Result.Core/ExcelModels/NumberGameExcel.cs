@@ -25,13 +25,13 @@ namespace Fanex.Result.Core.ExcelModels
 
         #endregion Fields
 
-        public NumberGameExcel(string templatePath, string reporTitle, IList<NumberGameViewModel> data, LangResources resource)
-            : base(templatePath, reporTitle, resource)
+        public NumberGameExcel(string templatePath, ResultSetting setting, IList<NumberGameViewModel> data, LangResources resource)
+            : base(templatePath, setting, resource)
         {
             this._numberGameData = data;
             this.NumofRow = this._numberGameData.Count;
-            this.ColumnTemplateCount = 8;
-            this.ColumnStatus = 7;
+            this.ColumnTemplateCount = 9;
+            this.ColumnStatus = 8;
             this.RowContentTemplate = 3;
         }
 
@@ -39,10 +39,11 @@ namespace Fanex.Result.Core.ExcelModels
         /// Assign value to header section.
         /// </summary>
         /// <param name="sheet">The current sheet.</param>
-        public override void AssignHeader(NPOI.SS.UserModel.ISheet sheet)
+        protected override void AssignHeader(NPOI.SS.UserModel.ISheet sheet)
         {
             var colidx = 0;
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
+            row.Cells[colidx++].SetCellValue(Lang.MatchCode + "/" + Lang.ID);
             row.Cells[colidx++].SetCellValue(Lang.KickOffTime);
             row.Cells[colidx++].SetCellValue(Lang.Match);
             row.Cells[colidx++].SetCellValue(Lang.Results);
@@ -57,7 +58,7 @@ namespace Fanex.Result.Core.ExcelModels
         /// Assign data to sheet.
         /// </summary>
         /// <param name="sheet">The current sheet.</param>
-        public override void AssignSheetData(NPOI.SS.UserModel.ISheet sheet)
+        protected override void AssignSheetData(NPOI.SS.UserModel.ISheet sheet)
         {
             var currentRow = RowLeagueTemplate;
             var currentLeagueId = 0;
@@ -80,7 +81,8 @@ namespace Fanex.Result.Core.ExcelModels
 
                 AssignStringData(
                             rowMatch,
-                                ColumnKickOffTime,
+                                ColumnMatchCode,
+                                Helper.ToRtfString(exportRow.MatchCode + "<br/>" + exportRow.MatchId),
                                  Helper.ToRtfString(exportRow.KickOffTime),
                                   string.Format(Match, Lang.NumberGameNo, exportRow.GameNo),
                                   string.Join("-", results),

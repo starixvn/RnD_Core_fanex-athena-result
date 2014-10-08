@@ -20,17 +20,18 @@ namespace Fanex.Result.Core.ExcelModels
     {
         #region Fields
 
+        private const int ColumnHTScore = 13;
         private IList<BaseBallViewModel> _baseBallData;
 
         #endregion Fields
 
-        public BaseBallExcel(string templatePath, string reporTitle, IList<BaseBallViewModel> data, LangResources resource)
-            : base(templatePath, reporTitle, resource)
+        public BaseBallExcel(string templatePath, ResultSetting setting, IList<BaseBallViewModel> data, LangResources resource)
+            : base(templatePath, setting, resource)
         {
             this._baseBallData = data;
             this.NumofRow = this._baseBallData.Count;
-            this.ColumnTemplateCount = 15;
-            this.ColumnStatus = 14;
+            this.ColumnTemplateCount = 16;
+            this.ColumnStatus = 15;
             this.RowContentTemplate = 3;
         }
 
@@ -38,20 +39,21 @@ namespace Fanex.Result.Core.ExcelModels
         /// Assign data to header section.
         /// </summary>
         /// <param name="sheet">The current sheet.</param>
-        public override void AssignHeader(ISheet sheet)
+        protected override void AssignHeader(ISheet sheet)
         {
             var colidx = 0;
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
+            row.Cells[colidx++].SetCellValue(Lang.MatchCode + "/" + Lang.ID);
             row.Cells[colidx++].SetCellValue(Lang.KickOffTime);
             row.Cells[colidx].SetCellValue(Lang.Event);
 
-            colidx = 12;
+            colidx = ColumnHTScore;
             row.Cells[colidx++].SetCellValue(Lang.HTScore);
             row.Cells[colidx++].SetCellValue(Lang.FinalScore);
             row.Cells[colidx].SetCellValue(Lang.Status);
         }
 
-        public override void AssignSheetData(ISheet sheet)
+        protected override void AssignSheetData(ISheet sheet)
         {
             var currentRow = 2;
             var currentLeagueId = 0;
@@ -80,7 +82,8 @@ namespace Fanex.Result.Core.ExcelModels
             MergeResultCells(sheet, currentRow, currentRow + 1, ColumnKickOffTime, ColumnStatus);
             AssignStringData(
                             rowHome,
-                             ColumnKickOffTime,
+                             ColumnMatchCode,
+                             exportRow.MatchCode,
                              Helper.ToRtfString(exportRow.KickOffTime),
                             Helper.ToRtfString(exportRow.HomeTeam),
                              exportRow.GetHomeAwaySet(0, true),
@@ -100,7 +103,8 @@ namespace Fanex.Result.Core.ExcelModels
 
             AssignStringData(
                 rowAway,
-                ColumnKickOffTime,
+                ColumnMatchCode,
+                exportRow.MatchId,
                              Helper.ToRtfString(exportRow.KickOffTime),
                             Helper.ToRtfString(exportRow.AwayTeam),
                              exportRow.GetHomeAwaySet(0, false),

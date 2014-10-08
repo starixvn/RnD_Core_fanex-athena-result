@@ -21,14 +21,15 @@ namespace Fanex.Result.Core.ViewModels
 
         private string[] _awaySet;
 
-        private Sportbook _sportbook;
+        private Sportsbook _sportbook;
 
-        public SportbookBaseViewModel(Sportbook sportbook, SportType sport, string languageCode, LangResources resource)
+        public SportbookBaseViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resource)
+            : base(setting)
         {
             this.SPORTBOOK = sportbook;
-            this.LanguageCode = languageCode;
+            this.LanguageCode = setting.LanguageCode;
             this.Lang = resource;
-            this.Sport = sport;
+            this.Sport = setting.SportType;
         }
 
         public string[] HomeSet
@@ -122,7 +123,7 @@ namespace Fanex.Result.Core.ViewModels
             }
         }
 
-        protected Sportbook SPORTBOOK
+        protected Sportsbook SPORTBOOK
         {
             get { return this._sportbook; }
             set { this._sportbook = value; }

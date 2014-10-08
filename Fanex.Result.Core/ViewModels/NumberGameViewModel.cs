@@ -19,12 +19,13 @@ namespace Fanex.Result.Core.ViewModels
     {
         private readonly NumberGame _numberGame;
 
-        public NumberGameViewModel(NumberGame numberGame, SportType sport, string languageCode, LangResources resouces)
+        public NumberGameViewModel(NumberGame numberGame, ResultSetting setting, LangResources resouces)
+            : base(setting)
         {
             this._numberGame = numberGame;
-            this.LanguageCode = languageCode;
+            this.LanguageCode = setting.LanguageCode;
             this.Lang = resouces;
-            this.Sport = sport;
+            this.Sport = setting.SportType;
         }
 
         public override string KickOffTime

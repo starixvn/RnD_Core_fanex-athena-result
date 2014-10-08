@@ -21,13 +21,13 @@ namespace Fanex.Result.Core.ExcelModels
         #region Fields
 
         private const string FormatStatus = "Offical {0} {1}";
-
+        private const int ColumnRace = 0;
         private IList<RacingViewModel> _racingData;
 
         #endregion Fields
 
-        public RacingExcel(string templatePath, string reporTitle, IList<RacingViewModel> data, LangResources resource)
-            : base(templatePath, reporTitle, resource)
+        public RacingExcel(string templatePath, ResultSetting setting, IList<RacingViewModel> data, LangResources resource)
+            : base(templatePath, setting, resource)
         {
             this._racingData = data;
             this.NumofRow = this._racingData.Count;
@@ -36,11 +36,11 @@ namespace Fanex.Result.Core.ExcelModels
             this.RowContentTemplate = 3;
         }
 
-        public override void AssignHeader(ISheet sheet)
+        protected override void AssignHeader(ISheet sheet)
         {
             var colidx = 3;
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
-            row.Cells[0].SetCellValue(Lang.Race);
+            row.Cells[ColumnRace].SetCellValue(Lang.Race);
             row.Cells[colidx++].SetCellValue(Lang.Results);
             row.Cells[colidx++].SetCellValue(Lang.Win);
             row.Cells[colidx++].SetCellValue(Lang.Place);
@@ -51,7 +51,7 @@ namespace Fanex.Result.Core.ExcelModels
         /// Assign data to sheet.
         /// </summary>
         /// <param name="sheet">The current sheet.</param>
-        public override void AssignSheetData(ISheet sheet)
+        protected override void AssignSheetData(ISheet sheet)
         {
             var currentRow = 2;
             var currentLeagueId = 0;
@@ -66,7 +66,12 @@ namespace Fanex.Result.Core.ExcelModels
                 SetMatch(sheet, exportRow, ref currentLeagueId, ref currentRow, ref endRowSpan);
             }
         }
-
+        protected override void ProcessUI(ISheet sheet)
+        {
+            /*
+             * Void processing UI
+             */
+        }
         #region Assign Cell Data
 
         /// <summary>
@@ -96,7 +101,7 @@ namespace Fanex.Result.Core.ExcelModels
                 if (currentRow == 3 || endRowSpan < currentRow)
                 {
                     endRowSpan = currentRow + rowsTopRace - 1;
-                    MergeResultCells(sheet, currentRow, endRowSpan, ColumnIndex, this.ColumnStatus);
+                    MergeResultCells(sheet, currentRow, endRowSpan, ColumnRace, this.ColumnStatus);
                 }
 
                 status = string.Format(

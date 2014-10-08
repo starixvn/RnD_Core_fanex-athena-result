@@ -41,10 +41,17 @@
           "SP2101:MethodMustNotContainMoreLinesThan",
           Justification = "Reviewed. Suppression is OK here.")]
         [HttpPost]
-        public string GenHtml(DateTime date, short sportId, int leagueId, string languageCode)
+        public string GenHtml(DateTime date, short sportId, int leagueId, string languageCode, bool showMatchCode)
         {
             var sportType = (SportType)sportId;
-            var resultSetting = new ResultSetting { SportType = sportType, LanguageCode = languageCode, IsShowMatchCodeAndId = true };
+            var resultSetting = new ResultSetting
+            {
+                SportType = sportType,
+                LanguageCode = languageCode,
+
+                VisibleMatchCodeIDColumn = showMatchCode,
+                VisibleDetailedLink = true
+            };
             var htmlResult = string.Empty;
             switch (sportType)
             {
@@ -98,7 +105,7 @@
                         LeagueID = leagueId
                     });
 
-                    htmlResult = ResultEngine.HtmlParser<Sportbook>(dataSb.ToList(), resultSetting);
+                    htmlResult = ResultEngine.HtmlParser<Sportsbook>(dataSb.ToList(), resultSetting);
 
                     break;
             }
@@ -119,7 +126,7 @@
           "SP2101:MethodMustNotContainMoreLinesThan",
           Justification = "Reviewed. Suppression is OK here.")]
         [HttpGet]
-        public ActionResult GenExcel(DateTime date, short sportId, int leagueId, string languageCode)
+        public ActionResult GenExcel(DateTime date, short sportId, int leagueId, string languageCode, bool showMatchCode)
         {
             var sportType = (SportType)sportId;
             var resultSetting = new ResultSetting
@@ -127,7 +134,8 @@
                 SportType = sportType,
                 LanguageCode = languageCode,
                 ExcelTitle = "Result report",
-                ExcelTemplatePath = Server.MapPath(@"~/App_Data/Fanex.Result/")
+                ExcelTemplatePath = Server.MapPath(@"~/App_Data/Fanex.Result/"),
+                VisibleMatchCodeIDColumn = showMatchCode,
             };
             MemoryStream excelResult = null;
             switch (sportType)
@@ -181,7 +189,7 @@
                         isShowAll = true,
                         LeagueID = leagueId
                     });
-                    excelResult = ResultEngine.ExcelParser<Sportbook>(dataSb.ToList(), resultSetting);
+                    excelResult = ResultEngine.ExcelParser<Sportsbook>(dataSb.ToList(), resultSetting);
 
                     break;
             }
@@ -263,7 +271,7 @@
                             isShowAll = true,
                             LeagueID = leagueId
                         });
-                    jsonResult = ResultEngine.JsonParser<Sportbook>(dataSb.ToList(), resultSetting);
+                    jsonResult = ResultEngine.JsonParser<Sportsbook>(dataSb.ToList(), resultSetting);
 
                     break;
             }

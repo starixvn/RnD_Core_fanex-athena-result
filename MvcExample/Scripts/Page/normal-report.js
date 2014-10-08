@@ -67,7 +67,8 @@ var normalReport = (function () {
                 date: $.datepicker.formatDate('mm/dd/yy', $("#date").datepicker('getDate')),
                 sportId: $("#sport").val(),
                 leagueId: $("#league").val(),
-                languageCode: $("#language").val()
+                languageCode: $("#language").val(),
+                showmatchcode: $("#showmatchcode").is(":checked")
             };
             $.ajax({
                 url: window.rootUrl + "normalreport/GenHtml",
@@ -95,6 +96,7 @@ var normalReport = (function () {
             url += "&sportId=" + $("#sport").val();
             url += "&leagueId=" + $("#league").val();
             url += "&languageCode=" + $("#language").val();
+            url += "&showmatchcode=" + $("#showmatchcode").is(":checked");
             window.open(url, "_blank");
         });
         $("#gen-json").click(function () {

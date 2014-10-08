@@ -2,11 +2,11 @@
     var viewModel = (Fanex.Result.Core.Models.RazorBinderModel)Model;
 
     var lang = (Fanex.Result.Core.DTO.LangResources)viewModel.Resource;
-     int colspan = viewModel.IsShowMatchCodeAndId ? 6 : 5;
+    var colspan = viewModel.VisibleMatchCodeIDColumn ? 6 : 5;
 }
 <table class="fanex-result">
     <colgroup>
-       @if (viewModel.IsShowMatchCodeAndId)
+        @if (viewModel.VisibleMatchCodeIDColumn)
         {
             <col class="column-matchcode" />
 
@@ -28,7 +28,7 @@
             </tr>
         }
         <tr class="row-header">
-         @if (viewModel.IsShowMatchCodeAndId)
+            @if (viewModel.VisibleMatchCodeIDColumn)
             {
                 <th class="column-matchcode">
                     @lang.MatchCode
@@ -56,6 +56,7 @@
         {
             var currentLeagueId = 0;
             var index = 0;
+            var leagueColspan=viewModel.VisibleMatchCodeIDColumn ? 3 : 2;
             foreach (var itemObj in viewModel.Data)
             {
                 var item = (Fanex.Result.Core.ViewModels.LiveCasinoViewModel)itemObj;
@@ -68,7 +69,7 @@
                         currentLeagueId = leagueId;
 
             <tr class="row-data">
-                <td class="column-league" colspan="2">
+                <td class="column-league" colspan="@leagueColspan">
                     @item.LeagueName
                 </td>
                 <td class="column-league center">
@@ -81,10 +82,10 @@
                 }
 
             <tr class="row-data @item.Color(index, "format-even", "format-odd")">
-              @if (viewModel.IsShowMatchCodeAndId)
+                @if (viewModel.VisibleMatchCodeIDColumn)
                 {
                     <td class="column-matchcode">
-                      <div class="m-code">
+                        <div class="m-code">
                             @item.MatchCode
                         </div>
                     </td>

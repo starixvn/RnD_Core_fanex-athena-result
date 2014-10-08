@@ -19,6 +19,7 @@ namespace Fanex.Result.Core.ViewModels
     public abstract class BaseViewModel
     {
         public const string NA = "N/A";
+        public const string HYPHEN = "-";
         private const string EnglishLanguageCode = "en-US";
 
         private static Dictionary<string, string> supportedLanguage = new
@@ -37,6 +38,12 @@ namespace Fanex.Result.Core.ViewModels
 
         private LangResources _lang;
         private SportType _sportType = SportType.Soccer;
+        public string DateTimeFormat = "{0:MM/dd/yyyy<br/>hh:mm:ss tt}";
+
+        public BaseViewModel(ResultSetting _setting)
+        {
+            this.DateTimeFormat = _setting.DateTimeFormat;
+        }
 
         public string GetSupportedLanguage
         {
@@ -124,7 +131,7 @@ namespace Fanex.Result.Core.ViewModels
 
         protected virtual string GetFormatedKickOffTime(DateTime kickOffTime)
         {
-            return Helper.FullDateFormat2Ln(kickOffTime);
+            return Helper.FullDateFormat(kickOffTime, this.DateTimeFormat);
         }
     }
 }

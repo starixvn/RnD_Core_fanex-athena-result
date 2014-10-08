@@ -18,7 +18,7 @@ namespace Fanex.Result.Core.ExcelModels
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public sealed class VSHRacingExcel : ExcelBase
+    internal sealed class VSHRacingExcel : ExcelBase
     {
         #region Fields
 
@@ -28,8 +28,8 @@ namespace Fanex.Result.Core.ExcelModels
 
         #endregion Fields
 
-        public VSHRacingExcel(string templatePath, string reporTitle, IList<VSHRacingViewModel> data, LangResources resource)
-            : base(templatePath, reporTitle, resource)
+        public VSHRacingExcel(string templatePath, ResultSetting setting, IList<VSHRacingViewModel> data, LangResources resource)
+            : base(templatePath, setting, resource)
         {
             this._racingData = data;
             this.NumofRow = this._racingData.Count;
@@ -38,7 +38,7 @@ namespace Fanex.Result.Core.ExcelModels
             this.RowContentTemplate = 3;
         }
 
-        public override void AssignHeader(ISheet sheet)
+        protected override void AssignHeader(ISheet sheet)
         {
             var colidx = 3;
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
@@ -53,7 +53,7 @@ namespace Fanex.Result.Core.ExcelModels
         /// Assign data to sheet.
         /// </summary>
         /// <param name="sheet">The current sheet.</param>
-        public override void AssignSheetData(ISheet sheet)
+        protected override void AssignSheetData(ISheet sheet)
         {
             var currentRow = 2;
             var currentLeagueId = 0;
@@ -104,7 +104,7 @@ namespace Fanex.Result.Core.ExcelModels
                 if (currentRow == 3 || endRowSpan < currentRow)
                 {
                     endRowSpan = currentRow + rowsTopRace - 1;
-                    MergeKickOffTimeCell(sheet, currentRow, endRowSpan, colSpanKichOffTime: ColumnIndex);
+                    MergeKickOffTimeCell(sheet, currentRow, endRowSpan, colSpanKichOffTime: ColumnKickOffTime);
                 }
             }
 

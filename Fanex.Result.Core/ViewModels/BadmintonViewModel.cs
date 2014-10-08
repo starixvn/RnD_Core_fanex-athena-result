@@ -18,8 +18,8 @@ namespace Fanex.Result.Core.ViewModels
         private int _totalPointHome;
         private int _totalPointAway;
 
-        public BadmintonViewModel(Sportbook sportbook, SportType sport, string languageCode, LangResources resource)
-            : base(sportbook, sport, languageCode, resource)
+        public BadmintonViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resource)
+            : base(sportbook, setting, resource)
         {
             this.GetHomeAwaySet(0, true);
         }

@@ -18,7 +18,7 @@ namespace Fanex.Result.Core.ExcelModels
     /// <summary>
     /// Excel base class.
     /// </summary>
-    public abstract class ExcelBase
+    internal abstract class ExcelBase
     {
         #region Fields
 
@@ -26,15 +26,13 @@ namespace Fanex.Result.Core.ExcelModels
 
         public const int RowHeaderTemplate = 1;
 
-        protected const int ColumnIndex = 0;
-
         protected const string FormatDate = "MM/dd/yyyy";
 
         protected const int RowLeagueTemplate = 2;
 
         protected const int RowNoInfoTemplate = 4;
 
-        protected const int ColumnKickOffTime = 0;
+        protected int ColumnKickOffTime = 1;
 
         protected const string Na = "N/A";
 
@@ -42,30 +40,35 @@ namespace Fanex.Result.Core.ExcelModels
 
         private int _columnStatus = 4;
 
+        protected const int ColumnMatchCode = 0;
+
         #endregion Fields
 
-        protected ExcelBase(string templatePath, string reportTitle, LangResources resource)
+        protected ExcelBase(string _templatePath, ResultSetting _setting, LangResources _resource)
         {
-            this.TemplatePath = templatePath;
-            this.Lang = resource;
-            this.ReportTitle = reportTitle;
+            this.TemplatePath = _templatePath;
+            this.Lang = _resource;
+            this.ReportTitle = _setting.ExcelTitle;
+            this.Setting = _setting;
         }
 
-        public int NumofRow { get; set; }
+        protected int NumofRow { get; set; }
 
-        public LangResources Lang { get; set; }
+        protected LangResources Lang { get; set; }
 
-        public IWorkbook Workbook { get; set; }
+        protected ResultSetting Setting { get; set; }
 
-        public ISheet TemplateSheet { get; set; }
+        protected IWorkbook Workbook { get; set; }
 
-        public ICellStyle DefaultStyle { get; set; }
+        protected ISheet TemplateSheet { get; set; }
 
-        public IList<int> ColumnTemplateIndexList { get; set; }
+        protected ICellStyle DefaultStyle { get; set; }
 
-        public string TemplatePath { get; set; }
+        protected IList<int> ColumnTemplateIndexList { get; set; }
 
-        public string ReportTitle { get; set; }
+        protected string TemplatePath { get; set; }
+
+        protected string ReportTitle { get; set; }
 
         protected string LanguageCode { get; set; }
 
@@ -85,7 +88,7 @@ namespace Fanex.Result.Core.ExcelModels
 
         #region Export Excel Methods
 
-        public virtual void AssignTitle(ISheet sheet)
+        protected virtual void AssignTitle(ISheet sheet)
         {
             sheet.GetCell(0, 0).SetCellValue(ReportTitle);
 
@@ -101,7 +104,7 @@ namespace Fanex.Result.Core.ExcelModels
         /// 3.Render content.
         /// 4.Process UI.
         /// </summary>
-        public virtual void AssignData()
+        protected virtual void AssignData()
         {
             var sheet = this.Workbook.CloneSheet("Template", "Data");
             this.ColumnTemplateIndexList = this.GetColumnTemplateIndex();
@@ -125,21 +128,25 @@ namespace Fanex.Result.Core.ExcelModels
         /// Redder header column.
         /// </summary>
         /// <param name="sheet">Current Sheet.</param>
-        public abstract void AssignHeader(ISheet sheet);
+        protected abstract void AssignHeader(ISheet sheet);
 
-        public virtual void AssignNoInfoRow(ISheet sheet)
+        protected virtual void AssignNoInfoRow(ISheet sheet)
         {
             SetTextRowValue(sheet, RowNoInfoTemplate, RowLeagueTemplate, ColumnTemplateCount, this.Lang.NoInfo);
         }
 
-        public virtual void AssignSheetData(ISheet sheet, int rowFrom, int rowTo)
+        protected virtual void AssignSheetData(ISheet sheet, int rowFrom, int rowTo)
         {
         }
 
-        public abstract void AssignSheetData(ISheet sheet);
+        protected abstract void AssignSheetData(ISheet sheet);
 
-        public virtual void ProcessUI(ISheet sheet)
+        protected virtual void ProcessUI(ISheet sheet)
         {
+            if (!Setting.VisibleMatchCodeIDColumn)
+            {
+                sheet.SetColumnHidden(ColumnMatchCode, true);
+            }
         }
 
         #region Export
@@ -161,7 +168,7 @@ namespace Fanex.Result.Core.ExcelModels
         /// <summary>
         /// Load template.
         /// </summary>
-        public virtual void LoadTemplate()
+        protected virtual void LoadTemplate()
         {
             FileStream stream = null;
             try
@@ -182,7 +189,7 @@ namespace Fanex.Result.Core.ExcelModels
             }
         }
 
-        public virtual void RemoveTemplate()
+        protected virtual void RemoveTemplate()
         {
             this.Workbook.RemoveSheet("Template");
         }

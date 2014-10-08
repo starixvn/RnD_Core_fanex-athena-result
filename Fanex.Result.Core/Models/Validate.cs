@@ -99,7 +99,7 @@ namespace Fanex.Result.Core.Models
                         return false;
 
                     default:
-                        if (dtoName == DataDomain.SPORTBOOK)
+                        if (dtoName == DataDomain.SPORTSBOOK)
                         {
                             return true;
                         }

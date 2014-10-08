@@ -2,11 +2,11 @@
     var viewModel = (Fanex.Result.Core.Models.RazorBinderModel)Model;
 
     var lang = (Fanex.Result.Core.DTO.LangResources)viewModel.Resource;
-    int colspan = viewModel.IsShowMatchCodeAndId ? 5 : 4;
+    int colspan = viewModel.VisibleMatchCodeIDColumn ? 5 : 4;
 }
 <table class="fanex-result">
     <colgroup>
-        @if (viewModel.IsShowMatchCodeAndId)
+        @if (viewModel.VisibleMatchCodeIDColumn)
         {
             <col class="column-matchcode" />
 
@@ -28,7 +28,7 @@
             </tr>
         }
         <tr class="row-header">
-            @if (viewModel.IsShowMatchCodeAndId)
+            @if (viewModel.VisibleMatchCodeIDColumn)
             {
                 <th class="column-matchcode">
                     @lang.MatchCode/@lang.ID
@@ -72,7 +72,7 @@
                     }
                 }
             <tr class="row-data @item.Color(index, "format-even", "format-odd")">
-                @if (viewModel.IsShowMatchCodeAndId)
+                @if (viewModel.VisibleMatchCodeIDColumn)
                 {
                     <td class="column-matchcode">
                        <div class="m-code">
@@ -94,7 +94,7 @@
                 </td>
             </tr>
             <tr class="row-data @item.Color(index, "format-even", "format-odd")">
-                @if (viewModel.IsShowMatchCodeAndId)
+                @if (viewModel.VisibleMatchCodeIDColumn)
                 {
                     <td class="column-matchcode">
                         @item.MatchId

@@ -18,8 +18,8 @@ namespace Fanex.Result.Core.UnitTest.Models
     public class BuilderTest
     {
         private Builder _builder;
-        private Sportbook _sportsBookInfo = null;
-        private IList<Sportbook> _sportsbookList = new List<Sportbook>();
+        private Sportsbook _sportsBookInfo = null;
+        private IList<Sportsbook> _sportsbookList = new List<Sportsbook>();
         private IList<OutRight> _outrightList = new List<OutRight>();
         private IList<Parlay> _parlayList = new List<Parlay>();
         private ResultSetting _setting = new ResultSetting();
@@ -30,7 +30,7 @@ namespace Fanex.Result.Core.UnitTest.Models
         public void Setup()
         {
             _builder = new Builder();
-            _sportsBookInfo = new Sportbook
+            _sportsBookInfo = new Sportsbook
             {
                 AwayId = 1,
                 HomeId = 2,
@@ -86,7 +86,7 @@ namespace Fanex.Result.Core.UnitTest.Models
         public void HtmlBuilder_InputSportTypeAndLanguage_ReturnHtmlValue()
         {
 
-            var expected = _builder.HtmlBuilder<Sportbook>(_sportsbookList, _setting);
+            var expected = _builder.HtmlBuilder<Sportsbook>(_sportsbookList, _setting);
             Assert.IsNotNullOrEmpty(expected);
         }
 
@@ -97,7 +97,7 @@ namespace Fanex.Result.Core.UnitTest.Models
         public void PopUpHtmlBuilder_InputSportTypeLanguageAndOutrightIsFalse_ReturnHtmlValue()
         {
 
-            var expected = _builder.PopUpHtmlBuilder<Sportbook>(_sportsbookList, _setting);
+            var expected = _builder.PopUpHtmlBuilder<Sportsbook>(_sportsbookList, _setting);
             Assert.IsNotNullOrEmpty(expected);
         }
 

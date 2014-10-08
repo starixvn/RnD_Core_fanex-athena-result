@@ -28,8 +28,8 @@ namespace Fanex.Result.Core.ExcelModels
 
         #endregion Fields
 
-        public OutRightExcel(string templatePath, string reporTitle, IList<OutRightViewModel> data, LangResources resource)
-            : base(templatePath, reporTitle, resource)
+        public OutRightExcel(string templatePath, ResultSetting setting, IList<OutRightViewModel> data, LangResources resource)
+            : base(templatePath, setting, resource)
         {
             this._outRightdata = data;
             this.NumofRow = this._outRightdata.Count;
@@ -38,7 +38,7 @@ namespace Fanex.Result.Core.ExcelModels
             this.RowContentTemplate = 3;
         }
 
-        public override void AssignHeader(ISheet sheet)
+        protected override void AssignHeader(ISheet sheet)
         {
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
             row.Cells[ColumnTime].SetCellValue(Lang.Time);
@@ -46,7 +46,7 @@ namespace Fanex.Result.Core.ExcelModels
             row.Cells[ColumnResults].SetCellValue(Lang.Results);
         }
 
-        public override void AssignSheetData(ISheet sheet)
+        protected override void AssignSheetData(ISheet sheet)
         {
             var currentRow = 2;
             var currentLeagueId = 0;
@@ -56,10 +56,15 @@ namespace Fanex.Result.Core.ExcelModels
                 SetDataForMatch(sheet, exportRow, ref currentRow);
             }
         }
-
+        protected override void ProcessUI(ISheet sheet)
+        {
+            /*
+            * Void processing UI
+            */
+        }
         #region Assign Cell Data
 
-        public override void AssignNoInfoRow(ISheet sheet)
+        protected override void AssignNoInfoRow(ISheet sheet)
         {
             SetTextRowValue(sheet, RowNoInfo, RowLeagueTemplate, ColumnTemplateCount, Lang.NoInfo);
         }

@@ -24,20 +24,21 @@ namespace Fanex.Result.Core.ExcelModels
 
         #endregion Fields
 
-        public SoccerExcel(string templatePath, string reporTitle, IList<SoccerViewModel> data, LangResources resource)
-            : base(templatePath, reporTitle, resource)
+        public SoccerExcel(string templatePath, ResultSetting setting, IList<SoccerViewModel> data, LangResources resource)
+            : base(templatePath, setting, resource)
         {
             this._soccerData = data;
             this.NumofRow = this._soccerData.Count;
-            this.ColumnTemplateCount = 5;
-            this.ColumnStatus = 4;
+            this.ColumnTemplateCount = 6;
+            this.ColumnStatus = 5;
             this.RowContentTemplate = 3;
         }
 
-        public override void AssignHeader(ISheet sheet)
+        protected override void AssignHeader(ISheet sheet)
         {
             var colidx = 0;
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
+            row.Cells[colidx++].SetCellValue(Lang.MatchCode + "/" + Lang.ID);
             row.Cells[colidx++].SetCellValue(this.Lang.KickOffTime);
             row.Cells[colidx++].SetCellValue(this.Lang.Match);
             row.Cells[colidx++].SetCellValue(this.Lang.FirstHalfScore);
@@ -45,7 +46,7 @@ namespace Fanex.Result.Core.ExcelModels
             row.Cells[colidx].SetCellValue(this.Lang.Status);
         }
 
-        public override void AssignSheetData(ISheet sheet)
+        protected override void AssignSheetData(ISheet sheet)
         {
             var currentRow = RowLeagueTemplate;
             var currentLeagueId = 0;
@@ -72,24 +73,30 @@ namespace Fanex.Result.Core.ExcelModels
             var rowAway = sheet.CopyRow(TemplateSheet, rowTeamWin[1], currentRow + 1);
 
             MergeResultCells(sheet, currentRow, currentRow + 1, ColumnKickOffTime, this.ColumnStatus);
-
+            var eventStatus = exportRow.EventStatus;
+            if (!string.IsNullOrEmpty(exportRow.PenaltyShootoutResult))
+            {
+                eventStatus = Helper.ToRtfString(exportRow.EventStatus + "<br />[" + Lang.PS + ":" + exportRow.PenaltyShootoutResult + "]");
+            }
             AssignStringData(
                             rowHome,
-                             ColumnKickOffTime,
+                             ColumnMatchCode,
+                             exportRow.MatchCode,
                             Helper.ToRtfString(exportRow.KickOffTime),
                            Helper.ToRtfString(exportRow.HomeTeam),
                             exportRow.HTHomeScore,
                             exportRow.FinalHomeScore,
-                             exportRow.EventStatus);
+                             eventStatus);
             currentRow++;
             AssignStringData(
                         rowAway,
-                             ColumnKickOffTime,
+                             ColumnMatchCode,
+                             exportRow.MatchId,
                                Helper.ToRtfString(exportRow.KickOffTime),
                            Helper.ToRtfString(exportRow.AwayTeam),
                             exportRow.HTAwayScore,
                             exportRow.FinalAwayScore,
-                             exportRow.EventStatus);
+                             eventStatus);
             currentRow++;
         }
 

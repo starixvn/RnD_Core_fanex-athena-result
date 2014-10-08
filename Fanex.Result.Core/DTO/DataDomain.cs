@@ -12,7 +12,7 @@ namespace Fanex.Result.Core.DTO
     /// </summary>
     public static class DataDomain
     {
-        public const string SPORTBOOK = "Sportbook";
+        public const string SPORTSBOOK = "Sportsbook";
         public const string LIVECASINO = "LiveCasino";
         public const string NUMBERGAME = "NumberGame";
         public const string RACING = "Racing";

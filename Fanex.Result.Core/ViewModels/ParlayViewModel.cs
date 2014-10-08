@@ -20,12 +20,15 @@ namespace Fanex.Result.Core.ViewModels
     public sealed class ParlayViewModel : BaseViewModel
     {
         private readonly Parlay _parlay;
+        private ResultSetting _setting;
 
-        public ParlayViewModel(Parlay parlay, string languageCode, LangResources resource)
+        public ParlayViewModel(Parlay parlay, ResultSetting setting, LangResources resource)
+            : base(setting)
         {
             this._parlay = parlay;
-            this.LanguageCode = languageCode;
+            this.LanguageCode = setting.LanguageCode;
             this.Lang = resource;
+            this._setting = setting;
         }
 
         [SuppressMessage("Microsoft.Naming", "CA1721:PropertyNamesShouldNotMatchGetMethods", Justification = "Reviewed")]
@@ -58,7 +61,7 @@ namespace Fanex.Result.Core.ViewModels
             get
             {
                 return this._parlay.Sportbook.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(
-                    i, (SportType)this._parlay.SportId, this.LanguageCode, Lang)).ToList();
+                    i, _setting, Lang)).ToList();
             }
         }
 

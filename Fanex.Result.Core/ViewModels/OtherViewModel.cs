@@ -14,8 +14,8 @@ namespace Fanex.Result.Core.ViewModels
     /// </summary>
     public sealed class OtherViewModel : SportbookBaseViewModel
     {
-        public OtherViewModel(Sportbook sportbook, SportType sport, string languageCode, LangResources resouces)
-            : base(sportbook, sport, languageCode, resouces)
+        public OtherViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resouces)
+            : base(sportbook, setting, resouces)
         {
         }
 

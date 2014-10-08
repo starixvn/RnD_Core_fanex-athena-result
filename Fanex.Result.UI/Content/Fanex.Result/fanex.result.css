@@ -133,7 +133,6 @@ table.fanex-result tr.row-data td.column-league
 }
 table.fanex-result tr.row-data td.column-matchcode
 {
-    
 }
 
 table.fanex-result tr.row-data td.column-matchcode div.m-code
@@ -200,6 +199,18 @@ table.fanex-result tr.row-data td.column-lastball
 table.fanex-result tr.row-data td.column-warrior
 {
 }
+table.fanex-result tr.row-data td.column-eventstatus {
+	
+}
+table.fanex-result tr.row-data td.column-eventstatus .detail-link {
+	
+}
+table.fanex-result tr.row-data td.column-eventstatus .soccer-detail-link {
+	
+}
+table.fanex-result tr.row-data td.column-eventstatus  .penalty-result {
+	
+}
 table.fanex-result tr.row-data td.bold
 {
     font-weight: bold !important;
@@ -243,7 +254,8 @@ table.fanex-result .ball
     border-radius: 0px;
     border: 1px solid #5c5757;
     text-shadow: 1px 0px 0px rgba(000,000,000,0.4), 1px 1px 0px rgba(255,255,255,0.4);
-    width: 15px !important;
+    width: 25px !important;
+    margin-left: 1px;
     display: inline-block;
     text-align: center;
 }

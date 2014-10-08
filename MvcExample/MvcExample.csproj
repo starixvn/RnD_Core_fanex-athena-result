@@ -52,6 +52,17 @@
     <Reference Include="Fanex.Data">
       <HintPath>..\packages\Fanex.Data.0.5.404.63\lib\net40\Fanex.Data.dll</HintPath>
     </Reference>
+    <Reference Include="Glimpse.AspNet, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Glimpse.AspNet.1.8.0\lib\net40\Glimpse.AspNet.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Core, Version=1.8.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Glimpse.1.8.2\lib\net40\Glimpse.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Glimpse.Mvc4">
+      <HintPath>..\packages\Glimpse.Mvc4.1.5.3\lib\net40\Glimpse.Mvc4.dll</HintPath>
+    </Reference>
     <Reference Include="IBCFile">
       <HintPath>..\packages\Fanex.File.1.0.0\lib\net40\IBCFile.dll</HintPath>
     </Reference>
@@ -183,6 +194,7 @@
     <Compile Include="Controllers\NormalReportController.cs" />
     <Compile Include="Controllers\OutRightReportController.cs" />
     <Compile Include="Controllers\PopUpReportController.cs" />
+    <Compile Include="GlimpseSecurityPolicy.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -225,15 +237,15 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Content Include="%40JSense.js" />
-    <Content Include="App_Data\Fanex.Result.Resource\en-US.xml" />
-    <Content Include="App_Data\Fanex.Result.Resource\ja-JP.xml" />
-    <Content Include="App_Data\Fanex.Result.Resource\ko-KR.xml">
+    <None Include="App_Data\Fanex.Result.Resource\en-US.xml" />
+    <None Include="App_Data\Fanex.Result.Resource\ja-JP.xml" />
+    <None Include="App_Data\Fanex.Result.Resource\ko-KR.xml">
       <SubType>Designer</SubType>
-    </Content>
-    <Content Include="App_Data\Fanex.Result.Resource\th-TH.xml" />
-    <Content Include="App_Data\Fanex.Result.Resource\vi-VN.xml" />
-    <Content Include="App_Data\Fanex.Result.Resource\zh-CN.xml" />
-    <Content Include="App_Data\Fanex.Result.Resource\zh-TW.xml" />
+    </None>
+    <None Include="App_Data\Fanex.Result.Resource\th-TH.xml" />
+    <None Include="App_Data\Fanex.Result.Resource\vi-VN.xml" />
+    <None Include="App_Data\Fanex.Result.Resource\zh-CN.xml" />
+    <None Include="App_Data\Fanex.Result.Resource\zh-TW.xml" />
     <Content Include="App_Data\SpName.xml">
       <SubType>Designer</SubType>
     </Content>

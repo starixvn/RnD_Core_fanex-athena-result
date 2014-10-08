@@ -17,24 +17,14 @@ namespace Fanex.Result.Core.Utilities
     {
         private static readonly CultureInfo Cult = new CultureInfo("en-US");
 
-        public static string FullDateFormat2Ln(object obj)
+        public static string FullDateFormat(object obj,string formatPattern)
         {
             if (Convert.IsDBNull(obj) || obj == null)
             {
                 return string.Empty;
             }
 
-            return string.Format(Cult, "{0:MM/dd/yyyy<br/>hh:mm:ss tt}", obj);
-        }
-
-        public static string FullDateFormat(object obj)
-        {
-            if (Convert.IsDBNull(obj) || obj == null)
-            {
-                return string.Empty;
-            }
-
-            return string.Format(Cult, "{0:MM/dd/yyyy hh:mm:ss tt}", obj);
+            return string.Format(Cult, formatPattern, obj);
         }
 
         public static string RemoveWhiteSpace(string html)
@@ -59,7 +49,7 @@ namespace Fanex.Result.Core.Utilities
 
         public static string ToRtfString(string html)
         {
-            return html.Replace("<br/>", "\n").Replace("<b>", string.Empty).Replace("</b>", string.Empty);
+            return html.Replace("<br />", "\n").Replace("<br/>", "\n").Replace("<b>", string.Empty).Replace("</b>", string.Empty);
         }
 
         public static bool IsIntegerNumber(string inputvalue)

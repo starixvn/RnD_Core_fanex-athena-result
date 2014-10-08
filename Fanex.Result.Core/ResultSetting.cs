@@ -41,8 +41,13 @@ namespace Fanex.Result.Core
 
         public string ExcelTitle { get; set; }
 
-        public bool IsShowMatchCodeAndId { get; set; }
+        public bool VisibleMatchCodeIDColumn { get; set; }
 
-        public bool IsShowDetailGoalRecord { get; set; }
+        public bool VisibleDetailedLink { get; set; }
+        /// <summary>
+        /// Gets or Sets Kick Of Time formate.
+        /// Default is {0:MM/dd/yyyy<br/>hh:mm:ss tt}
+        /// </summary>
+        public string DateTimeFormat = "{0:MM/dd/yyyy<br/>hh:mm:ss tt}";
     }
 }

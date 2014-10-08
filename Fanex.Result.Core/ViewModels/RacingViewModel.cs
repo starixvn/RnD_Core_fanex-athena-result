@@ -18,12 +18,13 @@ namespace Fanex.Result.Core.ViewModels
     {
         private readonly Racing _racing;
 
-        public RacingViewModel(Racing racing, SportType sport, string languageCode, LangResources resouces)
+        public RacingViewModel(Racing racing, ResultSetting setting, LangResources resouces)
+            : base(setting)
         {
             this._racing = racing;
-            this.LanguageCode = languageCode;
+            this.LanguageCode = setting.LanguageCode;
             this.Lang = resouces;
-            this.Sport = sport;
+            this.Sport = setting.SportType;
         }
 
         public override int LeagueId

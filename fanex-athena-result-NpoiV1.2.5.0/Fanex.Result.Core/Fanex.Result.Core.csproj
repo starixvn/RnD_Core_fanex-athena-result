@@ -85,8 +85,8 @@
     <Compile Include="..\..\Fanex.Result.Core\DTO\Racing.cs">
       <Link>DTO\Racing.cs</Link>
     </Compile>
-    <Compile Include="..\..\Fanex.Result.Core\DTO\Sportbook.cs">
-      <Link>DTO\Sportbook.cs</Link>
+    <Compile Include="..\..\Fanex.Result.Core\DTO\Sportsbook.cs">
+      <Link>DTO\Sportsbook.cs</Link>
     </Compile>
     <Compile Include="..\..\Fanex.Result.Core\DTO\StringResources.cs">
       <Link>DTO\StringResources.cs</Link>
@@ -163,14 +163,8 @@
     <Compile Include="..\..\Fanex.Result.Core\Models\Builder.cs">
       <Link>Models\Builder.cs</Link>
     </Compile>
-    <Compile Include="..\..\Fanex.Result.Core\Models\ExcelParser.cs">
-      <Link>Models\ExcelParser.cs</Link>
-    </Compile>
     <Compile Include="..\..\Fanex.Result.Core\Models\IBuilder.cs">
       <Link>Models\IBuilder.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Fanex.Result.Core\Models\IExcelParser.cs">
-      <Link>Models\IExcelParser.cs</Link>
     </Compile>
     <Compile Include="..\..\Fanex.Result.Core\Models\IResource.cs">
       <Link>Models\IResource.cs</Link>

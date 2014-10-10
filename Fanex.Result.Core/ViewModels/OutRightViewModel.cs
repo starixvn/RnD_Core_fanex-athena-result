@@ -7,6 +7,7 @@
 namespace Fanex.Result.Core.ViewModels
 {
     using System.Globalization;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.Utilities;
     using RemotingRef;
@@ -14,16 +15,15 @@ namespace Fanex.Result.Core.ViewModels
     /// <summary>
     /// Outright view model class.
     /// </summary>
-    public sealed class OutRightViewModel : BaseViewModel
+    public sealed class OutRightViewModel : BaseViewModel,IResultViewModel
     {
         private readonly OutRight _outRight;
 
         public OutRightViewModel(OutRight outRight, ResultSetting setting, LangResources resource)
-            : base(setting)
+            : base(setting, resource)
         {
             this._outRight = outRight;
             this.LanguageCode = setting.LanguageCode;
-            this.Lang = resource;
         }
 
         public int SportId

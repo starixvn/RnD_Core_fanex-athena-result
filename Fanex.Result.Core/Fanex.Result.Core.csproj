@@ -79,7 +79,7 @@
     <Reference Include="System.Security" />
     <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -88,19 +88,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTO\DataDomain.cs" />
-    <Compile Include="DTO\LangResources.cs">
+    <Compile Include="DataDomain\DTOType.cs" />
+    <Compile Include="DataDomain\LangResources.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LangResources.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\GroupData.cs" />
     <Compile Include="DTO\LiveCasino.cs" />
     <Compile Include="DTO\NumberGame.cs" />
     <Compile Include="DTO\OutRight.cs" />
     <Compile Include="DTO\Parlay.cs" />
     <Compile Include="DTO\Racing.cs" />
+    <Compile Include="DataDomain\ResourceConfig.cs" />
     <Compile Include="DTO\Sportsbook.cs" />
-    <Compile Include="DTO\StringResources.cs" />
+    <Compile Include="DataDomain\StringResources.cs" />
     <Compile Include="ExcelModels\BadmintonExcel.cs" />
     <Compile Include="ExcelModels\BaseBallExcel.cs" />
     <Compile Include="ExcelModels\BasketballExcel.cs" />
@@ -117,6 +119,7 @@
     <Compile Include="ExcelModels\TennisExcel.cs" />
     <Compile Include="ExcelModels\VSHRacingExcel.cs" />
     <Compile Include="ExcelModels\VSTennisExcel.cs" />
+    <Compile Include="Exception\ObjectUnSupportedException.cs" />
     <Compile Include="Exception\ObjectNullException.cs" />
     <Compile Include="Extension\Converter.cs" />
     <Compile Include="Extension\HSSFCellExtension.cs" />
@@ -146,6 +149,7 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\BasketBallViewModel.cs" />
     <Compile Include="ViewModels\BilliardViewModel.cs" />
+    <Compile Include="ViewModels\IResultViewModel.cs" />
     <Compile Include="ViewModels\VSSpeedWayViewModel.cs" />
     <Compile Include="ViewModels\HockeyViewModel.cs" />
     <Compile Include="ViewModels\LiveCasinoViewModel.cs" />
@@ -162,7 +166,7 @@
     <Compile Include="ViewModels\VSTennisViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="DTO\LangResources.tt">
+    <None Include="DataDomain\LangResources.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>LangResources.cs</LastGenOutput>
     </None>
@@ -190,15 +194,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\en-US.xml" />
-    <None Include="Resources\ja-JP.xml" />
-    <None Include="Resources\ko-KR.xml">
+    <EmbeddedResource Include="Resources\en-US.xml" />
+    <EmbeddedResource Include="Resources\ja-JP.xml" />
+    <EmbeddedResource Include="Resources\ko-KR.xml">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="Resources\th-TH.xml" />
-    <None Include="Resources\vi-VN.xml" />
-    <None Include="Resources\zh-CN.xml" />
-    <None Include="Resources\zh-TW.xml" />
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\th-TH.xml" />
+    <EmbeddedResource Include="Resources\vi-VN.xml" />
+    <EmbeddedResource Include="Resources\zh-CN.xml" />
+    <EmbeddedResource Include="Resources\zh-TW.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

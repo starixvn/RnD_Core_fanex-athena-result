@@ -8,12 +8,13 @@ namespace Fanex.Result.Core.ViewModels
 {
     using System;
     using System.Globalization;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.DTO;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public sealed class BadmintonViewModel : SportbookBaseViewModel
+    public sealed class BadmintonViewModel : SportbookBaseViewModel, IResultViewModel
     {
         private int _totalPointHome;
         private int _totalPointAway;
@@ -28,7 +29,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this._totalPointHome > 0 ? this._totalPointHome.ToString(CultureInfo.InvariantCulture) : string.Empty;
+                return this._totalPointHome > 0 ? this._totalPointHome.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }
 
@@ -36,7 +37,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this._totalPointAway > 0 ? this._totalPointAway.ToString(CultureInfo.InvariantCulture) : string.Empty;
+                return this._totalPointAway > 0 ? this._totalPointAway.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }
 
@@ -44,7 +45,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.SPORTBOOK.FinalHomeScore.HasValue ? this.SPORTBOOK.FinalHomeScore.Value.ToString(CultureInfo.InvariantCulture) : string.Empty;
+                return this.SPORTBOOK.FinalHomeScore.HasValue ? this.SPORTBOOK.FinalHomeScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }
 
@@ -52,7 +53,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.SPORTBOOK.FinalAwayScore.HasValue ? this.SPORTBOOK.FinalAwayScore.Value.ToString(CultureInfo.InvariantCulture) : string.Empty;
+                return this.SPORTBOOK.FinalAwayScore.HasValue ? this.SPORTBOOK.FinalAwayScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }
 
@@ -67,7 +68,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             if (index > 4)
             {
-                return StringResources.EMPTYSCORE;
+                return StringResources.HYPHEN;
             }
 
             if (this.HomeSet == null || this.AwaySet == null)

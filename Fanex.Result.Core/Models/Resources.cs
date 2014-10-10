@@ -10,15 +10,15 @@ namespace Fanex.Result.Core.Models
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
+    using System.Reflection;
     using System.Xml.Linq;
-    using Fanex.Result.Core.DTO;
+    using Fanex.Result.Core.DataDomain;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
     public sealed class Resources : IResource
     {
-        private static readonly string[] LangCodes = { "en-US", "ja-JP", "ko-KR", "vi-VN", "zh-CN", "zh-TW" };
         private static readonly object SynceObject = new object();
         private static IResource instance;
         private readonly IDictionary<string, LangResources> _langs;
@@ -55,7 +55,7 @@ namespace Fanex.Result.Core.Models
         /// <returns>Return language object.</returns>
         public LangResources GetLanguage(string languageCode, string languagePath)
         {
-            if (!LangCodes.Contains(languageCode))
+            if (!ResourceConfig.LangCodes.Contains(languageCode))
             {
                 return new LangResources();
             }
@@ -83,24 +83,47 @@ namespace Fanex.Result.Core.Models
             }
 
             var realPath = languagePath + languageCode + ".xml";
-            using (var stream = new FileStream(realPath, FileMode.Open, FileAccess.Read))
+            Stream resourceStream = null;
+            if (File.Exists(realPath))
             {
-                if (stream != null)
-                {
-                    var doc = XDocument.Load(stream);
-                    var items = doc.Descendants("item");
+                resourceStream = new FileStream(realPath, FileMode.Open, FileAccess.Read);
+            }
+            else
+            {
+                resourceStream = Assembly.GetExecutingAssembly()
+                 .GetManifestResourceStream("Fanex.Result.Core.Resources." + languageCode + ".xml");
+            }
 
-                    foreach (var item in items)
+            ParseResource(lang, resourceStream);
+
+            if (resourceStream != null)
+            {
+                resourceStream.Close();
+            }
+
+            return lang;
+        }
+
+        /// <summary>
+        /// Parse XML to  object.
+        /// </summary>
+        /// <param name="lang">The resource object.</param>
+        /// <param name="stream">The data stream.</param>
+        private static void ParseResource(LangResources lang, Stream stream)
+        {
+            if (stream != null)
+            {
+                var doc = XDocument.Load(stream);
+                var items = doc.Descendants("item");
+
+                foreach (var item in items)
+                {
+                    var field = lang.GetType().GetProperty(item.Attribute("key").Value);
+                    if (field != null)
                     {
-                        var field = lang.GetType().GetProperty(item.Attribute("key").Value);
-                        if (field != null)
-                        {
-                            field.SetValue(lang, item.Value, null);
-                        }
+                        field.SetValue(lang, item.Value, null);
                     }
                 }
-
-                return lang;
             }
         }
     }

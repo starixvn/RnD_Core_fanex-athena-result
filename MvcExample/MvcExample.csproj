@@ -107,9 +107,6 @@
     <Reference Include="NPOI">
       <HintPath>..\packages\NPOI.2.0.6\lib\net40\NPOI.dll</HintPath>
     </Reference>
-    <Reference Include="RazorEngine">
-      <HintPath>..\packages\RazorEngine.3.2.0\lib\net40\RazorEngine.dll</HintPath>
-    </Reference>
     <Reference Include="RemotingRef, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\RemotingRef.1.0.0.1\lib\net40\RemotingRef.dll</HintPath>
@@ -131,7 +128,7 @@
     </Reference>
     <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
@@ -236,15 +233,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <Content Include="%40JSense.js" />
-    <None Include="App_Data\Fanex.Result.Resource\en-US.xml" />
-    <None Include="App_Data\Fanex.Result.Resource\ja-JP.xml" />
-    <None Include="App_Data\Fanex.Result.Resource\ko-KR.xml">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="App_Data\Fanex.Result.Resource\th-TH.xml" />
-    <None Include="App_Data\Fanex.Result.Resource\vi-VN.xml" />
-    <None Include="App_Data\Fanex.Result.Resource\zh-CN.xml" />
-    <None Include="App_Data\Fanex.Result.Resource\zh-TW.xml" />
     <Content Include="App_Data\SpName.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -460,6 +448,9 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_Menu.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\Fanex.Result.Resource\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

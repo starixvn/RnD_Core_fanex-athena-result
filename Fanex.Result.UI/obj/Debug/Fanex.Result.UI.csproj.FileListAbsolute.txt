@@ -21,3 +21,4 @@ D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.UI\bin\Fanex.Result.
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.UI\bin\Fanex.Result.UI.pdb
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.UI\obj\Debug\Fanex.Result.UI.dll
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.UI\obj\Debug\Fanex.Result.UI.pdb
+D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.UI\obj\Debug\Fanex.Result.UI.csprojResolveAssemblyReference.cache

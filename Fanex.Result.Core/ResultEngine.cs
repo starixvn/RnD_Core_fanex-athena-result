@@ -7,6 +7,7 @@ namespace Fanex.Result.Core
 {
     using System.Collections.Generic;
     using System.IO;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.Exception;
     using Fanex.Result.Core.Models;
 
@@ -15,11 +16,6 @@ namespace Fanex.Result.Core
     /// </summary>
     public static class ResultEngine
     {
-        private const string EXCELTEMPLATEPATH = "App_Data/Fanex.Result/";
-        private const string RESOURCEPATH = "App_Data/Fanex.Result.Resource/";
-        private const string ARGUEMENTMES = "Sport Type is invalid or DTO ({0}) doesn't match with sportType";
-        private const string ARGUEMENTMESOUTRIGHT = "DTO ({0}) is invalid";
-        private const string ENGLISHLANGCODE = "en-US";
         private static IBuilder _builder;
 
         static ResultEngine()
@@ -62,7 +58,7 @@ namespace Fanex.Result.Core
 
             if (!Validate.Instance.ValidateNormal(dtoName, setting.SportType))
             {
-                throw new ObjectNullException(string.Format(ARGUEMENTMES, dtoName));
+                throw new ObjectNullException(string.Format(ResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
             }
 
             return Utilities.Helper.RemoveWhiteSpace(
@@ -86,7 +82,7 @@ namespace Fanex.Result.Core
             {
                 if (!Validate.Instance.ValidateOutRight(dtoName))
                 {
-                    throw new ObjectNullException(string.Format(ARGUEMENTMESOUTRIGHT, dtoName));
+                    throw new ObjectNullException(string.Format(ResourceConfig.ARGUEMENTMESOUTRIGHT, dtoName));
                 }
 
                 return builder.JSONOutRightBuilder(dataList, setting);
@@ -96,7 +92,7 @@ namespace Fanex.Result.Core
             {
                 if (!Validate.Instance.ValidateParlay(dtoName))
                 {
-                    throw new ObjectNullException(string.Format(ARGUEMENTMES, dtoName));
+                    throw new ObjectNullException(string.Format(ResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
                 }
 
                 return builder.JSONParlayBuilder(dataList, setting);
@@ -104,7 +100,7 @@ namespace Fanex.Result.Core
 
             if (!Validate.Instance.ValidateNormal(dtoName, setting.SportType))
             {
-                throw new ObjectNullException(string.Format(ARGUEMENTMES, dtoName));
+                throw new ObjectNullException(string.Format(ResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
             }
 
             return builder.JSONSportTypeBuilder(dataList, setting);
@@ -126,7 +122,7 @@ namespace Fanex.Result.Core
             {
                 if (!Validate.Instance.ValidateOutRight(dtoName))
                 {
-                    throw new ObjectNullException(string.Format(ARGUEMENTMESOUTRIGHT, dtoName));
+                    throw new ObjectNullException(string.Format(ResourceConfig.ARGUEMENTMESOUTRIGHT, dtoName));
                 }
 
                 return _builder.OutRightExcelBuilder(dataList, setting);
@@ -139,7 +135,7 @@ namespace Fanex.Result.Core
 
             if (!Validate.Instance.ValidateNormal(dtoName, setting.SportType))
             {
-                throw new ObjectNullException(string.Format(ARGUEMENTMES, dtoName));
+                throw new ObjectNullException(string.Format(ResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
             }
 
             return _builder.ExcelBuilder(dataList, setting);
@@ -162,17 +158,21 @@ namespace Fanex.Result.Core
 
             if (string.IsNullOrEmpty(setting.LanguageCode))
             {
-                setting.LanguageCode = ENGLISHLANGCODE;
+                setting.LanguageCode = ResourceConfig.ENGLISHLANGCODE;
+            }
+            else if (!Validate.Instance.ValidateResource(setting.LanguageCode))
+            {
+                throw new ObjectUnSupportedException(string.Format(ResourceConfig.LANGUAGEARGUEMENTMES, setting.LanguageCode));
             }
 
             if (string.IsNullOrEmpty(setting.ExcelTemplatePath))
             {
-                setting.ExcelTemplatePath = System.AppDomain.CurrentDomain.BaseDirectory + EXCELTEMPLATEPATH;
+                setting.ExcelTemplatePath = System.AppDomain.CurrentDomain.BaseDirectory + ResourceConfig.EXCELTEMPLATEPATH;
             }
 
             if (string.IsNullOrEmpty(setting.ResourcePath))
             {
-                setting.ResourcePath = System.AppDomain.CurrentDomain.BaseDirectory + RESOURCEPATH;
+                setting.ResourcePath = System.AppDomain.CurrentDomain.BaseDirectory + ResourceConfig.RESOURCEPATH;
             }
         }
 
@@ -189,7 +189,7 @@ namespace Fanex.Result.Core
         {
             if (!Validate.Instance.ValidateNormal(dtoName, setting.SportType))
             {
-                throw new ObjectNullException(string.Format(ARGUEMENTMES, dtoName));
+                throw new ObjectNullException(string.Format(ResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
             }
 
             return
@@ -201,7 +201,7 @@ namespace Fanex.Result.Core
         {
             if (!Validate.Instance.ValidateParlay(dtoName))
             {
-                throw new ObjectNullException(string.Format(ARGUEMENTMES, dtoName));
+                throw new ObjectNullException(string.Format(ResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
             }
 
             return Utilities.Helper.RemoveWhiteSpace(
@@ -212,7 +212,7 @@ namespace Fanex.Result.Core
         {
             if (!Validate.Instance.ValidateOutRight(dtoName))
             {
-                throw new ObjectNullException(string.Format(ARGUEMENTMESOUTRIGHT, dtoName));
+                throw new ObjectNullException(string.Format(ResourceConfig.ARGUEMENTMESOUTRIGHT, dtoName));
             }
 
             return Utilities.Helper.RemoveWhiteSpace(

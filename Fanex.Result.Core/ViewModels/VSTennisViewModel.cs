@@ -6,12 +6,13 @@
 
 namespace Fanex.Result.Core.ViewModels
 {
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.DTO;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public class VSTennisViewModel : SportbookBaseViewModel
+    public class VSTennisViewModel : SportbookBaseViewModel,IResultViewModel
     {
         public VSTennisViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resources)
             : base(sportbook, setting, resources)
@@ -22,7 +23,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.SPORTBOOK.FinalHomeScore.HasValue ? this.SPORTBOOK.FinalHomeScore.Value.ToString() : string.Empty;
+                return this.SPORTBOOK.FinalHomeScore.HasValue ? this.SPORTBOOK.FinalHomeScore.Value.ToString() : StringResources.HYPHEN;
             }
         }
 
@@ -30,7 +31,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.SPORTBOOK.FinalAwayScore.HasValue ? this.SPORTBOOK.FinalAwayScore.Value.ToString() : string.Empty;
+                return this.SPORTBOOK.FinalAwayScore.HasValue ? this.SPORTBOOK.FinalAwayScore.Value.ToString() : StringResources.HYPHEN;
             }
         }
     }

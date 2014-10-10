@@ -343,7 +343,6 @@ namespace MvcExample.Models
                 MatchCode = reader["matchcode"].ToString(),
                 GoalRecord = reader["goalrecord"].ToString(),
                 ResultValue = string.Empty,
-                PenaltyShootoutResult = "Y",
                 IsHTCal = Convert.ToBoolean(reader["IsHTCal"]),
                 Calculate = Convert.ToBoolean(reader["Calculate"]),
                 RefNo = string.Empty

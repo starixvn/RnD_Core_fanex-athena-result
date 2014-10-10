@@ -21,7 +21,7 @@ namespace Fanex.Result.Core
 
         public bool IsOutRight { get; set; }
 
-        public bool IsShowPopUpTitle { get; set; }
+        public bool VisiblePopUpTitle { get; set; }
 
         public SportType SportType { get; set; }
 
@@ -57,5 +57,7 @@ namespace Fanex.Result.Core
             get { return _dateTimeFormat; }
             set { _dateTimeFormat = value; }
         }
+
+        public bool VisibleFreeHeader { get; set; }
     }
 }

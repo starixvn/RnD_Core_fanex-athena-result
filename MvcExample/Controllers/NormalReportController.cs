@@ -51,7 +51,8 @@
                 LanguageCode = languageCode,
 
                 VisibleMatchCodeIDColumn = showMatchCode,
-                VisibleDetailedLink = true
+                VisibleDetailedLink = true,
+                VisibleFreeHeader = false
             };
             var htmlResult = string.Empty;
             switch (sportType)
@@ -71,7 +72,10 @@
                         isShowAll = true,
                         LeagueID = leagueId
                     });
+                    ;
+
                     htmlResult = ResultEngine.HtmlParser<Racing>(dataRc.ToList(), resultSetting);
+
                     break;
 
                 case SportType.LiveCasino:
@@ -82,8 +86,8 @@
                         isShowAll = true,
                         LeagueID = leagueId
                     });
-                    htmlResult = ResultEngine.HtmlParser<LiveCasino>(dataLC.ToList(), resultSetting);
 
+                    htmlResult = ResultEngine.HtmlParser<LiveCasino>(dataLC.ToList(), resultSetting);
                     break;
 
                 case SportType.NumberGame:
@@ -93,11 +97,12 @@
                         LeagueID = leagueId,
                         ToDate = date
                     });
-                    htmlResult = ResultEngine.HtmlParser<NumberGame>(dataNg.ToList(), resultSetting);
 
+                    htmlResult = ResultEngine.HtmlParser<NumberGame>(dataNg.ToList(), resultSetting);
                     break;
 
                 default:
+
                     var dataSb = _resultService.GetSportbookResult(new GetSportbookResultCriteria
                     {
                         FromDate = date,
@@ -105,9 +110,7 @@
                         isShowAll = true,
                         LeagueID = leagueId
                     });
-
                     htmlResult = ResultEngine.HtmlParser<Sportsbook>(dataSb.ToList(), resultSetting);
-
                     break;
             }
 

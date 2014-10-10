@@ -9,12 +9,13 @@ namespace Fanex.Result.Core.ViewModels
     using System;
     using System.Collections.Generic;
     using System.Globalization;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.DTO;
 
     /// <summary>
     /// Tennis view model class.
     /// </summary>
-    public sealed class TennisViewModel : SportbookBaseViewModel
+    public sealed class TennisViewModel : SportbookBaseViewModel,IResultViewModel
     {
         private int _totalGameHome;
         private int _totalGameAway;
@@ -27,12 +28,12 @@ namespace Fanex.Result.Core.ViewModels
 
         public string TotalGameHome
         {
-            get { return this._totalGameHome > 0 ? this._totalGameHome.ToString(CultureInfo.InvariantCulture) : HYPHEN; }
+            get { return this._totalGameHome > 0 ? this._totalGameHome.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN; }
         }
 
         public string TotalGameAway
         {
-            get { return this._totalGameAway > 0 ? this._totalGameAway.ToString(CultureInfo.InvariantCulture) : HYPHEN; }
+            get { return this._totalGameAway > 0 ? this._totalGameAway.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN; }
         }
 
         public string TotalSetHome
@@ -100,7 +101,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             if (index > 4)
             {
-                return StringResources.EMPTYSCORE;
+                return StringResources.HYPHEN;
             }
 
             if (this.HomeSet == null || this.AwaySet == null)

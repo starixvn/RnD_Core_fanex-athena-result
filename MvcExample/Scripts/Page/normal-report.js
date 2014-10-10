@@ -27,7 +27,7 @@ var normalReport = (function () {
     var renderLeague = function (sportId, date) {
         invokeLoadingMsg(true);
         $.getJSON(window.rootUrl + "normalreport/GetLeagues?EventDate=" + date + "&sporttype=" + sportId + "&isShowAll=true", function (data) {
-            var options = "";
+            var options = "<option value=\"0\">All</option>";
             if (data !== undefined && data !== null && data.length > 0) {
                 if (data !== undefined && data !== null && data.length > 0) {
                     for (var i = 0; i < data.length; i++) {

@@ -9,6 +9,7 @@ namespace Fanex.Result.Core.Models
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.ExcelModels;
     using Fanex.Result.Core.Extension;
@@ -57,7 +58,7 @@ namespace Fanex.Result.Core.Models
         /// <param name="resource">The language resource.</param>
         /// <returns>The view model.</returns>
         [SuppressMessage("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily", Justification = "Reviewed.")]
-        public override object GetViewModel(object obj, ResultSetting setting, LangResources resource)
+        public override IResultViewModel GetViewModel(object obj, ResultSetting setting, LangResources resource)
         {
             if ((int)setting.SportType <= 0)
             {

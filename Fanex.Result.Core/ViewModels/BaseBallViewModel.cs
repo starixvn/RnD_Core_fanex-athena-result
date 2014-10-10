@@ -8,12 +8,13 @@ namespace Fanex.Result.Core.ViewModels
 {
     using System;
     using System.Globalization;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.DTO;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public sealed class BaseBallViewModel : SportbookBaseViewModel
+    public sealed class BaseBallViewModel : SportbookBaseViewModel,IResultViewModel
     {
         public BaseBallViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resource)
             : base(sportbook, setting, resource)
@@ -26,7 +27,7 @@ namespace Fanex.Result.Core.ViewModels
             get
             {
                 var temp = Convert.ToInt32(this.GetHomeAwaySet(9, false));
-                return temp >= 0 ? temp.ToString(CultureInfo.InvariantCulture) : StringResources.EMPTYSCORE;
+                return temp >= 0 ? temp.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }
 
@@ -35,7 +36,7 @@ namespace Fanex.Result.Core.ViewModels
             get
             {
                 var temp = Convert.ToInt32(this.GetHomeAwaySet(9, true));
-                return temp >= 0 ? temp.ToString(CultureInfo.InvariantCulture) : StringResources.EMPTYSCORE;
+                return temp >= 0 ? temp.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }
 
@@ -53,7 +54,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.SPORTBOOK.HtHomeScore.HasValue ? this.SPORTBOOK.HtHomeScore.Value.ToString(CultureInfo.InvariantCulture) : string.Empty;
+                return this.SPORTBOOK.HtHomeScore.HasValue ? this.SPORTBOOK.HtHomeScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }
 
@@ -63,7 +64,7 @@ namespace Fanex.Result.Core.ViewModels
             {
                 return this.SPORTBOOK.FinalAwayScore.HasValue ?
                     this.SPORTBOOK.FinalAwayScore.Value.ToString(CultureInfo.InvariantCulture)
-                    : string.Empty;
+                    : StringResources.HYPHEN;
             }
         }
 
@@ -73,7 +74,7 @@ namespace Fanex.Result.Core.ViewModels
             {
                 return this.SPORTBOOK.FinalHomeScore.HasValue ?
                     this.SPORTBOOK.FinalHomeScore.Value.ToString(CultureInfo.InvariantCulture)
-                    : string.Empty;
+                    : StringResources.HYPHEN;
             }
         }
 
@@ -88,7 +89,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             if (index > 9)
             {
-                return StringResources.EMPTYSCORE;
+                return StringResources.HYPHEN;
             }
 
             if (this.HomeSet == null || this.AwaySet == null)

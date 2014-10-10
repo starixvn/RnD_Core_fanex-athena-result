@@ -46,7 +46,7 @@
                 IsOutRight = metalModel.IsOutRight.HasValue && metalModel.IsOutRight.Value > 0,
                 IsParlayPopUp = metalModel.Bettype == MixParlayBettype || metalModel.Bettype == SystemParlayBettype,
                 IsPopUp = true,
-                IsShowPopUpTitle = true,
+                VisiblePopUpTitle = true,
                 LanguageCode = metalModel.LanguageCode
             };
             if (setting.IsParlayPopUp)

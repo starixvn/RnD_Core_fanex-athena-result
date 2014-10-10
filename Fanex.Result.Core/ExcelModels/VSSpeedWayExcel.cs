@@ -9,7 +9,7 @@ namespace Fanex.Result.Core.ExcelModels
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using Fanex.Result.Core.DTO;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.Utilities;
     using Fanex.Result.Core.ViewModels;

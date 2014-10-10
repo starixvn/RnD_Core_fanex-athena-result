@@ -6,36 +6,29 @@
 
 namespace Fanex.Result.Core.Models
 {
-    using System.Collections.Generic;
-    using Fanex.Result.Core.DTO;
+    using Fanex.Result.Core.DataDomain;
+using System.Collections.Generic;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
     public class RazorBinderModel
     {
-        private List<object> _data = new List<object>();
-
         public LangResources Resource { get; set; }
 
-        public List<object> Data
-        {
-            get
-            {
-                return _data;
-            }
-        }
-
-        public bool IsPopUp { get; set; }
+        public List<GroupData> Data = new List<GroupData>();
+            public bool IsPopUp { get; set; }
 
         public bool IsParlay { get; set; }
 
-        public bool IsShowPopUpTitle { get; set; }
+        public bool VisiblePopUpTitle { get; set; }
 
         public SportType SportType { get; set; }
 
         public bool VisibleMatchCodeIDColumn { get; set; }
 
         public bool VisibleDetailedLink { get; set; }
+
+        public bool VisibleFreeHeader { get; set; }
     }
 }

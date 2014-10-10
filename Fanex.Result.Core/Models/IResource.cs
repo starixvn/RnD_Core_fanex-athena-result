@@ -6,7 +6,7 @@
 
 namespace Fanex.Result.Core.Models
 {
-    using Fanex.Result.Core.DTO;
+    using Fanex.Result.Core.DataDomain;
 
     /// <summary>
     /// TODO: Update summary.

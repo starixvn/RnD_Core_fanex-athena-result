@@ -1,40 +1,69 @@
 ﻿@{
     var viewModel = (Fanex.Result.Core.Models.RazorBinderModel)Model;
 
-    var lang = (Fanex.Result.Core.DTO.LangResources)viewModel.Resource;
+    var lang = (Fanex.Result.Core.DataDomain.LangResources)viewModel.Resource;
     const int colspan = 5;
 }
-<table class="fanex-result" border="0" cellpadding="0" cellspacing="0">
-    <colgroup>
-        <col class="column-time" />
-        
-        <col class="column-team"/>
-       
-        <col class="column-result"/>
-       
-    </colgroup>
-    <thead>
-        @if (viewModel.IsShowPopUpTitle && viewModel.Data.Count > 0)
+@if (viewModel.VisibleFreeHeader)
+{
+    <div class="fn-rs-content-header">
+        <table class="fn-rs">
+         <thead>
+        @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
         {
             var item = (Fanex.Result.Core.ViewModels.OutRightViewModel)viewModel.Data[0];
             <tr class="row-title">
-                <th class="column-title" colspan="@colspan">
+                <th class="cl-title" colspan="@colspan">
                     <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
                 </th>
             </tr>
         }
-        <tr class="row-header">
-            <th class="column-time">
+        <tr class="header">
+            <th class="cl-time">
                 @lang.Time
             </th>
-            <th class="column-team">
+            <th class="cl-team">
                 @lang.Team
             </th>
-            <th class="column-result">
+            <th class="cl-result">
                 @lang.Result
             </th>
         </tr>
     </thead>
+        </table>
+        </div>
+}
+@if (viewModel.VisibleFreeHeader)
+{
+    @Raw("<div class=\"fn-rs-content-scroll\">")
+
+}
+<table class="fn-rs">
+     @if (!viewModel.VisibleFreeHeader)
+     {
+    <thead>
+        @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+        {
+            var item = (Fanex.Result.Core.ViewModels.OutRightViewModel)viewModel.Data[0];
+            <tr class="row-title">
+                <th class="cl-title" colspan="@colspan">
+                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                </th>
+            </tr>
+        }
+        <tr class="header">
+            <th class="cl-time">
+                @lang.Time
+            </th>
+            <th class="cl-team">
+                @lang.Team
+            </th>
+            <th class="cl-result">
+                @lang.Result
+            </th>
+        </tr>
+    </thead>
+     }
     <tbody>
         <!--RowData-->
         @if (viewModel.Data.Count > 0)
@@ -52,8 +81,8 @@
                     {
                         currentLeagueId = leagueId;
             <!--League-->
-            <tr class="row-data">
-                <td colspan="3" class="column-league">
+            <tr class="data">
+                <td colspan="3" class="cl-league">
                     @item.LeagueName
                 </td>
             </tr>
@@ -61,14 +90,14 @@
                     }
                 }
             <!--Row-->
-            <tr class="row-data @item.Color(index, "format-even", "format-odd")">
-                <td class="column-kickofftime">
-                    @item.KickOffTime
+            <tr class="data @item.Color(index, "even", "odd")">
+                <td class="cl-ko-time">
+                    @Raw(item.KickOffTime)
                 </td>
-                <td class="column-team">
+                <td class="cl-team">
                     @item.Team
                 </td>
-                <td class="column-result">
+                <td class="cl-result">
                     @item.EventStatus
                 </td>
             </tr>
@@ -88,3 +117,7 @@
         }
     </tbody>
 </table>
+@if (viewModel.VisibleFreeHeader)
+{
+    @Raw("</div>")
+}

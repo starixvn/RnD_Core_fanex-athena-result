@@ -6,8 +6,10 @@
 
 namespace Fanex.Result.Core.ViewModels
 {
+    using System;
     using System.Globalization;
     using System.Linq;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.Utilities;
     using RemotingRef;
@@ -15,7 +17,7 @@ namespace Fanex.Result.Core.ViewModels
     /// <summary>
     /// Live casino view model class.
     /// </summary>
-    public sealed class LiveCasinoViewModel : BaseViewModel
+    public sealed class LiveCasinoViewModel : BaseViewModel,IResultViewModel
     {
         private readonly int[] _rouletteBettype = new int[2] { 1102, 1104 };
 
@@ -26,11 +28,10 @@ namespace Fanex.Result.Core.ViewModels
         private string _result;
 
         public LiveCasinoViewModel(LiveCasino livecasino, ResultSetting setting, LangResources resource)
-            : base(setting)
+            : base(setting, resource)
         {
             this._liveCasino = livecasino;
             this.LanguageCode = setting.LanguageCode;
-            this.Lang = resource;
             this.Sport = setting.SportType;
         }
 
@@ -135,7 +136,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             if (results.Trim().Length < 1)
             {
-                return "-";
+                return StringResources.HYPHEN;
             }
 
             string[] arr = results.Split(',');
@@ -212,7 +213,8 @@ namespace Fanex.Result.Core.ViewModels
         /// </summary>
         private void GetFinalScoreAndResult()
         {
-            if (this.EventStatus.ToLower() == "refund" || this.EventStatus.ToLower() == "void")
+            if (this.EventStatus.Equals(StringResources.REFUND, StringComparison.OrdinalIgnoreCase)
+                || this.EventStatus.Equals(StringResources.VOID, StringComparison.OrdinalIgnoreCase))
             {
                 this._result = this._finalScore = this.EventStatus;
             }
@@ -223,8 +225,8 @@ namespace Fanex.Result.Core.ViewModels
                     if (this._liveCasino.FinalHomeScore.HasValue)
                     {
                         this._finalScore = this._liveCasino.FinalHomeScore.Value.ToString(CultureInfo.InvariantCulture);
-                        this._result = this._liveCasino.FinalHomeScore.Value.ToString(CultureInfo.InvariantCulture) != "0" ?
-                            SetResultsRoulette(this._liveCasino.BetStatus) : "-";
+                        this._result = this._liveCasino.FinalHomeScore.Value == 0 ?
+                            SetResultsRoulette(this._liveCasino.BetStatus) : StringResources.HYPHEN;
                     }
                     else
                     {

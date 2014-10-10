@@ -7,6 +7,7 @@
 namespace Fanex.Result.Core.ViewModels
 {
     using System.Globalization;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.Utilities;
     using RemotingRef;
@@ -14,16 +15,15 @@ namespace Fanex.Result.Core.ViewModels
     /// <summary>
     /// Racing view model class.
     /// </summary>
-    public sealed class RacingViewModel : BaseViewModel
+    public sealed class RacingViewModel : BaseViewModel,IResultViewModel
     {
         private readonly Racing _racing;
 
-        public RacingViewModel(Racing racing, ResultSetting setting, LangResources resouces)
-            : base(setting)
+        public RacingViewModel(Racing racing, ResultSetting setting, LangResources resource)
+            : base(setting, resource)
         {
             this._racing = racing;
             this.LanguageCode = setting.LanguageCode;
-            this.Lang = resouces;
             this.Sport = setting.SportType;
         }
 

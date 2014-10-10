@@ -7,16 +7,16 @@
 namespace Fanex.Result.Core.ViewModels
 {
     using System.Globalization;
-
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.DTO;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public sealed class BilliardViewModel : SportbookBaseViewModel
+    public sealed class BilliardViewModel : SportbookBaseViewModel,IResultViewModel
     {
-        public BilliardViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resouces)
-            : base(sportbook, setting, resouces)
+        public BilliardViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resources)
+            : base(sportbook, setting, resources)
         {
         }
 

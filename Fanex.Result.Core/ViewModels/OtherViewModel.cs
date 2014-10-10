@@ -7,15 +7,16 @@
 namespace Fanex.Result.Core.ViewModels
 {
     using System.Globalization;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.DTO;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public sealed class OtherViewModel : SportbookBaseViewModel
+    public sealed class OtherViewModel : SportbookBaseViewModel,IResultViewModel
     {
-        public OtherViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resouces)
-            : base(sportbook, setting, resouces)
+        public OtherViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resources)
+            : base(sportbook, setting, resources)
         {
         }
 
@@ -23,7 +24,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.SPORTBOOK.HtHomeScore.HasValue ? this.SPORTBOOK.HtHomeScore.Value.ToString(CultureInfo.InvariantCulture) : string.Empty;
+                return this.SPORTBOOK.HtHomeScore.HasValue ? this.SPORTBOOK.HtHomeScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }
 
@@ -31,7 +32,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.SPORTBOOK.HtAwayScore.HasValue ? this.SPORTBOOK.HtAwayScore.Value.ToString(CultureInfo.InvariantCulture) : string.Empty;
+                return this.SPORTBOOK.HtAwayScore.HasValue ? this.SPORTBOOK.HtAwayScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }
 

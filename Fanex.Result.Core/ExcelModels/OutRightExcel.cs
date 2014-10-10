@@ -7,8 +7,9 @@
 namespace Fanex.Result.Core.ExcelModels
 {
     using System.Collections.Generic;
-    using Fanex.Result.Core.DTO;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.Extension;
+    using Fanex.Result.Core.Utilities;
     using Fanex.Result.Core.ViewModels;
     using NPOI.SS.UserModel;
 
@@ -84,7 +85,7 @@ namespace Fanex.Result.Core.ExcelModels
             AssignStringData(
                             row,
                              ColumnTime,
-                            exportRow.KickOffTime,
+                            Helper.ToRtfString(exportRow.KickOffTime),
                              exportRow.Team,
                              exportRow.EventStatus);
             currentRow++;

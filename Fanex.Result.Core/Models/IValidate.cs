@@ -16,5 +16,7 @@ namespace Fanex.Result.Core.Models
         bool ValidateOutRight(string dtoName);
 
         bool ValidateParlay(string dtoName);
+
+        bool ValidateResource(string languageCode);
     }
 }

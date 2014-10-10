@@ -63,8 +63,6 @@ namespace Fanex.Result.Core.DTO
         /// <value>Get from Result column.</value>
         public string ResultValue { get; set; }
 
-        public string PenaltyShootoutResult { get; set; }
-
         /// <summary>
         /// Gets or sets RefNo.It's used for popUp Result.
         /// </summary>

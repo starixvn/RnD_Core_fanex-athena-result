@@ -9,7 +9,7 @@ namespace Fanex.Result.Core.Models
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
-    using Fanex.Result.Core.DTO;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.ExcelModels;
     using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.ViewModels;
@@ -26,11 +26,10 @@ namespace Fanex.Result.Core.Models
         public string HtmlBuilder<T>(IList<T> dataList, ResultSetting setting)
         {
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
-            var template = Template.Instance.GetRazorTemplate(setting.SportType.StringMe());
-            var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(i, setting, lang)).ToList();
+            var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(i, setting, lang))
+                .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToList() });
             var model = CreateModel(lang, dataMaped, false, false, setting);
-            Razor.GetTemplate(template, setting.SportType.StringMe());
-            return Razor.Run(setting.SportType.StringMe(), model);
+            return HtmlRender(setting.SportType.StringMe(), model);
         }
 
         /// <summary>
@@ -45,41 +44,33 @@ namespace Fanex.Result.Core.Models
         public string PopUpHtmlBuilder<T>(IList<T> dataList, ResultSetting setting)
         {
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
-            string template;
             if (setting.IsOutRight)
             {
-                template = Template.Instance.GetRazorTemplate("OutRight");
                 var dataMapedOutRight = dataList.Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting, lang)).ToList();
                 var modelOutRight = CreateModel(lang, dataMapedOutRight, true, false, setting);
-                Razor.GetTemplate(template, "OutRight");
-                return Razor.Run("OutRight", modelOutRight);
+
+                return HtmlRender("OutRight", modelOutRight);
             }
 
-            template = Template.Instance.GetRazorTemplate(setting.SportType.StringMe());
             var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(i, setting, lang)).ToList();
             var model = CreateModel(lang, dataMaped, true, false, setting);
-            Razor.GetTemplate(template, setting.SportType.StringMe());
-            return Razor.Run(setting.SportType.StringMe(), model);
+            return HtmlRender(setting.SportType.StringMe(), model);
         }
 
         public string PopUpParalyBuilder<T>(IList<T> dataList, ResultSetting setting)
         {
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
-            var template = Template.Instance.GetRazorTemplate("Parlay");
             var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetParlayViewModel(i, setting, lang)).ToList();
             var model = CreateModel(lang, dataMaped, true, true, setting);
-            Razor.GetTemplate(template, "Parlay");
-            return Razor.Run("Parlay", model);
+            return HtmlRender("Parlay", model);
         }
 
         public string OutRightHtmlBuilder<T>(IList<T> dataList, ResultSetting setting)
         {
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
-            var template = Template.Instance.GetRazorTemplate("OutRight");
             var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting, lang)).ToList();
             var model = CreateModel(lang, dataMaped, false, false, setting);
-            Razor.GetTemplate(template, "OutRight");
-            return Razor.Run("OutRight", model);
+            return HtmlRender("OutRight", model);
         }
 
         #endregion Html-Builder
@@ -161,6 +152,19 @@ namespace Fanex.Result.Core.Models
 
         #endregion JsonBuilder
 
+        private static string HtmlRender(string templateName, RazorBinderModel model)
+        {
+            // loading a template might be expensive, so be careful to cache content
+            if (Razor.Resolve(templateName) == null)
+            {
+                // we've never seen this template before, so compile it and stick it in cache.
+                var templateContent = Template.Instance.GetRazorTemplate(templateName);
+                Razor.Compile(templateContent, templateName);
+            }
+
+            return Razor.Run(templateName, model);
+        }
+
         /// <summary>
         /// Creates the model.
         /// </summary>
@@ -184,12 +188,15 @@ namespace Fanex.Result.Core.Models
                  Resource = lang,
                  IsPopUp = isPopUp,
                  IsParlay = isParlay,
-                 IsShowPopUpTitle = setting.IsShowPopUpTitle,
+                 VisiblePopUpTitle = setting.VisiblePopUpTitle,
                  SportType = setting.SportType,
                  VisibleMatchCodeIDColumn = setting.VisibleMatchCodeIDColumn,
-                 VisibleDetailedLink = setting.VisibleDetailedLink
+                 VisibleDetailedLink = setting.VisibleDetailedLink,
+                 VisibleFreeHeader = setting.VisibleFreeHeader && (!setting.IsParlayPopUp || !setting.IsPopUp)
              };
+
             model.Data.AddRange(data);
+
             return model;
         }
     }

@@ -1,45 +1,81 @@
 ﻿@{
     var viewModel = (Fanex.Result.Core.Models.RazorBinderModel)Model;
 
-    var lang = (Fanex.Result.Core.DTO.LangResources)viewModel.Resource;
+    var lang = (Fanex.Result.Core.DataDomain.LangResources)viewModel.Resource;
     const int colspan = 7;
 }
-<table class="fanex-result">
-    <colgroup>
-        <col class="column-race" colspan="3" />
-        <col class="column-result" />
-        <col class="column-win" />
-        <col class="column-plae" />
-        <col class="column-status" />
-    </colgroup>
-    <thead>
-        @if (viewModel.IsShowPopUpTitle && viewModel.Data.Count > 0)
+@if (viewModel.VisibleFreeHeader)
+{
+    <div class="fn-rs-content-header">
+        <table class="fn-rs">
+        <thead>
+        @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
         {
             var item = (Fanex.Result.Core.ViewModels.RacingViewModel)viewModel.Data[0];
             <tr class="row-title">
-                <th class="column-title" colspan="@colspan">
+                <th class="cl-title" colspan="@colspan">
                     <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
                 </th>
             </tr>
         }
-        <tr class="row-header">
-            <th class="column-race" colspan="3">
+        <tr class="header">
+            <th class="cl-race" colspan="3">
                 @lang.Race
             </th>
-            <th class="column-result">
+            <th class="cl-result">
                 @Raw(lang.Result)
             </th>
-            <th class="column-win">
+            <th class="cl-win">
                 @Raw(lang.Win)
             </th>
-            <th class="column-plae">
+            <th class="cl-plae">
                 @Raw(lang.Place)
             </th>
-            <th class="column-status">
+            <th class="cl-status">
                 @lang.Status
             </th>
         </tr>
     </thead>
+        </table>
+        </div>
+}
+@if (viewModel.VisibleFreeHeader)
+{
+    @Raw("<div class=\"fn-rs-content-scroll\">")
+
+}
+<table class="fn-rs">
+     @if (!viewModel.VisibleFreeHeader)
+     {
+    <thead>
+        @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+        {
+            var item = (Fanex.Result.Core.ViewModels.RacingViewModel)viewModel.Data[0];
+            <tr class="row-title">
+                <th class="cl-title" colspan="@colspan">
+                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                </th>
+            </tr>
+        }
+        <tr class="header">
+            <th class="cl-race" colspan="3">
+                @lang.Race
+            </th>
+            <th class="cl-result">
+                @Raw(lang.Result)
+            </th>
+            <th class="cl-win">
+                @Raw(lang.Win)
+            </th>
+            <th class="cl-plae">
+                @Raw(lang.Place)
+            </th>
+            <th class="cl-status">
+                @lang.Status
+            </th>
+        </tr>
+    </thead>
+     }
     <tbody>
         @if (viewModel.Data.Count > 0)
         {
@@ -61,8 +97,8 @@
                     {
                         currentLeagueId = leagueId;
 
-            <tr class="row-data">
-                <td colspan="@colspan" class="column-league">
+            <tr class="data">
+                <td colspan="@colspan" class="cl-league">
                     @item.LeagueName
                 </td>
             </tr>
@@ -72,26 +108,26 @@
                 if (newLeague || !currentRace.Equals(item.RaceName))
                 {
                     currentRace = item.RaceName;
-            <tr class="row-data @item.Color(index, "format-even", "format-odd")">
-                <td class="column-race-name" rowspan="@item.RowCount">
+            <tr class="data @item.Color(index, "even", "odd")">
+                <td class="cl-race-name" rowspan="@item.RowCount">
                     @Raw(item.RaceName)
                 </td>
-                <td class="column-placeing">
+                <td class="cl-placeing">
                     @item.Placing
                 </td>
-                <td class="column-engine-no">
+                <td class="cl-engine-no">
                     @item.HorseNo
                 </td>
-                <td class="column-result">
+                <td class="cl-result home">
                     @item.Result
                 </td>
-                <td class="column-win">
+                <td class="cl-win home">
                     @item.WinOdd
                 </td>
-                <td class="column-place">
+                <td class="cl-place home">
                     @item.PlaceOdd
                 </td>
-                <td class="column-eventstatus" rowspan="@item.RowCount">
+                <td class="cl-status" rowspan="@item.RowCount">
                     <p style="color: #cc0033;">@lang.Official
                     </p>
                     <br />
@@ -110,20 +146,20 @@
                 }
                 else
                 {
-            <tr class="row-data @item.Color(index, "format-even", "format-odd")">
-                <td class="column-placeing">
+            <tr class="data @item.Color(index, "even", "odd")">
+                <td class="cl-placeing">
                     @item.Placing
                 </td>
-                <td class="column-engine-no">
+                <td class="cl-engine-no">
                     @item.HorseNo
                 </td>
-                <td class="column-result">
+                <td class="cl-result away">
                     @item.Result
                 </td>
-                <td class="column-win">
+                <td class="cl-win home">
                     @item.WinOdd
                 </td>
-                <td class="column-place">
+                <td class="cl-place home">
                     @item.PlaceOdd
                 </td>
             </tr>
@@ -143,3 +179,7 @@
         }
     </tbody>
 </table>
+@if (viewModel.VisibleFreeHeader)
+{
+    @Raw("</div>")
+}

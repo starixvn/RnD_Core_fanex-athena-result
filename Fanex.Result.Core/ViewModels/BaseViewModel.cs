@@ -10,7 +10,7 @@ namespace Fanex.Result.Core.ViewModels
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
-    using Fanex.Result.Core.DTO;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.Utilities;
     using RemotingRef;
 
@@ -19,11 +19,7 @@ namespace Fanex.Result.Core.ViewModels
     /// </summary>
     public abstract class BaseViewModel
     {
-        public const string NA = "N/A";
-
         [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", Justification = "Reviewed.")]
-        public const string HYPHEN = "-";
-
         private const string EnglishLanguageCode = "en-US";
 
         private static Dictionary<string, string> supportedLanguage = new
@@ -42,12 +38,13 @@ namespace Fanex.Result.Core.ViewModels
 
         private string _languageCode = EnglishLanguageCode;
 
-        private LangResources _lang;
         private SportType _sportType = SportType.Soccer;
+        private LangResources _lang;
 
-        protected BaseViewModel(ResultSetting setting)
+        protected BaseViewModel(ResultSetting setting, LangResources resource)
         {
             this.DateTimeFormat = setting.DateTimeFormat;
+            this.Lang = resource;
         }
 
         public string DateTimeFormat
@@ -109,8 +106,8 @@ namespace Fanex.Result.Core.ViewModels
 
         protected LangResources Lang
         {
-            get { return _lang; }
-            set { _lang = value; }
+            get { return this._lang; }
+            set { this._lang = value; }
         }
 
         protected SportType Sport

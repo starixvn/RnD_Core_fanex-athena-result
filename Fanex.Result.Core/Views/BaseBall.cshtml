@@ -1,95 +1,152 @@
 ﻿@{
     var viewModel = (Fanex.Result.Core.Models.RazorBinderModel)Model;
-    var lang = (Fanex.Result.Core.DTO.LangResources)viewModel.Resource;
+    var lang = (Fanex.Result.Core.DataDomain.LangResources)viewModel.Resource;
     var colspan = viewModel.VisibleMatchCodeIDColumn ? 16 : 15;
 }
-<table class="fanex-result">
-    <colgroup>
-        @if (viewModel.VisibleMatchCodeIDColumn)
-        {
-            <col class="column-matchcode" />
+@if (viewModel.VisibleFreeHeader)
+{
+    <div class="fn-rs-content-header">
+        <table class="fn-rs">
+            <thead>
+                @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+                {
+                    var item = (Fanex.Result.Core.ViewModels.BaseBallViewModel)viewModel.Data[0];
+                    <tr class="row-title">
+                        <th class="cl-title" colspan="@colspan">
+                            <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                        </th>
+                    </tr>
+                }
+                <tr class="header">
+                    @if (viewModel.VisibleMatchCodeIDColumn)
+                    {
+                        <th class="cl-m-code">
+                            @lang.MatchCode/@lang.ID
+                        </th>
+                    }
+                    <th class="cl-ko-time">
+                        @lang.KickOffTime
+                    </th>
+                    <th class="cl-match home">
+                        @Raw(lang.Match)
+                    </th>
+                    <th class="cl-n">
+                        1
+                    </th>
+                    <th class="cl-n">
+                        2
+                    </th>
+                    <th class="cl-n">
+                        3
+                    </th>
+                    <th class="cl-n">
+                        4
+                    </th>
+                    <th class="cl-n">
+                        5
+                    </th>
+                    <th class="cl-n">
+                        6
+                    </th>
+                    <th class="cl-n">
+                        7
+                    </th>
+                    <th class="cl-n">
+                        8
+                    </th>
+                    <th class="cl-n">
+                        9
+                    </th>
+                    <th class="cl-ei">
+                        E.I
+                    </th>
+                    <th class="cl-ht-core">
+                        @Raw(lang.FirstHalfScore)
+                    </th>
+                    <th class="cl-f-score">
+                        @lang.FinalScore
+                    </th>
+                    <th class="cl-status">
+                        @lang.Status
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+}
+@if (viewModel.VisibleFreeHeader)
+{
+    @Raw("<div class=\"fn-rs-content-scroll\">")
 
-        }
-        <col class="column-kickofftime" />
-        <col class="column-match" />
-        <col class="column-n" />
-        <col class="column-n" />
-        <col class="column-n" />
-        <col class="column-n" />
-        <col class="column-n" />
-        <col class="column-n" />
-        <col class="column-n" />
-        <col class="column-n" />
-        <col class="column-n" />
-        <col class="column-ei" />
-        <col class="column-firsthaftscore" />
-        <col class="column-finalscore" />
-        <col class="column-status" />
-    </colgroup>
-    <thead>
-        @if (viewModel.IsShowPopUpTitle && viewModel.Data.Count > 0)
-        {
-            var item = (Fanex.Result.Core.ViewModels.BaseBallViewModel)viewModel.Data[0];
-            <tr class="row-title">
-                <th class="column-title" colspan="@colspan">
-                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+}
+<table class="fn-rs">
+    @if (!viewModel.VisibleFreeHeader)
+    {
+        <thead>
+            @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+            {
+                var item = (Fanex.Result.Core.ViewModels.BaseBallViewModel)viewModel.Data[0];
+                <tr class="row-title">
+                    <th class="cl-title" colspan="@colspan">
+                        <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                    </th>
+                </tr>
+            }
+            <tr class="header">
+                @if (viewModel.VisibleMatchCodeIDColumn)
+                {
+                    <th class="cl-m-code">
+                        @lang.MatchCode/@lang.ID
+                    </th>
+                }
+                <th class="cl-ko-time">
+                    @lang.KickOffTime
+                </th>
+                <th class="cl-match home">
+                    @Raw(lang.Match)
+                </th>
+                <th class="cl-n">
+                    1
+                </th>
+                <th class="cl-n">
+                    2
+                </th>
+                <th class="cl-n">
+                    3
+                </th>
+                <th class="cl-n">
+                    4
+                </th>
+                <th class="cl-n">
+                    5
+                </th>
+                <th class="cl-n">
+                    6
+                </th>
+                <th class="cl-n">
+                    7
+                </th>
+                <th class="cl-n">
+                    8
+                </th>
+                <th class="cl-n">
+                    9
+                </th>
+                <th class="cl-ei">
+                    E.I
+                </th>
+                <th class="cl-ht-core">
+                    @Raw(lang.FirstHalfScore)
+                </th>
+                <th class="cl-f-score">
+                    @lang.FinalScore
+                </th>
+                <th class="cl-status">
+                    @lang.Status
                 </th>
             </tr>
-        }
-        <tr class="row-header">
-            @if (viewModel.VisibleMatchCodeIDColumn)
-            {
-                <th class="column-matchcode">
-                    @lang.MatchCode/@lang.ID
-                </th>
-            }
-            <th class="column-kickofftime">
-                @lang.KickOffTime
-            </th>
-            <th class="column-match">
-                @Raw(lang.Match)
-            </th>
-            <th class="column-n">
-                1
-            </th>
-            <th class="column-n">
-                2
-            </th>
-            <th class="column-n">
-                3
-            </th>
-            <th class="column-n">
-                4
-            </th>
-            <th class="column-n">
-                5
-            </th>
-            <th class="column-n">
-                6
-            </th>
-            <th class="column-n">
-                7
-            </th>
-            <th class="column-n">
-                8
-            </th>
-            <th class="column-n">
-                9
-            </th>
-            <th class="column-ei">
-                E.I
-            </th>
-            <th class="column-firsthaftscore">
-                @Raw(lang.FirstHalfScore)
-            </th>
-            <th class="column-finalscore">
-                @lang.FinalScore
-            </th>
-            <th class="column-status">
-                @lang.Status
-            </th>
-        </tr>
-    </thead>
+        </thead>
+    }
     <tbody>
         @if (viewModel.Data.Count > 0)
         {
@@ -99,120 +156,120 @@
             {
                 var item = (Fanex.Result.Core.ViewModels.BaseBallViewModel)itemObj;
                 index++;
-                if (!Model.IsPopUp)
+                if (!viewModel.IsPopUp)
                 {
                     var leagueId = item.LeagueId;
                     if (currentLeagueId == 0 || currentLeagueId != leagueId)
                     {
                         currentLeagueId = leagueId;
 
-            <tr class="row-data">
-                <td colspan="@colspan" class="column-league">
+            <tr class="data">
+                <td colspan="@colspan" class="cl-league">
                     @item.LeagueName
                 </td>
             </tr>
                     }
                 }
 
-            <tr class="row-data @item.Color(index, "format-even", "format-odd")">
+            <tr class="data @item.Color(index, "even", "odd")">
                 @if (viewModel.VisibleMatchCodeIDColumn)
                 {
-                    <td class="column-matchcode">
-                      <div class="m-code">
+                    <td class="cl-m-code">
+                        <div class="m-code">
                             @item.MatchCode
                         </div>
                     </td>
                 }
-                <td class="column-kickofftime" rowspan="2">
+                <td class="cl-ko-time" rowspan="2">
                     @Raw(item.KickOffTime)
                 </td>
-                <td class="column-match">
+                <td class="cl-match away">
                     @Raw(item.HomeTeam)
                 </td>
-                <td class="column-n">
+                <td class="cl-n">
                     @item.GetHomeAwaySet(0, true)
                 </td>
-                <td class="column-n">
+                <td class="cl-n">
                     @item.GetHomeAwaySet(1, true)
                 </td>
-                <td class="column-n">
+                <td class="cl-n">
                     @item.GetHomeAwaySet(2, true)
                 </td>
-                <td class="column-n">
+                <td class="cl-n">
                     @item.GetHomeAwaySet(3, true)
                 </td>
-                <td class="column-n">
+                <td class="cl-n">
                     @item.GetHomeAwaySet(4, true)
                 </td>
-                <td class="column-n">
+                <td class="cl-n">
                     @item.GetHomeAwaySet(5, true)
                 </td>
-                <td class="column-n">
+                <td class="cl-n">
                     @item.GetHomeAwaySet(6, true)
                 </td>
-                <td class="column-n">
+                <td class="cl-n">
                     @item.GetHomeAwaySet(7, true)
                 </td>
-                <td class="column-n">
+                <td class="cl-n">
                     @item.GetHomeAwaySet(8, true)
                 </td>
-                <td class="column-ei">
+                <td class="cl-ei">
                     @item.EIHome
                 </td>
-                <td class="column-ht-homescore">
+                <td class="cl-ht-core">
                     @item.HTHomeScore
                 </td>
-                <td class="column-final-homescore">
+                <td class="cl-f-score">
                     @item.FinalHomeScore
                 </td>
-                <td rowspan="2" class="column-eventstatus">
+                <td rowspan="2" class="cl-status">
                     @item.EventStatus
                 </td>
             </tr>
-            <tr class="row-data @item.Color(index, "format-even", "format-odd")">
+            <tr class="data @item.Color(index, "even", "odd")">
                 @if (viewModel.VisibleMatchCodeIDColumn)
                 {
-                    <td class="column-matchcode">
+                    <td class="cl-m-code">
                         @item.MatchId
                     </td>
                 }
-                <td class="column-match">
+                <td class="cl-match">
                     @Raw(item.AwayTeam)
                 </td>
-                <td class="column-n">
+                <td class="cl-n">
                     @item.GetHomeAwaySet(0, false)
                 </td>
-                <td class="column-n">
+                <td class="cl-n">
                     @item.GetHomeAwaySet(1, false)
                 </td>
-                <td class="column-n">
+                <td class="cl-n">
                     @item.GetHomeAwaySet(2, false)
                 </td>
-                <td class="column-n">
+                <td class="cl-n">
                     @item.GetHomeAwaySet(3, false)
                 </td>
-                <td class="column-n">
+                <td class="cl-n">
                     @item.GetHomeAwaySet(4, false)
                 </td>
-                <td class="column-n">
+                <td class="cl-n">
                     @item.GetHomeAwaySet(5, false)
                 </td>
-                <td class="column-n">
+                <td class="cl-n">
                     @item.GetHomeAwaySet(6, false)
                 </td>
-                <td class="column-n">
+                <td class="cl-n">
                     @item.GetHomeAwaySet(7, false)
                 </td>
-                <td class="column-n">
+                <td class="cl-n">
                     @item.GetHomeAwaySet(8, false)
                 </td>
-                <td class="column-ei">
+                <td class="cl-ei">
                     @item.EIAway
                 </td>
-                <td class="column-ht-awayscore">
+                <td class="cl-ht-core">
                     @item.HTAwayScore
                 </td>
-                <td class="column-ht-finalscore">
+                <td class="cl-f-score">
                     @item.FinalAwayScore
                 </td>
             </tr>
@@ -231,3 +288,7 @@
         }
     </tbody>
 </table>
+@if (viewModel.VisibleFreeHeader)
+{
+    @Raw("</div>")
+}

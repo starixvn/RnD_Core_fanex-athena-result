@@ -8,13 +8,13 @@ namespace Fanex.Result.Core.ViewModels
 {
     using System;
     using System.Globalization;
-
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.DTO;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public sealed class HockeyViewModel : SportbookBaseViewModel
+    public sealed class HockeyViewModel : SportbookBaseViewModel,IResultViewModel
     {
         public HockeyViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resource)
             : base(sportbook, setting, resource)
@@ -27,7 +27,7 @@ namespace Fanex.Result.Core.ViewModels
             get
             {
                 var temp = this.GetPHomeAway(3, true);
-                return Convert.ToInt32(temp) > 0 ? temp : StringResources.EMPTYSCORE;
+                return Convert.ToInt32(temp) > 0 ? temp : StringResources.HYPHEN;
             }
         }
 
@@ -36,7 +36,7 @@ namespace Fanex.Result.Core.ViewModels
             get
             {
                 var temp = this.GetPHomeAway(3, false);
-                return Convert.ToInt32(temp) > 0 ? temp : StringResources.EMPTYSCORE;
+                return Convert.ToInt32(temp) > 0 ? temp : StringResources.HYPHEN;
             }
         }
 
@@ -46,7 +46,7 @@ namespace Fanex.Result.Core.ViewModels
             {
                 return this.SPORTBOOK.FinalHomeScore.HasValue
                     ? this.SPORTBOOK.FinalHomeScore.Value.ToString(CultureInfo.InvariantCulture)
-                    : string.Empty;
+                    : StringResources.HYPHEN;
             }
         }
 
@@ -56,7 +56,7 @@ namespace Fanex.Result.Core.ViewModels
             {
                 return this.SPORTBOOK.FinalAwayScore.HasValue
                     ? this.SPORTBOOK.FinalAwayScore.Value.ToString(CultureInfo.InvariantCulture)
-                    : string.Empty;
+                    : StringResources.HYPHEN;
             }
         }
 
@@ -76,7 +76,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             if (index > 3)
             {
-                return StringResources.EMPTYSCORE;
+                return StringResources.HYPHEN;
             }
 
             if (this.AwaySet == null || this.HomeSet == null)

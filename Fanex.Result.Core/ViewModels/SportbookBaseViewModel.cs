@@ -8,6 +8,7 @@ namespace Fanex.Result.Core.ViewModels
 {
     using System;
     using System.Globalization;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.Utilities;
     using RemotingRef;
@@ -15,7 +16,7 @@ namespace Fanex.Result.Core.ViewModels
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public class SportbookBaseViewModel : BaseViewModel
+    public class SportbookBaseViewModel : BaseViewModel,IResultViewModel
     {
         private string[] _homeSet;
 
@@ -24,11 +25,10 @@ namespace Fanex.Result.Core.ViewModels
         private Sportsbook _sportbook;
 
         public SportbookBaseViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resource)
-            : base(setting)
+            : base(setting, resource)
         {
             this.SPORTBOOK = sportbook;
             this.LanguageCode = setting.LanguageCode;
-            this.Lang = resource;
             this.Sport = setting.SportType;
         }
 

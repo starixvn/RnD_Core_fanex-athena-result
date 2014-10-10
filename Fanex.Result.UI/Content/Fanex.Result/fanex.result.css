@@ -1,11 +1,17 @@
 ﻿/*Html & css strucure
-/* table.fanex-result
-**     table.fanex-result tr.row-header
-***      table.fanex-result tr.row-header th
-**     table.fanex-result tr.row-data
-***      table.fanex-result tr.row-data td.*
+/* table.fn-rs
+**     table.fn-rs tr.header
+***      table.fn-rs tr.header th
+**     table.fn-rs tr.data
+***      table.fn-rs tr.data td.*
 */
-table.fanex-result, table.fanex-result-tenis-setdetail
+div.fn-rs-content-header
+{
+}
+div.fn-rs-content-scroll
+{
+}
+table.fn-rs, table.fn-rs-tenis-setdetail
 {
     clear: both;
     width: 100%;
@@ -17,14 +23,14 @@ table.fanex-result, table.fanex-result-tenis-setdetail
     cursor: default;
 }
 /*#region header row*/
-table.fanex-result tr.row-header
+table.fn-rs tr.header
 {
 }
-table.fanex-result tr.row-header th:first-child, table.fanex-result-tenis-setdetail tr.row-header td:first-child
+table.fn-rs tr.header th:first-child, table.fn-rs-tenis-setdetail tr.header td:first-child
 {
     border-left: 1px solid #A3D1E1;
 }
-table.fanex-result tr.row-header th, table.fanex-result-tenis-setdetail tr.row-header td
+table.fn-rs tr.header th, table.fn-rs-tenis-setdetail tr.header td
 {
     background-color: #C7E9F5;
     border-left: 1px solid #FFFFFF;
@@ -41,66 +47,66 @@ table.fanex-result tr.row-header th, table.fanex-result-tenis-setdetail tr.row-h
     border-bottom: 1px solid #A3D1E1;
 }
 /*header-column*/
-table.fanex-result tr.row-header th.column-matchcode
+table.fn-rs tr.header th.cl-matchcode
 {
 }
-table.fanex-result tr.row-header th.column-kickofftime
+table.fn-rs tr.header th.cl-ko-time
 {
 }
-table.fanex-result tr.row-header th.column-time
+table.fn-rs tr.header th.cl-time
 {
     width: 65px;
 }
-table.fanex-result tr.row-header th.column-match
+table.fn-rs tr.header th.cl-match
 {
 }
-table.fanex-result tr.row-header th.column-firsthaftscore
+table.fn-rs tr.header th.cl-fh-score
 {
 }
-table.fanex-result tr.row-header th.column-finalscore
+table.fn-rs tr.header th.cl-f-score
 {
 }
-table.fanex-result tr.row-header th.column-status
+table.fn-rs tr.header th.cl-status
 {
 }
-table.fanex-result tr.row-header th.column-result
+table.fn-rs tr.header th.cl-result
 {
 }
-table.fanex-result tr.row-header th.column-lblOEFT
+table.fn-rs tr.header th.cl-lblOEFT
 {
 }
-table.fanex-result tr.row-header th.column-lbl1stball
+table.fn-rs tr.header th.cl-lbl1stball
 {
 }
-table.fanex-result tr.row-header th.column-lastball
+table.fn-rs tr.header th.cl-lastball
 {
 }
-table.fanex-result tr.row-header th.column-warrior
+table.fn-rs tr.header th.cl-warrior
 {
 }
-table.fanex-result tr.row-title
+table.fn-rs tr.row-title
 {
 }
-table.fanex-result tr.row-title th.column-title
+table.fn-rs tr.row-title th.cl-title
 {
 }
-table.fanex-result tr.row-title th.column-title span.sport
+table.fn-rs tr.row-title th.cl-title span.sport
 {
 }
-table.fanex-result tr.row-title th.column-title span.leagueName
+table.fn-rs tr.row-title th.cl-title span.leagueName
 {
 }
 /*end-header-column*/
 /*endregion*/
 /*#region row-data*/
-table.fanex-result tr.row-data
+table.fn-rs tr.data
 {
 }
-table.fanex-result tr.row-data:hover
+table.fn-rs tr.data:hover
 {
     background: #fcf911;
 }
-table.fanex-result tr.row-data td, table.fanex-result-tenis-setdetail tr.row-data-setScore td, table.fanex-result-tenis-setdetail tr.row-data-SetScore td
+table.fn-rs tr.data td, table.fn-rs-tenis-setdetail tr.data-setScore td, table.fn-rs-tenis-setdetail tr.data-SetScore td
 {
     border-left: 1px solid #A3D1E1;
     border-bottom: 1px solid #A3D1E1;
@@ -111,19 +117,19 @@ table.fanex-result tr.row-data td, table.fanex-result-tenis-setdetail tr.row-dat
     text-align: center;
     color: rgb(69, 69, 69);
 }
-table.fanex-result tr.row-data td:hover
+table.fn-rs tr.data td:hover
 {
     color: #009;
 }
 /*row-column*/
-table.fanex-result tr.format-even
+table.fn-rs tr.even
 {
     background: #fcfde9;
 }
-table.fanex-result tr.format-odd
+table.fn-rs tr.odd
 {
 }
-table.fanex-result tr.row-data td.column-league
+table.fn-rs tr.data td.cl-league
 {
     background: url("images/bg_header03.jpg") repeat-x scroll center top #F8F1E9;
     background-color: #DAE6ED;
@@ -131,30 +137,30 @@ table.fanex-result tr.row-data td.column-league
     text-align: left !important;
     text-transform: uppercase;
 }
-table.fanex-result tr.row-data td.column-matchcode
+table.fn-rs tr.data td.cl-m-code
 {
 }
 
-table.fanex-result tr.row-data td.column-matchcode div.m-code
+table.fn-rs tr.data td.cl-m-code div.m-code
 {
     /*for match code*/
 }
-table.fanex-result tr.row-data td.column-matchcode div.m-id
+table.fn-rs tr.data td.cl-m-code div.m-id
 {
     /*for number match id*/
 }
-table.fanex-result tr.row-data td.column-kickofftime
+table.fn-rs tr.data td.cl-ko-time
 {
     font-size: 10px !important;
     font-weight: normal;
     white-space: nowrap;
 }
-table.fanex-result tr.row-data td.column-match, tr.row-data td.column-team, table.fanex-result tr.row-data td.column-result
+table.fn-rs tr.data td.cl-match, tr.data td.cl-team, table.fn-rs tr.data td.cl-result
 {
     text-align: left !important;
 }
 
-table.fanex-result tr.row-data td.column-match div.first-goal
+table.fn-rs tr.data td.cl-match div.first-goal
 {
     background: url(images/first-goal.gif) no-repeat center center;
     height: 10px;
@@ -162,7 +168,7 @@ table.fanex-result tr.row-data td.column-match div.first-goal
     display: inline;
     padding: 0 4px;
 }
-table.fanex-result tr.row-data td.column-match div.last-goal
+table.fn-rs tr.data td.cl-match div.last-goal
 {
     background: url(images/last-goal.gif) no-repeat center center;
     height: 10px;
@@ -170,7 +176,7 @@ table.fanex-result tr.row-data td.column-match div.last-goal
     display: inline;
     padding: 0 4px;
 }
-table.fanex-result tr.row-data td.column-match div.first-half-first-goal
+table.fn-rs tr.data td.cl-match div.first-half-first-goal
 {
     background: url(images/1F.gif) no-repeat center center;
     height: 10px;
@@ -178,7 +184,7 @@ table.fanex-result tr.row-data td.column-match div.first-half-first-goal
     display: inline;
     padding: 0 4px;
 }
-table.fanex-result tr.row-data td.column-match div.first-half-last-goal
+table.fn-rs tr.data td.cl-match div.first-half-last-goal
 {
     background: url(images/1L.gif) no-repeat center center;
     height: 10px;
@@ -187,61 +193,61 @@ table.fanex-result tr.row-data td.column-match div.first-half-last-goal
     padding: 0 4px;
 }
 
-table.fanex-result tr.row-data td.column-lblOEFT
+table.fn-rs tr.data td.cl-lblOEFT
 {
 }
-table.fanex-result tr.row-data td.column-lbl1stball
+table.fn-rs tr.data td.cl-lbl1stball
 {
 }
-table.fanex-result tr.row-data td.column-lastball
+table.fn-rs tr.data td.cl-lastball
 {
 }
-table.fanex-result tr.row-data td.column-warrior
+table.fn-rs tr.data td.cl-warrior
 {
 }
-table.fanex-result tr.row-data td.column-eventstatus {
-	
+table.fn-rs tr.data td.cl-status
+{
 }
-table.fanex-result tr.row-data td.column-eventstatus .detail-link {
-	
+table.fn-rs tr.data td.cl-status .detail-link
+{
 }
-table.fanex-result tr.row-data td.column-eventstatus .soccer-detail-link {
-	
+table.fn-rs tr.data td.cl-status .soccer-detail-link
+{
 }
-table.fanex-result tr.row-data td.column-eventstatus  .penalty-result {
-	
+table.fn-rs tr.data td.cl-status .penalty-result
+{
 }
-table.fanex-result tr.row-data td.bold
+table.fn-rs tr.data td.bold
 {
     font-weight: bold !important;
 }
-table.fanex-result tr.row-data td.left
+table.fn-rs tr.data td.left
 {
     text-align: left !important;
 }
-table.fanex-result tr.row-data td.center
+table.fn-rs tr.data td.center
 {
     text-align: center !important;
 }
 /*end-row-data*/
 
 /*no-info*/
-table.fanex-result tr.row-noinfo
+table.fn-rs tr.row-noinfo
 {
     border-bottom: 1px solid #A3D1E1;
 }
-table.fanex-result .row-noinfo td
+table.fn-rs .row-noinfo td
 {
     text-align: center;
     border-left: 1px solid #A3D1E1;
 }
 /*end*/
-table.fanex-result .red
+table.fn-rs .red
 {
     color: #dc143c !important;
 }
 
-table.fanex-result .ball
+table.fn-rs .ball
 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 10px;
@@ -260,35 +266,35 @@ table.fanex-result .ball
     text-align: center;
 }
 /*#endregion*/
-/*popup*/
-table.fanex-result-popup
+/*parlay - popup*/
+table.fn-rs-popup
 {
     width: 100%;
 }
-table.fanex-result-popup td.sporttype
+table.fn-rs-popup td.sporttype
 {
 }
-table.fanex-result-popup td.sporttype
+table.fn-rs-popup td.sporttype
 {
 }
-table.fanex-result-popup .bl-sport-type
+table.fn-rs-popup .bl-sport-type
 {
     font-weight: bold;
 }
-table.fanex-result-popup .bl-league-name
+table.fn-rs-popup .bl-league-name
 {
     font-weight: normal;
 }
-table.fanex-result-tenis-setdetail
+table.fn-rs-tenis-setdetail
 {
     width: 300px;
     margin-top: 2px;
 }
-table.fanex-result-tenis-setdetail .row-header
+table.fn-rs-tenis-setdetail .header
 {
 }
-table.fanex-result-tenis-setdetail tr.row-header td.column-set-name
+table.fn-rs-tenis-setdetail tr.header td.cl-set-name
 {
     background-image: none !important;
 }
-/*end-popup*/
+/*end-parlay-popup*/

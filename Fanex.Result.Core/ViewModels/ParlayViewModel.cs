@@ -9,6 +9,7 @@ namespace Fanex.Result.Core.ViewModels
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.Models;
@@ -17,17 +18,16 @@ namespace Fanex.Result.Core.ViewModels
     /// <summary>
     /// Parlay view model class.
     /// </summary>
-    public sealed class ParlayViewModel : BaseViewModel
+    public sealed class ParlayViewModel : BaseViewModel,IResultViewModel
     {
         private readonly Parlay _parlay;
         private ResultSetting _setting;
 
         public ParlayViewModel(Parlay parlay, ResultSetting setting, LangResources resource)
-            : base(setting)
+            : base(setting, resource)
         {
             this._parlay = parlay;
             this.LanguageCode = setting.LanguageCode;
-            this.Lang = resource;
             this._setting = setting;
         }
 
@@ -56,7 +56,7 @@ namespace Fanex.Result.Core.ViewModels
             }
         }
 
-        public IList<object> ItemView
+        public IList<IResultViewModel> ItemView
         {
             get
             {

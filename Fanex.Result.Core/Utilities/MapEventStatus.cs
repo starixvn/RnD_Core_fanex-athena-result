@@ -9,7 +9,7 @@ namespace Fanex.Result.Core.Utilities
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using Fanex.Result.Core.DTO;
+    using Fanex.Result.Core.DataDomain;
 
     /// <summary>
     /// TODO: Update summary.

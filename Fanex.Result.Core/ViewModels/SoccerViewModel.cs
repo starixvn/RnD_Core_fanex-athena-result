@@ -9,12 +9,13 @@ namespace Fanex.Result.Core.ViewModels
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.DTO;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public sealed class SoccerViewModel : SportbookBaseViewModel
+    public sealed class SoccerViewModel : SportbookBaseViewModel,IResultViewModel
     {
         private bool _visibleDetailedLink = false;
 
@@ -46,12 +47,22 @@ namespace Fanex.Result.Core.ViewModels
 
         public bool VisibleDetailedLink
         {
-            get { return this._visibleDetailedLink && !string.IsNullOrEmpty(this.SPORTBOOK.GoalRecord); }
+            get { return this._visibleDetailedLink && !string.IsNullOrEmpty(this.SPORTBOOK.GoalRecord.Trim()); }
         }
 
         public string PenaltyShootoutResult
         {
-            get { return this.SPORTBOOK.PenaltyShootoutResult; }
+            get
+            {
+                if (!string.IsNullOrWhiteSpace(this.SPORTBOOK.BetStatus))
+                {
+                    var index = this.SPORTBOOK.BetStatus.IndexOf(StringResources.PENALTYLABEL, StringComparison.Ordinal);
+
+                    return index > -1 ? this.SPORTBOOK.BetStatus.Substring(index + StringResources.PENALTYLABEL.Length, 1) : string.Empty;
+                }
+
+                return string.Empty;
+            }
         }
 
         public string PenaltyShootoutTooltip
@@ -135,7 +146,7 @@ namespace Fanex.Result.Core.ViewModels
                     return StringResources.NA;
                 }
 
-                return this.SPORTBOOK.HtHomeScore.HasValue ? this.SPORTBOOK.HtHomeScore.Value.ToString(CultureInfo.InvariantCulture) : string.Empty;
+                return this.SPORTBOOK.HtHomeScore.HasValue ? this.SPORTBOOK.HtHomeScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }
 
@@ -149,7 +160,7 @@ namespace Fanex.Result.Core.ViewModels
                     return StringResources.NA;
                 }
 
-                return this.SPORTBOOK.FinalHomeScore.HasValue ? this.SPORTBOOK.FinalHomeScore.Value.ToString(CultureInfo.InvariantCulture) : string.Empty;
+                return this.SPORTBOOK.FinalHomeScore.HasValue ? this.SPORTBOOK.FinalHomeScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }
 
@@ -163,7 +174,7 @@ namespace Fanex.Result.Core.ViewModels
                     return StringResources.NA;
                 }
 
-                return this.SPORTBOOK.HtAwayScore.HasValue ? this.SPORTBOOK.HtAwayScore.Value.ToString(CultureInfo.InvariantCulture) : string.Empty;
+                return this.SPORTBOOK.HtAwayScore.HasValue ? this.SPORTBOOK.HtAwayScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }
 
@@ -177,7 +188,7 @@ namespace Fanex.Result.Core.ViewModels
                     return StringResources.NA;
                 }
 
-                return this.SPORTBOOK.FinalAwayScore.HasValue ? this.SPORTBOOK.FinalAwayScore.Value.ToString(CultureInfo.InvariantCulture) : string.Empty;
+                return this.SPORTBOOK.FinalAwayScore.HasValue ? this.SPORTBOOK.FinalAwayScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }
 

@@ -14,11 +14,10 @@
             <thead>
                 @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
                 {
-                    var item = (GroupData)viewModel.Data[0];
-                    var firstResult = item.Data[0];
+                    var item = ((GroupData)viewModel.Data[0]).Data[0];
                     <tr class="row-title">
                         <th class="cl-title" colspan="@colspan">
-                            <span class="sport">@firstResult.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@firstResult.LeagueName</span>
+                            <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
                         </th>
                     </tr>
                 }
@@ -126,27 +125,26 @@
         <!--RowData-->
         @if (viewModel.Data.Count > 0)
         {
-            var currentLeagueId = 0;
             var index = 0;
             foreach (var itemObj in viewModel.Data)
             {
-                var groups = (GroupData)itemObj;
-                
-                 if (!viewModel.IsPopUp)
-                    {
+                var group = (GroupData)itemObj;
 
-                    <tr class="data">
-                        <td colspan="@colspan" class="cl-league">
-                            @groups.Data[0].LeagueName
-                        </td>
-                    </tr>
+                if (!viewModel.IsPopUp)
+                {
 
-                    }
-                 foreach (var temp in groups.Data)
-                 {
-                     var item = (BadmintonViewModel)temp;
-                     index++;
-                   
+            <tr class="data">
+                <td colspan="@colspan" class="cl-league">
+                    @group.Data[0].LeagueName
+                </td>
+            </tr>
+
+                }
+                foreach (var temp in group.Data)
+                {
+                    var item = (BadmintonViewModel)temp;
+                    index++;
+
             <tr class="data @item.Color(index, "even", "odd")">
                 @if (viewModel.VisibleMatchCodeIDColumn)
                 {
@@ -220,7 +218,7 @@
                 </td>
             </tr>
 
-                 }
+                }
             }
             <!--/RowData-->
         }

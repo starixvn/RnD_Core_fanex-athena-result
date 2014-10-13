@@ -101,12 +101,12 @@ namespace Fanex.Result.Core.Models
             }
         }
 
-        public override object GetOutRightViewModel(object obj, ResultSetting setting, LangResources resource)
+        public override IResultViewModel GetOutRightViewModel(object obj, ResultSetting setting, LangResources resource)
         {
             return new OutRightViewModel((OutRight)obj, setting, resource);
         }
 
-        public override object GetParlayViewModel(object obj, ResultSetting setting, LangResources resource)
+        public override IResultViewModel GetParlayViewModel(object obj, ResultSetting setting, LangResources resource)
         {
             return new ParlayViewModel((Parlay)obj, setting, resource);
         }

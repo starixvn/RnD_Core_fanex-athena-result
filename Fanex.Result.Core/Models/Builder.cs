@@ -46,7 +46,8 @@ namespace Fanex.Result.Core.Models
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
             if (setting.IsOutRight)
             {
-                var dataMapedOutRight = dataList.Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting, lang)).ToList();
+                var dataMapedOutRight = dataList.Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting, lang))
+                     .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToList() });
                 var modelOutRight = CreateModel(lang, dataMapedOutRight, true, false, setting);
 
                 return HtmlRender("OutRight", modelOutRight);
@@ -60,7 +61,8 @@ namespace Fanex.Result.Core.Models
         public string PopUpParalyBuilder<T>(IList<T> dataList, ResultSetting setting)
         {
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
-            var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetParlayViewModel(i, setting, lang)).ToList();
+            var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetParlayViewModel(i, setting, lang))
+                 .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToList() });
             var model = CreateModel(lang, dataMaped, true, true, setting);
             return HtmlRender("Parlay", model);
         }
@@ -68,7 +70,8 @@ namespace Fanex.Result.Core.Models
         public string OutRightHtmlBuilder<T>(IList<T> dataList, ResultSetting setting)
         {
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
-            var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting, lang)).ToList();
+            var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting, lang))
+                .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToList() });
             var model = CreateModel(lang, dataMaped, false, false, setting);
             return HtmlRender("OutRight", model);
         }

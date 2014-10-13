@@ -6,8 +6,8 @@
 
 namespace Fanex.Result.Core.Models
 {
+    using System.Collections.Generic;
     using Fanex.Result.Core.DataDomain;
-using System.Collections.Generic;
 
     /// <summary>
     /// TODO: Update summary.
@@ -17,7 +17,8 @@ using System.Collections.Generic;
         public LangResources Resource { get; set; }
 
         public List<GroupData> Data = new List<GroupData>();
-            public bool IsPopUp { get; set; }
+
+        public bool IsPopUp { get; set; }
 
         public bool IsParlay { get; set; }
 

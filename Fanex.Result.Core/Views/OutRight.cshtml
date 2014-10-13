@@ -4,34 +4,37 @@
     var lang = (Fanex.Result.Core.DataDomain.LangResources)viewModel.Resource;
     const int colspan = 5;
 }
+@using Fanex.Result.Core.ViewModels;
+@using Fanex.Result.Core.Models;
+@using System.Collections;
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
         <table class="fn-rs">
-         <thead>
-        @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
-        {
-            var item = (Fanex.Result.Core.ViewModels.OutRightViewModel)viewModel.Data[0];
-            <tr class="row-title">
-                <th class="cl-title" colspan="@colspan">
-                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
-                </th>
-            </tr>
-        }
-        <tr class="header">
-            <th class="cl-time">
-                @lang.Time
-            </th>
-            <th class="cl-team">
-                @lang.Team
-            </th>
-            <th class="cl-result">
-                @lang.Result
-            </th>
-        </tr>
-    </thead>
+            <thead>
+                @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+                {
+                    var item = ((GroupData)viewModel.Data[0]).Data[0];
+                    <tr class="row-title">
+                        <th class="cl-title" colspan="@colspan">
+                            <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                        </th>
+                    </tr>
+                }
+                <tr class="header">
+                    <th class="cl-time">
+                        @lang.Time
+                    </th>
+                    <th class="cl-team">
+                        @lang.Team
+                    </th>
+                    <th class="cl-result">
+                        @lang.Result
+                    </th>
+                </tr>
+            </thead>
         </table>
-        </div>
+    </div>
 }
 @if (viewModel.VisibleFreeHeader)
 {
@@ -39,56 +42,54 @@
 
 }
 <table class="fn-rs">
-     @if (!viewModel.VisibleFreeHeader)
-     {
-    <thead>
-        @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
-        {
-            var item = (Fanex.Result.Core.ViewModels.OutRightViewModel)viewModel.Data[0];
-            <tr class="row-title">
-                <th class="cl-title" colspan="@colspan">
-                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+    @if (!viewModel.VisibleFreeHeader)
+    {
+        <thead>
+            @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+            {
+                var item = ((GroupData)viewModel.Data[0]).Data[0];
+                <tr class="row-title">
+                    <th class="cl-title" colspan="@colspan">
+                        <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                    </th>
+                </tr>
+            }
+            <tr class="header">
+                <th class="cl-time">
+                    @lang.Time
+                </th>
+                <th class="cl-team">
+                    @lang.Team
+                </th>
+                <th class="cl-result">
+                    @lang.Result
                 </th>
             </tr>
-        }
-        <tr class="header">
-            <th class="cl-time">
-                @lang.Time
-            </th>
-            <th class="cl-team">
-                @lang.Team
-            </th>
-            <th class="cl-result">
-                @lang.Result
-            </th>
-        </tr>
-    </thead>
-     }
+        </thead>
+    }
     <tbody>
         <!--RowData-->
         @if (viewModel.Data.Count > 0)
         {
-            var currentLeagueId = 0;
             var index = 0;
             foreach (var itemObj in viewModel.Data)
             {
-                var item = (Fanex.Result.Core.ViewModels.OutRightViewModel)itemObj;
-                index++;
+                var group = (GroupData)itemObj;
+
                 if (!viewModel.IsPopUp)
                 {
-                    var leagueId = item.LeagueId;
-                    if (currentLeagueId == 0 || currentLeagueId != leagueId)
-                    {
-                        currentLeagueId = leagueId;
-            <!--League-->
+
             <tr class="data">
-                <td colspan="3" class="cl-league">
-                    @item.LeagueName
+                <td colspan="@colspan" class="cl-league">
+                    @group.Data[0].LeagueName
                 </td>
             </tr>
-            <!--/League-->
-                    }
+
                 }
+                foreach (var temp in group.Data)
+                {
+                    var item = (OutRightViewModel)temp;
+                    index++;
             <!--Row-->
             <tr class="data @item.Color(index, "even", "odd")">
                 <td class="cl-ko-time">
@@ -103,6 +104,7 @@
             </tr>
             <!--/Row-->
             <!--/RowData-->
+                }
             }
         }
         else

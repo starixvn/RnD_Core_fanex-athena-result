@@ -18,9 +18,9 @@ namespace Fanex.Result.Core.Models
     {
         public abstract IResultViewModel GetViewModel(object obj, ResultSetting setting, LangResources resource);
 
-        public abstract object GetOutRightViewModel(object obj, ResultSetting setting, LangResources resource);
+        public abstract IResultViewModel GetOutRightViewModel(object obj, ResultSetting setting, LangResources resource);
 
-        public abstract object GetParlayViewModel(object obj, ResultSetting setting, LangResources resource);
+        public abstract IResultViewModel GetParlayViewModel(object obj, ResultSetting setting, LangResources resource);
 
         public abstract ExcelBase GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting, LangResources resource);
     }

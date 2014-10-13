@@ -4,40 +4,43 @@
     var lang = (Fanex.Result.Core.DataDomain.LangResources)viewModel.Resource;
     const int colspan = 7;
 }
+@using Fanex.Result.Core.ViewModels;
+@using Fanex.Result.Core.Models;
+@using System.Collections;
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
         <table class="fn-rs">
-        <thead>
-        @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
-        {
-            var item = (Fanex.Result.Core.ViewModels.RacingViewModel)viewModel.Data[0];
-            <tr class="row-title">
-                <th class="cl-title" colspan="@colspan">
-                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
-                </th>
-            </tr>
-        }
-        <tr class="header">
-            <th class="cl-race" colspan="3">
-                @lang.Race
-            </th>
-            <th class="cl-result">
-                @Raw(lang.Result)
-            </th>
-            <th class="cl-win">
-                @Raw(lang.Win)
-            </th>
-            <th class="cl-plae">
-                @Raw(lang.Place)
-            </th>
-            <th class="cl-status">
-                @lang.Status
-            </th>
-        </tr>
-    </thead>
+            <thead>
+                @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+                {
+                    var item = ((GroupData)viewModel.Data[0]).Data[0];
+                    <tr class="row-title">
+                        <th class="cl-title" colspan="@colspan">
+                            <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                        </th>
+                    </tr>
+                }
+                <tr class="header">
+                    <th class="cl-race" colspan="3">
+                        @lang.Race
+                    </th>
+                    <th class="cl-result">
+                        @Raw(lang.Result)
+                    </th>
+                    <th class="cl-win">
+                        @Raw(lang.Win)
+                    </th>
+                    <th class="cl-plae">
+                        @Raw(lang.Place)
+                    </th>
+                    <th class="cl-status">
+                        @lang.Status
+                    </th>
+                </tr>
+            </thead>
         </table>
-        </div>
+    </div>
 }
 @if (viewModel.VisibleFreeHeader)
 {
@@ -45,69 +48,70 @@
 
 }
 <table class="fn-rs">
-     @if (!viewModel.VisibleFreeHeader)
-     {
-    <thead>
-        @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
-        {
-            var item = (Fanex.Result.Core.ViewModels.RacingViewModel)viewModel.Data[0];
-            <tr class="row-title">
-                <th class="cl-title" colspan="@colspan">
-                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+    @if (!viewModel.VisibleFreeHeader)
+    {
+        <thead>
+            @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+            {
+                var item = ((GroupData)viewModel.Data[0]).Data[0];
+                <tr class="row-title">
+                    <th class="cl-title" colspan="@colspan">
+                        <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                    </th>
+                </tr>
+            }
+            <tr class="header">
+                <th class="cl-race" colspan="3">
+                    @lang.Race
+                </th>
+                <th class="cl-result">
+                    @Raw(lang.Result)
+                </th>
+                <th class="cl-win">
+                    @Raw(lang.Win)
+                </th>
+                <th class="cl-plae">
+                    @Raw(lang.Place)
+                </th>
+                <th class="cl-status">
+                    @lang.Status
                 </th>
             </tr>
-        }
-        <tr class="header">
-            <th class="cl-race" colspan="3">
-                @lang.Race
-            </th>
-            <th class="cl-result">
-                @Raw(lang.Result)
-            </th>
-            <th class="cl-win">
-                @Raw(lang.Win)
-            </th>
-            <th class="cl-plae">
-                @Raw(lang.Place)
-            </th>
-            <th class="cl-status">
-                @lang.Status
-            </th>
-        </tr>
-    </thead>
-     }
+        </thead>
+    }
     <tbody>
         @if (viewModel.Data.Count > 0)
         {
-            var currentLeagueId = 0;
-
             var currentRace = string.Empty;
             var newLeague = false;
-            for (int index = 0, j = viewModel.Data.Count; index < j; index++)
+            var index = 0;
+            foreach (var itemObj in viewModel.Data)
             {
-
-                var item = (Fanex.Result.Core.ViewModels.RacingViewModel)viewModel.Data[index];
-                if (item.Place > 4) { continue; }
+                var group = (GroupData)itemObj;
 
                 if (!viewModel.IsPopUp)
                 {
-                    var leagueId = item.LeagueId;
-                    newLeague = currentLeagueId == 0 || currentLeagueId != leagueId;
-                    if (newLeague)
-                    {
-                        currentLeagueId = leagueId;
 
             <tr class="data">
                 <td colspan="@colspan" class="cl-league">
-                    @item.LeagueName
+                    @group.Data[0].LeagueName
                 </td>
             </tr>
-                    }
-                }
 
-                if (newLeague || !currentRace.Equals(item.RaceName))
+                }
+                foreach (var temp in group.Data)
                 {
-                    currentRace = item.RaceName;
+                    var item = (RacingViewModel)temp;
+
+                    index++;
+
+                    if (item.Place > 4)
+                    {
+                        continue;
+                    }
+                    if (!currentRace.Equals(item.RaceName))
+                    {
+                        currentRace = item.RaceName;
             <tr class="data @item.Color(index, "even", "odd")">
                 <td class="cl-race-name" rowspan="@item.RowCount">
                     @Raw(item.RaceName)
@@ -143,9 +147,9 @@
                 </td>
             </tr>
 
-                }
-                else
-                {
+                    }
+                    else
+                    {
             <tr class="data @item.Color(index, "even", "odd")">
                 <td class="cl-placeing">
                     @item.Placing
@@ -163,8 +167,8 @@
                     @item.PlaceOdd
                 </td>
             </tr>
+                    }
                 }
-
             }
         }
         else

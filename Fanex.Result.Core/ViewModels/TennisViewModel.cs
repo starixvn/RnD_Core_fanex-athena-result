@@ -7,7 +7,6 @@
 namespace Fanex.Result.Core.ViewModels
 {
     using System;
-    using System.Collections.Generic;
     using System.Globalization;
     using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.DTO;
@@ -63,31 +62,6 @@ namespace Fanex.Result.Core.ViewModels
             get { return Lang.Set + " " + this.SPORTBOOK.RefNo + " " + Lang.Score; }
         }
 
-        public IList<TennisDetailViewModel> SetDetail
-        {
-            get
-            {
-                if (!string.IsNullOrEmpty(this.SPORTBOOK.ResultValue) && this.SPORTBOOK.ResultValue.IndexOf("*", StringComparison.Ordinal) >= 0)
-                {
-                    string[] betStatusList = this.SPORTBOOK.ResultValue.Replace("*", string.Empty).Split(' ');
-                    var items = new List<TennisDetailViewModel>();
-                    for (int j = 1; j < betStatusList.Length; j++)
-                    {
-                        items.Add(new TennisDetailViewModel
-                        {
-                            SetId = j,
-                            SetScore1 = betStatusList[j].Trim().Split('-')[0].Trim(),
-                            SetScore2 = betStatusList[j].Trim().Split('-')[1].Trim()
-                        });
-                    }
-
-                    return items;
-                }
-
-                return null;
-            }
-        }
-
         #endregion match results detail
 
         /// <summary>
@@ -108,8 +82,8 @@ namespace Fanex.Result.Core.ViewModels
             {
                 this._totalGameAway = 0;
                 this._totalGameHome = 0;
-                this.HomeSet = new[] { "-", "-", "-", "-", "-" };
-                this.AwaySet = new[] { "-", "-", "-", "-", "-" };
+                this.HomeSet = new[] { StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN };
+                this.AwaySet = new[] { StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN };
                 if (this.SPORTBOOK.BetStatus.IndexOf(",", StringComparison.Ordinal) >= 0)
                 {
                     string[] betStatusList = this.GetCoreInfoFromBetStatus.Split(',');

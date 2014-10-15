@@ -55,15 +55,6 @@ namespace Fanex.Result.Core.ViewModels
             }
         }
 
-        #region match results detail
-
-        public string DetailName
-        {
-            get { return Lang.Set + " " + this.SPORTBOOK.RefNo + " " + Lang.Score; }
-        }
-
-        #endregion match results detail
-
         /// <summary>
         /// Get home and away set.
         /// Only used for some sport type such as tennis, badminton....
@@ -84,7 +75,7 @@ namespace Fanex.Result.Core.ViewModels
                 this._totalGameHome = 0;
                 this.HomeSet = new[] { StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN };
                 this.AwaySet = new[] { StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN };
-                if (this.SPORTBOOK.BetStatus.IndexOf(",", StringComparison.Ordinal) >= 0)
+                if (this.HasResult)
                 {
                     string[] betStatusList = this.GetCoreInfoFromBetStatus.Split(',');
                     for (int j = 0; j < betStatusList.Length && j < 5; j++)

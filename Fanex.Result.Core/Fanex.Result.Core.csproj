@@ -160,7 +160,6 @@
     <Compile Include="ViewModels\RacingViewModel.cs" />
     <Compile Include="ViewModels\SoccerViewModel.cs" />
     <Compile Include="ViewModels\SportbookBaseViewModel.cs" />
-    <Compile Include="ViewModels\TennisDetailViewModel.cs" />
     <Compile Include="ViewModels\TennisViewModel.cs" />
     <Compile Include="ViewModels\VSHRacingViewModel.cs" />
     <Compile Include="ViewModels\VSTennisViewModel.cs" />

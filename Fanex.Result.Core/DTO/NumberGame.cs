@@ -18,6 +18,8 @@ namespace Fanex.Result.Core.DTO
         {
             this.Seg = new List<int>();
             this.Ball = new List<int>();
+            this.EventStatus = string.Empty;
+            this.MatchCode = string.Empty;
         }
 
         public int LeagueId { get; set; }

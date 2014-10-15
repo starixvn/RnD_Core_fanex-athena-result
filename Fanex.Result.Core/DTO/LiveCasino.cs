@@ -15,6 +15,13 @@ namespace Fanex.Result.Core.DTO
     [ExcludeFromCodeCoverage]
     public sealed class LiveCasino
     {
+        public LiveCasino()
+        {
+            this.MatchCode = string.Empty;
+            this.BetStatus = string.Empty;
+            this.EventStatus = string.Empty;
+            this.ShowTime = string.Empty;
+        }
         public int LeagueId { get; set; }
 
         public int Bettype { get; set; }

@@ -129,6 +129,14 @@ namespace Fanex.Result.Core.ViewModels
             set { this._sportbook = value; }
         }
 
+        protected bool HasResult
+        {
+            get
+            {
+                return !string.IsNullOrEmpty(this.SPORTBOOK.BetStatus) && this.SPORTBOOK.BetStatus.IndexOf(",", StringComparison.Ordinal) >= 0;
+            }
+        }
+
         #endregion common properties
 
         #region Utilities
@@ -137,18 +145,20 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                var realStatus = this.SPORTBOOK.BetStatus;
-                var refundIndex = this.SPORTBOOK.BetStatus.IndexOf(";", StringComparison.Ordinal);
-                if (refundIndex >= 0)
+                if (!string.IsNullOrEmpty(this.SPORTBOOK.BetStatus))
                 {
-                    var startCoreIndex = refundIndex + 1;
-                    if (this.SPORTBOOK.BetStatus.Length > startCoreIndex)
+                    var refundIndex = this.SPORTBOOK.BetStatus.IndexOf(";", StringComparison.Ordinal);
+                    if (refundIndex >= 0)
                     {
-                        realStatus = this.SPORTBOOK.BetStatus.Substring(startCoreIndex);
+                        var startCoreIndex = refundIndex + 1;
+                        if (this.SPORTBOOK.BetStatus.Length > startCoreIndex)
+                        {
+                            return this.SPORTBOOK.BetStatus.Substring(startCoreIndex);
+                        }
                     }
                 }
 
-                return realStatus;
+                return this.SPORTBOOK.BetStatus != null ? this.SPORTBOOK.BetStatus.Trim() : string.Empty;
             }
         }
 

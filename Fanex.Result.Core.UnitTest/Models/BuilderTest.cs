@@ -49,7 +49,6 @@ namespace Fanex.Result.Core.UnitTest.Models
                 KickOffTime = DateTime.Now,
                 MatchCode = "01",
                 GoalRecord = string.Empty,
-                ResultValue = "6-1 *30-40 40-30* *40-0 40-0* *40-0 40-0* *40-0",
                 IsHTCal = true,
                 Calculate = true,
                 RefNo = "12"

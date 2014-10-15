@@ -13,6 +13,10 @@ namespace Fanex.Result.Core.DTO
     /// </summary>
     public sealed class OutRight
     {
+        public OutRight()
+        {
+            this.Status = string.Empty;
+        }
         public int SportType { get; set; }
 
         public int LeagueId { get; set; }

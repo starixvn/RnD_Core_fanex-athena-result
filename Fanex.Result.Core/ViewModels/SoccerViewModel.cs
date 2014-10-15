@@ -215,7 +215,7 @@ Justification = "Reviewed. Suppression is OK here.")]
          // Refund HT
          // 1FL:1-2
          */
-            string betStatus;
+            var betStatus = this.SPORTBOOK.BetStatus != null ? this.SPORTBOOK.BetStatus.Trim() : string.Empty;
             var homeOrAway = isHome ? "1" : "2";
             var firstOrLast = isFirstGoal ? 0 : 1;
             var firsHalfOrFullTime = isFirstHalf ? "1FL" : "FL";
@@ -224,7 +224,7 @@ Justification = "Reviewed. Suppression is OK here.")]
                 case StringResources.REFUND:
                 case StringResources.REFUNDHT:
                 case StringResources.REFUNDFT:
-                    betStatus = this.SPORTBOOK.BetStatus.Trim();
+
                     if (!string.IsNullOrEmpty(betStatus) && betStatus.Contains(":"))
                     {
                         string[] refundArray = betStatus.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
@@ -248,7 +248,7 @@ Justification = "Reviewed. Suppression is OK here.")]
                     return false;
 
                 default:
-                    betStatus = this.SPORTBOOK.BetStatus.Trim();
+
                     if (!string.IsNullOrEmpty(betStatus) && betStatus.Contains(":"))
                     {
                         string[] refundArray = betStatus.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);

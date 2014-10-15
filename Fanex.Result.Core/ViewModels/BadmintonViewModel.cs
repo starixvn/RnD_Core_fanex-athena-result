@@ -77,7 +77,7 @@ namespace Fanex.Result.Core.ViewModels
                 this._totalPointHome = 0;
                 this.HomeSet = new[] { "-", "-", "-", "-", "-" };
                 this.AwaySet = new[] { "-", "-", "-", "-", "-" };
-                if (this.SPORTBOOK.BetStatus.IndexOf(",", StringComparison.Ordinal) >= 0)
+                if (this.HasResult)
                 {
                     string[] betStatusList = this.GetCoreInfoFromBetStatus.Split(',');
                     for (int j = 0; j < betStatusList.Length && j < 5; j++)

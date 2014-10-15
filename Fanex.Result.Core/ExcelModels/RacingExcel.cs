@@ -21,7 +21,6 @@ namespace Fanex.Result.Core.ExcelModels
         #region Fields
 
         private const string FormatStatus = "Offical {0} {1}";
-        private const int ColumnRace = 0;
         private IList<RacingViewModel> _racingData;
 
         #endregion Fields

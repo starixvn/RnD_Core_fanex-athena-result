@@ -96,7 +96,7 @@ namespace Fanex.Result.Core.ViewModels
             {
                 this.HomeSet = new[] { "-", "-", "-", "-", "-", "-", "-", "-", "-", "-1" };
                 this.AwaySet = new[] { "-", "-", "-", "-", "-", "-", "-", "-", "-", "-1" };
-                if (this.SPORTBOOK.BetStatus.IndexOf(",", StringComparison.Ordinal) >= 0)
+                if (this.HasResult)
                 {
                     string[] betStatusList = this.GetCoreInfoFromBetStatus.Split(',');
                     for (int j = 0; j < betStatusList.Length && j < 10; j++)

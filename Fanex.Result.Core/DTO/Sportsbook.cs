@@ -13,6 +13,14 @@ namespace Fanex.Result.Core.DTO
     /// </summary>
     public sealed class Sportsbook
     {
+        public Sportsbook()
+        {
+            this.BetStatus = string.Empty;
+            this.GoalRecord = string.Empty;
+            this.MatchCode = string.Empty;
+            this.RefNo = string.Empty;
+        }
+
         public string BetStatus { get; set; }
 
         public int LeagueId { get; set; }
@@ -50,18 +58,6 @@ namespace Fanex.Result.Core.DTO
         public bool Calculate { get; set; }
 
         public bool IsHTCal { get; set; }
-
-        /// <summary>
-        /// Gets or sets the result value.
-        /// Only use for PopUp Result and sport type is Tennis.
-        /// To show more match detail (sporting solution).
-        /// Example :6-1 *30-40 40-30* *40-0 40-0* *40-0 40-0* *40-0.
-        ///  #pragma warning disable 1570
-        /// Read more info at:
-        /// <![CDATA[http://ccs.nexcel.vn/viewtopic.php?f=206&t=7240&p=33960#p33960]]>
-        /// </summary>
-        /// <value>Get from Result column.</value>
-        public string ResultValue { get; set; }
 
         /// <summary>
         /// Gets or sets RefNo.It's used for popUp Result.

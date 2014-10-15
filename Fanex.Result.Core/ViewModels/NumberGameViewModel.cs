@@ -72,12 +72,12 @@ namespace Fanex.Result.Core.ViewModels
 
         public string FirstBall
         {
-            get { return this._numberGame.Ball.Count > 0 ? Helper.FormatTwoDigit(this._numberGame.Ball[0]) : StringResources.NA; }
+            get { return this._numberGame.Ball.Count > 0 ? Helper.FormatTwoDigit(this._numberGame.Ball[0]) : StringResources.HYPHEN; }
         }
 
         public string LastBall
         {
-            get { return this._numberGame.Ball.Count > 0 ? Helper.FormatTwoDigit(this._numberGame.Ball[this._numberGame.Ball.Count - 1]) : StringResources.NA; }
+            get { return this._numberGame.Ball.Count > 0 ? Helper.FormatTwoDigit(this._numberGame.Ball[this._numberGame.Ball.Count - 1]) : StringResources.HYPHEN; }
         }
 
         public string Warrior
@@ -87,7 +87,7 @@ namespace Fanex.Result.Core.ViewModels
                 return this._numberGame.Ball.Count > 2 ? this._numberGame.Ball[1] > this._numberGame.Ball[2]
                        ? Lang.Warrior2ndBall : Lang.Warrior3rdBall :
 
-                       StringResources.NA;
+                       StringResources.HYPHEN;
             }
         }
 

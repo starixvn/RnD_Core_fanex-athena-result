@@ -3,7 +3,7 @@
 }
 @if (Model.Data.Count > 0)
 { 
-    <table class="fn-rs-popup" cellpadding="0" cellspacing="0">
+    <table class="fn-rs-popup">
         @foreach (var itemObj in Model.Data)
         {
             var item = (Fanex.Result.Core.ViewModels.ParlayViewModel)itemObj;
@@ -21,6 +21,7 @@
                 Resource = lang,
                 IsPopUp = true,
                 IsParlay = true,
+              
             };
             bindModle.Data.AddRange(item.ItemView);
                     }

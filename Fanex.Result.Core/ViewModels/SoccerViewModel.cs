@@ -143,7 +143,7 @@ namespace Fanex.Result.Core.ViewModels
                 if (this.SPORTBOOK.EventStatus == StringResources.REFUND
                     || this.SPORTBOOK.EventStatus == StringResources.REFUNDHT || this.SPORTBOOK.EventStatus == StringResources.Postponed)
                 {
-                    return StringResources.NA;
+                    return StringResources.HYPHEN;
                 }
 
                 return this.SPORTBOOK.HtHomeScore.HasValue ? this.SPORTBOOK.HtHomeScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
@@ -157,7 +157,7 @@ namespace Fanex.Result.Core.ViewModels
                 if (this.SPORTBOOK.EventStatus == StringResources.REFUND || this.SPORTBOOK.EventStatus == StringResources.REFUNDFT
                     || this.SPORTBOOK.EventStatus == StringResources.Postponed)
                 {
-                    return StringResources.NA;
+                    return StringResources.HYPHEN;
                 }
 
                 return this.SPORTBOOK.FinalHomeScore.HasValue ? this.SPORTBOOK.FinalHomeScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
@@ -171,7 +171,7 @@ namespace Fanex.Result.Core.ViewModels
                 if (this.SPORTBOOK.EventStatus == StringResources.REFUND
                     || this.SPORTBOOK.EventStatus == StringResources.REFUNDHT || this.SPORTBOOK.EventStatus == StringResources.Postponed)
                 {
-                    return StringResources.NA;
+                    return StringResources.HYPHEN;
                 }
 
                 return this.SPORTBOOK.HtAwayScore.HasValue ? this.SPORTBOOK.HtAwayScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
@@ -185,7 +185,7 @@ namespace Fanex.Result.Core.ViewModels
                 if (this.SPORTBOOK.EventStatus == StringResources.REFUND
                     || this.SPORTBOOK.EventStatus == StringResources.REFUNDFT || this.SPORTBOOK.EventStatus == StringResources.Postponed)
                 {
-                    return StringResources.NA;
+                    return StringResources.HYPHEN;
                 }
 
                 return this.SPORTBOOK.FinalAwayScore.HasValue ? this.SPORTBOOK.FinalAwayScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;

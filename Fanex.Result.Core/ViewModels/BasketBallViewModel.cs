@@ -88,8 +88,8 @@ namespace Fanex.Result.Core.ViewModels
 
             if (this.HomeSet == null || this.AwaySet == null)
             {
-                this.HomeSet = new[] { "-", "-", "-", "-", "0" };
-                this.AwaySet = new[] { "-", "-", "-", "-", "0" };
+                this.HomeSet = new[] { StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN, StringResources.ZERO };
+                this.AwaySet = new[] { StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN, StringResources.ZERO };
                 if (this.SPORTBOOK.EventStatus != StringResources.REFUNDFT)
                 {
                     if (this.SPORTBOOK.BetStatus.IndexOf(",", StringComparison.Ordinal) >= 0)

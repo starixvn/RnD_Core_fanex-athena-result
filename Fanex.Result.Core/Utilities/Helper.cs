@@ -9,6 +9,7 @@ namespace Fanex.Result.Core.Utilities
     using System;
     using System.Globalization;
     using System.Text.RegularExpressions;
+    using Fanex.Result.Core.DataDomain;
 
     /// <summary>
     /// TODO: Update summary.
@@ -44,7 +45,7 @@ namespace Fanex.Result.Core.Utilities
 
         public static string FormatTwoDigit(int number)
         {
-            return number < 10 ? "0" + number : number.ToString(CultureInfo.InvariantCulture);
+            return number < 10 ? StringResources.ZERO + number : number.ToString(CultureInfo.InvariantCulture);
         }
 
         public static string ToRtfString(string html)

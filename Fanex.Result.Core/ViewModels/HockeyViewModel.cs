@@ -81,8 +81,8 @@ namespace Fanex.Result.Core.ViewModels
 
             if (this.AwaySet == null || this.HomeSet == null)
             {
-                HomeSet = new[] { "-", "-", "-", "0" };
-                AwaySet = new[] { "-", "-", "-", "0" };
+                HomeSet = new[] { StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN, StringResources.ZERO };
+                AwaySet = new[] { StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN, StringResources.ZERO };
                 if (this.SPORTBOOK.BetStatus.IndexOf(",", StringComparison.Ordinal) >= 0)
                 {
                     string[] betStatusList = this.GetCoreInfoFromBetStatus.Split(',');

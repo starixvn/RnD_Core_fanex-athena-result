@@ -15,8 +15,6 @@ namespace Fanex.Result.Core.DataDomain
 
         public const string BOLDTEAMPATTERN = "<b>{0}</b>";
 
-        public const string NA = "N/A";
-
         public const string REFUNDHT = "Refund HT";
 
         public const string REFUNDFT = "Refund FT";
@@ -27,5 +25,6 @@ namespace Fanex.Result.Core.DataDomain
         public const string Postponed = "Postponed";
         public const string VOID = "Void";
         public const string PENALTYLABEL = "PS:";
+        public const string ZERO = "0";
     }
 }

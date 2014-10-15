@@ -15,7 +15,7 @@ namespace Fanex.Result.Core.ViewModels
     /// <summary>
     /// Outright view model class.
     /// </summary>
-    public sealed class OutRightViewModel : BaseViewModel,IResultViewModel
+    public sealed class OutRightViewModel : BaseViewModel, IResultViewModel
     {
         private readonly OutRight _outRight;
 

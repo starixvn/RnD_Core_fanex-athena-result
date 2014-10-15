@@ -166,13 +166,13 @@
 
                                 <span class="detail-link soccer-detail-link" data-league-id="@item.LeagueId"
                                          data-home-id="@item.HomeId" data-away-id="@item.AwayId" data-goal-record="@item.GoalRecord">
-                                    [i] </span>
+                                    @lang.Details </span>
                             }
                             @if (!string.IsNullOrEmpty(item.PenaltyShootoutResult))
                             {
 
                                 <span class="detail-link penalty-result" original-title="@item.PenaltyShootoutTooltip">
-                                    [PS:@item.PenaltyShootoutResult] </span>
+                                    [@lang.PS:@item.PenaltyShootoutResult] </span>
                             }
                         </div>
                     }

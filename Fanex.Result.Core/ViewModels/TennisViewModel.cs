@@ -15,7 +15,7 @@ namespace Fanex.Result.Core.ViewModels
     /// <summary>
     /// Tennis view model class.
     /// </summary>
-    public sealed class TennisViewModel : SportbookBaseViewModel,IResultViewModel
+    public sealed class TennisViewModel : SportbookBaseViewModel, IResultViewModel
     {
         private int _totalGameHome;
         private int _totalGameAway;

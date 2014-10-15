@@ -15,7 +15,7 @@ namespace Fanex.Result.Core.ViewModels
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public sealed class SoccerViewModel : SportbookBaseViewModel,IResultViewModel
+    public sealed class SoccerViewModel : SportbookBaseViewModel, IResultViewModel
     {
         private bool _visibleDetailedLink = false;
 

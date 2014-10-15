@@ -7,6 +7,7 @@
 namespace Fanex.Result.Core.ExcelModels
 {
     using System.Collections.Generic;
+    using System.Linq;
     using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.Utilities;
@@ -53,35 +54,35 @@ namespace Fanex.Result.Core.ExcelModels
         protected override void AssignSheetData(ISheet sheet)
         {
             var currentRow = RowLeagueTemplate;
-            var currentLeagueId = 0;
-            foreach (var exportRow in this._liveCasinoData)
+            var groupData = this._liveCasinoData.GroupBy(i => i.LeagueId);
+            foreach (var item in groupData)
             {
-                if (currentLeagueId == 0 || currentLeagueId != exportRow.LeagueId)
+                var firstItem = item.FirstOrDefault();
+                var rowLeague = sheet.CopyRow(TemplateSheet, RowLeagueTemplate, currentRow, ColumnTemplateIndexList);
+                rowLeague.Cells[0].SetCellValue(firstItem.LeagueName);
+                sheet.MergeCells(currentRow, 0, currentRow, 1);
+                currentRow++;
+                if (string.IsNullOrEmpty(firstItem.PlayerAndBanker))
                 {
-                    currentLeagueId = exportRow.LeagueId;
-                    var rowLeague = sheet.CopyRow(TemplateSheet, RowLeagueTemplate, currentRow, ColumnTemplateIndexList);
-                    rowLeague.Cells[0].SetCellValue(exportRow.LeagueName);
-                    sheet.MergeCells(currentRow, 0, currentRow, 1);
-                    currentRow++;
-                    if (string.IsNullOrEmpty(exportRow.PlayerAndBanker))
-                    {
-                        rowLeague.Cells[2].SetCellValue(string.Empty);
-                    }
+                    rowLeague.Cells[2].SetCellValue(string.Empty);
                 }
 
-                var rowMatch = sheet.CopyRow(TemplateSheet, RowContentTemplate, currentRow, ColumnTemplateIndexList);
+                foreach (var exportRow in item)
+                {
+                    var rowMatch = sheet.CopyRow(TemplateSheet, RowContentTemplate, currentRow, ColumnTemplateIndexList);
 
-                currentRow++;
+                    currentRow++;
 
-                AssignStringData(
-                    rowMatch,
-                    ColumnMatchCode,
-                    exportRow.MatchCode,
-                    Helper.ToRtfString(exportRow.KickOffTime),
-                    exportRow.GameType,
-                    exportRow.FinalScore,
-                    Helper.ToRtfString(exportRow.Result),
-                    exportRow.EventStatus);
+                    AssignStringData(
+                        rowMatch,
+                        ColumnMatchCode,
+                        exportRow.MatchCode,
+                        Helper.ToRtfString(exportRow.KickOffTime),
+                        exportRow.GameType,
+                        exportRow.FinalScore,
+                        Helper.ToRtfString(exportRow.Result),
+                        exportRow.EventStatus);
+                }
             }
         }
 

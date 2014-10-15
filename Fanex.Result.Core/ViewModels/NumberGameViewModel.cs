@@ -16,7 +16,7 @@ namespace Fanex.Result.Core.ViewModels
     /// <summary>
     /// Number game view model class.
     /// </summary>
-    public sealed class NumberGameViewModel : BaseViewModel,IResultViewModel
+    public sealed class NumberGameViewModel : BaseViewModel, IResultViewModel
     {
         private readonly NumberGame _numberGame;
 

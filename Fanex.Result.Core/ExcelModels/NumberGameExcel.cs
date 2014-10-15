@@ -7,6 +7,7 @@
 namespace Fanex.Result.Core.ExcelModels
 {
     using System.Collections.Generic;
+    using System.Linq;
     using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.Utilities;
@@ -62,36 +63,37 @@ namespace Fanex.Result.Core.ExcelModels
         {
             var currentRow = RowLeagueTemplate;
             var currentLeagueId = 0;
-
-            foreach (var exportRow in this._numberGameData)
+            var groupData = this._numberGameData.GroupBy(i => i.LeagueId);
+            foreach (var item in groupData)
             {
-                if (currentLeagueId == 0 || currentLeagueId != exportRow.LeagueId)
+                var firstItem = item.FirstOrDefault();
+                SetLeague(sheet, firstItem.LeagueId, firstItem.LeagueName, ref currentLeagueId, ref currentRow);
+
+                foreach (var exportRow in item)
                 {
-                    SetLeague(sheet, exportRow.LeagueId, exportRow.LeagueName, ref currentLeagueId, ref currentRow);
+                    var rowMatch = sheet.CopyRow(TemplateSheet, RowContentTemplate, currentRow);
+
+                    var results = new List<string>();
+
+                    foreach (var ball in exportRow.Result)
+                    {
+                        results.Add(ball);
+                    }
+
+                    AssignStringData(
+                                rowMatch,
+                                    ColumnMatchCode,
+                                    Helper.ToRtfString(exportRow.MatchCode + "<br/>" + exportRow.MatchId),
+                                     Helper.ToRtfString(exportRow.KickOffTime),
+                                      string.Format(Match, Lang.NumberGameNo, exportRow.GameNo),
+                                      string.Join("-", results),
+                                      exportRow.Warrior,
+                                      exportRow.OEFT,
+                                      exportRow.FirstBall,
+                                      exportRow.LastBall,
+                                       exportRow.EventStatus);
+                    currentRow++;
                 }
-
-                var rowMatch = sheet.CopyRow(TemplateSheet, RowContentTemplate, currentRow);
-
-                var results = new List<string>();
-
-                foreach (var ball in exportRow.Result)
-                {
-                    results.Add(ball);
-                }
-
-                AssignStringData(
-                            rowMatch,
-                                ColumnMatchCode,
-                                Helper.ToRtfString(exportRow.MatchCode + "<br/>" + exportRow.MatchId),
-                                 Helper.ToRtfString(exportRow.KickOffTime),
-                                  string.Format(Match, Lang.NumberGameNo, exportRow.GameNo),
-                                  string.Join("-", results),
-                                  exportRow.Warrior,
-                                  exportRow.OEFT,
-                                  exportRow.FirstBall,
-                                  exportRow.LastBall,
-                                   exportRow.EventStatus);
-                currentRow++;
             }
         }
     }

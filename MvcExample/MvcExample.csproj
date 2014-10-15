@@ -220,18 +220,27 @@
     <None Include="App_Data\Fanex.Result\Other.xls" />
     <None Include="App_Data\Fanex.Result\Racing.xls" />
     <None Include="App_Data\Fanex.Result\VSSpeedWay.xls" />
-    <None Include="ClearScript.V8\ClearScriptV8-32.dll">
+    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\en-US.xml" />
+    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\zh-CN.xml" />
+    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\ja-JP.xml" />
+    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\ko-KR.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\th-TH.xml" />
+    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\vi-VN.xml" />
+    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\zh-TW.xml" />
+    <Content Include="ClearScript.V8\ClearScriptV8-32.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="ClearScript.V8\ClearScriptV8-64.dll">
+    </Content>
+    <Content Include="ClearScript.V8\ClearScriptV8-64.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="ClearScript.V8\v8-ia32.dll">
+    </Content>
+    <Content Include="ClearScript.V8\v8-ia32.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Include="ClearScript.V8\v8-x64.dll">
+    </Content>
+    <Content Include="ClearScript.V8\v8-x64.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </Content>
     <Content Include="%40JSense.js" />
     <Content Include="App_Data\SpName.xml">
       <SubType>Designer</SubType>
@@ -305,7 +314,9 @@
     <Content Include="Scripts\Page\outright-report.js" />
     <Content Include="Scripts\Page\popup-report.js" />
     <Content Include="Scripts\Page\normal-report.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -449,9 +460,7 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_Menu.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\Fanex.Result.Resource\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

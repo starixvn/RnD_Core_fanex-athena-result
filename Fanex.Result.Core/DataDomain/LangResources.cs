@@ -140,5 +140,7 @@ public sealed class LangResources
               
 			  				 public string PS  { get ; set; }
               
+			  				 public string Details  { get ; set; }
+              
 			           		 }
 }

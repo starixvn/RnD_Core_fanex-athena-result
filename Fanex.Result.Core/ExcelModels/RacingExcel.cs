@@ -56,14 +56,18 @@ namespace Fanex.Result.Core.ExcelModels
             var currentRow = 2;
             var currentLeagueId = 0;
             var endRowSpan = 3;
-            foreach (var exportRow in this._racingData)
+            var groupData = this._racingData.GroupBy(i => i.LeagueId);
+            foreach (var item in groupData)
             {
-                if (exportRow.Place > 4)
+                foreach (var exportRow in item)
                 {
-                    continue;
-                }
+                    if (exportRow.Place > 4)
+                    {
+                        continue;
+                    }
 
-                SetMatch(sheet, exportRow, ref currentLeagueId, ref currentRow, ref endRowSpan);
+                    SetMatch(sheet, exportRow, ref currentLeagueId, ref currentRow, ref endRowSpan);
+                }
             }
         }
 

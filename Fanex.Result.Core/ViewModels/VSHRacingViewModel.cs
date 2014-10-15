@@ -16,7 +16,7 @@ namespace Fanex.Result.Core.ViewModels
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public class VSHRacingViewModel : BaseViewModel,IResultViewModel
+    public class VSHRacingViewModel : BaseViewModel, IResultViewModel
     {
         private readonly Racing _racing;
 

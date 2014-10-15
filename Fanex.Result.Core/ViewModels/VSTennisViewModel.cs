@@ -12,7 +12,7 @@ namespace Fanex.Result.Core.ViewModels
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public class VSTennisViewModel : SportbookBaseViewModel,IResultViewModel
+    public class VSTennisViewModel : SportbookBaseViewModel, IResultViewModel
     {
         public VSTennisViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resources)
             : base(sportbook, setting, resources)

@@ -14,6 +14,7 @@ namespace Fanex.Result.Core.ViewModels
         int LeagueId { get; }
 
         string LeagueName { get; }
+
         string SportName { get; }
     }
 }

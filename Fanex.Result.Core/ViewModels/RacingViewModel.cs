@@ -15,7 +15,7 @@ namespace Fanex.Result.Core.ViewModels
     /// <summary>
     /// Racing view model class.
     /// </summary>
-    public sealed class RacingViewModel : BaseViewModel,IResultViewModel
+    public sealed class RacingViewModel : BaseViewModel, IResultViewModel
     {
         private readonly Racing _racing;
 

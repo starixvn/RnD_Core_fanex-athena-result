@@ -7,6 +7,7 @@
 namespace Fanex.Result.Core.ExcelModels
 {
     using System.Collections.Generic;
+    using System.Linq;
     using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.Utilities;
@@ -46,14 +47,25 @@ namespace Fanex.Result.Core.ExcelModels
             row.Cells[colidx].SetCellValue(this.Lang.Status);
         }
 
+        /// <summary>
+        /// Assign data to sheet.
+        /// </summary>
+        /// <param name="sheet">The current sheet.</param>
         protected override void AssignSheetData(ISheet sheet)
         {
             var currentRow = RowLeagueTemplate;
             var currentLeagueId = 0;
-            foreach (var exportRow in this._tennisData)
+            var groupData = this._tennisData.GroupBy(i => i.LeagueId);
+            foreach (var item in groupData)
             {
-                SetLeague(sheet, exportRow.LeagueId, exportRow.LeagueName, ref currentLeagueId, ref currentRow);
-                SetDataForMatch(sheet, exportRow, ref currentRow);
+                var firstItem = item.FirstOrDefault();
+
+                SetLeague(sheet, firstItem.LeagueId, firstItem.LeagueName, ref currentLeagueId, ref currentRow);
+
+                foreach (var exportRow in item)
+                {
+                    SetDataForMatch(sheet, exportRow, ref currentRow);
+                }
             }
         }
 

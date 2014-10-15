@@ -16,7 +16,7 @@ namespace Fanex.Result.Core.ViewModels
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public class SportbookBaseViewModel : BaseViewModel,IResultViewModel
+    public class SportbookBaseViewModel : BaseViewModel, IResultViewModel
     {
         private string[] _homeSet;
 

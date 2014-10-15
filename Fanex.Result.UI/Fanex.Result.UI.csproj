@@ -63,15 +63,15 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
-    <None Include="App_Data\Fanex.Result.Resource\en-US.xml" />
-    <None Include="App_Data\Fanex.Result.Resource\zh-TW.xml" />
-    <None Include="App_Data\Fanex.Result.Resource\ja-JP.xml" />
-    <None Include="App_Data\Fanex.Result.Resource\ko-KR.xml">
+    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\en-US.xml" />
+    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\zh-TW.xml" />
+    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\ja-JP.xml" />
+    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\ko-KR.xml">
       <SubType>Designer</SubType>
-    </None>
-    <None Include="App_Data\Fanex.Result.Resource\th-TH.xml" />
-    <None Include="App_Data\Fanex.Result.Resource\vi-VN.xml" />
-    <None Include="App_Data\Fanex.Result.Resource\zh-CN.xml" />
+    </EmbeddedResource>
+    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\th-TH.xml" />
+    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\vi-VN.xml" />
+    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\zh-CN.xml" />
     <Content Include="Content\Fanex.Result\fanex.result.css" />
     <Content Include="Content\Fanex.Result\images\1F.gif" />
     <Content Include="Content\Fanex.Result\images\1L.gif" />

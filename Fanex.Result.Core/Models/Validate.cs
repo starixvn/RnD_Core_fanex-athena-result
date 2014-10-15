@@ -128,7 +128,7 @@ namespace Fanex.Result.Core.Models
             {
                 return true;
             }
-            
+
             return false;
         }
     }

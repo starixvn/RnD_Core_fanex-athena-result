@@ -53,7 +53,8 @@ namespace Fanex.Result.Core.Models
                 return HtmlRender("OutRight", modelOutRight);
             }
 
-            var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(i, setting, lang)).ToList();
+            var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(i, setting, lang))
+                 .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToList() });
             var model = CreateModel(lang, dataMaped, true, false, setting);
             return HtmlRender(setting.SportType.StringMe(), model);
         }
@@ -155,6 +156,12 @@ namespace Fanex.Result.Core.Models
 
         #endregion JsonBuilder
 
+        /// <summary>
+        /// Render html result.
+        /// </summary>
+        /// <param name="templateName">The template name.</param>
+        /// <param name="model">The binder model.</param>
+        /// <returns>The html result.</returns>
         private static string HtmlRender(string templateName, RazorBinderModel model)
         {
             // loading a template might be expensive, so be careful to cache content

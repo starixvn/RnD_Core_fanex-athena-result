@@ -72,7 +72,6 @@
                         isShowAll = true,
                         LeagueID = leagueId
                     });
-                    ;
 
                     htmlResult = ResultEngine.HtmlParser<Racing>(dataRc.ToList(), resultSetting);
 

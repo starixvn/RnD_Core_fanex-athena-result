@@ -13,7 +13,7 @@ namespace Fanex.Result.Core.ViewModels
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public sealed class OtherViewModel : SportbookBaseViewModel,IResultViewModel
+    public sealed class OtherViewModel : SportbookBaseViewModel, IResultViewModel
     {
         public OtherViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resources)
             : base(sportbook, setting, resources)

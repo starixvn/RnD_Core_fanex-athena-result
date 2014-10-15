@@ -4,6 +4,9 @@
     var lang = (Fanex.Result.Core.DataDomain.LangResources)viewModel.Resource;
     const int colspan = 7;
 }
+@using Fanex.Result.Core.ViewModels;
+@using Fanex.Result.Core.Models;
+@using System.Collections;
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
@@ -11,7 +14,7 @@
             <thead>
                 @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
                 {
-                    var item = (Fanex.Result.Core.ViewModels.VSHRacingViewModel)viewModel.Data[0];
+                    var item = ((GroupData)viewModel.Data[0]).Data[0];
                     <tr class="row-title">
                         <th class="cl-title" colspan="@colspan">
                             <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
@@ -51,7 +54,7 @@
         <thead>
             @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
             {
-                var item = (Fanex.Result.Core.ViewModels.VSHRacingViewModel)viewModel.Data[0];
+                var item = ((GroupData)viewModel.Data[0]).Data[0];
                 <tr class="row-title">
                     <th class="cl-title" colspan="@colspan">
                         <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
@@ -80,34 +83,30 @@
     <tbody>
         @if (viewModel.Data.Count > 0)
         {
-            var currentLeagueId = 0;
             var currentRace = DateTime.MinValue;
-            var newLeague = false;
-            for (int index = 0, j = viewModel.Data.Count; index < j; index++)
+            var index = 0;
+            foreach (var itemObj in viewModel.Data)
             {
-                var item = (Fanex.Result.Core.ViewModels.VSHRacingViewModel)viewModel.Data[index];
-                if (item.Place > 4) { continue; }
+                var group = (GroupData)itemObj;
 
                 if (!viewModel.IsPopUp)
                 {
-                    var leagueId = item.LeagueId;
-                    newLeague = currentLeagueId == 0 || currentLeagueId != leagueId;
-                    if (newLeague)
-                    {
-                        currentLeagueId = leagueId;
 
             <tr class="data">
                 <td colspan="@colspan" class="cl-league">
-                    @item.LeagueName
+                    @group.Data[0].LeagueName
                 </td>
             </tr>
-                    }
                 }
-
-                if (newLeague || currentRace != item.EvenTime)
+                foreach (var temp in group.Data)
                 {
-                    currentRace = item.EvenTime;
-                    var counter = 0;
+                    var item = (VSHRacingViewModel)temp;
+
+                    index++;
+                    if (item.Place > 4) { continue; }
+                    if (currentRace != item.EvenTime)
+                    {
+                        currentRace = item.EvenTime;
             <tr class="data @item.Color(index, "even", "odd")">
                 <td class="cl-race-name" rowspan="@item.RowCount">
                     @Raw(item.KickOffTime)
@@ -132,9 +131,9 @@
                 </td>
             </tr>
 
-                }
-                else
-                {
+                    }
+                    else
+                    {
             <tr class="data @item.Color(index, "even", "odd")">
                 <td class="cl-placeing">
                     @item.Placing
@@ -155,9 +154,11 @@
                     @item.Status
                 </td>
             </tr>
-                }
+                    }
 
+                }
             }
+
         }
         else
         {

@@ -14,7 +14,7 @@ namespace Fanex.Result.Core.ViewModels
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public sealed class BasketBallViewModel : SportbookBaseViewModel,IResultViewModel
+    public sealed class BasketBallViewModel : SportbookBaseViewModel, IResultViewModel
     {
         public BasketBallViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resource)
             : base(sportbook, setting, resource)

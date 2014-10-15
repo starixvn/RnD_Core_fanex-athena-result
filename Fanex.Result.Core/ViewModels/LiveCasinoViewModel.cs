@@ -17,7 +17,7 @@ namespace Fanex.Result.Core.ViewModels
     /// <summary>
     /// Live casino view model class.
     /// </summary>
-    public sealed class LiveCasinoViewModel : BaseViewModel,IResultViewModel
+    public sealed class LiveCasinoViewModel : BaseViewModel, IResultViewModel
     {
         private readonly int[] _rouletteBettype = new int[2] { 1102, 1104 };
 

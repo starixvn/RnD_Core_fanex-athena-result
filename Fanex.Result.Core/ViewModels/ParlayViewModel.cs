@@ -18,7 +18,7 @@ namespace Fanex.Result.Core.ViewModels
     /// <summary>
     /// Parlay view model class.
     /// </summary>
-    public sealed class ParlayViewModel : BaseViewModel,IResultViewModel
+    public sealed class ParlayViewModel : BaseViewModel, IResultViewModel
     {
         private readonly Parlay _parlay;
         private ResultSetting _setting;

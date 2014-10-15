@@ -14,9 +14,14 @@ namespace Fanex.Result.Core.Models
     /// </summary>
     public class RazorBinderModel
     {
-        public LangResources Resource { get; set; }
+        private List<GroupData> _data = new List<GroupData>();
 
-        public List<GroupData> Data = new List<GroupData>();
+        public List<GroupData> Data
+        {
+            get { return _data; }
+        }
+
+        public LangResources Resource { get; set; }
 
         public bool IsPopUp { get; set; }
 

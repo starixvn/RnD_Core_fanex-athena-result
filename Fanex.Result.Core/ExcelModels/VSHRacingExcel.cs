@@ -23,7 +23,6 @@ namespace Fanex.Result.Core.ExcelModels
         #region Fields
 
         private const string FormatStatus = "Offical {0} {1}";
-
         private IList<VSHRacingViewModel> _racingData;
 
         #endregion Fields
@@ -108,7 +107,7 @@ namespace Fanex.Result.Core.ExcelModels
                 if (currentRow == 3 || endRowSpan < currentRow)
                 {
                     endRowSpan = currentRow + rowsTopRace - 1;
-                    MergeKickOffTimeCell(sheet, currentRow, endRowSpan, colSpanKichOffTime: ColumnKickOffTime);
+                    MergeKickOffTimeCell(sheet, currentRow, endRowSpan, colSpanKichOffTime: ColumnRace);
                 }
             }
 

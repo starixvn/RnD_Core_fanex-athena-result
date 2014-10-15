@@ -33,7 +33,7 @@ namespace Fanex.Result.Core.ExcelModels
         protected const int RowNoInfoTemplate = 4;
         protected const string Na = "N/A";
         protected const int ColumnMatchCode = 0;
-
+        protected const int ColumnRace = 0;
         protected const int ColumnKickOffTime = 1;
 
         private int _rowContentTemplate = 3;

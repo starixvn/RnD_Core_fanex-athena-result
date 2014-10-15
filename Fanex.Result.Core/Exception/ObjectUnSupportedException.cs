@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="ObjectNullException.cs" company="Nexcel">
+// <copyright file="ObjectUnSupportedException.cs" company="Nexcel">
 // TODO: Update copyright text.
 // </copyright>
 // -----------------------------------------------------------------------
@@ -12,9 +12,9 @@ namespace Fanex.Result.Core.Exception
     /// TODO: Update summary.
     /// </summary>
     [Serializable]
-    public class ObjectNullException : System.Exception
+    public class ObjectUnSupportedException : System.Exception
     {
-        public ObjectNullException(string message)
+        public ObjectUnSupportedException(string message)
             : base(message)
         {
         }

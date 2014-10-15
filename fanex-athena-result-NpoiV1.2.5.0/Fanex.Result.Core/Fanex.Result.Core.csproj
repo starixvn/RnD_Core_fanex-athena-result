@@ -61,14 +61,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\..\Fanex.Result.Core\DTO\DataDomain.cs">
-      <Link>DTO\DataDomain.cs</Link>
+    <Compile Include="..\..\Fanex.Result.Core\DataDomain\DTOType.cs">
+      <Link>DataDomain\DTOType.cs</Link>
     </Compile>
-    <Compile Include="..\..\Fanex.Result.Core\DTO\LangResources.cs">
-      <Link>DTO\LangResources.cs</Link>
-      <AutoGen>False</AutoGen>
-      <DesignTime>False</DesignTime>
-      <DependentUpon>LangResources.tt</DependentUpon>
+    <Compile Include="..\..\Fanex.Result.Core\DataDomain\LangResources.cs">
+      <Link>DataDomain\LangResources.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\DataDomain\ResourceConfig.cs">
+      <Link>DataDomain\ResourceConfig.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\DataDomain\StringResources.cs">
+      <Link>DataDomain\StringResources.cs</Link>
     </Compile>
     <Compile Include="..\..\Fanex.Result.Core\DTO\LiveCasino.cs">
       <Link>DTO\LiveCasino.cs</Link>
@@ -87,9 +90,6 @@
     </Compile>
     <Compile Include="..\..\Fanex.Result.Core\DTO\Sportsbook.cs">
       <Link>DTO\Sportsbook.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Fanex.Result.Core\DTO\StringResources.cs">
-      <Link>DTO\StringResources.cs</Link>
     </Compile>
     <Compile Include="..\..\Fanex.Result.Core\ExcelModels\BadmintonExcel.cs">
       <Link>ExcelModels\BadmintonExcel.cs</Link>
@@ -142,8 +142,8 @@
     <Compile Include="..\..\Fanex.Result.Core\Exception\ObjectNullException.cs">
       <Link>Exception\ObjectNullException.cs</Link>
     </Compile>
-    <Compile Include="..\..\Fanex.Result.Core\Exception\ResultCoreException.cs">
-      <Link>Exception\ResultCoreException.cs</Link>
+    <Compile Include="..\..\Fanex.Result.Core\Exception\ObjectUnSupportedException.cs">
+      <Link>Exception\ObjectUnSupportedException.cs</Link>
     </Compile>
     <Compile Include="..\..\Fanex.Result.Core\Extension\Converter.cs">
       <Link>Extension\Converter.cs</Link>
@@ -162,6 +162,9 @@
     </Compile>
     <Compile Include="..\..\Fanex.Result.Core\Models\Builder.cs">
       <Link>Models\Builder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\Models\GroupData.cs">
+      <Link>Models\GroupData.cs</Link>
     </Compile>
     <Compile Include="..\..\Fanex.Result.Core\Models\IBuilder.cs">
       <Link>Models\IBuilder.cs</Link>
@@ -225,6 +228,9 @@
     </Compile>
     <Compile Include="..\..\Fanex.Result.Core\ViewModels\HockeyViewModel.cs">
       <Link>ViewModels\HockeyViewModel.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ViewModels\IResultViewModel.cs">
+      <Link>ViewModels\IResultViewModel.cs</Link>
     </Compile>
     <Compile Include="..\..\Fanex.Result.Core\ViewModels\LiveCasinoViewModel.cs">
       <Link>ViewModels\LiveCasinoViewModel.cs</Link>
@@ -345,11 +351,6 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\Fanex.Result.Core\DTO\LangResources.tt">
-      <Link>DTO\LangResources.tt</Link>
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>LangResources.cs</LastGenOutput>
-    </None>
     <EmbeddedResource Include="..\..\Fanex.Result.Core\Views\VSSpeedWay.cshtml">
       <Link>Views\VSSpeedWay.cshtml</Link>
     </EmbeddedResource>

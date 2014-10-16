@@ -111,20 +111,31 @@ namespace MvcExample.Models
         /// <returns>The SPORTBOOK data.</returns>
         public IEnumerable<Fanex.Result.Core.DTO.Sportsbook> GetSportbookResult(GetSportbookResultCriteria criteria)
         {
-            var result = new List<Sportsbook>();
-
+            var results = new List<Sportsbook>();
+            var gameDetails = new List<GameDetail>();
             using (var db = new ObjectDb(criteria.GetSettingKey()))
             {
                 using (var reader = db.ExecuteReader(criteria.GetSpParams()))
                 {
                     while (reader.Read())
                     {
-                        result.Add(BindSportbook(reader));
+                        results.Add(BindSportbook(reader));
+                    }
+
+                    reader.NextResult();
+
+                    while (reader.Read())
+                    {
+                        gameDetails.Add(BindGameDetail(reader));
                     }
                 }
             }
 
-            return result;
+            foreach (var result in results)
+            {
+                result.GameDetail.Union(gameDetails.Where(i => i.MatchId == result.MatchId));
+            }
+            return results;
         }
 
         #endregion Normal-Report
@@ -204,20 +215,30 @@ namespace MvcExample.Models
         /// <returns>The SPORTBOOK POPUP data.</returns>
         public IEnumerable<Fanex.Result.Core.DTO.Sportsbook> GetSportbookPopupResult(GetSportbookPopupResultCriteria criteria)
         {
-            var result = new List<Sportsbook>();
-
+            var results = new List<Sportsbook>();
+            var gameDetails = new List<GameDetail>();
             using (var db = new ObjectDb(criteria.GetSettingKey()))
             {
                 using (var reader = db.ExecuteReader(criteria.GetSpParams()))
                 {
                     while (reader.Read())
                     {
-                        result.Add(BindSportbook(reader));
+                        results.Add(BindSportbook(reader));
+                    }
+                    reader.NextResult();
+
+                    while (reader.Read())
+                    {
+                        gameDetails.Add(BindGameDetail(reader));
                     }
                 }
             }
 
-            return result;
+            foreach (var result in results)
+            {
+                result.GameDetail.Union(gameDetails.Where(i => i.MatchId == result.MatchId));
+            }
+            return results;
         }
 
         #endregion PopUp
@@ -312,7 +333,7 @@ namespace MvcExample.Models
         /// <returns>The SPORTBOOK DTO.</returns>
         private static Sportsbook BindSportbook(System.Data.IDataReader reader)
         {
-            return new Sportsbook
+            var item = new Sportsbook
             {
                 AwayId = int.Parse(reader["awayID"].ToString()),
                 HomeId = int.Parse(reader["homeID"].ToString()),
@@ -344,8 +365,32 @@ namespace MvcExample.Models
                 GoalRecord = reader["goalrecord"].ToString(),
                 IsHTCal = Convert.ToBoolean(reader["IsHTCal"]),
                 Calculate = Convert.ToBoolean(reader["Calculate"]),
-                RefNo = string.Empty
+                RefNo = string.Empty,
+                GameDetail = new List<GameDetail>()
             };
+            item.GameDetail.Add(new GameDetail
+            {
+                MatchId = 10514601,
+                ResourceId = "0101",
+                HomeValue = "40",
+                AwayValue = "15",
+                ResultStatusID = 5,
+                SettlementStatusID = 4
+            });
+            return item;
+        }
+
+        private GameDetail BindGameDetail(IDataReader reader)
+        {
+            return new GameDetail
+             {
+                 MatchId = int.Parse(reader["matchid"].ToString()),
+                 ResourceId = reader["ResourceId"].ToString(),
+                 HomeValue = reader["HomeValue"].ToString(),
+                 AwayValue = reader["AwayValue"].ToString(),
+                 ResultStatusID = int.Parse(reader["ResultStatusID"].ToString()),
+                 SettlementStatusID = int.Parse(reader["SettlementStatusID"].ToString())
+             };
         }
 
         /// <summary>

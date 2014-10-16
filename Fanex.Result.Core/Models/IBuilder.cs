@@ -9,6 +9,7 @@ namespace Fanex.Result.Core.Models
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
+    using Fanex.Result.Core.DTO;
 
     /// <summary>
     /// TODO: Update summary.
@@ -25,6 +26,8 @@ namespace Fanex.Result.Core.Models
         string JSONOutRightBuilder<T>(IList<T> dataList, ResultSetting setting);
 
         string HtmlBuilder<T>(IList<T> dataList, ResultSetting setting);
+
+        string HtmlGameDetailBuilder(Sportsbook data, ResultSetting setting);
 
         string PopUpParalyBuilder<T>(IList<T> dataList, ResultSetting setting);
 

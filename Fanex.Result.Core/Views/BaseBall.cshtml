@@ -13,7 +13,7 @@
             <thead>
                 @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
                 {
-                   var item = ((GroupData)viewModel.Data[0]).Data[0];
+                    var item = ((GroupData)viewModel.Data[0]).Data[0];
                     <tr class="row-title">
                         <th class="cl-title" colspan="@colspan">
                             <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
@@ -33,37 +33,17 @@
                     <th class="cl-match home">
                         @Raw(lang.Match)
                     </th>
-                    <th class="cl-s">
-                        1
-                    </th>
-                    <th class="cl-s">
-                        2
-                    </th>
-                    <th class="cl-s">
-                        3
-                    </th>
-                    <th class="cl-s">
-                        4
-                    </th>
-                    <th class="cl-s">
-                        5
-                    </th>
-                    <th class="cl-s">
-                        6
-                    </th>
-                    <th class="cl-s">
-                        7
-                    </th>
-                    <th class="cl-s">
-                        8
-                    </th>
-                    <th class="cl-s">
-                        9
-                    </th>
+                    @for (var s = 1; s <= 9; s++)
+                    {
+                        <th class="cl-s">
+                            @s
+                        </th>
+
+                    }
                     <th class="cl-ei">
                         E.I
                     </th>
-                    <th class="cl-ht-core">
+                    <th class="cl-ht-score">
                         @Raw(lang.FirstHalfScore)
                     </th>
                     <th class="cl-f-score">
@@ -88,12 +68,12 @@
         <thead>
             @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
             {
-              var item = ((GroupData)viewModel.Data[0]).Data[0];
-                    <tr class="row-title">
-                        <th class="cl-title" colspan="@colspan">
-                            <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
-                        </th>
-                    </tr>
+                var item = ((GroupData)viewModel.Data[0]).Data[0];
+                <tr class="row-title">
+                    <th class="cl-title" colspan="@colspan">
+                        <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                    </th>
+                </tr>
             }
             <tr class="header">
                 @if (viewModel.VisibleMatchCodeIDColumn)
@@ -108,37 +88,17 @@
                 <th class="cl-match home">
                     @Raw(lang.Match)
                 </th>
-                <th class="cl-s">
-                    1
-                </th>
-                <th class="cl-s">
-                    2
-                </th>
-                <th class="cl-s">
-                    3
-                </th>
-                <th class="cl-s">
-                    4
-                </th>
-                <th class="cl-s">
-                    5
-                </th>
-                <th class="cl-s">
-                    6
-                </th>
-                <th class="cl-s">
-                    7
-                </th>
-                <th class="cl-s">
-                    8
-                </th>
-                <th class="cl-s">
-                    9
-                </th>
+                @for (var s = 1; s <= 9; s++)
+                {
+                    <th class="cl-s">
+                        @s
+                    </th>
+
+                }
                 <th class="cl-ei">
                     E.I
                 </th>
-                <th class="cl-ht-core">
+                <th class="cl-ht-score">
                     @Raw(lang.FirstHalfScore)
                 </th>
                 <th class="cl-f-score">
@@ -189,37 +149,17 @@
                 <td class="cl-match away">
                     @Raw(item.HomeTeam)
                 </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(0, true)
-                </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(1, true)
-                </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(2, true)
-                </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(3, true)
-                </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(4, true)
-                </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(5, true)
-                </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(6, true)
-                </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(7, true)
-                </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(8, true)
-                </td>
+                @for (var s = 0; s < 9; s++)
+                {
+                    <td class="cl-s">
+                        @item.GetHomeAwaySet(s, true)
+                    </td>
+
+                }
                 <td class="cl-ei">
                     @item.EIHome
                 </td>
-                <td class="cl-ht-core">
+                <td class="cl-ht-score">
                     @item.HTHomeScore
                 </td>
                 <td class="cl-f-score">
@@ -239,37 +179,17 @@
                 <td class="cl-match">
                     @Raw(item.AwayTeam)
                 </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(0, false)
-                </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(1, false)
-                </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(2, false)
-                </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(3, false)
-                </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(4, false)
-                </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(5, false)
-                </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(6, false)
-                </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(7, false)
-                </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(8, false)
-                </td>
+                @for (var s = 0; s < 9; s++)
+                {
+                    <td class="cl-s">
+                        @item.GetHomeAwaySet(s, false)
+                    </td>
+
+                }
                 <td class="cl-ei">
                     @item.EIAway
                 </td>
-                <td class="cl-ht-core">
+                <td class="cl-ht-score">
                     @item.HTAwayScore
                 </td>
                 <td class="cl-f-score">

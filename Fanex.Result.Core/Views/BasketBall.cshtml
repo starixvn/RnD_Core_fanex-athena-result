@@ -49,7 +49,7 @@
                     <th class="cl-s">
                         @lang.LblOT
                     </th>
-                    <th class="cl-ht-core">
+                    <th class="cl-ht-score">
                         @Raw(lang.FirstHalfScore)
                     </th>
                     <th class="cl-f-score">
@@ -110,7 +110,7 @@
                 <th class="cl-s">
                     @lang.LblOT
                 </th>
-                <th class="cl-ht-core">
+                <th class="cl-ht-score">
                     @Raw(lang.FirstHalfScore)
                 </th>
                 <th class="cl-f-score">
@@ -159,22 +159,17 @@
                 <td class="cl-match home">
                     @Raw(item.HomeTeam)
                 </td>
-                <td class="cl-s">
-                    @item.GetQHomeAway(0, true)
-                </td>
-                <td class="cl-s">
-                    @item.GetQHomeAway(1, true)
-                </td>
-                <td class="cl-s">
-                    @item.GetQHomeAway(2, true)
-                </td>
-                <td class="cl-s">
-                    @item.GetQHomeAway(3, true)
-                </td>
+                @for (var s = 0; s < 4; s++)
+                {
+                    <td class="cl-s">
+                        @item.GetHomeAwaySet(s, true)
+                    </td>
+
+                }
                 <td class="cl-s">
                     @item.QTHome
                 </td>
-                <td class="cl-ht-core">
+                <td class="cl-ht-score">
                     @item.HTHomeScore
                 </td>
                 <td char="column-final-homescore">
@@ -194,22 +189,17 @@
                 <td class="cl-match away">
                     @Raw(item.AwayTeam)
                 </td>
-                <td class="cl-s">
-                    @item.GetQHomeAway(0, false)
-                </td>
-                <td class="cl-s">
-                    @item.GetQHomeAway(1, false)
-                </td>
-                <td class="cl-s">
-                    @item.GetQHomeAway(2, false)
-                </td>
-                <td class="cl-s">
-                    @item.GetQHomeAway(3, false)
-                </td>
+                @for (var s = 0; s < 4; s++)
+                {
+                    <td class="cl-s">
+                        @item.GetHomeAwaySet(s, false)
+                    </td>
+
+                }
                 <td class="cl-s">
                     @item.QTAway
                 </td>
-                <td class="cl-ht-core">
+                <td class="cl-ht-score">
                     @item.HTAwayScore
                 </td>
                 <td class="cl-f-score">

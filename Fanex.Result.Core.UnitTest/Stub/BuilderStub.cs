@@ -94,5 +94,11 @@ namespace Fanex.Result.Core.UnitTest.Stub
         {
             throw new System.NotImplementedException();
         }
+
+
+        public string HtmlGameDetailBuilder(DTO.Sportsbook data, ResultSetting setting)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

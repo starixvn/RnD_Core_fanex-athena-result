@@ -14,19 +14,19 @@ namespace Fanex.Result.Core.ViewModels
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public sealed class BasketBallViewModel : SportbookBaseViewModel, IResultViewModel
+    public sealed class BasketBallViewModel : SportsbookBaseViewModel, IResultViewModel
     {
         public BasketBallViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resource)
             : base(sportbook, setting, resource)
         {
-            this.GetQHomeAway(0, true);
+            this.GetHomeAwaySet(0, true);
         }
 
         public string QTHome
         {
             get
             {
-                var temp = this.GetQHomeAway(4, true);
+                var temp = this.GetHomeAwaySet(4, true);
                 return Convert.ToInt32(temp) > 0 ? temp : StringResources.HYPHEN;
             }
         }
@@ -35,7 +35,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                var temp = this.GetQHomeAway(4, false);
+                var temp = this.GetHomeAwaySet(4, false);
                 return Convert.ToInt32(temp) > 0 ? temp : StringResources.HYPHEN;
             }
         }
@@ -79,7 +79,12 @@ namespace Fanex.Result.Core.ViewModels
         /// <param name="index">The index of home or away array.</param>
         /// <param name="isHome">True if you want to get value of home set.</param>
         /// <returns>The string value.</returns>
-        public string GetQHomeAway(int index, bool isHome)
+        public override string GetHomeAwaySet(int index, bool isHome)
+        {
+            return this.GetQHomeAway(index, isHome);
+        }
+
+        private string GetQHomeAway(int index, bool isHome)
         {
             if (index > 4)
             {

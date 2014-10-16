@@ -58,59 +58,58 @@
         </table>
     </div>
 }
-
 @if (viewModel.VisibleFreeHeader)
 {
     @Raw("<div class=\"fn-rs-content-scroll\">")
 
 }
 <table class="fn-rs">
- @if (!viewModel.VisibleFreeHeader)
- {
-    <thead>
-        @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
-        {
-            var item = ((GroupData)viewModel.Data[0]).Data[0];
-            <tr class="row-title">
-                <th class="cl-title" colspan="@colspan">
-                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+    @if (!viewModel.VisibleFreeHeader)
+    {
+        <thead>
+            @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+            {
+                var item = ((GroupData)viewModel.Data[0]).Data[0];
+                <tr class="row-title">
+                    <th class="cl-title" colspan="@colspan">
+                        <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                    </th>
+                </tr>
+            }
+            <tr class="header">
+                @if (viewModel.VisibleMatchCodeIDColumn)
+                {
+                    <th class="cl-m-code">
+                        @lang.MatchCode/@lang.ID
+                    </th>
+                }
+                <th class="cl-ko-time">
+                    @lang.KickOffTime
+                </th>
+                <th class="cl-match">
+                    @Raw(lang.Match)
+                </th>
+                <th class="cl-s">
+                    @lang.Lbl1P
+                </th>
+                <th class="cl-s">
+                    @lang.Lbl2P
+                </th>
+                <th class="cl-s">
+                    @lang.Lbl3P
+                </th>
+                <th class="cl-ot">
+                    @lang.LblOT
+                </th>
+                <th class="cl-f-score">
+                    @lang.FinalScore
+                </th>
+                <th class="cl-status">
+                    @lang.Status
                 </th>
             </tr>
-        }
-        <tr class="header">
-            @if (viewModel.VisibleMatchCodeIDColumn)
-            {
-                <th class="cl-m-code">
-                    @lang.MatchCode/@lang.ID
-                </th>
-            }
-            <th class="cl-ko-time">
-                @lang.KickOffTime
-            </th>
-            <th class="cl-match">
-                @Raw(lang.Match)
-            </th>
-            <th class="cl-s">
-                @lang.Lbl1P
-            </th>
-            <th class="cl-s">
-                @lang.Lbl2P
-            </th>
-            <th class="cl-s">
-                @lang.Lbl3P
-            </th>
-            <th class="cl-ot">
-                @lang.LblOT
-            </th>
-            <th class="cl-f-score">
-                @lang.FinalScore
-            </th>
-            <th class="cl-status">
-                @lang.Status
-            </th>
-        </tr>
-    </thead>
- }
+        </thead>
+    }
     <tbody>
         @if (viewModel.Data.Count > 0)
         {
@@ -134,7 +133,6 @@
                     var item = (HockeyViewModel)temp;
                     index++;
 
-
             <tr class="data @item.Color(index, "even", "odd")">
                 @if (viewModel.VisibleMatchCodeIDColumn)
                 {
@@ -150,15 +148,13 @@
                 <td class="cl-match home">
                     @Raw(item.HomeTeam)
                 </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(0, true)
-                </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(1, true)
-                </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(2, true)
-                </td>
+                @for (var s = 0; s < 3; s++)
+                {
+                    <td class="cl-s">
+                        @item.GetHomeAwaySet(s, true)
+                    </td>
+
+                }
                 <td class="cl-ot">
                     @item.OTHome
                 </td>
@@ -179,15 +175,13 @@
                 <td class="cl-match away">
                     @Raw(item.AwayTeam)
                 </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(0, false)
-                </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(1, false)
-                </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(2, false)
-                </td>
+                @for (var s = 0; s < 4; s++)
+                {
+                    <td class="cl-s">
+                        @item.GetHomeAwaySet(s, false)
+                    </td>
+
+                }
                 <td class="cl-ot">
                     @item.OTAway
                 </td>
@@ -196,9 +190,9 @@
                 </td>
             </tr>
 
+                }
             }
-            }
-            }
+        }
         else
         {
             <!--NoInfo-->

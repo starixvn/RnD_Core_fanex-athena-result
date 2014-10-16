@@ -10,6 +10,7 @@ namespace Fanex.Result.Core.Models
     using System.IO;
     using System.Linq;
     using Fanex.Result.Core.DataDomain;
+    using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.ExcelModels;
     using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.ViewModels;
@@ -28,8 +29,13 @@ namespace Fanex.Result.Core.Models
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
             var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(i, setting, lang))
                 .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToList() });
-            var model = CreateModel(lang, dataMaped, false, false, setting);
+            var model = CreateModel(lang, dataMaped, setting);
             return HtmlRender(setting.SportType.StringMe(), model);
+        }
+
+        public string HtmlGameDetailBuilder(Sportsbook data, ResultSetting setting)
+        {
+            throw new System.NotImplementedException();
         }
 
         /// <summary>
@@ -48,14 +54,15 @@ namespace Fanex.Result.Core.Models
             {
                 var dataMapedOutRight = dataList.Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting, lang))
                      .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToList() });
-                var modelOutRight = CreateModel(lang, dataMapedOutRight, true, false, setting);
+
+                var modelOutRight = CreateModel(lang, dataMapedOutRight, setting);
 
                 return HtmlRender("OutRight", modelOutRight);
             }
 
             var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(i, setting, lang))
                  .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToList() });
-            var model = CreateModel(lang, dataMaped, true, false, setting);
+            var model = CreateModel(lang, dataMaped, setting);
             return HtmlRender(setting.SportType.StringMe(), model);
         }
 
@@ -64,7 +71,7 @@ namespace Fanex.Result.Core.Models
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
             var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetParlayViewModel(i, setting, lang))
                  .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToList() });
-            var model = CreateModel(lang, dataMaped, true, true, setting);
+            var model = CreateModel(lang, dataMaped, setting);
             return HtmlRender("Parlay", model);
         }
 
@@ -73,7 +80,7 @@ namespace Fanex.Result.Core.Models
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
             var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting, lang))
                 .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToList() });
-            var model = CreateModel(lang, dataMaped, false, false, setting);
+            var model = CreateModel(lang, dataMaped, setting);
             return HtmlRender("OutRight", model);
         }
 
@@ -189,20 +196,22 @@ namespace Fanex.Result.Core.Models
         private static RazorBinderModel CreateModel(
             LangResources lang,
             dynamic data,
-            bool isPopUp,
-            bool isParlay,
-           ResultSetting setting)
+            ResultSetting setting,
+            bool isDetail = false)
         {
+            var isPopUp = setting.IsParlayPopUp || setting.IsPopUp;
             var model = new RazorBinderModel
              {
                  Resource = lang,
                  IsPopUp = isPopUp,
-                 IsParlay = isParlay,
                  VisiblePopUpTitle = setting.VisiblePopUpTitle,
                  SportType = setting.SportType,
                  VisibleMatchCodeIDColumn = setting.VisibleMatchCodeIDColumn,
                  VisibleDetailedLink = setting.VisibleDetailedLink,
-                 VisibleFreeHeader = setting.VisibleFreeHeader && (!setting.IsParlayPopUp || !setting.IsPopUp)
+                 VisibleFreeHeader = setting.VisibleFreeHeader && !isPopUp,
+                 IsDetail = isDetail,
+                 BetID = setting.BetID,
+                 Bettype = setting.Bettype
              };
 
             model.Data.AddRange(data);

@@ -88,12 +88,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataDomain\BetID.cs" />
+    <Compile Include="DataDomain\BetType.cs" />
+    <Compile Include="DataDomain\ConstantValue.cs" />
     <Compile Include="DataDomain\DTOType.cs" />
+    <Compile Include="DataDomain\EventStatusID.cs" />
     <Compile Include="DataDomain\LangResources.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>LangResources.tt</DependentUpon>
     </Compile>
+    <Compile Include="DTO\GameDetail.cs" />
     <Compile Include="Models\GroupData.cs" />
     <Compile Include="DTO\LiveCasino.cs" />
     <Compile Include="DTO\NumberGame.cs" />
@@ -149,7 +154,9 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\BasketBallViewModel.cs" />
     <Compile Include="ViewModels\BilliardViewModel.cs" />
+    <Compile Include="ViewModels\TennisDetail\GameValue.cs" />
     <Compile Include="ViewModels\IResultViewModel.cs" />
+    <Compile Include="ViewModels\TennisDetail\SetValue.cs" />
     <Compile Include="ViewModels\VSSpeedWayViewModel.cs" />
     <Compile Include="ViewModels\HockeyViewModel.cs" />
     <Compile Include="ViewModels\LiveCasinoViewModel.cs" />
@@ -159,7 +166,7 @@
     <Compile Include="ViewModels\ParlayViewModel.cs" />
     <Compile Include="ViewModels\RacingViewModel.cs" />
     <Compile Include="ViewModels\SoccerViewModel.cs" />
-    <Compile Include="ViewModels\SportbookBaseViewModel.cs" />
+    <Compile Include="ViewModels\SportsbookBaseViewModel.cs" />
     <Compile Include="ViewModels\TennisViewModel.cs" />
     <Compile Include="ViewModels\VSHRacingViewModel.cs" />
     <Compile Include="ViewModels\VSTennisViewModel.cs" />

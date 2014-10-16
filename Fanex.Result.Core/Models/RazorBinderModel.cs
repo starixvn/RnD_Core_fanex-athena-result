@@ -25,8 +25,6 @@ namespace Fanex.Result.Core.Models
 
         public bool IsPopUp { get; set; }
 
-        public bool IsParlay { get; set; }
-
         public bool VisiblePopUpTitle { get; set; }
 
         public SportType SportType { get; set; }
@@ -36,5 +34,20 @@ namespace Fanex.Result.Core.Models
         public bool VisibleDetailedLink { get; set; }
 
         public bool VisibleFreeHeader { get; set; }
+
+        /// <summary>
+        /// Gets or sets bettype.
+        /// Used for tennis POPUP.
+        /// </summary>
+        public int Bettype { get; set; }
+
+        /// <summary>
+        /// Gets or sets bet id.
+        /// Used for tennis POPUP.
+        /// Example:80212 (Set:02 , Game:12).
+        /// </summary>
+        public string BetID { get; set; }
+
+        public bool IsDetail { get; set; }
     }
 }

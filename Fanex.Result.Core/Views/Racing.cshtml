@@ -10,7 +10,7 @@
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
-        <table class="fn-rs">
+        <table class="fn-rs racing">
             <thead>
                 @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
                 {
@@ -22,7 +22,7 @@
                     </tr>
                 }
                 <tr class="header">
-                    <th class="cl-race" colspan="3">
+                    <th class="cl-race">
                         @lang.Race
                     </th>
                     <th class="cl-result">
@@ -31,7 +31,7 @@
                     <th class="cl-win">
                         @Raw(lang.Win)
                     </th>
-                    <th class="cl-plae">
+                    <th class="cl-place">
                         @Raw(lang.Place)
                     </th>
                     <th class="cl-status">
@@ -47,7 +47,7 @@
     @Raw("<div class=\"fn-rs-content-scroll\">")
 
 }
-<table class="fn-rs">
+<table class="fn-rs racing">
     @if (!viewModel.VisibleFreeHeader)
     {
         <thead>
@@ -70,7 +70,7 @@
                 <th class="cl-win">
                     @Raw(lang.Win)
                 </th>
-                <th class="cl-plae">
+                <th class="cl-place">
                     @Raw(lang.Place)
                 </th>
                 <th class="cl-status">
@@ -102,14 +102,14 @@
                 {
                     var item = (RacingViewModel)temp;
 
-                    index++;
-
                     if (item.Place > 4)
                     {
                         continue;
                     }
+
                     if (!currentRace.Equals(item.RaceName))
                     {
+                        index++;
                         currentRace = item.RaceName;
             <tr class="data @item.Color(index, "even", "odd")">
                 <td class="cl-race-name" rowspan="@item.RowCount">
@@ -131,18 +131,22 @@
                     @item.PlaceOdd
                 </td>
                 <td class="cl-status" rowspan="@item.RowCount">
-                    <p style="color: #cc0033;">@lang.Official
-                    </p>
-                    <br />
-                    @if (!string.IsNullOrEmpty(item.SCR))
-                    {
-                        @Raw(lang.SCR + ": " + item.SCR)
-                    }
-                    @if (!string.IsNullOrEmpty(item.TF))
-                    {
-                        <br />
-                        @Raw(lang.TF + ": " + item.TF)
-                    }
+                    <div class="official">
+                        @lang.Official
+                    </div>
+                    <div class="scr">
+                        @if (!string.IsNullOrEmpty(item.SCR))
+                        {
+                            @Raw(lang.SCR + ": " + item.SCR)
+                        }
+                    </div>
+                    <div class="tf">
+                        @if (!string.IsNullOrEmpty(item.TF))
+                        {
+
+                            @Raw(lang.TF + ": " + item.TF)
+                        }
+                    </div>
                 </td>
             </tr>
 

@@ -8,7 +8,9 @@ namespace Fanex.Result.Core
     using System.Collections.Generic;
     using System.IO;
     using Fanex.Result.Core.DataDomain;
+    using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.Exception;
+    using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.Models;
 
     /// <summary>
@@ -40,29 +42,57 @@ namespace Fanex.Result.Core
             ReCheckSetting<T>(dataList, setting);
 
             var dtoName = typeof(T).Name;
-            var builder = new Builder();
             if (setting.IsOutRight && !setting.IsPopUp)
             {
-                return HtmlOutRightParser<T>(dataList, setting, dtoName, builder);
+                return HtmlOutRightParser<T>(dataList, setting, dtoName);
             }
 
             if (setting.IsParlayPopUp)
             {
-                return HtmlParlayParser<T>(dataList, setting, dtoName, builder);
+                return HtmlParlayParser<T>(dataList, setting, dtoName);
             }
 
             if (setting.IsPopUp)
             {
-                return HtmlPopUpParser<T>(dataList, setting, dtoName, builder);
+                return HtmlPopUpParser<T>(dataList, setting, dtoName);
             }
 
             if (!Validate.Instance.ValidateNormal(dtoName, setting.SportType))
             {
-                throw new ObjectNullException(string.Format(ResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
+                throw new ObjectUnSupportedException(string.Format(ResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
             }
 
             return Utilities.Helper.RemoveWhiteSpace(
-                builder.HtmlBuilder(dataList, setting));
+                _builder.HtmlBuilder(dataList, setting));
+        }
+
+        public static string HtmlGameDetailParser(Sportsbook data, ResultSetting setting)
+        {
+            if (setting.SportType != SportType.Tennis)
+            {
+                throw new ObjectUnSupportedException(string.Format(ResourceConfig.UNSUPPORTSPORTTYPEARGUEMENTMES, setting.SportType.StringMe()));
+            }
+
+            if (data == null || data.GameDetail.Count == 0)
+            {
+                throw new ObjectNullException("The data is null or detailed data is null");
+            }
+
+            if (string.IsNullOrEmpty(setting.LanguageCode))
+            {
+                setting.LanguageCode = ResourceConfig.ENGLISHLANGCODE;
+            }
+            else if (!Validate.Instance.ValidateResource(setting.LanguageCode))
+            {
+                throw new ObjectUnSupportedException(string.Format(ResourceConfig.LANGUAGEARGUEMENTMES, setting.LanguageCode));
+            }
+
+            if (string.IsNullOrEmpty(setting.ResourcePath))
+            {
+                setting.ResourcePath = System.AppDomain.CurrentDomain.BaseDirectory + ResourceConfig.RESOURCEPATH;
+            }
+
+            return _builder.HtmlGameDetailBuilder(data, setting);
         }
 
         /// <summary>
@@ -185,7 +215,7 @@ namespace Fanex.Result.Core
         /// <param name="dtoName">The DTO name.</param>
         /// <param name="builder">The builder context.</param>
         /// <returns>The html string.</returns>
-        private static string HtmlPopUpParser<T>(IList<T> dataList, ResultSetting setting, string dtoName, Builder builder)
+        private static string HtmlPopUpParser<T>(IList<T> dataList, ResultSetting setting, string dtoName)
         {
             if (!Validate.Instance.ValidateNormal(dtoName, setting.SportType))
             {
@@ -194,10 +224,10 @@ namespace Fanex.Result.Core
 
             return
                 Utilities.Helper.RemoveWhiteSpace(
-                builder.PopUpHtmlBuilder(dataList, setting));
+                _builder.PopUpHtmlBuilder(dataList, setting));
         }
 
-        private static string HtmlParlayParser<T>(IList<T> dataList, ResultSetting setting, string dtoName, Builder builder)
+        private static string HtmlParlayParser<T>(IList<T> dataList, ResultSetting setting, string dtoName)
         {
             if (!Validate.Instance.ValidateParlay(dtoName))
             {
@@ -205,10 +235,10 @@ namespace Fanex.Result.Core
             }
 
             return Utilities.Helper.RemoveWhiteSpace(
-                builder.PopUpParalyBuilder(dataList, setting));
+                _builder.PopUpParalyBuilder(dataList, setting));
         }
 
-        private static string HtmlOutRightParser<T>(IList<T> dataList, ResultSetting setting, string dtoName, Builder builder)
+        private static string HtmlOutRightParser<T>(IList<T> dataList, ResultSetting setting, string dtoName)
         {
             if (!Validate.Instance.ValidateOutRight(dtoName))
             {
@@ -216,7 +246,7 @@ namespace Fanex.Result.Core
             }
 
             return Utilities.Helper.RemoveWhiteSpace(
-                builder.OutRightHtmlBuilder(dataList, setting));
+                _builder.OutRightHtmlBuilder(dataList, setting));
         }
 
         #endregion HtmlParser-SubFunction

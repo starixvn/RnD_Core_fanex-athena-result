@@ -64,8 +64,9 @@
     <item key="TF">TF</item>
     <item key="Time">Time</item>
     <item key="Team">Team</item>
-    <item key="PenaltyShootoutYes">Y</item>
-    <item key="PenaltyShootoutNo">N</item>
+    <item key="PenaltyShootoutYes">Match was decided by penalty shoot-out. </item>
+    <item key="PenaltyShootoutNo">Match was not decided by penalty shoot-out</item>
     <item key="PS">PS</item>
     <item key="Details">[i]</item>
+    <item key="GameResult">Game Result</item>
 </root>

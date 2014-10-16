@@ -14,7 +14,7 @@ namespace Fanex.Result.Core.ViewModels
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public sealed class BaseBallViewModel : SportbookBaseViewModel, IResultViewModel
+    public sealed class BaseBallViewModel : SportsbookBaseViewModel, IResultViewModel
     {
         public BaseBallViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resource)
             : base(sportbook, setting, resource)
@@ -85,7 +85,7 @@ namespace Fanex.Result.Core.ViewModels
         /// <param name="index">The index of home or away array.</param>
         /// <param name="isHome">True if you want to get value of home set.</param>
         /// <returns>The string value.</returns>
-        public string GetHomeAwaySet(int index, bool isHome)
+        public override string GetHomeAwaySet(int index, bool isHome)
         {
             if (index > 9)
             {

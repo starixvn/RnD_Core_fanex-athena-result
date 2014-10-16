@@ -15,14 +15,11 @@ namespace Fanex.Result.Core.ViewModels
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public sealed class SoccerViewModel : SportbookBaseViewModel, IResultViewModel
+    public sealed class SoccerViewModel : SportsbookBaseViewModel, IResultViewModel
     {
-        private bool _visibleDetailedLink = false;
-
         public SoccerViewModel(Sportsbook soccer, ResultSetting setting, LangResources resource)
             : base(soccer, setting, resource)
         {
-            this._visibleDetailedLink = setting.VisibleDetailedLink;
         }
 
         #region Setttlement Site
@@ -45,9 +42,9 @@ namespace Fanex.Result.Core.ViewModels
             }
         }
 
-        public bool VisibleDetailedLink
+        public override bool VisibleDetailedLink
         {
-            get { return this._visibleDetailedLink && !string.IsNullOrEmpty(this.SPORTBOOK.GoalRecord.Trim()); }
+            get { return base.VisibleDetailedLink && !string.IsNullOrEmpty(this.SPORTBOOK.GoalRecord); }
         }
 
         public string PenaltyShootoutResult
@@ -140,12 +137,6 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                if (this.SPORTBOOK.EventStatus == StringResources.REFUND
-                    || this.SPORTBOOK.EventStatus == StringResources.REFUNDHT || this.SPORTBOOK.EventStatus == StringResources.Postponed)
-                {
-                    return StringResources.HYPHEN;
-                }
-
                 return this.SPORTBOOK.HtHomeScore.HasValue ? this.SPORTBOOK.HtHomeScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }
@@ -154,12 +145,6 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                if (this.SPORTBOOK.EventStatus == StringResources.REFUND || this.SPORTBOOK.EventStatus == StringResources.REFUNDFT
-                    || this.SPORTBOOK.EventStatus == StringResources.Postponed)
-                {
-                    return StringResources.HYPHEN;
-                }
-
                 return this.SPORTBOOK.FinalHomeScore.HasValue ? this.SPORTBOOK.FinalHomeScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }
@@ -168,12 +153,6 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                if (this.SPORTBOOK.EventStatus == StringResources.REFUND
-                    || this.SPORTBOOK.EventStatus == StringResources.REFUNDHT || this.SPORTBOOK.EventStatus == StringResources.Postponed)
-                {
-                    return StringResources.HYPHEN;
-                }
-
                 return this.SPORTBOOK.HtAwayScore.HasValue ? this.SPORTBOOK.HtAwayScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }
@@ -182,12 +161,6 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                if (this.SPORTBOOK.EventStatus == StringResources.REFUND
-                    || this.SPORTBOOK.EventStatus == StringResources.REFUNDFT || this.SPORTBOOK.EventStatus == StringResources.Postponed)
-                {
-                    return StringResources.HYPHEN;
-                }
-
                 return this.SPORTBOOK.FinalAwayScore.HasValue ? this.SPORTBOOK.FinalAwayScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }

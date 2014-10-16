@@ -7,6 +7,7 @@
 @using Fanex.Result.Core.ViewModels;
 @using Fanex.Result.Core.Models;
 @using System.Collections;
+
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
@@ -34,7 +35,7 @@
                     <th class="cl-match">
                         @Raw(lang.Match)
                     </th>
-                    <th class="cl-ht-core">
+                    <th class="cl-ht-score">
                         @Raw(lang.FirstHalfScore)
                     </th>
                     <th class="cl-f-score">
@@ -79,7 +80,7 @@
                 <th class="cl-match">
                     @Raw(lang.Match)
                 </th>
-                <th class="cl-ht-core">
+                <th class="cl-ht-score">
                     @Raw(lang.FirstHalfScore)
                 </th>
                 <th class="cl-f-score">
@@ -148,7 +149,7 @@
                             &nbsp;</div>
                     }
                 </td>
-                <td class="cl-ht-core">
+                <td class="cl-ht-score">
                     @item.HTHomeScore
                 </td>
                 <td class="cl-f-score">
@@ -208,7 +209,7 @@
                             &nbsp;</div>
                     }
                 </td>
-                <td class="cl-ht-core">
+                <td class="cl-ht-score">
                     @item.HTAwayScore
                 </td>
                 <td class="cl-f-score">

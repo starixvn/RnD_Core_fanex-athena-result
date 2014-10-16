@@ -14,7 +14,7 @@ namespace Fanex.Result.Core.ViewModels
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public sealed class BadmintonViewModel : SportbookBaseViewModel, IResultViewModel
+    public sealed class BadmintonViewModel : SportsbookBaseViewModel, IResultViewModel
     {
         private int _totalPointHome;
         private int _totalPointAway;
@@ -64,7 +64,7 @@ namespace Fanex.Result.Core.ViewModels
         /// <param name="index">The index of home or away array.</param>
         /// <param name="isHome">True if you want to get value of home set.</param>
         /// <returns>The string value.</returns>
-        public string GetHomeAwaySet(int index, bool isHome)
+        public override string GetHomeAwaySet(int index, bool isHome)
         {
             if (index > 4)
             {
@@ -75,8 +75,8 @@ namespace Fanex.Result.Core.ViewModels
             {
                 this._totalPointAway = 0;
                 this._totalPointHome = 0;
-                this.HomeSet = new[] { "-", "-", "-", "-", "-" };
-                this.AwaySet = new[] { "-", "-", "-", "-", "-" };
+                this.HomeSet = new[] { StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN };
+                this.AwaySet = new[] { StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN };
                 if (this.HasResult)
                 {
                     string[] betStatusList = this.GetCoreInfoFromBetStatus.Split(',');

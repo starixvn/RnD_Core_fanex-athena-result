@@ -160,21 +160,13 @@
                 <td class="cl-match home">
                     @Raw(item.HomeTeam)
                 </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(0, true)
-                </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(1, true)
-                </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(2, true)
-                </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(3, true)
-                </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(4, true)
-                </td>
+                @for (var s = 0; s < 5; s++)
+                {
+                    <td class="cl-s">
+                        @item.GetHomeAwaySet(s, true)
+                    </td>
+
+                }
                 <td class="cl-totalgames">
                     @item.TotalPointHome
                 </td>
@@ -195,21 +187,13 @@
                 <td class="cl-match away">
                     @Raw(item.AwayTeam)
                 </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(0, false)
-                </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(1, false)
-                </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(2, false)
-                </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(3, false)
-                </td>
-                <td class="cl-s">
-                    @item.GetHomeAwaySet(4, false)
-                </td>
+                @for (var s = 0; s < 5; s++)
+                {
+                    <td class="cl-s">
+                        @item.GetHomeAwaySet(s, false)
+                    </td>
+
+                }
                 <td class="cl-totalgames">
                     @item.TotalPointAway
                 </td>

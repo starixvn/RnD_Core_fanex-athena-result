@@ -142,5 +142,7 @@ public sealed class LangResources
               
 			  				 public string Details  { get ; set; }
               
+			  				 public string GameResult  { get ; set; }
+              
 			           		 }
 }

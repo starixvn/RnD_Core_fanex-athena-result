@@ -7,6 +7,7 @@
 namespace Fanex.Result.Core.DTO
 {
     using System;
+    using System.Collections.Generic;
 
     /// <summary>
     /// TODO: Update summary.
@@ -19,6 +20,7 @@ namespace Fanex.Result.Core.DTO
             this.GoalRecord = string.Empty;
             this.MatchCode = string.Empty;
             this.RefNo = string.Empty;
+            this.GameDetail = new List<GameDetail>();
         }
 
         public string BetStatus { get; set; }
@@ -64,5 +66,11 @@ namespace Fanex.Result.Core.DTO
         /// </summary>
         /// <value>Get from RefNo column.</value>
         public string RefNo { get; set; }
+
+        /// <summary>
+        /// Gets or sets game detail values.
+        /// Used for tennis sport.
+        /// </summary>
+        public IList<GameDetail> GameDetail { get; set; }
     }
 }

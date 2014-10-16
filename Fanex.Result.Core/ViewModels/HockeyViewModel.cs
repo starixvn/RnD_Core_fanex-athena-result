@@ -14,7 +14,7 @@ namespace Fanex.Result.Core.ViewModels
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public sealed class HockeyViewModel : SportbookBaseViewModel, IResultViewModel
+    public sealed class HockeyViewModel : SportsbookBaseViewModel, IResultViewModel
     {
         public HockeyViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resource)
             : base(sportbook, setting, resource)
@@ -60,7 +60,7 @@ namespace Fanex.Result.Core.ViewModels
             }
         }
 
-        public string GetHomeAwaySet(int index, bool isHome)
+        public override string GetHomeAwaySet(int index, bool isHome)
         {
             return GetPHomeAway(index, isHome);
         }

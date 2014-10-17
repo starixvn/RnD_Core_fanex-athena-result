@@ -46,7 +46,7 @@ namespace Fanex.Result.Core.ViewModels
             {
                 return this.SPORTBOOK.HtAwayScore.HasValue ?
                     this.SPORTBOOK.HtAwayScore.Value.ToString(CultureInfo.InvariantCulture)
-                    : string.Empty;
+                    : StringResources.HYPHEN;
             }
         }
 

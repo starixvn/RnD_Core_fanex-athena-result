@@ -9,7 +9,7 @@ namespace Fanex.Result.Core.DataDomain
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public static class EventStatusID
+    internal static class EventStatusIDDefinition
     {
         public const int CompletedSettlementStatusID = 4;
         public const int RefundEventStatusID = 1;

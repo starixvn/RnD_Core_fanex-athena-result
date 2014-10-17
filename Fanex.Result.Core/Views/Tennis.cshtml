@@ -5,7 +5,7 @@
     var lang = (Fanex.Result.Core.DataDomain.LangResources)viewModel.Resource;
     var colspan = viewModel.VisibleMatchCodeIDColumn ? 11 : 10;
     var visibleMainResult = viewModel.IsDetail || !(viewModel.IsPopUp
-        && viewModel.Bettype == BetType.SetXGameYWinner && betId >= BetID.MinSet1GameY);
+        && viewModel.Bettype == BetTypeDefinition.SetXGameYWinner && betId >= BetIDDefinition.MinSet1GameY);
 }
 @using Fanex.Result.Core.ViewModels;
 @using Fanex.Result.Core.Models;
@@ -164,21 +164,13 @@
                     <td class="cl-match home">
                         @Raw(item.HomeTeam)
                     </td>
-                    <td class="cl-s">
-                        @item.GetHomeAwaySet(0, true)
-                    </td>
-                    <td class="cl-s">
-                        @item.GetHomeAwaySet(1, true)
-                    </td>
-                    <td class="cl-s">
-                        @item.GetHomeAwaySet(2, true)
-                    </td>
-                    <td class="cl-s">
-                        @item.GetHomeAwaySet(3, true)
-                    </td>
-                    <td class="cl-s">
-                        @item.GetHomeAwaySet(4, true)
-                    </td>
+                    @for (var s = 0; s < 5; s++)
+                    {
+                        <td class="cl-s">
+                            @item.GetHomeAwaySet(s, true)
+                        </td>
+
+                    }
                     <td class="cl-totalgames">
                         @item.TotalGameHome
                     </td>
@@ -187,7 +179,7 @@
                     </td>
                     <td rowspan="2" class="cl-status">
                         @item.EventStatus
-                        @if (item.VisibleDetailedLink)
+                        @if (item.VisibleDetailedLink && !viewModel.IsPopUp)
                         {
                             <div>
                                 <span class="detail-link tennis-detail-link" data-league-id="@item.LeagueId"
@@ -207,21 +199,13 @@
                     <td class="cl-match away">
                         @Raw(item.AwayTeam)
                     </td>
-                    <td class="cl-s">
-                        @item.GetHomeAwaySet(0, false)
-                    </td>
-                    <td class="cl-s">
-                        @item.GetHomeAwaySet(1, false)
-                    </td>
-                    <td class="cl-s">
-                        @item.GetHomeAwaySet(2, false)
-                    </td>
-                    <td class="cl-s">
-                        @item.GetHomeAwaySet(3, false)
-                    </td>
-                    <td class="cl-s">
-                        @item.GetHomeAwaySet(4, false)
-                    </td>
+                    @for (var s = 0; s < 5; s++)
+                    {
+                        <td class="cl-s">
+                            @item.GetHomeAwaySet(s, false)
+                        </td>
+
+                    }
                     <td class="cl-totalgames">
                         @item.TotalGameAway
                     </td>
@@ -253,7 +237,7 @@
             }
 }
 <!--Detail-->
-@if (viewModel.IsDetail || (viewModel.IsPopUp && betId >= BetID.MinSet1GameY))
+@if (viewModel.IsDetail || (viewModel.IsPopUp && viewModel.Bettype == BetTypeDefinition.SetXGameYWinner && betId >= BetIDDefinition.MinSet1GameY))
 {
     foreach (var group in viewModel.Data)
     {
@@ -293,7 +277,7 @@
             @if (setValue.IsRefund)
             {
                 <tr class="data">
-                    <td class="cl-refund" colspap="@ConstantValue.NUMBERGAMEOFTENNISSET">
+                    <td class="cl-refund" colspap="@ConstantValueDefinition.NUMBERGAMEOFTENNISSET">
                         @lang.Refund
                     </td>
                 </tr>
@@ -305,15 +289,15 @@
                 var subRowspan = 1;
                 if (setValue.SetId == 5)
                 {
-                    subRowspan = maxGameId / ConstantValue.NUMBERGAMEOFTENNISSET + 1;
+                    subRowspan = maxGameId / ConstantValueDefinition.NUMBERGAMEOFTENNISSET + 1;
                 }
-                var lastGameId = ConstantValue.NUMBERGAMEOFTENNISSET;
+                var lastGameId = ConstantValueDefinition.NUMBERGAMEOFTENNISSET;
                 var startGameId = 0;
 
-                for (var t = 0; t < maxGameId; t += ConstantValue.NUMBERGAMEOFTENNISSET)
+                for (var t = 0; t < maxGameId; t += ConstantValueDefinition.NUMBERGAMEOFTENNISSET)
                 {
 
-                    if (t > ConstantValue.NUMBERGAMEOFTENNISSET)
+                    if (t > ConstantValueDefinition.NUMBERGAMEOFTENNISSET)
                     {
                         startGameId = lastGameId;
                         lastGameId += 13;

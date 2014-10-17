@@ -1,33 +1,71 @@
 ﻿@{
     var lang = (Fanex.Result.Core.DataDomain.LangResources)Model.Resource;
+    var viewModel = (Fanex.Result.Core.Models.RazorBinderModel)Model;
+
 }
-@if (Model.Data.Count > 0)
-{ 
+@using Fanex.Result.Core.ViewModels;
+@using Fanex.Result.Core.Models;
+@if (viewModel.Data.Count > 0)
+{
     <table class="fn-rs-popup parlay">
-        @foreach (var itemObj in Model.Data)
+        @foreach (var group in viewModel.Data)
         {
-            var item = (Fanex.Result.Core.ViewModels.ParlayViewModel)itemObj;
+            var firstItem = group.Data[0];
             <tr>
                 <td class="sporttype">
-                    <strong><span class="bl-sport-type">@item.SportName &nbsp;- </span></strong><span
-                        class="bl-league-name">@item.LeagueName</span>
+                    <strong><span class="bl-sport-type">@firstItem.SportName &nbsp;- </span></strong>
+                    <span class="bl-league-name">@firstItem.LeagueName</span>
                 </td>
             </tr>
+            foreach (ParlayViewModel item in group.Data)
+            {
             <tr>
                 <td>
                     @{
-            var bindModle = new Fanex.Result.Core.Models.RazorBinderModel
-            {
-                Resource = lang,
-                IsPopUp = true,
-                IsParlay = true,
-              
-            };
-            bindModle.Data.AddRange(item.ItemView);
+                var bindModle = new Fanex.Result.Core.Models.RazorBinderModel
+                {
+                    Resource = lang,
+                    IsPopUp = true,
+
+                };
+                var itemData = new List<GroupData>();
+                itemData.Add(new GroupData
+                {
+                    LeagueId = group.LeagueId,
+                    Data = item.ItemView
+                });
+                bindModle.Data.AddRange(itemData);
+                if (item.SportId == (int)Fanex.Result.Core.SportType.Tennis)
+                {
+                    if (item.VisibleTennisResult)
+                    {
+                        @Raw(item.Render(bindModle))
                     }
-                    @Raw(item.Render(bindModle))
+
+                    if (item.VisibleTennisSetDetail)
+                    {
+                        foreach (var betId in item.SetXGameYBetIDs)
+                        {
+                            var tennisSetBindModel = new Fanex.Result.Core.Models.RazorBinderModel
+                            {
+                                Resource = lang,
+                                IsPopUp = true,
+                                Bettype = Fanex.Result.Core.DataDomain.BetTypeDefinition.SetXGameYWinner,
+                                BetID = betId
+                            };
+                            tennisSetBindModel.Data.AddRange(itemData);
+                        @Raw(item.Render(tennisSetBindModel))
+                        }
+                    }
+                }
+                else
+                {
+                        @Raw(item.Render(bindModle))
+                }
+                    }
                 </td>
             </tr>
+            }
         }
     </table>
 }

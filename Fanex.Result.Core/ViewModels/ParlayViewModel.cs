@@ -13,6 +13,7 @@ namespace Fanex.Result.Core.ViewModels
     using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.Models;
+    using Fanex.Result.Core.Utilities;
     using RazorEngine;
 
     /// <summary>
@@ -53,6 +54,34 @@ namespace Fanex.Result.Core.ViewModels
             get
             {
                 return this._parlay.SportId;
+            }
+        }
+
+        public bool VisibleTennisSetDetail
+        {
+            get
+            {
+                return this._parlay.SportId == (int)SportType.Tennis &&
+                    this._parlay.BetTypes.Contains(BetTypeDefinition.SetXGameYWinner)
+                    && this._parlay.BetIDs.Any(i => i.Length == ConstantValueDefinition.SETXGAMEYRESOURCEIDLENGTH)
+                    && this._parlay.BetIDs.Any(i => Helper.IsSetXGameYBetID(i));
+            }
+        }
+
+        public bool VisibleTennisResult
+        {
+            get
+            {
+                return this._parlay.SportId == (int)SportType.Tennis
+                    && this._parlay.BetTypes.Any(i => ConstantValueDefinition.TennisBettypesOnMatch.Contains(i));
+            }
+        }
+
+        public List<string> SetXGameYBetIDs
+        {
+            get
+            {
+                return this._parlay.BetIDs.Where(i => Helper.IsSetXGameYBetID(i)).ToList();
             }
         }
 

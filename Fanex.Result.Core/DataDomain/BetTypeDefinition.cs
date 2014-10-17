@@ -14,7 +14,7 @@ namespace Fanex.Result.Core.DataDomain
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public static class BetType
+    public static class BetTypeDefinition
     {
         public const int SetXGameYWinner = 1324;
     }

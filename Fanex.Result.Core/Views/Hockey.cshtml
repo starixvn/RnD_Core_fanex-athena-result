@@ -148,10 +148,10 @@
                 <td class="cl-match home">
                     @Raw(item.HomeTeam)
                 </td>
-                @for (var s = 0; s < 3; s++)
+                @for (var p = 0; p < 3; p++)
                 {
                     <td class="cl-s">
-                        @item.GetHomeAwaySet(s, true)
+                        @item.GetHomeAwaySet(p, true)
                     </td>
 
                 }
@@ -175,17 +175,17 @@
                 <td class="cl-match away">
                     @Raw(item.AwayTeam)
                 </td>
-                @for (var s = 0; s < 4; s++)
+                @for (var p = 0; p < 3; p++)
                 {
                     <td class="cl-s">
-                        @item.GetHomeAwaySet(s, false)
+                        @item.GetHomeAwaySet(p, false)
                     </td>
 
                 }
                 <td class="cl-ot">
                     @item.OTAway
                 </td>
-                <td class="cl-ht-finalscore">
+                <td class="cl-f-score">
                     @item.FinalAwayScore
                 </td>
             </tr>

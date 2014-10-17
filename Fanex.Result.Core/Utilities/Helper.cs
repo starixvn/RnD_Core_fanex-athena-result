@@ -58,5 +58,11 @@ namespace Fanex.Result.Core.Utilities
             Regex isnumber = new Regex("[^0-9]");
             return !isnumber.IsMatch(inputvalue);
         }
+
+        public static bool IsSetXGameYBetID(string betID)
+        {
+            Regex isBetID = new Regex("^80[1-5]{1}\\d{2}$");
+            return isBetID.IsMatch(betID);
+        }
     }
 }

@@ -16,6 +16,8 @@ namespace Fanex.Result.Core.Models
     {
         private List<GroupData> _data = new List<GroupData>();
 
+        private string _betID = string.Empty;
+
         public List<GroupData> Data
         {
             get { return _data; }
@@ -46,7 +48,10 @@ namespace Fanex.Result.Core.Models
         /// Used for tennis POPUP.
         /// Example:80212 (Set:02 , Game:12).
         /// </summary>
-        public string BetID { get; set; }
+        public string BetID {
+            get { return this._betID; }
+            set { this._betID = value; }
+        }
 
         public bool IsDetail { get; set; }
     }

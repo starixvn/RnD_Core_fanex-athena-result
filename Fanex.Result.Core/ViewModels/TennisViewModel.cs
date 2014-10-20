@@ -31,7 +31,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                var set = this.SPORTBOOK.GameDetail.Where(i => i.ResourceId == "01").FirstOrDefault();
+                var set = this.SPORTBOOK.GameDetails.Where(i => i.ResourceId == "01").FirstOrDefault();
                 if (set == null)
                 {
                     return null;
@@ -50,7 +50,7 @@ namespace Fanex.Result.Core.ViewModels
                 result.IsRefund = set.ResultStatusID == EventStatusIDDefinition.RefundEventStatusID;
                 if (!result.IsRefund)
                 {
-                    var gameDetails = this.SPORTBOOK.GameDetail.Where(i => resources.Contains(i.ResourceId)).OrderBy(i => i.ResourceId).ToArray();
+                    var gameDetails = this.SPORTBOOK.GameDetails.Where(i => resources.Contains(i.ResourceId)).OrderBy(i => i.ResourceId).ToArray();
                     var numofGame = gameDetails.Length < ConstantValueDefinition.NUMBERGAMEOFTENNISSET ? ConstantValueDefinition.NUMBERGAMEOFTENNISSET : gameDetails.Length;
                     for (var j = 0; j < numofGame; j++)
                     {
@@ -153,7 +153,7 @@ namespace Fanex.Result.Core.ViewModels
                 this._totalGameHome = 0;
                 this.HomeSet = new[] { StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN };
                 this.AwaySet = new[] { StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN };
-                if (this.SPORTBOOK.GameDetail.Count > 0)
+                if (this.SPORTBOOK.GameDetails.Count > 0)
                 {
 
                 }
@@ -174,8 +174,8 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return base.VisibleDetailedLink && this.SPORTBOOK.GameDetail != null
-                    && this.SPORTBOOK.GameDetail.Any(i => !string.IsNullOrEmpty(i.ResourceId)
+                return base.VisibleDetailedLink && this.SPORTBOOK.GameDetails != null
+                    && this.SPORTBOOK.GameDetails.Any(i => !string.IsNullOrEmpty(i.ResourceId)
                         && i.ResourceId.Trim().Length == ConstantValueDefinition.SETXGAMEYRESOURCEIDLENGTH);
             }
         }

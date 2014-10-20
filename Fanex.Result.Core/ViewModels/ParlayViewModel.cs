@@ -73,7 +73,7 @@ namespace Fanex.Result.Core.ViewModels
             get
             {
                 return this._parlay.SportId == (int)SportType.Tennis
-                    && this._parlay.BetTypes.Any(i => ConstantValueDefinition.TennisBettypesOnMatch.Contains(i));
+                    && this._parlay.BetTypes.Any(i => i != BetTypeDefinition.SetXGameYWinner);
             }
         }
 

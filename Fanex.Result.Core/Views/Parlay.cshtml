@@ -5,7 +5,7 @@
 }
 @using Fanex.Result.Core.ViewModels;
 @using Fanex.Result.Core.Models;
-@if (viewModel.Data.Count > 0)
+@if (viewModel != null && viewModel.Data.Count > 0)
 {
     <table class="fn-rs-popup parlay">
         @foreach (var group in viewModel.Data)

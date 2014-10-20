@@ -133,7 +133,7 @@ namespace MvcExample.Models
 
             foreach (var result in results)
             {
-                result.GameDetail.Union(gameDetails.Where(i => i.MatchId == result.MatchId));
+                result.GameDetails.Union(gameDetails.Where(i => i.MatchId == result.MatchId));
             }
             return results;
         }
@@ -236,7 +236,7 @@ namespace MvcExample.Models
 
             foreach (var result in results)
             {
-                result.GameDetail.Union(gameDetails.Where(i => i.MatchId == result.MatchId));
+                result.GameDetails.Union(gameDetails.Where(i => i.MatchId == result.MatchId));
             }
             return results;
         }
@@ -366,9 +366,9 @@ namespace MvcExample.Models
                 IsHTCal = Convert.ToBoolean(reader["IsHTCal"]),
                 Calculate = Convert.ToBoolean(reader["Calculate"]),
                 RefNo = string.Empty,
-                GameDetail = new List<GameDetail>()
+                GameDetails = new List<GameDetail>()
             };
-            item.GameDetail.Add(new GameDetail
+            item.GameDetails.Add(new GameDetail
             {
                 MatchId = 10514601,
                 ResourceId = "0101",

@@ -14,24 +14,35 @@ namespace Fanex.Result.Core.DTO
     /// </summary>
     public sealed class Sportsbook
     {
-        public Sportsbook()
-        {
-            this.BetStatus = string.Empty;
-            this.GoalRecord = string.Empty;
-            this.MatchCode = string.Empty;
-            this.RefNo = string.Empty;
-            this.GameDetail = new List<GameDetail>();
-        }
+        private string _betStatus = string.Empty;
+        private string _goalRecord = string.Empty;
+        private string _matchCode = string.Empty;
+        private string _refNo = string.Empty;
+        private string _color = string.Empty;
+        private string _eventStatus = string.Empty;
+        private IList<GameDetail> _gameDetails = new List<GameDetail>();
 
-        public string BetStatus { get; set; }
+        public string BetStatus
+        {
+            get { return this._betStatus; }
+            set { this._betStatus = value; }
+        }
 
         public int LeagueId { get; set; }
 
         public int MatchId { get; set; }
 
-        public string Color { get; set; }
+        public string Color
+        {
+            get { return this._color; }
+            set { this._color = value; }
+        }
 
-        public string MatchCode { get; set; }
+        public string MatchCode
+        {
+            get { return this._matchCode; }
+            set { this._matchCode = value; }
+        }
 
         public DateTime EventDate { get; set; }
 
@@ -49,13 +60,21 @@ namespace Fanex.Result.Core.DTO
 
         public int? FinalAwayScore { get; set; }
 
-        public string EventStatus { get; set; }
+        public string EventStatus
+        {
+            get { return this._eventStatus; }
+            set { this._eventStatus = value; }
+        }
 
         public bool IsPending { get; set; }
 
         public bool IsNeutral { get; set; }
 
-        public string GoalRecord { get; set; }
+        public string GoalRecord
+        {
+            get { return this._goalRecord; }
+            set { this._goalRecord = value; }
+        }
 
         public bool Calculate { get; set; }
 
@@ -65,12 +84,20 @@ namespace Fanex.Result.Core.DTO
         /// Gets or sets RefNo.It's used for popUp Result.
         /// </summary>
         /// <value>Get from RefNo column.</value>
-        public string RefNo { get; set; }
+        public string RefNo
+        {
+            get { return this._refNo; }
+            set { this._refNo = value; }
+        }
 
         /// <summary>
         /// Gets or sets game detail values.
         /// Used for tennis sport.
         /// </summary>
-        public IList<GameDetail> GameDetail { get; set; }
+        public IList<GameDetail> GameDetails
+        {
+            get { return this._gameDetails; }
+            set { this.GameDetails = value; }
+        }
     }
 }

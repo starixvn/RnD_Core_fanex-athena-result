@@ -22,10 +22,14 @@
             <tr>
                 <td>
                     @{
+                var sportType = (Fanex.Result.Core.SportType)item.SportId;
+
                 var bindModle = new Fanex.Result.Core.Models.RazorBinderModel
                 {
                     Resource = lang,
                     IsPopUp = true,
+                    VisibleMatchCodeIDColumn = viewModel.VisibleMatchCodeIDColumn,
+                    SportType = sportType
 
                 };
                 var itemData = new List<GroupData>();
@@ -35,7 +39,7 @@
                     Data = item.ItemView
                 });
                 bindModle.Data.AddRange(itemData);
-                if (item.SportId == (int)Fanex.Result.Core.SportType.Tennis)
+                if (sportType == Fanex.Result.Core.SportType.Tennis)
                 {
                     if (item.VisibleTennisResult)
                     {
@@ -51,7 +55,9 @@
                                 Resource = lang,
                                 IsPopUp = true,
                                 Bettype = Fanex.Result.Core.DataDomain.BetTypeDefinition.SetXGameYWinner,
-                                BetID = betId
+                                BetID = betId,
+                                VisibleMatchCodeIDColumn = viewModel.VisibleMatchCodeIDColumn,
+                                SportType = sportType
                             };
                             tennisSetBindModel.Data.AddRange(itemData);
                         @Raw(item.Render(tennisSetBindModel))

@@ -41,7 +41,7 @@ namespace Fanex.Result.Core.ExcelModels
             row.Cells[colidx++].SetCellValue(Lang.MatchCode + "/" + Lang.ID);
             row.Cells[colidx++].SetCellValue(Lang.KickOffTime);
             row.Cells[colidx++].SetCellValue(Lang.Match);
-            row.Cells[colidx++].SetCellValue(Lang.FirstHalfScore);
+            row.Cells[colidx++].SetCellValue(Lang.HTScore);
             row.Cells[colidx++].SetCellValue(Lang.FinalScore);
             row.Cells[colidx].SetCellValue(Lang.Status);
         }

@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="BetID.cs" company="">
+// <copyright file="BetIDDefinition.cs" company="Nexcel.vn">
 // TODO: Update copyright text.
 // </copyright>
 // -----------------------------------------------------------------------

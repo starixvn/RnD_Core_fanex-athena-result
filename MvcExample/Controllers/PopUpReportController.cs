@@ -47,7 +47,10 @@
                 IsParlayPopUp = metalModel.Bettype == MixParlayBettype || metalModel.Bettype == SystemParlayBettype,
                 IsPopUp = true,
                 VisiblePopUpTitle = true,
-                LanguageCode = metalModel.LanguageCode
+                LanguageCode = metalModel.LanguageCode,
+                VisibleMatchCodeIDColumn = true,
+                VisibleFreeHeader = true,
+                VisibleDetailedLink = true,
             };
             if (setting.IsParlayPopUp)
             {

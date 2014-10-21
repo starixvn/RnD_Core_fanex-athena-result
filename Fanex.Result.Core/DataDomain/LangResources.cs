@@ -10,8 +10,6 @@ public sealed class LangResources
               
 			  				 public string Match  { get ; set; }
               
-			  				 public string FirstHalfScore  { get ; set; }
-              
 			  				 public string FinalScore  { get ; set; }
               
 			  				 public string Status  { get ; set; }

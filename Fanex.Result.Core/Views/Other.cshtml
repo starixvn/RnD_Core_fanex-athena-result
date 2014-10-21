@@ -3,6 +3,8 @@
 
     var lang = (Fanex.Result.Core.DataDomain.LangResources)viewModel.Resource;
     var colspan = viewModel.VisibleMatchCodeIDColumn ? 6 : 5;
+    var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
+
 }
 @using Fanex.Result.Core.ViewModels;
 @using Fanex.Result.Core.Models;
@@ -10,7 +12,7 @@
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
-        <table class="fn-rs">
+        <table class="fn-rs @popupCss">
             <thead>
                 @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
                 {
@@ -35,7 +37,7 @@
                         @Raw(lang.Match)
                     </th>
                     <th class="cl-ht-score">
-                        @Raw(lang.FirstHalfScore)
+                        @Raw(lang.HTScore)
                     </th>
                     <th class="cl-f-score">
                         @lang.FinalScore
@@ -53,7 +55,7 @@
     @Raw("<div class=\"fn-rs-content-scroll\">")
 
 }
-<table class="fn-rs">
+<table class="fn-rs @popupCss>
     @if (!viewModel.VisibleFreeHeader)
     {
         <thead>
@@ -80,7 +82,7 @@
                     @Raw(lang.Match)
                 </th>
                 <th class="cl-ht-score">
-                    @Raw(lang.FirstHalfScore)
+                    @Raw(lang.HTScore)
                 </th>
                 <th class="cl-f-score">
                     @lang.FinalScore

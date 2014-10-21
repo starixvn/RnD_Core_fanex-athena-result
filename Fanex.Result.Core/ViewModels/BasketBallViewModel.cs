@@ -19,7 +19,6 @@ namespace Fanex.Result.Core.ViewModels
         public BasketBallViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resource)
             : base(sportbook, setting, resource)
         {
-            this.GetHomeAwaySet(0, true);
         }
 
         public string QTHome
@@ -80,11 +79,6 @@ namespace Fanex.Result.Core.ViewModels
         /// <param name="isHome">True if you want to get value of home set.</param>
         /// <returns>The string value.</returns>
         public override string GetHomeAwaySet(int index, bool isHome)
-        {
-            return this.GetQHomeAway(index, isHome);
-        }
-
-        private string GetQHomeAway(int index, bool isHome)
         {
             if (index > 4)
             {

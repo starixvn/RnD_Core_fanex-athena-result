@@ -2,7 +2,6 @@
 <root>
     <item key="KickOffTime">Kick Off. Time</item>
     <item key="Match">Match</item>
-    <item key="FirstHalfScore">First Half Score</item>
     <item key="FinalScore">Final Score</item>
     <item key="Status">Status</item>
     <item key="IsNeutral">(N)</item>

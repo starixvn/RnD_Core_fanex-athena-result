@@ -61,7 +61,10 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Content\Fanex.Result\fanex.result.css" />
+    <Content Include="Content\Fanex.Result\images\goal-icon.png" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="App_Data\Fanex.Result.Resource\en-US.xml" />
     <EmbeddedResource Include="App_Data\Fanex.Result.Resource\zh-TW.xml" />
@@ -72,9 +75,6 @@
     <EmbeddedResource Include="App_Data\Fanex.Result.Resource\th-TH.xml" />
     <EmbeddedResource Include="App_Data\Fanex.Result.Resource\vi-VN.xml" />
     <EmbeddedResource Include="App_Data\Fanex.Result.Resource\zh-CN.xml" />
-    <Content Include="Content\Fanex.Result\fanex.result.css" />
-    <Content Include="Content\Fanex.Result\images\1F.gif" />
-    <Content Include="Content\Fanex.Result\images\1L.gif" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App_Data\Fanex.Result\Badminton.xls" />
@@ -92,6 +92,7 @@
     <None Include="App_Data\Fanex.Result\VSHRacing.xls" />
     <None Include="App_Data\Fanex.Result\VSSpeedWay.xls" />
     <None Include="App_Data\Fanex.Result\VSTennis.xls" />
+    <None Include="Content\Fanex.Result\fanex.result.less" />
     <None Include="Fanex.Result.UI.licenseheader" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

@@ -19,7 +19,6 @@ namespace Fanex.Result.Core.ViewModels
         public BaseBallViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resource)
             : base(sportbook, setting, resource)
         {
-            this.GetHomeAwaySet(0, true);
         }
 
         public string EIAway
@@ -94,8 +93,16 @@ namespace Fanex.Result.Core.ViewModels
 
             if (this.HomeSet == null || this.AwaySet == null)
             {
-                this.HomeSet = new[] { "-", "-", "-", "-", "-", "-", "-", "-", "-", "-1" };
-                this.AwaySet = new[] { "-", "-", "-", "-", "-", "-", "-", "-", "-", "-1" };
+                this.HomeSet = new string[10];
+                this.AwaySet = new string[10];
+                for (int j = 0; j < 9; j++)
+                {
+                    this.HomeSet[j] = StringResources.HYPHEN;
+                    this.AwaySet[j] = StringResources.HYPHEN;
+                }
+
+                this.HomeSet[9] = this.AwaySet[9] = "-1";
+
                 if (this.HasResult)
                 {
                     string[] betStatusList = this.GetCoreInfoFromBetStatus.Split(',');

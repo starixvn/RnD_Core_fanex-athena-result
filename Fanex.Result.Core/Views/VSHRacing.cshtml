@@ -3,6 +3,8 @@
 
     var lang = (Fanex.Result.Core.DataDomain.LangResources)viewModel.Resource;
     const int colspan = 7;
+    var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
+
 }
 @using Fanex.Result.Core.ViewModels;
 @using Fanex.Result.Core.Models;
@@ -10,7 +12,7 @@
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
-        <table class="fn-rs">
+        <table class="fn-rs @popupCss racing">
             <thead>
                 @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
                 {
@@ -22,7 +24,7 @@
                     </tr>
                 }
                 <tr class="header">
-                    <th class="cl-race" colspan="3">
+                    <th class="cl-race">
                         @lang.Race
                     </th>
                     <th class="cl-result">
@@ -31,7 +33,7 @@
                     <th class="cl-win">
                         @Raw(lang.Win)
                     </th>
-                    <th class="cl-plae">
+                    <th class="cl-place">
                         @Raw(lang.Place)
                     </th>
                     <th class="cl-status">
@@ -47,7 +49,7 @@
     @Raw("<div class=\"fn-rs-content-scroll\">")
 
 }
-<table class="fn-rs">
+<table class="fn-rs @popupCss racing">
     @if (!viewModel.VisibleFreeHeader)
     {
 
@@ -71,7 +73,7 @@
                 <th class="cl-win">
                     @Raw(lang.Win)
                 </th>
-                <th class="cl-plae">
+                <th class="cl-place">
                     @Raw(lang.Place)
                 </th>
                 <th class="cl-status">
@@ -111,7 +113,7 @@
                 <td class="cl-race-name" rowspan="@item.RowCount">
                     @Raw(item.KickOffTime)
                 </td>
-                <td class="cl-placeing">
+                <td class="cl-placing">
                     @item.Placing
                 </td>
                 <td class="cl-engine-no">
@@ -135,7 +137,7 @@
                     else
                     {
             <tr class="data @item.Color(index, "even", "odd")">
-                <td class="cl-placeing">
+                <td class="cl-placing">
                     @item.Placing
                 </td>
                 <td class="cl-engine-no">

@@ -61,8 +61,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\Fanex.Result.Core\DataDomain\BetIDDefinition.cs">
+      <Link>DataDomain\BetIDDefinition.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\DataDomain\BetTypeDefinition.cs">
+      <Link>DataDomain\BetTypeDefinition.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\DataDomain\ConstantValue.cs">
+      <Link>DataDomain\ConstantValue.cs</Link>
+    </Compile>
     <Compile Include="..\..\Fanex.Result.Core\DataDomain\DTOType.cs">
       <Link>DataDomain\DTOType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\DataDomain\EventStatusID.cs">
+      <Link>DataDomain\EventStatusID.cs</Link>
     </Compile>
     <Compile Include="..\..\Fanex.Result.Core\DataDomain\LangResources.cs">
       <Link>DataDomain\LangResources.cs</Link>
@@ -72,6 +84,9 @@
     </Compile>
     <Compile Include="..\..\Fanex.Result.Core\DataDomain\StringResources.cs">
       <Link>DataDomain\StringResources.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\DTO\GameDetail.cs">
+      <Link>DTO\GameDetail.cs</Link>
     </Compile>
     <Compile Include="..\..\Fanex.Result.Core\DTO\LiveCasino.cs">
       <Link>DTO\LiveCasino.cs</Link>
@@ -253,11 +268,14 @@
     <Compile Include="..\..\Fanex.Result.Core\ViewModels\SoccerViewModel.cs">
       <Link>ViewModels\SoccerViewModel.cs</Link>
     </Compile>
-    <Compile Include="..\..\Fanex.Result.Core\ViewModels\SportbookBaseViewModel.cs">
-      <Link>ViewModels\SportbookBaseViewModel.cs</Link>
+    <Compile Include="..\..\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs">
+      <Link>ViewModels\SportsbookBaseViewModel.cs</Link>
     </Compile>
-    <Compile Include="..\..\Fanex.Result.Core\ViewModels\TennisDetailViewModel.cs">
-      <Link>ViewModels\TennisDetailViewModel.cs</Link>
+    <Compile Include="..\..\Fanex.Result.Core\ViewModels\TennisDetail\GameValue.cs">
+      <Link>ViewModels\TennisDetail\GameValue.cs</Link>
+    </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ViewModels\TennisDetail\SetValue.cs">
+      <Link>ViewModels\TennisDetail\SetValue.cs</Link>
     </Compile>
     <Compile Include="..\..\Fanex.Result.Core\ViewModels\TennisViewModel.cs">
       <Link>ViewModels\TennisViewModel.cs</Link>

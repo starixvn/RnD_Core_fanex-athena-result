@@ -38,9 +38,10 @@ namespace Fanex.Result.Core.Models
         public bool VisibleFreeHeader { get; set; }
 
         /// <summary>
-        /// Gets or sets bettype.
+        /// Gets or sets bet type.
         /// Used for tennis POPUP.
         /// </summary>
+        /// <value>The bet type ID.</value>
         public int Bettype { get; set; }
 
         /// <summary>
@@ -48,7 +49,9 @@ namespace Fanex.Result.Core.Models
         /// Used for tennis POPUP.
         /// Example:80212 (Set:02 , Game:12).
         /// </summary>
-        public string BetID {
+        /// <value>The bet ID.</value>
+        public string BetID
+        {
             get { return this._betID; }
             set { this._betID = value; }
         }

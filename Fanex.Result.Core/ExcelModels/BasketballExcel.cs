@@ -50,7 +50,7 @@ namespace Fanex.Result.Core.ExcelModels
             row.Cells[colidx++].SetCellValue(Lang.Lbl3Q);
             row.Cells[colidx++].SetCellValue(Lang.Lbl4Q);
             row.Cells[colidx++].SetCellValue(Lang.LblOT);
-            row.Cells[colidx++].SetCellValue(Lang.FirstHalfScore);
+            row.Cells[colidx++].SetCellValue(Lang.HTScore);
             row.Cells[colidx++].SetCellValue(Lang.FinalScore);
             row.Cells[colidx].SetCellValue(Lang.Status);
         }

@@ -94,10 +94,11 @@ namespace Fanex.Result.Core.DTO
         /// Gets or sets game detail values.
         /// Used for tennis sport.
         /// </summary>
+        /// <value>The game detail value.</value>
         public IList<GameDetail> GameDetails
         {
             get { return this._gameDetails; }
-            set { this.GameDetails = value; }
+            set { this._gameDetails = value; }
         }
     }
 }

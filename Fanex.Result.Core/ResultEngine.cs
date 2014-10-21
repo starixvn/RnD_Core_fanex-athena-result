@@ -66,6 +66,12 @@ namespace Fanex.Result.Core
                 _builder.HtmlBuilder(dataList, setting));
         }
 
+        /// <summary>
+        /// Render detail result by sport.
+        /// </summary>
+        /// <param name="data">The SPORTSBOOK data.</param>
+        /// <param name="setting">The result setting.</param>
+        /// <returns>The html result.</returns>
         public static string HtmlGameDetailParser(Sportsbook data, ResultSetting setting)
         {
             if (setting.SportType != SportType.Tennis)
@@ -213,7 +219,6 @@ namespace Fanex.Result.Core
         /// <param name="dataList">The DTO list.</param>
         /// <param name="setting">The result setting.</param>
         /// <param name="dtoName">The DTO name.</param>
-        /// <param name="builder">The builder context.</param>
         /// <returns>The html string.</returns>
         private static string HtmlPopUpParser<T>(IList<T> dataList, ResultSetting setting, string dtoName)
         {

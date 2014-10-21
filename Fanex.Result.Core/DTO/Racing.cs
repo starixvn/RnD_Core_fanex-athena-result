@@ -21,6 +21,7 @@ namespace Fanex.Result.Core.DTO
             this.SCROfMatch = string.Empty;
             this.TFOfMatch = string.Empty;
         }
+
         public DateTime KickOffTime { get; set; }
 
         public int Place { get; set; }

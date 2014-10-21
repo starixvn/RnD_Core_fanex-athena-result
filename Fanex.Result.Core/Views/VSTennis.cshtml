@@ -3,6 +3,8 @@
 
     var lang = (Fanex.Result.Core.DataDomain.LangResources)viewModel.Resource;
     var colspan = viewModel.VisibleMatchCodeIDColumn ? 5 : 4;
+    var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
+
 }
 @using Fanex.Result.Core.ViewModels;
 @using Fanex.Result.Core.Models;
@@ -10,7 +12,7 @@
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
-        <table class="fn-rs">
+        <table class="fn-rs @popupCss">
             <thead>
                 @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
                 {
@@ -50,7 +52,7 @@
     @Raw("<div class=\"fn-rs-content-scroll\">")
 
 }
-<table class="fn-rs">
+<table class="fn-rs @popupCss">
     @if (!viewModel.VisibleFreeHeader)
     {
         <thead>
@@ -122,7 +124,7 @@
                 <td class="cl-match home">
                     @Raw(item.HomeTeam)
                 </td>
-                <td class="cl-home-totalpoint">
+                <td class="cl-totalpoint home">
                     @item.HomePoint
                 </td>
                 <td rowspan="2" class="cl-status">
@@ -139,7 +141,7 @@
                 <td class="cl-match away">
                     @Raw(item.AwayTeam)
                 </td>
-                <td class="cl-away-totalpoint">
+                <td class="cl-totalpoint away">
                     @item.AwayPoint
                 </td>
             </tr>

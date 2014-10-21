@@ -6,6 +6,8 @@
     var colspan = viewModel.VisibleMatchCodeIDColumn ? 11 : 10;
     var visibleMainResult = viewModel.IsDetail || !(viewModel.IsPopUp
         && viewModel.Bettype == BetTypeDefinition.SetXGameYWinner && betId >= BetIDDefinition.MinSet1GameY);
+    var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
+
 }
 @using Fanex.Result.Core.ViewModels;
 @using Fanex.Result.Core.Models;
@@ -16,7 +18,7 @@
     if (viewModel.VisibleFreeHeader)
     {
     <div class="fn-rs-content-header">
-        <table class="fn-rs">
+        <table class="fn-rs @popupCss">
             <thead>
                 @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
                 {
@@ -74,7 +76,7 @@
     @Raw("<div class=\"fn-rs-content-scroll\">")
 
     }
-    <table class="fn-rs">
+    <table class="fn-rs @popupCss">
         @if (!viewModel.VisibleFreeHeader)
         {
             <thead>
@@ -246,7 +248,7 @@
         {
             for (var i = 0; i <= item.SetDetail.Length; i++)
             {
-                if (viewModel.IsDetail || item.ShowSet(i + 1, betId))
+                if (viewModel.IsDetail || item.VisibleSet(i + 1, betId))
                 {
                     var setValue = item.SetDetail[i];
                     if (setValue != null)

@@ -3,6 +3,8 @@
 
     var lang = (Fanex.Result.Core.DataDomain.LangResources)viewModel.Resource;
     const int colspan = 7;
+    var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
+
 }
 @using Fanex.Result.Core.ViewModels;
 @using Fanex.Result.Core.Models;
@@ -10,7 +12,7 @@
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
-        <table class="fn-rs racing">
+        <table class="fn-rs racing @popupCss">
             <thead>
                 @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
                 {
@@ -47,7 +49,7 @@
     @Raw("<div class=\"fn-rs-content-scroll\">")
 
 }
-<table class="fn-rs racing">
+<table class="fn-rs racing @popupCss">
     @if (!viewModel.VisibleFreeHeader)
     {
         <thead>
@@ -115,7 +117,7 @@
                 <td class="cl-race-name" rowspan="@item.RowCount">
                     @Raw(item.RaceName)
                 </td>
-                <td class="cl-placeing">
+                <td class="cl-placing">
                     @item.Placing
                 </td>
                 <td class="cl-engine-no">
@@ -154,7 +156,7 @@
                     else
                     {
             <tr class="data @item.Color(index, "even", "odd")">
-                <td class="cl-placeing">
+                <td class="cl-placing">
                     @item.Placing
                 </td>
                 <td class="cl-engine-no">

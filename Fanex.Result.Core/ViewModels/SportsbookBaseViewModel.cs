@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="SportbookBaseViewModel.cs" company="Nexcel">
+// <copyright file="SportsbookBaseViewModel.cs" company="Nexcel">
 // TODO: Update copyright text.
 // </copyright>
 // -----------------------------------------------------------------------
@@ -145,11 +145,6 @@ namespace Fanex.Result.Core.ViewModels
             }
         }
 
-        public virtual string GetHomeAwaySet(int index, bool isHome)
-        {
-            return StringResources.HYPHEN;
-        }
-
         #endregion common properties
 
         #region Utilities
@@ -173,6 +168,11 @@ namespace Fanex.Result.Core.ViewModels
 
                 return this.SPORTBOOK.BetStatus != null ? this.SPORTBOOK.BetStatus.Trim() : string.Empty;
             }
+        }
+
+        public virtual string GetHomeAwaySet(int index, bool isHome)
+        {
+            return StringResources.HYPHEN;
         }
 
         /// <summary>

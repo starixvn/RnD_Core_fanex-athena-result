@@ -135,6 +135,7 @@ namespace MvcExample.Models
             {
                 result.GameDetails.Union(gameDetails.Where(i => i.MatchId == result.MatchId));
             }
+
             return results;
         }
 
@@ -225,6 +226,7 @@ namespace MvcExample.Models
                     {
                         results.Add(BindSportbook(reader));
                     }
+
                     reader.NextResult();
 
                     while (reader.Read())
@@ -238,6 +240,7 @@ namespace MvcExample.Models
             {
                 result.GameDetails.Union(gameDetails.Where(i => i.MatchId == result.MatchId));
             }
+
             return results;
         }
 
@@ -370,27 +373,32 @@ namespace MvcExample.Models
             };
             item.GameDetails.Add(new GameDetail
             {
-                MatchId = 10514601,
-                ResourceId = "0101",
+                MatchId = 10877531,
+                ResourceId = "00",
                 HomeValue = "40",
                 AwayValue = "15",
                 ResultStatusID = 5,
                 SettlementStatusID = 4
             });
+            item.GameDetails.Add(new GameDetail
+            {
+                MatchId = 10877531,
+                ResourceId = "02",
+                HomeValue = "",
+                AwayValue = "",
+                ResultStatusID = 5,
+                SettlementStatusID = 2
+            });
+            item.GameDetails.Add(new GameDetail
+            {
+                MatchId = 10877531,
+                ResourceId = "01",
+                HomeValue = "15",
+                AwayValue = "0",
+                ResultStatusID = 5,
+                SettlementStatusID = 4
+            });
             return item;
-        }
-
-        private GameDetail BindGameDetail(IDataReader reader)
-        {
-            return new GameDetail
-             {
-                 MatchId = int.Parse(reader["matchid"].ToString()),
-                 ResourceId = reader["ResourceId"].ToString(),
-                 HomeValue = reader["HomeValue"].ToString(),
-                 AwayValue = reader["AwayValue"].ToString(),
-                 ResultStatusID = int.Parse(reader["ResultStatusID"].ToString()),
-                 SettlementStatusID = int.Parse(reader["SettlementStatusID"].ToString())
-             };
         }
 
         /// <summary>
@@ -493,6 +501,24 @@ namespace MvcExample.Models
             }
 
             return false;
+        }
+
+        /// <summary>
+        /// Bind game detail value.
+        /// </summary>
+        /// <param name="reader">The data reader.</param>
+        /// <returns>The game detail value.</returns>
+        private static GameDetail BindGameDetail(IDataReader reader)
+        {
+            return new GameDetail
+            {
+                MatchId = int.Parse(reader["matchid"].ToString()),
+                ResourceId = reader["ResourceId"].ToString(),
+                HomeValue = reader["HomeValue"].ToString(),
+                AwayValue = reader["AwayValue"].ToString(),
+                ResultStatusID = int.Parse(reader["ResultStatusID"].ToString()),
+                SettlementStatusID = int.Parse(reader["SettlementStatusID"].ToString())
+            };
         }
 
         #endregion Utilites

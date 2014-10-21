@@ -19,7 +19,6 @@ namespace Fanex.Result.Core.ViewModels
         public HockeyViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resource)
             : base(sportbook, setting, resource)
         {
-            this.GetHomeAwaySet(0, true);
         }
 
         public string OTHome

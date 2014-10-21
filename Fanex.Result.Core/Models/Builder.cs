@@ -187,9 +187,8 @@ namespace Fanex.Result.Core.Models
         /// </summary>
         /// <param name="lang">The language.</param>
         /// <param name="data">The data list.</param>
-        /// <param name="isPopUp">Is popup or not.</param>
-        /// <param name="isParlay">Is parlay or not.</param>
         /// <param name="setting">The result setting.</param>
+        /// <param name="isDetail">If true,all detailed game will be rendered.</param>
         /// <returns>
         /// Returns RAZOR model.
         /// </returns>

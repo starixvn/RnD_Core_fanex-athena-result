@@ -52,7 +52,7 @@
 
                 VisibleMatchCodeIDColumn = showMatchCode,
                 VisibleDetailedLink = true,
-                VisibleFreeHeader = false
+                VisibleFreeHeader = true
             };
             var htmlResult = string.Empty;
             switch (sportType)

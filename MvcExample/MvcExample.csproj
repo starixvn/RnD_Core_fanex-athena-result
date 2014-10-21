@@ -253,12 +253,7 @@
     <Content Include="Content\Core\img\sprites.png" />
     <Content Include="Content\Core\img\user.png" />
     <Content Include="Content\Fanex.Result\fanex.result.css" />
-    <Content Include="Content\Fanex.Result\images\1F.gif" />
-    <Content Include="Content\Fanex.Result\images\1L.gif" />
-    <Content Include="Content\Fanex.Result\images\bg_header03.jpg" />
-    <Content Include="Content\Fanex.Result\images\first-goal.gif" />
-    <Content Include="Content\Fanex.Result\images\last-goal.gif" />
-    <Content Include="Content\Fanex.Result\images\tab_topbg.gif" />
+    <Content Include="Content\Fanex.Result\images\goal-icon.png" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\jquery-ui\base\accordion.css" />
     <Content Include="Content\jquery-ui\base\all.css" />
@@ -430,6 +425,7 @@
     <Content Include="Content\Core\custom.less" />
     <Content Include="Content\Core\site.less" />
     <Content Include="Content\Core\variables.less" />
+    <None Include="Content\Fanex.Result\fanex.result.less" />
     <None Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <None Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <None Include="Content\fonts\glyphicons-halflings-regular.woff" />

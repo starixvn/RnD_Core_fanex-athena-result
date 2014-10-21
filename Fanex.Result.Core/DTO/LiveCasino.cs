@@ -22,6 +22,7 @@ namespace Fanex.Result.Core.DTO
             this.EventStatus = string.Empty;
             this.ShowTime = string.Empty;
         }
+
         public int LeagueId { get; set; }
 
         public int Bettype { get; set; }

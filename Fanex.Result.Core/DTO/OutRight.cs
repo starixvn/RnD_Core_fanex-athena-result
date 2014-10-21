@@ -17,6 +17,7 @@ namespace Fanex.Result.Core.DTO
         {
             this.Status = string.Empty;
         }
+
         public int SportType { get; set; }
 
         public int LeagueId { get; set; }

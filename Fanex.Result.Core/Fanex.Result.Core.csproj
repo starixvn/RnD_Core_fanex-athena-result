@@ -99,6 +99,7 @@
       <DependentUpon>LangResources.tt</DependentUpon>
     </Compile>
     <Compile Include="DTO\GameDetail.cs" />
+    <Compile Include="ExcelModels\IExcelModel.cs" />
     <Compile Include="Models\GroupData.cs" />
     <Compile Include="DTO\LiveCasino.cs" />
     <Compile Include="DTO\NumberGame.cs" />

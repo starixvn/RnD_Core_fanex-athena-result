@@ -17,7 +17,7 @@ namespace Fanex.Result.Core.ExcelModels
     /// <summary>
     /// Tennis excel model class.
     /// </summary>
-    internal sealed class TennisExcel : ExcelBase
+    internal sealed class TennisExcel : ExcelBase, IExcelModel
     {
         #region Fields
 

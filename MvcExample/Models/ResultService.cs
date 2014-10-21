@@ -380,24 +380,7 @@ namespace MvcExample.Models
                 ResultStatusID = 5,
                 SettlementStatusID = 4
             });
-            item.GameDetails.Add(new GameDetail
-            {
-                MatchId = 10877531,
-                ResourceId = "02",
-                HomeValue = "",
-                AwayValue = "",
-                ResultStatusID = 5,
-                SettlementStatusID = 2
-            });
-            item.GameDetails.Add(new GameDetail
-            {
-                MatchId = 10877531,
-                ResourceId = "01",
-                HomeValue = "15",
-                AwayValue = "0",
-                ResultStatusID = 5,
-                SettlementStatusID = 4
-            });
+
             return item;
         }
 

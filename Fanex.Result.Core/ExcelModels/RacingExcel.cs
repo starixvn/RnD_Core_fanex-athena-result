@@ -16,7 +16,7 @@ namespace Fanex.Result.Core.ExcelModels
     /// <summary>
     /// Racing excel model class.
     /// </summary>
-    internal sealed class RacingExcel : ExcelBase
+    internal sealed class RacingExcel : ExcelBase, IExcelModel
     {
         #region Fields
 

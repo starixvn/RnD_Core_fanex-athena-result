@@ -124,6 +124,9 @@
     <Compile Include="..\..\Fanex.Result.Core\ExcelModels\HockeyExcel.cs">
       <Link>ExcelModels\HockeyExcel.cs</Link>
     </Compile>
+    <Compile Include="..\..\Fanex.Result.Core\ExcelModels\IExcelModel.cs">
+      <Link>ExcelModels\IExcelModel.cs</Link>
+    </Compile>
     <Compile Include="..\..\Fanex.Result.Core\ExcelModels\LiveCasinoExcel.cs">
       <Link>ExcelModels\LiveCasinoExcel.cs</Link>
     </Compile>

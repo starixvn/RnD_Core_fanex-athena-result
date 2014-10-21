@@ -18,7 +18,7 @@ namespace Fanex.Result.Core.ExcelModels
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    internal sealed class VSSpeedWayExcel : ExcelBase
+    internal sealed class VSSpeedWayExcel : ExcelBase, IExcelModel
     {
         #region Fields
 

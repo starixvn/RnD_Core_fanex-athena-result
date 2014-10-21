@@ -119,56 +119,74 @@ namespace Fanex.Result.Core.Models
         /// <param name="setting">The result setting.</param>
         /// <param name="resource">The resource.</param>
         /// <returns>The excel view model.</returns>
-        public override ExcelBase GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting, LangResources resource)
+        public override IExcelModel GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting, LangResources resource)
         {
             var templateName = setting.SportType.StringMe();
             var viewName = templateName + EXCELEXTNAME;
             var realTemplatePath = setting.ExcelTemplatePath + templateName + ".xls";
+            IExcelModel result = null;
             switch (viewName)
             {
                 case "BasketBallExcel":
-                    return new BasketballExcel(realTemplatePath, setting, ParserExcelData<T, BasketBallViewModel>(dataList, setting, resource), resource);
+                    result = new BasketballExcel(realTemplatePath, setting, ParserExcelData<T, BasketBallViewModel>(dataList, setting, resource), resource);
+                    break;
+
                 case "HockeyExcel":
-                    return new HockeyExcel(realTemplatePath, setting, ParserExcelData<T, HockeyViewModel>(dataList, setting, resource), resource);
+                    result = new HockeyExcel(realTemplatePath, setting, ParserExcelData<T, HockeyViewModel>(dataList, setting, resource), resource);
+                    break;
 
                 case "TennisExcel":
-                    return new TennisExcel(realTemplatePath, setting, ParserExcelData<T, TennisViewModel>(dataList, setting, resource), resource);
+                    result = new TennisExcel(realTemplatePath, setting, ParserExcelData<T, TennisViewModel>(dataList, setting, resource), resource);
+                    break;
 
                 case "BadmintonExcel":
-                    return new BadmintonExcel(realTemplatePath, setting, ParserExcelData<T, BadmintonViewModel>(dataList, setting, resource), resource);
+                    result = new BadmintonExcel(realTemplatePath, setting, ParserExcelData<T, BadmintonViewModel>(dataList, setting, resource), resource);
+                    break;
 
                 case "BaseBallExcel":
-                    return new BaseBallExcel(realTemplatePath, setting, ParserExcelData<T, BaseBallViewModel>(dataList, setting, resource), resource);
+                    result = new BaseBallExcel(realTemplatePath, setting, ParserExcelData<T, BaseBallViewModel>(dataList, setting, resource), resource);
+                    break;
 
                 case "BilliardExcel":
 
-                    return new BilliardExcel(realTemplatePath, setting, ParserExcelData<T, BilliardViewModel>(dataList, setting, resource), resource);
+                    result = new BilliardExcel(realTemplatePath, setting, ParserExcelData<T, BilliardViewModel>(dataList, setting, resource), resource);
+                    break;
 
                 case "RacingExcel":
 
-                    return new RacingExcel(realTemplatePath, setting, ParserExcelData<T, RacingViewModel>(dataList, setting, resource), resource);
+                    result = new RacingExcel(realTemplatePath, setting, ParserExcelData<T, RacingViewModel>(dataList, setting, resource), resource);
+                    break;
 
                 case "VSHRacingExcel":
-                    return new VSHRacingExcel(realTemplatePath, setting, ParserExcelData<T, VSHRacingViewModel>(dataList, setting, resource), resource);
+                    result = new VSHRacingExcel(realTemplatePath, setting, ParserExcelData<T, VSHRacingViewModel>(dataList, setting, resource), resource);
+                    break;
 
                 case "VSSpeedWayExcel":
-                    return new VSSpeedWayExcel(realTemplatePath, setting, ParserExcelData<T, VSSpeedWayViewModel>(dataList, setting, resource), resource);
+                    result = new VSSpeedWayExcel(realTemplatePath, setting, ParserExcelData<T, VSSpeedWayViewModel>(dataList, setting, resource), resource);
+                    break;
 
                 case "NumberGameExcel":
-                    return new NumberGameExcel(realTemplatePath, setting, ParserExcelData<T, NumberGameViewModel>(dataList, setting, resource), resource);
+                    result = new NumberGameExcel(realTemplatePath, setting, ParserExcelData<T, NumberGameViewModel>(dataList, setting, resource), resource);
+                    break;
 
                 case "LiveCasinoExcel":
-                    return new LiveCasinoExcel(realTemplatePath, setting, ParserExcelData<T, LiveCasinoViewModel>(dataList, setting, resource), resource);
+                    result = new LiveCasinoExcel(realTemplatePath, setting, ParserExcelData<T, LiveCasinoViewModel>(dataList, setting, resource), resource);
+                    break;
 
                 case "SoccerExcel":
-                    return new SoccerExcel(realTemplatePath, setting, ParserExcelData<T, SoccerViewModel>(dataList, setting, resource), resource);
+                    result = new SoccerExcel(realTemplatePath, setting, ParserExcelData<T, SoccerViewModel>(dataList, setting, resource), resource);
+                    break;
 
                 case "VSTennisExcel":
-                    return new VSTennisExcel(realTemplatePath, setting, ParserExcelData<T, VSTennisViewModel>(dataList, setting, resource), resource);
+                    result = new VSTennisExcel(realTemplatePath, setting, ParserExcelData<T, VSTennisViewModel>(dataList, setting, resource), resource);
+                    break;
 
                 default:
-                    return new OtherSportExcel(realTemplatePath, setting, ParserExcelData<T, OtherViewModel>(dataList, setting, resource), resource);
+                    result = new OtherSportExcel(realTemplatePath, setting, ParserExcelData<T, OtherViewModel>(dataList, setting, resource), resource);
+                    break;
             }
+
+            return result;
         }
 
         private IList<T1> ParserExcelData<T, T1>(IList<T> dataList, ResultSetting setting, LangResources resource)

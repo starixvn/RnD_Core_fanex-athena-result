@@ -16,7 +16,7 @@ namespace Fanex.Result.Core.ExcelModels
     /// <summary>
     /// Outright excel model class.
     /// </summary>
-    internal sealed class OutRightExcel : ExcelBase
+    internal sealed class OutRightExcel : ExcelBase, IExcelModel
     {
         #region Fields
 

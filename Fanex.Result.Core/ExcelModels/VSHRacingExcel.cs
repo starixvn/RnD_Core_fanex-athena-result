@@ -18,7 +18,7 @@ namespace Fanex.Result.Core.ExcelModels
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    internal sealed class VSHRacingExcel : ExcelBase
+    internal sealed class VSHRacingExcel : ExcelBase, IExcelModel
     {
         #region Fields
 

@@ -16,7 +16,7 @@ namespace Fanex.Result.Core.ExcelModels
     /// <summary>
     /// Other sports excel model class.
     /// </summary>
-    internal sealed class OtherSportExcel : ExcelBase
+    internal sealed class OtherSportExcel : ExcelBase, IExcelModel
     {
         #region Fields
 

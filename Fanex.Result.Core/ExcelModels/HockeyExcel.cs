@@ -17,7 +17,7 @@ namespace Fanex.Result.Core.ExcelModels
     /// <summary>
     /// Hockey excel model class.
     /// </summary>
-    internal sealed class HockeyExcel : ExcelBase
+    internal sealed class HockeyExcel : ExcelBase, IExcelModel
     {
         #region Fields
 

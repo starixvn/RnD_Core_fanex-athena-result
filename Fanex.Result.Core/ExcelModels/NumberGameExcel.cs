@@ -16,7 +16,7 @@ namespace Fanex.Result.Core.ExcelModels
     /// <summary>
     /// Number game excel model class.
     /// </summary>
-    internal sealed class NumberGameExcel : ExcelBase
+    internal sealed class NumberGameExcel : ExcelBase, IExcelModel
     {
         #region Fields
 

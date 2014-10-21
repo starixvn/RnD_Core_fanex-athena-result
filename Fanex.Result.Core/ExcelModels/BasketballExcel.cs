@@ -16,7 +16,7 @@ namespace Fanex.Result.Core.ExcelModels
     /// <summary>
     /// Basketball excel model class.
     /// </summary>
-    internal sealed class BasketballExcel : ExcelBase
+    internal sealed class BasketballExcel : ExcelBase, IExcelModel
     {
         #region Fields
 

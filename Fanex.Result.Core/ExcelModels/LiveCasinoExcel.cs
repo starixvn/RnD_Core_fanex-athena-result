@@ -17,7 +17,7 @@ namespace Fanex.Result.Core.ExcelModels
     /// <summary>
     /// Live casino excel model class.
     /// </summary>
-    internal sealed class LiveCasinoExcel : ExcelBase
+    internal sealed class LiveCasinoExcel : ExcelBase, IExcelModel
     {
         private IList<LiveCasinoViewModel> _liveCasinoData;
 

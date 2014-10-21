@@ -17,7 +17,7 @@ namespace Fanex.Result.Core.ExcelModels
     /// <summary>
     /// Billiard excel model class.
     /// </summary>
-    internal sealed class BilliardExcel : ExcelBase
+    internal sealed class BilliardExcel : ExcelBase, IExcelModel
     {
         #region Fields
 

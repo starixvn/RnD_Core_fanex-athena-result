@@ -17,7 +17,7 @@ namespace Fanex.Result.Core.ExcelModels
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    internal class VSTennisExcel : ExcelBase
+    internal class VSTennisExcel : ExcelBase, IExcelModel
     {
         #region Fields
 

@@ -20,11 +20,11 @@ namespace Fanex.Result.Core.ExcelModels
     {
         #region Fields
 
-        private IList<SoccerViewModel> _soccerData;
+        private IList<IResultViewModel> _soccerData;
 
         #endregion Fields
 
-        public SoccerExcel(string templatePath, ResultSetting setting, IList<SoccerViewModel> data, LangResources resource)
+        public SoccerExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data, LangResources resource)
             : base(templatePath, setting, resource)
         {
             this._soccerData = data;
@@ -62,7 +62,7 @@ namespace Fanex.Result.Core.ExcelModels
                 SetLeague(sheet, firstItem.LeagueId, firstItem.LeagueName, ref currentLeagueId, ref currentRow);
                 foreach (var exportRow in item)
                 {
-                    SetDataForMatch(sheet, exportRow, ref currentRow);
+                    SetDataForMatch(sheet, (SoccerViewModel)exportRow, ref currentRow);
                 }
             }
         }

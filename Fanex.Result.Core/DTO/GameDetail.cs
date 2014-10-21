@@ -11,18 +11,15 @@ namespace Fanex.Result.Core.DTO
     /// </summary>
     public sealed class GameDetail
     {
-        public string _resrouceId = string.Empty;
-        public string _homeValue = string.Empty;
-        public string _awayValue = string.Empty;
+        private string _resrouceId = string.Empty;
+        private string _homeValue = string.Empty;
+        private string _awayValue = string.Empty;
 
         public int MatchId { get; set; }
 
         public string ResourceId
         {
-            get
-            {
-                return this._resrouceId;
-            }
+            get { return this._resrouceId; }
             set { this._resrouceId = value; }
         }
 

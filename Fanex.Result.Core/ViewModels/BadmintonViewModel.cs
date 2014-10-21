@@ -22,7 +22,6 @@ namespace Fanex.Result.Core.ViewModels
         public BadmintonViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resource)
             : base(sportbook, setting, resource)
         {
-
         }
 
         public string TotalPointHome

@@ -4,10 +4,10 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using System.Diagnostics.CodeAnalysis;
-
 namespace Fanex.Result.Core.DataDomain
 {
+    using System.Diagnostics.CodeAnalysis;
+
     /// <summary>
     /// TODO: Update summary.
     /// </summary>

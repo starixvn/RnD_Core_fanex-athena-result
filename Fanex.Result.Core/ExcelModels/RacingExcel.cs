@@ -21,15 +21,12 @@ namespace Fanex.Result.Core.ExcelModels
         #region Fields
 
         private const string FormatStatus = "Offical {0} {1}";
-        private IList<RacingViewModel> _racingData;
 
         #endregion Fields
 
-        public RacingExcel(string templatePath, ResultSetting setting, IList<RacingViewModel> data, LangResources resource)
-            : base(templatePath, setting, resource)
+        public RacingExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data, LangResources resource)
+            : base(templatePath, setting, data, resource)
         {
-            this._racingData = data;
-            this.NumofRow = this._racingData.Count;
             this.ColumnTemplateCount = 7;
             this.ColumnStatus = 6;
             this.RowContentTemplate = 3;
@@ -55,10 +52,10 @@ namespace Fanex.Result.Core.ExcelModels
             var currentRow = 2;
             var currentLeagueId = 0;
             var endRowSpan = 3;
-            var groupData = this._racingData.GroupBy(i => i.LeagueId);
+            var groupData = this.ViewModelData.GroupBy(i => i.LeagueId);
             foreach (var item in groupData)
             {
-                foreach (var exportRow in item)
+                foreach (RacingViewModel exportRow in item)
                 {
                     if (exportRow.Place > 4)
                     {
@@ -100,8 +97,9 @@ namespace Fanex.Result.Core.ExcelModels
                 currentRace = exportRow.RaceName;
 
                 // Calculate row span
-                var rowsTopRace =
-                this._racingData.Count(i => i.LeagueId == leagueId && i.RaceName.Equals(currentRace) && i.Place < 5);
+                var rowsTopRace = this.ViewModelData.Where(i => i.LeagueId == leagueId)
+                    .Select(i => (RacingViewModel)i)
+                    .Count(i => i.RaceName.Equals(currentRace) && i.Place < 5);
 
                 if (currentRow == 3 || endRowSpan < currentRow)
                 {

@@ -17,6 +17,14 @@ namespace Fanex.Result.Core.Utilities
     internal static class Helper
     {
         private static readonly CultureInfo Cult = new CultureInfo("en-US");
+        private static Regex setXGameYRegex = new Regex("^80[1-5]{1}\\d{2}$");
+
+        private static Regex[] setXRGameYResourceID = new Regex[5] {
+            new Regex("^01\\d{2}$"),
+            new Regex("^02\\d{2}$"),
+            new Regex("^03\\d{2}$"),
+            new Regex("^04\\d{2}$"),
+            new Regex("^05\\d{2}$") };
 
         public static string FullDateFormat(object obj, string formatPattern)
         {
@@ -61,8 +69,12 @@ namespace Fanex.Result.Core.Utilities
 
         public static bool IsSetXGameYBetID(string betID)
         {
-            Regex isBetID = new Regex("^80[1-5]{1}\\d{2}$");
-            return isBetID.IsMatch(betID);
+            return setXGameYRegex.IsMatch(betID);
+        }
+
+        public static bool IsTennisGameResourceID(int sexIndex, string resourceId)
+        {
+            return setXRGameYResourceID[sexIndex - 1].IsMatch(resourceId);
         }
     }
 }

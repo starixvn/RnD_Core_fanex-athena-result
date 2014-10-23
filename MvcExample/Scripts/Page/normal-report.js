@@ -128,6 +128,28 @@ var normalReport = (function () {
                 }
             });
         });
+        $("body").on("click", ".tennis-detail-link", function () {
+            var detailPopUp = $("#game-detail");
+            $.ajax({
+                url: window.rootUrl + "normalreport/GenHtmlTennisDetail?matchid=" + $(this).attr("data-match-id"),
+                datatype: "html",
+                type: "GET",
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                cache: false,
+                beforeSend: function () {
+                    invokeLoadingMsg(true);
+                },
+                success: function (data) {
+                    detailPopUp.html(data);
+                    detailPopUp.dialog({ width: "750px" });
+                    invokeLoadingMsg(false);
+                },
+                error: function () {
+                    invokeLoadingMsg(false);
+                    alert("Error requesting page");
+                }
+            });
+        });
     };
     me.setup = function () {
         initEvent();

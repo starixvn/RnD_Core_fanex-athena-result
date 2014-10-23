@@ -19,17 +19,13 @@ namespace Fanex.Result.Core.ExcelModels
     /// </summary>
     internal sealed class LiveCasinoExcel : ExcelBase, IExcelModel
     {
-        private IList<LiveCasinoViewModel> _liveCasinoData;
-
         public LiveCasinoExcel(
             string templatePath,
             ResultSetting setting,
-            IList<LiveCasinoViewModel> data,
+            IList<IResultViewModel> data,
             LangResources resource)
-            : base(templatePath, setting, resource)
+            : base(templatePath, setting, data, resource)
         {
-            this._liveCasinoData = data;
-            this.NumofRow = this._liveCasinoData.Count;
             this.ColumnTemplateCount = 6;
             this.ColumnStatus = 5;
             this.RowContentTemplate = 3;
@@ -54,10 +50,10 @@ namespace Fanex.Result.Core.ExcelModels
         protected override void AssignSheetData(ISheet sheet)
         {
             var currentRow = RowLeagueTemplate;
-            var groupData = this._liveCasinoData.GroupBy(i => i.LeagueId);
+            var groupData = this.ViewModelData.GroupBy(i => i.LeagueId);
             foreach (var item in groupData)
             {
-                var firstItem = item.FirstOrDefault();
+                var firstItem = (LiveCasinoViewModel)item.FirstOrDefault();
                 var rowLeague = sheet.CopyRow(TemplateSheet, RowLeagueTemplate, currentRow, ColumnTemplateIndexList);
                 rowLeague.Cells[0].SetCellValue(firstItem.LeagueName);
                 sheet.MergeCells(currentRow, 0, currentRow, 1);
@@ -67,7 +63,7 @@ namespace Fanex.Result.Core.ExcelModels
                     rowLeague.Cells[2].SetCellValue(string.Empty);
                 }
 
-                foreach (var exportRow in item)
+                foreach (LiveCasinoViewModel exportRow in item)
                 {
                     var rowMatch = sheet.CopyRow(TemplateSheet, RowContentTemplate, currentRow, ColumnTemplateIndexList);
 

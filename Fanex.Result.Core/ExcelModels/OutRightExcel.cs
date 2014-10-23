@@ -6,7 +6,6 @@
 namespace Fanex.Result.Core.ExcelModels
 {
     using System.Collections.Generic;
-    using System.Linq;
     using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.Utilities;
@@ -25,15 +24,11 @@ namespace Fanex.Result.Core.ExcelModels
         private const int ColumnResults = 2;
         private const int RowNoInfo = 4;
 
-        private IList<OutRightViewModel> _outRightdata;
-
         #endregion Fields
 
-        public OutRightExcel(string templatePath, ResultSetting setting, IList<OutRightViewModel> data, LangResources resource)
-            : base(templatePath, setting, resource)
+        public OutRightExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data, LangResources resource)
+            : base(templatePath, setting, data, resource)
         {
-            this._outRightdata = data;
-            this.NumofRow = this._outRightdata.Count;
             this.ColumnTemplateCount = 3;
             this.ColumnStatus = 4;
             this.RowContentTemplate = 3;
@@ -45,28 +40,6 @@ namespace Fanex.Result.Core.ExcelModels
             row.Cells[ColumnTime].SetCellValue(Lang.Time);
             row.Cells[ColumnTeam].SetCellValue(Lang.Team);
             row.Cells[ColumnResults].SetCellValue(Lang.Results);
-        }
-
-        /// <summary>
-        /// Assign data to sheet.
-        /// </summary>
-        /// <param name="sheet">The current sheet.</param>
-        protected override void AssignSheetData(ISheet sheet)
-        {
-            var currentRow = 2;
-            var currentLeagueId = 0;
-            var groupData = this._outRightdata.GroupBy(i => i.LeagueId);
-            foreach (var item in groupData)
-            {
-                var firstItem = item.FirstOrDefault();
-
-                SetLeague(sheet, firstItem.LeagueId, firstItem.LeagueName, ref currentLeagueId, ref currentRow);
-
-                foreach (var exportRow in item)
-                {
-                    SetDataForMatch(sheet, exportRow, ref currentRow);
-                }
-            }
         }
 
         protected override void ProcessUI(ISheet sheet)
@@ -87,10 +60,11 @@ namespace Fanex.Result.Core.ExcelModels
         /// Set data for match.
         /// </summary>
         /// <param name="sheet">The current sheet.</param>
-        /// <param name="exportRow">The view model.</param>
+        /// <param name="data">The view model.</param>
         /// <param name="currentRow">The current row.</param>
-        private void SetDataForMatch(ISheet sheet, OutRightViewModel exportRow, ref int currentRow)
+        protected override void SetDataForMatch(ISheet sheet, IResultViewModel data, ref int currentRow)
         {
+            var exportRow = (OutRightViewModel)data;
             var row = sheet.CopyRow(TemplateSheet, RowContentTemplate, currentRow);
 
             AssignStringData(

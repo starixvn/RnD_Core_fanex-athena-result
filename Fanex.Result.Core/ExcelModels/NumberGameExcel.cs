@@ -12,6 +12,7 @@ namespace Fanex.Result.Core.ExcelModels
     using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.Utilities;
     using Fanex.Result.Core.ViewModels;
+    using NPOI.SS.UserModel;
 
     /// <summary>
     /// Number game excel model class.
@@ -22,15 +23,11 @@ namespace Fanex.Result.Core.ExcelModels
 
         private const string Match = "{0} {1}";
 
-        private IList<NumberGameViewModel> _numberGameData;
-
         #endregion Fields
 
-        public NumberGameExcel(string templatePath, ResultSetting setting, IList<NumberGameViewModel> data, LangResources resource)
-            : base(templatePath, setting, resource)
+        public NumberGameExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data, LangResources resource)
+            : base(templatePath, setting, data, resource)
         {
-            this._numberGameData = data;
-            this.NumofRow = this._numberGameData.Count;
             this.ColumnTemplateCount = 9;
             this.ColumnStatus = 8;
             this.RowContentTemplate = 3;
@@ -59,17 +56,17 @@ namespace Fanex.Result.Core.ExcelModels
         /// Assign data to sheet.
         /// </summary>
         /// <param name="sheet">The current sheet.</param>
-        protected override void AssignSheetData(NPOI.SS.UserModel.ISheet sheet)
+        protected override void AssignSheetData(ISheet sheet)
         {
             var currentRow = RowLeagueTemplate;
             var currentLeagueId = 0;
-            var groupData = this._numberGameData.GroupBy(i => i.LeagueId);
+            var groupData = this.ViewModelData.GroupBy(i => i.LeagueId);
             foreach (var item in groupData)
             {
-                var firstItem = item.FirstOrDefault();
+                var firstItem = (NumberGameViewModel)item.FirstOrDefault();
                 SetLeague(sheet, firstItem.LeagueId, firstItem.LeagueName, ref currentLeagueId, ref currentRow);
 
-                foreach (var exportRow in item)
+                foreach (NumberGameViewModel exportRow in item)
                 {
                     var rowMatch = sheet.CopyRow(TemplateSheet, RowContentTemplate, currentRow);
 

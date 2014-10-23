@@ -6,7 +6,7 @@
     var colspan = viewModel.VisibleMatchCodeIDColumn ? 11 : 10;
     var visibleMainResult = viewModel.IsDetail || !(viewModel.IsPopUp
         && viewModel.Bettype == BetTypeDefinition.SetXGameYWinner && betId >= BetIDDefinition.MinSet1GameY);
-    var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
+    var popupCss = viewModel.IsPopUp || viewModel.IsDetail ? "popup" : string.Empty;
 
 }
 @using Fanex.Result.Core.ViewModels;
@@ -239,21 +239,23 @@
             }
 }
 <!--Detail-->
-@if (viewModel.IsDetail || (viewModel.IsPopUp && viewModel.Bettype == BetTypeDefinition.SetXGameYWinner && betId >= BetIDDefinition.MinSet1GameY))
+@{
+    var visibleDetail = viewModel.Data.Count > 0 && viewModel.Data[0].Data.Count > 0
+        && (viewModel.IsDetail || (viewModel.IsPopUp && viewModel.Bettype == BetTypeDefinition.SetXGameYWinner && betId >= BetIDDefinition.MinSet1GameY));
+}
+@if (visibleDetail)
 {
-    foreach (var group in viewModel.Data)
-    {
+    TennisViewModel item = (TennisViewModel)viewModel.Data[0].Data[0];
 
-        foreach (TennisViewModel item in group.Data)
+    for (var i = 0; i < item.SetDetail.Length; i++)
+    {
+        if (viewModel.IsDetail || item.VisibleSet(i + 1, betId))
         {
-            for (var i = 0; i <= item.SetDetail.Length; i++)
+            var setValue = item.SetDetail[i];
+            if (setValue != null)
             {
-                if (viewModel.IsDetail || item.VisibleSet(i + 1, betId))
-                {
-                    var setValue = item.SetDetail[i];
-                    if (setValue != null)
-                    {
-    <table class="fn-rs">
+    <br />
+    <table class="fn-rs popup">
         <thead>
             @if (!viewModel.IsDetail)
             {
@@ -265,9 +267,9 @@
             }
             <tr class="header">
                 <th class="cl-match">
-                    @lang.Set&nbsp;1&nbsp;@lang.GameResult
+                    @lang.Set&nbsp;@setValue.SetId&nbsp;@lang.GameResult
                 </th>
-                @for (var k = 1; k <= 13; k++)
+                @for (var k = 1; k <= ConstantValueDefinition.NUMBERGAMEOFTENNISSET; k++)
                 {
                     <th class="cl-s">
                         @k
@@ -276,22 +278,13 @@
             </tr>
         </thead>
         <tbody>
-            @if (setValue.IsRefund)
-            {
-                <tr class="data">
-                    <td class="cl-refund" colspap="@ConstantValueDefinition.NUMBERGAMEOFTENNISSET">
-                        @lang.Refund
-                    </td>
-                </tr>
-            }
-            else
-            {
-
+            @{
                 var maxGameId = setValue.Games.Count;
                 var subRowspan = 1;
-                if (setValue.SetId == 5)
+                if (maxGameId > ConstantValueDefinition.NUMBERGAMEOFTENNISSET)
                 {
-                    subRowspan = maxGameId / ConstantValueDefinition.NUMBERGAMEOFTENNISSET + 1;
+                    subRowspan = (maxGameId / ConstantValueDefinition.NUMBERGAMEOFTENNISSET) * 2;
+                    subRowspan += subRowspan / 2;
                 }
                 var lastGameId = ConstantValueDefinition.NUMBERGAMEOFTENNISSET;
                 var startGameId = 0;
@@ -299,12 +292,12 @@
                 for (var t = 0; t < maxGameId; t += ConstantValueDefinition.NUMBERGAMEOFTENNISSET)
                 {
 
-                    if (t > ConstantValueDefinition.NUMBERGAMEOFTENNISSET)
+                    if (t >= ConstantValueDefinition.NUMBERGAMEOFTENNISSET)
                     {
                         startGameId = lastGameId;
                         lastGameId += 13;
                 <tr class="sub-header">
-                    @for (var j = startGameId; j <= lastGameId; j++)
+                    @for (var j = startGameId + 1; j <= lastGameId; j++)
                     {
                         <td class="cl-s">
                             @j
@@ -313,36 +306,55 @@
                 </tr>
                     }
                 <tr class="data odd">
-                    <td class="cl-match home" rowspan="@subRowspan">
-                        @Raw(item.HomeTeam)
-                    </td>
+                    @if (maxGameId == ConstantValueDefinition.NUMBERGAMEOFTENNISSET)
+                    {
+                        <td class="cl-match home">
+                            @Raw(item.HomeTeam)
+                        </td>
+                    }
+                    else if (t == 0)
+                    {
+                        <td class="cl-match" rowspan="@subRowspan">
+                            <div class="home">
+                                @Raw(item.HomeTeam)
+                            </div>
+                            <div class="away">
+                                @Raw(item.AwayTeam)
+                            </div>
+                        </td>
+                    }
                     @for (var g = startGameId; g < lastGameId; g++)
                     {
                         <td class="cl-s">
-                            @setValue.Games[t].HomeValue
+                            @setValue.Games[g].HomeValue
                         </td>
                     }
                 </tr>
+
                 <tr class="data odd">
-                    <td class="cl-match home" rowspan="@subRowspan">
-                        @Raw(item.AwayTeam)
-                    </td>
+                    @if (maxGameId == ConstantValueDefinition.NUMBERGAMEOFTENNISSET)
+                    {
+                        <td class="cl-match away">
+                            @Raw(item.AwayTeam)
+                        </td>
+                    }
                     @for (var g = startGameId; g < lastGameId; g++)
                     {
                         <td class="cl-s">
-                            @setValue.Games[t].AwayValue
+                            @setValue.Games[g].AwayValue
                         </td>
 
                     }
                 </tr>
+
                 }
+
             }
         </tbody>
     </table>
-                    }
-                }
             }
         }
     }
+
 }
 <!--/Detail-->

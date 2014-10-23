@@ -28,6 +28,11 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
+                if (this.HomeSet == null || this.AwaySet == null)
+                {
+                    this.GetHomeAwaySet(0, true);
+                }
+
                 return this._totalPointHome > 0 ? this._totalPointHome.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }
@@ -36,6 +41,11 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
+                if (this.HomeSet == null || this.AwaySet == null)
+                {
+                    this.GetHomeAwaySet(0, false);
+                }
+
                 return this._totalPointAway > 0 ? this._totalPointAway.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }

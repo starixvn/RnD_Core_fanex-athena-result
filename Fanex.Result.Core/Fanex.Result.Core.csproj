@@ -111,13 +111,13 @@
     <Compile Include="DataDomain\StringResources.cs" />
     <Compile Include="ExcelModels\BadmintonExcel.cs" />
     <Compile Include="ExcelModels\BaseBallExcel.cs" />
-    <Compile Include="ExcelModels\BasketballExcel.cs" />
+    <Compile Include="ExcelModels\BasketBallExcel.cs" />
     <Compile Include="ExcelModels\BilliardExcel.cs" />
     <Compile Include="ExcelModels\VSSpeedWayExcel.cs" />
     <Compile Include="ExcelModels\ExcelBase.cs" />
     <Compile Include="ExcelModels\HockeyExcel.cs" />
     <Compile Include="ExcelModels\NumberGameExcel.cs" />
-    <Compile Include="ExcelModels\OtherSportExcel.cs" />
+    <Compile Include="ExcelModels\OtherExcel.cs" />
     <Compile Include="ExcelModels\OutRightExcel.cs" />
     <Compile Include="ExcelModels\RacingExcel.cs" />
     <Compile Include="ExcelModels\LiveCasinoExcel.cs" />

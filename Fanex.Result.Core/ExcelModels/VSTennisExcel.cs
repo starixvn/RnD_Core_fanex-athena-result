@@ -7,7 +7,6 @@
 namespace Fanex.Result.Core.ExcelModels
 {
     using System.Collections.Generic;
-    using System.Linq;
     using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.Utilities;
@@ -19,17 +18,9 @@ namespace Fanex.Result.Core.ExcelModels
     /// </summary>
     internal class VSTennisExcel : ExcelBase, IExcelModel
     {
-        #region Fields
-
-        private IList<VSTennisViewModel> _tennisData;
-
-        #endregion Fields
-
-        public VSTennisExcel(string templatePath, ResultSetting setting, IList<VSTennisViewModel> data, LangResources resource)
-            : base(templatePath, setting, resource)
+        public VSTennisExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data, LangResources resource)
+            : base(templatePath, setting, data, resource)
         {
-            this._tennisData = data;
-            this.NumofRow = this._tennisData.Count;
             this.ColumnTemplateCount = 6;
             this.ColumnStatus = 4;
             this.RowContentTemplate = 3;
@@ -47,38 +38,17 @@ namespace Fanex.Result.Core.ExcelModels
             row.Cells[colidx].SetCellValue(this.Lang.Status);
         }
 
-        /// <summary>
-        /// Assign data to sheet.
-        /// </summary>
-        /// <param name="sheet">The current sheet.</param>
-        protected override void AssignSheetData(ISheet sheet)
-        {
-            var currentRow = RowLeagueTemplate;
-            var currentLeagueId = 0;
-            var groupData = this._tennisData.GroupBy(i => i.LeagueId);
-            foreach (var item in groupData)
-            {
-                var firstItem = item.FirstOrDefault();
-
-                SetLeague(sheet, firstItem.LeagueId, firstItem.LeagueName, ref currentLeagueId, ref currentRow);
-
-                foreach (var exportRow in item)
-                {
-                    SetDataForMatch(sheet, exportRow, ref currentRow);
-                }
-            }
-        }
-
         #region Assign Cell Data
 
         /// <summary>
         /// Set data for match.
         /// </summary>
         /// <param name="sheet">The current sheet.</param>
-        /// <param name="exportRow">The view model.</param>
+        /// <param name="data">The view model.</param>
         /// <param name="currentRow">The current row.</param>
-        private void SetDataForMatch(ISheet sheet, VSTennisViewModel exportRow, ref int currentRow)
+        protected override void SetDataForMatch(ISheet sheet, IResultViewModel data, ref int currentRow)
         {
+            var exportRow = (VSTennisViewModel)data;
             var rowTeamWin = this.GetRowTeamWin(exportRow.HomePoint, exportRow.AwayPoint);
             var rowHome = sheet.CopyRow(TemplateSheet, rowTeamWin[0], currentRow);
 

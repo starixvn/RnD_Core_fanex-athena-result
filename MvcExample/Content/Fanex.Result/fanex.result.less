@@ -11,11 +11,11 @@
 @header-background: #295091;
 @header-color: #fff;
 @border-color: #cbc9ca;
-
 @league-color: #1d3968;
 @league-background: #cccccc;
 @row-even-background: #e5ebf2;
-
+@home-color:#6678e0;
+@away-color:#008d95;
 div.fn-rs-content-header
 {
     border: 1px solid @border-color;
@@ -59,12 +59,10 @@ table
 				color: #FFF !important;
            }
         }
-		.header
+		.header,.sub-header
         {
 		 	    color: @header-color;
-	    background-color: @header-background;
-
-
+				 background-color: @header-background;
         }
         tbody
         {
@@ -100,11 +98,11 @@ table
                 padding-left: 3px;
                 &.home
                 {
-                    color: #6678e0;
+                    color: @home-color;
                 }
                 &.away
                 {
-                    color: #008d95;
+                    color: @away-color;
                 }
                 div
                 {
@@ -127,7 +125,24 @@ table
                     {
                         background: url(@goal-icon) no-repeat no-repeat -9px -83px;
                     }
+					&.home
+                    {
+                    color:@home-color;
+                    }
+					&.away
+                    {
+                    color:@away-color;
+                    }
                 }
+				div.home ,div.away
+                {
+					width:100%;
+					display:inline-block;
+					margin-top:10px;
+					
+                }
+				
+				
             }
             .cl-f-score
             {
@@ -153,7 +168,7 @@ table
         }
 		.cl-s, .cl-ot, .cl-ei
         {
-			width: 22px;
+			width: 40px;
         }
 		.cl-totalgames,.cl-totalpoint
         {

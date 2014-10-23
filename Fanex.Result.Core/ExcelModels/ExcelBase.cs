@@ -9,9 +9,11 @@ namespace Fanex.Result.Core.ExcelModels
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
+    using System.Linq;
     using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.Utilities;
+    using Fanex.Result.Core.ViewModels;
     using NPOI.HSSF.UserModel;
     using NPOI.SS.UserModel;
 
@@ -42,17 +44,21 @@ namespace Fanex.Result.Core.ExcelModels
 
         #endregion Fields
 
-        protected ExcelBase(string _templatePath, ResultSetting _setting, LangResources _resource)
+        protected ExcelBase(string _templatePath, ResultSetting _setting, IList<IResultViewModel> _data, LangResources _resource)
         {
             this.TemplatePath = _templatePath;
             this.Lang = _resource;
             this.ReportTitle = _setting.ExcelTitle;
             this.Setting = _setting;
+            this.ViewModelData = _data;
+            this.NumofRow = _data.Count;
         }
 
         protected int NumofRow { get; set; }
 
         protected LangResources Lang { get; set; }
+
+        protected IList<IResultViewModel> ViewModelData { get; set; }
 
         protected ResultSetting Setting { get; set; }
 
@@ -159,11 +165,31 @@ namespace Fanex.Result.Core.ExcelModels
             SetTextRowValue(sheet, RowNoInfoTemplate, RowLeagueTemplate, ColumnTemplateCount, this.Lang.NoInfo);
         }
 
-        protected virtual void AssignSheetData(ISheet sheet, int rowFrom, int rowTo)
+        /// <summary>
+        /// Assign data to sheet.
+        /// </summary>
+        /// <param name="sheet">The current sheet.</param>
+        protected virtual void AssignSheetData(ISheet sheet)
         {
+            var currentRow = RowLeagueTemplate;
+            var currentLeagueId = 0;
+            var groupData = this.ViewModelData.GroupBy(i => i.LeagueId);
+            foreach (var item in groupData)
+            {
+                var firstItem = item.FirstOrDefault();
+
+                SetLeague(sheet, firstItem.LeagueId, firstItem.LeagueName, ref currentLeagueId, ref currentRow);
+
+                foreach (var exportRow in item)
+                {
+                    SetDataForMatch(sheet, exportRow, ref currentRow);
+                }
+            }
         }
 
-        protected abstract void AssignSheetData(ISheet sheet);
+        protected virtual void SetDataForMatch(ISheet sheet, IResultViewModel data, ref int currentRow)
+        {
+        }
 
         protected virtual void ProcessUI(ISheet sheet)
         {

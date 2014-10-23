@@ -23,15 +23,12 @@ namespace Fanex.Result.Core.ExcelModels
         #region Fields
 
         private const string FormatStatus = "Offical {0} {1}";
-        private IList<VSHRacingViewModel> _racingData;
 
         #endregion Fields
 
-        public VSHRacingExcel(string templatePath, ResultSetting setting, IList<VSHRacingViewModel> data, LangResources resource)
-            : base(templatePath, setting, resource)
+        public VSHRacingExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data, LangResources resource)
+            : base(templatePath, setting, data, resource)
         {
-            this._racingData = data;
-            this.NumofRow = this._racingData.Count;
             this.ColumnTemplateCount = 7;
             this.ColumnStatus = 6;
             this.RowContentTemplate = 3;
@@ -54,13 +51,13 @@ namespace Fanex.Result.Core.ExcelModels
         /// <param name="sheet">The current sheet.</param>
         protected override void AssignSheetData(ISheet sheet)
         {
-            var currentRow = 2;
+            var currentRow = RowLeagueTemplate;
             var currentLeagueId = 0;
             var endRowSpan = 3;
-            var groupData = this._racingData.GroupBy(i => i.LeagueId);
+            var groupData = this.ViewModelData.GroupBy(i => i.LeagueId);
             foreach (var item in groupData)
             {
-                foreach (var exportRow in item)
+                foreach (VSHRacingViewModel exportRow in item)
                 {
                     if (exportRow.Place > 4)
                     {
@@ -102,7 +99,9 @@ namespace Fanex.Result.Core.ExcelModels
 
                 // Calculate row span
                 var rowsTopRace =
-                this._racingData.Count(i => i.LeagueId == leagueId && i.EvenTime == currentRace && i.Place < 5);
+                this.ViewModelData.Where(i => i.LeagueId == leagueId)
+                .Select(i => (VSHRacingViewModel)i)
+                .Count(i => i.EvenTime == currentRace && i.Place < 5);
 
                 if (currentRow == 3 || endRowSpan < currentRow)
                 {

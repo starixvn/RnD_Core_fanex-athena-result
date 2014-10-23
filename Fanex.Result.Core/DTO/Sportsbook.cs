@@ -20,7 +20,7 @@ namespace Fanex.Result.Core.DTO
         private string _refNo = string.Empty;
         private string _color = string.Empty;
         private string _eventStatus = string.Empty;
-        private IList<GameDetail> _gameDetails = new List<GameDetail>();
+        private List<GameDetail> _gameDetails = new List<GameDetail>();
 
         public string BetStatus
         {
@@ -95,10 +95,15 @@ namespace Fanex.Result.Core.DTO
         /// Used for tennis sport.
         /// </summary>
         /// <value>The game detail value.</value>
-        public IList<GameDetail> GameDetails
+        public List<GameDetail> GameDetails
         {
             get { return this._gameDetails; }
-            set { this._gameDetails = value; }
+            set {
+                if (value != null)
+                {
+                    this._gameDetails = value;
+                }
+            }
         }
     }
 }

@@ -15,8 +15,6 @@ namespace Fanex.Result.Core.ViewModels.TennisDetail
     {
         public int SetId { get; set; }
 
-        public bool IsRefund { get; set; }
-
         public IList<GameValue> Games { get; set; }
     }
 }

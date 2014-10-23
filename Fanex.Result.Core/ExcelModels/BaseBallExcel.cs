@@ -7,7 +7,6 @@
 namespace Fanex.Result.Core.ExcelModels
 {
     using System.Collections.Generic;
-    using System.Linq;
     using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.Utilities;
@@ -22,15 +21,12 @@ namespace Fanex.Result.Core.ExcelModels
         #region Fields
 
         private const int ColumnHTScore = 13;
-        private IList<BaseBallViewModel> _baseBallData;
 
         #endregion Fields
 
-        public BaseBallExcel(string templatePath, ResultSetting setting, IList<BaseBallViewModel> data, LangResources resource)
-            : base(templatePath, setting, resource)
+        public BaseBallExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data, LangResources resource)
+            : base(templatePath, setting, data, resource)
         {
-            this._baseBallData = data;
-            this.NumofRow = this._baseBallData.Count;
             this.ColumnTemplateCount = 16;
             this.ColumnStatus = 15;
             this.RowContentTemplate = 3;
@@ -54,38 +50,17 @@ namespace Fanex.Result.Core.ExcelModels
             row.Cells[colidx].SetCellValue(Lang.Status);
         }
 
-        /// <summary>
-        /// Assign data to sheet.
-        /// </summary>
-        /// <param name="sheet">The current sheet.</param>
-        protected override void AssignSheetData(ISheet sheet)
-        {
-            var currentRow = 2;
-            var currentLeagueId = 0;
-            var groupData = this._baseBallData.GroupBy(i => i.LeagueId);
-            foreach (var item in groupData)
-            {
-                var firstItem = item.FirstOrDefault();
-
-                SetLeague(sheet, firstItem.LeagueId, firstItem.LeagueName, ref currentLeagueId, ref currentRow);
-
-                foreach (var exportRow in item)
-                {
-                    AssignMatch(sheet, exportRow, ref currentRow);
-                }
-            }
-        }
-
         #region Assign Cell Data
 
         /// <summary>
         /// Assign value to match row.
         /// </summary>
         /// <param name="sheet">The current sheet.</param>
-        /// <param name="exportRow">The view model.</param>
+        /// <param name="data">The view model.</param>
         /// <param name="currentRow">The current row.</param>
-        private void AssignMatch(ISheet sheet, BaseBallViewModel exportRow, ref int currentRow)
+        protected override void SetDataForMatch(ISheet sheet, IResultViewModel data, ref int currentRow)
         {
+            var exportRow = (BaseBallViewModel)data;
             var getRowTeamWin = GetRowTeamWin(exportRow.FinalHomeScore, exportRow.FinalAwayScore);
 
             var rowHome = sheet.CopyRow(TemplateSheet, getRowTeamWin[0], currentRow);

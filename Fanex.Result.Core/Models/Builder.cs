@@ -27,15 +27,32 @@ namespace Fanex.Result.Core.Models
         public string HtmlBuilder<T>(IList<T> dataList, ResultSetting setting)
         {
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
-            var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(i, setting, lang))
+            var groupData = dataList.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(i, setting, lang))
                 .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToList() });
-            var model = CreateModel(lang, dataMaped, setting);
+            var model = CreateModel(lang, groupData, setting);
             return HtmlRender(setting.SportType.StringMe(), model);
         }
 
+        /// <summary>
+        /// Generate game detail value.
+        /// </summary>
+        /// <param name="data">The SPORTSBOOK data.</param>
+        /// <param name="setting">The result setting.</param>
+        /// <returns>The game detail value.</returns>
         public string HtmlGameDetailBuilder(Sportsbook data, ResultSetting setting)
         {
-            throw new System.NotImplementedException();
+            var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
+            var viewModelData = ViewModelConcreteFactory.Instance.GetViewModel(data, setting, lang);
+
+            IList<GroupData> groupData = new List<GroupData>(){
+                new GroupData{
+                    LeagueId = viewModelData.LeagueId,
+                    Data = new List<IResultViewModel>{viewModelData}
+                }
+            };
+
+            var model = CreateModel(lang, groupData, setting, true);
+            return HtmlRender(setting.SportType.StringMe(), model);
         }
 
         /// <summary>
@@ -52,35 +69,35 @@ namespace Fanex.Result.Core.Models
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
             if (setting.IsOutRight)
             {
-                var dataMapedOutRight = dataList.Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting, lang))
+                var groupDataOutRight = dataList.Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting, lang))
                      .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToList() });
 
-                var modelOutRight = CreateModel(lang, dataMapedOutRight, setting);
+                var modelOutRight = CreateModel(lang, groupDataOutRight, setting);
 
                 return HtmlRender("OutRight", modelOutRight);
             }
 
-            var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(i, setting, lang))
+            var groupData = dataList.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(i, setting, lang))
                  .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToList() });
-            var model = CreateModel(lang, dataMaped, setting);
+            var model = CreateModel(lang, groupData, setting);
             return HtmlRender(setting.SportType.StringMe(), model);
         }
 
         public string PopUpParalyBuilder<T>(IList<T> dataList, ResultSetting setting)
         {
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
-            var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetParlayViewModel(i, setting, lang))
+            var groupData = dataList.Select(i => ViewModelConcreteFactory.Instance.GetParlayViewModel(i, setting, lang))
                  .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToList() });
-            var model = CreateModel(lang, dataMaped, setting);
+            var model = CreateModel(lang, groupData, setting);
             return HtmlRender("Parlay", model);
         }
 
         public string OutRightHtmlBuilder<T>(IList<T> dataList, ResultSetting setting)
         {
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
-            var dataMaped = dataList.Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting, lang))
+            var groupData = dataList.Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting, lang))
                 .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToList() });
-            var model = CreateModel(lang, dataMaped, setting);
+            var model = CreateModel(lang, groupData, setting);
             return HtmlRender("OutRight", model);
         }
 
@@ -107,7 +124,7 @@ namespace Fanex.Result.Core.Models
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
             var outRightData =
                 dataList
-                .Select(i => (OutRightViewModel)ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting, lang))
+                .Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting, lang))
                 .ToList();
             var realTemplatePath = setting.ExcelTemplatePath + "Outright.xls";
             var excelParser = new OutRightExcel(realTemplatePath, setting, outRightData, lang);
@@ -186,7 +203,7 @@ namespace Fanex.Result.Core.Models
         /// Creates the model.
         /// </summary>
         /// <param name="lang">The language.</param>
-        /// <param name="data">The data list.</param>
+        /// <param name="groupData">The data list.</param>
         /// <param name="setting">The result setting.</param>
         /// <param name="isDetail">If true,all detailed game will be rendered.</param>
         /// <returns>
@@ -194,7 +211,7 @@ namespace Fanex.Result.Core.Models
         /// </returns>
         private static RazorBinderModel CreateModel(
             LangResources lang,
-            dynamic data,
+            IEnumerable<GroupData> groupData,
             ResultSetting setting,
             bool isDetail = false)
         {
@@ -213,7 +230,7 @@ namespace Fanex.Result.Core.Models
                  Bettype = setting.Bettype
              };
 
-            model.Data.AddRange(data);
+            model.Data.AddRange(groupData);
 
             return model;
         }

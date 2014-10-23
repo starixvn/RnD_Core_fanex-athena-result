@@ -30,6 +30,8 @@ namespace MvcExample.Models
 
         IEnumerable<Sportsbook> GetSportbookResult(GetSportbookResultCriteria criteria);
 
+        Sportsbook GetGameDetail(int matchId);
+
         #endregion normal-report
 
         #region PopUp
@@ -43,12 +45,17 @@ namespace MvcExample.Models
         IEnumerable<Sportsbook> GetSportbookPopupResult(GetSportbookPopupResultCriteria criteria);
 
         #endregion PopUp
+
         #region Parlay
+
         IEnumerable<Parlay> GetParlayResult(GetParlayResultCriteria criteria);
 
-        #endregion
+        #endregion Parlay
+
         #region OutRight
+
         IEnumerable<OutRight> GetOutRightResult(GetOutRightResult criteria);
-        #endregion
+
+        #endregion OutRight
     }
 }

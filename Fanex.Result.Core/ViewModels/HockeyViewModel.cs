@@ -25,7 +25,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                var temp = this.GetPHomeAway(3, true);
+                var temp = this.GetHomeAwaySet(3, true);
                 return Convert.ToInt32(temp) > 0 ? temp : StringResources.HYPHEN;
             }
         }
@@ -34,7 +34,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                var temp = this.GetPHomeAway(3, false);
+                var temp = this.GetHomeAwaySet(3, false);
                 return Convert.ToInt32(temp) > 0 ? temp : StringResources.HYPHEN;
             }
         }
@@ -59,11 +59,6 @@ namespace Fanex.Result.Core.ViewModels
             }
         }
 
-        public override string GetHomeAwaySet(int index, bool isHome)
-        {
-            return GetPHomeAway(index, isHome);
-        }
-
         /// <summary>
         /// Get home and away set.
         /// Only used for some sport type such as tennis, badminton....
@@ -71,7 +66,7 @@ namespace Fanex.Result.Core.ViewModels
         /// <param name="index">The index of home or away array.</param>
         /// <param name="isHome">True if you want to get value of home set.</param>
         /// <returns>The string value.</returns>
-        private string GetPHomeAway(int index, bool isHome)
+        public override string GetHomeAwaySet(int index, bool isHome)
         {
             if (index > 3)
             {

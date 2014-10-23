@@ -12,6 +12,7 @@ namespace Fanex.Result.Core.ViewModels
     using System.Linq;
     using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.DTO;
+    using Fanex.Result.Core.Utilities;
     using Fanex.Result.Core.ViewModels.TennisDetail;
 
     /// <summary>
@@ -21,7 +22,9 @@ namespace Fanex.Result.Core.ViewModels
     {
         private int _totalGameHome;
         private int _totalGameAway;
-        private bool _hasRefundedSet;
+        private SetValue[] _setValue = null;
+        private string _totalSetHome;
+        private string _totalSetAway;
 
         public TennisViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resources)
             : base(sportbook, setting, resources)
@@ -32,12 +35,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                if (this._hasRefundedSet)
-                {
-                    return this.TotalSetHome;
-                }
-
-                return this._totalGameHome > 0 ? this._totalGameHome.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
+                return GetTotalGameValue(true);
             }
         }
 
@@ -45,12 +43,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                if (this._hasRefundedSet)
-                {
-                    return this.TotalSetAWay;
-                }
-
-                return this._totalGameAway > 0 ? this._totalGameAway.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
+                return GetTotalGameValue(false);
             }
         }
 
@@ -74,7 +67,12 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return new SetValue[5] { this.Set1, this.Set2, this.Set3, this.Set4, this.Set5 };
+                if (_setValue == null)
+                {
+                    _setValue = new SetValue[5] { this.Set1, this.Set2, this.Set3, this.Set4, this.Set5 };
+                }
+
+                return _setValue;
             }
         }
 
@@ -83,6 +81,7 @@ namespace Fanex.Result.Core.ViewModels
             get
             {
                 return base.VisibleDetailedLink && this.SPORTBOOK.GameDetails.Count > 0
+                    && this.EventStatus != Lang.PostPoned
                     && this.SPORTBOOK.GameDetails.Any(i => !string.IsNullOrEmpty(i.ResourceId)
                         && i.ResourceId.Trim().Length == ConstantValueDefinition.SETXGAMEYRESOURCEIDLENGTH);
             }
@@ -92,28 +91,28 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return CreateSetValue("01");
+                return CreateSetAndGameValue("01");
             }
         }
 
         private SetValue Set2
         {
-            get { return CreateSetValue("02"); }
+            get { return CreateSetAndGameValue("02"); }
         }
 
         private SetValue Set3
         {
-            get { return CreateSetValue("03"); }
+            get { return CreateSetAndGameValue("03"); }
         }
 
         private SetValue Set4
         {
-            get { return CreateSetValue("04"); }
+            get { return CreateSetAndGameValue("04"); }
         }
 
         private SetValue Set5
         {
-            get { return CreateSetValue("05"); }
+            get { return CreateSetAndGameValue("05"); }
         }
 
         /// <summary>
@@ -158,19 +157,16 @@ Justification = "Reviewed. Suppression is OK here.")]
                                 case EventStatusIDDefinition.RefundStettlementStatusID:
                                     this.HomeSet[i] = Lang.Refund;
                                     this.AwaySet[i] = Lang.Refund;
-                                    this._hasRefundedSet = true;
                                     break;
 
                                 case EventStatusIDDefinition.RefundHTSettlementStatusID:
                                     this.HomeSet[i] = Lang.Refundht;
                                     this.AwaySet[i] = Lang.Refundht;
-                                    this._hasRefundedSet = true;
                                     break;
 
                                 case EventStatusIDDefinition.RefundFTSettlementStatusID:
                                     this.HomeSet[i] = Lang.Refundft;
                                     this.AwaySet[i] = Lang.Refundft;
-                                    this._hasRefundedSet = true;
                                     break;
 
                                 default:
@@ -218,29 +214,71 @@ Justification = "Reviewed. Suppression is OK here.")]
         /// <returns>The total set value.</returns>
         private string GetTotalSetValue(bool isHome)
         {
-            var set = this.SPORTBOOK.GameDetails.FirstOrDefault(i => i.ResourceId == "00");
-            if (set != null)
+            if (string.IsNullOrEmpty(this._totalSetHome) || string.IsNullOrEmpty(this._totalSetAway))
             {
-                switch (set.SettlementStatusID)
+                var set = this.SPORTBOOK.GameDetails.FirstOrDefault(i => i.ResourceId == "00");
+
+                if (set != null)
                 {
-                    case EventStatusIDDefinition.CompletedSettlementStatusID:
-                        return isHome ? set.HomeValue : set.AwayValue;
+                    switch (set.SettlementStatusID)
+                    {
+                        case EventStatusIDDefinition.CompletedSettlementStatusID:
+                            this._totalSetHome = set.HomeValue;
+                            this._totalSetAway = set.AwayValue;
+                            break;
 
-                    case EventStatusIDDefinition.RefundStettlementStatusID:
-                        return Lang.Refund;
+                        case EventStatusIDDefinition.RefundStettlementStatusID:
+                            this._totalSetHome = this._totalSetAway = Lang.Refund;
+                            break;
 
-                    case EventStatusIDDefinition.RefundHTSettlementStatusID:
-                        return Lang.Refundht;
+                        case EventStatusIDDefinition.RefundHTSettlementStatusID:
+                            this._totalSetHome = this._totalSetAway = Lang.Refundht;
+                            break;
 
-                    case EventStatusIDDefinition.RefundFTSettlementStatusID:
-                        return Lang.Refundft;
+                        case EventStatusIDDefinition.RefundFTSettlementStatusID:
+                            this._totalSetHome = this._totalSetAway = Lang.Refundft;
+                            break;
 
-                    default:
-                        return StringResources.HYPHEN;
+                        default:
+                            this._totalSetHome = this._totalSetAway = StringResources.HYPHEN;
+                            break;
+                    }
+                }
+                else
+                {
+                    this._totalSetHome = this._totalSetAway = StringResources.HYPHEN;
                 }
             }
 
-            return StringResources.HYPHEN;
+            return isHome ? this._totalSetHome : this._totalSetAway;
+        }
+
+        /// <summary>
+        /// Get total game value.
+        /// </summary>
+        /// <param name="isHome">If true, return home total game value.</param>
+        /// <returns>The total game value.</returns>
+        private string GetTotalGameValue(bool isHome)
+        {
+            var set = this.SPORTBOOK.GameDetails.FirstOrDefault(i => i.ResourceId == "00");
+            if (set == null || set.SettlementStatusID != EventStatusIDDefinition.CompletedSettlementStatusID)
+            {
+                return this.GetTotalSetValue(isHome);
+            }
+
+            if (this.HomeSet == null || this.AwaySet == null)
+            {
+                this.GetHomeAwaySet(0, isHome);
+            }
+
+            if (isHome)
+            {
+                return this._totalGameHome > 0 ? this._totalGameHome.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
+            }
+            else
+            {
+                return this._totalGameAway > 0 ? this._totalGameAway.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
+            }
         }
 
         /// <summary>
@@ -250,52 +288,51 @@ Justification = "Reviewed. Suppression is OK here.")]
         /// <returns>The set value.</returns>
         [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules", "SP2101:MethodMustNotContainMoreLinesThan",
     Justification = "Reviewed. Suppression is OK here.")]
-        private SetValue CreateSetValue(string setIndex)
+        private SetValue CreateSetAndGameValue(string setIndex)
         {
             var set = this.SPORTBOOK.GameDetails.Where(i => i.ResourceId == setIndex).FirstOrDefault();
             if (set != null)
             {
-                var resources = new List<string>();
-                for (var i = 1; i <= ConstantValueDefinition.NUMBERGAMEOFTENNISSET; i++)
-                {
-                    resources.Add(setIndex + i.ToString("D2"));
-                }
-
                 var result = new SetValue
                 {
                     SetId = int.Parse(setIndex),
-                    Games = new List<GameValue>()
+                    Games = new List<GameValue>(),
                 };
-                result.IsRefund = set.ResultStatusID == EventStatusIDDefinition.RefundEventStatusID;
-                if (!result.IsRefund)
+
+                var setIndexId = int.Parse(setIndex);
+                var gameDetails = this.SPORTBOOK.GameDetails.Where(i => Helper.IsTennisGameResourceID(setIndexId, i.ResourceId)).OrderBy(i => i.ResourceId).ToArray();
+                var numofGame = gameDetails.Length < ConstantValueDefinition.NUMBERGAMEOFTENNISSET ? ConstantValueDefinition.NUMBERGAMEOFTENNISSET : gameDetails.Length;
+                for (var j = 0; j < numofGame; j++)
                 {
-                    var gameDetails = this.SPORTBOOK.GameDetails.Where(i => resources.Contains(i.ResourceId)).OrderBy(i => i.ResourceId).ToArray();
-                    var numofGame = gameDetails.Length < ConstantValueDefinition.NUMBERGAMEOFTENNISSET ? ConstantValueDefinition.NUMBERGAMEOFTENNISSET : gameDetails.Length;
-                    for (var j = 0; j < numofGame; j++)
+                    if (j >= gameDetails.Length)
                     {
-                        var game = gameDetails[j];
                         result.Games.Add(new GameValue
                         {
                             GameId = j + 1,
-                            HomeValue = game != null && game.SettlementStatusID == EventStatusIDDefinition.CompletedSettlementStatusID ? game.HomeValue : StringResources.HYPHEN,
-                            AwayValue = game != null && game.SettlementStatusID == EventStatusIDDefinition.CompletedSettlementStatusID ? game.AwayValue : StringResources.HYPHEN
+                            HomeValue = StringResources.HYPHEN,
+                            AwayValue = StringResources.HYPHEN
                         });
                     }
-
-                    var modeValue = numofGame % ConstantValueDefinition.NUMBERGAMEOFTENNISSET;
-
-                    if (numofGame > 13 && modeValue > 0)
+                    else
                     {
-                        var moreGame = ConstantValueDefinition.NUMBERGAMEOFTENNISSET - modeValue + numofGame;
-                        for (var k = numofGame + 1; k <= moreGame; k++)
+                        var game = gameDetails[j];
+                        result.Games.Add(CreateGameValue(j, game));
+                    }
+                }
+
+                var modeValue = numofGame % ConstantValueDefinition.NUMBERGAMEOFTENNISSET;
+
+                if (numofGame > 13 && modeValue > 0)
+                {
+                    var moreGame = ConstantValueDefinition.NUMBERGAMEOFTENNISSET - modeValue + numofGame;
+                    for (var k = numofGame + 1; k <= moreGame; k++)
+                    {
+                        result.Games.Add(new GameValue
                         {
-                            result.Games.Add(new GameValue
-                            {
-                                GameId = k,
-                                HomeValue = StringResources.HYPHEN,
-                                AwayValue = StringResources.HYPHEN
-                            });
-                        }
+                            GameId = k,
+                            HomeValue = StringResources.HYPHEN,
+                            AwayValue = StringResources.HYPHEN
+                        });
                     }
                 }
 
@@ -303,6 +340,53 @@ Justification = "Reviewed. Suppression is OK here.")]
             }
 
             return null;
+        }
+
+        /// <summary>
+        /// Create game value.
+        /// </summary>
+        /// <param name="gameIndex">The game index.</param>
+        /// <param name="game">The game detail value.</param>
+        /// <returns>The game value.</returns>
+        private GameValue CreateGameValue(int gameIndex, GameDetail game)
+        {
+            var item = new GameValue
+            {
+                GameId = gameIndex + 1,
+            };
+
+            if (game != null)
+            {
+                switch (game.SettlementStatusID)
+                {
+                    case EventStatusIDDefinition.CompletedSettlementStatusID:
+                        item.HomeValue = game.HomeValue;
+                        item.AwayValue = game.AwayValue;
+                        break;
+
+                    case EventStatusIDDefinition.RefundStettlementStatusID:
+                        item.HomeValue = item.AwayValue = Lang.Refund;
+                        break;
+
+                    case EventStatusIDDefinition.RefundHTSettlementStatusID:
+                        item.HomeValue = item.AwayValue = Lang.Refundht;
+                        break;
+
+                    case EventStatusIDDefinition.RefundFTSettlementStatusID:
+                        item.HomeValue = item.AwayValue = Lang.Refundft;
+                        break;
+
+                    default:
+                        item.HomeValue = item.AwayValue = StringResources.HYPHEN;
+                        break;
+                }
+            }
+            else
+            {
+                item.HomeValue = item.AwayValue = StringResources.HYPHEN;
+            }
+
+            return item;
         }
     }
 }

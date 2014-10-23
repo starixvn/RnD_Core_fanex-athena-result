@@ -2,7 +2,6 @@
 <root>
     <item key="KickOffTime">开赛时间</item>
     <item key="Match">賽事</item>
-    <item key="FirstHalfScore">上半場比分</item>
     <item key="FinalScore">最後比分</item>
     <item key="Status">狀態</item>
     <item key="IsNeutral">(中)</item>

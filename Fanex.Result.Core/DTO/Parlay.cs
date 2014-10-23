@@ -15,7 +15,7 @@ namespace Fanex.Result.Core.DTO
     {
         private IList<int> _bettypes = new List<int>();
         private IList<string> _betIDS = new List<string>();
-        private IList<Sportsbook> _sportsBookd = new List<Sportsbook>();
+        private IList<Sportsbook> _sportsBook = new List<Sportsbook>();
 
         public int SportId { get; set; }
 
@@ -27,7 +27,13 @@ namespace Fanex.Result.Core.DTO
         public IList<int> BetTypes
         {
             get { return this._bettypes; }
-            set { this._bettypes = value; }
+            set
+            {
+                if (value != null)
+                {
+                    this._bettypes = value;
+                }
+            }
         }
 
         /// <summary>
@@ -39,15 +45,27 @@ namespace Fanex.Result.Core.DTO
         public IList<string> BetIDs
         {
             get { return this._betIDS; }
-            set { this._betIDS = value; }
+            set
+            {
+                if (value != null)
+                {
+                    this._betIDS = value;
+                }
+            }
         }
 
         public int LeagueId { get; set; }
 
         public IList<Sportsbook> Sportbook
         {
-            get { return this._sportsBookd; }
-            set { this._sportsBookd = value; }
+            get { return this._sportsBook; }
+            set
+            {
+                if (value != null)
+                {
+                    this._sportsBook = value;
+                }
+            }
         }
     }
 }

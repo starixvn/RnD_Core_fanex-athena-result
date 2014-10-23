@@ -15,7 +15,5 @@ namespace Fanex.Result.Core.DataDomain
         public const int RefundStettlementStatusID = 1;
         public const int RefundHTSettlementStatusID = 2;
         public const int RefundFTSettlementStatusID = 3;
-        public const int RefundEventStatusID = 1;
-        public const int RefundFTEventStatusID = 3;
     }
 }

@@ -8,7 +8,6 @@ namespace Fanex.Result.Core.ExcelModels
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.Utilities;
@@ -20,17 +19,9 @@ namespace Fanex.Result.Core.ExcelModels
     /// </summary>
     internal sealed class BadmintonExcel : ExcelBase, IExcelModel
     {
-        #region Fields
-
-        private IList<BadmintonViewModel> _badmintonData;
-
-        #endregion Fields
-
-        public BadmintonExcel(string physicalTemplatePath, ResultSetting setting, IList<BadmintonViewModel> data, LangResources resource)
-            : base(physicalTemplatePath, setting, resource)
+        public BadmintonExcel(string physicalTemplatePath, ResultSetting setting, IList<IResultViewModel> data, LangResources resource)
+            : base(physicalTemplatePath, setting, data, resource)
         {
-            this._badmintonData = data;
-            this.NumofRow = this._badmintonData.Count;
             this.ColumnTemplateCount = 11;
             this.ColumnStatus = 10;
             this.RowContentTemplate = 3;
@@ -62,38 +53,17 @@ namespace Fanex.Result.Core.ExcelModels
             row.Cells[colidx].SetCellValue(Lang.Status);
         }
 
-        /// <summary>
-        /// Assign data to sheet.
-        /// </summary>
-        /// <param name="sheet">The current sheet.</param>
-        protected override void AssignSheetData(ISheet sheet)
-        {
-            var currentRow = 2;
-            var currentLeagueId = 0;
-            var groupData = this._badmintonData.GroupBy(i => i.LeagueId);
-            foreach (var item in groupData)
-            {
-                var firstItem = item.FirstOrDefault();
-
-                SetLeague(sheet, firstItem.LeagueId, firstItem.LeagueName, ref currentLeagueId, ref currentRow);
-
-                foreach (var exportRow in item)
-                {
-                    SetDataForMatch(sheet, exportRow, ref currentRow);
-                }
-            }
-        }
-
         #region Assign Cell Data
 
         /// <summary>
         /// Set data for match.
         /// </summary>
         /// <param name="sheet">The current sheet.</param>
-        /// <param name="exportRow">The view model.</param>
+        /// <param name="data">The view model.</param>
         /// <param name="currentRow">The current row.</param>
-        private void SetDataForMatch(ISheet sheet, BadmintonViewModel exportRow, ref int currentRow)
+        protected override void SetDataForMatch(ISheet sheet, IResultViewModel data, ref int currentRow)
         {
+            var exportRow = (BadmintonViewModel)data;
             var getRowTeamWin = GetRowTeamWin(exportRow.TotalSetHome, exportRow.TotalSetAWay);
 
             var rowHome = sheet.CopyRow(TemplateSheet, getRowTeamWin[0], currentRow);

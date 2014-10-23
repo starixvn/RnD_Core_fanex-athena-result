@@ -2,7 +2,6 @@
 <root>
     <item key="KickOffTime">경기 시작 시간</item>
     <item key="Match">매치</item>
-    <item key="FirstHalfScore">전반전 점수</item>
     <item key="FinalScore">최종 점수</item>
     <item key="Status">상황</item>
     <item key="IsNeutral">(N)</item>
@@ -64,8 +63,10 @@
     <item key="TF">최고변동</item>
     <item key="Time">시간</item>
     <item key="Team">팀</item>
-    <item key="PenaltyShootoutYes">Y</item>
-    <item key="PenaltyShootoutNo">N</item>
+    <item key="PenaltyShootoutYes">Match was decided by penalty shoot-out. </item>
+    <item key="PenaltyShootoutNo">Match was not decided by penalty shoot-out</item>
     <item key="PS">PS</item>
     <item key="Details">[i]</item>
+    <item key="GameResult">Game Result</item>
+
 </root>

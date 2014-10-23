@@ -9,6 +9,7 @@ namespace MvcExample.Models
     using System;
     using System.Collections.Generic;
     using System.Data;
+    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using Fanex.Data;
     using Fanex.Result.Core.DTO;
@@ -37,6 +38,37 @@ namespace MvcExample.Models
         }
 
         #region Normal-Report
+
+        /// <summary>
+        /// Get game detail.
+        /// </summary>
+        /// <param name="matchId">The match ID.</param>
+        /// <returns>The SPORTSBOOK data.</returns>
+        public Sportsbook GetGameDetail(int matchId)
+        {
+            using (var db = new ObjectDb("Lrf_Result_MatchSelByLeague_Detail"))
+            {
+                db.AddInParameter("matchid", DbType.Int32, matchId);
+                using (var reader = db.ExecuteReader())
+                {
+                    var result = new Sportsbook();
+                    while (reader.Read())
+                    {
+                        result = BindSportbook(reader);
+                    }
+
+                    if (reader.NextResult())
+                    {
+                        while (reader.Read())
+                        {
+                            result.GameDetails.Add(BindGameDetail(reader));
+                        }
+                    }
+
+                    return result;
+                }
+            }
+        }
 
         /// <summary>
         /// Get racing result.
@@ -122,18 +154,19 @@ namespace MvcExample.Models
                         results.Add(BindSportbook(reader));
                     }
 
-                    reader.NextResult();
-
-                    while (reader.Read())
+                    if (reader.NextResult())
                     {
-                        gameDetails.Add(BindGameDetail(reader));
+                        while (reader.Read())
+                        {
+                            gameDetails.Add(BindGameDetail(reader));
+                        }
                     }
                 }
             }
 
             foreach (var result in results)
             {
-                result.GameDetails.Union(gameDetails.Where(i => i.MatchId == result.MatchId));
+                result.GameDetails = gameDetails.Where(i => i.MatchId == result.MatchId).ToList();
             }
 
             return results;
@@ -227,18 +260,20 @@ namespace MvcExample.Models
                         results.Add(BindSportbook(reader));
                     }
 
-                    reader.NextResult();
-
-                    while (reader.Read())
+                    if (reader.NextResult())
                     {
-                        gameDetails.Add(BindGameDetail(reader));
+
+                        while (reader.Read())
+                        {
+                            gameDetails.Add(BindGameDetail(reader));
+                        }
                     }
                 }
             }
 
             foreach (var result in results)
             {
-                result.GameDetails.Union(gameDetails.Where(i => i.MatchId == result.MatchId));
+                result.GameDetails.AddRange(gameDetails.Where(i => i.MatchId == result.MatchId));
             }
 
             return results;
@@ -251,9 +286,12 @@ namespace MvcExample.Models
         /// </summary>
         /// <param name="criteria">The criterion.</param>
         /// <returns>The Parlay data.</returns>
+        [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules", "SP2101:MethodMustNotContainMoreLinesThan",
+     Justification = "Reviewed. Suppression is OK here.")]
         public IEnumerable<Fanex.Result.Core.DTO.Parlay> GetParlayResult(GetParlayResultCriteria criteria)
         {
-            var result = new List<Parlay>();
+            var results = new List<Parlay>();
+            var gameDetails = new List<GameDetail>();
 
             using (var db = new ObjectDb(criteria.GetSettingKey()))
             {
@@ -269,11 +307,13 @@ namespace MvcExample.Models
 
                         if (leagueId != newLeagueId && leagueId > 0)
                         {
-                            result.Add(new Parlay
+                            results.Add(new Parlay
                             {
                                 SportId = sportId,
                                 LeagueId = leagueId,
-                                Sportbook = sportbooks
+                                Sportbook = sportbooks,
+                                BetTypes = GetBetTypeFromToken(reader["bettype"].ToString()),
+                                BetIDs = GetBetIDFromToken(reader["betcheck"].ToString())
                             });
                             sportbooks = new List<Sportsbook>();
                         }
@@ -285,16 +325,31 @@ namespace MvcExample.Models
                     }
 
                     /* add the latest row*/
-                    result.Add(new Parlay
+                    results.Add(new Parlay
                     {
                         SportId = sportId,
                         LeagueId = leagueId,
                         Sportbook = sportbooks
                     });
+                    if (reader.NextResult())
+                    {
+                        while (reader.Read())
+                        {
+                            gameDetails.Add(BindGameDetail(reader));
+                        }
+                    }
+
+                    foreach (var result in results)
+                    {
+                        foreach (var sb in result.Sportbook)
+                        {
+                            sb.GameDetails.AddRange(gameDetails.Where(i => i.MatchId == sb.MatchId));
+                        }
+                    }
                 }
             }
 
-            return result;
+            return results;
         }
 
         /// <summary>
@@ -371,15 +426,6 @@ namespace MvcExample.Models
                 RefNo = string.Empty,
                 GameDetails = new List<GameDetail>()
             };
-            item.GameDetails.Add(new GameDetail
-            {
-                MatchId = 10877531,
-                ResourceId = "00",
-                HomeValue = "40",
-                AwayValue = "15",
-                ResultStatusID = 5,
-                SettlementStatusID = 4
-            });
 
             return item;
         }
@@ -502,6 +548,27 @@ namespace MvcExample.Models
                 ResultStatusID = int.Parse(reader["ResultStatusID"].ToString()),
                 SettlementStatusID = int.Parse(reader["SettlementStatusID"].ToString())
             };
+        }
+
+        private IList<int> GetBetTypeFromToken(string bettypeStr)
+        {
+            if (!string.IsNullOrEmpty(bettypeStr))
+            {
+                return bettypeStr.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
+                    .Select(i => int.Parse(i)).ToList();
+            }
+
+            return null;
+        }
+
+        private IList<string> GetBetIDFromToken(string betIDToken)
+        {
+            if (!string.IsNullOrEmpty(betIDToken))
+            {
+                return betIDToken.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+            }
+
+            return null;
         }
 
         #endregion Utilites

@@ -49,7 +49,6 @@
             {
                 SportType = sportType,
                 LanguageCode = languageCode,
-
                 VisibleMatchCodeIDColumn = showMatchCode,
                 VisibleDetailedLink = true,
                 VisibleFreeHeader = true
@@ -114,6 +113,18 @@
             }
 
             return htmlResult;
+        }
+
+        [HttpGet]
+        public string GenHtmlTennisDetail(int matchId)
+        {
+            var detailedData = _resultService.GetGameDetail(matchId);
+            if (detailedData != null && detailedData.MatchId > 0)
+            {
+                return ResultEngine.HtmlGameDetailParser(detailedData, new ResultSetting { SportType = SportType.Tennis, VisibleMatchCodeIDColumn = true });
+            }
+
+            return string.Empty;
         }
 
         /// <summary>

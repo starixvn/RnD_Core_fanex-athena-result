@@ -133,8 +133,8 @@
     <Compile Include="..\..\Fanex.Result.Core\ExcelModels\NumberGameExcel.cs">
       <Link>ExcelModels\NumberGameExcel.cs</Link>
     </Compile>
-    <Compile Include="..\..\Fanex.Result.Core\ExcelModels\OtherSportExcel.cs">
-      <Link>ExcelModels\OtherSportExcel.cs</Link>
+    <Compile Include="..\..\Fanex.Result.Core\ExcelModels\OtherExcel.cs">
+      <Link>ExcelModels\OtherExcel.cs</Link>
     </Compile>
     <Compile Include="..\..\Fanex.Result.Core\ExcelModels\OutRightExcel.cs">
       <Link>ExcelModels\OutRightExcel.cs</Link>

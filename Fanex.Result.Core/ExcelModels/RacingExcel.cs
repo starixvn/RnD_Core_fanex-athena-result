@@ -7,6 +7,7 @@
 namespace Fanex.Result.Core.ExcelModels
 {
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.Extension;
@@ -24,6 +25,7 @@ namespace Fanex.Result.Core.ExcelModels
 
         #endregion Fields
 
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         public RacingExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data, LangResources resource)
             : base(templatePath, setting, data, resource)
         {

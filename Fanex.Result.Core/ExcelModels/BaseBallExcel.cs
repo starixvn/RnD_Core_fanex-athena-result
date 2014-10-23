@@ -7,6 +7,7 @@
 namespace Fanex.Result.Core.ExcelModels
 {
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.Utilities;
@@ -23,7 +24,7 @@ namespace Fanex.Result.Core.ExcelModels
         private const int ColumnHTScore = 13;
 
         #endregion Fields
-
+       [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         public BaseBallExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data, LangResources resource)
             : base(templatePath, setting, data, resource)
         {

@@ -294,7 +294,6 @@
     </Compile>
     <Compile Include="Extension\HSSFSheetExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\GlobalSuppress.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="..\..\Fanex.Result.Core\Resources\en-US.xml">

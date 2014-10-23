@@ -8,6 +8,7 @@ namespace Fanex.Result.Core.ExcelModels
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.Utilities;
@@ -19,6 +20,7 @@ namespace Fanex.Result.Core.ExcelModels
     /// </summary>
     internal sealed class BadmintonExcel : ExcelBase, IExcelModel
     {
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         public BadmintonExcel(string physicalTemplatePath, ResultSetting setting, IList<IResultViewModel> data, LangResources resource)
             : base(physicalTemplatePath, setting, data, resource)
         {

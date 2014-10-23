@@ -7,6 +7,7 @@
 namespace Fanex.Result.Core.ExcelModels
 {
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.Extension;
@@ -19,6 +20,7 @@ namespace Fanex.Result.Core.ExcelModels
     /// </summary>
     internal sealed class LiveCasinoExcel : ExcelBase, IExcelModel
     {
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         public LiveCasinoExcel(
             string templatePath,
             ResultSetting setting,

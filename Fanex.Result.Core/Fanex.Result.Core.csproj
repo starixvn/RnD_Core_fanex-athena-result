@@ -132,6 +132,7 @@
     <Compile Include="Extension\HSSFSheetExtension.cs" />
     <Compile Include="Extension\HSSFWorkbookExtension.cs" />
     <Compile Include="Models\RazorBinderModel.cs" />
+    <Compile Include="Properties\GlobalSuppress.cs" />
     <Compile Include="ResultSetting.cs" />
     <Compile Include="SportType.cs" />
     <Compile Include="Extension\StringValueAttribute.cs" />

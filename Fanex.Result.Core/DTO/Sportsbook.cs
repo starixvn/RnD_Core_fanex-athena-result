@@ -97,8 +97,13 @@ namespace Fanex.Result.Core.DTO
         /// <value>The game detail value.</value>
         public List<GameDetail> GameDetails
         {
-            get { return this._gameDetails; }
-            set {
+            get
+            {
+                return this._gameDetails;
+            }
+
+            set
+            {
                 if (value != null)
                 {
                     this._gameDetails = value;

@@ -26,7 +26,11 @@ namespace Fanex.Result.Core.DTO
         /// <value>The bet type ID list.</value>
         public IList<int> BetTypes
         {
-            get { return this._bettypes; }
+            get
+            {
+                return this._bettypes;
+            }
+
             set
             {
                 if (value != null)
@@ -44,7 +48,11 @@ namespace Fanex.Result.Core.DTO
         /// <value>The bet ID list.</value>
         public IList<string> BetIDs
         {
-            get { return this._betIDS; }
+            get
+            {
+                return this._betIDS;
+            }
+
             set
             {
                 if (value != null)
@@ -58,7 +66,11 @@ namespace Fanex.Result.Core.DTO
 
         public IList<Sportsbook> Sportbook
         {
-            get { return this._sportsBook; }
+            get
+            {
+                return this._sportsBook;
+            }
+
             set
             {
                 if (value != null)

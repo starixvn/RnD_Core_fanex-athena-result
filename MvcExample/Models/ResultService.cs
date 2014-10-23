@@ -262,7 +262,6 @@ namespace MvcExample.Models
 
                     if (reader.NextResult())
                     {
-
                         while (reader.Read())
                         {
                             gameDetails.Add(BindGameDetail(reader));

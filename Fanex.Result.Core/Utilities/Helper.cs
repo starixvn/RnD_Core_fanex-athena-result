@@ -19,12 +19,14 @@ namespace Fanex.Result.Core.Utilities
         private static readonly CultureInfo Cult = new CultureInfo("en-US");
         private static Regex setXGameYRegex = new Regex("^80[1-5]{1}\\d{2}$");
 
-        private static Regex[] setXRGameYResourceID = new Regex[5] {
+        private static Regex[] setXRGameYResourceID = new Regex[5]
+        { 
             new Regex("^01\\d{2}$"),
             new Regex("^02\\d{2}$"),
             new Regex("^03\\d{2}$"),
             new Regex("^04\\d{2}$"),
-            new Regex("^05\\d{2}$") };
+            new Regex("^05\\d{2}$")
+        };
 
         public static string FullDateFormat(object obj, string formatPattern)
         {

@@ -44,10 +44,15 @@ namespace Fanex.Result.Core.Models
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
             var viewModelData = ViewModelConcreteFactory.Instance.GetViewModel(data, setting, lang);
 
-            IList<GroupData> groupData = new List<GroupData>(){
-                new GroupData{
+            IList<GroupData> groupData = new List<GroupData>()
+            {
+                new GroupData
+                {
                     LeagueId = viewModelData.LeagueId,
-                    Data = new List<IResultViewModel>{viewModelData}
+                    Data = new List<IResultViewModel>
+                    {
+                        viewModelData
+                    }
                 }
             };
 

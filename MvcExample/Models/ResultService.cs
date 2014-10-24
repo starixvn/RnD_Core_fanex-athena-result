@@ -247,7 +247,7 @@ namespace MvcExample.Models
         /// </summary>
         /// <param name="criteria">The criterion.</param>
         /// <returns>The SPORTBOOK POPUP data.</returns>
-        public IEnumerable<Fanex.Result.Core.DTO.Sportsbook> GetSportbookPopupResult(GetSportbookPopupResultCriteria criteria)
+        public IEnumerable<Sportsbook> GetSportbookPopupResult(GetSportbookPopupResultCriteria criteria)
         {
             var results = new List<Sportsbook>();
             var gameDetails = new List<GameDetail>();
@@ -272,6 +272,8 @@ namespace MvcExample.Models
 
             foreach (var result in results)
             {
+                result.Bettype = criteria.Bettype;
+                result.BetID = criteria.BetId.ToString();
                 result.GameDetails.AddRange(gameDetails.Where(i => i.MatchId == result.MatchId));
             }
 
@@ -311,8 +313,6 @@ namespace MvcExample.Models
                                 SportId = sportId,
                                 LeagueId = leagueId,
                                 Sportbook = sportbooks,
-                                BetTypes = GetBetTypeFromToken(reader["bettype"].ToString()),
-                                BetIDs = GetBetIDFromToken(reader["betcheck"].ToString())
                             });
                             sportbooks = new List<Sportsbook>();
                         }
@@ -423,7 +423,9 @@ namespace MvcExample.Models
                 IsHTCal = Convert.ToBoolean(reader["IsHTCal"]),
                 Calculate = Convert.ToBoolean(reader["Calculate"]),
                 RefNo = string.Empty,
-                GameDetails = new List<GameDetail>()
+                GameDetails = new List<GameDetail>(),
+                Bettype = GetBetTypeFromToken(reader),
+                BetID = GetBetIDFromToken(reader)
             };
 
             return item;
@@ -549,25 +551,26 @@ namespace MvcExample.Models
             };
         }
 
-        private IList<int> GetBetTypeFromToken(string bettypeStr)
+        private static int GetBetTypeFromToken(IDataReader reader)
         {
-            if (!string.IsNullOrEmpty(bettypeStr))
+            const string BettypeColumn = "bettype";
+            if (ColumnExisted(reader, BettypeColumn))
             {
-                return bettypeStr.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
-                    .Select(i => int.Parse(i)).ToList();
+                return int.Parse(reader[BettypeColumn].ToString());
             }
 
-            return null;
+            return 0;
         }
 
-        private IList<string> GetBetIDFromToken(string betIDToken)
+        private static string GetBetIDFromToken(IDataReader reader)
         {
-            if (!string.IsNullOrEmpty(betIDToken))
+            const string BetcheckColumn = "betcheck";
+            if (ColumnExisted(reader, BetcheckColumn))
             {
-                return betIDToken.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries).ToList();
+                return reader[BetcheckColumn].ToString();
             }
 
-            return null;
+            return string.Empty;
         }
 
         #endregion Utilites

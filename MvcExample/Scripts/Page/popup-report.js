@@ -32,8 +32,6 @@ var popupReport = (function () {
     };
     var initEvent = function () {
         $("#sb-mode").click(function () {
-       
-
             var criteria = {
                 WinLossDate: $.datepicker.formatDate('mm/dd/yy', $("#date").datepicker('getDate')),
                 SportType: 1,
@@ -47,8 +45,6 @@ var popupReport = (function () {
             genData(criteria);
         });
         $("#parlay-mode").click(function () {
-
-           
             var criteria = {
                 WinLossDate: $.datepicker.formatDate('mm/dd/yy', $("#date").datepicker('getDate')),
                 SportType: 9,
@@ -62,13 +58,12 @@ var popupReport = (function () {
             genData(criteria);
         });
         $("#racing-mode").click(function () {
-
             var criteria = {
                 WinLossDate: $.datepicker.formatDate('mm/dd/yy', $("#date").datepicker('getDate')),
                 SportType: 153,
                 IsOutRight: false,
                 RefNo: null,
-                RaceNo:1,
+                RaceNo: 1,
                 Bettype: 32,
                 MatchId: 4493799,
                 languageCode: $("#language").val()
@@ -93,15 +88,13 @@ var popupReport = (function () {
                 RaceNo: $("#raceno").val(),
                 Bettype: $("#bettype").val(),
                 MatchId: $("#matchid").val(),
-                languageCode: $("#language").val()
+                languageCode: $("#language").val(),
+                Betid: $("#betid").val()
             };
             genData(criteria);
         });
-
     };
     var genData = function (criteria) {
-      
-       
         $.ajax({
             url: window.rootUrl + "PopUpReport/GenHtml",
             data: criteria,

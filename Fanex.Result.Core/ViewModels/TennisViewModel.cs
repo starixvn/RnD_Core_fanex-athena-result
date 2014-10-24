@@ -87,6 +87,19 @@ namespace Fanex.Result.Core.ViewModels
             }
         }
 
+        public bool VisibleMatchResult
+        {
+            get { return this.SPORTBOOK.Bettype == 0 || this.SPORTBOOK.Bettype != BetTypeDefinition.SetXGameYWinner; }
+        }
+
+        public bool VisibleGameDetail
+        {
+            get
+            {
+                return this.SPORTBOOK.Bettype == BetTypeDefinition.SetXGameYWinner && Helper.IsSetXGameYBetID(this.SPORTBOOK.BetID);
+            }
+        }
+
         private SetValue Set1
         {
             get
@@ -184,10 +197,11 @@ Justification = "Reviewed. Suppression is OK here.")]
         /// Get visible status of sets.
         /// </summary>
         /// <param name="set">The set index.</param>
-        /// <param name="betID">The bet ID.</param>
         /// <returns>The visible status.</returns>
-        public bool VisibleSet(int set, int betID)
+        public bool VisibleSet(int set)
         {
+            var betID = int.Parse(this.SPORTBOOK.BetID);
+
             switch (set)
             {
                 case 1:
@@ -290,54 +304,50 @@ Justification = "Reviewed. Suppression is OK here.")]
     Justification = "Reviewed. Suppression is OK here.")]
         private SetValue CreateSetAndGameValue(string setIndex)
         {
-            var set = this.SPORTBOOK.GameDetails.Where(i => i.ResourceId == setIndex).FirstOrDefault();
-            if (set != null)
+            var result = new SetValue
             {
-                var result = new SetValue
-                {
-                    SetId = int.Parse(setIndex),
-                    Games = new List<GameValue>(),
-                };
+                SetId = int.Parse(setIndex),
+                Games = new List<GameValue>(),
+            };
 
-                var setIndexId = int.Parse(setIndex);
-                var gameDetails = this.SPORTBOOK.GameDetails.Where(i => Helper.IsTennisGameResourceID(setIndexId, i.ResourceId)).OrderBy(i => i.ResourceId).ToArray();
-                var numofGame = gameDetails.Length < ConstantValueDefinition.NUMBERGAMEOFTENNISSET ? ConstantValueDefinition.NUMBERGAMEOFTENNISSET : gameDetails.Length;
-                for (var j = 0; j < numofGame; j++)
+            var setIndexId = int.Parse(setIndex);
+            var gameDetails = this.SPORTBOOK.GameDetails.Where(i => Helper.IsTennisGameResourceID(setIndexId, i.ResourceId)).OrderBy(i => i.ResourceId).ToArray();
+            var numofGame = gameDetails.Length < ConstantValueDefinition.NUMBERGAMEOFTENNISSET ? ConstantValueDefinition.NUMBERGAMEOFTENNISSET : gameDetails.Length;
+            for (var j = 0; j < numofGame; j++)
+            {
+                if (j >= gameDetails.Length)
                 {
-                    if (j >= gameDetails.Length)
+                    result.Games.Add(new GameValue
                     {
-                        result.Games.Add(new GameValue
-                        {
-                            GameId = j + 1,
-                            HomeValue = StringResources.HYPHEN,
-                            AwayValue = StringResources.HYPHEN
-                        });
-                    }
-                    else
-                    {
-                        var game = gameDetails[j];
-                        result.Games.Add(CreateGameValue(j, game));
-                    }
+                        GameId = j + 1,
+                        HomeValue = StringResources.HYPHEN,
+                        AwayValue = StringResources.HYPHEN
+                    });
                 }
-
-                var modeValue = numofGame % ConstantValueDefinition.NUMBERGAMEOFTENNISSET;
-
-                if (numofGame > 13 && modeValue > 0)
+                else
                 {
-                    var moreGame = ConstantValueDefinition.NUMBERGAMEOFTENNISSET - modeValue + numofGame;
-                    for (var k = numofGame + 1; k <= moreGame; k++)
-                    {
-                        result.Games.Add(new GameValue
-                        {
-                            GameId = k,
-                            HomeValue = StringResources.HYPHEN,
-                            AwayValue = StringResources.HYPHEN
-                        });
-                    }
+                    var game = gameDetails[j];
+                    result.Games.Add(CreateGameValue(j, game));
                 }
-
-                return result;
             }
+
+            var modeValue = numofGame % ConstantValueDefinition.NUMBERGAMEOFTENNISSET;
+
+            if (numofGame > 13 && modeValue > 0)
+            {
+                var moreGame = ConstantValueDefinition.NUMBERGAMEOFTENNISSET - modeValue + numofGame;
+                for (var k = numofGame + 1; k <= moreGame; k++)
+                {
+                    result.Games.Add(new GameValue
+                    {
+                        GameId = k,
+                        HomeValue = StringResources.HYPHEN,
+                        AwayValue = StringResources.HYPHEN
+                    });
+                }
+            }
+
+            return result;
 
             return null;
         }

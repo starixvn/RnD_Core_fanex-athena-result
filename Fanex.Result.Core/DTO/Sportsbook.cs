@@ -110,5 +110,28 @@ namespace Fanex.Result.Core.DTO
                 }
             }
         }
+
+        /// <summary>
+        /// Gets or sets bet type.
+        /// Used for tennis in parlay result.
+        /// </summary>
+        /// <value>The bet type ID list.</value>
+        public int Bettype
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
+        /// Gets or sets bet id.
+        /// Used for tennis in parlay result.
+        /// Example:80212 (Set:02 , Game:12).
+        /// </summary>
+        /// <value>The bet ID list.</value>
+        public string BetID
+        {
+            get;
+            set;
+        }
     }
 }

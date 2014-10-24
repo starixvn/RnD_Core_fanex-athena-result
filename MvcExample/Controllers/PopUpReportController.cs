@@ -147,7 +147,9 @@
                {
                    LicenseeID = licenseeId,
                    MatchID = metalModel.MatchId,
-                   UserID = userId
+                   UserID = userId,
+                   BetId = metalModel.BetId,
+                   Bettype = metalModel.Bettype
                });
 
                     if (data != null)

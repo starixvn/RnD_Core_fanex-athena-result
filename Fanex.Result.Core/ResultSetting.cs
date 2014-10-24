@@ -26,21 +26,6 @@ namespace Fanex.Result.Core
         public SportType SportType { get; set; }
 
         /// <summary>
-        /// Gets or sets bet type.
-        /// Used for tennis POPUP.
-        /// </summary>
-        /// <value>The bet type ID.</value>
-        public int Bettype { get; set; }
-
-        /// <summary>
-        /// Gets or sets bet id.
-        /// Used for tennis POPUP.
-        /// Example:80212 (Set:02 , Game:12).
-        /// </summary>
-        /// <value>The bet ID.</value>
-        public string BetID { get; set; }
-
-        /// <summary>
         /// Gets or sets Excel source path.
         /// Default path ="APP_DATA/FANEX.RESUST"
         /// Must be physical path .

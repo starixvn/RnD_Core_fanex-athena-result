@@ -32,42 +32,37 @@
                     SportType = sportType
 
                 };
-                var itemData = new List<GroupData>();
-                itemData.Add(new GroupData
+                var itemData = new List<GroupData>()
                 {
-                    LeagueId = group.LeagueId,
-                    Data = item.ItemView
-                });
+                    new GroupData
+                    {
+                        LeagueId = group.LeagueId,
+                        Data = sportType == Fanex.Result.Core.SportType.Tennis ? item.TennisMatchItemView : item.ItemView
+                    }
+                };
                 bindModle.Data.AddRange(itemData);
-                if (sportType == Fanex.Result.Core.SportType.Tennis)
-                {
-                    if (item.VisibleTennisResult)
-                    {
-                        @Raw(item.Render(bindModle))
                     }
-
-                    if (item.VisibleTennisSetDetail)
+                    @Raw(item.Render(bindModle))
+                    @if (sportType == Fanex.Result.Core.SportType.Tennis)
                     {
-                        foreach (var betId in item.SetXGameYBetIDs)
+                        var detailData = new List<GroupData>()
                         {
-                            var tennisSetBindModel = new Fanex.Result.Core.Models.RazorBinderModel
+                            new GroupData
                             {
-                                Resource = lang,
-                                IsPopUp = true,
-                                Bettype = Fanex.Result.Core.DataDomain.BetTypeDefinition.SetXGameYWinner,
-                                BetID = betId,
-                                VisibleMatchCodeIDColumn = viewModel.VisibleMatchCodeIDColumn,
-                                SportType = sportType
-                            };
-                            tennisSetBindModel.Data.AddRange(itemData);
-                        @Raw(item.Render(tennisSetBindModel))
-                        }
-                    }
-                }
-                else
-                {
-                        @Raw(item.Render(bindModle))
-                }
+                                LeagueId=group.LeagueId,
+                                Data=item.TennisGameDetailItemView
+                            }
+                        };
+                        var detailBindModel = new Fanex.Result.Core.Models.RazorBinderModel
+                        {
+                            Resource = lang,
+                            IsPopUp = true,
+                            VisibleMatchCodeIDColumn = viewModel.VisibleMatchCodeIDColumn,
+                            SportType = sportType,
+
+                        };
+                        detailBindModel.Data.AddRange(detailData);
+                        @Raw(item.Render(detailBindModel))
                     }
                 </td>
             </tr>

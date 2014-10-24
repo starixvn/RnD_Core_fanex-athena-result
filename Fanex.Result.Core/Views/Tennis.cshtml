@@ -1,11 +1,9 @@
 ﻿@{
     var viewModel = (Fanex.Result.Core.Models.RazorBinderModel)Model;
-    var betId = 0;
-    int.TryParse(viewModel.BetID, out betId);
+
     var lang = (Fanex.Result.Core.DataDomain.LangResources)viewModel.Resource;
     var colspan = viewModel.VisibleMatchCodeIDColumn ? 11 : 10;
-    var visibleMainResult = viewModel.IsDetail || !(viewModel.IsPopUp
-        && viewModel.Bettype == BetTypeDefinition.SetXGameYWinner && betId >= BetIDDefinition.MinSet1GameY);
+
     var popupCss = viewModel.IsPopUp || viewModel.IsDetail ? "popup" : string.Empty;
 
 }
@@ -13,7 +11,7 @@
 @using Fanex.Result.Core.Models;
 @using System.Collections;
 @using Fanex.Result.Core.DataDomain;
-@if (visibleMainResult)
+@if (viewModel.VisibleMainResult)
 {
     if (viewModel.VisibleFreeHeader)
     {
@@ -239,21 +237,19 @@
             }
 }
 <!--Detail-->
-@{
-    var visibleDetail = viewModel.Data.Count > 0 && viewModel.Data[0].Data.Count > 0
-        && (viewModel.IsDetail || (viewModel.IsPopUp && viewModel.Bettype == BetTypeDefinition.SetXGameYWinner && betId >= BetIDDefinition.MinSet1GameY));
-}
-@if (visibleDetail)
+@if (viewModel.VisibleDetailResult)
 {
-    TennisViewModel item = (TennisViewModel)viewModel.Data[0].Data[0];
-
-    for (var i = 0; i < item.SetDetail.Length; i++)
+    if (viewModel.Data.Count > 0 && viewModel.Data[0].Data.Count > 0)
     {
-        if (viewModel.IsDetail || item.VisibleSet(i + 1, betId))
+        TennisViewModel item = (TennisViewModel)viewModel.Data[0].Data[0];
+
+        for (var i = 0; i < item.SetDetail.Length; i++)
         {
-            var setValue = item.SetDetail[i];
-            if (setValue != null)
+            if (viewModel.IsDetail || item.VisibleSet(i + 1))
             {
+                var setValue = item.SetDetail[i];
+                if (setValue != null)
+                {
     <br />
     <table class="fn-rs popup">
         <thead>
@@ -352,8 +348,35 @@
             }
         </tbody>
     </table>
+                }
             }
         }
+    }
+    else
+    {
+    <table class="fn-rs popup">
+        <thead>
+            <tr class="header">
+                <th class="cl-match">
+                    @lang.GameResult
+                </th>
+                @for (var k = 1; k <= ConstantValueDefinition.NUMBERGAMEOFTENNISSET; k++)
+                {
+                    <th class="cl-s">
+                        @k
+                    </th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="row-noinfo">
+                <td colspan="@colspan">
+                    @viewModel.Resource.NoInfo
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
     }
 
 }

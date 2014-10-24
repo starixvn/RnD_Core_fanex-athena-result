@@ -231,8 +231,6 @@ namespace Fanex.Result.Core.Models
                  VisibleDetailedLink = setting.VisibleDetailedLink,
                  VisibleFreeHeader = setting.VisibleFreeHeader && !isPopUp,
                  IsDetail = isDetail,
-                 BetID = setting.BetID,
-                 Bettype = setting.Bettype
              };
 
             model.Data.AddRange(groupData);

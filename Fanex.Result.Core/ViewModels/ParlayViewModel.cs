@@ -13,7 +13,6 @@ namespace Fanex.Result.Core.ViewModels
     using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.Models;
-    using Fanex.Result.Core.Utilities;
     using RazorEngine;
 
     /// <summary>
@@ -22,12 +21,21 @@ namespace Fanex.Result.Core.ViewModels
     public sealed class ParlayViewModel : BaseViewModel, IResultViewModel
     {
         private readonly Parlay _parlay;
+        private readonly ResultSetting _sportSetting;
+        private IList<IResultViewModel> _viewModelData = null;
 
         public ParlayViewModel(Parlay parlay, ResultSetting setting, LangResources resource)
             : base(setting, resource)
         {
             this._parlay = parlay;
             this.LanguageCode = setting.LanguageCode;
+            this._sportSetting = new ResultSetting
+            {
+                IsPopUp = true,
+                LanguageCode = this.LanguageCode,
+                SportType = (SportType)this._parlay.SportId,
+                DateTimeFormat = this.DateTimeFormat,
+            };
         }
 
         [SuppressMessage("Microsoft.Naming", "CA1721:PropertyNamesShouldNotMatchGetMethods", Justification = "Reviewed")]
@@ -63,50 +71,60 @@ namespace Fanex.Result.Core.ViewModels
             }
         }
 
-        public bool VisibleTennisSetDetail
-        {
-            get
-            {
-                return this._parlay.SportId == (int)SportType.Tennis &&
-                    this._parlay.BetTypes.Contains(BetTypeDefinition.SetXGameYWinner)
-                    && this._parlay.BetIDs.Any(i => i.Length == ConstantValueDefinition.SETXGAMEYRESOURCEIDLENGTH)
-                    && this._parlay.BetIDs.Any(i => Helper.IsSetXGameYBetID(i));
-            }
-        }
-
-        public bool VisibleTennisResult
-        {
-            get
-            {
-                return
-                    (this._parlay.BetTypes.Count == 0 || this._parlay.BetIDs.Count == 0) ||
-                   (this._parlay.SportId == (int)SportType.Tennis
-                    && this._parlay.BetTypes.Any(i => i != BetTypeDefinition.SetXGameYWinner));
-            }
-        }
-
-        public List<string> SetXGameYBetIDs
-        {
-            get
-            {
-                return this._parlay.BetIDs.Where(i => Helper.IsSetXGameYBetID(i)).ToList();
-            }
-        }
-
         public IList<IResultViewModel> ItemView
         {
             get
             {
-                var sportSetting = new ResultSetting
+                if (_viewModelData == null)
                 {
-                    IsPopUp = true,
-                    LanguageCode = this.LanguageCode,
-                    SportType = (SportType)this._parlay.SportId,
-                    DateTimeFormat = this.DateTimeFormat,
-                };
+                    CreateItemViewModel();
+                }
 
-                return this._parlay.Sportbook.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(
-                    i, sportSetting, Lang)).ToList();
+                return _viewModelData;
+            }
+        }
+
+        public IList<IResultViewModel> TennisMatchItemView
+        {
+            get
+            {
+                if (_viewModelData == null)
+                {
+                    CreateItemViewModel();
+                }
+
+                var result = new List<IResultViewModel>();
+                foreach (TennisViewModel item in this._viewModelData)
+                {
+                    if (item.VisibleMatchResult)
+                    {
+                        result.Add(item);
+                    }
+                }
+
+                return result;
+            }
+        }
+
+        public IList<IResultViewModel> TennisGameDetailItemView
+        {
+            get
+            {
+                if (_viewModelData == null)
+                {
+                    CreateItemViewModel();
+                }
+
+                var result = new List<IResultViewModel>();
+                foreach (TennisViewModel item in this._viewModelData)
+                {
+                    if (item.VisibleGameDetail)
+                    {
+                        result.Add(item);
+                    }
+                }
+
+                return result;
             }
         }
 
@@ -131,6 +149,12 @@ namespace Fanex.Result.Core.ViewModels
 
             Razor.GetTemplate(template, sportType.StringMe());
             return Razor.Run(sportType.StringMe(), model);
+        }
+
+        private void CreateItemViewModel()
+        {
+            _viewModelData = this._parlay.Sportbook.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(
+                i, _sportSetting, Lang)).ToList();
         }
     }
 }

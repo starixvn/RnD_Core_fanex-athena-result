@@ -105,7 +105,8 @@ var normalReport = (function () {
                 date: $.datepicker.formatDate('mm/dd/yy', $("#date").datepicker('getDate')),
                 sportId: $("#sport").val(),
                 leagueId: $("#league").val(),
-                languageCode: $("#language").val()
+                languageCode: $("#language").val(),
+                showmatchcode: $("#showmatchcode").is(":checked")
             };
             $.ajax({
                 url: window.rootUrl + "normalreport/GenJson",
@@ -131,7 +132,9 @@ var normalReport = (function () {
         $("body").on("click", ".tennis-detail-link", function () {
             var detailPopUp = $("#game-detail");
             $.ajax({
-                url: window.rootUrl + "normalreport/GenHtmlTennisDetail?matchid=" + $(this).attr("data-match-id"),
+                url: window.rootUrl + "normalreport/GenHtmlTennisDetail?matchid="
+                 + $(this).attr("data-match-id")+"&languageCode="+$("#language").val()
+                 +"&showmatchcode=" + $("#showmatchcode").is(":checked"),
                 datatype: "html",
                 type: "GET",
                 contentType: "application/x-www-form-urlencoded; charset=UTF-8",

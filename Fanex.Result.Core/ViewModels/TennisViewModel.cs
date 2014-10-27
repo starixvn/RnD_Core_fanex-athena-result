@@ -304,14 +304,19 @@ Justification = "Reviewed. Suppression is OK here.")]
     Justification = "Reviewed. Suppression is OK here.")]
         private SetValue CreateSetAndGameValue(string setIndex)
         {
+            var setIndexId = int.Parse(setIndex);
+            var gameDetails = this.SPORTBOOK.GameDetails.Where(i => Helper.IsTennisGameResourceID(setIndexId, i.ResourceId)).OrderBy(i => i.ResourceId).ToArray();
+            if (gameDetails.Length == 0)
+            {
+                return null;
+            }
+
             var result = new SetValue
             {
-                SetId = int.Parse(setIndex),
+                SetId = setIndexId,
                 Games = new List<GameValue>(),
             };
 
-            var setIndexId = int.Parse(setIndex);
-            var gameDetails = this.SPORTBOOK.GameDetails.Where(i => Helper.IsTennisGameResourceID(setIndexId, i.ResourceId)).OrderBy(i => i.ResourceId).ToArray();
             var numofGame = gameDetails.Length < ConstantValueDefinition.NUMBERGAMEOFTENNISSET ? ConstantValueDefinition.NUMBERGAMEOFTENNISSET : gameDetails.Length;
             for (var j = 0; j < numofGame; j++)
             {
@@ -333,7 +338,7 @@ Justification = "Reviewed. Suppression is OK here.")]
 
             var modeValue = numofGame % ConstantValueDefinition.NUMBERGAMEOFTENNISSET;
 
-            if (numofGame > 13 && modeValue > 0)
+            if (numofGame > ConstantValueDefinition.NUMBERGAMEOFTENNISSET && modeValue > 0)
             {
                 var moreGame = ConstantValueDefinition.NUMBERGAMEOFTENNISSET - modeValue + numofGame;
                 for (var k = numofGame + 1; k <= moreGame; k++)
@@ -348,8 +353,6 @@ Justification = "Reviewed. Suppression is OK here.")]
             }
 
             return result;
-
-            return null;
         }
 
         /// <summary>

@@ -115,13 +115,27 @@
             return htmlResult;
         }
 
+        /// <summary>
+        /// Generate tennis detailed result.
+        /// </summary>
+        /// <param name="matchId">The match ID.</param>
+        /// <param name="languageCode">The language code.</param>
+        /// <param name="showMatchCode">If true, show match code column.</param>
+        /// <returns>The html result.</returns>
         [HttpGet]
-        public string GenHtmlTennisDetail(int matchId)
+        public string GenHtmlTennisDetail(int matchId, string languageCode, bool showMatchCode)
         {
             var detailedData = _resultService.GetGameDetail(matchId);
             if (detailedData != null && detailedData.MatchId > 0)
             {
-                return ResultEngine.HtmlGameDetailParser(detailedData, new ResultSetting { SportType = SportType.Tennis, VisibleMatchCodeIDColumn = true });
+                return ResultEngine.HtmlGameDetailParser(
+                    detailedData,
+                    new ResultSetting
+                    {
+                        SportType = SportType.Tennis,
+                        VisibleMatchCodeIDColumn = showMatchCode,
+                        LanguageCode = languageCode
+                    });
             }
 
             return string.Empty;

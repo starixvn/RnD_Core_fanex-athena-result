@@ -9,7 +9,6 @@
 @using Fanex.Result.Core.ViewModels;
 @using Fanex.Result.Core.Models;
 @using System.Collections;
-
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
@@ -164,7 +163,7 @@
                     @if (item.VisibleDetailedLink || !string.IsNullOrEmpty(item.PenaltyShootoutResult))
                     {
                         <div>
-                            @if (item.VisibleDetailedLink)
+                            @if (item.VisibleDetailedLink && !viewModel.IsPopUp)
                             {
 
                                 <span class="detail-link soccer-detail-link" data-league-id="@item.LeagueId"

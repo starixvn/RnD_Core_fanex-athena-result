@@ -163,8 +163,16 @@ Justification = "Reviewed. Suppression is OK here.")]
                                 case EventStatusIDDefinition.CompletedSettlementStatusID:
                                     this.HomeSet[i] = set.HomeValue;
                                     this.AwaySet[i] = set.AwayValue;
-                                    this._totalGameHome += int.Parse(set.HomeValue);
-                                    this._totalGameAway += int.Parse(set.AwayValue);
+                                    if (Helper.IsIntegerNumber(set.HomeValue))
+                                    {
+                                        this._totalGameHome += int.Parse(set.HomeValue);
+                                    }
+
+                                    if (Helper.IsIntegerNumber(set.AwayValue))
+                                    {
+                                        this._totalGameAway += int.Parse(set.AwayValue);
+                                    }
+
                                     break;
 
                                 case EventStatusIDDefinition.RefundStettlementStatusID:

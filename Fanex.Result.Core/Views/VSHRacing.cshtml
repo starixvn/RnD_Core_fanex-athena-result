@@ -104,10 +104,10 @@
                 {
                     var item = (VSHRacingViewModel)temp;
 
-                    index++;
                     if (item.Place > 4) { continue; }
                     if (currentRace != item.EvenTime)
                     {
+                        index++;
                         currentRace = item.EvenTime;
             <tr class="data @item.Color(index, "even", "odd")">
                 <td class="cl-race-name" rowspan="@item.RowCount">

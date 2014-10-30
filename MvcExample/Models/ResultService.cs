@@ -269,6 +269,7 @@ namespace MvcExample.Models
                     }
                 }
             }
+
             if (gameDetails.Count > 0)
             {
                 foreach (var result in results)
@@ -278,6 +279,7 @@ namespace MvcExample.Models
                     result.GameDetails.AddRange(gameDetails.Where(i => i.MatchId == result.MatchId));
                 }
             }
+
             return results;
         }
 

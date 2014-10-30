@@ -52,8 +52,6 @@
                 VisibleMatchCodeIDColumn = showMatchCode,
                 VisibleDetailedLink = true,
                 VisibleFreeHeader = true,
-                ResourcePath = Server.MapPath("~/Langauge/Result/"),
-                ExcelTemplatePath=Server.MapPath("/Data/ExcelTemplate/Fanex.Result/")
             };
             var htmlResult = string.Empty;
             switch (sportType)

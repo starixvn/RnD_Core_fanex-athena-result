@@ -250,10 +250,13 @@
                 var setValue = item.SetDetail[i];
                 if (setValue != null)
                 {
+                    if (viewModel.IsDetail)
+                    {
     <br />
+                    }
     <table class="fn-rs popup">
         <thead>
-            @if (!viewModel.IsDetail)
+            @if (!viewModel.IsDetail && viewModel.VisiblePopUpTitle)
             {
                 <tr class="row-title">
                     <th class="cl-title" colspan="14">
@@ -280,7 +283,7 @@
                 if (maxGameId > ConstantValueDefinition.NUMBERGAMEOFTENNISSET)
                 {
                     subRowspan = (maxGameId / ConstantValueDefinition.NUMBERGAMEOFTENNISSET) * 2;
-                    subRowspan += subRowspan / 2;
+                    subRowspan += (subRowspan / 2) - 1;
                 }
                 var lastGameId = ConstantValueDefinition.NUMBERGAMEOFTENNISSET;
                 var startGameId = 0;

@@ -269,14 +269,15 @@ namespace MvcExample.Models
                     }
                 }
             }
-
-            foreach (var result in results)
+            if (gameDetails.Count > 0)
             {
-                result.Bettype = criteria.Bettype;
-                result.BetID = criteria.BetId.ToString();
-                result.GameDetails.AddRange(gameDetails.Where(i => i.MatchId == result.MatchId));
+                foreach (var result in results)
+                {
+                    result.Bettype = criteria.Bettype;
+                    result.BetID = criteria.BetId.ToString();
+                    result.GameDetails.AddRange(gameDetails.Where(i => i.MatchId == result.MatchId));
+                }
             }
-
             return results;
         }
 
@@ -338,11 +339,14 @@ namespace MvcExample.Models
                         }
                     }
 
-                    foreach (var result in results)
+                    if (gameDetails.Count > 0)
                     {
-                        foreach (var sb in result.Sportbook)
+                        foreach (var result in results)
                         {
-                            sb.GameDetails.AddRange(gameDetails.Where(i => i.MatchId == sb.MatchId));
+                            foreach (var sb in result.Sportbook)
+                            {
+                                sb.GameDetails.AddRange(gameDetails.Where(i => i.MatchId == sb.MatchId));
+                            }
                         }
                     }
                 }
@@ -524,7 +528,7 @@ namespace MvcExample.Models
         {
             for (int i = 0; i < reader.FieldCount; i++)
             {
-                if (reader.GetName(i) == columnName)
+                if (reader.GetName(i).Equals(columnName, StringComparison.OrdinalIgnoreCase))
                 {
                     return true;
                 }

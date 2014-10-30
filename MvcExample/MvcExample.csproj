@@ -217,9 +217,9 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <None Include="App_Data\Fanex.Result\Other.xls" />
-    <None Include="App_Data\Fanex.Result\Racing.xls" />
-    <None Include="App_Data\Fanex.Result\VSSpeedWay.xls" />
+    <Content Include="App_Data\Fanex.Result\Other.xls" />
+    <Content Include="App_Data\Fanex.Result\Racing.xls" />
+    <Content Include="App_Data\Fanex.Result\VSSpeedWay.xls" />
     <EmbeddedResource Include="App_Data\Fanex.Result.Resource\en-US.xml" />
     <EmbeddedResource Include="App_Data\Fanex.Result.Resource\zh-CN.xml" />
     <EmbeddedResource Include="App_Data\Fanex.Result.Resource\ja-JP.xml" />
@@ -334,20 +334,20 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App_Data\Fanex.Result\Badminton.xls" />
-    <None Include="App_Data\Fanex.Result\BaseBall.xls" />
-    <None Include="App_Data\Fanex.Result\Basketball.xls" />
-    <None Include="App_Data\Fanex.Result\Billiard.xls" />
-    <None Include="App_Data\Fanex.Result\Hockey.xls" />
+    <Content Include="App_Data\Fanex.Result\Badminton.xls" />
+    <Content Include="App_Data\Fanex.Result\BaseBall.xls" />
+    <Content Include="App_Data\Fanex.Result\Basketball.xls" />
+    <Content Include="App_Data\Fanex.Result\Billiard.xls" />
+    <Content Include="App_Data\Fanex.Result\Hockey.xls" />
     <Content Include="App_Data\Fanex.Result\HorseRacing.xls" />
-    <None Include="App_Data\Fanex.Result\LiveCasino.xls" />
-    <None Include="App_Data\Fanex.Result\NumberGame.xls" />
+    <Content Include="App_Data\Fanex.Result\LiveCasino.xls" />
+    <Content Include="App_Data\Fanex.Result\NumberGame.xls" />
     <Content Include="App_Data\Fanex.Result\OtherSport.xls" />
-    <None Include="App_Data\Fanex.Result\Outright.xls" />
-    <None Include="App_Data\Fanex.Result\Soccer.xls" />
-    <None Include="App_Data\Fanex.Result\Tennis.xls" />
-    <None Include="App_Data\Fanex.Result\VSHRacing.xls" />
-    <None Include="App_Data\Fanex.Result\VSTennis.xls" />
+    <Content Include="App_Data\Fanex.Result\Outright.xls" />
+    <Content Include="App_Data\Fanex.Result\Soccer.xls" />
+    <Content Include="App_Data\Fanex.Result\Tennis.xls" />
+    <Content Include="App_Data\Fanex.Result\VSHRacing.xls" />
+    <Content Include="App_Data\Fanex.Result\VSTennis.xls" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>

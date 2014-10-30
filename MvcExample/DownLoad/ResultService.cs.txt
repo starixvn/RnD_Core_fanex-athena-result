@@ -247,7 +247,7 @@ namespace MvcExample.Models
         /// </summary>
         /// <param name="criteria">The criterion.</param>
         /// <returns>The SPORTBOOK POPUP data.</returns>
-        public IEnumerable<Fanex.Result.Core.DTO.Sportsbook> GetSportbookPopupResult(GetSportbookPopupResultCriteria criteria)
+        public IEnumerable<Sportsbook> GetSportbookPopupResult(GetSportbookPopupResultCriteria criteria)
         {
             var results = new List<Sportsbook>();
             var gameDetails = new List<GameDetail>();
@@ -260,20 +260,24 @@ namespace MvcExample.Models
                         results.Add(BindSportbook(reader));
                     }
 
-                    reader.NextResult();
-
-                    while (reader.Read())
+                    if (reader.NextResult())
                     {
-                        gameDetails.Add(BindGameDetail(reader));
+                        while (reader.Read())
+                        {
+                            gameDetails.Add(BindGameDetail(reader));
+                        }
                     }
                 }
             }
-
-            foreach (var result in results)
+            if (gameDetails.Count > 0)
             {
-                result.GameDetails.Union(gameDetails.Where(i => i.MatchId == result.MatchId));
+                foreach (var result in results)
+                {
+                    result.Bettype = criteria.Bettype;
+                    result.BetID = criteria.BetId.ToString();
+                    result.GameDetails.AddRange(gameDetails.Where(i => i.MatchId == result.MatchId));
+                }
             }
-
             return results;
         }
 
@@ -309,7 +313,7 @@ namespace MvcExample.Models
                             {
                                 SportId = sportId,
                                 LeagueId = leagueId,
-                                Sportbook = sportbooks
+                                Sportbook = sportbooks,
                             });
                             sportbooks = new List<Sportsbook>();
                         }
@@ -335,11 +339,14 @@ namespace MvcExample.Models
                         }
                     }
 
-                    foreach (var result in results)
+                    if (gameDetails.Count > 0)
                     {
-                        foreach (var sb in result.Sportbook)
+                        foreach (var result in results)
                         {
-                            sb.GameDetails.AddRange(gameDetails.Where(i => i.MatchId == sb.MatchId));
+                            foreach (var sb in result.Sportbook)
+                            {
+                                sb.GameDetails.AddRange(gameDetails.Where(i => i.MatchId == sb.MatchId));
+                            }
                         }
                     }
                 }
@@ -420,7 +427,9 @@ namespace MvcExample.Models
                 IsHTCal = Convert.ToBoolean(reader["IsHTCal"]),
                 Calculate = Convert.ToBoolean(reader["Calculate"]),
                 RefNo = string.Empty,
-                GameDetails = new List<GameDetail>()
+                GameDetails = new List<GameDetail>(),
+                Bettype = GetBetTypeFromToken(reader),
+                BetID = GetBetIDFromToken(reader)
             };
 
             return item;
@@ -519,7 +528,7 @@ namespace MvcExample.Models
         {
             for (int i = 0; i < reader.FieldCount; i++)
             {
-                if (reader.GetName(i) == columnName)
+                if (reader.GetName(i).Equals(columnName, StringComparison.OrdinalIgnoreCase))
                 {
                     return true;
                 }
@@ -544,6 +553,28 @@ namespace MvcExample.Models
                 ResultStatusID = int.Parse(reader["ResultStatusID"].ToString()),
                 SettlementStatusID = int.Parse(reader["SettlementStatusID"].ToString())
             };
+        }
+
+        private static int GetBetTypeFromToken(IDataReader reader)
+        {
+            const string BettypeColumn = "bettype";
+            if (ColumnExisted(reader, BettypeColumn))
+            {
+                return int.Parse(reader[BettypeColumn].ToString());
+            }
+
+            return 0;
+        }
+
+        private static string GetBetIDFromToken(IDataReader reader)
+        {
+            const string BetcheckColumn = "betcheck";
+            if (ColumnExisted(reader, BetcheckColumn))
+            {
+                return reader[BetcheckColumn].ToString();
+            }
+
+            return string.Empty;
         }
 
         #endregion Utilites

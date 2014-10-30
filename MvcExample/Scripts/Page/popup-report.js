@@ -49,7 +49,7 @@ var popupReport = (function () {
                 WinLossDate: $.datepicker.formatDate('mm/dd/yy', $("#date").datepicker('getDate')),
                 SportType: 9,
                 IsOutRight: false,
-                RefNo: 100524979461,
+                RefNo: 100529840851,
                 RaceNo: null,
                 Bettype: 9,
                 MatchId: 1,

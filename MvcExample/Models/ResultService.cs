@@ -257,7 +257,10 @@ namespace MvcExample.Models
                 {
                     while (reader.Read())
                     {
-                        results.Add(BindSportbook(reader));
+                        var item = BindSportbook(reader);
+                        item.Bettype = criteria.Bettype;
+                        item.BetID = criteria.BetId.ToString();
+                        results.Add(item);
                     }
 
                     if (reader.NextResult())
@@ -274,8 +277,6 @@ namespace MvcExample.Models
             {
                 foreach (var result in results)
                 {
-                    result.Bettype = criteria.Bettype;
-                    result.BetID = criteria.BetId.ToString();
                     result.GameDetails.AddRange(gameDetails.Where(i => i.MatchId == result.MatchId));
                 }
             }

@@ -239,6 +239,7 @@
 <!--Detail-->
 @if (viewModel.VisibleDetailResult)
 {
+    var visibleNoInfomationRow = false;
     if (viewModel.Data.Count > 0 && viewModel.Data[0].Data.Count > 0)
     {
         TennisViewModel item = (TennisViewModel)viewModel.Data[0].Data[0];
@@ -248,12 +249,11 @@
             if (viewModel.IsDetail || item.VisibleSet(i + 1))
             {
                 var setValue = item.SetDetail[i];
-                if (setValue != null)
+
+                if (viewModel.IsDetail)
                 {
-                    if (viewModel.IsDetail)
-                    {
     <br />
-                    }
+                }
     <table class="fn-rs popup">
         <thead>
             @if (!viewModel.IsDetail && viewModel.VisiblePopUpTitle)
@@ -266,7 +266,7 @@
             }
             <tr class="header">
                 <th class="cl-match">
-                    @lang.Set&nbsp;@setValue.SetId&nbsp;@lang.GameResult
+                    @lang.Set&nbsp;@(i + 1)&nbsp;@lang.GameResult
                 </th>
                 @for (var k = 1; k <= ConstantValueDefinition.NUMBERGAMEOFTENNISSET; k++)
                 {
@@ -277,7 +277,9 @@
             </tr>
         </thead>
         <tbody>
-            @{
+            @if (setValue != null)
+            {
+
                 var maxGameId = setValue.Games.Count;
                 var subRowspan = 1;
                 if (maxGameId > ConstantValueDefinition.NUMBERGAMEOFTENNISSET)
@@ -347,16 +349,40 @@
                 </tr>
 
                 }
-
+            }
+            else
+            {
+                <tr class="data">
+                    <td class="cl-match home">
+                        @Raw(item.HomeTeam)
+                    </td>
+                    @for (var k = 1; k <= ConstantValueDefinition.NUMBERGAMEOFTENNISSET; k++)
+                    {
+                        <td class="cl-s">
+                            -
+                        </td>
+                    }
+                </tr>
+                <tr class="data">
+                    <td class="cl-match away">
+                        @Raw(item.AwayTeam)
+                    </td>
+                    @for (var k = 1; k <= ConstantValueDefinition.NUMBERGAMEOFTENNISSET; k++)
+                    {
+                        <td class="cl-s">
+                            -
+                        </td>
+                    }
+                </tr>
             }
         </tbody>
     </table>
-                }
             }
         }
     }
     else
     {
+
     <table class="fn-rs popup">
         <thead>
             <tr class="header">
@@ -379,8 +405,6 @@
             </tr>
         </tbody>
     </table>
-
     }
-
 }
 <!--/Detail-->

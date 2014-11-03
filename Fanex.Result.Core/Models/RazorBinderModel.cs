@@ -47,20 +47,22 @@ namespace Fanex.Result.Core.Models
                     return true;
                 }
 
-                var visible = false;
                 if (SportType == SportType.Tennis && this._data.Count == 1)
                 {
                     foreach (TennisViewModel item in this._data[0].Data)
                     {
                         if (item.VisibleMatchResult)
                         {
-                            visible = true;
-                            break;
+                            return true;
                         }
                     }
                 }
+                else
+                {
+                    return true;
+                }
 
-                return visible;
+                return false;
             }
         }
 

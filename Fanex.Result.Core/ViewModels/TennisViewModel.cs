@@ -89,7 +89,7 @@ namespace Fanex.Result.Core.ViewModels
 
         public bool VisibleMatchResult
         {
-            get { return this.SPORTBOOK.Bettype == 0 || this.SPORTBOOK.Bettype != BetTypeDefinition.SetXGameYWinner; }
+            get { return this.SPORTBOOK.Bettype != BetTypeDefinition.SetXGameYWinner; }
         }
 
         public bool VisibleGameDetail
@@ -226,6 +226,14 @@ Justification = "Reviewed. Suppression is OK here.")]
 
                 default:
                     return false;
+            }
+        }
+
+        public bool HasGameDetailedValue
+        {
+            get
+            {
+                return this.SPORTBOOK.GameDetails.Count > 0;
             }
         }
 

@@ -28,12 +28,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                if (this.HomeSet == null || this.AwaySet == null)
-                {
-                    this.GetHomeAwaySet(0, true);
-                }
-
-                return this._totalPointHome > 0 ? this._totalPointHome.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
+                return CreateTotalPointValue(true);
             }
         }
 
@@ -41,12 +36,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                if (this.HomeSet == null || this.AwaySet == null)
-                {
-                    this.GetHomeAwaySet(0, false);
-                }
-
-                return this._totalPointAway > 0 ? this._totalPointAway.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
+                return CreateTotalPointValue(false);
             }
         }
 
@@ -103,6 +93,27 @@ namespace Fanex.Result.Core.ViewModels
             }
 
             return isHome ? HomeSet[index] : AwaySet[index];
+        }
+
+        /// <summary>
+        /// Create total point value.
+        /// </summary>
+        /// <param name="isHome">If true, return home value.</param>
+        /// <returns>The total point value.</returns>
+        private string CreateTotalPointValue(bool isHome)
+        {
+            if (this.HomeSet == null || this.AwaySet == null)
+            {
+                this.GetHomeAwaySet(0, true);
+            }
+
+            var totalPoint = this._totalPointHome + this._totalPointAway;
+            if (totalPoint > 0)
+            {
+                return isHome ? this._totalPointHome.ToString(CultureInfo.InvariantCulture) : this._totalPointAway.ToString(CultureInfo.InvariantCulture);
+            }
+
+            return StringResources.HYPHEN;
         }
     }
 }

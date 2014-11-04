@@ -229,14 +229,6 @@ Justification = "Reviewed. Suppression is OK here.")]
             }
         }
 
-        public bool HasGameDetailedValue
-        {
-            get
-            {
-                return this.SPORTBOOK.GameDetails.Count > 0;
-            }
-        }
-
         /// <summary>
         /// Get total set value.
         /// </summary>
@@ -301,13 +293,14 @@ Justification = "Reviewed. Suppression is OK here.")]
                 this.GetHomeAwaySet(0, isHome);
             }
 
+            var totalGameValue = this._totalGameHome + this._totalGameAway;
             if (isHome)
             {
-                return this._totalGameHome > 0 ? this._totalGameHome.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
+                return totalGameValue > 0 ? this._totalGameHome.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
             else
             {
-                return this._totalGameAway > 0 ? this._totalGameAway.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
+                return totalGameValue > 0 ? this._totalGameAway.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }
 

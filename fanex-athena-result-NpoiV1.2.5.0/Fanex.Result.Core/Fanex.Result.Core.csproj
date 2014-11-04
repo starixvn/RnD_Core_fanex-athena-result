@@ -337,9 +337,6 @@
     <EmbeddedResource Include="..\..\Fanex.Result.Core\Views\Hockey.cshtml">
       <Link>Views\Hockey.cshtml</Link>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\..\Fanex.Result.Core\Views\Keno.cshtml">
-      <Link>Views\Keno.cshtml</Link>
-    </EmbeddedResource>
     <EmbeddedResource Include="..\..\Fanex.Result.Core\Views\LiveCasino.cshtml">
       <Link>Views\LiveCasino.cshtml</Link>
     </EmbeddedResource>

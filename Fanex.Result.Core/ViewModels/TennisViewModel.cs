@@ -80,10 +80,9 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return base.VisibleDetailedLink && this.SPORTBOOK.GameDetails.Count > 0
-                    && this.EventStatus != Lang.PostPoned
+                return base.VisibleDetailedLink && this.EventStatus != Lang.PostPoned 
                     && this.SPORTBOOK.GameDetails.Any(i => !string.IsNullOrEmpty(i.ResourceId)
-                        && i.ResourceId.Trim().Length == ConstantValueDefinition.SETXGAMEYRESOURCEIDLENGTH);
+                 && i.ResourceId.Trim().Length == ConstantValueDefinition.SETXGAMEYRESOURCEIDLENGTH);
             }
         }
 

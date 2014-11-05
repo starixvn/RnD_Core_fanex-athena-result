@@ -251,6 +251,7 @@ namespace MvcExample.Models
         {
             var results = new List<Sportsbook>();
             var gameDetails = new List<GameDetail>();
+
             using (var db = new ObjectDb(criteria.GetSettingKey()))
             {
                 using (var reader = db.ExecuteReader(criteria.GetSpParams()))

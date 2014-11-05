@@ -243,17 +243,19 @@
     if (viewModel.Data.Count > 0 && viewModel.Data[0].Data.Count > 0)
     {
         TennisViewModel item = (TennisViewModel)viewModel.Data[0].Data[0];
-
+        var numOfNullSet = 0;
         for (var i = 0; i < item.SetDetail.Length; i++)
         {
-            if (viewModel.IsDetail || item.VisibleSet(i + 1))
-            {
-                var setValue = item.SetDetail[i];
+            var setValue = item.SetDetail[i];
 
-                if (viewModel.IsDetail)
+            if ((viewModel.IsDetail || item.VisibleSet(i + 1)) && setValue != null)
+            {
+
                 {
+                    if (viewModel.IsDetail)
+                    {
     <br />
-                }
+                    }
     <table class="fn-rs popup">
         <thead>
             @if (!viewModel.IsDetail && viewModel.VisiblePopUpTitle)
@@ -277,8 +279,7 @@
             </tr>
         </thead>
         <tbody>
-            @if (setValue != null)
-            {
+            @{
 
                 var maxGameId = setValue.Games.Count;
                 var subRowspan = 1;
@@ -350,39 +351,25 @@
 
                 }
             }
-            else
-            {
-                <tr class="data">
-                    <td class="cl-match home">
-                        @Raw(item.HomeTeam)
-                    </td>
-                    @for (var k = 1; k <= ConstantValueDefinition.NUMBERGAMEOFTENNISSET; k++)
-                    {
-                        <td class="cl-s">
-                            -
-                        </td>
-                    }
-                </tr>
-                <tr class="data">
-                    <td class="cl-match away">
-                        @Raw(item.AwayTeam)
-                    </td>
-                    @for (var k = 1; k <= ConstantValueDefinition.NUMBERGAMEOFTENNISSET; k++)
-                    {
-                        <td class="cl-s">
-                            -
-                        </td>
-                    }
-                </tr>
-            }
         </tbody>
     </table>
+                }
+
+            }
+            else
+            {
+                numOfNullSet++;
             }
         }
+
+        visibleNoInfomationRow = numOfNullSet == 5;
     }
     else
     {
-
+        visibleNoInfomationRow = true;
+    }
+    if (visibleNoInfomationRow)
+    {
     <table class="fn-rs popup">
         <thead>
             <tr class="header">
@@ -399,12 +386,13 @@
         </thead>
         <tbody>
             <tr class="row-noinfo">
-                <td colspan="@colspan">
+                <td colspan="14">
                     @viewModel.Resource.NoInfo
                 </td>
             </tr>
         </tbody>
     </table>
     }
+
 }
 <!--/Detail-->

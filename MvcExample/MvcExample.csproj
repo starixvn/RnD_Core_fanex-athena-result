@@ -342,7 +342,6 @@
     <Content Include="App_Data\Fanex.Result\HorseRacing.xls" />
     <Content Include="App_Data\Fanex.Result\LiveCasino.xls" />
     <Content Include="App_Data\Fanex.Result\NumberGame.xls" />
-    <Content Include="App_Data\Fanex.Result\OtherSport.xls" />
     <Content Include="App_Data\Fanex.Result\Outright.xls" />
     <Content Include="App_Data\Fanex.Result\Soccer.xls" />
     <Content Include="App_Data\Fanex.Result\Tennis.xls" />

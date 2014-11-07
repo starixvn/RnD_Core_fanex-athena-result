@@ -131,6 +131,14 @@ namespace Fanex.Result.Core.ViewModels
             }
         }
 
+        public override bool IsPending
+        {
+            get
+            {
+                return this._sportbook.IsPending;
+            }
+        }
+
         protected Sportsbook SPORTBOOK
         {
             get { return this._sportbook; }

@@ -59,6 +59,14 @@ namespace Fanex.Result.Core.ViewModels
             }
         }
 
+        public override bool IsPending
+        {
+            get
+            {
+                return this._liveCasino.IsPending;
+            }
+        }
+
         public string PlayerAndBanker
         {
             get

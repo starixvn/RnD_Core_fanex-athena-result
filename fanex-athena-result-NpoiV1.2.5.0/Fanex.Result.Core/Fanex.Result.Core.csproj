@@ -67,8 +67,8 @@
     <Compile Include="..\..\Fanex.Result.Core\DataDomain\BetTypeDefinition.cs">
       <Link>DataDomain\BetTypeDefinition.cs</Link>
     </Compile>
-    <Compile Include="..\..\Fanex.Result.Core\DataDomain\ConstantValue.cs">
-      <Link>DataDomain\ConstantValue.cs</Link>
+    <Compile Include="..\..\Fanex.Result.Core\DataDomain\ConstantValueDefinition.cs">
+      <Link>DataDomain\ConstantValueDefinition.cs</Link>
     </Compile>
     <Compile Include="..\..\Fanex.Result.Core\DataDomain\DTOType.cs">
       <Link>DataDomain\DTOType.cs</Link>

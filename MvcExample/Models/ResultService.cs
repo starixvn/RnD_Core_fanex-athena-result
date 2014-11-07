@@ -513,7 +513,6 @@ namespace MvcExample.Models
                     MatchId = int.Parse(reader["matchid"].ToString()),
                     EventStatus = reader["eventstatus"].ToString(),
                     EventDate = DateTime.Parse(reader["eventdate"].ToString()),
-                    IsPending = reader.GetOrdinal("isrefund") >= 0 && reader["isrefund"].ToString() != "0",
                     KickOffTime = DateTime.Parse(reader["kickofftime"].ToString()),
                     MatchCode = reader["matchcode"].ToString(),
                     Seg = new List<int> { int.Parse(reader["seq"].ToString()) },

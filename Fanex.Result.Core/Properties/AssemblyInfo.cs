@@ -16,7 +16,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("Fanex.Result.Core 1.6.0")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Nexcel.vn")]
-[assembly: AssemblyProduct("Fanex.Result.Core")]
+[assembly: AssemblyProduct("Fanex.Result.Core 1.6.0-theta 7")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

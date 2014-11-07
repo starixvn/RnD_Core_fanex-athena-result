@@ -20,7 +20,7 @@ namespace Fanex.Result.Core.Utilities
         private static Regex setXGameYRegex = new Regex("^80[1-5]{1}\\d{2}$");
 
         private static Regex[] setXRGameYResourceID = new Regex[5]
-        { 
+        {
             new Regex("^01\\d{2}$"),
             new Regex("^02\\d{2}$"),
             new Regex("^03\\d{2}$"),
@@ -65,12 +65,22 @@ namespace Fanex.Result.Core.Utilities
 
         public static bool IsIntegerNumber(string inputvalue)
         {
+            if (string.IsNullOrEmpty(inputvalue))
+            {
+                return false;
+            }
+
             Regex isnumber = new Regex("[^0-9]");
             return !isnumber.IsMatch(inputvalue);
         }
 
         public static bool IsSetXGameYBetID(string betID)
         {
+            if (string.IsNullOrEmpty(betID))
+            {
+                return false;
+            }
+
             return setXGameYRegex.IsMatch(betID);
         }
 

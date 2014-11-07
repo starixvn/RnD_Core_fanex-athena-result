@@ -8,7 +8,6 @@ namespace Fanex.Result.Core.ViewModels
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
     using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.Utilities;
@@ -19,9 +18,6 @@ namespace Fanex.Result.Core.ViewModels
     /// </summary>
     public abstract class BaseViewModel
     {
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", Justification = "Reviewed.")]
-        private const string EnglishLanguageCode = "en-US";
-
         private static Dictionary<string, string> supportedLanguage = new
      Dictionary<string, string>
              {
@@ -36,7 +32,7 @@ namespace Fanex.Result.Core.ViewModels
 
         private string _dateTimeFormat = "{0:MM/dd/yyyy<br/>hh:mm:ss tt}";
 
-        private string _languageCode = EnglishLanguageCode;
+        private string _languageCode = ConstantValueDefinition.EnglishLanguageCode;
 
         private SportType _sportType = SportType.Soccer;
         private LangResources _lang;
@@ -57,7 +53,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return supportedLanguage.ContainsKey(this.LanguageCode) ? supportedLanguage[this.LanguageCode] : supportedLanguage[EnglishLanguageCode];
+                return supportedLanguage.ContainsKey(this.LanguageCode) ? supportedLanguage[this.LanguageCode] : supportedLanguage[ConstantValueDefinition.EnglishLanguageCode];
             }
         }
 
@@ -66,6 +62,29 @@ namespace Fanex.Result.Core.ViewModels
             get
             {
                 return string.Empty;
+            }
+        }
+
+        public virtual bool IsPending
+        {
+            get
+            {
+                return false;
+            }
+        }
+
+        public virtual string EventStatusBackground
+        {
+            get
+            {
+                if (this.EventStatus.Equals(Lang.PostPoned, StringComparison.OrdinalIgnoreCase))
+                {
+                    return ConstantValueDefinition.BackgroundPosponed;
+                }
+                else
+                {
+                    return this.IsPending ? ConstantValueDefinition.BackgroundPending : string.Empty;
+                }
             }
         }
 

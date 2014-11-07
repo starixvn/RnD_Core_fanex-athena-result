@@ -80,7 +80,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return base.VisibleDetailedLink && this.EventStatus != Lang.PostPoned 
+                return base.VisibleDetailedLink
                     && this.SPORTBOOK.GameDetails.Any(i => !string.IsNullOrEmpty(i.ResourceId)
                  && i.ResourceId.Trim().Length == ConstantValueDefinition.SETXGAMEYRESOURCEIDLENGTH);
             }
@@ -313,8 +313,8 @@ Justification = "Reviewed. Suppression is OK here.")]
         private SetValue CreateSetAndGameValue(string setIndex)
         {
             var setIndexId = int.Parse(setIndex);
-            var gameDetails = this.SPORTBOOK.GameDetails.Where(i => Helper.IsTennisGameResourceID(setIndexId, i.ResourceId)).OrderBy(i => i.ResourceId).ToArray();
-            if (gameDetails.Length == 0)
+            var gameDetails = this.SPORTBOOK.GameDetails.Where(i => Helper.IsTennisGameResourceID(setIndexId, i.ResourceId)).OrderBy(i => i.ResourceId).ToList();
+            if (gameDetails.Count == 0)
             {
                 return null;
             }
@@ -325,35 +325,35 @@ Justification = "Reviewed. Suppression is OK here.")]
                 Games = new List<GameValue>(),
             };
 
-            var numofGame = gameDetails.Length < ConstantValueDefinition.NUMBERGAMEOFTENNISSET ? ConstantValueDefinition.NUMBERGAMEOFTENNISSET : gameDetails.Length;
-            for (var j = 0; j < numofGame; j++)
+            var numofGame = int.Parse(gameDetails.LastOrDefault().ResourceId) - (setIndexId * 100);
+
+            if (numofGame > ConstantValueDefinition.NUMBERGAMEOFTENNISSET)
             {
-                if (j >= gameDetails.Length)
+                var modeValue = numofGame % ConstantValueDefinition.NUMBERGAMEOFTENNISSET;
+
+                if (modeValue > 0)
                 {
-                    result.Games.Add(new GameValue
-                    {
-                        GameId = j + 1,
-                        HomeValue = StringResources.HYPHEN,
-                        AwayValue = StringResources.HYPHEN
-                    });
+                    numofGame += ConstantValueDefinition.NUMBERGAMEOFTENNISSET - modeValue;
+                }
+            }
+            else if (numofGame < ConstantValueDefinition.NUMBERGAMEOFTENNISSET)
+            {
+                numofGame += ConstantValueDefinition.NUMBERGAMEOFTENNISSET - numofGame;
+            }
+
+            for (var j = 1; j <= numofGame; j++)
+            {
+                var resourceId = setIndex + j.ToString("D2");
+                var game = gameDetails.SingleOrDefault(i => i.ResourceId == resourceId);
+                if (game != null)
+                {
+                    result.Games.Add(CreateGameValue(j, game));
                 }
                 else
                 {
-                    var game = gameDetails[j];
-                    result.Games.Add(CreateGameValue(j, game));
-                }
-            }
-
-            var modeValue = numofGame % ConstantValueDefinition.NUMBERGAMEOFTENNISSET;
-
-            if (numofGame > ConstantValueDefinition.NUMBERGAMEOFTENNISSET && modeValue > 0)
-            {
-                var moreGame = ConstantValueDefinition.NUMBERGAMEOFTENNISSET - modeValue + numofGame;
-                for (var k = numofGame + 1; k <= moreGame; k++)
-                {
                     result.Games.Add(new GameValue
                     {
-                        GameId = k,
+                        GameId = j,
                         HomeValue = StringResources.HYPHEN,
                         AwayValue = StringResources.HYPHEN
                     });
@@ -373,7 +373,7 @@ Justification = "Reviewed. Suppression is OK here.")]
         {
             var item = new GameValue
             {
-                GameId = gameIndex + 1,
+                GameId = gameIndex,
             };
 
             if (game != null)

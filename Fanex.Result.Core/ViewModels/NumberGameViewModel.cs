@@ -36,6 +36,14 @@ namespace Fanex.Result.Core.ViewModels
             }
         }
 
+        public override bool IsPending
+        {
+            get
+            {
+                return this._numberGame.IsPending;
+            }
+        }
+
         public override int LeagueId
         {
             get { return this._numberGame.LeagueId; }

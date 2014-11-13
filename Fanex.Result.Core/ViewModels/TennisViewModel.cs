@@ -160,6 +160,7 @@ Justification = "Reviewed. Suppression is OK here.")]
                             switch (set.SettlementStatusID)
                             {
                                 case EventStatusIDDefinition.CompletedSettlementStatusID:
+                                case EventStatusIDDefinition.RunningSettlementStatusID:
                                     this.HomeSet[i] = set.HomeValue;
                                     this.AwaySet[i] = set.AwayValue;
                                     if (Helper.IsIntegerNumber(set.HomeValue))
@@ -244,6 +245,7 @@ Justification = "Reviewed. Suppression is OK here.")]
                     switch (set.SettlementStatusID)
                     {
                         case EventStatusIDDefinition.CompletedSettlementStatusID:
+                        case EventStatusIDDefinition.RunningSettlementStatusID:
                             this._totalSetHome = set.HomeValue;
                             this._totalSetAway = set.AwayValue;
                             break;
@@ -381,6 +383,7 @@ Justification = "Reviewed. Suppression is OK here.")]
                 switch (game.SettlementStatusID)
                 {
                     case EventStatusIDDefinition.CompletedSettlementStatusID:
+                    case EventStatusIDDefinition.RunningSettlementStatusID:
                         item.HomeValue = game.HomeValue;
                         item.AwayValue = game.AwayValue;
                         break;

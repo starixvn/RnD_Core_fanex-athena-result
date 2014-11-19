@@ -92,7 +92,7 @@
     <Compile Include="DataDomain\BetTypeDefinition.cs" />
     <Compile Include="DataDomain\ConstantValueDefinition.cs" />
     <Compile Include="DataDomain\DTOType.cs" />
-    <Compile Include="DataDomain\EventStatusID.cs" />
+    <Compile Include="DataDomain\EventStatusIDDefinition.cs" />
     <Compile Include="DataDomain\LangResources.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

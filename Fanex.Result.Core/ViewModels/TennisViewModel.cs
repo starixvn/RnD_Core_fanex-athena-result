@@ -31,6 +31,20 @@ namespace Fanex.Result.Core.ViewModels
         {
         }
 
+        public override string EventStatus
+        {
+            get
+            {
+                var matchResultInfo = this.SPORTBOOK.GameDetails.SingleOrDefault(i => i.ResourceId.Equals(BetIDDefinition.TotalSet, System.StringComparison.OrdinalIgnoreCase));
+                if (matchResultInfo != null && matchResultInfo.SettlementStatusID == EventStatusIDDefinition.RefundStettlementStatusID)
+                {
+                    return Lang.Refund;
+                }
+
+                return base.EventStatus;
+            }
+        }
+
         public string TotalGameHome
         {
             get

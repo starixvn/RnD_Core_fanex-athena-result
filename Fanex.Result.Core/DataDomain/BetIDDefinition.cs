@@ -20,5 +20,6 @@ namespace Fanex.Result.Core.DataDomain
         public const int MinSet4GameY = 80401;
         public const int MaxSet4GameY = 80413;
         public const int MinSet5GameY = 80501;
+        public const string TotalSet = "00";
     }
 }

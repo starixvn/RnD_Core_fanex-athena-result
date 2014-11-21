@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <publishData>
-  <publishProfile publishUrl="K:\WEB209\Olympus\Fanex.Result" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+  <publishProfile publishUrl="\\10.18.200.209\Web\Olympus\Fanex.Result" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
     <file relUrl="@JSense.js" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/bootstrap/mixins/buttons.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="bin/Antlr3.Runtime.dll" publishTime="09/23/2014 10:15:37" />
@@ -30,6 +30,7 @@
     <file relUrl="Content/jquery-ui/base/accordion.css" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Views/Web.config" publishTime="09/23/2014 09:34:58" />
     <file relUrl="Views/PopUpReport/Index.cshtml" publishTime="10/24/2014 14:31:00" />
+    <file relUrl="DownLoad/templateGuide.png" publishTime="09/23/2014 09:34:58" />
     <file relUrl="Content/bootstrap/variables.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="DownLoad/Fanex.Result_rev1_1.zip" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/bootstrap/responsive-utilities.less" publishTime="09/23/2014 09:34:57" />
@@ -54,6 +55,7 @@
     <file relUrl="Content/bootstrap/modals.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/jquery-ui/base/base.css" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/jquery-ui/base/core.css" publishTime="09/23/2014 09:34:57" />
+    <file relUrl="bin/System.Web.WebPages.Deployment.xml" publishTime="09/23/2014 09:34:58" />
     <file relUrl="Content/Core/site.less" publishTime="10/24/2014 14:28:29" />
     <file relUrl="Scripts/Page/normal-report.js" publishTime="10/24/2014 16:05:43" />
     <file relUrl="Content/bootstrap/buttons.less" publishTime="09/23/2014 09:34:57" />
@@ -69,7 +71,7 @@
     <file relUrl="bin/Glimpse.AspNet.dll" publishTime="10/13/2014 10:27:05" />
     <file relUrl="Content/bootstrap/mixins/vendor-prefixes.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/Core/variables.less" publishTime="09/23/2014 09:34:57" />
-    <file relUrl="bin/Fanex.Result.Core.dll" publishTime="11/18/2014 13:07:13" />
+    <file relUrl="bin/Fanex.Result.Core.dll" publishTime="11/21/2014 13:32:50" />
     <file relUrl="Content/bootstrap/forms.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="bin/ru-ru/MsieJavaScriptEngine.resources.dll" publishTime="09/23/2014 10:15:37" />
     <file relUrl="Content/bootstrap/navs.less" publishTime="09/23/2014 09:34:57" />
@@ -77,9 +79,9 @@
     <file relUrl="Content/Core/common.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="bin/System.Net.Http.Formatting.dll" publishTime="09/23/2014 10:15:37" />
     <file relUrl="Content/Fanex.Result/images/goal-icon.png" publishTime="10/20/2014 14:54:40" />
-    <file relUrl="DownLoad/dataaccess.png" publishTime="09/23/2014 09:34:58" />
     <file relUrl="bin/System.Web.WebPages.xml" publishTime="09/23/2014 09:34:58" />
     <file relUrl="Content/bootstrap/pager.less" publishTime="09/23/2014 09:34:57" />
+    <file relUrl="Content/bootstrap/glyphicons.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/bootstrap/mixins/grid.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/jquery-ui/base/images/ui-icons_cbd4e6_256x240.png" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/Fanex.Result/fanex.result.css" publishTime="11/19/2014 17:28:34" />
@@ -100,7 +102,7 @@
     <file relUrl="Content/bootstrap/tables.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="bin/Antlr3.Runtime.pdb" publishTime="09/23/2014 10:15:37" />
     <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Data.dll" publishTime="09/23/2014 10:15:37" />
-    <file relUrl="bin/MvcExample.dll" publishTime="11/19/2014 17:24:12" />
+    <file relUrl="bin/MvcExample.dll" publishTime="11/21/2014 13:32:51" />
     <file relUrl="DownLoad/Fanex.Result_ExcelTPl_rev1.4.zip" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/bootstrap/code.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="packages.config" publishTime="10/15/2014 12:23:23" />
@@ -112,7 +114,6 @@
     <file relUrl="Content/jquery-ui/base/all.css" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/bootstrap/scaffolding.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/jquery-ui/base/images/ui-bg_glass_65_ffffff_1x400.png" publishTime="09/23/2014 09:34:57" />
-    <file relUrl="Content/bootstrap/mixins/resize.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/bootstrap/list-group.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="DownLoad/Fanex.Result_rev1_4.zip" publishTime="09/23/2014 09:34:57" />
     <file relUrl="bin/Newtonsoft.Json.xml" publishTime="09/23/2014 09:34:58" />
@@ -125,12 +126,11 @@
     <file relUrl="Scripts/jquery-ui-1.11.1.js" publishTime="09/23/2014 09:34:58" />
     <file relUrl="Content/bootstrap/mixins/responsive-visibility.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/jquery-ui/base/datepicker.css" publishTime="09/23/2014 09:34:57" />
-    <file relUrl="Content/bootstrap/glyphicons.less" publishTime="09/23/2014 09:34:57" />
+    <file relUrl="DownLoad/dataaccess.png" publishTime="09/23/2014 09:34:58" />
     <file relUrl="bin/RazorEngine.dll" publishTime="10/10/2014 10:03:38" />
     <file relUrl="Content/jquery-ui/base/button.css" publishTime="09/23/2014 09:34:57" />
     <file relUrl="bin/ClearScript.dll" publishTime="09/23/2014 10:15:37" />
     <file relUrl="bin/System.Web.Optimization.dll" publishTime="09/23/2014 10:15:37" />
-    <file relUrl="Content/jquery-ui/base/images/ui-bg_glass_55_fbf9ee_1x400.png" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/jquery-ui/base/tooltip.css" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Scripts/jquery-1.9.0-vsdoc.js" publishTime="09/23/2014 09:34:58" />
     <file relUrl="Content/bootstrap/mixins/image.less" publishTime="09/23/2014 09:34:57" />
@@ -153,7 +153,7 @@
     <file relUrl="bin/System.Web.Http.xml" publishTime="09/23/2014 09:34:58" />
     <file relUrl="Content/Core/img/icon-question.png" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/jquery-ui/base/images/ui-icons_888888_256x240.png" publishTime="09/23/2014 09:34:57" />
-    <file relUrl="DownLoad/templateGuide.png" publishTime="09/23/2014 09:34:58" />
+    <file relUrl="Content/bootstrap/mixins/resize.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="App_Data/Fanex.Result/Tennis.xls" publishTime="11/04/2014 15:18:02" />
     <file relUrl="Content/jquery-ui/base/images/ui-icons_2e83ff_256x240.png" publishTime="09/23/2014 09:34:57" />
     <file relUrl="App_Data/Fanex.Result/Racing.xls" publishTime="11/04/2014 15:18:02" />
@@ -165,14 +165,13 @@
     <file relUrl="bin/System.Net.Http.WebRequest.xml" publishTime="09/23/2014 09:34:58" />
     <file relUrl="Content/jquery-ui/base/selectable.css" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/jquery-ui/base/images/ui-bg_flat_0_aaaaaa_40x100.png" publishTime="09/23/2014 09:34:57" />
-    <file relUrl="Scripts/Page/outright-report.js" publishTime="09/23/2014 09:34:58" />
+    <file relUrl="App_Data/Fanex.Result/NumberGame.xls" publishTime="11/04/2014 15:18:02" />
     <file relUrl="DownLoad/Fanex.Result_CssTpl_rev1.4.zip" publishTime="09/23/2014 09:34:57" />
     <file relUrl="bin/ClearScript.V8/v8-x64.dll" publishTime="09/23/2014 11:00:04" />
     <file relUrl="Content/bootstrap/close.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="DownLoad/Fanex.Result_ExcelTPl.zip" publishTime="09/23/2014 09:34:57" />
     <file relUrl="bin/JavaScriptEngineSwitcher.V8.dll" publishTime="09/23/2014 10:15:37" />
     <file relUrl="bin/BundleTransformer.Less.dll" publishTime="09/23/2014 10:15:37" />
-    <file relUrl="App_Data/Fanex.Result/NumberGame.xls" publishTime="11/04/2014 15:18:02" />
     <file relUrl="App_Data/Fanex.Result/BaseBall.xls" publishTime="11/04/2014 15:18:02" />
     <file relUrl="DownLoad/Fanex.Result_rev1_4_2.zip" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/bootstrap/badges.less" publishTime="09/23/2014 09:34:57" />
@@ -191,10 +190,9 @@
     <file relUrl="Content/bootstrap/type.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="bin/Microsoft.Practices.Unity.dll" publishTime="09/23/2014 10:15:37" />
     <file relUrl="bin/System.Web.Http.WebHost.dll" publishTime="09/23/2014 10:15:37" />
-    <file relUrl="App_Data/SpName.xml" publishTime="10/22/2014 10:35:31" />
+    <file relUrl="Scripts/Page/outright-report.js" publishTime="09/23/2014 09:34:58" />
     <file relUrl="Content/bootstrap/print.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="bin/ClearScript.V8/v8-ia32.dll" publishTime="09/23/2014 11:00:04" />
-    <file relUrl="bin/MsieJavaScriptEngine.dll" publishTime="09/23/2014 10:15:37" />
     <file relUrl="bin/System.Net.Http.dll" publishTime="09/23/2014 10:15:37" />
     <file relUrl="Content/bootstrap/mixins/hide-text.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/bootstrap/alerts.less" publishTime="09/23/2014 09:34:57" />
@@ -227,25 +225,26 @@
     <file relUrl="Content/bootstrap/theme.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/jquery-ui/base/draggable.css" publishTime="09/23/2014 09:34:57" />
     <file relUrl="bin/System.Web.Http.WebHost.xml" publishTime="09/23/2014 09:34:58" />
-    <file relUrl="ClearScript.V8/v8-ia32.dll" publishTime="09/23/2014 11:00:04" />
+    <file relUrl="Content/bootstrap/mixins/reset-filter.less" publishTime="09/23/2014 09:34:57" />
+    <file relUrl="App_Data/SpName.xml" publishTime="10/22/2014 10:35:31" />
     <file relUrl="bin/System.Web.Http.dll" publishTime="09/23/2014 10:15:37" />
     <file relUrl="Views/Shared/_Menu.cshtml" publishTime="09/23/2014 09:34:58" />
     <file relUrl="bin/Less.dll" publishTime="09/23/2014 10:15:37" />
     <file relUrl="Content/bootstrap/navbar.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/bootstrap/mixins/progress-bar.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="DownLoad/Fanex.Result_Npoi_1_2_5_rev1_5_3.zip" publishTime="09/23/2014 09:34:57" />
-    <file relUrl="Content/jquery-ui/base/resizable.css" publishTime="09/23/2014 09:34:57" />
+    <file relUrl="Content/jquery-ui/base/images/ui-bg_flat_75_ffffff_40x100.png" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/bootstrap/responsive-embed.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/bootstrap/mixins/background-variant.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/jquery-ui/base/spinner.css" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Scripts/jquery-1.9.0.min.js" publishTime="09/23/2014 09:34:58" />
     <file relUrl="bin/System.Net.Http.WebRequest.dll" publishTime="09/23/2014 10:15:37" />
-    <file relUrl="bin/MvcExample.pdb" publishTime="11/19/2014 17:24:12" />
+    <file relUrl="bin/MvcExample.pdb" publishTime="11/21/2014 13:32:51" />
     <file relUrl="bin/System.Web.Helpers.dll" publishTime="09/23/2014 10:15:37" />
-    <file relUrl="bin/Fanex.Result.Core.pdb" publishTime="11/18/2014 13:07:13" />
-    <file relUrl="Content/bootstrap/mixins/reset-filter.less" publishTime="09/23/2014 09:34:57" />
+    <file relUrl="bin/Fanex.Result.Core.pdb" publishTime="11/21/2014 13:32:50" />
+    <file relUrl="ClearScript.V8/v8-ia32.dll" publishTime="09/23/2014 11:00:04" />
     <file relUrl="Views/OutRightReport/Index.cshtml" publishTime="09/23/2014 09:34:58" />
-    <file relUrl="Content/bootstrap/thumbnails.less" publishTime="09/23/2014 09:34:57" />
+    <file relUrl="bin/MsieJavaScriptEngine.dll" publishTime="09/23/2014 10:15:37" />
     <file relUrl="Content/bootstrap/mixins/text-overflow.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/bootstrap/mixins.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/bootstrap/dropdowns.less" publishTime="09/23/2014 09:34:57" />
@@ -254,14 +253,15 @@
     <file relUrl="Content/bootstrap/wells.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/Core/custom.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/bootstrap/pagination.less" publishTime="09/23/2014 09:34:57" />
-    <file relUrl="Content/jquery-ui/base/images/ui-bg_flat_75_ffffff_40x100.png" publishTime="09/23/2014 09:34:57" />
+    <file relUrl="Content/bootstrap/thumbnails.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/bootstrap/media.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/jquery-ui/base/selectmenu.css" publishTime="09/23/2014 09:34:57" />
     <file relUrl="App_Data/Fanex.Result/Outright.xls" publishTime="11/04/2014 15:18:02" />
+    <file relUrl="Content/bootstrap/mixins/alerts.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="DownLoad/Fanex.Result_ExcelTPl_rev1.1.zip" publishTime="09/23/2014 09:34:57" />
     <file relUrl="bin/System.Net.Http.xml" publishTime="09/23/2014 09:34:58" />
     <file relUrl="bin/System.Web.Razor.dll" publishTime="09/30/2013 12:19:23" />
-    <file relUrl="Content/bootstrap/mixins/alerts.less" publishTime="09/23/2014 09:34:57" />
-    <file relUrl="bin/System.Web.WebPages.Deployment.xml" publishTime="09/23/2014 09:34:58" />
+    <file relUrl="Content/jquery-ui/base/resizable.css" publishTime="09/23/2014 09:34:57" />
+    <file relUrl="Content/jquery-ui/base/images/ui-bg_glass_55_fbf9ee_1x400.png" publishTime="09/23/2014 09:34:57" />
   </publishProfile>
 </publishData>

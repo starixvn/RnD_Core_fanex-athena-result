@@ -112,11 +112,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.GetSportbookHomeTeam(
-                    this.SPORTBOOK.HomeId,
-                    this.SPORTBOOK.IsNeutral,
-                    this.SPORTBOOK.FinalHomeScore,
-                    this.SPORTBOOK.FinalAwayScore);
+                return this.GetSportbookHomeTeam(this.SPORTBOOK.HomeId, this.SPORTBOOK.IsNeutral);
             }
         }
 
@@ -124,10 +120,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.GetSportbookAwayTeam(
-                    this.SPORTBOOK.AwayId,
-                    this.SPORTBOOK.FinalHomeScore,
-                    this.SPORTBOOK.FinalAwayScore);
+                return this.GetSportbookAwayTeam(this.SPORTBOOK.AwayId);
             }
         }
 
@@ -188,42 +181,21 @@ namespace Fanex.Result.Core.ViewModels
         /// </summary>
         /// <param name="homeId">The home id.</param>
         /// <param name="isNeutral">Is neutral.</param>
-        /// <param name="finalHomeScore">The final home score.</param>
-        /// <param name="finalAwayScore">The final away score.</param>
         /// <returns>The home team.</returns>
-        private string GetSportbookHomeTeam(int homeId, bool isNeutral, int? finalHomeScore, int? finalAwayScore)
+        private string GetSportbookHomeTeam(int homeId, bool isNeutral)
         {
-            var homeTeam = RefData.GetTeamName(homeId.ToString(CultureInfo.InvariantCulture), this.GetSupportedLanguage, string.Empty)
+            return RefData.GetTeamName(homeId.ToString(CultureInfo.InvariantCulture), this.GetSupportedLanguage, string.Empty)
                 + (isNeutral ? Lang.IsNeutral : string.Empty);
-            var homeScore = finalHomeScore.HasValue ? finalHomeScore.Value : 0;
-            var awayScore = finalAwayScore.HasValue ? finalAwayScore.Value : 0;
-            if (homeScore > awayScore)
-            {
-                return string.Format(StringResources.BOLDTEAMPATTERN, homeTeam);
-            }
-
-            return homeTeam;
         }
 
         /// <summary>
         /// Get sport-book away team.
         /// </summary>
         /// <param name="awayId">The away id.</param>
-        /// <param name="finalHomeScore">The final home score.</param>
-        /// <param name="finalAwayScore">The final away score.</param>
         /// <returns>The away team.</returns>
-        private string GetSportbookAwayTeam(int awayId, int? finalHomeScore, int? finalAwayScore)
+        private string GetSportbookAwayTeam(int awayId)
         {
-            var awayTeam = RefData.GetTeamName(awayId.ToString(CultureInfo.InvariantCulture), this.GetSupportedLanguage, string.Empty);
-
-            var homeScore = finalHomeScore.HasValue ? finalHomeScore.Value : 0;
-            var awayScore = finalAwayScore.HasValue ? finalAwayScore.Value : 0;
-            if (homeScore < awayScore)
-            {
-                return string.Format(StringResources.BOLDTEAMPATTERN, awayTeam);
-            }
-
-            return awayTeam;
+            return RefData.GetTeamName(awayId.ToString(CultureInfo.InvariantCulture), this.GetSupportedLanguage, string.Empty);
         }
 
         #endregion Utilities

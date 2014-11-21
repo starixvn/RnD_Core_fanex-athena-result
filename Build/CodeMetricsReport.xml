@@ -3,13 +3,13 @@
   <Targets>
     <Target Name="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Build\Fanex.Result.Core.dll">
       <Modules>
-        <Module Name="Fanex.Result.Core.dll" AssemblyVersion="1.6.0.0" FileVersion="1.6.0">
+        <Module Name="Fanex.Result.Core.dll" AssemblyVersion="1.6.1.0" FileVersion="1.6.1">
           <Metrics>
             <Metric Name="MaintainabilityIndex" Value="81" />
-            <Metric Name="CyclomaticComplexity" Value="1,331" />
+            <Metric Name="CyclomaticComplexity" Value="1,325" />
             <Metric Name="ClassCoupling" Value="117" />
             <Metric Name="DepthOfInheritance" Value="3" />
-            <Metric Name="LinesOfCode" Value="2,030" />
+            <Metric Name="LinesOfCode" Value="2,020" />
           </Metrics>
           <Namespaces>
             <Namespace Name="Fanex.Result.Core">
@@ -1605,10 +1605,10 @@
             <Namespace Name="Fanex.Result.Core.ViewModels">
               <Metrics>
                 <Metric Name="MaintainabilityIndex" Value="82" />
-                <Metric Name="CyclomaticComplexity" Value="452" />
+                <Metric Name="CyclomaticComplexity" Value="446" />
                 <Metric Name="ClassCoupling" Value="43" />
                 <Metric Name="DepthOfInheritance" Value="3" />
-                <Metric Name="LinesOfCode" Value="550" />
+                <Metric Name="LinesOfCode" Value="540" />
               </Metrics>
               <Types>
                 <Type Name="BaseViewModel">
@@ -2057,11 +2057,11 @@
                 </Type>
                 <Type Name="SportsbookBaseViewModel">
                   <Metrics>
-                    <Metric Name="MaintainabilityIndex" Value="86" />
-                    <Metric Name="CyclomaticComplexity" Value="34" />
-                    <Metric Name="ClassCoupling" Value="9" />
+                    <Metric Name="MaintainabilityIndex" Value="87" />
+                    <Metric Name="CyclomaticComplexity" Value="28" />
+                    <Metric Name="ClassCoupling" Value="8" />
                     <Metric Name="DepthOfInheritance" Value="2" />
-                    <Metric Name="LinesOfCode" Value="42" />
+                    <Metric Name="LinesOfCode" Value="32" />
                   </Metrics>
                   <Members>
                     <Member Name="SportsbookBaseViewModel(Sportsbook, ResultSetting, LangResources)" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="29">
@@ -2162,21 +2162,21 @@
                     </Member>
                     <Member Name="HomeTeam.get() : string" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="115">
                       <Metrics>
-                        <Metric Name="MaintainabilityIndex" Value="87" />
+                        <Metric Name="MaintainabilityIndex" Value="89" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
                         <Metric Name="ClassCoupling" Value="1" />
                         <Metric Name="LinesOfCode" Value="1" />
                       </Metrics>
                     </Member>
-                    <Member Name="AwayTeam.get() : string" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="127">
+                    <Member Name="AwayTeam.get() : string" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="126">
                       <Metrics>
-                        <Metric Name="MaintainabilityIndex" Value="88" />
+                        <Metric Name="MaintainabilityIndex" Value="91" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
                         <Metric Name="ClassCoupling" Value="1" />
                         <Metric Name="LinesOfCode" Value="1" />
                       </Metrics>
                     </Member>
-                    <Member Name="IsPending.get() : bool" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="138">
+                    <Member Name="IsPending.get() : bool" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="136">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="94" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -2184,7 +2184,7 @@
                         <Metric Name="LinesOfCode" Value="1" />
                       </Metrics>
                     </Member>
-                    <Member Name="SPORTBOOK.get() : Sportsbook" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="144">
+                    <Member Name="SPORTBOOK.get() : Sportsbook" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="142">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="98" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -2192,7 +2192,7 @@
                         <Metric Name="LinesOfCode" Value="1" />
                       </Metrics>
                     </Member>
-                    <Member Name="SPORTBOOK.set(Sportsbook) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="145">
+                    <Member Name="SPORTBOOK.set(Sportsbook) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="143">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="95" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -2200,7 +2200,7 @@
                         <Metric Name="LinesOfCode" Value="1" />
                       </Metrics>
                     </Member>
-                    <Member Name="HasResult.get() : bool" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="152">
+                    <Member Name="HasResult.get() : bool" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="150">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="87" />
                         <Metric Name="CyclomaticComplexity" Value="2" />
@@ -2208,7 +2208,7 @@
                         <Metric Name="LinesOfCode" Value="1" />
                       </Metrics>
                     </Member>
-                    <Member Name="GetCoreInfoFromBetStatus.get() : string" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="164">
+                    <Member Name="GetCoreInfoFromBetStatus.get() : string" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="162">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="64" />
                         <Metric Name="CyclomaticComplexity" Value="5" />
@@ -2216,7 +2216,7 @@
                         <Metric Name="LinesOfCode" Value="7" />
                       </Metrics>
                     </Member>
-                    <Member Name="GetHomeAwaySet(int, bool) : string" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="183">
+                    <Member Name="GetHomeAwaySet(int, bool) : string" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="181">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="98" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -2224,20 +2224,20 @@
                         <Metric Name="LinesOfCode" Value="1" />
                       </Metrics>
                     </Member>
-                    <Member Name="GetSportbookHomeTeam(int, bool, int?, int?) : string" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="196">
+                    <Member Name="GetSportbookHomeTeam(int, bool) : string" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="192">
                       <Metrics>
-                        <Metric Name="MaintainabilityIndex" Value="66" />
-                        <Metric Name="CyclomaticComplexity" Value="5" />
-                        <Metric Name="ClassCoupling" Value="5" />
-                        <Metric Name="LinesOfCode" Value="6" />
+                        <Metric Name="MaintainabilityIndex" Value="86" />
+                        <Metric Name="CyclomaticComplexity" Value="2" />
+                        <Metric Name="ClassCoupling" Value="4" />
+                        <Metric Name="LinesOfCode" Value="1" />
                       </Metrics>
                     </Member>
-                    <Member Name="GetSportbookAwayTeam(int, int?, int?) : string" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="217">
+                    <Member Name="GetSportbookAwayTeam(int) : string" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="203">
                       <Metrics>
-                        <Metric Name="MaintainabilityIndex" Value="67" />
-                        <Metric Name="CyclomaticComplexity" Value="4" />
-                        <Metric Name="ClassCoupling" Value="4" />
-                        <Metric Name="LinesOfCode" Value="6" />
+                        <Metric Name="MaintainabilityIndex" Value="89" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="3" />
+                        <Metric Name="LinesOfCode" Value="1" />
                       </Metrics>
                     </Member>
                   </Members>

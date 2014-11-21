@@ -13,8 +13,6 @@ namespace Fanex.Result.Core.DataDomain
     {
         public const string HYPHEN = "-";
 
-        public const string BOLDTEAMPATTERN = "<b>{0}</b>";
-
         public const string REFUNDFT = "Refund FT";
 
         public const string REFUND = "Refund";

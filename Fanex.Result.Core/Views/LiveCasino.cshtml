@@ -1,84 +1,154 @@
 ﻿@{
-    var lang = (Fanex.Result.Core.DTO.LangResources)Model.Resource;
-    const int colspan = 5;
+    var viewModel = (Fanex.Result.Core.Models.RazorBinderModel)Model;
+
+    var lang = (Fanex.Result.Core.DataDomain.LangResources)viewModel.Resource;
+    var colspan = viewModel.VisibleMatchCodeIDColumn ? 6 : 5;
+    var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
+
 }
-<table class="fanex-result">
-    <thead>
-        @if (Model.IsShowPopUpTitle && Model.Data.Count > 0)
-        {
-            var item = (Fanex.Result.Core.ViewModels.LiveCasinoViewModel)Model.Data[0];
-            <tr class="row-title">
-                <th class="column-title" colspan="@colspan">
-                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp;
-                    <span class="leagueName">@item.LeagueName</span>
+@using Fanex.Result.Core.ViewModels;
+@using Fanex.Result.Core.Models;
+@using System.Collections;
+@if (viewModel.VisibleFreeHeader)
+{
+    <div class="fn-rs-content-header">
+        <table class="fn-rs casino @popupCss">
+            <thead>
+                @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+                {
+                    var item = ((GroupData)viewModel.Data[0]).Data[0];
+                    <tr class="row-title">
+                        <th class="cl-title" colspan="@colspan">
+                            <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                        </th>
+                    </tr>
+                }
+                <tr class="header">
+                    @if (viewModel.VisibleMatchCodeIDColumn)
+                    {
+                        <th class="cl-m-code">
+                            @lang.MatchCode
+                        </th>
+                    }
+                    <th class="cl-ko-time">
+                        @lang.KickOffTime
+                    </th>
+                    <th class="cl-match">
+                        @Raw(lang.GameTypeAndTableNumber)
+                    </th>
+                    <th class="cl-f-score">
+                        @lang.FinalScore
+                    </th>
+                    <th class="cl-result">
+                        @lang.Result
+                    </th>
+                    <th class="cl-status">
+                        @lang.Status
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+}
+@if (viewModel.VisibleFreeHeader)
+{
+    @Raw("<div class=\"fn-rs-content-scroll\">")
+
+}
+<table class="fn-rs casino @popupCss">
+    @if (!viewModel.VisibleFreeHeader)
+    {
+        <thead>
+            @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+            {
+                var item = ((GroupData)viewModel.Data[0]).Data[0];
+                <tr class="row-title">
+                    <th class="cl-title" colspan="@colspan">
+                        <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                    </th>
+                </tr>
+            }
+            <tr class="header">
+                @if (viewModel.VisibleMatchCodeIDColumn)
+                {
+                    <th class="cl-m-code">
+                        @lang.MatchCode
+                    </th>
+                }
+                <th class="cl-ko-time">
+                    @lang.KickOffTime
+                </th>
+                <th class="cl-match">
+                    @Raw(lang.GameTypeAndTableNumber)
+                </th>
+                <th class="cl-f-score">
+                    @lang.FinalScore
+                </th>
+                <th class="cl-result">
+                    @lang.Result
+                </th>
+                <th class="cl-status">
+                    @lang.Status
                 </th>
             </tr>
-        }
-        <tr class="row-header">
-            <th class="column-kickofftime">
-                @lang.KickOffTime
-            </th>
-            <th class="column-match">
-                @Raw(lang.GameTypeAndTableNumber)
-            </th>
-            <th class="column-finalscore">
-                @lang.FinalScore
-            </th>
-            <th class="column-result">
-                @lang.Result
-            </th>
-            <th class="column-status">
-                @lang.Status
-            </th>
-        </tr>
-    </thead>
+        </thead>
+    }
     <tbody>
-        @if (Model.Data.Count > 0)
+        @if (viewModel.Data.Count > 0)
         {
-            var currentLeagueId = 0;
             var index = 0;
-            foreach (var itemObj in Model.Data)
+            var leagueColspan = viewModel.VisibleMatchCodeIDColumn ? 3 : 2;
+            foreach (var itemObj in viewModel.Data)
             {
-                var item = (Fanex.Result.Core.ViewModels.LiveCasinoViewModel)itemObj;
-                index++;
-                if (!Model.IsPopUp)
-                {
-                    var leagueId = item.LeagueId;
-                    if (currentLeagueId == 0 || currentLeagueId != leagueId)
-                    {
-                        currentLeagueId = leagueId;
+                var group = (GroupData)itemObj;
 
-            <tr class="row-data">
-                <td class="column-league" colspan="2">
-                    @item.LeagueName
+                if (!viewModel.IsPopUp)
+                {
+                    var firstItem = (LiveCasinoViewModel)group.Data[0];
+
+            <tr class="data">
+                <td class="cl-league" colspan="@leagueColspan">
+                    @firstItem.LeagueName
                 </td>
-                <td class="column-league center">
-                    @item.PlayerAndBanker
+                <td class="cl-league center">
+                    @firstItem.PlayerAndBanker
                 </td>
-                <td class="column-league" colspan="2">
+                <td class="cl-league" colspan="2">
                 </td>
             </tr>
-                    }
                 }
+                foreach (var temp in group.Data)
+                {
+                    var item = (LiveCasinoViewModel)temp;
+                    index++;
 
-            <tr class="row-data @item.Color(index, "format-even", "format-odd")">
-                <td class="column-kickofftime">
+            <tr class="data @item.Color(index, "even", "odd")">
+                @if (viewModel.VisibleMatchCodeIDColumn)
+                {
+                    <td class="cl-m-code">
+                        <div class="m-code">
+                            @item.MatchCode
+                        </div>
+                    </td>
+                }
+                <td class="cl-ko-time">
                     @Raw(item.KickOffTime)
                 </td>
-                <td class="column-match">
+                <td class="cl-match">
                     @item.GameType
                 </td>
-                <td char="column-final-homescore">
+                <td class="cl-f-score">
                     @item.FinalScore
                 </td>
-                <td class="column-result">
+                <td class="cl-result">
                     @Raw(item.Result)
                 </td>
-                <td class="column-eventstatus">
+                <td class="cl-status @item.EventStatusBackground">
                     @item.EventStatus
                 </td>
             </tr>
 
+                }
             }
         }
         else
@@ -86,10 +156,14 @@
             <!--NoInfo-->
             <tr class="row-noinfo">
                 <td colspan="@colspan">
-                    @Model.Resource.NoInfo
+                    @viewModel.Resource.NoInfo
                 </td>
             </tr>
             <!--/NoInfo-->
         }
     </tbody>
 </table>
+@if (viewModel.VisibleFreeHeader)
+{
+    @Raw("</div>")
+}

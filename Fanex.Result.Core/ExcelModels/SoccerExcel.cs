@@ -3,11 +3,12 @@
 // TODO: Update copyright text.
 // </copyright>
 // ---------------------------------------------------------------------
-
 namespace Fanex.Result.Core.ExcelModels
 {
     using System.Collections.Generic;
-    using Fanex.Result.Core.DTO;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.Utilities;
     using Fanex.Result.Core.ViewModels;
@@ -16,44 +17,32 @@ namespace Fanex.Result.Core.ExcelModels
     /// <summary>
     /// Soccer excel model class.
     /// </summary>
-    internal sealed class SoccerExcel : ExcelBase
+    internal sealed class SoccerExcel : ExcelBase, IExcelModel
     {
-        #region Fields
+        private const string FirstGoal = "F";
+        private const string LastGoal = "L";
+        private const string FirstGoalHT = "1F";
+        private const string LastGoalHT = "1L";
 
-        private IList<SoccerViewModel> _soccerData;
-
-        #endregion Fields
-
-        public SoccerExcel(string templatePath, string reporTitle, IList<SoccerViewModel> data, LangResources resource)
-            : base(templatePath, reporTitle, resource)
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        public SoccerExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data, LangResources resource)
+            : base(templatePath, setting, data, resource)
         {
-            this._soccerData = data;
-            this.NumofRow = this._soccerData.Count;
-            this.ColumnTemplateCount = 5;
-            this.ColumnStatus = 4;
+            this.ColumnTemplateCount = 6;
+            this.ColumnStatus = 5;
             this.RowContentTemplate = 3;
         }
 
-        public override void AssignHeader(ISheet sheet)
+        protected override void AssignHeader(ISheet sheet)
         {
             var colidx = 0;
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
+            row.Cells[colidx++].SetCellValue(Lang.MatchCode + "/" + Lang.ID);
             row.Cells[colidx++].SetCellValue(this.Lang.KickOffTime);
             row.Cells[colidx++].SetCellValue(this.Lang.Match);
-            row.Cells[colidx++].SetCellValue(this.Lang.FirstHalfScore);
+            row.Cells[colidx++].SetCellValue(this.Lang.HTScore);
             row.Cells[colidx++].SetCellValue(this.Lang.FinalScore);
             row.Cells[colidx].SetCellValue(this.Lang.Status);
-        }
-
-        public override void AssignSheetData(ISheet sheet)
-        {
-            var currentRow = RowLeagueTemplate;
-            var currentLeagueId = 0;
-            foreach (var exportRow in this._soccerData)
-            {
-                SetLeague(sheet, exportRow.LeagueId, exportRow.LeagueName, ref currentLeagueId, ref currentRow);
-                SetDataForMatch(sheet, exportRow, ref currentRow);
-            }
         }
 
         #region Assign Cell Data
@@ -62,35 +51,120 @@ namespace Fanex.Result.Core.ExcelModels
         /// Set data for match.
         /// </summary>
         /// <param name="sheet">The current sheet.</param>
-        /// <param name="exportRow">The view model.</param>
+        /// <param name="data">The view model.</param>
         /// <param name="currentRow">The current row.</param>
-        private void SetDataForMatch(ISheet sheet, SoccerViewModel exportRow, ref int currentRow)
+        protected override void SetDataForMatch(ISheet sheet, IResultViewModel data, ref int currentRow)
         {
+            var exportRow = (SoccerViewModel)data;
             var rowTeamWin = this.GetRowTeamWin(exportRow.FinalHomeScore, exportRow.FinalAwayScore);
             var rowHome = sheet.CopyRow(TemplateSheet, rowTeamWin[0], currentRow);
 
             var rowAway = sheet.CopyRow(TemplateSheet, rowTeamWin[1], currentRow + 1);
 
             MergeResultCells(sheet, currentRow, currentRow + 1, ColumnKickOffTime, this.ColumnStatus);
+            var eventStatus = exportRow.EventStatus;
+            if (!string.IsNullOrEmpty(exportRow.PenaltyShootoutResult))
+            {
+                eventStatus = Helper.ToRtfString(exportRow.EventStatus + "<br />[" + Lang.PS + ":" + exportRow.PenaltyShootoutResult + "]");
+            }
 
             AssignStringData(
                             rowHome,
-                             ColumnKickOffTime,
+                             ColumnMatchCode,
+                             exportRow.MatchCode,
                             Helper.ToRtfString(exportRow.KickOffTime),
-                           Helper.ToRtfString(exportRow.HomeTeam),
+                           Helper.ToRtfString(CreateHomeTeamValue(exportRow)),
                             exportRow.HTHomeScore,
                             exportRow.FinalHomeScore,
-                             exportRow.EventStatus);
+                             eventStatus);
             currentRow++;
+
             AssignStringData(
                         rowAway,
-                             ColumnKickOffTime,
+                             ColumnMatchCode,
+                             exportRow.MatchId,
                                Helper.ToRtfString(exportRow.KickOffTime),
-                           Helper.ToRtfString(exportRow.AwayTeam),
+                           Helper.ToRtfString(CreateAwayTeamValue(exportRow)),
                             exportRow.HTAwayScore,
                             exportRow.FinalAwayScore,
-                             exportRow.EventStatus);
+                             eventStatus);
             currentRow++;
+        }
+
+        /// <summary>
+        /// Create away team with first goal and last goal status.
+        /// </summary>
+        /// <param name="exportRow">The row data.</param>
+        /// <returns>The away value.</returns>
+        private static string CreateAwayTeamValue(SoccerViewModel exportRow)
+        {
+            var awayFG = new string[4];
+            if (exportRow.IsShowedFirstHalfFGAway)
+            {
+                awayFG[0] = FirstGoalHT;
+            }
+
+            if (exportRow.IsShowedFirstHalfLGAway)
+            {
+                awayFG[1] = LastGoalHT;
+            }
+
+            if (exportRow.IsShowFGAway)
+            {
+                awayFG[2] = FirstGoal;
+            }
+
+            if (exportRow.IsShowLGAway)
+            {
+                awayFG[3] = LastGoal;
+            }
+
+            var realAwayFG = awayFG.Where(i => !string.IsNullOrEmpty(i)).ToList();
+            var awayTeam = exportRow.AwayTeam;
+            if (realAwayFG.Count > 0)
+            {
+                awayTeam += " (" + string.Join(",", realAwayFG) + ")";
+            }
+
+            return awayTeam;
+        }
+
+        /// <summary>
+        /// Create home team with first goal and last goal status.
+        /// </summary>
+        /// <param name="exportRow">The row data.</param>
+        /// <returns>The home value.</returns>
+        private static string CreateHomeTeamValue(SoccerViewModel exportRow)
+        {
+            var homeFG = new string[4];
+            if (exportRow.IsShowedFirstHalfFGHome)
+            {
+                homeFG[0] = FirstGoalHT;
+            }
+
+            if (exportRow.IsShowedFirstHalfLGHome)
+            {
+                homeFG[1] = LastGoalHT;
+            }
+
+            if (exportRow.IsShowFGHome)
+            {
+                homeFG[2] = FirstGoal;
+            }
+
+            if (exportRow.IsShowLGHome)
+            {
+                homeFG[3] = LastGoal;
+            }
+
+            var realHomeFG = homeFG.Where(i => !string.IsNullOrEmpty(i)).ToList();
+            var homeTeam = exportRow.HomeTeam;
+            if (realHomeFG.Count > 0)
+            {
+                homeTeam += " (" + string.Join(",", realHomeFG) + ")";
+            }
+
+            return homeTeam;
         }
 
         #endregion Assign Cell Data

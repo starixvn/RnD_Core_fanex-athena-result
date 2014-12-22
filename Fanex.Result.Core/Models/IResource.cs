@@ -6,13 +6,13 @@
 
 namespace Fanex.Result.Core.Models
 {
-    using Fanex.Result.Core.DTO;
+    using Fanex.Result.Core.DataDomain;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
     public interface IResource
     {
-        LangResources GetLanguage(string languageCode);
+        LangResources GetLanguage(string languageCode, string languagePath);
     }
 }

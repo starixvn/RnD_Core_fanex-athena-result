@@ -9,7 +9,7 @@ namespace Fanex.Result.Core.ViewModels
     using System;
     using System.Collections.Generic;
     using System.Globalization;
-    using Fanex.Result.Core.DTO;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.Utilities;
     using RemotingRef;
 
@@ -18,9 +18,6 @@ namespace Fanex.Result.Core.ViewModels
     /// </summary>
     public abstract class BaseViewModel
     {
-        public const string NA = "N/A";
-        private const string EnglishLanguageCode = "en-US";
-
         private static Dictionary<string, string> supportedLanguage = new
      Dictionary<string, string>
              {
@@ -33,16 +30,30 @@ namespace Fanex.Result.Core.ViewModels
         { "vi-VN", "vn" }
         };
 
-        private string _languageCode = EnglishLanguageCode;
+        private string _dateTimeFormat = "{0:MM/dd/yyyy<br/>hh:mm:ss tt}";
 
-        private LangResources _lang;
+        private string _languageCode = ConstantValueDefinition.EnglishLanguageCode;
+
         private SportType _sportType = SportType.Soccer;
+        private LangResources _lang;
+
+        protected BaseViewModel(ResultSetting setting, LangResources resource)
+        {
+            this.DateTimeFormat = setting.DateTimeFormat;
+            this.Lang = resource;
+        }
+
+        public string DateTimeFormat
+        {
+            get { return this._dateTimeFormat; }
+            set { _dateTimeFormat = value; }
+        }
 
         public string GetSupportedLanguage
         {
             get
             {
-                return supportedLanguage.ContainsKey(this.LanguageCode) ? supportedLanguage[this.LanguageCode] : supportedLanguage[EnglishLanguageCode];
+                return supportedLanguage.ContainsKey(this.LanguageCode) ? supportedLanguage[this.LanguageCode] : supportedLanguage[ConstantValueDefinition.EnglishLanguageCode];
             }
         }
 
@@ -51,6 +62,29 @@ namespace Fanex.Result.Core.ViewModels
             get
             {
                 return string.Empty;
+            }
+        }
+
+        public virtual bool IsPending
+        {
+            get
+            {
+                return false;
+            }
+        }
+
+        public virtual string EventStatusBackground
+        {
+            get
+            {
+                if (this.EventStatus.Equals(Lang.PostPoned, StringComparison.OrdinalIgnoreCase))
+                {
+                    return ConstantValueDefinition.BackgroundPosponed;
+                }
+                else
+                {
+                    return this.IsPending ? ConstantValueDefinition.BackgroundPending : string.Empty;
+                }
             }
         }
 
@@ -91,8 +125,8 @@ namespace Fanex.Result.Core.ViewModels
 
         protected LangResources Lang
         {
-            get { return _lang; }
-            set { _lang = value; }
+            get { return this._lang; }
+            set { this._lang = value; }
         }
 
         protected SportType Sport
@@ -124,7 +158,7 @@ namespace Fanex.Result.Core.ViewModels
 
         protected virtual string GetFormatedKickOffTime(DateTime kickOffTime)
         {
-            return Helper.FullDateFormat2Ln(kickOffTime);
+            return Helper.FullDateFormat(kickOffTime, this.DateTimeFormat);
         }
     }
 }

@@ -6,8 +6,6 @@
 
 namespace Fanex.Result.Core.Models
 {
-    using Fanex.Result.Core.DTO;
-
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
@@ -18,5 +16,7 @@ namespace Fanex.Result.Core.Models
         bool ValidateOutRight(string dtoName);
 
         bool ValidateParlay(string dtoName);
+
+        bool ValidateResource(string languageCode);
     }
 }

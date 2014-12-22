@@ -13,6 +13,15 @@ namespace Fanex.Result.Core.DTO
     /// </summary>
     public sealed class Racing
     {
+        public Racing()
+        {
+            this.EngineNo = string.Empty;
+            this.EngineId = string.Empty;
+            this.Favourite = string.Empty;
+            this.SCROfMatch = string.Empty;
+            this.TFOfMatch = string.Empty;
+        }
+
         public DateTime KickOffTime { get; set; }
 
         public int Place { get; set; }

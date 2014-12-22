@@ -7,7 +7,8 @@
 namespace Fanex.Result.Core.ExcelModels
 {
     using System.Collections.Generic;
-    using Fanex.Result.Core.DTO;
+    using System.Diagnostics.CodeAnalysis;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.Utilities;
     using Fanex.Result.Core.ViewModels;
@@ -16,21 +17,14 @@ namespace Fanex.Result.Core.ExcelModels
     /// <summary>
     /// Tennis excel model class.
     /// </summary>
-    internal sealed class TennisExcel : ExcelBase
+    internal sealed class TennisExcel : ExcelBase, IExcelModel
     {
-        #region Fields
-
-        private IList<TennisViewModel> _tennisData;
-
-        #endregion Fields
-
-        public TennisExcel(string templatePath, string reporTitle, IList<TennisViewModel> data, LangResources resource)
-            : base(templatePath, reporTitle, resource)
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        public TennisExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data, LangResources resource)
+            : base(templatePath, setting, data, resource)
         {
-            this._tennisData = data;
-            this.NumofRow = this._tennisData.Count;
-            this.ColumnTemplateCount = 10;
-            this.ColumnStatus = 9;
+            this.ColumnTemplateCount = 11;
+            this.ColumnStatus = 10;
             this.RowContentTemplate = 3;
         }
 
@@ -38,10 +32,12 @@ namespace Fanex.Result.Core.ExcelModels
         /// Assign value to header section.
         /// </summary>
         /// <param name="sheet">The current sheet.</param>
-        public override void AssignHeader(ISheet sheet)
+        protected override void AssignHeader(ISheet sheet)
         {
             var colidx = 0;
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
+            row.Cells[colidx++].SetCellValue(Lang.MatchCode + "/" + Lang.ID);
+
             row.Cells[colidx++].SetCellValue(Lang.KickOffTime);
             row.Cells[colidx++].SetCellValue(Lang.Match);
             row.Cells[colidx++].SetCellValue(Lang.Lbl1S);
@@ -54,27 +50,17 @@ namespace Fanex.Result.Core.ExcelModels
             row.Cells[colidx].SetCellValue(Lang.Status);
         }
 
-        public override void AssignSheetData(ISheet sheet)
-        {
-            var currentRow = 2;
-            var currentLeagueId = 0;
-            foreach (var exportRow in this._tennisData)
-            {
-                SetLeague(sheet, exportRow.LeagueId, exportRow.LeagueName, ref currentLeagueId, ref currentRow);
-                SetDataForMatch(sheet, exportRow, ref currentRow);
-            }
-        }
-
         #region Assign Cell Data
 
         /// <summary>
         /// Set data for match.
         /// </summary>
         /// <param name="sheet">The current sheet.</param>
-        /// <param name="exportRow">The view model.</param>
+        /// <param name="data">The view model.</param>
         /// <param name="currentRow">The current row.</param>
-        private void SetDataForMatch(ISheet sheet, TennisViewModel exportRow, ref int currentRow)
+        protected override void SetDataForMatch(ISheet sheet, IResultViewModel data, ref int currentRow)
         {
+            var exportRow = (TennisViewModel)data;
             var getRowTeamWin = GetRowTeamWin(exportRow.TotalSetHome, exportRow.TotalSetAWay);
 
             var rowHome = sheet.CopyRow(TemplateSheet, getRowTeamWin[0], currentRow);
@@ -85,7 +71,8 @@ namespace Fanex.Result.Core.ExcelModels
 
             AssignStringData(
                 rowHome,
-                             ColumnKickOffTime,
+                             ColumnMatchCode,
+                             exportRow.MatchCode,
                              Helper.ToRtfString(exportRow.KickOffTime),
                              Helper.ToRtfString(exportRow.HomeTeam),
                             exportRow.GetHomeAwaySet(0, true),
@@ -99,7 +86,8 @@ namespace Fanex.Result.Core.ExcelModels
             currentRow++;
             AssignStringData(
                 rowAway,
-                             ColumnKickOffTime,
+                             ColumnMatchCode,
+                             exportRow.MatchId,
                              Helper.ToRtfString(exportRow.KickOffTime),
                              Helper.ToRtfString(exportRow.AwayTeam),
                             exportRow.GetHomeAwaySet(0, false),

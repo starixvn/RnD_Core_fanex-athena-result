@@ -13,14 +13,26 @@ namespace Fanex.Result.Core.DTO
     /// </summary>
     public sealed class Parlay
     {
-        public int SportId
-        {
-            get;
-            set;
-        }
+        private IList<Sportsbook> _sportsBook = new List<Sportsbook>();
+
+        public int SportId { get; set; }
 
         public int LeagueId { get; set; }
 
-        public IList<Sportbook> Sportbook { get; set; }
+        public IList<Sportsbook> Sportbook
+        {
+            get
+            {
+                return this._sportsBook;
+            }
+
+            set
+            {
+                if (value != null)
+                {
+                    this._sportsBook = value;
+                }
+            }
+        }
     }
 }

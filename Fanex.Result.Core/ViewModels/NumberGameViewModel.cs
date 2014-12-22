@@ -7,23 +7,25 @@
 namespace Fanex.Result.Core.ViewModels
 {
     using System.Collections.Generic;
+    using System.Globalization;
     using System.Linq;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.Utilities;
 
     /// <summary>
     /// Number game view model class.
     /// </summary>
-    public sealed class NumberGameViewModel : BaseViewModel
+    public sealed class NumberGameViewModel : BaseViewModel, IResultViewModel
     {
         private readonly NumberGame _numberGame;
 
-        public NumberGameViewModel(NumberGame numberGame, SportType sport, string languageCode, LangResources resouces)
+        public NumberGameViewModel(NumberGame numberGame, ResultSetting setting, LangResources resources)
+            : base(setting, resources)
         {
             this._numberGame = numberGame;
-            this.LanguageCode = languageCode;
-            this.Lang = resouces;
-            this.Sport = sport;
+            this.LanguageCode = setting.LanguageCode;
+            this.Sport = setting.SportType;
         }
 
         public override string KickOffTime
@@ -31,6 +33,14 @@ namespace Fanex.Result.Core.ViewModels
             get
             {
                 return this.GetFormatedKickOffTime(this._numberGame.KickOffTime);
+            }
+        }
+
+        public override bool IsPending
+        {
+            get
+            {
+                return this._numberGame.IsPending;
             }
         }
 
@@ -55,6 +65,14 @@ namespace Fanex.Result.Core.ViewModels
             }
         }
 
+        public string MatchId
+        {
+            get
+            {
+                return this._numberGame.MatchId.ToString(CultureInfo.InvariantCulture);
+            }
+        }
+
         public string GameNo
         {
             get { return this._numberGame.MatchCode; }
@@ -62,12 +80,12 @@ namespace Fanex.Result.Core.ViewModels
 
         public string FirstBall
         {
-            get { return this._numberGame.Ball.Count > 0 ? Helper.FormatTwoDigit(this._numberGame.Ball[0]) : string.Empty; }
+            get { return this._numberGame.Ball.Count > 0 ? Helper.FormatTwoDigit(this._numberGame.Ball[0]) : StringResources.HYPHEN; }
         }
 
         public string LastBall
         {
-            get { return this._numberGame.Ball.Count > 0 ? Helper.FormatTwoDigit(this._numberGame.Ball[this._numberGame.Ball.Count - 1]) : string.Empty; }
+            get { return this._numberGame.Ball.Count > 0 ? Helper.FormatTwoDigit(this._numberGame.Ball[this._numberGame.Ball.Count - 1]) : StringResources.HYPHEN; }
         }
 
         public string Warrior
@@ -77,7 +95,7 @@ namespace Fanex.Result.Core.ViewModels
                 return this._numberGame.Ball.Count > 2 ? this._numberGame.Ball[1] > this._numberGame.Ball[2]
                        ? Lang.Warrior2ndBall : Lang.Warrior3rdBall :
 
-                       string.Empty;
+                       StringResources.HYPHEN;
             }
         }
 

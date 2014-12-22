@@ -9,16 +9,18 @@ namespace Fanex.Result.Core.ExcelModels
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
-    using Fanex.Result.Core.DTO;
+    using System.Linq;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.Utilities;
+    using Fanex.Result.Core.ViewModels;
     using NPOI.HSSF.UserModel;
     using NPOI.SS.UserModel;
 
     /// <summary>
     /// Excel base class.
     /// </summary>
-    public abstract class ExcelBase
+    internal abstract class ExcelBase
     {
         #region Fields
 
@@ -26,17 +28,15 @@ namespace Fanex.Result.Core.ExcelModels
 
         public const int RowHeaderTemplate = 1;
 
-        protected const int ColumnIndex = 0;
-
         protected const string FormatDate = "MM/dd/yyyy";
 
         protected const int RowLeagueTemplate = 2;
 
         protected const int RowNoInfoTemplate = 4;
-
-        protected const int ColumnKickOffTime = 0;
-
         protected const string Na = "N/A";
+        protected const int ColumnMatchCode = 0;
+        protected const int ColumnRace = 0;
+        protected const int ColumnKickOffTime = 1;
 
         private int _rowContentTemplate = 3;
 
@@ -44,28 +44,35 @@ namespace Fanex.Result.Core.ExcelModels
 
         #endregion Fields
 
-        protected ExcelBase(string templatePath, string reportTitle, LangResources resource)
+        protected ExcelBase(string _templatePath, ResultSetting _setting, IList<IResultViewModel> _data, LangResources _resource)
         {
-            this.TemplatePath = templatePath;
-            this.Lang = resource;
-            this.ReportTitle = reportTitle;
+            this.TemplatePath = _templatePath;
+            this.Lang = _resource;
+            this.ReportTitle = _setting.ExcelTitle;
+            this.Setting = _setting;
+            this.ViewModelData = _data;
+            this.NumofRow = _data.Count;
         }
 
-        public int NumofRow { get; set; }
+        protected int NumofRow { get; set; }
 
-        public LangResources Lang { get; set; }
+        protected LangResources Lang { get; set; }
 
-        public IWorkbook Workbook { get; set; }
+        protected IList<IResultViewModel> ViewModelData { get; set; }
 
-        public ISheet TemplateSheet { get; set; }
+        protected ResultSetting Setting { get; set; }
 
-        public ICellStyle DefaultStyle { get; set; }
+        protected IWorkbook Workbook { get; set; }
 
-        public IList<int> ColumnTemplateIndexList { get; set; }
+        protected ISheet TemplateSheet { get; set; }
 
-        public string TemplatePath { get; set; }
+        protected ICellStyle DefaultStyle { get; set; }
 
-        public string ReportTitle { get; set; }
+        protected IList<int> ColumnTemplateIndexList { get; set; }
+
+        protected string TemplatePath { get; set; }
+
+        protected string ReportTitle { get; set; }
 
         protected int ColumnStatus
         {
@@ -81,9 +88,37 @@ namespace Fanex.Result.Core.ExcelModels
 
         protected int ColumnTemplateCount { get; set; }
 
+        #region Export
+
+        public MemoryStream Export()
+        {
+            this.LoadTemplate();
+            this.AssignData();
+            this.RemoveTemplate();
+            var excelStream = new MemoryStream();
+            this.Workbook.Write(excelStream);
+            return excelStream;
+        }
+
+        #endregion Export
+
         #region Export Excel Methods
 
-        public virtual void AssignTitle(ISheet sheet)
+        /// <summary>
+        ///     Clear the template from header row.
+        /// </summary>
+        /// <param name="sheet">Current sheet.</param>
+        /// <param name="startRowIndex">Index of row.</param>
+        protected static void ClearTemplate(ISheet sheet, int startRowIndex)
+        {
+            var lastRowNum = sheet.LastRowNum;
+            for (var i = startRowIndex; i <= lastRowNum; i++)
+            {
+                sheet.DeleteRow(i);
+            }
+        }
+
+        protected virtual void AssignTitle(ISheet sheet)
         {
             sheet.GetCell(0, 0).SetCellValue(ReportTitle);
 
@@ -99,7 +134,7 @@ namespace Fanex.Result.Core.ExcelModels
         /// 3.Render content.
         /// 4.Process UI.
         /// </summary>
-        public virtual void AssignData()
+        protected virtual void AssignData()
         {
             var sheet = this.Workbook.CloneSheet("Template", "Data");
             this.ColumnTemplateIndexList = this.GetColumnTemplateIndex();
@@ -123,43 +158,53 @@ namespace Fanex.Result.Core.ExcelModels
         /// Redder header column.
         /// </summary>
         /// <param name="sheet">Current Sheet.</param>
-        public abstract void AssignHeader(ISheet sheet);
+        protected abstract void AssignHeader(ISheet sheet);
 
-        public virtual void AssignNoInfoRow(ISheet sheet)
+        protected virtual void AssignNoInfoRow(ISheet sheet)
         {
             SetTextRowValue(sheet, RowNoInfoTemplate, RowLeagueTemplate, ColumnTemplateCount, this.Lang.NoInfo);
         }
 
-        public virtual void AssignSheetData(ISheet sheet, int rowFrom, int rowTo)
+        /// <summary>
+        /// Assign data to sheet.
+        /// </summary>
+        /// <param name="sheet">The current sheet.</param>
+        protected virtual void AssignSheetData(ISheet sheet)
+        {
+            var currentRow = RowLeagueTemplate;
+            var currentLeagueId = 0;
+            var groupData = this.ViewModelData.GroupBy(i => i.LeagueId);
+            foreach (var item in groupData)
+            {
+                var firstItem = item.FirstOrDefault();
+
+                SetLeague(sheet, firstItem.LeagueId, firstItem.LeagueName, ref currentLeagueId, ref currentRow);
+
+                foreach (var exportRow in item)
+                {
+                    SetDataForMatch(sheet, exportRow, ref currentRow);
+                }
+            }
+        }
+
+        protected virtual void SetDataForMatch(ISheet sheet, IResultViewModel data, ref int currentRow)
         {
         }
 
-        public abstract void AssignSheetData(ISheet sheet);
-
-        public virtual void ProcessUI(ISheet sheet)
+        protected virtual void ProcessUI(ISheet sheet)
         {
+            if (!Setting.VisibleMatchCodeIDColumn)
+            {
+                sheet.SetColumnHidden(ColumnMatchCode, true);
+            }
         }
-
-        #region Export
-
-        public MemoryStream Export()
-        {
-            this.LoadTemplate();
-            this.AssignData();
-            this.RemoveTemplate();
-            var excelStream = new MemoryStream();
-            this.Workbook.Write(excelStream);
-            return excelStream;
-        }
-
-        #endregion Export
 
         #region Template
 
         /// <summary>
         /// Load template.
         /// </summary>
-        public virtual void LoadTemplate()
+        protected virtual void LoadTemplate()
         {
             FileStream stream = null;
             try
@@ -180,23 +225,9 @@ namespace Fanex.Result.Core.ExcelModels
             }
         }
 
-        public virtual void RemoveTemplate()
+        protected virtual void RemoveTemplate()
         {
             this.Workbook.RemoveSheet("Template");
-        }
-
-        /// <summary>
-        ///     Clear the template from header row.
-        /// </summary>
-        /// <param name="sheet">Current sheet.</param>
-        /// <param name="startRowIndex">Index of row.</param>
-        protected static void ClearTemplate(ISheet sheet, int startRowIndex)
-        {
-            var lastRowNum = sheet.LastRowNum;
-            for (var i = startRowIndex; i <= lastRowNum; i++)
-            {
-                sheet.DeleteRow(i);
-            }
         }
 
         #endregion Template

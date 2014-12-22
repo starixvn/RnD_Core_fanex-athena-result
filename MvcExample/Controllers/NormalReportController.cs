@@ -35,16 +35,24 @@
         /// <param name="sportId">The sport ID.</param>
         /// <param name="leagueId">The league ID.</param>
         /// <param name="languageCode">The language code.</param>
+        /// <param name="showMatchCode">Visible match code column.</param>
         /// <returns>The html table result.</returns>
         [SuppressMessage(
           "StyleCop.CSharp.Nexcel.NexcelCustomRules",
           "SP2101:MethodMustNotContainMoreLinesThan",
           Justification = "Reviewed. Suppression is OK here.")]
         [HttpPost]
-        public string GenHtml(DateTime date, short sportId, int leagueId, string languageCode)
+        public string GenHtml(DateTime date, short sportId, int leagueId, string languageCode, bool showMatchCode)
         {
             var sportType = (SportType)sportId;
-            var resultSetting = new ResultSetting { SportType = sportType, LanguageCode = languageCode };
+            var resultSetting = new ResultSetting
+            {
+                SportType = sportType,
+                LanguageCode = languageCode,
+                VisibleMatchCodeIDColumn = showMatchCode,
+                VisibleDetailedLink = true,
+                VisibleFreeHeader = true,
+            };
             var htmlResult = string.Empty;
             switch (sportType)
             {
@@ -63,7 +71,9 @@
                         isShowAll = true,
                         LeagueID = leagueId
                     });
+
                     htmlResult = ResultEngine.HtmlParser<Racing>(dataRc.ToList(), resultSetting);
+
                     break;
 
                 case SportType.LiveCasino:
@@ -74,8 +84,8 @@
                         isShowAll = true,
                         LeagueID = leagueId
                     });
-                    htmlResult = ResultEngine.HtmlParser<LiveCasino>(dataLC.ToList(), resultSetting);
 
+                    htmlResult = ResultEngine.HtmlParser<LiveCasino>(dataLC.ToList(), resultSetting);
                     break;
 
                 case SportType.NumberGame:
@@ -85,11 +95,12 @@
                         LeagueID = leagueId,
                         ToDate = date
                     });
-                    htmlResult = ResultEngine.HtmlParser<NumberGame>(dataNg.ToList(), resultSetting);
 
+                    htmlResult = ResultEngine.HtmlParser<NumberGame>(dataNg.ToList(), resultSetting);
                     break;
 
                 default:
+
                     var dataSb = _resultService.GetSportbookResult(new GetSportbookResultCriteria
                     {
                         FromDate = date,
@@ -97,12 +108,37 @@
                         isShowAll = true,
                         LeagueID = leagueId
                     });
-                    htmlResult = ResultEngine.HtmlParser<Sportbook>(dataSb.ToList(), resultSetting);
-
+                    htmlResult = ResultEngine.HtmlParser<Sportsbook>(dataSb.ToList(), resultSetting);
                     break;
             }
 
             return htmlResult;
+        }
+
+        /// <summary>
+        /// Generate tennis detailed result.
+        /// </summary>
+        /// <param name="matchId">The match ID.</param>
+        /// <param name="languageCode">The language code.</param>
+        /// <param name="showMatchCode">If true, show match code column.</param>
+        /// <returns>The html result.</returns>
+        [HttpGet]
+        public string GenHtmlTennisDetail(int matchId, string languageCode, bool showMatchCode)
+        {
+            var detailedData = _resultService.GetGameDetail(matchId);
+            if (detailedData != null && detailedData.MatchId > 0)
+            {
+                return ResultEngine.HtmlGameDetailParser(
+                    detailedData,
+                    new ResultSetting
+                    {
+                        SportType = SportType.Tennis,
+                        VisibleMatchCodeIDColumn = showMatchCode,
+                        LanguageCode = languageCode
+                    });
+            }
+
+            return string.Empty;
         }
 
         /// <summary>
@@ -112,13 +148,14 @@
         /// <param name="sportId">The sport ID.</param>
         /// <param name="leagueId">The league ID.</param>
         /// <param name="languageCode">The language code.</param>
+        /// <param name="showMatchCode">Visible match code column.</param>
         /// <returns>The Excel file.</returns>
         [SuppressMessage(
           "StyleCop.CSharp.Nexcel.NexcelCustomRules",
           "SP2101:MethodMustNotContainMoreLinesThan",
           Justification = "Reviewed. Suppression is OK here.")]
         [HttpGet]
-        public ActionResult GenExcel(DateTime date, short sportId, int leagueId, string languageCode)
+        public ActionResult GenExcel(DateTime date, short sportId, int leagueId, string languageCode, bool showMatchCode)
         {
             var sportType = (SportType)sportId;
             var resultSetting = new ResultSetting
@@ -126,7 +163,8 @@
                 SportType = sportType,
                 LanguageCode = languageCode,
                 ExcelTitle = "Result report",
-                ExcelTemplatePath = Server.MapPath(@"~/App_Data/Fanex.Result/")
+                ExcelTemplatePath = Server.MapPath(@"~/App_Data/Fanex.Result/"),
+                VisibleMatchCodeIDColumn = showMatchCode,
             };
             MemoryStream excelResult = null;
             switch (sportType)
@@ -180,7 +218,7 @@
                         isShowAll = true,
                         LeagueID = leagueId
                     });
-                    excelResult = ResultEngine.ExcelParser<Sportbook>(dataSb.ToList(), resultSetting);
+                    excelResult = ResultEngine.ExcelParser<Sportsbook>(dataSb.ToList(), resultSetting);
 
                     break;
             }
@@ -262,7 +300,7 @@
                             isShowAll = true,
                             LeagueID = leagueId
                         });
-                    jsonResult = ResultEngine.JsonParser<Sportbook>(dataSb.ToList(), resultSetting);
+                    jsonResult = ResultEngine.JsonParser<Sportsbook>(dataSb.ToList(), resultSetting);
 
                     break;
             }

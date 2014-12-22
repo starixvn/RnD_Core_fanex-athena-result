@@ -8,7 +8,8 @@ namespace Fanex.Result.Core.Models
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using Fanex.Result.Core.DTO;
+    using System.Linq;
+    using Fanex.Result.Core.DataDomain;
 
     /// <summary>
     /// TODO: Update summary.
@@ -77,21 +78,21 @@ namespace Fanex.Result.Core.Models
                     case SportType.VirtualMotorRacing:
                     case SportType.VirtualSpeedway:
                     case SportType.VirtualCycling:
-                        if (dtoName == DataDomain.RACING)
+                        if (dtoName == DTOType.RACING)
                         {
                             return true;
                         }
 
                         return false;
                     case SportType.NumberGame:
-                        if (dtoName == DataDomain.NUMBERGAME)
+                        if (dtoName == DTOType.NUMBERGAME)
                         {
                             return true;
                         }
 
                         return false;
                     case SportType.LiveCasino:
-                        if (dtoName == DataDomain.LIVECASINO)
+                        if (dtoName == DTOType.LIVECASINO)
                         {
                             return true;
                         }
@@ -99,7 +100,7 @@ namespace Fanex.Result.Core.Models
                         return false;
 
                     default:
-                        if (dtoName == DataDomain.SPORTBOOK)
+                        if (dtoName == DTOType.SPORTSBOOK)
                         {
                             return true;
                         }
@@ -113,12 +114,17 @@ namespace Fanex.Result.Core.Models
 
         public bool ValidateOutRight(string dtoName)
         {
-            return !string.IsNullOrEmpty(dtoName) && dtoName == DataDomain.OUTRIGHT;
+            return !string.IsNullOrEmpty(dtoName) && dtoName == DTOType.OUTRIGHT;
         }
 
         public bool ValidateParlay(string dtoName)
         {
-            return !string.IsNullOrEmpty(dtoName) && dtoName == DataDomain.PARLAY;
+            return !string.IsNullOrEmpty(dtoName) && dtoName == DTOType.PARLAY;
+        }
+
+        public bool ValidateResource(string languageCode)
+        {
+            return ResourceConfig.LangCodes.Contains(languageCode);
         }
     }
 }

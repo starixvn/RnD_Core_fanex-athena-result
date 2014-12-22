@@ -8,8 +8,9 @@ namespace Fanex.Result.Core.ExcelModels
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using Fanex.Result.Core.DTO;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.Utilities;
     using Fanex.Result.Core.ViewModels;
@@ -18,27 +19,24 @@ namespace Fanex.Result.Core.ExcelModels
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public sealed class VSHRacingExcel : ExcelBase
+    internal sealed class VSHRacingExcel : ExcelBase, IExcelModel
     {
         #region Fields
 
         private const string FormatStatus = "Offical {0} {1}";
 
-        private IList<VSHRacingViewModel> _racingData;
-
         #endregion Fields
 
-        public VSHRacingExcel(string templatePath, string reporTitle, IList<VSHRacingViewModel> data, LangResources resource)
-            : base(templatePath, reporTitle, resource)
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        public VSHRacingExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data, LangResources resource)
+            : base(templatePath, setting, data, resource)
         {
-            this._racingData = data;
-            this.NumofRow = this._racingData.Count;
             this.ColumnTemplateCount = 7;
             this.ColumnStatus = 6;
             this.RowContentTemplate = 3;
         }
 
-        public override void AssignHeader(ISheet sheet)
+        protected override void AssignHeader(ISheet sheet)
         {
             var colidx = 3;
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
@@ -53,19 +51,23 @@ namespace Fanex.Result.Core.ExcelModels
         /// Assign data to sheet.
         /// </summary>
         /// <param name="sheet">The current sheet.</param>
-        public override void AssignSheetData(ISheet sheet)
+        protected override void AssignSheetData(ISheet sheet)
         {
-            var currentRow = 2;
+            var currentRow = RowLeagueTemplate;
             var currentLeagueId = 0;
             var endRowSpan = 3;
-            foreach (var exportRow in this._racingData)
+            var groupData = this.ViewModelData.GroupBy(i => i.LeagueId);
+            foreach (var item in groupData)
             {
-                if (exportRow.Place > 4)
+                foreach (VSHRacingViewModel exportRow in item)
                 {
-                    continue;
-                }
+                    if (exportRow.Place > 4)
+                    {
+                        continue;
+                    }
 
-                SetMatch(sheet, exportRow, ref currentLeagueId, ref currentRow, ref endRowSpan);
+                    SetMatch(sheet, exportRow, ref currentLeagueId, ref currentRow, ref endRowSpan);
+                }
             }
         }
 
@@ -99,12 +101,14 @@ namespace Fanex.Result.Core.ExcelModels
 
                 // Calculate row span
                 var rowsTopRace =
-                this._racingData.Count(i => i.LeagueId == leagueId && i.EvenTime == currentRace && i.Place < 5);
+                this.ViewModelData.Where(i => i.LeagueId == leagueId)
+                .Select(i => (VSHRacingViewModel)i)
+                .Count(i => i.EvenTime == currentRace && i.Place < 5);
 
                 if (currentRow == 3 || endRowSpan < currentRow)
                 {
                     endRowSpan = currentRow + rowsTopRace - 1;
-                    MergeKickOffTimeCell(sheet, currentRow, endRowSpan, colSpanKichOffTime: ColumnIndex);
+                    MergeKickOffTimeCell(sheet, currentRow, endRowSpan, colSpanKichOffTime: ColumnRace);
                 }
             }
 

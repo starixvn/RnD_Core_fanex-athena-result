@@ -9,15 +9,19 @@ namespace Fanex.Result.Core.ViewModels
     using System;
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.DTO;
+    using Fanex.Result.Core.ViewModels.SoccerInfo;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public sealed class SoccerViewModel : SportbookBaseViewModel
+    public sealed class SoccerViewModel : SportsbookBaseViewModel, IResultViewModel
     {
-        public SoccerViewModel(Sportbook soccer, SportType sport, string languageCode, LangResources resource)
-            : base(soccer, sport, languageCode, resource)
+        private SoccerDetailInfo _goalInfo;
+
+        public SoccerViewModel(Sportsbook soccer, ResultSetting setting, LangResources resource)
+            : base(soccer, setting, resource)
         {
         }
 
@@ -35,7 +39,35 @@ namespace Fanex.Result.Core.ViewModels
 
         public string GoalRecord
         {
-            get { return this.SPORTBOOK.GoalRecord; }
+            get
+            {
+                return string.IsNullOrEmpty(this.SPORTBOOK.GoalRecord) ? string.Empty : this.SPORTBOOK.GoalRecord.Replace(";", string.Empty);
+            }
+        }
+
+        public override bool VisibleDetailedLink
+        {
+            get { return base.VisibleDetailedLink && !string.IsNullOrEmpty(this.SPORTBOOK.GoalRecord); }
+        }
+
+        public string PenaltyShootoutResult
+        {
+            get
+            {
+                if (!string.IsNullOrWhiteSpace(this.SPORTBOOK.BetStatus))
+                {
+                    var index = this.SPORTBOOK.BetStatus.IndexOf(StringResources.PENALTYLABEL, StringComparison.Ordinal);
+
+                    return index > -1 ? this.SPORTBOOK.BetStatus.Substring(index + StringResources.PENALTYLABEL.Length, 1) : string.Empty;
+                }
+
+                return string.Empty;
+            }
+        }
+
+        public string PenaltyShootoutTooltip
+        {
+            get { return this.PenaltyShootoutResult.Equals("Y", StringComparison.Ordinal) ? Lang.PenaltyShootoutYes : Lang.PenaltyShootoutNo; }
         }
 
         #endregion Setttlement Site
@@ -44,7 +76,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return IsShowedFirstLastGoal(true, true, false);
+                return GetGoalInfo().VisibleFGHome;
             }
         }
 
@@ -52,7 +84,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return IsShowedFirstLastGoal(false, true, false);
+                return GetGoalInfo().VisibleFGAway;
             }
         }
 
@@ -60,7 +92,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return IsShowedFirstLastGoal(true, false, false);
+                return GetGoalInfo().VisibleLGHome;
             }
         }
 
@@ -68,7 +100,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return IsShowedFirstLastGoal(false, false, false);
+                return GetGoalInfo().VisibleLGAway;
             }
         }
 
@@ -76,7 +108,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return IsShowedFirstLastGoal(true, true, true);
+                return GetGoalInfo().Visible1stFGHome;
             }
         }
 
@@ -84,7 +116,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return IsShowedFirstLastGoal(false, true, true);
+                return GetGoalInfo().Visible1stFGAway;
             }
         }
 
@@ -92,7 +124,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return IsShowedFirstLastGoal(true, false, true);
+                return GetGoalInfo().Visible1stLGHome;
             }
         }
 
@@ -100,7 +132,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return IsShowedFirstLastGoal(false, false, true);
+                return GetGoalInfo().Visible1stLGAway;
             }
         }
 
@@ -108,13 +140,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                if (this.SPORTBOOK.EventStatus == StringResources.REFUND
-                    || this.SPORTBOOK.EventStatus == StringResources.REFUNDHT || this.SPORTBOOK.EventStatus == StringResources.Postponed)
-                {
-                    return StringResources.NA;
-                }
-
-                return this.SPORTBOOK.HtHomeScore.HasValue ? this.SPORTBOOK.HtHomeScore.Value.ToString(CultureInfo.InvariantCulture) : string.Empty;
+                return this.SPORTBOOK.HtHomeScore.HasValue ? this.SPORTBOOK.HtHomeScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }
 
@@ -122,13 +148,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                if (this.SPORTBOOK.EventStatus == StringResources.REFUND || this.SPORTBOOK.EventStatus == StringResources.REFUNDFT
-                    || this.SPORTBOOK.EventStatus == StringResources.Postponed)
-                {
-                    return StringResources.NA;
-                }
-
-                return this.SPORTBOOK.FinalHomeScore.HasValue ? this.SPORTBOOK.FinalHomeScore.Value.ToString(CultureInfo.InvariantCulture) : string.Empty;
+                return this.SPORTBOOK.FinalHomeScore.HasValue ? this.SPORTBOOK.FinalHomeScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }
 
@@ -136,13 +156,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                if (this.SPORTBOOK.EventStatus == StringResources.REFUND
-                    || this.SPORTBOOK.EventStatus == StringResources.REFUNDHT || this.SPORTBOOK.EventStatus == StringResources.Postponed)
-                {
-                    return StringResources.NA;
-                }
-
-                return this.SPORTBOOK.HtAwayScore.HasValue ? this.SPORTBOOK.HtAwayScore.Value.ToString(CultureInfo.InvariantCulture) : string.Empty;
+                return this.SPORTBOOK.HtAwayScore.HasValue ? this.SPORTBOOK.HtAwayScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }
 
@@ -150,95 +164,76 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                if (this.SPORTBOOK.EventStatus == StringResources.REFUND
-                    || this.SPORTBOOK.EventStatus == StringResources.REFUNDFT || this.SPORTBOOK.EventStatus == StringResources.Postponed)
-                {
-                    return StringResources.NA;
-                }
-
-                return this.SPORTBOOK.FinalAwayScore.HasValue ? this.SPORTBOOK.FinalAwayScore.Value.ToString(CultureInfo.InvariantCulture) : string.Empty;
+                return this.SPORTBOOK.FinalAwayScore.HasValue ? this.SPORTBOOK.FinalAwayScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }
 
         /// <summary>
-        /// Show or don't show goal ICON.
+        /// Get goal information.
         /// </summary>
-        /// <param name="isHome">Is home Team.</param>
-        /// <param name="isFirstGoal">Is first goal.</param>
-        /// <param name="isFirstHalf">Is first half bet type.</param>
-        /// <returns>The True or False.</returns>
+        /// <returns>The goal detail information.</returns>
         [SuppressMessage(
 "StyleCop.CSharp.Nexcel.NexcelCustomRules",
 "SP2101:MethodMustNotContainMoreLinesThan",
 Justification = "Reviewed. Suppression is OK here.")]
-        private bool IsShowedFirstLastGoal(bool isHome, bool isFirstGoal, bool isFirstHalf)
+        private SoccerDetailInfo GetGoalInfo()
         {
-            /*
-         // Possible formats:
-         // Refund HT;1FL:1-2;FL:2-0
-         // 1FL:1-2;FL:2-0
-         // Refund HT;FL:2-0
-         // Refund HT;1FL:1-2
-         // FL:2-0
-         // Refund HT
-         // 1FL:1-2
-         */
-            string betStatus;
-            var homeOrAway = isHome ? "1" : "2";
-            var firstOrLast = isFirstGoal ? 0 : 1;
-            var firsHalfOrFullTime = isFirstHalf ? "1FL" : "FL";
-            switch (this.SPORTBOOK.EventStatus)
+            if (this._goalInfo == null)
             {
-                case StringResources.REFUND:
-                case StringResources.REFUNDHT:
-                case StringResources.REFUNDFT:
-                    betStatus = this.SPORTBOOK.BetStatus.Trim();
-                    if (!string.IsNullOrEmpty(betStatus) && betStatus.Contains(":"))
+                this._goalInfo = new SoccerDetailInfo();
+                const string HomeGoal = "1";
+                const string AwayGoal = "2";
+                const string GoalFirstHalf = "1FL";
+                const string GoalFullTime = "FL";
+                const int FGIndex = 0;
+                const int LGIndex = 1;
+                /*
+                 // Possible formats:
+                 // Refund HT;1FL:1-2;FL:2-0
+                 // 1FL:1-2;FL:2-0
+                 // Refund HT;FL:2-0
+                 // Refund HT;1FL:1-2
+                 // FL:2-0
+                 // Refund HT
+                 // 1FL:1-2
+             */
+                var betStatus = this.SPORTBOOK.BetStatus != null ? this.SPORTBOOK.BetStatus.Trim() : string.Empty;
+                if (betStatus.IndexOf(":", StringComparison.Ordinal) > -1)
+                {
+                    string[] tokenInfos = betStatus.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+                    foreach (var token in tokenInfos)
                     {
-                        string[] refundArray = betStatus.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
-                        if (refundArray.Length >= 2 && !string.IsNullOrEmpty(refundArray[1]))
+                        if (token.IndexOf(GoalFirstHalf, StringComparison.Ordinal) > -1)
                         {
-                            var goadRecord = refundArray.Length == 2 ? refundArray[1] : isFirstHalf ? refundArray[1] : refundArray[2];
-                            var fglgArray = goadRecord.Split(':');
-                            if (goadRecord.Length <= 1 || string.Compare(fglgArray[0], firsHalfOrFullTime, StringComparison.OrdinalIgnoreCase) != 0)
+                            var firstGoalInfo = token.Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
+                            if (firstGoalInfo.Length == 2)
                             {
-                                return false;
-                            }
+                                var firstGoalToken = firstGoalInfo[1].Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
+                                this._goalInfo.Visible1stFGHome = firstGoalToken[FGIndex] == HomeGoal;
+                                this._goalInfo.Visible1stFGAway = firstGoalToken[FGIndex] == AwayGoal;
 
-                            var goal = fglgArray[1].Split('-')[firstOrLast];
-                            if (goal == homeOrAway)
+                                this._goalInfo.Visible1stLGHome = firstGoalToken[LGIndex] == HomeGoal;
+                                this._goalInfo.Visible1stLGAway = firstGoalToken[LGIndex] == AwayGoal;
+                            }
+                        }
+                        else if (token.IndexOf(GoalFullTime, StringComparison.Ordinal) > -1)
+                        {
+                            var goalInfo = token.Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
+                            if (goalInfo.Length == 2)
                             {
-                                return true;
+                                var goalInfoToken = goalInfo[1].Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
+                                this._goalInfo.VisibleFGHome = goalInfoToken[FGIndex] == HomeGoal;
+                                this._goalInfo.VisibleFGAway = goalInfoToken[FGIndex] == AwayGoal;
+
+                                this._goalInfo.VisibleLGHome = goalInfoToken[LGIndex] == HomeGoal;
+                                this._goalInfo.VisibleLGAway = goalInfoToken[LGIndex] == AwayGoal;
                             }
                         }
                     }
-
-                    return false;
-
-                default:
-                    betStatus = this.SPORTBOOK.BetStatus.Trim();
-                    if (!string.IsNullOrEmpty(betStatus) && betStatus.Contains(":"))
-                    {
-                        string[] refundArray = betStatus.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
-
-                        var fglgArray = refundArray.Length == 1 ?
-                            betStatus.Split(':') : isFirstHalf ? refundArray[0].Split(':') : refundArray[1].Split(':');
-
-                        if (fglgArray.Length <= 1 || string.Compare(fglgArray[0], firsHalfOrFullTime, StringComparison.OrdinalIgnoreCase) != 0)
-                        {
-                            return false;
-                        }
-
-                        var goal = fglgArray[1].Split('-')[firstOrLast];
-
-                        if (goal == homeOrAway)
-                        {
-                            return true;
-                        }
-                    }
-
-                    return false;
+                }
             }
+
+            return this._goalInfo;
         }
     }
 }

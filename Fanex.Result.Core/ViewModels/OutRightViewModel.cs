@@ -7,6 +7,7 @@
 namespace Fanex.Result.Core.ViewModels
 {
     using System.Globalization;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.Utilities;
     using RemotingRef;
@@ -14,15 +15,15 @@ namespace Fanex.Result.Core.ViewModels
     /// <summary>
     /// Outright view model class.
     /// </summary>
-    public sealed class OutRightViewModel : BaseViewModel
+    public sealed class OutRightViewModel : BaseViewModel, IResultViewModel
     {
         private readonly OutRight _outRight;
 
-        public OutRightViewModel(OutRight outRight, string languageCode, LangResources resource)
+        public OutRightViewModel(OutRight outRight, ResultSetting setting, LangResources resource)
+            : base(setting, resource)
         {
             this._outRight = outRight;
-            this.LanguageCode = languageCode;
-            this.Lang = resource;
+            this.LanguageCode = setting.LanguageCode;
         }
 
         public int SportId
@@ -53,7 +54,7 @@ namespace Fanex.Result.Core.ViewModels
                 return this.GetSportNameByLanguage(this._outRight.SportType);
             }
         }
-
+       
         public string Team
         {
             get
@@ -66,23 +67,32 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                switch (this._outRight.Status.ToLower())
+                if (string.IsNullOrEmpty(this._outRight.Status))
                 {
-                    case "running":
+                    return string.Empty;
+                }
+
+                var keyStatus = this._outRight.Status.Trim().ToLower();
+                switch (keyStatus)
+                {
+                    case ConstantValueDefinition.Running:
                         return Lang.Running;
-                    case "completed":
+                    case ConstantValueDefinition.Completed:
                         return Lang.Completed;
-                    case "postponed":
+                    case ConstantValueDefinition.Closed:
+                        return Lang.Closed;
+                    case ConstantValueDefinition.Postponed:
+
                         return Lang.PostPoned;
-                    case "internal":
+                    case ConstantValueDefinition.InternalString:
                         return Lang.Internal;
-                    case "refund":
+                    case ConstantValueDefinition.Refund:
                         return Lang.Refund;
-                    case "refund ft":
+                    case ConstantValueDefinition.Refundft:
                         return Lang.Refundft;
-                    case "refund ht":
+                    case ConstantValueDefinition.Refundht:
                         return Lang.Refundht;
-                    case "won":
+                    case ConstantValueDefinition.Won:
                         return Lang.Won;
                     default:
                         return this._outRight.Status;
@@ -94,7 +104,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return Helper.FullDateFormat(this._outRight.EventDate);
+                return Helper.FullDateFormat(this._outRight.EventDate, this.DateTimeFormat);
             }
         }
     }

@@ -1,128 +1,180 @@
 ﻿@{
-    var lang = (Fanex.Result.Core.DTO.LangResources)Model.Resource;
+    var viewModel = (Fanex.Result.Core.Models.RazorBinderModel)Model;
+
+    var lang = (Fanex.Result.Core.DataDomain.LangResources)viewModel.Resource;
     const int colspan = 7;
+    var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
+
 }
-<table class="fanex-result">
-    <thead>
-        @if (Model.IsShowPopUpTitle && Model.Data.Count > 0)
-        {
-            var item = (Fanex.Result.Core.ViewModels.VSHRacingViewModel)Model.Data[0];
-            <tr class="row-title">
-                <th class="column-title" colspan="@colspan">
-                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp;
-                    <span class="leagueName">@item.LeagueName</span>
+@using Fanex.Result.Core.ViewModels;
+@using Fanex.Result.Core.Models;
+@using System.Collections;
+@if (viewModel.VisibleFreeHeader)
+{
+    <div class="fn-rs-content-header">
+        <table class="fn-rs @popupCss racing">
+            <thead>
+                @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+                {
+                    var item = ((GroupData)viewModel.Data[0]).Data[0];
+                    <tr class="row-title">
+                        <th class="cl-title" colspan="@colspan">
+                            <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                        </th>
+                    </tr>
+                }
+                <tr class="header">
+                    <th class="cl-race">
+                        @lang.Race
+                    </th>
+                    <th class="cl-result">
+                        @Raw(lang.Result)
+                    </th>
+                    <th class="cl-win">
+                        @Raw(lang.Win)
+                    </th>
+                    <th class="cl-place">
+                        @Raw(lang.Place)
+                    </th>
+                    <th class="cl-status">
+                        @lang.Status
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+}
+@if (viewModel.VisibleFreeHeader)
+{
+    @Raw("<div class=\"fn-rs-content-scroll\">")
+
+}
+<table class="fn-rs @popupCss racing">
+    @if (!viewModel.VisibleFreeHeader)
+    {
+
+        <thead>
+            @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+            {
+                var item = ((GroupData)viewModel.Data[0]).Data[0];
+                <tr class="row-title">
+                    <th class="cl-title" colspan="@colspan">
+                        <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                    </th>
+                </tr>
+            }
+            <tr class="header">
+                <th class="cl-race" colspan="3">
+                    @lang.Race
+                </th>
+                <th class="cl-result">
+                    @Raw(lang.Result)
+                </th>
+                <th class="cl-win">
+                    @Raw(lang.Win)
+                </th>
+                <th class="cl-place">
+                    @Raw(lang.Place)
+                </th>
+                <th class="cl-status">
+                    @lang.Status
                 </th>
             </tr>
-        }
-        <tr class="row-header">
-            <th class="column-race" colspan="3">
-                @lang.Race
-            </th>
-            <th class="column-result">
-                @Raw(lang.Result)
-            </th>
-            <th class="column-win">
-                @Raw(lang.Win)
-            </th>
-            <th class="column-plae">
-                @Raw(lang.Place)
-            </th>
-            <th class="column-status">
-                @lang.Status
-            </th>
-        </tr>
-    </thead>
+        </thead>
+    }
     <tbody>
-        @if (Model.Data.Count > 0)
+        @if (viewModel.Data.Count > 0)
         {
-            var currentLeagueId = 0;
             var currentRace = DateTime.MinValue;
-            var newLeague = false;
-            for (int index = 0, j = Model.Data.Count; index < j; index++)
+            var index = 0;
+            foreach (var itemObj in viewModel.Data)
             {
-                var item = (Fanex.Result.Core.ViewModels.VSHRacingViewModel)Model.Data[index];
-                if (item.Place > 4) { continue; }
+                var group = (GroupData)itemObj;
 
-                if (!Model.IsPopUp)
+                if (!viewModel.IsPopUp)
                 {
-                    var leagueId = item.LeagueId;
-                    newLeague = currentLeagueId == 0 || currentLeagueId != leagueId;
-                    if (newLeague)
-                    {
-                        currentLeagueId = leagueId;
 
-            <tr class="row-data">
-                <td colspan="@colspan" class="column-league">
-                    @item.LeagueName
+            <tr class="data">
+                <td colspan="@colspan" class="cl-league">
+                    @group.Data[0].LeagueName
+                </td>
+            </tr>
+                }
+                foreach (var temp in group.Data)
+                {
+                    var item = (VSHRacingViewModel)temp;
+
+                    if (item.Place > 4) { continue; }
+                    if (currentRace != item.EvenTime)
+                    {
+                        index++;
+                        currentRace = item.EvenTime;
+            <tr class="data @item.Color(index, "even", "odd")">
+                <td class="cl-race-name" rowspan="@item.RowCount">
+                    @Raw(item.KickOffTime)
+                </td>
+                <td class="cl-placing">
+                    @item.Placing
+                </td>
+                <td class="cl-engine-no">
+                    @item.HorseNo
+                </td>
+                <td class="cl-result home">
+                    @item.Result
+                </td>
+                <td class="cl-win home">
+                    @item.WinOdd
+                </td>
+                <td class="cl-place home">
+                    @item.PlaceOdd
+                </td>
+                <td class="cl-status @item.EventStatusBackground">
+                    @item.Status
+                </td>
+            </tr>
+
+                    }
+                    else
+                    {
+            <tr class="data @item.Color(index, "even", "odd")">
+                <td class="cl-placing">
+                    @item.Placing
+                </td>
+                <td class="cl-engine-no">
+                    @item.HorseNo
+                </td>
+                <td class="cl-result away">
+                    @item.Result
+                </td>
+                <td class="cl-win away">
+                    @item.WinOdd
+                </td>
+                <td class="cl-place away">
+                    @item.PlaceOdd
+                </td>
+                <td class="cl-status away">
+                    @item.Status
                 </td>
             </tr>
                     }
-                }
-
-                if (newLeague || currentRace != item.EvenTime)
-                {
-                    currentRace = item.EvenTime;
-                    var counter = 0;
-            <tr class="row-data @item.Color(index, "format-even", "format-odd")">
-                <td class="column-race-name" rowspan="@item.RowCount">
-                    @Raw(item.KickOffTime)
-                </td>
-                <td class="column-placeing">
-                    @item.Placing
-                </td>
-                <td class="column-engine-no">
-                    @item.HorseNo
-                </td>
-                <td class="column-result">
-                    @item.Result
-                </td>
-                <td class="column-win">
-                    @item.WinOdd
-                </td>
-                <td class="column-place">
-                    @item.PlaceOdd
-                </td>
-                <td class="column-eventstatus">
-                    @item.Status
-                </td>
-            </tr>
 
                 }
-                else
-                {
-            <tr class="row-data @item.Color(index, "format-even", "format-odd")">
-                <td class="column-placeing">
-                    @item.Placing
-                </td>
-                <td class="column-engine-no">
-                    @item.HorseNo
-                </td>
-                <td class="column-result">
-                    @item.Result
-                </td>
-                <td class="column-win">
-                    @item.WinOdd
-                </td>
-                <td class="column-place">
-                    @item.PlaceOdd
-                </td>
-                <td class="column-eventstatus">
-                    @item.Status
-                </td>
-            </tr>
-                }
-
             }
+
         }
         else
         {
             <!--NoInfo-->
             <tr class="row-noinfo">
                 <td colspan="@colspan">
-                    @Model.Resource.NoInfo
+                    @viewModel.Resource.NoInfo
                 </td>
             </tr>
             <!--/NoInfo-->
         }
     </tbody>
 </table>
+@if (viewModel.VisibleFreeHeader)
+{
+    @Raw("</div>")
+}

@@ -46,8 +46,11 @@
                 IsOutRight = metalModel.IsOutRight.HasValue && metalModel.IsOutRight.Value > 0,
                 IsParlayPopUp = metalModel.Bettype == MixParlayBettype || metalModel.Bettype == SystemParlayBettype,
                 IsPopUp = true,
-                IsShowPopUpTitle = true,
-                LanguageCode = metalModel.LanguageCode
+                VisiblePopUpTitle = true,
+                LanguageCode = metalModel.LanguageCode,
+                VisibleMatchCodeIDColumn = true,
+                VisibleFreeHeader = true,
+                VisibleDetailedLink = true,
             };
             if (setting.IsParlayPopUp)
             {
@@ -144,7 +147,9 @@
                {
                    LicenseeID = licenseeId,
                    MatchID = metalModel.MatchId,
-                   UserID = userId
+                   UserID = userId,
+                   BetId = metalModel.BetId,
+                   Bettype = metalModel.Bettype
                });
 
                     if (data != null)

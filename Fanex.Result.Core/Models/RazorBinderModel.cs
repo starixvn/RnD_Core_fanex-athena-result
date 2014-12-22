@@ -7,33 +7,84 @@
 namespace Fanex.Result.Core.Models
 {
     using System.Collections.Generic;
-    using Fanex.Result.Core.DTO;
+    using Fanex.Result.Core.DataDomain;
+    using Fanex.Result.Core.ViewModels;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
     public class RazorBinderModel
     {
-        private List<object> _data = new List<object>();
+        private List<GroupData> _data = new List<GroupData>();
+
+        public List<GroupData> Data
+        {
+            get { return _data; }
+        }
 
         public LangResources Resource { get; set; }
 
-        public List<object> Data
+        public bool IsPopUp { get; set; }
+
+        public bool VisiblePopUpTitle { get; set; }
+
+        public SportType SportType { get; set; }
+
+        public bool VisibleMatchCodeIDColumn { get; set; }
+
+        public bool VisibleDetailedLink { get; set; }
+
+        public bool VisibleFreeHeader { get; set; }
+
+        public bool IsDetail { get; set; }
+
+        public bool VisibleMainResult
         {
             get
             {
-                return _data;
+                if (this.IsDetail || !IsPopUp)
+                {
+                    return true;
+                }
+
+                if (SportType == SportType.Tennis && this._data.Count == 1)
+                {
+                    foreach (TennisViewModel item in this._data[0].Data)
+                    {
+                        if (item.VisibleMatchResult)
+                        {
+                            return true;
+                        }
+                    }
+                }
+                else
+                {
+                    return true;
+                }
+
+                return false;
             }
         }
 
-        public bool Settlement { get; set; }
+        public bool VisibleDetailResult
+        {
+            get
+            {
+                var visible = false;
+                if (SportType == SportType.Tennis && this.IsPopUp && this._data.Count == 1)
+                {
+                    foreach (TennisViewModel item in this._data[0].Data)
+                    {
+                        if (item.VisibleGameDetail)
+                        {
+                            visible = true;
+                            break;
+                        }
+                    }
+                }
 
-        public bool IsPopUp { get; set; }
-
-        public bool IsParlay { get; set; }
-
-        public bool IsShowPopUpTitle { get; set; }
-
-        public SportType SportType { get; set; }
+                return this.IsDetail || visible;
+            }
+        }
     }
 }

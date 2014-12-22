@@ -8,8 +8,9 @@ namespace Fanex.Result.Core.ExcelModels
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using Fanex.Result.Core.DTO;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.Utilities;
     using Fanex.Result.Core.ViewModels;
@@ -18,31 +19,28 @@ namespace Fanex.Result.Core.ExcelModels
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public sealed class VSSpeedWayExcel : ExcelBase
+    internal sealed class VSSpeedWayExcel : ExcelBase, IExcelModel
     {
         #region Fields
 
         private const string FormatStatus = "Offical {0} {1}";
 
-        private IList<VSSpeedWayViewModel> _racingData;
-
         #endregion Fields
 
-        public VSSpeedWayExcel(string templatePath, string reporTitle, IList<VSSpeedWayViewModel> data, LangResources resource)
-            : base(templatePath, reporTitle, resource)
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        public VSSpeedWayExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data, LangResources resource)
+            : base(templatePath, setting, data, resource)
         {
-            this._racingData = data;
-            this.NumofRow = this._racingData.Count;
             this.ColumnTemplateCount = 6;
             this.ColumnStatus = 5;
             this.RowContentTemplate = 3;
         }
 
-        public override void AssignHeader(ISheet sheet)
+        protected override void AssignHeader(ISheet sheet)
         {
             var colidx = 3;
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
-            row.Cells[0].SetCellValue(Lang.Race);
+            row.Cells[ColumnRace].SetCellValue(Lang.Race);
             row.Cells[colidx++].SetCellValue(Lang.Results);
             row.Cells[colidx++].SetCellValue(Lang.Win);
             row.Cells[colidx].SetCellValue(Lang.Status);
@@ -52,19 +50,23 @@ namespace Fanex.Result.Core.ExcelModels
         /// Assign data to sheet.
         /// </summary>
         /// <param name="sheet">The current sheet.</param>
-        public override void AssignSheetData(ISheet sheet)
+        protected override void AssignSheetData(ISheet sheet)
         {
-            var currentRow = 2;
+            var currentRow = RowLeagueTemplate;
             var currentLeagueId = 0;
             var endRowSpan = 3;
-            foreach (var exportRow in this._racingData)
+            var groupData = this.ViewModelData.GroupBy(i => i.LeagueId);
+            foreach (var item in groupData)
             {
-                if (exportRow.Place > 4)
+                foreach (VSSpeedWayViewModel exportRow in item)
                 {
-                    continue;
-                }
+                    if (exportRow.Place > 4)
+                    {
+                        continue;
+                    }
 
-                SetMatch(sheet, exportRow, ref currentLeagueId, ref currentRow, ref endRowSpan);
+                    SetMatch(sheet, exportRow, ref currentLeagueId, ref currentRow, ref endRowSpan);
+                }
             }
         }
 
@@ -98,12 +100,13 @@ namespace Fanex.Result.Core.ExcelModels
 
                 // Calculate row span
                 var rowsTopRace =
-                this._racingData.Count(i => i.LeagueId == leagueId && i.EvenTime == currentRace && i.Place < 5);
+                this.ViewModelData.Where(i => i.LeagueId == leagueId)
+                .Select(i => (VSSpeedWayViewModel)i).Count(i => i.EvenTime == currentRace && i.Place < 5);
 
                 if (currentRow == 3 || endRowSpan < currentRow)
                 {
                     endRowSpan = currentRow + rowsTopRace - 1;
-                    MergeKickOffTimeCell(sheet, currentRow, endRowSpan, colSpanKichOffTime: ColumnIndex);
+                    MergeKickOffTimeCell(sheet, currentRow, endRowSpan, colSpanKichOffTime: ColumnRace);
                 }
             }
 

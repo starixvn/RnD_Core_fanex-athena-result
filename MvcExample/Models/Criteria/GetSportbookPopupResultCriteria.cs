@@ -14,6 +14,10 @@ namespace MvcExample.Models.Criteria
 
         public string RaceNo { get; set; }
 
+        public int Bettype { get; set; }
+
+        public int BetId { get; set; }
+
         public override string GetSettingKey()
         {
             return "Lrf_BetList_SelMatchResult";

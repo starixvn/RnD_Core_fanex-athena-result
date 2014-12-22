@@ -8,17 +8,17 @@ namespace Fanex.Result.Core.ViewModels
 {
     using System;
     using System.Globalization;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.DTO;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public sealed class BaseBallViewModel : SportbookBaseViewModel
+    public sealed class BaseBallViewModel : SportsbookBaseViewModel, IResultViewModel
     {
-        public BaseBallViewModel(Sportbook sportbook, SportType sport, string languageCode, LangResources resource)
-            : base(sportbook, sport, languageCode, resource)
+        public BaseBallViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resource)
+            : base(sportbook, setting, resource)
         {
-            this.GetHomeAwaySet(0, true);
         }
 
         public string EIAway
@@ -26,7 +26,7 @@ namespace Fanex.Result.Core.ViewModels
             get
             {
                 var temp = Convert.ToInt32(this.GetHomeAwaySet(9, false));
-                return temp >= 0 ? temp.ToString(CultureInfo.InvariantCulture) : StringResources.EMPTYSCORE;
+                return temp >= 0 ? temp.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }
 
@@ -35,7 +35,7 @@ namespace Fanex.Result.Core.ViewModels
             get
             {
                 var temp = Convert.ToInt32(this.GetHomeAwaySet(9, true));
-                return temp >= 0 ? temp.ToString(CultureInfo.InvariantCulture) : StringResources.EMPTYSCORE;
+                return temp >= 0 ? temp.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }
 
@@ -45,7 +45,7 @@ namespace Fanex.Result.Core.ViewModels
             {
                 return this.SPORTBOOK.HtAwayScore.HasValue ?
                     this.SPORTBOOK.HtAwayScore.Value.ToString(CultureInfo.InvariantCulture)
-                    : string.Empty;
+                    : StringResources.HYPHEN;
             }
         }
 
@@ -53,7 +53,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.SPORTBOOK.HtHomeScore.HasValue ? this.SPORTBOOK.HtHomeScore.Value.ToString(CultureInfo.InvariantCulture) : string.Empty;
+                return this.SPORTBOOK.HtHomeScore.HasValue ? this.SPORTBOOK.HtHomeScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }
 
@@ -63,7 +63,7 @@ namespace Fanex.Result.Core.ViewModels
             {
                 return this.SPORTBOOK.FinalAwayScore.HasValue ?
                     this.SPORTBOOK.FinalAwayScore.Value.ToString(CultureInfo.InvariantCulture)
-                    : string.Empty;
+                    : StringResources.HYPHEN;
             }
         }
 
@@ -73,7 +73,7 @@ namespace Fanex.Result.Core.ViewModels
             {
                 return this.SPORTBOOK.FinalHomeScore.HasValue ?
                     this.SPORTBOOK.FinalHomeScore.Value.ToString(CultureInfo.InvariantCulture)
-                    : string.Empty;
+                    : StringResources.HYPHEN;
             }
         }
 
@@ -84,18 +84,26 @@ namespace Fanex.Result.Core.ViewModels
         /// <param name="index">The index of home or away array.</param>
         /// <param name="isHome">True if you want to get value of home set.</param>
         /// <returns>The string value.</returns>
-        public string GetHomeAwaySet(int index, bool isHome)
+        public override string GetHomeAwaySet(int index, bool isHome)
         {
             if (index > 9)
             {
-                return StringResources.EMPTYSCORE;
+                return StringResources.HYPHEN;
             }
 
             if (this.HomeSet == null || this.AwaySet == null)
             {
-                this.HomeSet = new[] { "-", "-", "-", "-", "-", "-", "-", "-", "-", "-1" };
-                this.AwaySet = new[] { "-", "-", "-", "-", "-", "-", "-", "-", "-", "-1" };
-                if (this.SPORTBOOK.BetStatus.IndexOf(",", StringComparison.Ordinal) >= 0)
+                this.HomeSet = new string[10];
+                this.AwaySet = new string[10];
+                for (int j = 0; j < 9; j++)
+                {
+                    this.HomeSet[j] = StringResources.HYPHEN;
+                    this.AwaySet[j] = StringResources.HYPHEN;
+                }
+
+                this.HomeSet[9] = this.AwaySet[9] = "-1";
+
+                if (this.HasResult)
                 {
                     string[] betStatusList = this.GetCoreInfoFromBetStatus.Split(',');
                     for (int j = 0; j < betStatusList.Length && j < 10; j++)

@@ -9,6 +9,7 @@ namespace Fanex.Result.Core.ViewModels
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.Models;
@@ -17,15 +18,24 @@ namespace Fanex.Result.Core.ViewModels
     /// <summary>
     /// Parlay view model class.
     /// </summary>
-    public sealed class ParlayViewModel : BaseViewModel
+    public sealed class ParlayViewModel : BaseViewModel, IResultViewModel
     {
         private readonly Parlay _parlay;
+        private readonly ResultSetting _sportSetting;
+        private IList<IResultViewModel> _viewModelData = null;
 
-        public ParlayViewModel(Parlay parlay, string languageCode, LangResources resource)
+        public ParlayViewModel(Parlay parlay, ResultSetting setting, LangResources resource)
+            : base(setting, resource)
         {
             this._parlay = parlay;
-            this.LanguageCode = languageCode;
-            this.Lang = resource;
+            this.LanguageCode = setting.LanguageCode;
+            this._sportSetting = new ResultSetting
+            {
+                IsPopUp = true,
+                LanguageCode = this.LanguageCode,
+                SportType = (SportType)this._parlay.SportId,
+                DateTimeFormat = this.DateTimeFormat,
+            };
         }
 
         [SuppressMessage("Microsoft.Naming", "CA1721:PropertyNamesShouldNotMatchGetMethods", Justification = "Reviewed")]
@@ -45,6 +55,14 @@ namespace Fanex.Result.Core.ViewModels
             }
         }
 
+        public override int LeagueId
+        {
+            get
+            {
+                return this._parlay.LeagueId;
+            }
+        }
+
         public int SportId
         {
             get
@@ -53,21 +71,90 @@ namespace Fanex.Result.Core.ViewModels
             }
         }
 
-        public IList<object> ItemView
+        public IList<IResultViewModel> ItemView
         {
             get
             {
-                return this._parlay.Sportbook.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(
-                    i, (SportType)this._parlay.SportId, this.LanguageCode, Lang)).ToList();
+                if (_viewModelData == null)
+                {
+                    CreateItemViewModel();
+                }
+
+                return _viewModelData;
             }
         }
 
+        public IList<IResultViewModel> TennisMatchItemView
+        {
+            get
+            {
+                if (_viewModelData == null)
+                {
+                    CreateItemViewModel();
+                }
+
+                var result = new List<IResultViewModel>();
+                foreach (TennisViewModel item in this._viewModelData)
+                {
+                    if (item.VisibleMatchResult)
+                    {
+                        result.Add(item);
+                    }
+                }
+
+                return result;
+            }
+        }
+
+        public IList<IResultViewModel> TennisGameDetailItemView
+        {
+            get
+            {
+                if (_viewModelData == null)
+                {
+                    CreateItemViewModel();
+                }
+
+                var result = new List<IResultViewModel>();
+                foreach (TennisViewModel item in this._viewModelData)
+                {
+                    if (item.VisibleGameDetail)
+                    {
+                        result.Add(item);
+                    }
+                }
+
+                return result;
+            }
+        }
+
+        /// <summary>
+        /// Render result by sport.
+        /// </summary>
+        /// <param name="model">The result model.</param>
+        /// <returns>The sport  result.</returns>
         public string Render(RazorBinderModel model)
         {
+            if (this._parlay.SportId == 0)
+            {
+                return string.Empty;
+            }
+
             var sportType = (SportType)this._parlay.SportId;
             var template = Template.Instance.GetRazorTemplate(sportType.StringMe());
+            if (string.IsNullOrEmpty(template))
+            {
+                return string.Empty;
+            }
+
             Razor.GetTemplate(template, sportType.StringMe());
             return Razor.Run(sportType.StringMe(), model);
+        }
+
+        private void CreateItemViewModel()
+        {
+            _viewModelData = this._parlay.Sportbook.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(
+                i, _sportSetting, Lang)).ToList();
         }
     }
 }

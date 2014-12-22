@@ -27,7 +27,7 @@ var normalReport = (function () {
     var renderLeague = function (sportId, date) {
         invokeLoadingMsg(true);
         $.getJSON(window.rootUrl + "normalreport/GetLeagues?EventDate=" + date + "&sporttype=" + sportId + "&isShowAll=true", function (data) {
-            var options = "";
+            var options = "<option value=\"0\">All</option>";
             if (data !== undefined && data !== null && data.length > 0) {
                 if (data !== undefined && data !== null && data.length > 0) {
                     for (var i = 0; i < data.length; i++) {
@@ -67,7 +67,8 @@ var normalReport = (function () {
                 date: $.datepicker.formatDate('mm/dd/yy', $("#date").datepicker('getDate')),
                 sportId: $("#sport").val(),
                 leagueId: $("#league").val(),
-                languageCode: $("#language").val()
+                languageCode: $("#language").val(),
+                showmatchcode: $("#showmatchcode").is(":checked")
             };
             $.ajax({
                 url: window.rootUrl + "normalreport/GenHtml",
@@ -95,6 +96,7 @@ var normalReport = (function () {
             url += "&sportId=" + $("#sport").val();
             url += "&leagueId=" + $("#league").val();
             url += "&languageCode=" + $("#language").val();
+            url += "&showmatchcode=" + $("#showmatchcode").is(":checked");
             window.open(url, "_blank");
         });
         $("#gen-json").click(function () {
@@ -103,7 +105,8 @@ var normalReport = (function () {
                 date: $.datepicker.formatDate('mm/dd/yy', $("#date").datepicker('getDate')),
                 sportId: $("#sport").val(),
                 leagueId: $("#league").val(),
-                languageCode: $("#language").val()
+                languageCode: $("#language").val(),
+                showmatchcode: $("#showmatchcode").is(":checked")
             };
             $.ajax({
                 url: window.rootUrl + "normalreport/GenJson",
@@ -118,6 +121,30 @@ var normalReport = (function () {
                 success: function (data) {
                     var nodeJson = JsonHuman.format(JSON.parse(data));
                     $("#report-content").html(nodeJson);
+                    invokeLoadingMsg(false);
+                },
+                error: function () {
+                    invokeLoadingMsg(false);
+                    alert("Error requesting page");
+                }
+            });
+        });
+        $("body").on("click", ".tennis-detail-link", function () {
+            var detailPopUp = $("#game-detail");
+            $.ajax({
+                url: window.rootUrl + "normalreport/GenHtmlTennisDetail?matchid="
+                 + $(this).attr("data-match-id")+"&languageCode="+$("#language").val()
+                 +"&showmatchcode=" + $("#showmatchcode").is(":checked"),
+                datatype: "html",
+                type: "GET",
+                contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+                cache: false,
+                beforeSend: function () {
+                    invokeLoadingMsg(true);
+                },
+                success: function (data) {
+                    detailPopUp.html(data);
+                    detailPopUp.dialog({ width: "750px" });
                     invokeLoadingMsg(false);
                 },
                 error: function () {

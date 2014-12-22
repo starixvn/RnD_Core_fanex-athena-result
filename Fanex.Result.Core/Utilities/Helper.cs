@@ -9,6 +9,7 @@ namespace Fanex.Result.Core.Utilities
     using System;
     using System.Globalization;
     using System.Text.RegularExpressions;
+    using Fanex.Result.Core.DataDomain;
 
     /// <summary>
     /// TODO: Update summary.
@@ -16,25 +17,25 @@ namespace Fanex.Result.Core.Utilities
     internal static class Helper
     {
         private static readonly CultureInfo Cult = new CultureInfo("en-US");
+        private static Regex setXGameYRegex = new Regex("^80[1-5]{1}\\d{2}$");
 
-        public static string FullDateFormat2Ln(object obj)
+        private static Regex[] setXRGameYResourceID = new Regex[5]
+        {
+            new Regex("^01\\d{2}$"),
+            new Regex("^02\\d{2}$"),
+            new Regex("^03\\d{2}$"),
+            new Regex("^04\\d{2}$"),
+            new Regex("^05\\d{2}$")
+        };
+
+        public static string FullDateFormat(object obj, string formatPattern)
         {
             if (Convert.IsDBNull(obj) || obj == null)
             {
                 return string.Empty;
             }
 
-            return string.Format(Cult, "{0:MM/dd/yyyy<br/>hh:mm:ss tt}", obj);
-        }
-
-        public static string FullDateFormat(object obj)
-        {
-            if (Convert.IsDBNull(obj) || obj == null)
-            {
-                return string.Empty;
-            }
-
-            return string.Format(Cult, "{0:MM/dd/yyyy hh:mm:ss tt}", obj);
+            return string.Format(Cult, formatPattern, obj);
         }
 
         public static string RemoveWhiteSpace(string html)
@@ -54,18 +55,38 @@ namespace Fanex.Result.Core.Utilities
 
         public static string FormatTwoDigit(int number)
         {
-            return number < 10 ? "0" + number : number.ToString(CultureInfo.InvariantCulture);
+            return number < 10 ? StringResources.ZERO + number : number.ToString(CultureInfo.InvariantCulture);
         }
 
         public static string ToRtfString(string html)
         {
-            return html.Replace("<br/>", "\n").Replace("<b>", string.Empty).Replace("</b>", string.Empty);
+            return html.Replace("<br />", "\n").Replace("<br/>", "\n").Replace("<b>", string.Empty).Replace("</b>", string.Empty);
         }
 
         public static bool IsIntegerNumber(string inputvalue)
         {
+            if (string.IsNullOrEmpty(inputvalue))
+            {
+                return false;
+            }
+
             Regex isnumber = new Regex("[^0-9]");
             return !isnumber.IsMatch(inputvalue);
+        }
+
+        public static bool IsSetXGameYBetID(string betID)
+        {
+            if (string.IsNullOrEmpty(betID))
+            {
+                return false;
+            }
+
+            return setXGameYRegex.IsMatch(betID);
+        }
+
+        public static bool IsTennisGameResourceID(int sexIndex, string resourceId)
+        {
+            return setXRGameYResourceID[sexIndex - 1].IsMatch(resourceId);
         }
     }
 }

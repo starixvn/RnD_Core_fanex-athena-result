@@ -2,7 +2,7 @@
 
 namespace Fanex.Result.Core.UnitTest.Models
 {
-    using Fanex.Result.Core.DTO;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.Models;
     using NUnit.Framework;
 
@@ -43,7 +43,7 @@ namespace Fanex.Result.Core.UnitTest.Models
         public void ValidateNormal_NotExistSportType_ReturnFalse()
         {
             // Arrange
-            var dtoName = DataDomain.SPORTBOOK;
+            var dtoName = DTOType.SPORTSBOOK;
             var sportType = (SportType)(-1);
 
             var result = Validate.Instance.ValidateNormal(dtoName, sportType);
@@ -56,7 +56,7 @@ namespace Fanex.Result.Core.UnitTest.Models
         /// </summary>
         /// <param name="dtoName">The DTO name.</param>
         /// <param name="expected">Expected data.</param>
-        [TestCase(DataDomain.LIVECASINO, true)]
+        [TestCase(DTOType.LIVECASINO, true)]
         [TestCase("WrongDTO_LiveCasino", false)]
         public void ValidateNormal_SportTypeIsLiveCasino_CheckDTOName(string dtoName, bool expected)
         {
@@ -72,7 +72,7 @@ namespace Fanex.Result.Core.UnitTest.Models
         /// </summary>
         /// <param name="dtoName">The DTO name.</param>
         /// <param name="expected">Expected data.</param>
-        [TestCase(DataDomain.NUMBERGAME, true)]
+        [TestCase(DTOType.NUMBERGAME, true)]
         [TestCase("WrongDTO_NumberGame", false)]
         public void ValidateNormal_SportTypeIsNumberGame_CheckDTOName(string dtoName, bool expected)
         {
@@ -88,7 +88,7 @@ namespace Fanex.Result.Core.UnitTest.Models
         /// </summary>
         /// <param name="dtoName">The DTO name.</param>
         /// <param name="expected">Expected data.</param>
-        [TestCase(DataDomain.RACING, true)]
+        [TestCase(DTOType.RACING, true)]
         [TestCase("WrongDTO_Racing", false)]
         public void ValidateNormal_SportTypeIsHorseRacing_CheckDTOName(string dtoName, bool expected)
         {
@@ -104,7 +104,7 @@ namespace Fanex.Result.Core.UnitTest.Models
         /// </summary>
         /// <param name="dtoName">The DTO name.</param>
         /// <param name="expected">Expected data.</param>
-        [TestCase(DataDomain.SPORTBOOK, true)]
+        [TestCase(DTOType.SPORTSBOOK, true)]
         [TestCase("WrongDTO_Sportsbook", false)]
         public void ValidateNormal_SportTypeIsSportsbook_CheckDTOName(string dtoName, bool expected)
         {

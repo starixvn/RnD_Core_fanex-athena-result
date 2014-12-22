@@ -28,7 +28,9 @@ namespace MvcExample.Models
 
         IEnumerable<LiveCasino> GetLiveCasinoResult(GetLiveCasinoResultCriteria criteria);
 
-        IEnumerable<Sportbook> GetSportbookResult(GetSportbookResultCriteria criteria);
+        IEnumerable<Sportsbook> GetSportbookResult(GetSportbookResultCriteria criteria);
+
+        Sportsbook GetGameDetail(int matchId);
 
         #endregion normal-report
 
@@ -40,15 +42,20 @@ namespace MvcExample.Models
 
         IEnumerable<LiveCasino> GetLiveCasinoPopupResult(GetLiveCasinoPopupResultCriteria criteria);
 
-        IEnumerable<Sportbook> GetSportbookPopupResult(GetSportbookPopupResultCriteria criteria);
+        IEnumerable<Sportsbook> GetSportbookPopupResult(GetSportbookPopupResultCriteria criteria);
 
         #endregion PopUp
+
         #region Parlay
+
         IEnumerable<Parlay> GetParlayResult(GetParlayResultCriteria criteria);
 
-        #endregion
+        #endregion Parlay
+
         #region OutRight
+
         IEnumerable<OutRight> GetOutRightResult(GetOutRightResult criteria);
-        #endregion
+
+        #endregion OutRight
     }
 }

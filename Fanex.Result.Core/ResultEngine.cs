@@ -6,9 +6,11 @@
 namespace Fanex.Result.Core
 {
     using System.Collections.Generic;
-    using System.Globalization;
     using System.IO;
+    using Fanex.Result.Core.DataDomain;
+    using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.Exception;
+    using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.Models;
 
     /// <summary>
@@ -16,10 +18,6 @@ namespace Fanex.Result.Core
     /// </summary>
     public static class ResultEngine
     {
-        private const string EXCELTEMPLATEPATH = "App_Data/Fanex.Result/";
-        private const string ARGUEMENTMES = "Sport Type is invalid or DTO ({0}) doesn't match with sportType";
-        private const string ARGUEMENTMESOUTRIGHT = "DTO ({0}) is invalid";
-
         private static IBuilder _builder;
 
         static ResultEngine()
@@ -41,45 +39,66 @@ namespace Fanex.Result.Core
         /// <returns>The html string.</returns>
         public static string HtmlParser<T>(IList<T> dataList, ResultSetting setting)
         {
-            if (setting == null || dataList == null)
-            {
-                throw new ObjectNullException("The data is null or setting is null");
-            }
-
-            if (string.IsNullOrEmpty(setting.LanguageCode))
-            {
-                setting.LanguageCode = CultureInfo.CurrentUICulture.Name;
-            }
-
-            if (string.IsNullOrEmpty(setting.ExcelTemplatePath))
-            {
-                setting.ExcelTemplatePath = EXCELTEMPLATEPATH;
-            }
+            ReCheckSetting<T>(dataList, setting);
 
             var dtoName = typeof(T).Name;
-            var builder = new Builder();
             if (setting.IsOutRight && !setting.IsPopUp)
             {
-                return HtmlOutRightParser<T>(dataList, setting, dtoName, builder);
+                return HtmlOutRightParser<T>(dataList, setting, dtoName);
             }
 
             if (setting.IsParlayPopUp)
             {
-                return HtmlParlayParser<T>(dataList, setting, dtoName, builder);
+                return HtmlParlayParser<T>(dataList, setting, dtoName);
             }
 
             if (setting.IsPopUp)
             {
-                return HtmlPopUpParser<T>(dataList, setting, dtoName, builder);
+                return HtmlPopUpParser<T>(dataList, setting, dtoName);
             }
 
             if (!Validate.Instance.ValidateNormal(dtoName, setting.SportType))
             {
-                throw new ObjectNullException(string.Format(ARGUEMENTMES, dtoName));
+                throw new ObjectUnSupportedException(string.Format(ResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
             }
 
             return Utilities.Helper.RemoveWhiteSpace(
-                builder.HtmlBuilder(dataList, setting));
+                _builder.HtmlBuilder(dataList, setting));
+        }
+
+        /// <summary>
+        /// Render detail result by sport.
+        /// </summary>
+        /// <param name="data">The SPORTSBOOK data.</param>
+        /// <param name="setting">The result setting.</param>
+        /// <returns>The html result.</returns>
+        public static string HtmlGameDetailParser(Sportsbook data, ResultSetting setting)
+        {
+            if (setting.SportType != SportType.Tennis)
+            {
+                throw new ObjectUnSupportedException(string.Format(ResourceConfig.UNSUPPORTSPORTTYPEARGUEMENTMES, setting.SportType.StringMe()));
+            }
+
+            if (data == null || data.GameDetails.Count == 0)
+            {
+                throw new ObjectNullException("The data is null or detailed data is null");
+            }
+
+            if (string.IsNullOrEmpty(setting.LanguageCode))
+            {
+                setting.LanguageCode = ResourceConfig.ENGLISHLANGCODE;
+            }
+            else if (!Validate.Instance.ValidateResource(setting.LanguageCode))
+            {
+                throw new ObjectUnSupportedException(string.Format(ResourceConfig.LANGUAGEARGUEMENTMES, setting.LanguageCode));
+            }
+
+            if (string.IsNullOrEmpty(setting.ResourcePath))
+            {
+                setting.ResourcePath = System.AppDomain.CurrentDomain.BaseDirectory + ResourceConfig.RESOURCEPATH;
+            }
+
+            return _builder.HtmlGameDetailBuilder(data, setting);
         }
 
         /// <summary>
@@ -91,20 +110,7 @@ namespace Fanex.Result.Core
         /// <returns>The JSON string.</returns>
         public static string JsonParser<T>(IList<T> dataList, ResultSetting setting)
         {
-            if (setting == null || dataList == null)
-            {
-                throw new ObjectNullException("The data is null or setting is null");
-            }
-
-            if (string.IsNullOrEmpty(setting.LanguageCode))
-            {
-                setting.LanguageCode = CultureInfo.CurrentUICulture.Name;
-            }
-
-            if (string.IsNullOrEmpty(setting.ExcelTemplatePath))
-            {
-                setting.ExcelTemplatePath = EXCELTEMPLATEPATH;
-            }
+            ReCheckSetting<T>(dataList, setting);
 
             var dtoName = typeof(T).Name;
             var builder = new Builder();
@@ -112,28 +118,28 @@ namespace Fanex.Result.Core
             {
                 if (!Validate.Instance.ValidateOutRight(dtoName))
                 {
-                    throw new ObjectNullException(string.Format(ARGUEMENTMESOUTRIGHT, dtoName));
+                    throw new ObjectNullException(string.Format(ResourceConfig.ARGUEMENTMESOUTRIGHT, dtoName));
                 }
 
-                return builder.JSONOutRightBuilder(dataList, setting.LanguageCode);
+                return builder.JSONOutRightBuilder(dataList, setting);
             }
 
             if (setting.IsParlayPopUp)
             {
                 if (!Validate.Instance.ValidateParlay(dtoName))
                 {
-                    throw new ObjectNullException(string.Format(ARGUEMENTMES, dtoName));
+                    throw new ObjectNullException(string.Format(ResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
                 }
 
-                return builder.JSONParlayBuilder(dataList, setting.LanguageCode);
+                return builder.JSONParlayBuilder(dataList, setting);
             }
 
             if (!Validate.Instance.ValidateNormal(dtoName, setting.SportType))
             {
-                throw new ObjectNullException(string.Format(ARGUEMENTMES, dtoName));
+                throw new ObjectNullException(string.Format(ResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
             }
 
-            return builder.JSONSportTypeBuilder(dataList, setting.SportType, setting.LanguageCode);
+            return builder.JSONSportTypeBuilder(dataList, setting);
         }
 
         /// <summary>
@@ -145,30 +151,17 @@ namespace Fanex.Result.Core
         /// <returns>The memory stream.</returns>
         public static MemoryStream ExcelParser<T>(IList<T> dataList, ResultSetting setting)
         {
-            if (setting == null || dataList == null)
-            {
-                throw new ObjectNullException("The data is null or setting is null");
-            }
-
-            if (string.IsNullOrEmpty(setting.LanguageCode))
-            {
-                setting.LanguageCode = CultureInfo.CurrentUICulture.Name;
-            }
-
-            if (string.IsNullOrEmpty(setting.ExcelTemplatePath))
-            {
-                setting.ExcelTemplatePath = EXCELTEMPLATEPATH;
-            }
+            ReCheckSetting<T>(dataList, setting);
 
             var dtoName = typeof(T).Name;
             if (setting.IsOutRight)
             {
                 if (!Validate.Instance.ValidateOutRight(dtoName))
                 {
-                    throw new ObjectNullException(string.Format(ARGUEMENTMESOUTRIGHT, dtoName));
+                    throw new ObjectNullException(string.Format(ResourceConfig.ARGUEMENTMESOUTRIGHT, dtoName));
                 }
 
-                return _builder.OutRightExcelBuilder(dataList, setting.LanguageCode, setting.ExcelTemplatePath, setting.ExcelTitle);
+                return _builder.OutRightExcelBuilder(dataList, setting);
             }
 
             if (setting.IsPopUp || setting.IsParlayPopUp)
@@ -178,13 +171,46 @@ namespace Fanex.Result.Core
 
             if (!Validate.Instance.ValidateNormal(dtoName, setting.SportType))
             {
-                throw new ObjectNullException(string.Format(ARGUEMENTMES, dtoName));
+                throw new ObjectNullException(string.Format(ResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
             }
 
-            return _builder.ExcelBuilder(dataList, setting.SportType, setting.LanguageCode, setting.ExcelTemplatePath, setting.ExcelTitle);
+            return _builder.ExcelBuilder(dataList, setting);
         }
 
         #region HtmlParser-SubFunction
+
+        /// <summary>
+        /// Valid result setting and set default setting value.
+        /// </summary>
+        /// <typeparam name="T">The DTO type.</typeparam>
+        /// <param name="dataList">The data list.</param>
+        /// <param name="setting">The setting.</param>
+        private static void ReCheckSetting<T>(IList<T> dataList, ResultSetting setting)
+        {
+            if (setting == null || dataList == null)
+            {
+                throw new ObjectNullException("The data is null or setting is null");
+            }
+
+            if (string.IsNullOrEmpty(setting.LanguageCode))
+            {
+                setting.LanguageCode = ResourceConfig.ENGLISHLANGCODE;
+            }
+            else if (!Validate.Instance.ValidateResource(setting.LanguageCode))
+            {
+                throw new ObjectUnSupportedException(string.Format(ResourceConfig.LANGUAGEARGUEMENTMES, setting.LanguageCode));
+            }
+
+            if (string.IsNullOrEmpty(setting.ExcelTemplatePath))
+            {
+                setting.ExcelTemplatePath = System.AppDomain.CurrentDomain.BaseDirectory + ResourceConfig.EXCELTEMPLATEPATH;
+            }
+
+            if (string.IsNullOrEmpty(setting.ResourcePath))
+            {
+                setting.ResourcePath = System.AppDomain.CurrentDomain.BaseDirectory + ResourceConfig.RESOURCEPATH;
+            }
+        }
 
         /// <summary>
         /// Render html for popup page.
@@ -193,40 +219,39 @@ namespace Fanex.Result.Core
         /// <param name="dataList">The DTO list.</param>
         /// <param name="setting">The result setting.</param>
         /// <param name="dtoName">The DTO name.</param>
-        /// <param name="builder">The builder context.</param>
         /// <returns>The html string.</returns>
-        private static string HtmlPopUpParser<T>(IList<T> dataList, ResultSetting setting, string dtoName, Builder builder)
+        private static string HtmlPopUpParser<T>(IList<T> dataList, ResultSetting setting, string dtoName)
         {
             if (!Validate.Instance.ValidateNormal(dtoName, setting.SportType))
             {
-                throw new ObjectNullException(string.Format(ARGUEMENTMES, dtoName));
+                throw new ObjectNullException(string.Format(ResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
             }
 
             return
                 Utilities.Helper.RemoveWhiteSpace(
-                builder.PopUpHtmlBuilder(dataList, setting));
+                _builder.PopUpHtmlBuilder(dataList, setting));
         }
 
-        private static string HtmlParlayParser<T>(IList<T> dataList, ResultSetting setting, string dtoName, Builder builder)
+        private static string HtmlParlayParser<T>(IList<T> dataList, ResultSetting setting, string dtoName)
         {
             if (!Validate.Instance.ValidateParlay(dtoName))
             {
-                throw new ObjectNullException(string.Format(ARGUEMENTMES, dtoName));
+                throw new ObjectNullException(string.Format(ResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
             }
 
             return Utilities.Helper.RemoveWhiteSpace(
-                builder.PopUpParalyBuilder(dataList, setting));
+                _builder.PopUpParalyBuilder(dataList, setting));
         }
 
-        private static string HtmlOutRightParser<T>(IList<T> dataList, ResultSetting setting, string dtoName, Builder builder)
+        private static string HtmlOutRightParser<T>(IList<T> dataList, ResultSetting setting, string dtoName)
         {
             if (!Validate.Instance.ValidateOutRight(dtoName))
             {
-                throw new ObjectNullException(string.Format(ARGUEMENTMESOUTRIGHT, dtoName));
+                throw new ObjectNullException(string.Format(ResourceConfig.ARGUEMENTMESOUTRIGHT, dtoName));
             }
 
             return Utilities.Helper.RemoveWhiteSpace(
-                builder.OutRightHtmlBuilder(dataList, setting));
+                _builder.OutRightHtmlBuilder(dataList, setting));
         }
 
         #endregion HtmlParser-SubFunction

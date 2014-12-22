@@ -18,11 +18,10 @@ namespace Fanex.Result.Core.UnitTest.Models
     public class BuilderTest
     {
         private Builder _builder;
-        private Sportbook _sportsBookInfo = null;
-        private IList<Sportbook> _sportsbookList = new List<Sportbook>();
+        private Sportsbook _sportsBookInfo = null;
+        private IList<Sportsbook> _sportsbookList = new List<Sportsbook>();
         private IList<OutRight> _outrightList = new List<OutRight>();
         private IList<Parlay> _parlayList = new List<Parlay>();
-        private string _language = "en-US";
         private ResultSetting _setting = new ResultSetting();
         /// <summary>
         /// Setup data.
@@ -31,7 +30,7 @@ namespace Fanex.Result.Core.UnitTest.Models
         public void Setup()
         {
             _builder = new Builder();
-            _sportsBookInfo = new Sportbook
+            _sportsBookInfo = new Sportsbook
             {
                 AwayId = 1,
                 HomeId = 2,
@@ -50,7 +49,6 @@ namespace Fanex.Result.Core.UnitTest.Models
                 KickOffTime = DateTime.Now,
                 MatchCode = "01",
                 GoalRecord = string.Empty,
-                ResultValue = "6-1 *30-40 40-30* *40-0 40-0* *40-0 40-0* *40-0",
                 IsHTCal = true,
                 Calculate = true,
                 RefNo = "12"
@@ -87,7 +85,7 @@ namespace Fanex.Result.Core.UnitTest.Models
         public void HtmlBuilder_InputSportTypeAndLanguage_ReturnHtmlValue()
         {
 
-            var expected = _builder.HtmlBuilder<Sportbook>(_sportsbookList, _setting);
+            var expected = _builder.HtmlBuilder<Sportsbook>(_sportsbookList, _setting);
             Assert.IsNotNullOrEmpty(expected);
         }
 
@@ -98,7 +96,7 @@ namespace Fanex.Result.Core.UnitTest.Models
         public void PopUpHtmlBuilder_InputSportTypeLanguageAndOutrightIsFalse_ReturnHtmlValue()
         {
 
-            var expected = _builder.PopUpHtmlBuilder<Sportbook>(_sportsbookList, _setting);
+            var expected = _builder.PopUpHtmlBuilder<Sportsbook>(_sportsbookList, _setting);
             Assert.IsNotNullOrEmpty(expected);
         }
 
@@ -137,86 +135,8 @@ namespace Fanex.Result.Core.UnitTest.Models
 
         #endregion Html Builder
 
-        #region ExcelBuilder
 
-        /// <summary>
-        /// Testing for normal method export to excel.
-        /// </summary>
-        [Test]
-        public void ExcelBuilder_ReturnMemoryStream()
-        {
-            var sportType = SportType.Soccer;
-
-            IExcelParser excelParser = new ExcelParserStub();
-            var excelBuilder = new Builder(excelParser);
-
-            var result = excelBuilder.ExcelBuilder(_sportsbookList, sportType, _language, string.Empty, string.Empty);
-
-            Assert.IsInstanceOf<MemoryStream>(result);
-        }
-
-        /// <summary>
-        /// Testing for Outright method export to Excel.
-        /// </summary>
-        [Test]
-        public void OutRightExcelBuilder_ReturnMemoryStream()
-        {
-            IExcelParser excelParser = new ExcelParserStub();
-            var excelBuilder = new Builder(excelParser);
-
-            var result = excelBuilder.OutRightExcelBuilder(_outrightList, _language, string.Empty, string.Empty);
-
-            Assert.IsInstanceOf<MemoryStream>(result);
-        }
-
-        #endregion ExcelBuilder
-
-        #region JsonBuilder
-
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly")]
-        /// <summary>
-        /// Testing for normal method to render JSON result.
-        /// </summary>
-        [Test]
-        public void JSONSportTypeBuilder_ReturnString()
-        {
-            var sportType = SportType.Soccer;
-            var excelBuilder = new Builder();
-
-            var result = excelBuilder.JSONSportTypeBuilder(_sportsbookList, sportType, _language);
-
-            Assert.IsNotNullOrEmpty(result);
-        }
-
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly")]
-        /// <summary>
-        /// Testing for Parlay method to render JSON result.
-        /// </summary>
-        [Test]
-        public void JSONParlayBuilder_ReturnString()
-        {
-            var excelBuilder = new Builder();
-
-            var result = excelBuilder.JSONParlayBuilder(_parlayList, _language);
-
-            Assert.IsNotNullOrEmpty(result);
-        }
-
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly")]
-        /// <summary>
-        /// Testing for Outright method to render JSON result.
-        /// </summary>
-        [Test]
-        public void JSONOutRightBuilder_ReturnString()
-        {
-            var excelBuilder = new Builder();
-
-            var result = excelBuilder.JSONOutRightBuilder(_outrightList, _language);
-
-            Assert.IsNotNullOrEmpty(result);
-        }
-
-        #endregion JsonBuilder
+        
 
         [TearDown]
         public void Teardown()

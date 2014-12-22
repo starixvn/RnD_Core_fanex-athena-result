@@ -7,8 +7,9 @@
 namespace Fanex.Result.Core.ExcelModels
 {
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using Fanex.Result.Core.DTO;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.ViewModels;
     using NPOI.SS.UserModel;
@@ -16,31 +17,28 @@ namespace Fanex.Result.Core.ExcelModels
     /// <summary>
     /// Racing excel model class.
     /// </summary>
-    internal sealed class RacingExcel : ExcelBase
+    internal sealed class RacingExcel : ExcelBase, IExcelModel
     {
         #region Fields
 
         private const string FormatStatus = "Offical {0} {1}";
 
-        private IList<RacingViewModel> _racingData;
-
         #endregion Fields
 
-        public RacingExcel(string templatePath, string reporTitle, IList<RacingViewModel> data, LangResources resource)
-            : base(templatePath, reporTitle, resource)
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
+        public RacingExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data, LangResources resource)
+            : base(templatePath, setting, data, resource)
         {
-            this._racingData = data;
-            this.NumofRow = this._racingData.Count;
             this.ColumnTemplateCount = 7;
             this.ColumnStatus = 6;
             this.RowContentTemplate = 3;
         }
 
-        public override void AssignHeader(ISheet sheet)
+        protected override void AssignHeader(ISheet sheet)
         {
             var colidx = 3;
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
-            row.Cells[0].SetCellValue(Lang.Race);
+            row.Cells[ColumnRace].SetCellValue(Lang.Race);
             row.Cells[colidx++].SetCellValue(Lang.Results);
             row.Cells[colidx++].SetCellValue(Lang.Win);
             row.Cells[colidx++].SetCellValue(Lang.Place);
@@ -51,20 +49,31 @@ namespace Fanex.Result.Core.ExcelModels
         /// Assign data to sheet.
         /// </summary>
         /// <param name="sheet">The current sheet.</param>
-        public override void AssignSheetData(ISheet sheet)
+        protected override void AssignSheetData(ISheet sheet)
         {
             var currentRow = 2;
             var currentLeagueId = 0;
             var endRowSpan = 3;
-            foreach (var exportRow in this._racingData)
+            var groupData = this.ViewModelData.GroupBy(i => i.LeagueId);
+            foreach (var item in groupData)
             {
-                if (exportRow.Place > 4)
+                foreach (RacingViewModel exportRow in item)
                 {
-                    continue;
-                }
+                    if (exportRow.Place > 4)
+                    {
+                        continue;
+                    }
 
-                SetMatch(sheet, exportRow, ref currentLeagueId, ref currentRow, ref endRowSpan);
+                    SetMatch(sheet, exportRow, ref currentLeagueId, ref currentRow, ref endRowSpan);
+                }
             }
+        }
+
+        protected override void ProcessUI(ISheet sheet)
+        {
+            /*
+             * Void processing UI
+             */
         }
 
         #region Assign Cell Data
@@ -90,13 +99,14 @@ namespace Fanex.Result.Core.ExcelModels
                 currentRace = exportRow.RaceName;
 
                 // Calculate row span
-                var rowsTopRace =
-                this._racingData.Count(i => i.LeagueId == leagueId && i.RaceName.Equals(currentRace) && i.Place < 5);
+                var rowsTopRace = this.ViewModelData.Where(i => i.LeagueId == leagueId)
+                    .Select(i => (RacingViewModel)i)
+                    .Count(i => i.RaceName.Equals(currentRace) && i.Place < 5);
 
                 if (currentRow == 3 || endRowSpan < currentRow)
                 {
                     endRowSpan = currentRow + rowsTopRace - 1;
-                    MergeResultCells(sheet, currentRow, endRowSpan, ColumnIndex, this.ColumnStatus);
+                    MergeResultCells(sheet, currentRow, endRowSpan, ColumnRace, this.ColumnStatus);
                 }
 
                 status = string.Format(

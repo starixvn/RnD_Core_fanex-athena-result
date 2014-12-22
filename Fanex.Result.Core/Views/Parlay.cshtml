@@ -1,32 +1,84 @@
 ﻿@{
-    var lang = (Fanex.Result.Core.DTO.LangResources)Model.Resource;
+    var viewModel = (Fanex.Result.Core.Models.RazorBinderModel)Model;
+
+    var lang = (Fanex.Result.Core.DataDomain.LangResources)viewModel.Resource;
+
 }
-@if (Model.Data.Count > 0)
-{ 
-    <table class="fanex-result-popup" cellpadding="0" cellspacing="0">
-        @foreach (var itemObj in Model.Data)
+@using Fanex.Result.Core.ViewModels;
+@using Fanex.Result.Core.Models;
+@if (viewModel != null && viewModel.Data.Count > 0)
+{
+    <table class="fn-rs-popup parlay">
+        @foreach (var group in viewModel.Data)
         {
-            var item = (Fanex.Result.Core.ViewModels.ParlayViewModel)itemObj;
+            var firstItem = group.Data[0];
             <tr>
                 <td class="sporttype">
-                    <strong><span class="bl-sport-type">@item.SportName &nbsp;- </span></strong><span
-                        class="bl-league-name">@item.LeagueName</span>
+                    <strong><span class="bl-sport-type">@firstItem.SportName &nbsp;- </span></strong>
+                    <span class="bl-league-name">@firstItem.LeagueName</span>
                 </td>
             </tr>
+            foreach (ParlayViewModel item in group.Data)
+            {
             <tr>
                 <td>
                     @{
-            var bindModle = new Fanex.Result.Core.Models.RazorBinderModel
-            {
-                Resource = lang,
-                IsPopUp = true,
-                IsParlay = true,
-            };
-            bindModle.Data.AddRange(item.ItemView);
+                var sportType = (Fanex.Result.Core.SportType)item.SportId;
+
+                var bindModle = new Fanex.Result.Core.Models.RazorBinderModel
+                {
+                    Resource = lang,
+                    IsPopUp = true,
+                    VisibleMatchCodeIDColumn = viewModel.VisibleMatchCodeIDColumn,
+                    SportType = sportType
+
+                };
+                var matchItemViews = sportType == Fanex.Result.Core.SportType.Tennis ? item.TennisMatchItemView : item.ItemView;
+
+                var itemData = new List<GroupData>()
+                {
+                    new GroupData
+                    {
+                        LeagueId = group.LeagueId,
+                        Data =matchItemViews
                     }
-                    @Raw(item.Render(bindModle))
+                };
+                    }
+                    @if (sportType != Fanex.Result.Core.SportType.Tennis || matchItemViews.Count > 0)
+                    {
+                        bindModle.Data.AddRange(itemData);
+                        @Raw(item.Render(bindModle))
+                    }
+                    @if (sportType == Fanex.Result.Core.SportType.Tennis)
+                    {
+                        var gameItemViews = item.TennisGameDetailItemView;
+                        foreach (var gameItemView in gameItemViews)
+                        {
+                            var detailData = new List<GroupData>()
+                                {
+                                    new GroupData
+                                    {
+                                        LeagueId=group.LeagueId,
+                                        Data = new List<IResultViewModel>(){gameItemView}
+                                    }
+                                };
+                            var detailBindModel = new Fanex.Result.Core.Models.RazorBinderModel
+                              {
+                                  Resource = lang,
+                                  IsPopUp = true,
+                                  VisibleMatchCodeIDColumn = viewModel.VisibleMatchCodeIDColumn,
+                                  SportType = sportType,
+
+                              };
+                            detailBindModel.Data.AddRange(detailData);
+                        <br />
+                        @Raw(item.Render(detailBindModel))
+                        }
+
+                    }
                 </td>
             </tr>
+            }
         }
     </table>
 }

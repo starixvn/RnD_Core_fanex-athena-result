@@ -1,0 +1,27 @@
+﻿// -----------------------------------------------------------------------
+// <copyright file="ObjectUnSupportedException.cs" company="Nexcel">
+// TODO: Update copyright text.
+// </copyright>
+// -----------------------------------------------------------------------
+
+namespace Fanex.Result.Core.Exception
+{
+    using System;
+
+    /// <summary>
+    /// TODO: Update summary.
+    /// </summary>
+    [Serializable]
+    public class ObjectUnSupportedException : System.Exception
+    {
+        public ObjectUnSupportedException(string message)
+            : base(message)
+        {
+        }
+
+        public override void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
+        {
+            base.GetObjectData(info, context);
+        }
+    }
+}

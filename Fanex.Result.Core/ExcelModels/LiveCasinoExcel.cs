@@ -7,7 +7,9 @@
 namespace Fanex.Result.Core.ExcelModels
 {
     using System.Collections.Generic;
-    using Fanex.Result.Core.DTO;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.Utilities;
     using Fanex.Result.Core.ViewModels;
@@ -16,28 +18,26 @@ namespace Fanex.Result.Core.ExcelModels
     /// <summary>
     /// Live casino excel model class.
     /// </summary>
-    internal sealed class LiveCasinoExcel : ExcelBase
+    internal sealed class LiveCasinoExcel : ExcelBase, IExcelModel
     {
-        private IList<LiveCasinoViewModel> _liveCasinoData;
-
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         public LiveCasinoExcel(
             string templatePath,
-            string reporTitle,
-            IList<LiveCasinoViewModel> data,
+            ResultSetting setting,
+            IList<IResultViewModel> data,
             LangResources resource)
-            : base(templatePath, reporTitle, resource)
+            : base(templatePath, setting, data, resource)
         {
-            this._liveCasinoData = data;
-            this.NumofRow = this._liveCasinoData.Count;
-            this.ColumnTemplateCount = 5;
-            this.ColumnStatus = 4;
+            this.ColumnTemplateCount = 6;
+            this.ColumnStatus = 5;
             this.RowContentTemplate = 3;
         }
 
-        public override void AssignHeader(ISheet sheet)
+        protected override void AssignHeader(ISheet sheet)
         {
             var colidx = 0;
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
+            row.Cells[colidx++].SetCellValue(Lang.MatchCode);
             row.Cells[colidx++].SetCellValue(this.Lang.KickOffTime);
             row.Cells[colidx++].SetCellValue(this.Lang.GameTypeAndTableNumber);
             row.Cells[colidx++].SetCellValue(this.Lang.FinalScore);
@@ -49,43 +49,44 @@ namespace Fanex.Result.Core.ExcelModels
         /// Assign value to sheet.
         /// </summary>
         /// <param name="sheet">The current sheet.</param>
-        public override void AssignSheetData(ISheet sheet)
+        protected override void AssignSheetData(ISheet sheet)
         {
             var currentRow = RowLeagueTemplate;
-            var currentLeagueId = 0;
-            foreach (var exportRow in this._liveCasinoData)
+            var groupData = this.ViewModelData.GroupBy(i => i.LeagueId);
+            foreach (var item in groupData)
             {
-                if (currentLeagueId == 0 || currentLeagueId != exportRow.LeagueId)
+                var firstItem = (LiveCasinoViewModel)item.FirstOrDefault();
+                var rowLeague = sheet.CopyRow(TemplateSheet, RowLeagueTemplate, currentRow, ColumnTemplateIndexList);
+                rowLeague.Cells[0].SetCellValue(firstItem.LeagueName);
+                sheet.MergeCells(currentRow, 0, currentRow, 1);
+                currentRow++;
+                if (string.IsNullOrEmpty(firstItem.PlayerAndBanker))
                 {
-                    currentLeagueId = exportRow.LeagueId;
-                    var rowLeague = sheet.CopyRow(TemplateSheet, RowLeagueTemplate, currentRow, ColumnTemplateIndexList);
-                    rowLeague.Cells[0].SetCellValue(exportRow.LeagueName);
-                    sheet.MergeCells(currentRow, 0, currentRow, 1);
-                    currentRow++;
-                    if (string.IsNullOrEmpty(exportRow.PlayerAndBanker))
-                    {
-                        rowLeague.Cells[2].SetCellValue(string.Empty);
-                    }
+                    rowLeague.Cells[2].SetCellValue(string.Empty);
                 }
 
-                var rowMatch = sheet.CopyRow(TemplateSheet, RowContentTemplate, currentRow, ColumnTemplateIndexList);
+                foreach (LiveCasinoViewModel exportRow in item)
+                {
+                    var rowMatch = sheet.CopyRow(TemplateSheet, RowContentTemplate, currentRow, ColumnTemplateIndexList);
 
-                currentRow++;
+                    currentRow++;
 
-                AssignStringData(
-                    rowMatch,
-                    ColumnKickOffTime,
-                    Helper.ToRtfString(exportRow.KickOffTime),
-                    exportRow.GameType,
-                    exportRow.FinalScore,
-                    Helper.ToRtfString(exportRow.Result),
-                    exportRow.EventStatus);
+                    AssignStringData(
+                        rowMatch,
+                        ColumnMatchCode,
+                        exportRow.MatchCode,
+                        Helper.ToRtfString(exportRow.KickOffTime),
+                        exportRow.GameType,
+                        exportRow.FinalScore,
+                        Helper.ToRtfString(exportRow.Result),
+                        exportRow.EventStatus);
+                }
             }
         }
 
         protected override IList<int> GetColumnTemplateIndex()
         {
-            return new List<int> { 0, 1, 2, 3, 4 };
+            return new List<int> { 0, 1, 2, 3, 4, 5 };
         }
     }
 }

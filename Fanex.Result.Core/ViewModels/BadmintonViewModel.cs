@@ -8,27 +8,27 @@ namespace Fanex.Result.Core.ViewModels
 {
     using System;
     using System.Globalization;
+    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.DTO;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public sealed class BadmintonViewModel : SportbookBaseViewModel
+    public sealed class BadmintonViewModel : SportsbookBaseViewModel, IResultViewModel
     {
         private int _totalPointHome;
         private int _totalPointAway;
 
-        public BadmintonViewModel(Sportbook sportbook, SportType sport, string languageCode, LangResources resource)
-            : base(sportbook, sport, languageCode, resource)
+        public BadmintonViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resource)
+            : base(sportbook, setting, resource)
         {
-            this.GetHomeAwaySet(0, true);
         }
 
         public string TotalPointHome
         {
             get
             {
-                return this._totalPointHome > 0 ? this._totalPointHome.ToString(CultureInfo.InvariantCulture) : string.Empty;
+                return CreateTotalPointValue(true);
             }
         }
 
@@ -36,7 +36,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this._totalPointAway > 0 ? this._totalPointAway.ToString(CultureInfo.InvariantCulture) : string.Empty;
+                return CreateTotalPointValue(false);
             }
         }
 
@@ -44,7 +44,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.SPORTBOOK.FinalHomeScore.HasValue ? this.SPORTBOOK.FinalHomeScore.Value.ToString(CultureInfo.InvariantCulture) : string.Empty;
+                return this.SPORTBOOK.FinalHomeScore.HasValue ? this.SPORTBOOK.FinalHomeScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }
 
@@ -52,7 +52,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.SPORTBOOK.FinalAwayScore.HasValue ? this.SPORTBOOK.FinalAwayScore.Value.ToString(CultureInfo.InvariantCulture) : string.Empty;
+                return this.SPORTBOOK.FinalAwayScore.HasValue ? this.SPORTBOOK.FinalAwayScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
         }
 
@@ -63,20 +63,20 @@ namespace Fanex.Result.Core.ViewModels
         /// <param name="index">The index of home or away array.</param>
         /// <param name="isHome">True if you want to get value of home set.</param>
         /// <returns>The string value.</returns>
-        public string GetHomeAwaySet(int index, bool isHome)
+        public override string GetHomeAwaySet(int index, bool isHome)
         {
             if (index > 4)
             {
-                return StringResources.EMPTYSCORE;
+                return StringResources.HYPHEN;
             }
 
             if (this.HomeSet == null || this.AwaySet == null)
             {
                 this._totalPointAway = 0;
                 this._totalPointHome = 0;
-                this.HomeSet = new[] { "-", "-", "-", "-", "-" };
-                this.AwaySet = new[] { "-", "-", "-", "-", "-" };
-                if (this.SPORTBOOK.BetStatus.IndexOf(",", StringComparison.Ordinal) >= 0)
+                this.HomeSet = new[] { StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN };
+                this.AwaySet = new[] { StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN };
+                if (this.HasResult)
                 {
                     string[] betStatusList = this.GetCoreInfoFromBetStatus.Split(',');
                     for (int j = 0; j < betStatusList.Length && j < 5; j++)
@@ -93,6 +93,27 @@ namespace Fanex.Result.Core.ViewModels
             }
 
             return isHome ? HomeSet[index] : AwaySet[index];
+        }
+
+        /// <summary>
+        /// Create total point value.
+        /// </summary>
+        /// <param name="isHome">If true, return home value.</param>
+        /// <returns>The total point value.</returns>
+        private string CreateTotalPointValue(bool isHome)
+        {
+            if (this.HomeSet == null || this.AwaySet == null)
+            {
+                this.GetHomeAwaySet(0, true);
+            }
+
+            var totalPoint = this._totalPointHome + this._totalPointAway;
+            if (totalPoint > 0)
+            {
+                return isHome ? this._totalPointHome.ToString(CultureInfo.InvariantCulture) : this._totalPointAway.ToString(CultureInfo.InvariantCulture);
+            }
+
+            return StringResources.HYPHEN;
         }
     }
 }

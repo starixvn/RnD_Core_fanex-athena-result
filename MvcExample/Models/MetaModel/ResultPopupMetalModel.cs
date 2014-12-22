@@ -31,5 +31,7 @@
         public DateTime? WinLossDate { get; set; }
 
         public string LanguageCode { get; set; }
+
+        public int BetId { get; set; }
     }
 }

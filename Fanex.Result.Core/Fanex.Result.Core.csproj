@@ -209,7 +209,9 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\th-TH.xml" />
-    <EmbeddedResource Include="Resources\vi-VN.xml" />
+    <EmbeddedResource Include="Resources\vi-VN.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\zh-CN.xml" />
     <EmbeddedResource Include="Resources\zh-TW.xml" />
   </ItemGroup>

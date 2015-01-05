@@ -165,6 +165,7 @@
                 ExcelTitle = "Result report",
                 ExcelTemplatePath = Server.MapPath(@"~/App_Data/Fanex.Result/"),
                 VisibleMatchCodeIDColumn = showMatchCode,
+                
             };
             MemoryStream excelResult = null;
             switch (sportType)

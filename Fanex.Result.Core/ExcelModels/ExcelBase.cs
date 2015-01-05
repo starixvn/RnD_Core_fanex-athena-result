@@ -37,7 +37,6 @@ namespace Fanex.Result.Core.ExcelModels
         protected const int ColumnMatchCode = 0;
         protected const int ColumnRace = 0;
         protected const int ColumnKickOffTime = 1;
-
         private int _rowContentTemplate = 3;
 
         private int _columnStatus = 4;

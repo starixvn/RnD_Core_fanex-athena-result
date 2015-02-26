@@ -6,6 +6,7 @@
 
 namespace Fanex.Result.Core.ViewModels
 {
+    using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
@@ -241,6 +242,18 @@ Justification = "Reviewed. Suppression is OK here.")]
                 default:
                     return false;
             }
+        }
+
+        protected override string GetWonTeam(bool isHome)
+        {
+            if (!Helper.IsIntegerNumber(this.TotalSetHome) || !Helper.IsIntegerNumber(this.TotalSetAWay))
+            {
+                return string.Empty;
+            }
+
+            var temp = Convert.ToInt32(this.TotalSetHome) - Convert.ToInt32(this.TotalSetAWay);
+
+            return (isHome && temp > 0) || (!isHome && temp < 0) ? ResourceConfig.WINFORMAT : string.Empty;
         }
 
         /// <summary>

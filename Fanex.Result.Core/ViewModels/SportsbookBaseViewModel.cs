@@ -132,6 +132,22 @@ namespace Fanex.Result.Core.ViewModels
             }
         }
 
+        public virtual string HomeWin
+        {
+            get
+            {
+                return GetWonTeam(true);
+            }
+        }
+
+        public virtual string AwayWin
+        {
+            get
+            {
+                return GetWonTeam(false);
+            }
+        }
+
         protected Sportsbook SPORTBOOK
         {
             get { return this._sportbook; }
@@ -174,6 +190,18 @@ namespace Fanex.Result.Core.ViewModels
         public virtual string GetHomeAwaySet(int index, bool isHome)
         {
             return StringResources.HYPHEN;
+        }
+
+        protected virtual string GetWonTeam(bool isHome)
+        {
+            if (this.SPORTBOOK.FinalHomeScore.HasValue && this.SPORTBOOK.FinalAwayScore.HasValue)
+            {
+                var temp = this.SPORTBOOK.FinalHomeScore.Value - this.SPORTBOOK.FinalAwayScore.Value;
+
+                return (isHome && temp > 0) || (!isHome && temp < 0) ? ResourceConfig.WINFORMAT : string.Empty;
+            }
+
+            return string.Empty;
         }
 
         /// <summary>

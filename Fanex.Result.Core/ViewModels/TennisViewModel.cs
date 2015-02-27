@@ -246,14 +246,14 @@ Justification = "Reviewed. Suppression is OK here.")]
 
         protected override string GetWonTeam(bool isHome)
         {
-            if (!Helper.IsIntegerNumber(this.TotalSetHome) || !Helper.IsIntegerNumber(this.TotalSetAWay))
+            if (this.HighlightWinnerTeam && Helper.IsIntegerNumber(this.TotalSetHome) && Helper.IsIntegerNumber(this.TotalSetAWay))
             {
-                return string.Empty;
+                var temp = Convert.ToInt32(this.TotalSetHome) - Convert.ToInt32(this.TotalSetAWay);
+
+                return (isHome && temp > 0) || (!isHome && temp < 0) ? ResourceConfig.WINFORMAT : string.Empty;
             }
 
-            var temp = Convert.ToInt32(this.TotalSetHome) - Convert.ToInt32(this.TotalSetAWay);
-
-            return (isHome && temp > 0) || (!isHome && temp < 0) ? ResourceConfig.WINFORMAT : string.Empty;
+            return string.Empty;
         }
 
         /// <summary>

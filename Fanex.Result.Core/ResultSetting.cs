@@ -33,6 +33,8 @@ namespace Fanex.Result.Core
         /// <value>String value.</value>
         public string ExcelTemplatePath { get; set; }
 
+        public bool HighlighWinnerTeam { get; set; }
+
         /// <summary>
         /// Gets or sets Resource Path.
         /// Default path ="APP_DATA/FANEX.RESUST.RESOURCE"

@@ -52,6 +52,7 @@
                 VisibleMatchCodeIDColumn = showMatchCode,
                 VisibleDetailedLink = true,
                 VisibleFreeHeader = true,
+                HighlighWinnerTeam = true
             };
             var htmlResult = string.Empty;
             switch (sportType)
@@ -134,7 +135,9 @@
                     {
                         SportType = SportType.Tennis,
                         VisibleMatchCodeIDColumn = showMatchCode,
-                        LanguageCode = languageCode
+                        LanguageCode = languageCode,
+                        HighlighWinnerTeam = true
+
                     });
             }
 
@@ -165,6 +168,8 @@
                 ExcelTitle = "Result report",
                 ExcelTemplatePath = Server.MapPath(@"~/App_Data/Fanex.Result/"),
                 VisibleMatchCodeIDColumn = showMatchCode,
+                HighlighWinnerTeam = true
+
             };
 
             MemoryStream excelResult = null;

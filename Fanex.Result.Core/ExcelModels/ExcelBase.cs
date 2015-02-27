@@ -12,7 +12,6 @@ namespace Fanex.Result.Core.ExcelModels
     using System.Linq;
     using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.Extension;
-    using Fanex.Result.Core.Utilities;
     using Fanex.Result.Core.ViewModels;
     using NPOI.HSSF.UserModel;
     using NPOI.SS.UserModel;
@@ -31,8 +30,9 @@ namespace Fanex.Result.Core.ExcelModels
         protected const string FormatDate = "MM/dd/yyyy";
 
         protected const int RowLeagueTemplate = 2;
-
-        protected const int RowNoInfoTemplate = 4;
+        protected const int BoldTemplateRow = 3;
+        protected const int NoneBoldTemplateRow = 4;
+        protected const int RowNoInfoTemplate = 5;
         protected const string Na = "N/A";
         protected const int ColumnMatchCode = 0;
         protected const int ColumnRace = 0;
@@ -254,48 +254,9 @@ namespace Fanex.Result.Core.ExcelModels
             return new List<int>();
         }
 
-        /// <summary>
-        /// Get row team win.
-        /// </summary>
-        /// <param name="finalHomeScore">The final home score.</param>
-        /// <param name="finalAwayScore">The final away score.</param>
-        /// <returns>The row list.</returns>
-        protected virtual int[] GetRowTeamWin(string finalHomeScore, string finalAwayScore)
+        protected virtual int GetRowTeamWin(string winFormatted)
         {
-            var arrRowTeam = new int[2];
-
-            if (string.IsNullOrEmpty(finalAwayScore) || string.IsNullOrEmpty(finalAwayScore))
-            {
-                arrRowTeam[0] = 4;
-                arrRowTeam[1] = 4;
-            }
-            else
-            {
-                int homeScore = Helper.IsIntegerNumber(finalHomeScore) ? int.Parse(finalHomeScore) : 0;
-                int awayScore = Helper.IsIntegerNumber(finalAwayScore) ? int.Parse(finalHomeScore) : 0;
-
-                /*-----------------------------------------------------
-                 * Row 3 is row in excel template formated bold
-                 * Row 4 is row in excel template formated no bold
-                 -----------------------------------------------------*/
-                if (homeScore > awayScore)
-                {
-                    arrRowTeam[0] = 3;
-                    arrRowTeam[1] = 4;
-                }
-                else if (homeScore < awayScore)
-                {
-                    arrRowTeam[0] = 4;
-                    arrRowTeam[1] = 3;
-                }
-                else if (homeScore == awayScore)
-                {
-                    arrRowTeam[0] = 4;
-                    arrRowTeam[1] = 4;
-                }
-            }
-
-            return arrRowTeam;
+            return this.Setting.HighlighWinnerTeam && !string.IsNullOrWhiteSpace(winFormatted) ? BoldTemplateRow : NoneBoldTemplateRow;
         }
 
         #endregion Export Excel Methods

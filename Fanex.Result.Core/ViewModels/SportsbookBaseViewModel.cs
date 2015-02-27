@@ -26,6 +26,8 @@ namespace Fanex.Result.Core.ViewModels
 
         private bool _visibleDetailedLink = false;
 
+        private bool _highlightWinnerTeam = false;
+
         public SportsbookBaseViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resource)
             : base(setting, resource)
         {
@@ -33,6 +35,7 @@ namespace Fanex.Result.Core.ViewModels
             this.LanguageCode = setting.LanguageCode;
             this.Sport = setting.SportType;
             this._visibleDetailedLink = setting.VisibleDetailedLink;
+            this._highlightWinnerTeam = setting.HighlighWinnerTeam;
         }
 
         public string[] HomeSet
@@ -166,6 +169,11 @@ namespace Fanex.Result.Core.ViewModels
 
         #region Utilities
 
+        protected bool HighlightWinnerTeam
+        {
+            get { return this._highlightWinnerTeam; }
+        }
+
         protected string GetCoreInfoFromBetStatus
         {
             get
@@ -194,7 +202,7 @@ namespace Fanex.Result.Core.ViewModels
 
         protected virtual string GetWonTeam(bool isHome)
         {
-            if (this.SPORTBOOK.FinalHomeScore.HasValue && this.SPORTBOOK.FinalAwayScore.HasValue)
+            if (this._highlightWinnerTeam && this.SPORTBOOK.FinalHomeScore.HasValue && this.SPORTBOOK.FinalAwayScore.HasValue)
             {
                 var temp = this.SPORTBOOK.FinalHomeScore.Value - this.SPORTBOOK.FinalAwayScore.Value;
 

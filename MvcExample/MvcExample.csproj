@@ -325,12 +325,6 @@
     <Content Include="Views\PopUpReport\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Fanex.Result.Core\Fanex.Result.Core.csproj">
-      <Project>{F8CF6236-68F3-445F-8541-1D21EAEDA385}</Project>
-      <Name>Fanex.Result.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -455,7 +449,12 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_Menu.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Fanex.Result.Core\Fanex.Result.Core.csproj">
+      <Project>{F8CF6236-68F3-445F-8541-1D21EAEDA385}</Project>
+      <Name>Fanex.Result.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

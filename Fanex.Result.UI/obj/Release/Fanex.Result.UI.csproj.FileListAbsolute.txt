@@ -8,3 +8,7 @@ D:\Work\Git\fanex-athena-result\Fanex.Result.UI\bin\Fanex.Result.UI.pdb
 D:\Work\Git\fanex-athena-result\Fanex.Result.UI\obj\Release\Fanex.Result.UI.csprojResolveAssemblyReference.cache
 D:\Work\Git\fanex-athena-result\Fanex.Result.UI\obj\Release\Fanex.Result.UI.dll
 D:\Work\Git\fanex-athena-result\Fanex.Result.UI\obj\Release\Fanex.Result.UI.pdb
+D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.UI\bin\Fanex.Result.UI.dll
+D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.UI\bin\Fanex.Result.UI.pdb
+D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.UI\obj\Release\Fanex.Result.UI.dll
+D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.UI\obj\Release\Fanex.Result.UI.pdb

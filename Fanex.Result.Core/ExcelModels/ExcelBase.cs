@@ -256,7 +256,7 @@ namespace Fanex.Result.Core.ExcelModels
 
         protected virtual int GetRowTeamWin(string winFormatted)
         {
-            return this.Setting.HighlighWinnerTeam && !string.IsNullOrWhiteSpace(winFormatted) ? BoldTemplateRow : NoneBoldTemplateRow;
+            return this.Setting.HighlightWinnerTeam && !string.IsNullOrWhiteSpace(winFormatted) ? BoldTemplateRow : NoneBoldTemplateRow;
         }
 
         #endregion Export Excel Methods

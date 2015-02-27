@@ -33,7 +33,7 @@ namespace Fanex.Result.Core
         /// <value>String value.</value>
         public string ExcelTemplatePath { get; set; }
 
-        public bool HighlighWinnerTeam { get; set; }
+        public bool HighlightWinnerTeam { get; set; }
 
         /// <summary>
         /// Gets or sets Resource Path.

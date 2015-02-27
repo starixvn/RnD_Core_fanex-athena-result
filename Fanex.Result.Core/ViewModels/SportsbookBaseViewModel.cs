@@ -35,7 +35,7 @@ namespace Fanex.Result.Core.ViewModels
             this.LanguageCode = setting.LanguageCode;
             this.Sport = setting.SportType;
             this._visibleDetailedLink = setting.VisibleDetailedLink;
-            this._highlightWinnerTeam = setting.HighlighWinnerTeam;
+            this._highlightWinnerTeam = setting.HighlightWinnerTeam;
         }
 
         public string[] HomeSet

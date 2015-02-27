@@ -13,10 +13,10 @@ using System.Runtime.InteropServices;
 [assembly: CLSCompliant(false)]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1020:AvoidNamespacesWithFewTypes", Justification = "Reviews.")]
 [assembly: AssemblyTitle("Fanex.Result.Core")]
-[assembly: AssemblyDescription("Fanex.Result.Core 1.6.2.3")]
+[assembly: AssemblyDescription("Fanex.Result.Core 1.6.2.4")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Nexcel.vn")]
-[assembly: AssemblyProduct("Fanex.Result.Core 1.6.2.3")]
+[assembly: AssemblyProduct("Fanex.Result.Core 1.6.2.4")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -39,5 +39,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.6.2.3")]
-[assembly: AssemblyFileVersion("1.6.2.3")]
+[assembly: AssemblyVersion("1.6.2.4")]
+[assembly: AssemblyFileVersion("1.6.2.4")]

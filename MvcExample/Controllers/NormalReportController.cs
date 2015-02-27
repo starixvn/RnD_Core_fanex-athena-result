@@ -137,7 +137,6 @@
                         VisibleMatchCodeIDColumn = showMatchCode,
                         LanguageCode = languageCode,
                         HighlighWinnerTeam = true
-
                     });
             }
 
@@ -169,7 +168,6 @@
                 ExcelTemplatePath = Server.MapPath(@"~/App_Data/Fanex.Result/"),
                 VisibleMatchCodeIDColumn = showMatchCode,
                 HighlighWinnerTeam = true
-
             };
 
             MemoryStream excelResult = null;

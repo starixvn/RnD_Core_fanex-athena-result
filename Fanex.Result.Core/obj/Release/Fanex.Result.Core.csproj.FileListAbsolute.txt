@@ -38,4 +38,3 @@ D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Build\Fanex.Result.Core.dll
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Build\Fanex.Result.Core.pdb
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\obj\Release\Fanex.Result.Core.dll
 D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\obj\Release\Fanex.Result.Core.pdb
-D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\obj\Release\Fanex.Result.Core.csprojResolveAssemblyReference.cache

@@ -31,5 +31,12 @@ _ReSharper*/
 [Tt]est[Rr]esult*
 /Fanex.Result.Core.UnitTest/Code Coverage/Report
 /Fanex.Result.Core.UnitTest/Code Coverage/Data
+/cireport
+*.StyleCop.violations.xml
+*.StyleCop.xml
+*.FxCop.xml
+MsBuild.xml
+MSBUILD.SUMMARY.email
+SUMMARY.DISPLAY.xml
 
 

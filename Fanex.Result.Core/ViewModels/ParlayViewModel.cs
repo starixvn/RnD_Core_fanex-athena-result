@@ -35,6 +35,8 @@ namespace Fanex.Result.Core.ViewModels
                 LanguageCode = this.LanguageCode,
                 SportType = (SportType)this._parlay.SportId,
                 DateTimeFormat = this.DateTimeFormat,
+                HighlightWinnerTeam = setting.HighlightWinnerTeam,
+                VisibleMatchCodeIDColumn = setting.VisibleMatchCodeIDColumn
             };
         }
 

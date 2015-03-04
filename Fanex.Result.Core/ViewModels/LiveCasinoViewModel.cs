@@ -234,7 +234,7 @@ namespace Fanex.Result.Core.ViewModels
                     {
                         this._finalScore = this._liveCasino.FinalHomeScore.Value.ToString(CultureInfo.InvariantCulture);
                         this._result = this._liveCasino.FinalHomeScore.Value == 0 ?
-                            SetResultsRoulette(this._liveCasino.BetStatus) : StringResources.HYPHEN;
+                            StringResources.HYPHEN : SetResultsRoulette(this._liveCasino.BetStatus);
                     }
                     else
                     {
@@ -249,6 +249,7 @@ namespace Fanex.Result.Core.ViewModels
                        (this._liveCasino.FinalAwayScore.HasValue ? this._liveCasino.FinalAwayScore.ToString() : string.Empty)
                        :
                        string.Empty;
+                   
                     this._result = SetResults(this._liveCasino.BetStatus);
                 }
             }

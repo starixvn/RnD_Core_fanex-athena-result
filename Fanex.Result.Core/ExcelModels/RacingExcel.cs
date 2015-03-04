@@ -19,11 +19,7 @@ namespace Fanex.Result.Core.ExcelModels
     /// </summary>
     internal sealed class RacingExcel : ExcelBase, IExcelModel
     {
-        #region Fields
-
-        private const string FormatStatus = "Offical {0} {1}";
-
-        #endregion Fields
+        private string _formatStatus = string.Empty;
 
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         public RacingExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data, LangResources resource)
@@ -32,6 +28,7 @@ namespace Fanex.Result.Core.ExcelModels
             this.ColumnTemplateCount = 7;
             this.ColumnStatus = 6;
             this.RowContentTemplate = 3;
+            this._formatStatus = resource.Official + " {0} {1}";
         }
 
         protected override void AssignHeader(ISheet sheet)
@@ -110,7 +107,7 @@ namespace Fanex.Result.Core.ExcelModels
                 }
 
                 status = string.Format(
-                    FormatStatus,
+                    this._formatStatus,
                     string.IsNullOrEmpty(exportRow.SCR) ? string.Empty : "\n" + Lang.SCR + ":" + exportRow.SCR,
                     string.IsNullOrEmpty(exportRow.TF) ? string.Empty : "\n" + Lang.TF + ":" + exportRow.TF);
             }

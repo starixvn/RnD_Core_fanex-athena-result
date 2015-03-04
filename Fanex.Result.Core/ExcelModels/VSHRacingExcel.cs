@@ -21,12 +21,6 @@ namespace Fanex.Result.Core.ExcelModels
     /// </summary>
     internal sealed class VSHRacingExcel : ExcelBase, IExcelModel
     {
-        #region Fields
-
-        private const string FormatStatus = "Offical {0} {1}";
-
-        #endregion Fields
-
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         public VSHRacingExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data, LangResources resource)
             : base(templatePath, setting, data, resource)

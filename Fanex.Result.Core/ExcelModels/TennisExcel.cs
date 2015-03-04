@@ -61,11 +61,9 @@ namespace Fanex.Result.Core.ExcelModels
         protected override void SetDataForMatch(ISheet sheet, IResultViewModel data, ref int currentRow)
         {
             var exportRow = (TennisViewModel)data;
-            var getRowTeamWin = GetRowTeamWin(exportRow.TotalSetHome, exportRow.TotalSetAWay);
+            var rowHome = sheet.CopyRow(TemplateSheet, this.GetRowTeamWin(exportRow.HomeWin), currentRow);
 
-            var rowHome = sheet.CopyRow(TemplateSheet, getRowTeamWin[0], currentRow);
-
-            var rowAway = sheet.CopyRow(TemplateSheet, getRowTeamWin[1], currentRow + 1);
+            var rowAway = sheet.CopyRow(TemplateSheet, this.GetRowTeamWin(exportRow.AwayWin), currentRow + 1);
 
             MergeResultCells(sheet, currentRow, currentRow + 1, ColumnKickOffTime, this.ColumnStatus);
 

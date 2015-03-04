@@ -26,6 +26,8 @@ namespace Fanex.Result.Core.ViewModels
 
         private bool _visibleDetailedLink = false;
 
+        private bool _highlightWinnerTeam = false;
+
         public SportsbookBaseViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resource)
             : base(setting, resource)
         {
@@ -33,6 +35,7 @@ namespace Fanex.Result.Core.ViewModels
             this.LanguageCode = setting.LanguageCode;
             this.Sport = setting.SportType;
             this._visibleDetailedLink = setting.VisibleDetailedLink;
+            this._highlightWinnerTeam = setting.HighlightWinnerTeam;
         }
 
         public string[] HomeSet
@@ -132,6 +135,22 @@ namespace Fanex.Result.Core.ViewModels
             }
         }
 
+        public virtual string HomeWin
+        {
+            get
+            {
+                return GetWonTeam(true);
+            }
+        }
+
+        public virtual string AwayWin
+        {
+            get
+            {
+                return GetWonTeam(false);
+            }
+        }
+
         protected Sportsbook SPORTBOOK
         {
             get { return this._sportbook; }
@@ -149,6 +168,11 @@ namespace Fanex.Result.Core.ViewModels
         #endregion common properties
 
         #region Utilities
+
+        protected bool HighlightWinnerTeam
+        {
+            get { return this._highlightWinnerTeam; }
+        }
 
         protected string GetCoreInfoFromBetStatus
         {
@@ -174,6 +198,18 @@ namespace Fanex.Result.Core.ViewModels
         public virtual string GetHomeAwaySet(int index, bool isHome)
         {
             return StringResources.HYPHEN;
+        }
+
+        protected virtual string GetWonTeam(bool isHome)
+        {
+            if (this._highlightWinnerTeam && this.SPORTBOOK.FinalHomeScore.HasValue && this.SPORTBOOK.FinalAwayScore.HasValue)
+            {
+                var temp = this.SPORTBOOK.FinalHomeScore.Value - this.SPORTBOOK.FinalAwayScore.Value;
+
+                return (isHome && temp > 0) || (!isHome && temp < 0) ? ResourceConfig.WINFORMAT : string.Empty;
+            }
+
+            return string.Empty;
         }
 
         /// <summary>

@@ -158,7 +158,7 @@
                 <td class="cl-ko-time" rowspan="2">
                     @Raw(item.KickOffTime)
                 </td>
-                <td class="cl-match home">
+                <td class="cl-match home @item.HomeWin">
                     @Raw(item.HomeTeam)
                 </td>
                 @for (var s = 0; s < 4; s++)
@@ -188,7 +188,7 @@
                         @item.MatchId
                     </td>
                 }
-                <td class="cl-match away">
+                <td class="cl-match away @item.AwayWin">
                     @Raw(item.AwayTeam)
                 </td>
                 @for (var s = 0; s < 4; s++)

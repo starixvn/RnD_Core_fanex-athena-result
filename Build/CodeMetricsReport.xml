@@ -6,10 +6,10 @@
         <Module Name="Fanex.Result.Core.dll" AssemblyVersion="1.6.1.0" FileVersion="1.6.1">
           <Metrics>
             <Metric Name="MaintainabilityIndex" Value="81" />
-            <Metric Name="CyclomaticComplexity" Value="1,325" />
+            <Metric Name="CyclomaticComplexity" Value="1,326" />
             <Metric Name="ClassCoupling" Value="117" />
             <Metric Name="DepthOfInheritance" Value="3" />
-            <Metric Name="LinesOfCode" Value="2,020" />
+            <Metric Name="LinesOfCode" Value="2,023" />
           </Metrics>
           <Namespaces>
             <Namespace Name="Fanex.Result.Core">
@@ -591,27 +591,27 @@
             <Namespace Name="Fanex.Result.Core.ExcelModels">
               <Metrics>
                 <Metric Name="MaintainabilityIndex" Value="65" />
-                <Metric Name="CyclomaticComplexity" Value="214" />
+                <Metric Name="CyclomaticComplexity" Value="215" />
                 <Metric Name="ClassCoupling" Value="48" />
                 <Metric Name="DepthOfInheritance" Value="2" />
-                <Metric Name="LinesOfCode" Value="599" />
+                <Metric Name="LinesOfCode" Value="602" />
               </Metrics>
               <Types>
                 <Type Name="ExcelBase">
                   <Metrics>
                     <Metric Name="MaintainabilityIndex" Value="80" />
-                    <Metric Name="CyclomaticComplexity" Value="67" />
+                    <Metric Name="CyclomaticComplexity" Value="68" />
                     <Metric Name="ClassCoupling" Value="28" />
                     <Metric Name="DepthOfInheritance" Value="1" />
-                    <Metric Name="LinesOfCode" Value="114" />
+                    <Metric Name="LinesOfCode" Value="117" />
                   </Metrics>
                   <Members>
-                    <Member Name="ExcelBase(string, ResultSetting, IList&lt;IResultViewModel&gt;, LangResources)" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="41">
+                    <Member Name="ExcelBase(string, ResultSetting, IList&lt;IResultViewModel&gt;, LangResources)" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="40">
                       <Metrics>
-                        <Metric Name="MaintainabilityIndex" Value="65" />
+                        <Metric Name="MaintainabilityIndex" Value="62" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
                         <Metric Name="ClassCoupling" Value="5" />
-                        <Metric Name="LinesOfCode" Value="9" />
+                        <Metric Name="LinesOfCode" Value="11" />
                       </Metrics>
                     </Member>
                     <Member Name="NumofRow.get() : int">
@@ -774,7 +774,7 @@
                         <Metric Name="LinesOfCode" Value="1" />
                       </Metrics>
                     </Member>
-                    <Member Name="ColumnStatus.get() : int" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="79">
+                    <Member Name="ColumnStatus.get() : int" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="80">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="98" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -782,7 +782,7 @@
                         <Metric Name="LinesOfCode" Value="1" />
                       </Metrics>
                     </Member>
-                    <Member Name="ColumnStatus.set(int) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="80">
+                    <Member Name="ColumnStatus.set(int) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="81">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="95" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -790,7 +790,7 @@
                         <Metric Name="LinesOfCode" Value="1" />
                       </Metrics>
                     </Member>
-                    <Member Name="RowContentTemplate.get() : int" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="85">
+                    <Member Name="RowContentTemplate.get() : int" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="86">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="98" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -798,9 +798,17 @@
                         <Metric Name="LinesOfCode" Value="1" />
                       </Metrics>
                     </Member>
-                    <Member Name="RowContentTemplate.set(int) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="86">
+                    <Member Name="RowContentTemplate.set(int) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="87">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="95" />
+                        <Metric Name="CyclomaticComplexity" Value="1" />
+                        <Metric Name="ClassCoupling" Value="0" />
+                        <Metric Name="LinesOfCode" Value="1" />
+                      </Metrics>
+                    </Member>
+                    <Member Name="FormatStatus.get() : string" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="92">
+                      <Metrics>
+                        <Metric Name="MaintainabilityIndex" Value="98" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
                         <Metric Name="ClassCoupling" Value="0" />
                         <Metric Name="LinesOfCode" Value="1" />
@@ -822,7 +830,7 @@
                         <Metric Name="LinesOfCode" Value="1" />
                       </Metrics>
                     </Member>
-                    <Member Name="Export() : MemoryStream" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="95">
+                    <Member Name="Export() : MemoryStream" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="101">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="71" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -830,7 +838,7 @@
                         <Metric Name="LinesOfCode" Value="6" />
                       </Metrics>
                     </Member>
-                    <Member Name="ClearTemplate(ISheet, int) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="114">
+                    <Member Name="ClearTemplate(ISheet, int) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="120">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="77" />
                         <Metric Name="CyclomaticComplexity" Value="2" />
@@ -838,7 +846,7 @@
                         <Metric Name="LinesOfCode" Value="3" />
                       </Metrics>
                     </Member>
-                    <Member Name="AssignTitle(ISheet) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="123">
+                    <Member Name="AssignTitle(ISheet) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="129">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="78" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -846,7 +854,7 @@
                         <Metric Name="LinesOfCode" Value="3" />
                       </Metrics>
                     </Member>
-                    <Member Name="AssignData() : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="139">
+                    <Member Name="AssignData() : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="145">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="66" />
                         <Metric Name="CyclomaticComplexity" Value="2" />
@@ -862,7 +870,7 @@
                         <Metric Name="LinesOfCode" Value="0" />
                       </Metrics>
                     </Member>
-                    <Member Name="AssignNoInfoRow(ISheet) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="165">
+                    <Member Name="AssignNoInfoRow(ISheet) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="171">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="89" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -870,7 +878,7 @@
                         <Metric Name="LinesOfCode" Value="1" />
                       </Metrics>
                     </Member>
-                    <Member Name="AssignSheetData(ISheet) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="174">
+                    <Member Name="AssignSheetData(ISheet) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="180">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="59" />
                         <Metric Name="CyclomaticComplexity" Value="7" />
@@ -878,7 +886,7 @@
                         <Metric Name="LinesOfCode" Value="10" />
                       </Metrics>
                     </Member>
-                    <Member Name="SetDataForMatch(ISheet, IResultViewModel, ref int) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="192">
+                    <Member Name="SetDataForMatch(ISheet, IResultViewModel, ref int) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="198">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="100" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -886,7 +894,7 @@
                         <Metric Name="LinesOfCode" Value="0" />
                       </Metrics>
                     </Member>
-                    <Member Name="ProcessUI(ISheet) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="196">
+                    <Member Name="ProcessUI(ISheet) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="202">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="84" />
                         <Metric Name="CyclomaticComplexity" Value="2" />
@@ -894,7 +902,7 @@
                         <Metric Name="LinesOfCode" Value="2" />
                       </Metrics>
                     </Member>
-                    <Member Name="LoadTemplate() : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="209">
+                    <Member Name="LoadTemplate() : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="215">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="62" />
                         <Metric Name="CyclomaticComplexity" Value="2" />
@@ -902,7 +910,7 @@
                         <Metric Name="LinesOfCode" Value="10" />
                       </Metrics>
                     </Member>
-                    <Member Name="RemoveTemplate() : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="230">
+                    <Member Name="RemoveTemplate() : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="236">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="94" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -910,7 +918,7 @@
                         <Metric Name="LinesOfCode" Value="1" />
                       </Metrics>
                     </Member>
-                    <Member Name="MergeResultCells(ISheet, int, int, int, int) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="237">
+                    <Member Name="MergeResultCells(ISheet, int, int, int, int) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="243">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="82" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -918,7 +926,7 @@
                         <Metric Name="LinesOfCode" Value="2" />
                       </Metrics>
                     </Member>
-                    <Member Name="SetLeague(ISheet, int, string, ref int, ref int) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="244">
+                    <Member Name="SetLeague(ISheet, int, string, ref int, ref int) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="250">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="74" />
                         <Metric Name="CyclomaticComplexity" Value="3" />
@@ -926,7 +934,7 @@
                         <Metric Name="LinesOfCode" Value="4" />
                       </Metrics>
                     </Member>
-                    <Member Name="GetColumnTemplateIndex() : IList&lt;int&gt;" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="255">
+                    <Member Name="GetColumnTemplateIndex() : IList&lt;int&gt;" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="261">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="95" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -934,7 +942,7 @@
                         <Metric Name="LinesOfCode" Value="1" />
                       </Metrics>
                     </Member>
-                    <Member Name="GetRowTeamWin(string, string) : int[]" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="266">
+                    <Member Name="GetRowTeamWin(string, string) : int[]" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="272">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="56" />
                         <Metric Name="CyclomaticComplexity" Value="8" />
@@ -942,7 +950,7 @@
                         <Metric Name="LinesOfCode" Value="16" />
                       </Metrics>
                     </Member>
-                    <Member Name="SetTextRowValue(ISheet, int, int, int, string) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="310">
+                    <Member Name="SetTextRowValue(ISheet, int, int, int, string) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="316">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="72" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -950,7 +958,7 @@
                         <Metric Name="LinesOfCode" Value="4" />
                       </Metrics>
                     </Member>
-                    <Member Name="AssignDecimalData(IRow, int, params decimal[]) : int" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="327">
+                    <Member Name="AssignDecimalData(IRow, int, params decimal[]) : int" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="333">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="71" />
                         <Metric Name="CyclomaticComplexity" Value="3" />
@@ -958,7 +966,7 @@
                         <Metric Name="LinesOfCode" Value="4" />
                       </Metrics>
                     </Member>
-                    <Member Name="AssignStringData(IRow, int, params string[]) : int" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="345">
+                    <Member Name="AssignStringData(IRow, int, params string[]) : int" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\ExcelBase.cs" Line="351">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="73" />
                         <Metric Name="CyclomaticComplexity" Value="2" />
@@ -1378,7 +1386,7 @@
                     <Metric Name="LinesOfCode" Value="62" />
                   </Metrics>
                   <Members>
-                    <Member Name="RacingExcel(string, ResultSetting, IList&lt;IResultViewModel&gt;, LangResources)" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\RacingExcel.cs" Line="28">
+                    <Member Name="RacingExcel(string, ResultSetting, IList&lt;IResultViewModel&gt;, LangResources)" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\RacingExcel.cs" Line="22">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="76" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -1386,7 +1394,7 @@
                         <Metric Name="LinesOfCode" Value="4" />
                       </Metrics>
                     </Member>
-                    <Member Name="AssignHeader(ISheet) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\RacingExcel.cs" Line="39">
+                    <Member Name="AssignHeader(ISheet) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\RacingExcel.cs" Line="33">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="63" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -1394,7 +1402,7 @@
                         <Metric Name="LinesOfCode" Value="7" />
                       </Metrics>
                     </Member>
-                    <Member Name="AssignSheetData(ISheet) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\RacingExcel.cs" Line="54">
+                    <Member Name="AssignSheetData(ISheet) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\RacingExcel.cs" Line="48">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="60" />
                         <Metric Name="CyclomaticComplexity" Value="8" />
@@ -1402,7 +1410,7 @@
                         <Metric Name="LinesOfCode" Value="10" />
                       </Metrics>
                     </Member>
-                    <Member Name="ProcessUI(ISheet) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\RacingExcel.cs" Line="77">
+                    <Member Name="ProcessUI(ISheet) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\RacingExcel.cs" Line="71">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="100" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -1410,7 +1418,7 @@
                         <Metric Name="LinesOfCode" Value="0" />
                       </Metrics>
                     </Member>
-                    <Member Name="SetMatch(ISheet, RacingViewModel, ref int, ref int, ref int) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\RacingExcel.cs" Line="91">
+                    <Member Name="SetMatch(ISheet, RacingViewModel, ref int, ref int, ref int) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\RacingExcel.cs" Line="85">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="41" />
                         <Metric Name="CyclomaticComplexity" Value="15" />
@@ -1472,7 +1480,7 @@
                     <Metric Name="LinesOfCode" Value="56" />
                   </Metrics>
                   <Members>
-                    <Member Name="VSHRacingExcel(string, ResultSetting, IList&lt;IResultViewModel&gt;, LangResources)" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\VSHRacingExcel.cs" Line="30">
+                    <Member Name="VSHRacingExcel(string, ResultSetting, IList&lt;IResultViewModel&gt;, LangResources)" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\VSHRacingExcel.cs" Line="24">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="76" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -1480,7 +1488,7 @@
                         <Metric Name="LinesOfCode" Value="4" />
                       </Metrics>
                     </Member>
-                    <Member Name="AssignHeader(ISheet) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\VSHRacingExcel.cs" Line="41">
+                    <Member Name="AssignHeader(ISheet) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\VSHRacingExcel.cs" Line="35">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="63" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -1488,7 +1496,7 @@
                         <Metric Name="LinesOfCode" Value="7" />
                       </Metrics>
                     </Member>
-                    <Member Name="AssignSheetData(ISheet) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\VSHRacingExcel.cs" Line="56">
+                    <Member Name="AssignSheetData(ISheet) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\VSHRacingExcel.cs" Line="50">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="60" />
                         <Metric Name="CyclomaticComplexity" Value="8" />
@@ -1496,7 +1504,7 @@
                         <Metric Name="LinesOfCode" Value="10" />
                       </Metrics>
                     </Member>
-                    <Member Name="MergeKickOffTimeCell(ISheet, int, int, int) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\VSHRacingExcel.cs" Line="78">
+                    <Member Name="MergeKickOffTimeCell(ISheet, int, int, int) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\VSHRacingExcel.cs" Line="72">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="91" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -1504,7 +1512,7 @@
                         <Metric Name="LinesOfCode" Value="1" />
                       </Metrics>
                     </Member>
-                    <Member Name="SetMatch(ISheet, VSHRacingViewModel, ref int, ref int, ref int) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\VSHRacingExcel.cs" Line="91">
+                    <Member Name="SetMatch(ISheet, VSHRacingViewModel, ref int, ref int, ref int) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\VSHRacingExcel.cs" Line="85">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="44" />
                         <Metric Name="CyclomaticComplexity" Value="13" />
@@ -1523,7 +1531,7 @@
                     <Metric Name="LinesOfCode" Value="54" />
                   </Metrics>
                   <Members>
-                    <Member Name="VSSpeedWayExcel(string, ResultSetting, IList&lt;IResultViewModel&gt;, LangResources)" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\VSSpeedWayExcel.cs" Line="30">
+                    <Member Name="VSSpeedWayExcel(string, ResultSetting, IList&lt;IResultViewModel&gt;, LangResources)" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\VSSpeedWayExcel.cs" Line="24">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="76" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -1531,7 +1539,7 @@
                         <Metric Name="LinesOfCode" Value="4" />
                       </Metrics>
                     </Member>
-                    <Member Name="AssignHeader(ISheet) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\VSSpeedWayExcel.cs" Line="41">
+                    <Member Name="AssignHeader(ISheet) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\VSSpeedWayExcel.cs" Line="35">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="66" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -1539,7 +1547,7 @@
                         <Metric Name="LinesOfCode" Value="6" />
                       </Metrics>
                     </Member>
-                    <Member Name="AssignSheetData(ISheet) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\VSSpeedWayExcel.cs" Line="55">
+                    <Member Name="AssignSheetData(ISheet) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\VSSpeedWayExcel.cs" Line="49">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="60" />
                         <Metric Name="CyclomaticComplexity" Value="8" />
@@ -1547,7 +1555,7 @@
                         <Metric Name="LinesOfCode" Value="10" />
                       </Metrics>
                     </Member>
-                    <Member Name="MergeKickOffTimeCell(ISheet, int, int, int) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\VSSpeedWayExcel.cs" Line="77">
+                    <Member Name="MergeKickOffTimeCell(ISheet, int, int, int) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\VSSpeedWayExcel.cs" Line="71">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="91" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -1555,7 +1563,7 @@
                         <Metric Name="LinesOfCode" Value="1" />
                       </Metrics>
                     </Member>
-                    <Member Name="SetMatch(ISheet, VSSpeedWayViewModel, ref int, ref int, ref int) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\VSSpeedWayExcel.cs" Line="90">
+                    <Member Name="SetMatch(ISheet, VSSpeedWayViewModel, ref int, ref int, ref int) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ExcelModels\VSSpeedWayExcel.cs" Line="84">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="44" />
                         <Metric Name="CyclomaticComplexity" Value="13" />
@@ -2168,7 +2176,7 @@
                         <Metric Name="LinesOfCode" Value="1" />
                       </Metrics>
                     </Member>
-                    <Member Name="AwayTeam.get() : string" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="126">
+                    <Member Name="AwayTeam.get() : string" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="123">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="91" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -2176,7 +2184,7 @@
                         <Metric Name="LinesOfCode" Value="1" />
                       </Metrics>
                     </Member>
-                    <Member Name="IsPending.get() : bool" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="136">
+                    <Member Name="IsPending.get() : bool" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="131">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="94" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -2184,7 +2192,7 @@
                         <Metric Name="LinesOfCode" Value="1" />
                       </Metrics>
                     </Member>
-                    <Member Name="SPORTBOOK.get() : Sportsbook" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="142">
+                    <Member Name="SPORTBOOK.get() : Sportsbook" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="137">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="98" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -2192,7 +2200,7 @@
                         <Metric Name="LinesOfCode" Value="1" />
                       </Metrics>
                     </Member>
-                    <Member Name="SPORTBOOK.set(Sportsbook) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="143">
+                    <Member Name="SPORTBOOK.set(Sportsbook) : void" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="138">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="95" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -2200,7 +2208,7 @@
                         <Metric Name="LinesOfCode" Value="1" />
                       </Metrics>
                     </Member>
-                    <Member Name="HasResult.get() : bool" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="150">
+                    <Member Name="HasResult.get() : bool" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="145">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="87" />
                         <Metric Name="CyclomaticComplexity" Value="2" />
@@ -2208,7 +2216,7 @@
                         <Metric Name="LinesOfCode" Value="1" />
                       </Metrics>
                     </Member>
-                    <Member Name="GetCoreInfoFromBetStatus.get() : string" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="162">
+                    <Member Name="GetCoreInfoFromBetStatus.get() : string" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="157">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="64" />
                         <Metric Name="CyclomaticComplexity" Value="5" />
@@ -2216,7 +2224,7 @@
                         <Metric Name="LinesOfCode" Value="7" />
                       </Metrics>
                     </Member>
-                    <Member Name="GetHomeAwaySet(int, bool) : string" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="181">
+                    <Member Name="GetHomeAwaySet(int, bool) : string" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="176">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="98" />
                         <Metric Name="CyclomaticComplexity" Value="1" />
@@ -2224,7 +2232,7 @@
                         <Metric Name="LinesOfCode" Value="1" />
                       </Metrics>
                     </Member>
-                    <Member Name="GetSportbookHomeTeam(int, bool) : string" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="192">
+                    <Member Name="GetSportbookHomeTeam(int, bool) : string" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="187">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="86" />
                         <Metric Name="CyclomaticComplexity" Value="2" />
@@ -2232,7 +2240,7 @@
                         <Metric Name="LinesOfCode" Value="1" />
                       </Metrics>
                     </Member>
-                    <Member Name="GetSportbookAwayTeam(int) : string" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="203">
+                    <Member Name="GetSportbookAwayTeam(int) : string" File="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.Core\ViewModels\SportsbookBaseViewModel.cs" Line="198">
                       <Metrics>
                         <Metric Name="MaintainabilityIndex" Value="89" />
                         <Metric Name="CyclomaticComplexity" Value="1" />

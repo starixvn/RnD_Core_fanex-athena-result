@@ -191,13 +191,13 @@ namespace Fanex.Result.Core.ViewModels
             }
 
             var supportedLanguage = this.GetSupportedLanguage;
-            var lcResult = string.Join(";", arrResult.Select(i => RefData.GetCasinoBetItem(i, supportedLanguage, string.Empty)));
+            var livecasinoResult = string.Join(";", arrResult.Select(i => RefData.GetCasinoBetItem(i, supportedLanguage, string.Empty)));
             if (arrResult.Length < 3)
             {
-                lcResult += ";-";
+                livecasinoResult += ";-";
             }
 
-            return lcResult;
+            return livecasinoResult;
         }
 
         /// <summary>

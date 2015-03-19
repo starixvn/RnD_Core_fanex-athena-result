@@ -184,36 +184,20 @@ namespace Fanex.Result.Core.ViewModels
                 return string.Empty;
             }
 
-            string[] arr = results.Split(',');
-            string str = string.Empty, statusName = string.Empty;
-
-            for (int i = 0; i < arr.Length; i++)
+            string[] arrResult = results.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            if (arrResult.Length == 0)
             {
-                statusName = RefData.GetCasinoBetItem(arr[i], this.GetSupportedLanguage, string.Empty);
-
-                if (i < arr.Length - 1)
-                {
-                    if (i > 1)
-                    {
-                        str += string.Format("{0}, ", statusName);
-                    }
-                    else
-                    {
-                        str += string.Format("{0}; ", statusName);
-                    }
-                }
-                else
-                {
-                    str += statusName;
-                }
+                return string.Empty;
             }
 
-            if (arr.Length < 3)
+            var supportedLanguage = this.GetSupportedLanguage;
+            var livecasinoResult = string.Join(";", arrResult.Select(i => RefData.GetCasinoBetItem(i, supportedLanguage, string.Empty)));
+            if (arrResult.Length < 3)
             {
-                str += string.Format("{0}; -", statusName);
+                livecasinoResult += ";-";
             }
 
-            return str;
+            return livecasinoResult;
         }
 
         /// <summary>
@@ -249,7 +233,7 @@ namespace Fanex.Result.Core.ViewModels
                        (this._liveCasino.FinalAwayScore.HasValue ? this._liveCasino.FinalAwayScore.ToString() : string.Empty)
                        :
                        string.Empty;
-                   
+
                     this._result = SetResults(this._liveCasino.BetStatus);
                 }
             }

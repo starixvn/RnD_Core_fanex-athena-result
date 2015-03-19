@@ -13,7 +13,7 @@ namespace Fanex.Result.Core.ViewModels.SoccerInfo
     {
         public string GroupName { get; set; }
 
-        public string BettypeName { get; set; }
+        public string ResourceName { get; set; }
 
         public string ResourceID { get; set; }
 

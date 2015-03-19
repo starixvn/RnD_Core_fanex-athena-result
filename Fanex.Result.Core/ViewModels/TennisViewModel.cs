@@ -36,7 +36,8 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                var matchResultInfo = this.SPORTBOOK.GameDetails.SingleOrDefault(i => i.ResourceId.Equals(TennisBetIDDefinition.TotalSet, System.StringComparison.OrdinalIgnoreCase));
+                var matchResultInfo = this.SPORTBOOK.GameDetails
+                    .SingleOrDefault(i => i.ResourceId.Equals(TennisBetIDDefinition.TotalSet, System.StringComparison.OrdinalIgnoreCase));
                 if (matchResultInfo != null && matchResultInfo.SettlementStatusID == EventStatusIDDefinition.RefundStettlementStatusID)
                 {
                     return Lang.Refund;

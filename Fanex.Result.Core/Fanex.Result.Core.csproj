@@ -88,7 +88,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataDomain\BetIDDefinition.cs" />
+    <Compile Include="DataDomain\TennisBetIDDefinition.cs" />
     <Compile Include="DataDomain\BetTypeDefinition.cs" />
     <Compile Include="DataDomain\ConstantValueDefinition.cs" />
     <Compile Include="DataDomain\DTOType.cs" />

@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="BetIDDefinition.cs" company="Nexcel.vn">
+// <copyright file="TennisBetIDDefinition.cs" company="Nexcel.vn">
 // TODO: Update copyright text.
 // </copyright>
 // -----------------------------------------------------------------------
@@ -21,8 +21,5 @@ namespace Fanex.Result.Core.DataDomain
         public const int MaxSet4GameY = 80413;
         public const int MinSet5GameY = 80501;
         public const string TotalSet = "00";
-        #region BetRada
-
-        #endregion
     }
 }

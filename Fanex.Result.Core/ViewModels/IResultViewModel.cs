@@ -16,5 +16,9 @@ namespace Fanex.Result.Core.ViewModels
         string LeagueName { get; }
 
         string SportName { get; }
+
+        bool VisibleMatchResult { get; }
+
+        bool VisibleGameDetail { get; }
     }
 }

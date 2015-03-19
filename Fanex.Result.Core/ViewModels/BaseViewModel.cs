@@ -73,6 +73,16 @@ namespace Fanex.Result.Core.ViewModels
             }
         }
 
+        public bool VisibleMatchResult
+        {
+            get { return true; }
+        }
+
+        public bool VisibleGameDetail
+        {
+            get { return false; }
+        }
+
         public virtual string EventStatusBackground
         {
             get

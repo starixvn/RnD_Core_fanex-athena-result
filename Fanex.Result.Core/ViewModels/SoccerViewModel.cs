@@ -7,8 +7,10 @@
 namespace Fanex.Result.Core.ViewModels
 {
     using System;
+    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
+    using System.Linq;
     using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.ViewModels.SoccerInfo;
@@ -19,6 +21,8 @@ namespace Fanex.Result.Core.ViewModels
     public sealed class SoccerViewModel : SportsbookBaseViewModel, IResultViewModel
     {
         private SoccerDetailInfo _goalInfo;
+
+        private IList<SoccerDetailViewModel> _detailedViewModels;
 
         public SoccerViewModel(Sportsbook soccer, ResultSetting setting, LangResources resource)
             : base(soccer, setting, resource)
@@ -37,37 +41,13 @@ namespace Fanex.Result.Core.ViewModels
             get { return this.SPORTBOOK.AwayId; }
         }
 
-        public string GoalRecord
-        {
-            get
-            {
-                return string.IsNullOrEmpty(this.SPORTBOOK.GoalRecord) ? string.Empty : this.SPORTBOOK.GoalRecord.Replace(";", string.Empty);
-            }
-        }
-
         public override bool VisibleDetailedLink
         {
-            get { return base.VisibleDetailedLink && !string.IsNullOrEmpty(this.SPORTBOOK.GoalRecord); }
-        }
-
-        public string PenaltyShootoutResult
-        {
             get
             {
-                if (!string.IsNullOrWhiteSpace(this.SPORTBOOK.BetStatus))
-                {
-                    var index = this.SPORTBOOK.BetStatus.IndexOf(StringResources.PENALTYLABEL, StringComparison.Ordinal);
-
-                    return index > -1 ? this.SPORTBOOK.BetStatus.Substring(index + StringResources.PENALTYLABEL.Length, 1) : string.Empty;
-                }
-
-                return string.Empty;
+                return base.VisibleDetailedLink &&
+                 this.SPORTBOOK.GameDetails.Any(i => !string.IsNullOrEmpty(i.ResourceId) && i.SettlementStatusID > 0);
             }
-        }
-
-        public string PenaltyShootoutTooltip
-        {
-            get { return this.PenaltyShootoutResult.Equals("Y", StringComparison.Ordinal) ? Lang.PenaltyShootoutYes : Lang.PenaltyShootoutNo; }
         }
 
         #endregion Setttlement Site
@@ -166,6 +146,24 @@ namespace Fanex.Result.Core.ViewModels
             {
                 return this.SPORTBOOK.FinalAwayScore.HasValue ? this.SPORTBOOK.FinalAwayScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
             }
+        }
+
+        public IList<SoccerDetailViewModel> DetailedResult
+        {
+            get
+            {
+                if (this._detailedViewModels == null)
+                {
+                    this.GetDetailedResult();
+                }
+
+                return this._detailedViewModels;
+            }
+        }
+
+        private void GetDetailedResult()
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>

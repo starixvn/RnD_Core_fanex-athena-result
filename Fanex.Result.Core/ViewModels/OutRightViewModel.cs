@@ -54,7 +54,7 @@ namespace Fanex.Result.Core.ViewModels
                 return this.GetSportNameByLanguage(this._outRight.SportType);
             }
         }
-       
+
         public string Team
         {
             get

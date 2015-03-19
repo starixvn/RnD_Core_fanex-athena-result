@@ -36,7 +36,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                var matchResultInfo = this.SPORTBOOK.GameDetails.SingleOrDefault(i => i.ResourceId.Equals(BetIDDefinition.TotalSet, System.StringComparison.OrdinalIgnoreCase));
+                var matchResultInfo = this.SPORTBOOK.GameDetails.SingleOrDefault(i => i.ResourceId.Equals(TennisBetIDDefinition.TotalSet, System.StringComparison.OrdinalIgnoreCase));
                 if (matchResultInfo != null && matchResultInfo.SettlementStatusID == EventStatusIDDefinition.RefundStettlementStatusID)
                 {
                     return Lang.Refund;
@@ -101,12 +101,12 @@ namespace Fanex.Result.Core.ViewModels
             }
         }
 
-        public bool VisibleMatchResult
+        public override bool VisibleMatchResult
         {
             get { return this.SPORTBOOK.Bettype != BetTypeDefinition.SetXGameYWinner; }
         }
 
-        public bool VisibleGameDetail
+        public override bool VisibleGameDetail
         {
             get
             {
@@ -228,16 +228,16 @@ Justification = "Reviewed. Suppression is OK here.")]
             switch (set)
             {
                 case 1:
-                    return betID >= BetIDDefinition.MinSet1GameY && betID <= BetIDDefinition.MaxSet1GameY;
+                    return betID >= TennisBetIDDefinition.MinSet1GameY && betID <= TennisBetIDDefinition.MaxSet1GameY;
                 case 2:
-                    return betID >= BetIDDefinition.MinSet2GameY && betID <= BetIDDefinition.MaxSet2GameY;
+                    return betID >= TennisBetIDDefinition.MinSet2GameY && betID <= TennisBetIDDefinition.MaxSet2GameY;
                 case 3:
-                    return betID >= BetIDDefinition.MinSet3GameY && betID <= BetIDDefinition.MaxSet3GameY;
+                    return betID >= TennisBetIDDefinition.MinSet3GameY && betID <= TennisBetIDDefinition.MaxSet3GameY;
                 case 4:
-                    return betID >= BetIDDefinition.MinSet4GameY && betID <= BetIDDefinition.MaxSet4GameY;
+                    return betID >= TennisBetIDDefinition.MinSet4GameY && betID <= TennisBetIDDefinition.MaxSet4GameY;
 
                 case 5:
-                    return betID >= BetIDDefinition.MinSet5GameY;
+                    return betID >= TennisBetIDDefinition.MinSet5GameY;
 
                 default:
                     return false;

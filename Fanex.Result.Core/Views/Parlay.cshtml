@@ -33,25 +33,26 @@
                     SportType = sportType
 
                 };
-                var matchItemViews = sportType == Fanex.Result.Core.SportType.Tennis ? item.TennisMatchItemView : item.ItemView;
+                var matchItemViews = item.MatchItemView;
 
                 var itemData = new List<GroupData>()
                 {
                     new GroupData
                     {
                         LeagueId = group.LeagueId,
-                        Data =matchItemViews
+                        Data =item.MatchItemView
                     }
                 };
                     }
-                    @if (sportType != Fanex.Result.Core.SportType.Tennis || matchItemViews.Count > 0)
+
+                    @if (matchItemViews.Count > 0)
                     {
                         bindModle.Data.AddRange(itemData);
                         @Raw(item.Render(bindModle))
                     }
-                    @if (sportType == Fanex.Result.Core.SportType.Tennis)
-                    {
-                        var gameItemViews = item.TennisGameDetailItemView;
+                    
+                    @{
+                        var gameItemViews = item.GameDetailItemView;
                         foreach (var gameItemView in gameItemViews)
                         {
                             var detailData = new List<GroupData>()

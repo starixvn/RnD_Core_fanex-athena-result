@@ -1,0 +1,24 @@
+﻿// -----------------------------------------------------------------------
+// <copyright file="SoccerDetailViewModel.cs" company="">
+// TODO: Update copyright text.
+// </copyright>
+// -----------------------------------------------------------------------
+
+namespace Fanex.Result.Core.ViewModels.SoccerInfo
+{
+    /// <summary>
+    /// TODO: Update summary.
+    /// </summary>
+    public class SoccerDetailViewModel
+    {
+        public string GroupName { get; set; }
+
+        public string BettypeName { get; set; }
+
+        public string ResourceID { get; set; }
+
+        public string HomeValue { get; set; }
+
+        public string AwayValue { get; set; }
+    }
+}

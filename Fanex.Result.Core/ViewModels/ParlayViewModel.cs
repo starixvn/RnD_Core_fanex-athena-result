@@ -73,7 +73,7 @@ namespace Fanex.Result.Core.ViewModels
             }
         }
 
-        public IList<IResultViewModel> ItemView
+        public IList<IResultViewModel> MatchItemView
         {
             get
             {
@@ -82,11 +82,11 @@ namespace Fanex.Result.Core.ViewModels
                     CreateItemViewModel();
                 }
 
-                return _viewModelData;
+                return this._viewModelData.Where(i => i.VisibleMatchResult).ToList();
             }
         }
 
-        public IList<IResultViewModel> TennisMatchItemView
+        public IList<IResultViewModel> GameDetailItemView
         {
             get
             {
@@ -95,38 +95,7 @@ namespace Fanex.Result.Core.ViewModels
                     CreateItemViewModel();
                 }
 
-                var result = new List<IResultViewModel>();
-                foreach (TennisViewModel item in this._viewModelData)
-                {
-                    if (item.VisibleMatchResult)
-                    {
-                        result.Add(item);
-                    }
-                }
-
-                return result;
-            }
-        }
-
-        public IList<IResultViewModel> TennisGameDetailItemView
-        {
-            get
-            {
-                if (_viewModelData == null)
-                {
-                    CreateItemViewModel();
-                }
-
-                var result = new List<IResultViewModel>();
-                foreach (TennisViewModel item in this._viewModelData)
-                {
-                    if (item.VisibleGameDetail)
-                    {
-                        result.Add(item);
-                    }
-                }
-
-                return result;
+                return this._viewModelData.Where(i => i.VisibleGameDetail).ToList();
             }
         }
 

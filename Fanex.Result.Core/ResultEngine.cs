@@ -102,47 +102,6 @@ namespace Fanex.Result.Core
         }
 
         /// <summary>
-        /// Render JSON result.
-        /// </summary>
-        /// <typeparam name="T">The DTO object (FANEX.Result.Core.DTO).</typeparam>
-        /// <param name="dataList">The DTO list.</param>
-        /// <param name="setting">The result setting.</param>
-        /// <returns>The JSON string.</returns>
-        public static string JsonParser<T>(IList<T> dataList, ResultSetting setting)
-        {
-            ReCheckSetting<T>(dataList, setting);
-
-            var dtoName = typeof(T).Name;
-            var builder = new Builder();
-            if (setting.IsOutRight)
-            {
-                if (!Validate.Instance.ValidateOutRight(dtoName))
-                {
-                    throw new ObjectNullException(string.Format(ResourceConfig.ARGUEMENTMESOUTRIGHT, dtoName));
-                }
-
-                return builder.JSONOutRightBuilder(dataList, setting);
-            }
-
-            if (setting.IsParlayPopUp)
-            {
-                if (!Validate.Instance.ValidateParlay(dtoName))
-                {
-                    throw new ObjectNullException(string.Format(ResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
-                }
-
-                return builder.JSONParlayBuilder(dataList, setting);
-            }
-
-            if (!Validate.Instance.ValidateNormal(dtoName, setting.SportType))
-            {
-                throw new ObjectNullException(string.Format(ResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
-            }
-
-            return builder.JSONSportTypeBuilder(dataList, setting);
-        }
-
-        /// <summary>
         /// Create excel file.
         /// </summary>
         /// <typeparam name="T">The DTO object (FANEX.Result.Core.DTO).</typeparam>

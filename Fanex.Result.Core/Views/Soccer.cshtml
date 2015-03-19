@@ -160,22 +160,17 @@
                     <div>
                         @item.EventStatus
                     </div>
-                    @if (item.VisibleDetailedLink || !string.IsNullOrEmpty(item.PenaltyShootoutResult))
+                    @if (item.VisibleDetailedLink &&!viewModel.IsPopUp)
                     {
                         <div>
                             @if (item.VisibleDetailedLink && !viewModel.IsPopUp)
                             {
 
                                 <span class="detail-link soccer-detail-link" data-league-id="@item.LeagueId"
-                                         data-home-id="@item.HomeId" data-away-id="@item.AwayId" data-goal-record="@item.GoalRecord">
+                                         data-home-id="@item.HomeId" data-away-id="@item.AwayId">
                                     @lang.Details </span>
                             }
-                            @if (!string.IsNullOrEmpty(item.PenaltyShootoutResult))
-                            {
-
-                                <span class="detail-link penalty-result" original-title="@item.PenaltyShootoutTooltip">
-                                    [@lang.PS:@item.PenaltyShootoutResult] </span>
-                            }
+                           
                         </div>
                     }
                 </td>
@@ -236,4 +231,8 @@
 @if (viewModel.VisibleFreeHeader)
 {
     @Raw("</div>")
+}
+@if (viewModel.VisibleDetailResult)
+{
+    
 }

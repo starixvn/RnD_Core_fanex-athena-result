@@ -9,7 +9,7 @@ namespace Fanex.Result.Core.DataDomain
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public static class BetIDDefinition
+    public static class TennisBetIDDefinition
     {
         public const int MinSet1GameY = 80101;
         public const int MaxSet1GameY = 80113;
@@ -21,5 +21,8 @@ namespace Fanex.Result.Core.DataDomain
         public const int MaxSet4GameY = 80413;
         public const int MinSet5GameY = 80501;
         public const string TotalSet = "00";
+        #region BetRada
+
+        #endregion
     }
 }

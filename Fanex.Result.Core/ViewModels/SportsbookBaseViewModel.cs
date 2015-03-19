@@ -91,6 +91,16 @@ namespace Fanex.Result.Core.ViewModels
             }
         }
 
+        public new virtual bool VisibleMatchResult
+        {
+            get { return true; }
+        }
+
+        public new virtual bool VisibleGameDetail
+        {
+            get { return false; }
+        }
+
         #region onlyForSettlementSite
 
         public string MatchCode

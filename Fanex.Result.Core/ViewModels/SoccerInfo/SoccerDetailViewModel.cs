@@ -11,6 +11,8 @@ namespace Fanex.Result.Core.ViewModels.SoccerInfo
     /// </summary>
     public class SoccerDetailViewModel
     {
+        public string GroupCode { get; set; }
+
         public string GroupName { get; set; }
 
         public string ResourceName { get; set; }

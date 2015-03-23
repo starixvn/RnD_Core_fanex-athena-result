@@ -11,7 +11,7 @@ namespace Fanex.Result.Core.DataDomain
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public static class ConstantValueDefinition
+    internal static class ConstantValueDefinition
     {
         [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", Justification = "Reviewed.")]
         public const int NUMBERGAMEOFTENNISSET = 13;

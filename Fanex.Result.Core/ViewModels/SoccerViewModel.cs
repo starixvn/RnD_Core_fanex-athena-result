@@ -13,6 +13,7 @@ namespace Fanex.Result.Core.ViewModels
     using System.Linq;
     using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.DTO;
+    using Fanex.Result.Core.Utilities;
     using Fanex.Result.Core.ViewModels.SoccerInfo;
 
     /// <summary>
@@ -22,7 +23,7 @@ namespace Fanex.Result.Core.ViewModels
     {
         private SoccerDetailInfo _goalInfo;
 
-        private IList<SoccerDetailViewModel> _detailedViewModels;
+        private IList<SoccerDetailViewModel> _detailedViewModels = null;
 
         public SoccerViewModel(Sportsbook soccer, ResultSetting setting, LangResources resource)
             : base(soccer, setting, resource)
@@ -46,7 +47,8 @@ namespace Fanex.Result.Core.ViewModels
             get
             {
                 return base.VisibleDetailedLink &&
-                 this.SPORTBOOK.GameDetails.Any(i => !string.IsNullOrEmpty(i.ResourceId) && i.SettlementStatusID > 0);
+                 this.SPORTBOOK.GameDetails.Any(i => !string.IsNullOrEmpty(i.ResourceId) && i.SettlementStatusID > 0
+                 && ValidateResourceId(i.ResourceId));
             }
         }
 
@@ -161,9 +163,107 @@ namespace Fanex.Result.Core.ViewModels
             }
         }
 
+        #region Utilities
+
+        /// <summary>
+        /// Validate resource ID.
+        /// </summary>
+        /// <param name="resourceId">The resource ID.</param>
+        /// <returns>True if it's ID is valid.</returns>
+        private static bool ValidateResourceId(string resourceId)
+        {
+            var validResources = GameResourceDefinition.BetRada.Values;
+            foreach (var pattern in validResources)
+            {
+                if (ValidateResourceId(pattern, resourceId))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        private static bool ValidateResourceId(List<string> resourceIdList, string resourceId)
+        {
+            return resourceIdList.Any(i => Helper.IsValidResourceId(i, resourceId));
+        }
+
+        /// <summary>
+        /// Get detailed game results.
+        /// </summary>
         private void GetDetailedResult()
         {
-            throw new NotImplementedException();
+            this._detailedViewModels = new List<SoccerDetailViewModel>();
+            foreach (var group in GameResourceDefinition.BetRada)
+            {
+                var detailedGameRecords = this.SPORTBOOK.GameDetails
+                    .Where(i => ValidateResourceId(group.Value, i.ResourceId));
+                foreach (var detailedItem in detailedGameRecords)
+                {
+                    this._detailedViewModels.Add(MapDetailedGameValue(group.Key, detailedItem));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Map game values.
+        /// </summary>
+        /// <param name="groupCode">Group game code.</param>
+        /// <param name="detailedItem">The raw detailed value.</param>
+        /// <returns>The detail view model.</returns>
+        private SoccerDetailViewModel MapDetailedGameValue(string groupCode, GameDetail detailedItem)
+        {
+            var item = new SoccerDetailViewModel
+            {
+                GroupCode = groupCode,
+                ResourceID = detailedItem.ResourceId,
+                GroupName = Helper.GetResourceLang(groupCode, this.Lang),
+                ResourceName = Helper.GetResourceLang(detailedItem.ResourceId, this.Lang)
+            };
+
+            switch (detailedItem.SettlementStatusID)
+            {
+                case EventStatusIDDefinition.CompletedSettlementStatusID:
+                    MapResourceGameValue(item);
+                    break;
+
+                case EventStatusIDDefinition.RefundStettlementStatusID:
+                    item.HomeValue = item.AwayValue = this.Lang.Refund;
+                    break;
+
+                case EventStatusIDDefinition.RefundHTSettlementStatusID:
+                    item.HomeValue = item.AwayValue = this.Lang.Refundht;
+
+                    break;
+
+                case EventStatusIDDefinition.RefundFTSettlementStatusID:
+                    item.HomeValue = item.AwayValue = this.Lang.Refundft;
+
+                    break;
+
+                default:
+                    break;
+            }
+
+            return item;
+        }
+
+        /// <summary>
+        /// Map resource code to appropriate value.
+        /// </summary>
+        /// <param name="item">The view model Item.</param>
+        private void MapResourceGameValue(SoccerDetailViewModel item)
+        {
+            switch (item.ResourceID)
+            {
+                case "04":
+                case "05":
+                    break;
+
+                default:
+                    break;
+            }
         }
 
         /// <summary>
@@ -233,5 +333,7 @@ Justification = "Reviewed. Suppression is OK here.")]
 
             return this._goalInfo;
         }
+
+        #endregion Utilities
     }
 }

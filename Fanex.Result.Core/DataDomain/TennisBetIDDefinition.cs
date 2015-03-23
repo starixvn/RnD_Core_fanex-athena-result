@@ -9,7 +9,7 @@ namespace Fanex.Result.Core.DataDomain
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public static class TennisBetIDDefinition
+    internal static class TennisBetIDDefinition
     {
         public const int MinSet1GameY = 80101;
         public const int MaxSet1GameY = 80113;

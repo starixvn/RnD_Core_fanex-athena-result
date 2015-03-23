@@ -12,7 +12,7 @@ namespace Fanex.Result.Core.DataDomain
     /// <summary>
     /// Data domain class.
     /// </summary>
-    public static class DTOType
+    internal static class DTOType
     {
         [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", Justification = "Reviewed.")]
         public const string SPORTSBOOK = "Sportsbook";

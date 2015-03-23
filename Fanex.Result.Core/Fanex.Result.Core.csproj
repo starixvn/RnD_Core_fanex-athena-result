@@ -88,6 +88,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataDomain\GameResourceDefinition.cs" />
     <Compile Include="DataDomain\TennisBetIDDefinition.cs" />
     <Compile Include="DataDomain\BetTypeDefinition.cs" />
     <Compile Include="DataDomain\ConstantValueDefinition.cs" />
@@ -199,6 +200,14 @@
     <EmbeddedResource Include="Views\VSHRacing.cshtml" />
     <EmbeddedResource Include="Views\VSTennis.cshtml" />
     <EmbeddedResource Include="Views\VSSpeedWay.cshtml" />
+    <None Include="Views\SoccerDetail\Special.cshtml" />
+    <None Include="Views\SoccerDetail\HomeAwayPlayerSentOff.cshtml" />
+    <None Include="Views\SoccerDetail\PlayerSentOff.cshtml" />
+    <None Include="Views\SoccerDetail\Corner.cshtml" />
+    <None Include="Views\SoccerDetail\GoalScorer.cshtml" />
+    <None Include="Views\SoccerDetail\GoalTime.cshtml" />
+    <None Include="Views\SoccerDetail\GoalSequence.cshtml" />
+    <None Include="Views\SoccerDetail\Goals.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

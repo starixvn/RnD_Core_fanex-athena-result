@@ -9,6 +9,7 @@ namespace Fanex.Result.Core.Utilities
     using System;
     using System.Globalization;
     using System.Linq;
+    using System.Text;
     using System.Text.RegularExpressions;
     using Fanex.Result.Core.DataDomain;
 
@@ -17,14 +18,17 @@ namespace Fanex.Result.Core.Utilities
     /// </summary>
     internal static class Helper
     {
+        private const string ResourceIDSuffix = "RS_";
         private static readonly CultureInfo Cult = new CultureInfo("en-US");
         private static Regex setXGameYRegex = new Regex("^80[1-5]{1}\\d{2}$");
 
-        private static Regex[] soccerRangeResourceIDRegex = new Regex[3]
+        private static Regex[] soccerRangeResourceIDRegex = new Regex[5]
         {
             new Regex("^169\\d{2}$"),
             new Regex("^160\\d{2}$"),
             new Regex("^216\\d{2}$"),
+            new Regex("^180\\d{2}$"),
+            new Regex("^164\\d{2}$"),
         };
 
         private static Regex[] setXRGameYResourceID = new Regex[5]
@@ -132,13 +136,26 @@ namespace Fanex.Result.Core.Utilities
                 return string.Empty;
             }
 
-            var realKeyName = keyName;
+            var resourceNum = string.Empty;
+
+            var realKeyName = new StringBuilder(ResourceIDSuffix);
             if (soccerRangeResourceIDRegex.Any(i => i.IsMatch(keyName)))
             {
-                realKeyName = keyName.Substring(0, 2);
+                realKeyName.Append(keyName.Substring(0, 3));
+                resourceNum = keyName.Substring(2, 2);
+            }
+            else
+            {
+                realKeyName.Append(keyName);
             }
 
-            return lang.GetType().GetProperty(realKeyName).GetValue(lang, null).ToString();
+            var result = lang.GetType().GetProperty(realKeyName.ToString()).GetValue(lang, null).ToString();
+            if (!string.IsNullOrEmpty(resourceNum))
+            {
+                return string.Format(result, resourceNum);
+            }
+
+            return result;
         }
     }
 }

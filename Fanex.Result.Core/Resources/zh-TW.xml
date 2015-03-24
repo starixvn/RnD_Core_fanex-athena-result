@@ -69,7 +69,7 @@
     <item key="Details">[i]</item>
     <item key="GameResult">Game Result</item>
     <item key="Goals">Goals</item>
-    <item key="GoalSequence">Goal Sequence</item>
+    <item key="GoalRecord">Goal Record</item>
     <item key="GoalTime">GoalTime</item>
     <item key="GoalScorer">Goal Scorer</item>
     <item key="Corner">Corner</item>

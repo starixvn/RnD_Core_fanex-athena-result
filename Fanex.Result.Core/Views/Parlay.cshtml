@@ -44,18 +44,44 @@
                     }
                 };
                     }
-
+                    <!--Only render Match result-->
                     @if (matchItemViews.Count > 0)
                     {
                         bindModle.Data.AddRange(itemData);
                         @Raw(item.Render(bindModle))
                     }
+                    <!--Render both match and detail game-->
                     
-                    @{
-                        var gameItemViews = item.GameDetailItemView;
-                        foreach (var gameItemView in gameItemViews)
+                           
+                    @foreach (var bothMatchAndGame in item.BothMatchAndDetailItemView)
+                    {
+                        var bothMatchAnddetailData = new List<GroupData>()
+                                {
+                                    new GroupData
+                                    {
+                                        LeagueId=group.LeagueId,
+                                        Data = new List<IResultViewModel>(){bothMatchAndGame}
+                                    }
+                                };
+                        var bothMatchAnddetailBindModel = new Fanex.Result.Core.Models.RazorBinderModel
                         {
-                            var detailData = new List<GroupData>()
+                            Resource = lang,
+                            IsPopUp = true,
+                            VisibleMatchCodeIDColumn = viewModel.VisibleMatchCodeIDColumn,
+                            SportType = sportType,
+                            IsDetail = true
+
+                        };
+                        bothMatchAnddetailBindModel.Data.AddRange(bothMatchAnddetailData);
+                           <br />
+                        @Raw(item.Render(bothMatchAnddetailBindModel))
+                    }
+                    
+                   
+                   
+                    @foreach (var gameItemView in item.GameDetailItemView)
+                    {
+                        var detailData = new List<GroupData>()
                                 {
                                     new GroupData
                                     {
@@ -63,20 +89,20 @@
                                         Data = new List<IResultViewModel>(){gameItemView}
                                     }
                                 };
-                            var detailBindModel = new Fanex.Result.Core.Models.RazorBinderModel
-                              {
-                                  Resource = lang,
-                                  IsPopUp = true,
-                                  VisibleMatchCodeIDColumn = viewModel.VisibleMatchCodeIDColumn,
-                                  SportType = sportType,
+                        var detailBindModel = new Fanex.Result.Core.Models.RazorBinderModel
+                        {
+                            Resource = lang,
+                            IsPopUp = true,
+                            VisibleMatchCodeIDColumn = viewModel.VisibleMatchCodeIDColumn,
+                            SportType = sportType,
 
-                              };
-                            detailBindModel.Data.AddRange(detailData);
+                        };
+                        detailBindModel.Data.AddRange(detailData);
                         <br />
                         @Raw(item.Render(detailBindModel))
-                        }
-
                     }
+
+                    
                 </td>
             </tr>
             }

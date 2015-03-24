@@ -160,17 +160,12 @@
                     <div>
                         @item.EventStatus
                     </div>
-                    @if (item.VisibleDetailedLink &&!viewModel.IsPopUp)
+                    @if (item.VisibleDetailedLink && !viewModel.IsPopUp)
                     {
                         <div>
-                            @if (item.VisibleDetailedLink && !viewModel.IsPopUp)
-                            {
-
-                                <span class="detail-link soccer-detail-link" data-league-id="@item.LeagueId"
+                            <span class="detail-link soccer-detail-link" data-league-id="@item.LeagueId"
                                          data-home-id="@item.HomeId" data-away-id="@item.AwayId">
-                                    @lang.Details </span>
-                            }
-                           
+                                @lang.Details </span>
                         </div>
                     }
                 </td>
@@ -234,5 +229,5 @@
 }
 @if (viewModel.VisibleDetailResult)
 {
-    
+<p>Detail here</p>
 }

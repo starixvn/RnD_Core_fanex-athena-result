@@ -16,7 +16,7 @@ namespace Fanex.Result.Core.DataDomain
         private static IDictionary<string, List<string>> _betRada = new Dictionary<string, List<string>> 
         {
         { "Goals", new List<string> { "176" } }, 
-        { "GoalSequence", new List<string> { "08" } }, 
+        { "GoalRecord", new List<string> { "^180\\d{2}$", "^160\\d{2}$", "^164\\d{2}$" } }, 
         { "GoalTime", new List<string> { "192", "193", "^169\\d{2}$" } }, 
         { "GoalScorer", new List<string> { "217", "^216\\d{2}$" } }, 
         { "Corner", new List<string> { "05", "207", "209", "04", "206", "208" } }, 

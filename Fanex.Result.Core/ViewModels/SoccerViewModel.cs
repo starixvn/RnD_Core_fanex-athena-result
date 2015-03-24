@@ -175,7 +175,7 @@ namespace Fanex.Result.Core.ViewModels
             var validResources = GameResourceDefinition.BetRada.Values;
             foreach (var pattern in validResources)
             {
-                if (ValidateResourceId(pattern, resourceId))
+                if (ValidateResourceIdByPattern(pattern, resourceId))
                 {
                     return true;
                 }
@@ -184,9 +184,9 @@ namespace Fanex.Result.Core.ViewModels
             return false;
         }
 
-        private static bool ValidateResourceId(List<string> resourceIdList, string resourceId)
+        private static bool ValidateResourceIdByPattern(List<string> patterns, string resourceId)
         {
-            return resourceIdList.Any(i => Helper.IsValidResourceId(i, resourceId));
+            return patterns.Any(i => Helper.IsValidResourceId(i, resourceId));
         }
 
         /// <summary>
@@ -198,7 +198,7 @@ namespace Fanex.Result.Core.ViewModels
             foreach (var group in GameResourceDefinition.BetRada)
             {
                 var detailedGameRecords = this.SPORTBOOK.GameDetails
-                    .Where(i => ValidateResourceId(group.Value, i.ResourceId));
+                    .Where(i => ValidateResourceIdByPattern(group.Value, i.ResourceId));
                 foreach (var detailedItem in detailedGameRecords)
                 {
                     this._detailedViewModels.Add(MapDetailedGameValue(group.Key, detailedItem));
@@ -219,7 +219,7 @@ namespace Fanex.Result.Core.ViewModels
                 GroupCode = groupCode,
                 ResourceID = detailedItem.ResourceId,
                 GroupName = Helper.GetResourceLang(groupCode, this.Lang),
-                ResourceName = Helper.GetResourceLang(detailedItem.ResourceId, this.Lang)
+                ResourceName = Helper.GetResourceLang(detailedItem.ResourceId, this.Lang),
             };
 
             switch (detailedItem.SettlementStatusID)

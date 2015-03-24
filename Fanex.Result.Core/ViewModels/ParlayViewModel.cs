@@ -23,6 +23,9 @@ namespace Fanex.Result.Core.ViewModels
         private readonly Parlay _parlay;
         private readonly ResultSetting _sportSetting;
         private IList<IResultViewModel> _viewModelData = null;
+        private IList<IResultViewModel> _onlyMatchItemViewModel = null;
+        private IList<IResultViewModel> _onlyGameDetailItemViewModel = null;
+        private IList<IResultViewModel> _bothMatchAndGameDetailItemViewModel = null;
 
         public ParlayViewModel(Parlay parlay, ResultSetting setting, LangResources resource)
             : base(setting, resource)
@@ -77,12 +80,12 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                if (_viewModelData == null)
+                if (_onlyMatchItemViewModel == null)
                 {
                     CreateItemViewModel();
                 }
 
-                return this._viewModelData.Where(i => i.VisibleMatchResult).ToList();
+                return _onlyMatchItemViewModel;
             }
         }
 
@@ -90,12 +93,25 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                if (_viewModelData == null)
+                if (_onlyGameDetailItemViewModel == null)
                 {
                     CreateItemViewModel();
                 }
 
-                return this._viewModelData.Where(i => i.VisibleGameDetail).ToList();
+                return _onlyGameDetailItemViewModel;
+            }
+        }
+
+        public IList<IResultViewModel> BothMatchAndDetailItemView
+        {
+            get
+            {
+                if (_bothMatchAndGameDetailItemViewModel == null)
+                {
+                    CreateItemViewModel();
+                }
+
+                return this._viewModelData.Where(i => i.VisibleGameDetail && i.VisibleMatchResult).ToList();
             }
         }
 
@@ -122,10 +138,31 @@ namespace Fanex.Result.Core.ViewModels
             return Razor.Run(sportType.StringMe(), model);
         }
 
+        /// <summary>
+        /// Create view model for parlay result.
+        /// </summary>
         private void CreateItemViewModel()
         {
-            _viewModelData = this._parlay.Sportbook.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(
-                i, _sportSetting, Lang)).ToList();
+            if (_viewModelData == null)
+            {
+                _viewModelData = this._parlay.Sportbook.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(
+                    i, _sportSetting, Lang)).ToList();
+            }
+
+            if (_bothMatchAndGameDetailItemViewModel == null)
+            {
+                _bothMatchAndGameDetailItemViewModel = _viewModelData.Where(i => i.VisibleMatchResult && i.VisibleGameDetail).ToList();
+            }
+
+            if (_onlyMatchItemViewModel == null)
+            {
+                _onlyMatchItemViewModel = _viewModelData.Except(_bothMatchAndGameDetailItemViewModel).Where(i => i.VisibleMatchResult && !i.VisibleGameDetail).ToList();
+            }
+
+            if (_onlyGameDetailItemViewModel == null)
+            {
+                _onlyGameDetailItemViewModel = _viewModelData.Except(_bothMatchAndGameDetailItemViewModel).Except(_onlyMatchItemViewModel).ToList();
+            }
         }
     }
 }

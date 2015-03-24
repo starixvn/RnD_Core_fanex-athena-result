@@ -69,11 +69,15 @@
     <item key="Details">[i]</item>
     <item key="GameResult">Game Result</item>
     <item key="Goals">Goals</item>
-    <item key="GoalSequence">Goal Sequence</item>
+    <item key="GoalRecord">Goal Record</item>
     <item key="GoalTime">GoalTime</item>
     <item key="GoalScorer">Goal Scorer</item>
     <item key="Corner">Corner</item>
     <item key="PlayerSentOff">Player Sent Off</item>
     <item key="HomeAwayPlayerSentOff">Home/Away - Player Sent Off</item>
     <item key="Special">Special</item>
+    <item key="RS_176">First 10 Minutes 1X2</item>
+    <item key="RS_180">1H - Goal {0}</item>
+    <item key="RS_160">FT - Goal {0}</item>
+    <item key="RS_164">ET - Goal {0}</item>
 </root>

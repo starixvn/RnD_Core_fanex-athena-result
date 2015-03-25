@@ -6,21 +6,18 @@
 
 namespace Fanex.Result.Core.ViewModels.SoccerInfo
 {
+    using System.Collections.Generic;
+    using Fanex.Result.Core.DataDomain;
+
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
     public class SoccerDetailViewModel
     {
-        public string GroupCode { get; set; }
+        public LangResources Resource { get; set; }
 
-        public string GroupName { get; set; }
+        public string Name { get; set; }
 
-        public string ResourceName { get; set; }
-
-        public string ResourceID { get; set; }
-
-        public string HomeValue { get; set; }
-
-        public string AwayValue { get; set; }
+        public IList<SoccerGameDetailItem> DetailItems { get; set; }
     }
 }

@@ -11,19 +11,23 @@ namespace Fanex.Result.Core.ViewModels
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
     using System.Linq;
+    using System.Text;
     using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.DTO;
+    using Fanex.Result.Core.Models;
     using Fanex.Result.Core.Utilities;
     using Fanex.Result.Core.ViewModels.SoccerInfo;
+    using RazorEngine;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
     public sealed class SoccerViewModel : SportsbookBaseViewModel, IResultViewModel
     {
+        private const string TemplateNameSpace = "SoccerDetail.";
         private SoccerDetailInfo _goalInfo;
 
-        private IList<SoccerDetailViewModel> _detailedViewModels = null;
+        private IList<SoccerGameDetailItem> _detailedItemModels = null;
 
         public SoccerViewModel(Sportsbook soccer, ResultSetting setting, LangResources resource)
             : base(soccer, setting, resource)
@@ -150,16 +154,37 @@ namespace Fanex.Result.Core.ViewModels
             }
         }
 
-        public IList<SoccerDetailViewModel> DetailedResult
+        public string DetailedResult
         {
             get
             {
-                if (this._detailedViewModels == null)
+                if (this._detailedItemModels == null)
                 {
                     this.GetDetailedResult();
                 }
 
-                return this._detailedViewModels;
+                var temp = new StringBuilder();
+                var templateOperator = Template.Instance;
+                var detailedReulstByGroup = this._detailedItemModels.GroupBy(i => i.GroupCode);
+                foreach (var item in detailedReulstByGroup)
+                {
+                    var templateName = TemplateNameSpace + item.Key;
+                    var templateByGroup = templateOperator.GetRazorTemplate(templateName);
+                    if (!string.IsNullOrEmpty(templateByGroup))
+                    {
+                        Razor.GetTemplate(templateByGroup, templateName);
+                        var binderModel = new SoccerDetailViewModel
+                        {
+                            Name = item.FirstOrDefault().GroupName,
+                            Resource = this.Lang,
+                            DetailItems = item.ToList()
+                        };
+
+                        temp.Append(Razor.Run(templateName, binderModel));
+                    }
+                }
+
+                return temp.ToString();
             }
         }
 
@@ -194,14 +219,14 @@ namespace Fanex.Result.Core.ViewModels
         /// </summary>
         private void GetDetailedResult()
         {
-            this._detailedViewModels = new List<SoccerDetailViewModel>();
+            this._detailedItemModels = new List<SoccerGameDetailItem>();
             foreach (var group in GameResourceDefinition.BetRada)
             {
                 var detailedGameRecords = this.SPORTBOOK.GameDetails
                     .Where(i => ValidateResourceIdByPattern(group.Value, i.ResourceId));
                 foreach (var detailedItem in detailedGameRecords)
                 {
-                    this._detailedViewModels.Add(MapDetailedGameValue(group.Key, detailedItem));
+                    this._detailedItemModels.Add(MapDetailedGameValue(group.Key, detailedItem));
                 }
             }
         }
@@ -212,9 +237,9 @@ namespace Fanex.Result.Core.ViewModels
         /// <param name="groupCode">Group game code.</param>
         /// <param name="detailedItem">The raw detailed value.</param>
         /// <returns>The detail view model.</returns>
-        private SoccerDetailViewModel MapDetailedGameValue(string groupCode, GameDetail detailedItem)
+        private SoccerGameDetailItem MapDetailedGameValue(string groupCode, GameDetail detailedItem)
         {
-            var item = new SoccerDetailViewModel
+            var item = new SoccerGameDetailItem
             {
                 GroupCode = groupCode,
                 ResourceID = detailedItem.ResourceId,
@@ -253,7 +278,7 @@ namespace Fanex.Result.Core.ViewModels
         /// Map resource code to appropriate value.
         /// </summary>
         /// <param name="item">The view model Item.</param>
-        private void MapResourceGameValue(SoccerDetailViewModel item)
+        private void MapResourceGameValue(SoccerGameDetailItem item)
         {
             switch (item.ResourceID)
             {

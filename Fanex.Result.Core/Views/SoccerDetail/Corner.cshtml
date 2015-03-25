@@ -1,9 +1,28 @@
-﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
-	<head>
-		<title></title>
-	</head>
-	<body>
-	
-	</body>
-</html>
+﻿@{
+    var itemViewModel = (Fanex.Result.Core.ViewModels.SoccerInfo.SoccerDetailViewModel)Model;
+
+    var lang = (Fanex.Result.Core.DataDomain.LangResources)itemViewModel.Resource;
+
+}
+@using Fanex.Result.Core.ViewModels;
+@using Fanex.Result.Core.Models;
+@using System.Collections;
+<tr class="data">
+    <td colspan="3" class="cl-league sub">
+        @itemViewModel.Name
+    </td>
+</tr>
+@foreach (var item in itemViewModel.DetailItems)
+{
+    <tr class="data">
+        <td class="cl-match">
+            @item.ResourceName
+        </td>
+        <td class="cl-result home">
+            @item.HomeValue
+        </td>
+        <td class="cl-result home">
+            @item.AwayValue
+        </td>
+    </tr>
+}

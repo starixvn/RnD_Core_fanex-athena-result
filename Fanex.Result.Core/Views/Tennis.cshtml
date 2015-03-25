@@ -252,12 +252,12 @@
             if ((viewModel.IsDetail || item.VisibleSet(i + 1)) && setValue != null)
             {
 
-                {
+                
                     if (viewModel.IsDetail)
                     {
-    <br />
+                         <br />
                     }
-    <table class="fn-rs popup">
+            <table class="fn-rs popup">
         <thead>
             @if (!viewModel.IsDetail && viewModel.VisiblePopUpTitle)
             {
@@ -354,7 +354,7 @@
             }
         </tbody>
     </table>
-                }
+                
 
             }
             else
@@ -364,10 +364,6 @@
         }
 
         visibleNoInfomationRow = numOfNullSet == 5;
-    }
-    else
-    {
-        visibleNoInfomationRow = true;
     }
     if (visibleNoInfomationRow)
     {

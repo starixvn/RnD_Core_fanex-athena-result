@@ -9,6 +9,7 @@
 @using Fanex.Result.Core.ViewModels;
 @using Fanex.Result.Core.Models;
 @using System.Collections;
+
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
@@ -229,5 +230,24 @@
 }
 @if (viewModel.VisibleDetailResult)
 {
-<p>Detail here</p>
+    var mainItem = ((GroupData)viewModel.Data[0]).Data[0] as SoccerViewModel;
+
+    <table class="fn-rs popup">
+        <thead>
+            <tr class="header">
+                <th class="cl-match">
+                    @lang.MoreResults
+                </th>
+                <th class="cl-result home">
+                    @mainItem.HomeTeam
+                </th>
+                <th class="cl-result away">
+                    @mainItem.AwayTeam
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+         @Raw(mainItem.DetailedResult)
+        </tbody>
+    </table>
 }

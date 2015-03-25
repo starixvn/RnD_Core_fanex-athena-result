@@ -76,4 +76,27 @@
     <item key="PlayerSentOff">Player Sent Off</item>
     <item key="HomeAwayPlayerSentOff">Home/Away - Player Sent Off</item>
     <item key="Special">Special</item>
+    <item key="RS_176">First 10 Minutes 1X2</item>
+    <item key="RS_180">1H - Goal {0}</item>
+    <item key="RS_160">FT - Goal {0}</item>
+    <item key="RS_164">ET - Goal {0}</item>
+    <item key="RS_192">First Goal Time (10 Min)</item>
+    <item key="RS_193">First Goal Time (15 Min)</item>
+    <item key="RS_169">Goal {0}</item>
+    <item key="RS_05">1st Half</item>
+    <item key="RS_207">1st Half</item>
+    <item key="RS_209">1st Half</item>
+    <item key="RS_04">Full Time</item>
+    <item key="RS_206">Full Time</item>
+    <item key="RS_208">Full Time</item>
+    <item key="RS_211">1st Half</item>
+    <item key="RS_210">Full Time</item>
+    <item key="RS_213">1st Half</item>
+    <item key="RS_215">1st Half</item>
+    <item key="RS_214">Full Time</item>
+    <item key="RS_212">Full Time</item>
+    <item key="RS_173">Extra Time Yes/No</item>
+    <item key="RS_135">Penalty Shootout Yes/No</item>
+    <item key="RS_175">Match Decided Method</item>
+    <item key="RS_168">Who advances to next round</item>
 </root>

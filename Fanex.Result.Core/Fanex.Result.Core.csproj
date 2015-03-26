@@ -88,12 +88,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataDomain\GameResourceDefinition.cs" />
-    <Compile Include="DataDomain\TennisBetIDDefinition.cs" />
-    <Compile Include="DataDomain\BetTypeDefinition.cs" />
-    <Compile Include="DataDomain\ConstantValueDefinition.cs" />
+    <Compile Include="DataDomain\GameResourceID.cs" />
+    <Compile Include="DataDomain\GameResources.cs" />
+    <Compile Include="DataDomain\TennisBetID.cs" />
+    <Compile Include="DataDomain\BetTypeID.cs" />
+    <Compile Include="DataDomain\ConstantValue.cs" />
     <Compile Include="DataDomain\DTOType.cs" />
-    <Compile Include="DataDomain\EventStatusIDDefinition.cs" />
+    <Compile Include="DataDomain\EventStatusID.cs" />
     <Compile Include="DataDomain\LangResources.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -107,9 +108,8 @@
     <Compile Include="DTO\OutRight.cs" />
     <Compile Include="DTO\Parlay.cs" />
     <Compile Include="DTO\Racing.cs" />
-    <Compile Include="DataDomain\ResourceConfig.cs" />
+    <Compile Include="DataDomain\CoreResourceConfig.cs" />
     <Compile Include="DTO\Sportsbook.cs" />
-    <Compile Include="DataDomain\StringResources.cs" />
     <Compile Include="ExcelModels\BadmintonExcel.cs" />
     <Compile Include="ExcelModels\BaseBallExcel.cs" />
     <Compile Include="ExcelModels\BasketBallExcel.cs" />
@@ -157,9 +157,9 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\BasketBallViewModel.cs" />
     <Compile Include="ViewModels\BilliardViewModel.cs" />
-    <Compile Include="ViewModels\SoccerInfo\SoccerDetailBinderModel.cs" />
-    <Compile Include="ViewModels\SoccerInfo\SoccerDetailInfo.cs" />
     <Compile Include="ViewModels\SoccerInfo\SoccerDetailViewModel.cs" />
+    <Compile Include="ViewModels\SoccerInfo\SoccerDetailInfo.cs" />
+    <Compile Include="ViewModels\SoccerInfo\SoccerGameDetailItem.cs" />
     <Compile Include="ViewModels\TennisDetail\GameValue.cs" />
     <Compile Include="ViewModels\IResultViewModel.cs" />
     <Compile Include="ViewModels\TennisDetail\SetValue.cs" />
@@ -201,13 +201,14 @@
     <EmbeddedResource Include="Views\VSHRacing.cshtml" />
     <EmbeddedResource Include="Views\VSTennis.cshtml" />
     <EmbeddedResource Include="Views\VSSpeedWay.cshtml" />
+    <None Include="Views\SoccerDetail\FirstLastCorners.cshtml" />
     <None Include="Views\SoccerDetail\Special.cshtml" />
     <None Include="Views\SoccerDetail\HomeAwayPlayerSentOff.cshtml" />
     <None Include="Views\SoccerDetail\PlayerSentOff.cshtml" />
     <None Include="Views\SoccerDetail\Corner.cshtml" />
     <None Include="Views\SoccerDetail\GoalScorer.cshtml" />
     <None Include="Views\SoccerDetail\GoalTime.cshtml" />
-    <None Include="Views\SoccerDetail\GoalSequence.cshtml" />
+    <None Include="Views\SoccerDetail\GoalRecord.cshtml" />
     <None Include="Views\SoccerDetail\Goals.cshtml" />
   </ItemGroup>
   <ItemGroup>

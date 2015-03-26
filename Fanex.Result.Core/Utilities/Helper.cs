@@ -24,11 +24,11 @@ namespace Fanex.Result.Core.Utilities
 
         private static Regex[] soccerRangeResourceIDRegex = new Regex[5]
         {
-            new Regex("^169\\d{2}$"),
-            new Regex("^160\\d{2}$"),
-            new Regex("^216\\d{2}$"),
-            new Regex("^180\\d{2}$"),
-            new Regex("^164\\d{2}$"),
+            new Regex(GameResourceID.NextGoalTime),
+            new Regex(GameResourceID.NextGoal3rd),
+            new Regex(GameResourceID.GoalScorer),
+            new Regex(GameResourceID.NextGoal1H),
+            new Regex(GameResourceID.ExtraTimeNextGoal),
         };
 
         private static Regex[] setXRGameYResourceID = new Regex[5]
@@ -67,7 +67,7 @@ namespace Fanex.Result.Core.Utilities
 
         public static string FormatTwoDigit(int number)
         {
-            return number < 10 ? StringResources.ZERO + number : number.ToString(CultureInfo.InvariantCulture);
+            return number < 10 ? ConstantValue.Zero + number : number.ToString(CultureInfo.InvariantCulture);
         }
 
         public static string ToRtfString(string html)

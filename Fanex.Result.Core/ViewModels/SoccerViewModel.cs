@@ -126,7 +126,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.SPORTBOOK.HtHomeScore.HasValue ? this.SPORTBOOK.HtHomeScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
+                return this.SPORTBOOK.HtHomeScore.HasValue ? this.SPORTBOOK.HtHomeScore.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
             }
         }
 
@@ -134,7 +134,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.SPORTBOOK.FinalHomeScore.HasValue ? this.SPORTBOOK.FinalHomeScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
+                return this.SPORTBOOK.FinalHomeScore.HasValue ? this.SPORTBOOK.FinalHomeScore.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
             }
         }
 
@@ -142,7 +142,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.SPORTBOOK.HtAwayScore.HasValue ? this.SPORTBOOK.HtAwayScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
+                return this.SPORTBOOK.HtAwayScore.HasValue ? this.SPORTBOOK.HtAwayScore.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
             }
         }
 
@@ -150,7 +150,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.SPORTBOOK.FinalAwayScore.HasValue ? this.SPORTBOOK.FinalAwayScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
+                return this.SPORTBOOK.FinalAwayScore.HasValue ? this.SPORTBOOK.FinalAwayScore.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
             }
         }
 
@@ -197,7 +197,7 @@ namespace Fanex.Result.Core.ViewModels
         /// <returns>True if it's ID is valid.</returns>
         private static bool ValidateResourceId(string resourceId)
         {
-            var validResources = GameResourceDefinition.BetRada.Values;
+            var validResources = GameResources.BetRada.Values;
             foreach (var pattern in validResources)
             {
                 if (ValidateResourceIdByPattern(pattern, resourceId))
@@ -220,7 +220,7 @@ namespace Fanex.Result.Core.ViewModels
         private void GetDetailedResult()
         {
             this._detailedItemModels = new List<SoccerGameDetailItem>();
-            foreach (var group in GameResourceDefinition.BetRada)
+            foreach (var group in GameResources.BetRada)
             {
                 var detailedGameRecords = this.SPORTBOOK.GameDetails
                     .Where(i => ValidateResourceIdByPattern(group.Value, i.ResourceId));
@@ -249,20 +249,20 @@ namespace Fanex.Result.Core.ViewModels
 
             switch (detailedItem.SettlementStatusID)
             {
-                case EventStatusIDDefinition.CompletedSettlementStatusID:
-                    MapResourceGameValue(item);
+                case EventStatusID.CompletedSettlementStatusID:
+                    MapResourceGameValueByPattern(item, detailedItem);
                     break;
 
-                case EventStatusIDDefinition.RefundStettlementStatusID:
+                case EventStatusID.RefundStettlementStatusID:
                     item.HomeValue = item.AwayValue = this.Lang.Refund;
                     break;
 
-                case EventStatusIDDefinition.RefundHTSettlementStatusID:
+                case EventStatusID.RefundHTSettlementStatusID:
                     item.HomeValue = item.AwayValue = this.Lang.Refundht;
 
                     break;
 
-                case EventStatusIDDefinition.RefundFTSettlementStatusID:
+                case EventStatusID.RefundFTSettlementStatusID:
                     item.HomeValue = item.AwayValue = this.Lang.Refundft;
 
                     break;
@@ -278,15 +278,167 @@ namespace Fanex.Result.Core.ViewModels
         /// Map resource code to appropriate value.
         /// </summary>
         /// <param name="item">The view model Item.</param>
-        private void MapResourceGameValue(SoccerGameDetailItem item)
+        /// <param name="detailedValue">The raw game value.</param>
+          [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules", "SP2101:MethodMustNotContainMoreLinesThan",
+    Justification = "Reviewed. Suppression is OK here.")]
+        private void MapResourceGameValueByPattern(SoccerGameDetailItem item, GameDetail detailedValue)
         {
             switch (item.ResourceID)
             {
-                case "04":
-                case "05":
+                /*Group: Goals.*/
+                case GameResourceID.FirstTenMinutes1X2:
+                    MapResourceGameValueByPattern1X2(item, detailedValue, Lang.Draw);
+                    break;
+                /*Group: Goal Time*/
+                case GameResourceID.FirstGoalTime10Min:
+                case GameResourceID.FirstGoalTime15Min:
+                    MapResourceGameValueByPatternGoalTime(item, detailedValue);
+                    break;
+                /*Group :Goal Scorer*/
+                case GameResourceID.FirstGoalScorer:
+                    item.HomeValue = item.AwayValue = detailedValue.OtherInfo;
+                    break;
+                /*Group :Corner*/
+                case GameResourceID.FirstHalfCorners:
+                case GameResourceID.FinalCorners:
+                    item.HomeValue = detailedValue.HomeValue;
+                    item.AwayValue = detailedValue.AwayValue;
+                    break;
+                /*Group :First/Last Corner*/
+                case GameResourceID.First1HCorner:
+                case GameResourceID.Last1HCorner:
+                case GameResourceID.FirstCorner:
+                case GameResourceID.LastCorner:
+                    MapResourceGameValueByPattern1X2(item, detailedValue, Lang.None);
+                    break;
+                /*Group :Player sent Off*/
+                case GameResourceID.PlayerSentOff:
+                case GameResourceID.PlayserSentOff1H:
+                    item.HomeValue = item.AwayValue = GetTextValueOfYesNoChoice(detailedValue.HomeValue);
+
+                    break;
+                /*Group :Home/Away Player sent Off*/
+                case GameResourceID.HomePlayserSentOff:
+                case GameResourceID.HomePlayserSentOff1H:
+                    item.HomeValue = GetTextValueOfYesNoChoice(detailedValue.HomeValue);
+                    break;
+
+                case GameResourceID.AwayPlayserSentOff:
+                case GameResourceID.AwayPlayserSentOff1H:
+                    item.AwayValue = GetTextValueOfYesNoChoice(detailedValue.AwayValue);
+                    break;
+                /*Group: Special*/
+                case GameResourceID.ExtraTimeYesNo:
+                case GameResourceID.PenaltyShootout:
+                case GameResourceID.WhoAdvancesToNextRound:
+                    MapResourceGameValueByPattern1X2(item, detailedValue, string.Empty);
+                    break;
+
+                case GameResourceID.MatchDecidedMethod:
+                    MapResourceGameValueByPattern175(item, detailedValue);
                     break;
 
                 default:
+                    if (Helper.IsValidResourceId(GameResourceID.NextGoalTime, item.ResourceID))
+                    {
+                        /*Group : Goal Time*/
+                        MapResourceGameValueByPatternGoalTime(item, detailedValue);
+                    }
+                    else if (Helper.IsValidResourceId(GameResourceID.GoalScorer, item.ResourceID))
+                    {
+                        /*Group :Goal Scorer*/
+                        item.HomeValue = item.AwayValue = detailedValue.OtherInfo;
+                    }
+                    else if (Helper.IsValidResourceId(GameResourceID.NextGoal1H, item.ResourceID)
+                       || Helper.IsValidResourceId(GameResourceID.NextGoal3rd, item.ResourceID)
+                   || Helper.IsValidResourceId(GameResourceID.ExtraTimeNextGoal, item.ResourceID))
+                    {
+                        /*Group :Goal Record*/
+
+                        MapResourceGameValueByPattern1X2(item, detailedValue, Lang.None);
+                    }
+
+                    break;
+            }
+        }
+
+        private void MapResourceGameValueByPatternGoalTime(SoccerGameDetailItem item, GameDetail detailedValue)
+        {
+            if (detailedValue.HomeValue.Equals(ConstantValue.None, StringComparison.OrdinalIgnoreCase))
+            {
+                item.HomeValue = item.AwayValue = Lang.None;
+            }
+            else
+            {
+                item.HomeValue = item.AwayValue = detailedValue.HomeValue + " " + Lang.Min;
+            }
+        }
+
+        /// <summary>
+        /// Map resource value for ID 175.
+        /// </summary>
+        /// <param name="item">The current game detail item.</param>
+        /// <param name="detailedValue">The raw game value.</param>
+        private void MapResourceGameValueByPattern175(SoccerGameDetailItem item, GameDetail detailedValue)
+        {
+            switch (detailedValue.HomeValue)
+            {
+                case "HR":
+                    item.HomeValue = item.AwayValue = this.HomeTeam + "/" + Lang.RegularTime;
+                    break;
+
+                case "HE":
+                    item.HomeValue = item.AwayValue = this.HomeTeam + "/" + Lang.ExtraTime;
+                    break;
+
+                case "HP":
+                    item.HomeValue = item.AwayValue = this.HomeTeam + "/" + Lang.Penalty;
+                    break;
+
+                case "AR":
+                    item.HomeValue = item.AwayValue = this.AwayTeam + "/" + Lang.RegularTime;
+                    break;
+
+                case "AE":
+                    item.HomeValue = item.AwayValue = this.AwayTeam + "/" + Lang.ExtraTime;
+                    break;
+
+                case "AP":
+                    item.HomeValue = item.AwayValue = this.AwayTeam + "/" + Lang.Penalty;
+
+                    break;
+            }
+        }
+
+        private string GetTextValueOfYesNoChoice(string choice)
+        {
+            return choice.Equals(ConstantValue.Yes, StringComparison.OrdinalIgnoreCase)
+                        ? Lang.Yes : Lang.No;
+        }
+
+        /// <summary>
+        /// Map resource value by pattern 1X2.
+        /// </summary>
+        /// <param name="item">The current game detail item.</param>
+        /// <param name="detailedValue">The raw game value.</param>
+        /// <param name="noneValue">This value is used incase "None" or no have value.</param>
+        private void MapResourceGameValueByPattern1X2(SoccerGameDetailItem item, GameDetail detailedValue, string noneValue)
+        {
+            switch (detailedValue.HomeValue)
+            {
+                case "1":
+                case "H":
+                    item.HomeValue = item.AwayValue = this.HomeTeam;
+                    break;
+
+                case "2":
+                case "A":
+                    item.HomeValue = item.AwayValue = this.AwayTeam;
+                    break;
+
+                case "X":
+                case "N":
+                    item.HomeValue = item.AwayValue = noneValue;
                     break;
             }
         }

@@ -1,9 +1,82 @@
-﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-<html>
-	<head>
-		<title></title>
-	</head>
-	<body>
-	
-	</body>
-</html>
+﻿@{
+    var itemViewModel = (Fanex.Result.Core.ViewModels.SoccerInfo.SoccerDetailViewModel)Model;
+
+    var lang = (Fanex.Result.Core.DataDomain.LangResources)itemViewModel.Resource;
+
+}
+@using Fanex.Result.Core.ViewModels;
+@using Fanex.Result.Core.Models;
+@using System.Collections;
+<tr class="data">
+    <td colspan="3" class="cl-league sub">
+        @itemViewModel.Name
+    </td>
+</tr>
+<!--Merge row-->
+@{
+    Fanex.Result.Core.ViewModels.SoccerInfo.SoccerGameDetailItem firstHalf = null; 
+    Fanex.Result.Core.ViewModels.SoccerInfo.SoccerGameDetailItem fullTime = null;
+
+}
+@foreach (var item in itemViewModel.DetailItems)
+{
+    if (item.ResourceName == lang.RS_213)
+    {
+        if (firstHalf == null)
+        {
+            firstHalf = item;
+        }
+        if(!string.IsNullOrEmpty(item.HomeValue))
+        {
+             firstHalf.HomeValue= item.HomeValue;
+        }
+        if (!string.IsNullOrEmpty(item.AwayValue))
+        {
+            firstHalf.AwayValue = item.AwayValue;
+        }
+    }
+    else if (item.ResourceName == lang.RS_212)
+    {
+        if (fullTime == null)
+        {
+            fullTime = item;
+        }
+        if (!string.IsNullOrEmpty(item.HomeValue))
+        {
+            fullTime.HomeValue = item.HomeValue;
+        }
+        if (!string.IsNullOrEmpty(item.AwayValue))
+        {
+            fullTime.AwayValue = item.AwayValue;
+        }
+    }
+   
+}
+@if (firstHalf != null)
+{
+ <tr class="data">
+        <td class="cl-match">
+            @firstHalf.ResourceName
+        </td>
+        <td class="cl-result home">
+            @firstHalf.HomeValue
+        </td>
+        <td class="cl-result home">
+            @firstHalf.AwayValue
+        </td>
+    </tr>
+}
+@if (fullTime != null)
+{
+ <tr class="data">
+        <td class="cl-match">
+            @fullTime.ResourceName
+        </td>
+        <td class="cl-result home">
+            @fullTime.HomeValue
+        </td>
+        <td class="cl-result home">
+            @fullTime.AwayValue
+        </td>
+    </tr>
+}

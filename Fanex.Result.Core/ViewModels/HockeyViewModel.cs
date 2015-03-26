@@ -26,7 +26,7 @@ namespace Fanex.Result.Core.ViewModels
             get
             {
                 var temp = this.GetHomeAwaySet(3, true);
-                return Convert.ToInt32(temp) > 0 ? temp : StringResources.HYPHEN;
+                return Convert.ToInt32(temp) > 0 ? temp : ConstantValue.Hyphen;
             }
         }
 
@@ -35,7 +35,7 @@ namespace Fanex.Result.Core.ViewModels
             get
             {
                 var temp = this.GetHomeAwaySet(3, false);
-                return Convert.ToInt32(temp) > 0 ? temp : StringResources.HYPHEN;
+                return Convert.ToInt32(temp) > 0 ? temp : ConstantValue.Hyphen;
             }
         }
 
@@ -45,7 +45,7 @@ namespace Fanex.Result.Core.ViewModels
             {
                 return this.SPORTBOOK.FinalHomeScore.HasValue
                     ? this.SPORTBOOK.FinalHomeScore.Value.ToString(CultureInfo.InvariantCulture)
-                    : StringResources.HYPHEN;
+                    : ConstantValue.Hyphen;
             }
         }
 
@@ -55,7 +55,7 @@ namespace Fanex.Result.Core.ViewModels
             {
                 return this.SPORTBOOK.FinalAwayScore.HasValue
                     ? this.SPORTBOOK.FinalAwayScore.Value.ToString(CultureInfo.InvariantCulture)
-                    : StringResources.HYPHEN;
+                    : ConstantValue.Hyphen;
             }
         }
 
@@ -70,13 +70,13 @@ namespace Fanex.Result.Core.ViewModels
         {
             if (index > 3)
             {
-                return StringResources.HYPHEN;
+                return ConstantValue.Hyphen;
             }
 
             if (this.AwaySet == null || this.HomeSet == null)
             {
-                HomeSet = new[] { StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN, StringResources.ZERO };
-                AwaySet = new[] { StringResources.HYPHEN, StringResources.HYPHEN, StringResources.HYPHEN, StringResources.ZERO };
+                HomeSet = new[] { ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Zero };
+                AwaySet = new[] { ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Zero };
                 if (this.HasResult)
                 {
                     string[] betStatusList = this.GetCoreInfoFromBetStatus.Split(',');

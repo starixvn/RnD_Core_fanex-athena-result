@@ -75,24 +75,24 @@ namespace Fanex.Result.Core.ViewModels
                 var keyStatus = this._outRight.Status.Trim().ToLower();
                 switch (keyStatus)
                 {
-                    case ConstantValueDefinition.Running:
+                    case ConstantValue.RunningStatus:
                         return Lang.Running;
-                    case ConstantValueDefinition.Completed:
+                    case ConstantValue.CompletedStatus:
                         return Lang.Completed;
-                    case ConstantValueDefinition.Closed:
+                    case ConstantValue.ClosedStatus:
                         return Lang.Closed;
-                    case ConstantValueDefinition.Postponed:
+                    case ConstantValue.PostponedStatus:
 
                         return Lang.PostPoned;
-                    case ConstantValueDefinition.InternalString:
+                    case ConstantValue.InternalString:
                         return Lang.Internal;
-                    case ConstantValueDefinition.Refund:
+                    case ConstantValue.RefundStatus:
                         return Lang.Refund;
-                    case ConstantValueDefinition.Refundft:
+                    case ConstantValue.RefundftStatus:
                         return Lang.Refundft;
-                    case ConstantValueDefinition.Refundht:
+                    case ConstantValue.RefundhtStatus:
                         return Lang.Refundht;
-                    case ConstantValueDefinition.Won:
+                    case ConstantValue.Won:
                         return Lang.Won;
                     default:
                         return this._outRight.Status;

@@ -59,7 +59,7 @@ namespace Fanex.Result.Core
 
             if (!Validate.Instance.ValidateNormal(dtoName, setting.SportType))
             {
-                throw new ObjectUnSupportedException(string.Format(ResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
+                throw new ObjectUnSupportedException(string.Format(CoreResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
             }
 
             return Utilities.Helper.RemoveWhiteSpace(
@@ -76,7 +76,7 @@ namespace Fanex.Result.Core
         {
             if (setting.SportType != SportType.Tennis)
             {
-                throw new ObjectUnSupportedException(string.Format(ResourceConfig.UNSUPPORTSPORTTYPEARGUEMENTMES, setting.SportType.StringMe()));
+                throw new ObjectUnSupportedException(string.Format(CoreResourceConfig.UNSUPPORTSPORTTYPEARGUEMENTMES, setting.SportType.StringMe()));
             }
 
             if (data == null || data.GameDetails.Count == 0)
@@ -86,16 +86,16 @@ namespace Fanex.Result.Core
 
             if (string.IsNullOrEmpty(setting.LanguageCode))
             {
-                setting.LanguageCode = ResourceConfig.ENGLISHLANGCODE;
+                setting.LanguageCode = CoreResourceConfig.ENGLISHLANGCODE;
             }
             else if (!Validate.Instance.ValidateResource(setting.LanguageCode))
             {
-                throw new ObjectUnSupportedException(string.Format(ResourceConfig.LANGUAGEARGUEMENTMES, setting.LanguageCode));
+                throw new ObjectUnSupportedException(string.Format(CoreResourceConfig.LANGUAGEARGUEMENTMES, setting.LanguageCode));
             }
 
             if (string.IsNullOrEmpty(setting.ResourcePath))
             {
-                setting.ResourcePath = System.AppDomain.CurrentDomain.BaseDirectory + ResourceConfig.RESOURCEPATH;
+                setting.ResourcePath = System.AppDomain.CurrentDomain.BaseDirectory + CoreResourceConfig.RESOURCEPATH;
             }
 
             return _builder.HtmlGameDetailBuilder(data, setting);
@@ -117,7 +117,7 @@ namespace Fanex.Result.Core
             {
                 if (!Validate.Instance.ValidateOutRight(dtoName))
                 {
-                    throw new ObjectNullException(string.Format(ResourceConfig.ARGUEMENTMESOUTRIGHT, dtoName));
+                    throw new ObjectNullException(string.Format(CoreResourceConfig.ARGUEMENTMESOUTRIGHT, dtoName));
                 }
 
                 return _builder.OutRightExcelBuilder(dataList, setting);
@@ -130,7 +130,7 @@ namespace Fanex.Result.Core
 
             if (!Validate.Instance.ValidateNormal(dtoName, setting.SportType))
             {
-                throw new ObjectNullException(string.Format(ResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
+                throw new ObjectNullException(string.Format(CoreResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
             }
 
             return _builder.ExcelBuilder(dataList, setting);
@@ -153,21 +153,21 @@ namespace Fanex.Result.Core
 
             if (string.IsNullOrEmpty(setting.LanguageCode))
             {
-                setting.LanguageCode = ResourceConfig.ENGLISHLANGCODE;
+                setting.LanguageCode = CoreResourceConfig.ENGLISHLANGCODE;
             }
             else if (!Validate.Instance.ValidateResource(setting.LanguageCode))
             {
-                throw new ObjectUnSupportedException(string.Format(ResourceConfig.LANGUAGEARGUEMENTMES, setting.LanguageCode));
+                throw new ObjectUnSupportedException(string.Format(CoreResourceConfig.LANGUAGEARGUEMENTMES, setting.LanguageCode));
             }
 
             if (string.IsNullOrEmpty(setting.ExcelTemplatePath))
             {
-                setting.ExcelTemplatePath = System.AppDomain.CurrentDomain.BaseDirectory + ResourceConfig.EXCELTEMPLATEPATH;
+                setting.ExcelTemplatePath = System.AppDomain.CurrentDomain.BaseDirectory + CoreResourceConfig.EXCELTEMPLATEPATH;
             }
 
             if (string.IsNullOrEmpty(setting.ResourcePath))
             {
-                setting.ResourcePath = System.AppDomain.CurrentDomain.BaseDirectory + ResourceConfig.RESOURCEPATH;
+                setting.ResourcePath = System.AppDomain.CurrentDomain.BaseDirectory + CoreResourceConfig.RESOURCEPATH;
             }
         }
 
@@ -183,7 +183,7 @@ namespace Fanex.Result.Core
         {
             if (!Validate.Instance.ValidateNormal(dtoName, setting.SportType))
             {
-                throw new ObjectNullException(string.Format(ResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
+                throw new ObjectNullException(string.Format(CoreResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
             }
 
             return
@@ -195,7 +195,7 @@ namespace Fanex.Result.Core
         {
             if (!Validate.Instance.ValidateParlay(dtoName))
             {
-                throw new ObjectNullException(string.Format(ResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
+                throw new ObjectNullException(string.Format(CoreResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
             }
 
             return Utilities.Helper.RemoveWhiteSpace(
@@ -206,7 +206,7 @@ namespace Fanex.Result.Core
         {
             if (!Validate.Instance.ValidateOutRight(dtoName))
             {
-                throw new ObjectNullException(string.Format(ResourceConfig.ARGUEMENTMESOUTRIGHT, dtoName));
+                throw new ObjectNullException(string.Format(CoreResourceConfig.ARGUEMENTMESOUTRIGHT, dtoName));
             }
 
             return Utilities.Helper.RemoveWhiteSpace(

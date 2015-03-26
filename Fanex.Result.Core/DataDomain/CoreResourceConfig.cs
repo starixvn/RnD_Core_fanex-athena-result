@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="ResourceConfig.cs" company="">
+// <copyright file="CoreResourceConfig.cs" company="">
 // TODO: Update copyright text.
 // </copyright>
 // -----------------------------------------------------------------------
@@ -9,7 +9,7 @@ namespace Fanex.Result.Core.DataDomain
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    internal static class ResourceConfig
+    internal static class CoreResourceConfig
     {
         public const string EXCELTEMPLATEPATH = "App_Data/Fanex.Result/";
         public const string RESOURCEPATH = "App_Data/Fanex.Result.Resource/";
@@ -19,7 +19,6 @@ namespace Fanex.Result.Core.DataDomain
         public const string LANGUAGEARGUEMENTMES = "Fanex.Result.Core doesn't support this language {0}";
         public const string UNSUPPORTDTOARGUEMENTMES = "We still don't support DTO {0}";
         public const string UNSUPPORTSPORTTYPEARGUEMENTMES = "We still don't support this sport [{0}]";
-        public const string WINFORMAT = "win";
         public static readonly string[] LangCodes = { "en-US", "ja-JP", "ko-KR", "vi-VN", "zh-CN", "zh-TW", "th-TH" };
     }
 }

@@ -26,7 +26,7 @@ namespace Fanex.Result.Core.ViewModels
             {
                 return this.SPORTBOOK.FinalAwayScore.HasValue
                     ? this.SPORTBOOK.FinalAwayScore.Value.ToString(CultureInfo.InvariantCulture)
-                    : StringResources.HYPHEN;
+                    : ConstantValue.Hyphen;
             }
         }
 
@@ -36,7 +36,7 @@ namespace Fanex.Result.Core.ViewModels
             {
                 return this.SPORTBOOK.FinalHomeScore.HasValue ?
                     this.SPORTBOOK.FinalHomeScore.Value.ToString(CultureInfo.InvariantCulture)
-                    : StringResources.HYPHEN;
+                    : ConstantValue.Hyphen;
             }
         }
     }

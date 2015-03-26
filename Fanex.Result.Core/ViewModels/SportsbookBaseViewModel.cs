@@ -207,7 +207,7 @@ namespace Fanex.Result.Core.ViewModels
 
         public virtual string GetHomeAwaySet(int index, bool isHome)
         {
-            return StringResources.HYPHEN;
+            return ConstantValue.Hyphen;
         }
 
         protected virtual string GetWonTeam(bool isHome)
@@ -216,7 +216,7 @@ namespace Fanex.Result.Core.ViewModels
             {
                 var temp = this.SPORTBOOK.FinalHomeScore.Value - this.SPORTBOOK.FinalAwayScore.Value;
 
-                return (isHome && temp > 0) || (!isHome && temp < 0) ? ResourceConfig.WINFORMAT : string.Empty;
+                return (isHome && temp > 0) || (!isHome && temp < 0) ? ConstantValue.WinFormat : string.Empty;
             }
 
             return string.Empty;

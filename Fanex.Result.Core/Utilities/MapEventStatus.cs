@@ -112,24 +112,24 @@ namespace Fanex.Result.Core.Utilities
         {
             switch (key.ToLower())
             {
-                case ConstantValueDefinition.Running:
+                case ConstantValue.RunningStatus:
                     return lang.Running;
-                case ConstantValueDefinition.Completed:
+                case ConstantValue.CompletedStatus:
                     return lang.Completed;
-                case ConstantValueDefinition.Closed:
+                case ConstantValue.ClosedStatus:
                     return lang.Closed;
-                case ConstantValueDefinition.Postponed:
+                case ConstantValue.PostponedStatus:
 
                     return lang.PostPoned;
-                case ConstantValueDefinition.InternalString:
+                case ConstantValue.InternalString:
                     return lang.Internal;
-                case ConstantValueDefinition.Refund:
+                case ConstantValue.RefundStatus:
                     return lang.Refund;
-                case ConstantValueDefinition.Refundft:
+                case ConstantValue.RefundftStatus:
                     return lang.Refundft;
-                case ConstantValueDefinition.Refundht:
+                case ConstantValue.RefundhtStatus:
                     return lang.Refundht;
-                case ConstantValueDefinition.Won:
+                case ConstantValue.Won:
                     return lang.Won;
                 default:
                     return UppercaseFirst(key);

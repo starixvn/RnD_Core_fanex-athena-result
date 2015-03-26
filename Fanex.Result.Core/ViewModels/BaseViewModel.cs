@@ -32,7 +32,7 @@ namespace Fanex.Result.Core.ViewModels
 
         private string _dateTimeFormat = "{0:MM/dd/yyyy<br/>hh:mm:ss tt}";
 
-        private string _languageCode = ConstantValueDefinition.EnglishLanguageCode;
+        private string _languageCode = ConstantValue.EnglishLanguageCode;
 
         private SportType _sportType = SportType.Soccer;
         private LangResources _lang;
@@ -53,7 +53,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return supportedLanguage.ContainsKey(this.LanguageCode) ? supportedLanguage[this.LanguageCode] : supportedLanguage[ConstantValueDefinition.EnglishLanguageCode];
+                return supportedLanguage.ContainsKey(this.LanguageCode) ? supportedLanguage[this.LanguageCode] : supportedLanguage[ConstantValue.EnglishLanguageCode];
             }
         }
 
@@ -89,11 +89,11 @@ namespace Fanex.Result.Core.ViewModels
             {
                 if (this.EventStatus.Equals(Lang.PostPoned, StringComparison.OrdinalIgnoreCase))
                 {
-                    return ConstantValueDefinition.BackgroundPosponed;
+                    return ConstantValue.BackgroundPosponed;
                 }
                 else
                 {
-                    return this.IsPending ? ConstantValueDefinition.BackgroundPending : string.Empty;
+                    return this.IsPending ? ConstantValue.BackgroundPending : string.Empty;
                 }
             }
         }

@@ -30,7 +30,7 @@ namespace MvcExample.Models
 
         IEnumerable<Sportsbook> GetSportbookResult(GetSportbookResultCriteria criteria);
 
-        Sportsbook GetGameDetail(int matchId);
+        Sportsbook GetGameDetail(GetGameDetailCriteria criteria);
 
         #endregion normal-report
 

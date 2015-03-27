@@ -124,16 +124,16 @@
         /// <param name="showMatchCode">If true, show match code column.</param>
         /// <returns>The html result.</returns>
         [HttpGet]
-        public string GenHtmlTennisDetail(int matchId, string languageCode, bool showMatchCode)
+        public string GenHtmlGameDetail(int matchId,int sportId, string languageCode, bool showMatchCode)
         {
-            var detailedData = _resultService.GetGameDetail(matchId);
+            var detailedData = _resultService.GetGameDetail(new GetGameDetailCriteria { MatchId = matchId });
             if (detailedData != null && detailedData.MatchId > 0)
             {
                 return ResultEngine.HtmlGameDetailParser(
                     detailedData,
                     new ResultSetting
                     {
-                        SportType = SportType.Tennis,
+                        SportType = (SportType)sportId,
                         VisibleMatchCodeIDColumn = showMatchCode,
                         LanguageCode = languageCode,
                         HighlightWinnerTeam = true

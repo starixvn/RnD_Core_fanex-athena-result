@@ -74,7 +74,7 @@ namespace Fanex.Result.Core
         /// <returns>The html result.</returns>
         public static string HtmlGameDetailParser(Sportsbook data, ResultSetting setting)
         {
-            if (setting.SportType != SportType.Tennis)
+            if (setting.SportType != SportType.Tennis && setting.SportType != SportType.Soccer)
             {
                 throw new ObjectUnSupportedException(string.Format(CoreResourceConfig.UNSUPPORTSPORTTYPEARGUEMENTMES, setting.SportType.StringMe()));
             }

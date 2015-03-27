@@ -14,28 +14,28 @@
 </tr>
 <!--Merge row-->
 @{
-    Fanex.Result.Core.ViewModels.SoccerInfo.SoccerGameDetailItem firstHalf = null; 
+    Fanex.Result.Core.ViewModels.SoccerInfo.SoccerGameDetailItem firstHalf = null;
     Fanex.Result.Core.ViewModels.SoccerInfo.SoccerGameDetailItem fullTime = null;
 
 }
 @foreach (var item in itemViewModel.DetailItems)
 {
-    if (item.ResourceName == lang.RS_213)
+    if (item.ResourceName == lang.RS213)
     {
         if (firstHalf == null)
         {
             firstHalf = item;
         }
-        if(!string.IsNullOrEmpty(item.HomeValue))
+        if (!string.IsNullOrEmpty(item.HomeValue))
         {
-             firstHalf.HomeValue= item.HomeValue;
+            firstHalf.HomeValue = item.HomeValue;
         }
         if (!string.IsNullOrEmpty(item.AwayValue))
         {
             firstHalf.AwayValue = item.AwayValue;
         }
     }
-    else if (item.ResourceName == lang.RS_212)
+    else if (item.ResourceName == lang.RS212)
     {
         if (fullTime == null)
         {
@@ -50,33 +50,62 @@
             fullTime.AwayValue = item.AwayValue;
         }
     }
-   
+
 }
+<!--Assign "-" value in case it's value is null or empty-->
 @if (firstHalf != null)
 {
- <tr class="data">
+    <tr class="data">
         <td class="cl-match">
             @firstHalf.ResourceName
         </td>
         <td class="cl-result home">
-            @firstHalf.HomeValue
+            @if (string.IsNullOrEmpty(firstHalf.HomeValue))
+            {
+               @Fanex.Result.Core.DataDomain.ConstantValue.Hyphen
+            }
+            else
+            {
+                @firstHalf.HomeValue
+            }
         </td>
-        <td class="cl-result home">
-            @firstHalf.AwayValue
+        <td class="cl-result away">
+           @if (string.IsNullOrEmpty(firstHalf.AwayValue))
+           {
+               @Fanex.Result.Core.DataDomain.ConstantValue.Hyphen
+           }
+           else
+           {
+                @firstHalf.AwayValue
+           }
         </td>
     </tr>
 }
 @if (fullTime != null)
 {
- <tr class="data">
+    <tr class="data">
         <td class="cl-match">
             @fullTime.ResourceName
         </td>
-        <td class="cl-result home">
-            @fullTime.HomeValue
+       <td class="cl-result home">
+            @if (string.IsNullOrEmpty(fullTime.HomeValue))
+            {
+               @Fanex.Result.Core.DataDomain.ConstantValue.Hyphen
+            }
+            else
+            {
+                @fullTime.HomeValue
+            }
         </td>
-        <td class="cl-result home">
-            @fullTime.AwayValue
+        <td class="cl-result away">
+           @if (string.IsNullOrEmpty(fullTime.AwayValue))
+           {
+               @Fanex.Result.Core.DataDomain.ConstantValue.Hyphen
+           }
+           else
+           {
+                @fullTime.AwayValue
+           }
         </td>
     </tr>
 }

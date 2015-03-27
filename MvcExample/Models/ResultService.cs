@@ -42,14 +42,13 @@ namespace MvcExample.Models
         /// <summary>
         /// Get game detail.
         /// </summary>
-        /// <param name="matchId">The match ID.</param>
+        /// <param name="criteria">The match ID.</param>
         /// <returns>The SPORTSBOOK data.</returns>
-        public Sportsbook GetGameDetail(int matchId)
+        public Sportsbook GetGameDetail(GetGameDetailCriteria criteria)
         {
-            using (var db = new ObjectDb("Lrf_Result_MatchSelByLeague_Detail"))
+            using (var db = new ObjectDb(criteria.GetSettingKey()))
             {
-                db.AddInParameter("matchid", DbType.Int32, matchId);
-                using (var reader = db.ExecuteReader())
+                using (var reader = db.ExecuteReader(criteria.GetSpParams()))
                 {
                     var result = new Sportsbook();
                     while (reader.Read())
@@ -554,7 +553,8 @@ namespace MvcExample.Models
                 HomeValue = reader["HomeValue"].ToString(),
                 AwayValue = reader["AwayValue"].ToString(),
                 ResultStatusID = int.Parse(reader["ResultStatusID"].ToString()),
-                SettlementStatusID = int.Parse(reader["SettlementStatusID"].ToString())
+                SettlementStatusID = int.Parse(reader["SettlementStatusID"].ToString()),
+                OtherInfo=reader["OtherInfo"].ToString()
             };
         }
 

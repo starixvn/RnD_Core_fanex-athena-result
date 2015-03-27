@@ -9,7 +9,6 @@
 @using Fanex.Result.Core.ViewModels;
 @using Fanex.Result.Core.Models;
 @using System.Collections;
-
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
@@ -164,8 +163,7 @@
                     @if (item.VisibleDetailedLink && !viewModel.IsPopUp)
                     {
                         <div>
-                            <span class="detail-link soccer-detail-link" data-league-id="@item.LeagueId"
-                                         data-home-id="@item.HomeId" data-away-id="@item.AwayId">
+                            <span class="detail-link soccer-detail-link" data-match-id="@item.MatchId" data-league-id="@item.LeagueId" data-home-id="@item.HomeId" data-away-id="@item.AwayId">
                                 @lang.Details </span>
                         </div>
                     }
@@ -247,7 +245,7 @@
             </tr>
         </thead>
         <tbody>
-         @Raw(mainItem.DetailedResult)
+            @Raw(mainItem.DetailedResult)
         </tbody>
     </table>
 }

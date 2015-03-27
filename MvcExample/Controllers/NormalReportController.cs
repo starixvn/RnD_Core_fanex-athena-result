@@ -120,11 +120,12 @@
         /// Generate tennis detailed result.
         /// </summary>
         /// <param name="matchId">The match ID.</param>
+        /// <param name="sportId">The sport type.</param>
         /// <param name="languageCode">The language code.</param>
         /// <param name="showMatchCode">If true, show match code column.</param>
         /// <returns>The html result.</returns>
         [HttpGet]
-        public string GenHtmlGameDetail(int matchId,int sportId, string languageCode, bool showMatchCode)
+        public string GenHtmlGameDetail(int matchId, int sportId, string languageCode, bool showMatchCode)
         {
             var detailedData = _resultService.GetGameDetail(new GetGameDetailCriteria { MatchId = matchId });
             if (detailedData != null && detailedData.MatchId > 0)

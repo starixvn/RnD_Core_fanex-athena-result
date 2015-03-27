@@ -554,7 +554,7 @@ namespace MvcExample.Models
                 AwayValue = reader["AwayValue"].ToString(),
                 ResultStatusID = int.Parse(reader["ResultStatusID"].ToString()),
                 SettlementStatusID = int.Parse(reader["SettlementStatusID"].ToString()),
-                OtherInfo=reader["OtherInfo"].ToString()
+                OtherInfo = reader["OtherInfo"].ToString()
             };
         }
 

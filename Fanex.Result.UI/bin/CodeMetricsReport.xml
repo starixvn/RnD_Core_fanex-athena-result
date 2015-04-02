@@ -3,7 +3,7 @@
   <Targets>
     <Target Name="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Fanex.Result.UI\bin\Fanex.Result.UI.dll">
       <Modules>
-        <Module Name="Fanex.Result.UI.dll" AssemblyVersion="1.0.0.0">
+        <Module Name="Fanex.Result.UI.dll" AssemblyVersion="1.6.1.1">
           <Metrics>
             <Metric Name="MaintainabilityIndex" Value="100" />
             <Metric Name="CyclomaticComplexity" Value="0" />

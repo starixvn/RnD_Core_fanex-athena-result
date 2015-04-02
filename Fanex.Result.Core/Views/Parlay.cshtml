@@ -16,6 +16,7 @@
                 <td class="sporttype">
                     <strong><span class="bl-sport-type">@firstItem.SportName &nbsp;- </span></strong>
                     <span class="bl-league-name">@firstItem.LeagueName</span>
+                   
                 </td>
             </tr>
             foreach (ParlayViewModel item in group.Data)
@@ -49,6 +50,7 @@
                     {
                         bindModle.Data.AddRange(itemData);
                         @Raw(item.Render(bindModle))
+                        <br />
                     }
                     <!--Render both match and detail game-->
                     
@@ -73,8 +75,9 @@
 
                         };
                         bothMatchAnddetailBindModel.Data.AddRange(bothMatchAnddetailData);
-                           <br />
+                     
                         @Raw(item.Render(bothMatchAnddetailBindModel))
+                        <br />
                     }
                     
                    
@@ -98,8 +101,10 @@
 
                         };
                         detailBindModel.Data.AddRange(detailData);
-                        <br />
+                     
                         @Raw(item.Render(detailBindModel))
+                        <br />
+
                     }
 
                     

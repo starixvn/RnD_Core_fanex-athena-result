@@ -58,6 +58,15 @@ namespace Fanex.Result.Core.ViewModels
 
         #endregion Setttlement Site
 
+        public override bool VisibleGameDetail
+        {
+            get
+            {
+                return this.SPORTBOOK.GameDetails.Any(i => !string.IsNullOrEmpty(i.ResourceId) && i.SettlementStatusID > 0
+                 && ValidateResourceId(i.ResourceId));
+            }
+        }
+
         public bool IsShowFGHome
         {
             get
@@ -279,8 +288,8 @@ namespace Fanex.Result.Core.ViewModels
         /// </summary>
         /// <param name="item">The view model Item.</param>
         /// <param name="detailedValue">The raw game value.</param>
-          [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules", "SP2101:MethodMustNotContainMoreLinesThan",
-    Justification = "Reviewed. Suppression is OK here.")]
+        [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules", "SP2101:MethodMustNotContainMoreLinesThan",
+  Justification = "Reviewed. Suppression is OK here.")]
         private void MapResourceGameValueByPattern(SoccerGameDetailItem item, GameDetail detailedValue)
         {
             switch (item.ResourceID)
@@ -330,6 +339,9 @@ namespace Fanex.Result.Core.ViewModels
                 /*Group: Special*/
                 case GameResourceID.ExtraTimeYesNo:
                 case GameResourceID.PenaltyShootout:
+                    item.HomeValue = item.AwayValue = GetTextValueOfYesNoChoice(detailedValue.HomeValue);
+                    break;
+
                 case GameResourceID.WhoAdvancesToNextRound:
                     MapResourceGameValueByPattern1X2(item, detailedValue, string.Empty);
                     break;

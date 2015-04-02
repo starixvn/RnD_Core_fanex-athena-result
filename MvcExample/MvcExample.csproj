@@ -29,12 +29,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\</OutputPath>
     <DefineConstants>TRACE;CODE_ANALYSIS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Antlr3.Runtime">
@@ -225,15 +226,6 @@
     <Content Include="App_Data\Fanex.Result\Other.xls" />
     <Content Include="App_Data\Fanex.Result\Racing.xls" />
     <Content Include="App_Data\Fanex.Result\VSSpeedWay.xls" />
-    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\en-US.xml" />
-    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\zh-CN.xml" />
-    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\ja-JP.xml" />
-    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\ko-KR.xml">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\th-TH.xml" />
-    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\vi-VN.xml" />
-    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\zh-TW.xml" />
     <Content Include="ClearScript.V8\ClearScriptV8-32.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -456,6 +448,9 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\Fanex.Result.Resource\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

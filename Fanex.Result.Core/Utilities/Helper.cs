@@ -18,7 +18,7 @@ namespace Fanex.Result.Core.Utilities
     /// </summary>
     internal static class Helper
     {
-        private const string ResourceIDSuffix = "RS_";
+        private const string ResourceIDSuffix = "RS";
         private static readonly CultureInfo Cult = new CultureInfo("en-US");
         private static Regex setXGameYRegex = new Regex("^80[1-5]{1}\\d{2}$");
 
@@ -138,11 +138,21 @@ namespace Fanex.Result.Core.Utilities
 
             var resourceNum = string.Empty;
 
-            var realKeyName = new StringBuilder(ResourceIDSuffix);
-            if (soccerRangeResourceIDRegex.Any(i => i.IsMatch(keyName)))
+            var realKeyName = new StringBuilder();
+            var isSpecialResourceId = soccerRangeResourceIDRegex.Any(i => i.IsMatch(keyName));
+            if (IsIntegerNumber(keyName) || isSpecialResourceId)
             {
-                realKeyName.Append(keyName.Substring(0, 3));
-                resourceNum = keyName.Substring(2, 2);
+                realKeyName.Append(ResourceIDSuffix);
+                if (isSpecialResourceId)
+                {
+                    realKeyName.Append(keyName.Substring(0, 3));
+
+                    resourceNum = keyName.Substring(3, 2);
+                }
+                else
+                {
+                    realKeyName.Append(keyName);
+                }
             }
             else
             {

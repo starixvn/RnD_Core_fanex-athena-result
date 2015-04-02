@@ -33,7 +33,7 @@
     </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>..\Build\</OutputPath>
     <DefineConstants>TRACE;CODE_ANALYSIS</DefineConstants>
@@ -42,6 +42,7 @@
     <DocumentationFile>
     </DocumentationFile>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
@@ -201,15 +202,15 @@
     <EmbeddedResource Include="Views\VSHRacing.cshtml" />
     <EmbeddedResource Include="Views\VSTennis.cshtml" />
     <EmbeddedResource Include="Views\VSSpeedWay.cshtml" />
-    <None Include="Views\SoccerDetail\FirstLastCorners.cshtml" />
-    <None Include="Views\SoccerDetail\Special.cshtml" />
-    <None Include="Views\SoccerDetail\HomeAwayPlayerSentOff.cshtml" />
-    <None Include="Views\SoccerDetail\PlayerSentOff.cshtml" />
-    <None Include="Views\SoccerDetail\Corner.cshtml" />
-    <None Include="Views\SoccerDetail\GoalScorer.cshtml" />
-    <None Include="Views\SoccerDetail\GoalTime.cshtml" />
-    <None Include="Views\SoccerDetail\GoalRecord.cshtml" />
-    <None Include="Views\SoccerDetail\Goals.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\FirstLastCorners.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\Special.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\HomeAwayPlayerSentOff.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\PlayerSentOff.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\Corner.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\GoalScorer.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\GoalTime.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\GoalRecord.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\Goals.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

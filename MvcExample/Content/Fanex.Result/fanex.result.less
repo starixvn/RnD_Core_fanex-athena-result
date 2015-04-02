@@ -93,12 +93,17 @@ table
                 color: @league-color;
                 background: @league-background;
                 vertical-align: middle;
-                border: 0;
                 font-weight: bold;
                 text-align: left;
                 line-height: 7px;
                 height: 21px;
+				&.sub
+				{
+					
+					
+				}
             }
+			
 			.cl-team
             {
             	text-align:left;
@@ -181,6 +186,14 @@ table
 		.cl-result
         {
         	text-align:center;
+			&.home
+            {
+				min-width:150px;
+            }
+			&.away
+            {
+				min-width:150px;
+            }
         }
         .cl-match
         {

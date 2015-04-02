@@ -3,7 +3,7 @@
 
     var lang = (Fanex.Result.Core.DataDomain.LangResources)viewModel.Resource;
     var colspan = viewModel.VisibleMatchCodeIDColumn ? 6 : 5;
-    var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
+    var popupCss = viewModel.IsPopUp || viewModel.IsDetail ? "popup" : string.Empty;
 
 }
 @using Fanex.Result.Core.ViewModels;
@@ -229,7 +229,7 @@
 @if (viewModel.VisibleDetailResult)
 {
     var mainItem = ((GroupData)viewModel.Data[0]).Data[0] as SoccerViewModel;
-
+    <br />
     <table class="fn-rs popup">
         <thead>
             <tr class="header">

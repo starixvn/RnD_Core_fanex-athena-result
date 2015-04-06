@@ -63,8 +63,6 @@
     <item key="TF">ความผันผวนสูงสุด</item>
     <item key="Time">เวลา</item>
     <item key="Team">ทีม</item>
-    <item key="PenaltyShootoutYes">การแข่งขันที่ตัดสินโดยการยิงลูกโทษ</item>
-    <item key="PenaltyShootoutNo">การแข่งขันที่ไม่ได้ตัดสินโดยการยิงลูกโทษ</item>
     <item key="PS">PS</item>
     <item key="Details">[i]</item>
     <item key="GameResult">Game Result</item>

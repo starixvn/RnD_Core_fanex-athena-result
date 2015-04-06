@@ -63,8 +63,6 @@
     <item key="TF">大热门</item>
     <item key="Time">时间</item>
     <item key="Team">队伍</item>
-    <item key="PenaltyShootoutYes">Match was decided by penalty shoot-out. </item>
-    <item key="PenaltyShootoutNo">Match was not decided by penalty shoot-out</item>
     <item key="PS">PS</item>
     <item key="Details">[i]</item>
     <item key="GameResult">Game Result</item>

@@ -26,7 +26,7 @@ namespace Fanex.Result.Core.ViewModels
     {
         private const string TemplateNameSpace = "SoccerDetail.";
         private SoccerDetailInfo _goalInfo;
-
+        private bool? _hasValidGameData = false;
         private IList<SoccerGameDetailItem> _detailedItemModels = null;
 
         public SoccerViewModel(Sportsbook soccer, ResultSetting setting, LangResources resource)
@@ -50,9 +50,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return base.VisibleDetailedLink &&
-                 this.SPORTBOOK.GameDetails.Any(i => !string.IsNullOrEmpty(i.ResourceId) && i.SettlementStatusID > 0
-                 && ValidateResourceId(i.ResourceId));
+                return base.VisibleDetailedLink && (HasValidGameData || !string.IsNullOrEmpty(this.GoalRecord));
             }
         }
 
@@ -62,8 +60,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.SPORTBOOK.GameDetails.Any(i => !string.IsNullOrEmpty(i.ResourceId) && i.SettlementStatusID > 0
-                 && ValidateResourceId(i.ResourceId));
+                return HasValidGameData;
             }
         }
 
@@ -163,6 +160,14 @@ namespace Fanex.Result.Core.ViewModels
             }
         }
 
+        public string GoalRecord
+        {
+            get
+            {
+                return string.IsNullOrEmpty(this.SPORTBOOK.GoalRecord) ? string.Empty : this.SPORTBOOK.GoalRecord.Replace(";", string.Empty);
+            }
+        }
+
         public string DetailedResult
         {
             get
@@ -199,6 +204,20 @@ namespace Fanex.Result.Core.ViewModels
 
         #region Utilities
 
+        private bool HasValidGameData
+        {
+            get
+            {
+                if (!_hasValidGameData.HasValue)
+                {
+                    _hasValidGameData = this.SPORTBOOK.GameDetails.Any(i => !string.IsNullOrEmpty(i.ResourceId) && i.SettlementStatusID > 0
+                 && ValidateResourceId(i.ResourceId));
+                }
+
+                return _hasValidGameData.Value;
+            }
+        }
+
         /// <summary>
         /// Validate resource ID.
         /// </summary>
@@ -231,11 +250,15 @@ namespace Fanex.Result.Core.ViewModels
             this._detailedItemModels = new List<SoccerGameDetailItem>();
             foreach (var group in GameResources.BetRada)
             {
-                var detailedGameRecords = this.SPORTBOOK.GameDetails
-                    .Where(i => ValidateResourceIdByPattern(group.Value, i.ResourceId));
-                foreach (var detailedItem in detailedGameRecords)
+                foreach (var game in group.Value)
                 {
-                    this._detailedItemModels.Add(MapDetailedGameValue(group.Key, detailedItem));
+                    var detailedGameRecords = this.SPORTBOOK.GameDetails
+                   .Where(i => Helper.IsValidResourceId(game, i.ResourceId));
+
+                    foreach (var detailedItem in detailedGameRecords)
+                    {
+                        this._detailedItemModels.Add(MapDetailedGameValue(group.Key, detailedItem));
+                    }
                 }
             }
         }

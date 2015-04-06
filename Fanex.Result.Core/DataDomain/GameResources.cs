@@ -24,8 +24,8 @@ namespace Fanex.Result.Core.DataDomain
         { "PlayerSentOff", new List<string> { GameResourceID.PlayserSentOff1H, GameResourceID.PlayerSentOff } },
         { "HomeAwayPlayerSentOff", new List<string> 
         { 
+            GameResourceID.AwayPlayserSentOff1H,
             GameResourceID.HomePlayserSentOff1H, 
-            GameResourceID.AwayPlayserSentOff1H, 
             GameResourceID.HomePlayserSentOff, 
             GameResourceID.AwayPlayserSentOff 
         } 

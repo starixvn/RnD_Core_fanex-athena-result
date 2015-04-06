@@ -22,5 +22,7 @@ namespace Fanex.Result.Core.ViewModels.SoccerInfo
         public string HomeValue { get; set; }
 
         public string AwayValue { get; set; }
+
+        public int OrderNo { get; set; }
     }
 }

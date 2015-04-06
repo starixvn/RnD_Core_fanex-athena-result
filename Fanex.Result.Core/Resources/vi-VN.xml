@@ -63,8 +63,6 @@
     <item key="TF">TF</item>
     <item key="Time">Thời Gian</item>
     <item key="Team">Đội</item>
-    <item key="PenaltyShootoutYes">Match was decided by penalty shoot-out</item>
-    <item key="PenaltyShootoutNo">Match was not decided by penalty shoot-out</item>
     <item key="PS">PS</item>
     <item key="Details">[i]</item>
     <item key="GameResult">Game Result</item>

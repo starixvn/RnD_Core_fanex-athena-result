@@ -33,7 +33,7 @@ namespace Fanex.Result.Core.Models
         public bool VisibleMatchCodeIDColumn { get; set; }
 
         public bool VisibleDetailedLink { get; set; }
-
+        
         public bool VisibleFreeHeader { get; set; }
 
         public bool IsDetail { get; set; }

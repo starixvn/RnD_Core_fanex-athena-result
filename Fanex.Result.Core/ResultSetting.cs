@@ -49,6 +49,8 @@ namespace Fanex.Result.Core
 
         public bool VisibleDetailedLink { get; set; }
 
+        public bool VisibleGoalRecord { get; set; }
+
         /// <summary>
         /// Gets or sets Kick Of Time format.
         /// Default is {0:MM/DD/YYYY<BR/>HH:MM:SS TT}.

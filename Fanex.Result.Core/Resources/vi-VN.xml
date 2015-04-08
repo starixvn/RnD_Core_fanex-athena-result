@@ -109,4 +109,6 @@
     <item key="RS168">Who advances to next round</item>
     <item key="RS217">First Goal</item>
     <item key="RS216">Goal {0}</item>
+    <item key="Home">Home</item>
+    <item key="Away">Away</item>
 </root>

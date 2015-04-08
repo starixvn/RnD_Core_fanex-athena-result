@@ -27,6 +27,7 @@ namespace Fanex.Result.Core.ViewModels
         private bool _visibleDetailedLink = false;
 
         private bool _highlightWinnerTeam = false;
+        private bool _visisibleGoalRecord = false;
 
         public SportsbookBaseViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resource)
             : base(setting, resource)
@@ -36,6 +37,7 @@ namespace Fanex.Result.Core.ViewModels
             this.Sport = setting.SportType;
             this._visibleDetailedLink = setting.VisibleDetailedLink;
             this._highlightWinnerTeam = setting.HighlightWinnerTeam;
+            this._visisibleGoalRecord = setting.VisibleGoalRecord;
         }
 
         public string[] HomeSet
@@ -94,6 +96,14 @@ namespace Fanex.Result.Core.ViewModels
         public new virtual bool VisibleMatchResult
         {
             get { return true; }
+        }
+
+        public virtual bool VisisibleGoalRecord
+        {
+            get
+            {
+                return this._visisibleGoalRecord;
+            }
         }
 
         public new virtual bool VisibleGameDetail

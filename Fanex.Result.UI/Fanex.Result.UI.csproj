@@ -73,7 +73,9 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="App_Data\Fanex.Result.Resource\th-TH.xml" />
-    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\vi-VN.xml" />
+    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\vi-VN.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="App_Data\Fanex.Result.Resource\zh-CN.xml" />
   </ItemGroup>
   <ItemGroup>

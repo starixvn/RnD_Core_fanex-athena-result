@@ -34,6 +34,45 @@ div.fn-rs-content-scroll
 	width: 100%;
 	max-height: 780px;
 }
+div.goal-record
+    {
+		float:right;
+		padding:5px 0px;
+		table
+        {
+        	min-width:250px;
+			 border-collapse: collapse;
+			  text-align: center;
+			th
+		   {
+				border-right: 1px solid @border-color;
+				font-weight: normal;
+				vertical-align: middle;
+				text-align: center;
+				color: #FFF !important;
+	
+           }
+			.header
+			{
+		 			color: @header-color;
+					 background-color: @header-background;
+			}
+			tbody{
+				td
+				{
+					border: solid 1px @border-color;
+					padding: 1px;
+					vertical-align: middle;
+				}
+            	.cl-goal
+				{
+					width: 100px;
+				}
+			}
+			}
+        }
+		
+
 
 table
 {
@@ -43,6 +82,7 @@ table
     {
 	 min-width: 650px !important;
     }
+	
     &.fn-rs
     {
         border-collapse: collapse;

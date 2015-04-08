@@ -4,7 +4,7 @@
     var lang = (Fanex.Result.Core.DataDomain.LangResources)viewModel.Resource;
     var colspan = viewModel.VisibleMatchCodeIDColumn ? 6 : 5;
     var popupCss = viewModel.IsPopUp || viewModel.IsDetail ? "popup" : string.Empty;
-
+    
 }
 @using Fanex.Result.Core.ViewModels;
 @using Fanex.Result.Core.Models;
@@ -229,6 +229,41 @@
 @if (viewModel.VisibleDetailResult)
 {
     var mainItem = ((GroupData)viewModel.Data[0]).Data[0] as SoccerViewModel;
+    var gameResult = mainItem.DetailedResult;
+    if (mainItem.VisisibleGoalRecord)
+    {
+        var homeScore = 0;
+        var awayScore = 0;
+    
+    <div class="goal-record">
+    <table>
+        <thead>
+            <tr class="header">
+                <th class="cl-goal" colspan="2">
+                    @lang.GoalRecord
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var goal in mainItem.GoalRecord)
+            {
+                homeScore += 'h' == char.ToLower(goal) ? 1 : 0;
+                awayScore += 'a' == char.ToLower(goal) ? 1 : 0;
+                <tr class="data">
+                    <td class="cl-goal">
+                        @homeScore - @awayScore
+                    </td>
+                    <td class="cl-goal">
+                        @(Equals('h', char.ToLower(goal)) ? lang.Home : lang.Away)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+      </div>
+    }
+    if (!string.IsNullOrEmpty(gameResult))
+    {
     <br />
     <table class="fn-rs popup">
         <thead>
@@ -245,7 +280,8 @@
             </tr>
         </thead>
         <tbody>
-            @Raw(mainItem.DetailedResult)
+            @Raw(gameResult)
         </tbody>
-    </table>
+    </table> 
+    }
 }

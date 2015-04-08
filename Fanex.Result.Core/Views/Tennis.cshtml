@@ -249,7 +249,7 @@
         {
             var setValue = item.SetDetail[i];
 
-            if ((viewModel.IsDetail || item.VisibleSet(i + 1)) && setValue != null)
+            if (setValue != null && (viewModel.IsDetail || item.VisibleSet(i + 1)))
             {
 
                 

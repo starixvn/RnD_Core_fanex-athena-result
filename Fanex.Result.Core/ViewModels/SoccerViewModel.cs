@@ -26,7 +26,7 @@ namespace Fanex.Result.Core.ViewModels
     {
         private const string TemplateNameSpace = "SoccerDetail.";
         private SoccerDetailInfo _goalInfo;
-        private bool? _hasValidGameData = false;
+        private bool? _hasValidGameData;
         private IList<SoccerGameDetailItem> _detailedItemModels = null;
 
         public SoccerViewModel(Sportsbook soccer, ResultSetting setting, LangResources resource)
@@ -50,7 +50,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return base.VisibleDetailedLink && (HasValidGameData || !string.IsNullOrEmpty(this.GoalRecord));
+                return base.VisibleDetailedLink && (HasValidGameData || this.VisisibleGoalRecord);
             }
         }
 
@@ -165,6 +165,14 @@ namespace Fanex.Result.Core.ViewModels
             get
             {
                 return string.IsNullOrEmpty(this.SPORTBOOK.GoalRecord) ? string.Empty : this.SPORTBOOK.GoalRecord.Replace(";", string.Empty);
+            }
+        }
+
+        public override bool VisisibleGoalRecord
+        {
+            get
+            {
+                return base.VisisibleGoalRecord && !string.IsNullOrEmpty(this.GoalRecord);
             }
         }
 

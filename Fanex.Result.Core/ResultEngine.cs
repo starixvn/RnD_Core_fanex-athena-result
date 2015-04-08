@@ -79,9 +79,14 @@ namespace Fanex.Result.Core
                 throw new ObjectUnSupportedException(string.Format(CoreResourceConfig.UNSUPPORTSPORTTYPEARGUEMENTMES, setting.SportType.StringMe()));
             }
 
-            if (data == null || data.GameDetails.Count == 0)
+            if (data == null)
             {
-                throw new ObjectNullException("The data is null or detailed data is null");
+                throw new ObjectNullException("The data is null");
+            }
+
+            if (data.GameDetails.Count == 0 && setting.SportType == SportType.Tennis)
+            {
+                throw new ObjectNullException("Game data is null");
             }
 
             if (string.IsNullOrEmpty(setting.LanguageCode))

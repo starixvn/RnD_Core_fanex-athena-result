@@ -53,7 +53,6 @@
                 VisibleDetailedLink = true,
                 VisibleFreeHeader = true,
                 HighlightWinnerTeam = true,
-                
             };
             var htmlResult = string.Empty;
             switch (sportType)
@@ -139,7 +138,6 @@
                         VisibleMatchCodeIDColumn = showMatchCode,
                         LanguageCode = languageCode,
                         HighlightWinnerTeam = true,
-                       
                     });
             }
 

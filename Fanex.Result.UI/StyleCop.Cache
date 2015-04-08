@@ -15,11 +15,14 @@
   <project key="-1494620359">
     <configuration>TRACE;DEBUG;CODE_ANALYSIS</configuration>
   </project>
+  <project key="1447357812">
+    <configuration>TRACE;CODE_ANALYSIS</configuration>
+  </project>
   <project key="0">
     <configuration>
     </configuration>
   </project>
-  <project key="1447357812">
+  <project key="2136506772">
     <configuration>TRACE;CODE_ANALYSIS</configuration>
   </project>
   <sourcecode name="AssemblyInfo.cs" parser="StyleCop.CSharp.CsParser">

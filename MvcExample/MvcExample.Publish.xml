@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <publishData>
-  <publishProfile publishUrl="\\10.18.200.209\Web\Olympus\Fanex.Result" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+  <publishProfile publishUrl="\\10.18.200.209\Web\Olympus\Fanex.Result" deleteExistingFiles="True" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="False" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
     <file relUrl="@JSense.js" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/bootstrap/mixins/buttons.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="bin/Antlr3.Runtime.dll" publishTime="09/23/2014 10:15:37" />
@@ -69,7 +69,7 @@
     <file relUrl="bin/Glimpse.AspNet.dll" publishTime="12/22/2014 09:14:57" />
     <file relUrl="Content/bootstrap/mixins/vendor-prefixes.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/Core/variables.less" publishTime="09/23/2014 09:34:57" />
-    <file relUrl="bin/Fanex.Result.Core.dll" publishTime="04/08/2015 14:25:59" />
+    <file relUrl="bin/Fanex.Result.Core.dll" publishTime="04/08/2015 14:39:59" />
     <file relUrl="Content/bootstrap/forms.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="bin/ru-ru/MsieJavaScriptEngine.resources.dll" publishTime="09/23/2014 10:15:37" />
     <file relUrl="Content/bootstrap/navs.less" publishTime="09/23/2014 09:34:57" />
@@ -94,7 +94,7 @@
     <file relUrl="Content/bootstrap/jumbotron.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="DownLoad/ResultService.cs.txt" publishTime="12/22/2014 09:14:56" />
     <file relUrl="bin/Less.pdb" publishTime="09/23/2014 10:15:37" />
-    <file relUrl="bin/Fanex.Result.Core.pdb" publishTime="04/08/2015 14:25:59" />
+    <file relUrl="bin/Fanex.Result.Core.pdb" publishTime="04/08/2015 14:39:59" />
     <file relUrl="Global.asax" publishTime="09/23/2014 09:34:58" />
     <file relUrl="Scripts/Page/popup-report.js" publishTime="03/04/2015 13:23:25" />
     <file relUrl="DownLoad/Fanex.Result_rev1_2.zip" publishTime="09/23/2014 09:34:57" />
@@ -102,7 +102,7 @@
     <file relUrl="bin/IBCFile.dll" publishTime="09/22/2014 14:42:06" />
     <file relUrl="Content/bootstrap/tables.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="bin/Microsoft.Practices.EnterpriseLibrary.Data.dll" publishTime="09/23/2014 10:15:37" />
-    <file relUrl="bin/MvcExample.dll" publishTime="04/08/2015 15:25:37" />
+    <file relUrl="bin/MvcExample.dll" publishTime="04/08/2015 17:02:17" />
     <file relUrl="App_Data/Fanex.Result/Outright.xls" publishTime="11/04/2014 15:18:02" />
     <file relUrl="DownLoad/Fanex.Result_ExcelTPl_rev1.4.zip" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/bootstrap/code.less" publishTime="09/23/2014 09:34:57" />
@@ -235,7 +235,7 @@
     <file relUrl="Views/PopUpReport/Index.cshtml" publishTime="12/22/2014 09:14:56" />
     <file relUrl="Content/jquery-ui/base/resizable.css" publishTime="09/23/2014 09:34:57" />
     <file relUrl="DownLoad/dataaccess.png" publishTime="09/23/2014 09:34:58" />
-    <file relUrl="bin/MvcExample.pdb" publishTime="04/08/2015 15:25:36" />
+    <file relUrl="bin/MvcExample.pdb" publishTime="04/08/2015 17:02:17" />
     <file relUrl="Content/bootstrap/mixins/background-variant.less" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Content/jquery-ui/base/spinner.css" publishTime="09/23/2014 09:34:57" />
     <file relUrl="Scripts/jquery-1.9.0.min.js" publishTime="09/23/2014 09:34:58" />

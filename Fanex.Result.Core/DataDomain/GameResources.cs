@@ -33,6 +33,7 @@ namespace Fanex.Result.Core.DataDomain
         { "Special", new List<string> 
         { 
             GameResourceID.ExtraTimeYesNo, 
+            GameResourceID.ExtraTimeAndGoal,
             GameResourceID.PenaltyShootout, 
             GameResourceID.MatchDecidedMethod, 
             GameResourceID.WhoAdvancesToNextRound 

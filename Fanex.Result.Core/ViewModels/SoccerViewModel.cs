@@ -369,6 +369,7 @@ namespace Fanex.Result.Core.ViewModels
                     break;
                 /*Group: Special*/
                 case GameResourceID.ExtraTimeYesNo:
+                case GameResourceID.ExtraTimeAndGoal:
                 case GameResourceID.PenaltyShootout:
                     item.HomeValue = item.AwayValue = GetTextValueOfYesNoChoice(detailedValue.HomeValue);
                     break;
@@ -424,32 +425,35 @@ namespace Fanex.Result.Core.ViewModels
         /// <param name="detailedValue">The raw game value.</param>
         private void MapResourceGameValueByPattern175(SoccerGameDetailItem item, GameDetail detailedValue)
         {
-            switch (detailedValue.HomeValue)
+            if (!string.IsNullOrEmpty(detailedValue.HomeValue))
             {
-                case "HR":
-                    item.HomeValue = item.AwayValue = this.HomeTeam + "/" + Lang.RegularTime;
-                    break;
+                switch (detailedValue.HomeValue.ToUpper())
+                {
+                    case "HR":
+                        item.HomeValue = item.AwayValue = this.HomeTeam + "/" + Lang.RegularTime;
+                        break;
 
-                case "HE":
-                    item.HomeValue = item.AwayValue = this.HomeTeam + "/" + Lang.ExtraTime;
-                    break;
+                    case "HE":
+                        item.HomeValue = item.AwayValue = this.HomeTeam + "/" + Lang.ExtraTime;
+                        break;
 
-                case "HP":
-                    item.HomeValue = item.AwayValue = this.HomeTeam + "/" + Lang.Penalty;
-                    break;
+                    case "HP":
+                        item.HomeValue = item.AwayValue = this.HomeTeam + "/" + Lang.Penalty;
+                        break;
 
-                case "AR":
-                    item.HomeValue = item.AwayValue = this.AwayTeam + "/" + Lang.RegularTime;
-                    break;
+                    case "AR":
+                        item.HomeValue = item.AwayValue = this.AwayTeam + "/" + Lang.RegularTime;
+                        break;
 
-                case "AE":
-                    item.HomeValue = item.AwayValue = this.AwayTeam + "/" + Lang.ExtraTime;
-                    break;
+                    case "AE":
+                        item.HomeValue = item.AwayValue = this.AwayTeam + "/" + Lang.ExtraTime;
+                        break;
 
-                case "AP":
-                    item.HomeValue = item.AwayValue = this.AwayTeam + "/" + Lang.Penalty;
+                    case "AP":
+                        item.HomeValue = item.AwayValue = this.AwayTeam + "/" + Lang.Penalty;
 
-                    break;
+                        break;
+                }
             }
         }
 
@@ -467,22 +471,25 @@ namespace Fanex.Result.Core.ViewModels
         /// <param name="noneValue">This value is used incase "None" or no have value.</param>
         private void MapResourceGameValueByPattern1X2(SoccerGameDetailItem item, GameDetail detailedValue, string noneValue)
         {
-            switch (detailedValue.HomeValue)
+            if (!string.IsNullOrEmpty(detailedValue.HomeValue))
             {
-                case "1":
-                case "H":
-                    item.HomeValue = item.AwayValue = this.HomeTeam;
-                    break;
+                switch (detailedValue.HomeValue.ToUpper())
+                {
+                    case "1":
+                    case "H":
+                        item.HomeValue = item.AwayValue = this.HomeTeam;
+                        break;
 
-                case "2":
-                case "A":
-                    item.HomeValue = item.AwayValue = this.AwayTeam;
-                    break;
+                    case "2":
+                    case "A":
+                        item.HomeValue = item.AwayValue = this.AwayTeam;
+                        break;
 
-                case "X":
-                case "N":
-                    item.HomeValue = item.AwayValue = noneValue;
-                    break;
+                    case "X":
+                    case "N":
+                        item.HomeValue = item.AwayValue = noneValue;
+                        break;
+                }
             }
         }
 

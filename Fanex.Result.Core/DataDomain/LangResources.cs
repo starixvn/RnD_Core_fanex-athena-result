@@ -176,6 +176,8 @@ public sealed class LangResources
               
 			  				 public string RS176  { get ; set; }
               
+			  				 public string RS174  { get ; set; }
+              
 			  				 public string RS180  { get ; set; }
               
 			  				 public string RS160  { get ; set; }

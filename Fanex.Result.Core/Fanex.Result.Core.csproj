@@ -216,7 +216,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\en-US.xml" />
+    <EmbeddedResource Include="Resources\en-US.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\ja-JP.xml" />
     <EmbeddedResource Include="Resources\ko-KR.xml">
       <SubType>Designer</SubType>

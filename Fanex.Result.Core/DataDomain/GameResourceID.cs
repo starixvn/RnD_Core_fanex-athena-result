@@ -9,7 +9,7 @@ namespace Fanex.Result.Core.DataDomain
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    internal static class GameResourceID
+    public static class GameResourceID
     {
         /// <summary>
         /// Resource ID = 00.

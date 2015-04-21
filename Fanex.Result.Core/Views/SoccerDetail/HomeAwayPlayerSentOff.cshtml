@@ -14,98 +14,89 @@
 </tr>
 <!--Merge row-->
 @{
-    Fanex.Result.Core.ViewModels.SoccerInfo.SoccerGameDetailItem firstHalf = null;
-    Fanex.Result.Core.ViewModels.SoccerInfo.SoccerGameDetailItem fullTime = null;
-
+    Fanex.Result.Core.ViewModels.SoccerInfo.SoccerGameDetailItem homePlayserSentOff1H = null;
+    Fanex.Result.Core.ViewModels.SoccerInfo.SoccerGameDetailItem awayPlayserSentOff1H = null;
+    Fanex.Result.Core.ViewModels.SoccerInfo.SoccerGameDetailItem homePlayserSentOff = null;
+    Fanex.Result.Core.ViewModels.SoccerInfo.SoccerGameDetailItem awayPlayserSentOff = null;
+    var firstHalfResource = string.Empty;
+    var fullTimeResource = string.Empty;
 }
 @foreach (var item in itemViewModel.DetailItems)
 {
-    if (item.ResourceName == lang.RS213)
+    switch (item.ResourceID)
     {
-        if (firstHalf == null)
-        {
-            firstHalf = item;
-        }
-        if (!string.IsNullOrEmpty(item.HomeValue))
-        {
-            firstHalf.HomeValue = item.HomeValue;
-        }
-        if (!string.IsNullOrEmpty(item.AwayValue))
-        {
-            firstHalf.AwayValue = item.AwayValue;
-        }
+        case Fanex.Result.Core.DataDomain.GameResourceID.HomePlayserSentOff:
+            fullTimeResource = item.ResourceName;
+            homePlayserSentOff = item;
+            break;
+        case Fanex.Result.Core.DataDomain.GameResourceID.AwayPlayserSentOff:
+            fullTimeResource = item.ResourceName;
+            awayPlayserSentOff = item;
+            break;
+        case Fanex.Result.Core.DataDomain.GameResourceID.HomePlayserSentOff1H:
+            firstHalfResource = item.ResourceName;
+            homePlayserSentOff1H = item;
+            break;
+        case Fanex.Result.Core.DataDomain.GameResourceID.AwayPlayserSentOff1H:
+            firstHalfResource = item.ResourceName;
+            awayPlayserSentOff1H = item;
+            break;
     }
-    else if (item.ResourceName == lang.RS212)
-    {
-        if (fullTime == null)
-        {
-            fullTime = item;
-        }
-        if (!string.IsNullOrEmpty(item.HomeValue))
-        {
-            fullTime.HomeValue = item.HomeValue;
-        }
-        if (!string.IsNullOrEmpty(item.AwayValue))
-        {
-            fullTime.AwayValue = item.AwayValue;
-        }
-    }
-
 }
 <!--Assign "-" value in case it's value is null or empty-->
-@if (firstHalf != null)
+@if (homePlayserSentOff1H != null || homePlayserSentOff1H != null)
 {
     <tr class="data">
         <td class="cl-match">
-            @firstHalf.ResourceName
+            @firstHalfResource
         </td>
         <td class="cl-result home">
-            @if (string.IsNullOrEmpty(firstHalf.HomeValue))
+            @if (homePlayserSentOff1H == null || string.IsNullOrEmpty(homePlayserSentOff1H.HomeValue))
             {
-               @Fanex.Result.Core.DataDomain.ConstantValue.Hyphen
+                @Fanex.Result.Core.DataDomain.ConstantValue.Hyphen
             }
             else
             {
-                @firstHalf.HomeValue
+                @homePlayserSentOff1H.HomeValue
             }
         </td>
         <td class="cl-result away">
-           @if (string.IsNullOrEmpty(firstHalf.AwayValue))
-           {
-               @Fanex.Result.Core.DataDomain.ConstantValue.Hyphen
-           }
-           else
-           {
-                @firstHalf.AwayValue
-           }
+            @if (awayPlayserSentOff1H == null || string.IsNullOrEmpty(awayPlayserSentOff1H.HomeValue))
+            {
+                @Fanex.Result.Core.DataDomain.ConstantValue.Hyphen
+            }
+            else
+            {
+                @awayPlayserSentOff1H.HomeValue
+            }
         </td>
     </tr>
 }
-@if (fullTime != null)
+@if (homePlayserSentOff != null || awayPlayserSentOff != null)
 {
     <tr class="data">
         <td class="cl-match">
-            @fullTime.ResourceName
+            @fullTimeResource
         </td>
-       <td class="cl-result home">
-            @if (string.IsNullOrEmpty(fullTime.HomeValue))
+        <td class="cl-result home">
+            @if (homePlayserSentOff == null || string.IsNullOrEmpty(homePlayserSentOff.HomeValue))
             {
-               @Fanex.Result.Core.DataDomain.ConstantValue.Hyphen
+                @Fanex.Result.Core.DataDomain.ConstantValue.Hyphen
             }
             else
             {
-                @fullTime.HomeValue
+                @homePlayserSentOff.HomeValue
             }
         </td>
         <td class="cl-result away">
-           @if (string.IsNullOrEmpty(fullTime.AwayValue))
-           {
-               @Fanex.Result.Core.DataDomain.ConstantValue.Hyphen
-           }
-           else
-           {
-                @fullTime.AwayValue
-           }
+            @if (awayPlayserSentOff == null || string.IsNullOrEmpty(awayPlayserSentOff.HomeValue))
+            {
+                @Fanex.Result.Core.DataDomain.ConstantValue.Hyphen
+            }
+            else
+            {
+                @awayPlayserSentOff.HomeValue
+            }
         </td>
     </tr>
 }

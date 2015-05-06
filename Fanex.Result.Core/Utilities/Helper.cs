@@ -167,5 +167,6 @@ namespace Fanex.Result.Core.Utilities
 
             return result;
         }
+        
     }
 }

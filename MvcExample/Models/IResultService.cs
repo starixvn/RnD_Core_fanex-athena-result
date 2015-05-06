@@ -43,7 +43,7 @@ namespace MvcExample.Models
         IEnumerable<LiveCasino> GetLiveCasinoPopupResult(GetLiveCasinoPopupResultCriteria criteria);
 
         IEnumerable<Sportsbook> GetSportbookPopupResult(GetSportbookPopupResultCriteria criteria);
-
+        IEnumerable<GoldDeluxe> GetGoldDeluxePopUpResult(GetGolDeluxePopUpResultCriteria criteria);
         #endregion PopUp
 
         #region Parlay

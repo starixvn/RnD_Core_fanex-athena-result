@@ -214,6 +214,7 @@
     <Compile Include="Models\Criteria\GetLiveCasinoPopupResultCriteria.cs" />
     <Compile Include="Models\Criteria\GetParlayResultCriteria.cs" />
     <Compile Include="Models\Criteria\GetOutRightResult.cs" />
+    <Compile Include="Models\Criteria\GetGolDeluxePopUpResultCriteria.cs" />
     <Compile Include="Models\IResultService.cs" />
     <Compile Include="Models\MetaModel\ResultPopupMetalModel.cs" />
     <Compile Include="Models\ResultService.cs" />
@@ -338,6 +339,7 @@
     <Content Include="App_Data\Fanex.Result\Tennis.xls" />
     <Content Include="App_Data\Fanex.Result\VSHRacing.xls" />
     <Content Include="App_Data\Fanex.Result\VSTennis.xls" />
+    <Content Include="App_Data\Fanex.Result\GoldDeluxe.xls" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>

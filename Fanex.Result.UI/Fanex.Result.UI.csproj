@@ -96,6 +96,7 @@
     <Content Include="App_Data\Fanex.Result\VSHRacing.xls" />
     <Content Include="App_Data\Fanex.Result\VSSpeedWay.xls" />
     <Content Include="App_Data\Fanex.Result\VSTennis.xls" />
+    <Content Include="App_Data\Fanex.Result\GoldDeluxe.xls" />
     <None Include="Content\Fanex.Result\fanex.result.less" />
     <None Include="Fanex.Result.UI.licenseheader" />
   </ItemGroup>

@@ -131,7 +131,18 @@
                     }
 
                     break;
+                case SportType.GoldDeluxe:
+                    var dataGd = _resultService.GetGoldDeluxePopUpResult(new GetGolDeluxePopUpResultCriteria
+                    {
+                        TransID = metalModel.RefNo.HasValue ? metalModel.RefNo.Value : 0,
+                        Bettype = metalModel.Bettype
+                    });
+                    if (dataGd != null)
+                    {
+                        return ResultEngine.HtmlParser(dataGd.ToList(), setting);
+                    }
 
+                    break;
                 case SportType.NumberGame:
                     var dataNg = _resultService.GetNumberGamePopupResult(new GetNumberGamePopupResultCriteria { MatchID = metalModel.MatchId });
                     if (dataNg != null)

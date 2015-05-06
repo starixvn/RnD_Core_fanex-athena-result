@@ -22,5 +22,6 @@ namespace Fanex.Result.Core.DataDomain
         public const string RACING = "Racing";
         public const string OUTRIGHT = "OutRight";
         public const string PARLAY = "Parlay";
+        public const string GOLEDELUXE = "GoldDeluxe";
     }
 }

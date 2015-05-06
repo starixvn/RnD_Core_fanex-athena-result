@@ -230,5 +230,11 @@ public sealed class LangResources
               
 			  				 public string Away  { get ; set; }
               
+			  				 public string GameID  { get ; set; }
+              
+			  				 public string Banker  { get ; set; }
+              
+			  				 public string Player  { get ; set; }
+              
 			           		 }
 }

@@ -49,67 +49,35 @@ namespace Fanex.Result.Core.Models
         /// <param name="dtoName">The DTO name.</param>
         /// <param name="sportType">The sport type.</param>
         /// <returns>True if DTO name match with sport type.</returns>
-        [SuppressMessage(
-           "StyleCop.CSharp.Nexcel.NexcelCustomRules",
-           "SP2101:MethodMustNotContainMoreLinesThan",
-           Justification = "Reviewed. Suppression is OK here.")]
         public bool ValidateNormal(string dtoName, SportType sportType)
         {
-            if (string.IsNullOrEmpty(dtoName))
+            return !string.IsNullOrEmpty(dtoName) &&
+                Enum.IsDefined(typeof(SportType), sportType) && IsValidDTO(dtoName, sportType);
+        }
+
+        private static bool IsValidDTO(string dtoName, SportType sportType)
+        {
+            switch (sportType)
             {
-                return false;
+                case SportType.HorseRacing:
+                case SportType.Greyhound:
+                case SportType.Harness:
+                case SportType.VirtualHorseRacing:
+                case SportType.VirtualGreyhounds:
+                case SportType.VirtualMotorRacing:
+                case SportType.VirtualSpeedway:
+                case SportType.VirtualCycling:
+                    return dtoName == DTOType.RACING;
+                case SportType.NumberGame:
+                    return dtoName == DTOType.NUMBERGAME;
+                case SportType.LiveCasino:
+                    return dtoName == DTOType.LIVECASINO;
+                case SportType.GoldDeluxe:
+                    return dtoName == DTOType.GOLEDELUXE;
+                default:
+                    return dtoName == DTOType.SPORTSBOOK;
+
             }
-
-            if ((short)sportType < 1)
-            {
-                return false;
-            }
-
-            var sportTypeValid = Enum.IsDefined(typeof(SportType), sportType);
-            if (sportTypeValid)
-            {
-                switch (sportType)
-                {
-                    case SportType.HorseRacing:
-                    case SportType.Greyhound:
-                    case SportType.Harness:
-                    case SportType.VirtualHorseRacing:
-                    case SportType.VirtualGreyhounds:
-                    case SportType.VirtualMotorRacing:
-                    case SportType.VirtualSpeedway:
-                    case SportType.VirtualCycling:
-                        if (dtoName == DTOType.RACING)
-                        {
-                            return true;
-                        }
-
-                        return false;
-                    case SportType.NumberGame:
-                        if (dtoName == DTOType.NUMBERGAME)
-                        {
-                            return true;
-                        }
-
-                        return false;
-                    case SportType.LiveCasino:
-                        if (dtoName == DTOType.LIVECASINO)
-                        {
-                            return true;
-                        }
-
-                        return false;
-
-                    default:
-                        if (dtoName == DTOType.SPORTSBOOK)
-                        {
-                            return true;
-                        }
-
-                        return false;
-                }
-            }
-
-            return false;
         }
 
         public bool ValidateOutRight(string dtoName)

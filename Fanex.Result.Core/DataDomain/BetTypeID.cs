@@ -12,5 +12,6 @@ namespace Fanex.Result.Core.DataDomain
     internal static class BetTypeID
     {
         public const int SetXGameYWinner = 1324;
+
     }
 }

@@ -16,24 +16,33 @@ namespace Fanex.Result.Core.Utilities
     /// </summary>
     internal static class GoldDeluxeHelper
     {
-        private const string routletResult = "<span class=\"{0}\">{1}</span>";
-        private const string bacaratResult = "<li><span class=\"{0}\"><i>{1}</i>{2}</span></li>";
-        const string BankerKey = "B";
-        const string PlayerKey = "P";
-        const string Aces = "A";
-        private static readonly string[] routletRedResult = new string[] {
+        private const string RoutletResultTemplate = "<span class=\"{0}\">{1}</span>";
+        private const string BacaratResultTemplate = "<li><span class=\"{0}\"><span class=\"icon\">{1}</span><span class=\"card\">{2}</span></span></li>";
+        private const string BankerKey = "B";
+        private const string PlayerKey = "P";
+        private const string Aces = "A";
+
+        private static readonly string[] RoutletRedResult = new string[] 
+        {
             "1", "3", "5", "7", "9", "12", "14", "16", "18",
-            "19", "21", "23", "25", "27", "30", "32", "34", "36" };
-        private static readonly IDictionary<string, string> cardType = new Dictionary<string, string>() {
-        
-        {"club","&clubs;"}, {"spade","&spades;"},  {"diamond","&diams;"}, {"heart","&hearts;"}
+            "19", "21", "23", "25", "27", "30", "32", "34", "36"
         };
+
+        private static readonly IDictionary<string, string> CardType = new Dictionary<string, string>() 
+        {
+        { "club", "&clubs;" },
+        { "spade", "&spades;" },
+        { "diamond", "&diams;" },
+        { "heart", "&hearts;" }
+        };
+
         public static string GetBacaratResult(string result, string bankerText, string playerText)
         {
             if (string.IsNullOrEmpty(result))
             {
                 return string.Empty;
             }
+
             var bankerResult = new List<string>();
             var playerResult = new List<string>();
             var bankerPoint = 0;
@@ -47,21 +56,33 @@ namespace Fanex.Result.Core.Utilities
             return htmlResult.ToString();
         }
 
+        public static string GetRoutletResult(string result)
+        {
+            if (string.IsNullOrEmpty(result))
+            {
+                return string.Empty;
+            }
+
+            var color = result == "0" ? "green" : RoutletRedResult.Contains(result) ?
+                "red" : "black";
+
+            return string.Format(RoutletResultTemplate, color, result);
+        }
+
         private static string GetHtmlResult(string choiceName, string choiceKey, List<string> choiceResult, int choicePoint)
         {
             var htmlResult = new StringBuilder("<ul class=\"" + choiceName.ToLower() + "\">");
-            htmlResult.Append(string.Format(bacaratResult, choiceKey, string.Empty, choiceName + "&nbsp;(" + choicePoint + ")&nbsp;"));
+            htmlResult.Append(string.Format(BacaratResultTemplate, choiceKey, string.Empty, choiceName + "&nbsp;(" + choicePoint + ")&nbsp;"));
             KeyValuePair<string, string> currentCard = new KeyValuePair<string, string>("space", "&nbsp;");
             foreach (var item in choiceResult.Skip(1))
             {
-                if (cardType.Keys.Any(i => i.Equals(item, StringComparison.OrdinalIgnoreCase)))
+                if (CardType.Keys.Any(i => i.Equals(item, StringComparison.OrdinalIgnoreCase)))
                 {
-                    currentCard = cardType.SingleOrDefault(i => i.Key.Equals(item, StringComparison.OrdinalIgnoreCase));
+                    currentCard = CardType.SingleOrDefault(i => i.Key.Equals(item, StringComparison.OrdinalIgnoreCase));
                     continue;
                 }
 
-                htmlResult.Append(string.Format(bacaratResult, currentCard.Key, currentCard.Value, item));
-
+                htmlResult.Append(string.Format(BacaratResultTemplate, currentCard.Key, currentCard.Value, item));
             }
 
             htmlResult.Append("</ul>");
@@ -84,31 +105,34 @@ namespace Fanex.Result.Core.Utilities
                 bankerResult.Add(value);
                 bankerPoint += GetPoint(value);
             }
+
+            bankerPoint = TrimPoint(bankerPoint);
+
             for (var i = playerIndex; i <= lastplayerIndex; i++)
             {
                 var value = resultTokens[i];
                 playerResult.Add(value);
                 playerPoint += GetPoint(value);
             }
+
+            playerPoint = TrimPoint(playerPoint);
+        }
+
+        private static int TrimPoint(int point)
+        {
+            if (point > 9)
+            {
+                var lastDigit = point.ToString().Last();
+                return int.Parse(lastDigit.ToString());
+            }
+
+            return point;
         }
 
         private static int GetPoint(string value)
         {
             return value.Equals(Aces, StringComparison.OrdinalIgnoreCase) ? 1 :
                 Helper.IsIntegerNumber(value) && value != "10" ? int.Parse(value) : 0;
-        }
-
-        public static string GetRoutletResult(string result)
-        {
-            if (string.IsNullOrEmpty(result))
-            {
-                return string.Empty;
-            }
-
-            var color = result == "0" ? "green" : routletRedResult.Contains(result) ?
-                "red" : "black";
-
-            return string.Format(routletResult, color, result);
         }
     }
 }

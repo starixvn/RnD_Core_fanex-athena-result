@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="LiveCasinoExcel.cs" company="Nexcel">
+// <copyright file="GoldDeluxeoExcel.cs" company="Nexcel">
 // TODO: Update copyright text.
 // </copyright>
 // ---------------------------------------------------------------------

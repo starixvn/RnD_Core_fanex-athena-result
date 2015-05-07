@@ -343,7 +343,8 @@ table
 				li
                 {
 					float: left;
-					margin-left:25px;
+					margin-left:15px;
+					line-height:20px;
                 }
 				li:first-child
                 {
@@ -351,13 +352,14 @@ table
                 }
 				.diamond,.heart,.club,.spade
                 {
-                	i
+					.icon
                     {
                     	font-size:19px;
                     }
-					i::after
+					.card
                     {
-						content: "  ";
+						margin-left:2px;
+						font-size:14px;
                     }
 					
                 }
@@ -378,6 +380,7 @@ table
         		font-size:28px;
 				font-weight:bold;
 				text-align:center;
+				display:table-cell;
 			 }
 			.green
 			{

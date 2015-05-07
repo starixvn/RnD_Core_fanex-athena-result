@@ -7,14 +7,11 @@
 namespace Fanex.Result.Core.ViewModels
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using Fanex.Result.Core.DTO;
-    using Fanex.Result.Core.DataDomain;
-    using RemotingRef;
     using System.Globalization;
+    using Fanex.Result.Core.DataDomain;
+    using Fanex.Result.Core.DTO;
     using Fanex.Result.Core.Utilities;
+    using RemotingRef;
 
     /// <summary>
     /// TODO: Update summary.
@@ -25,6 +22,7 @@ namespace Fanex.Result.Core.ViewModels
         private string _result;
         private string _gameId;
         private string _htmlResult;
+
         public GoldDeluxeViewModel(GoldDeluxe goldDeluxe, ResultSetting setting, LangResources resource)
             : base(setting, resource)
         {
@@ -43,6 +41,7 @@ namespace Fanex.Result.Core.ViewModels
                string.Empty);
             }
         }
+
         public override string EventStatus
         {
             get
@@ -50,6 +49,7 @@ namespace Fanex.Result.Core.ViewModels
                 return Lang.Completed;
             }
         }
+
         public string GameID
         {
             get
@@ -93,28 +93,18 @@ namespace Fanex.Result.Core.ViewModels
         {
             if (!string.IsNullOrEmpty(this._goldDeluxe.Result))
             {
-                try
+                var resultTokens = this._goldDeluxe.Result.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+                _gameId = resultTokens[0].Split(new char[] { '=' }, StringSplitOptions.RemoveEmptyEntries)[1];
+                _result = resultTokens[1].Split(new char[] { '=' }, StringSplitOptions.RemoveEmptyEntries)[1];
+                if (this._goldDeluxe.Bettype == GoldDeluxeBettype.Roulette)
                 {
-                    var resultTokens = this._goldDeluxe.Result.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
-                    _gameId = resultTokens[0].Split(new char[] { '=' }, StringSplitOptions.RemoveEmptyEntries)[1];
-                    _result = resultTokens[1].Split(new char[] { '=' }, StringSplitOptions.RemoveEmptyEntries)[1];
-                    if (this._goldDeluxe.Bettype == GoldDeluxeBettype.Roulette)
-                    {
-                        _htmlResult = GoldDeluxeHelper.GetRoutletResult(_result);
-                    }
-                    else
-                    {
-                        _htmlResult = GoldDeluxeHelper.GetBacaratResult(_result, Lang.Banker, Lang.Player);
-                    }
+                    _htmlResult = GoldDeluxeHelper.GetRoutletResult(_result);
                 }
-                catch (IndexOutOfRangeException exception)
+                else
                 {
-                    throw new IndexOutOfRangeException("The result value is invalid", exception);
+                    _htmlResult = GoldDeluxeHelper.GetBacaratResult(_result, Lang.Banker, Lang.Player);
                 }
-
             }
         }
-
-
     }
 }

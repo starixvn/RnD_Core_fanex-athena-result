@@ -7,7 +7,6 @@
 namespace Fanex.Result.Core.Models
 {
     using System;
-    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using Fanex.Result.Core.DataDomain;
 
@@ -55,6 +54,21 @@ namespace Fanex.Result.Core.Models
                 Enum.IsDefined(typeof(SportType), sportType) && IsValidDTO(dtoName, sportType);
         }
 
+        public bool ValidateOutRight(string dtoName)
+        {
+            return !string.IsNullOrEmpty(dtoName) && dtoName == DTOType.OUTRIGHT;
+        }
+
+        public bool ValidateParlay(string dtoName)
+        {
+            return !string.IsNullOrEmpty(dtoName) && dtoName == DTOType.PARLAY;
+        }
+
+        public bool ValidateResource(string languageCode)
+        {
+            return CoreResourceConfig.LangCodes.Contains(languageCode);
+        }
+
         private static bool IsValidDTO(string dtoName, SportType sportType)
         {
             switch (sportType)
@@ -76,23 +90,7 @@ namespace Fanex.Result.Core.Models
                     return dtoName == DTOType.GOLEDELUXE;
                 default:
                     return dtoName == DTOType.SPORTSBOOK;
-
             }
-        }
-
-        public bool ValidateOutRight(string dtoName)
-        {
-            return !string.IsNullOrEmpty(dtoName) && dtoName == DTOType.OUTRIGHT;
-        }
-
-        public bool ValidateParlay(string dtoName)
-        {
-            return !string.IsNullOrEmpty(dtoName) && dtoName == DTOType.PARLAY;
-        }
-
-        public bool ValidateResource(string languageCode)
-        {
-            return CoreResourceConfig.LangCodes.Contains(languageCode);
         }
     }
 }

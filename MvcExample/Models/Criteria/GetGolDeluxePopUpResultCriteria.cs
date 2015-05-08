@@ -1,9 +1,5 @@
-﻿using System;
-
-namespace MvcExample.Models.Criteria
+﻿namespace MvcExample.Models.Criteria
 {
-    using System;
-    using System.Diagnostics.CodeAnalysis;
     using Fanex.Data.Repository;
 
     public class GetGolDeluxePopUpResultCriteria : CriteriaBase
@@ -23,5 +19,4 @@ namespace MvcExample.Models.Criteria
             return TransID > 0;
         }
     }
-
 }

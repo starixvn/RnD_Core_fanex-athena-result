@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="GoldDeluxeoExcel.cs" company="Nexcel">
+// <copyright file="GoldDeluxeExcel.cs" company="Nexcel">
 // TODO: Update copyright text.
 // </copyright>
 // ---------------------------------------------------------------------
@@ -18,10 +18,9 @@ namespace Fanex.Result.Core.ExcelModels
     /// <summary>
     /// Live casino excel model class.
     /// </summary>
-    internal sealed class GoldDeluxeoExcel : ExcelBase, IExcelModel
+    internal sealed class GoldDeluxeExcel : ExcelBase, IExcelModel
     {
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
-        public GoldDeluxeoExcel(
+        public GoldDeluxeExcel(
             string templatePath,
             ResultSetting setting,
             IList<IResultViewModel> data,

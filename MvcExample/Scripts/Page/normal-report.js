@@ -20,6 +20,7 @@ var normalReport = (function () {
                     renderLeague(data[0].Id, date);
                 }
             }
+            options += "<option value=\"255\">GoldDeluxe</option>";
             $("#sport").html(options);
             invokeLoadingMsg(false);
         });

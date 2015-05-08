@@ -388,6 +388,28 @@ namespace MvcExample.Models
             return result;
         }
 
+        public IEnumerable<GoldDeluxe> GetGoldDeluxePopUpResult(GetGolDeluxePopUpResultCriteria criteria)
+        {
+            var result = new List<GoldDeluxe>();
+
+            using (var db = new ObjectDb(criteria.GetSettingKey()))
+            {
+                using (var reader = db.ExecuteReader(criteria.GetSpParams()))
+                {
+                    while (reader.Read())
+                    {
+                        result.Add(new GoldDeluxe
+                        {
+                            Bettype = criteria.Bettype,
+                            Result = reader["TransDesc"].ToString()
+                        });
+                    }
+                }
+            }
+
+            return result;
+        }
+
         #region Utilites
 
         /// <summary>
@@ -581,28 +603,5 @@ namespace MvcExample.Models
         }
 
         #endregion Utilites
-
-
-        public IEnumerable<GoldDeluxe> GetGoldDeluxePopUpResult(GetGolDeluxePopUpResultCriteria criteria)
-        {
-            var result = new List<GoldDeluxe>();
-
-            using (var db = new ObjectDb(criteria.GetSettingKey()))
-            {
-                using (var reader = db.ExecuteReader(criteria.GetSpParams()))
-                {
-                    while (reader.Read())
-                    {
-                        result.Add(new GoldDeluxe
-                        {
-                            Bettype=criteria.Bettype,
-                            Result = reader["TransDesc"].ToString()
-                        });
-                    }
-                }
-            }
-
-            return result;
-        }
     }
 }

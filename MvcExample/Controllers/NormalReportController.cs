@@ -172,6 +172,7 @@
             };
 
             MemoryStream excelResult = null;
+
             switch (sportType)
             {
                 case SportType.HorseRacing:
@@ -213,6 +214,16 @@
                     });
                     excelResult = ResultEngine.ExcelParser<NumberGame>(dataNg.ToList(), resultSetting);
 
+                    break;
+
+                case SportType.GoldDeluxe:
+                    var dataGd = _resultService.GetGoldDeluxePopUpResult(new GetGolDeluxePopUpResultCriteria
+                   {
+                       TransID = 7201376080,
+                       Bettype = 1701
+                   });
+
+                    excelResult = ResultEngine.ExcelParser<GoldDeluxe>(dataGd.ToList(), resultSetting);
                     break;
 
                 default:

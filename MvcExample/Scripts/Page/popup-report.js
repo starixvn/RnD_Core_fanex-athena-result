@@ -108,7 +108,7 @@ var popupReport = (function () {
                 invokeLoadingMsg(true);
             },
             success: function (data) {
-                $("#report-content").html(data);
+                 $("#report-content").html(data);
                 invokeLoadingMsg(false);
             },
             error: function () {

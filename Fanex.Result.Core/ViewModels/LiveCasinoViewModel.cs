@@ -144,7 +144,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             if (results.Trim().Length < 1)
             {
-                return StringResources.HYPHEN;
+                return ConstantValue.Hyphen;
             }
 
             string[] arr = results.Split(',');
@@ -205,8 +205,8 @@ namespace Fanex.Result.Core.ViewModels
         /// </summary>
         private void GetFinalScoreAndResult()
         {
-            if (this.EventStatus.Equals(StringResources.REFUND, StringComparison.OrdinalIgnoreCase)
-                || this.EventStatus.Equals(StringResources.VOID, StringComparison.OrdinalIgnoreCase))
+            if (this.EventStatus.Equals(ConstantValue.Refund, StringComparison.OrdinalIgnoreCase)
+                || this.EventStatus.Equals(ConstantValue.Void, StringComparison.OrdinalIgnoreCase))
             {
                 this._result = this._finalScore = this.EventStatus;
             }
@@ -218,7 +218,7 @@ namespace Fanex.Result.Core.ViewModels
                     {
                         this._finalScore = this._liveCasino.FinalHomeScore.Value.ToString(CultureInfo.InvariantCulture);
                         this._result = this._liveCasino.FinalHomeScore.Value == 0 ?
-                            StringResources.HYPHEN : SetResultsRoulette(this._liveCasino.BetStatus);
+                            ConstantValue.Hyphen : SetResultsRoulette(this._liveCasino.BetStatus);
                     }
                     else
                     {

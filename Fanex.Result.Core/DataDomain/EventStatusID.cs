@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="EventStatusIDDefinition.cs" company="">
+// <copyright file="EventStatusID.cs" company="">
 // TODO: Update copyright text.
 // </copyright>
 // -----------------------------------------------------------------------
@@ -9,7 +9,7 @@ namespace Fanex.Result.Core.DataDomain
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    internal static class EventStatusIDDefinition
+    internal static class EventStatusID
     {
         public const int CompletedSettlementStatusID = 4;
         public const int RefundStettlementStatusID = 1;

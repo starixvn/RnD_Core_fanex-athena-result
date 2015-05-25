@@ -33,7 +33,7 @@
     </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
+    <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>..\Build\</OutputPath>
     <DefineConstants>TRACE;CODE_ANALYSIS</DefineConstants>
@@ -42,6 +42,7 @@
     <DocumentationFile>
     </DocumentationFile>
     <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
@@ -88,11 +89,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DataDomain\BetIDDefinition.cs" />
-    <Compile Include="DataDomain\BetTypeDefinition.cs" />
-    <Compile Include="DataDomain\ConstantValueDefinition.cs" />
+    <Compile Include="DataDomain\GameResourceID.cs" />
+    <Compile Include="DataDomain\GameResources.cs" />
+    <Compile Include="DataDomain\TennisBetID.cs" />
+    <Compile Include="DataDomain\BetTypeID.cs" />
+    <Compile Include="DataDomain\ConstantValue.cs" />
     <Compile Include="DataDomain\DTOType.cs" />
-    <Compile Include="DataDomain\EventStatusIDDefinition.cs" />
+    <Compile Include="DataDomain\EventStatusID.cs" />
     <Compile Include="DataDomain\LangResources.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -106,9 +109,8 @@
     <Compile Include="DTO\OutRight.cs" />
     <Compile Include="DTO\Parlay.cs" />
     <Compile Include="DTO\Racing.cs" />
-    <Compile Include="DataDomain\ResourceConfig.cs" />
+    <Compile Include="DataDomain\CoreResourceConfig.cs" />
     <Compile Include="DTO\Sportsbook.cs" />
-    <Compile Include="DataDomain\StringResources.cs" />
     <Compile Include="ExcelModels\BadmintonExcel.cs" />
     <Compile Include="ExcelModels\BaseBallExcel.cs" />
     <Compile Include="ExcelModels\BasketBallExcel.cs" />
@@ -156,7 +158,9 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\BasketBallViewModel.cs" />
     <Compile Include="ViewModels\BilliardViewModel.cs" />
+    <Compile Include="ViewModels\SoccerInfo\SoccerDetailViewModel.cs" />
     <Compile Include="ViewModels\SoccerInfo\SoccerDetailInfo.cs" />
+    <Compile Include="ViewModels\SoccerInfo\SoccerGameDetailItem.cs" />
     <Compile Include="ViewModels\TennisDetail\GameValue.cs" />
     <Compile Include="ViewModels\IResultViewModel.cs" />
     <Compile Include="ViewModels\TennisDetail\SetValue.cs" />
@@ -198,12 +202,23 @@
     <EmbeddedResource Include="Views\VSHRacing.cshtml" />
     <EmbeddedResource Include="Views\VSTennis.cshtml" />
     <EmbeddedResource Include="Views\VSSpeedWay.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\FirstLastCorners.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\Special.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\HomeAwayPlayerSentOff.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\PlayerSentOff.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\Corner.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\GoalScorer.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\GoalTime.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\GoalRecord.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\Goals.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\en-US.xml" />
+    <EmbeddedResource Include="Resources\en-US.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\ja-JP.xml" />
     <EmbeddedResource Include="Resources\ko-KR.xml">
       <SubType>Designer</SubType>
@@ -215,6 +230,7 @@
     <EmbeddedResource Include="Resources\zh-CN.xml" />
     <EmbeddedResource Include="Resources\zh-TW.xml" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

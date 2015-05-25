@@ -38,5 +38,7 @@ namespace Fanex.Result.Core.DTO
         public int ResultStatusID { get; set; }
 
         public int SettlementStatusID { get; set; }
+
+        public string OtherInfo { get; set; }
     }
 }

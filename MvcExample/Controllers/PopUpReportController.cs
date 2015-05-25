@@ -48,7 +48,7 @@
                 IsPopUp = true,
                 VisiblePopUpTitle = true,
                 LanguageCode = metalModel.LanguageCode,
-                VisibleMatchCodeIDColumn = true,
+                VisibleMatchCodeIDColumn = false,
                 VisibleFreeHeader = true,
                 VisibleDetailedLink = true,
             };

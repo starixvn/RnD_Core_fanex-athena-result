@@ -14,7 +14,6 @@ namespace Fanex.Result.Core.Models
     using Fanex.Result.Core.ExcelModels;
     using Fanex.Result.Core.Extension;
     using Fanex.Result.Core.ViewModels;
-    using Newtonsoft.Json;
     using RazorEngine;
 
     /// <summary>
@@ -137,53 +136,6 @@ namespace Fanex.Result.Core.Models
         }
 
         #endregion ExcelBuilder
-
-        #region JsonBuilder
-
-        /// <summary>
-        /// Create view model by sport type.
-        /// Only used for rendering JSON result.
-        /// </summary>
-        /// <typeparam name="T">The DTO object.</typeparam>
-        /// <param name="dataList">The DTO list.</param>
-        /// <param name="setting">The result setting.</param>
-        /// <returns>The JSON result.</returns>
-        public string JSONSportTypeBuilder<T>(IList<T> dataList, ResultSetting setting)
-        {
-            var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
-            var items = dataList
-                .Select(i => ViewModelConcreteFactory.Instance.GetViewModel(i, setting, lang))
-                .ToList();
-            return JsonConvert.SerializeObject(items);
-        }
-
-        /// <summary>
-        /// Create parlay view model.
-        /// Only used for rendering JSON result.
-        /// </summary>
-        /// <typeparam name="T">The DTO object.</typeparam>
-        /// <param name="dataList">The DTO list.</param>
-        /// <param name="setting">The result setting.</param>
-        /// <returns>The JSON result.</returns>
-        public string JSONParlayBuilder<T>(IList<T> dataList, ResultSetting setting)
-        {
-            var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
-            var items = dataList
-                .Select(i => ViewModelConcreteFactory.Instance.GetParlayViewModel(i, setting, lang));
-            var parlayItems = items.Select(i => (ParlayViewModel)i);
-            return JsonConvert.SerializeObject(parlayItems);
-        }
-
-        public string JSONOutRightBuilder<T>(IList<T> dataList, ResultSetting setting)
-        {
-            var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
-            var items = dataList
-                .Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting, lang))
-                .ToList();
-            return JsonConvert.SerializeObject(items);
-        }
-
-        #endregion JsonBuilder
 
         /// <summary>
         /// Render html result.

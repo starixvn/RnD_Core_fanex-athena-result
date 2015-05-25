@@ -124,7 +124,7 @@ namespace Fanex.Result.Core.Models
 
         public bool ValidateResource(string languageCode)
         {
-            return ResourceConfig.LangCodes.Contains(languageCode);
+            return CoreResourceConfig.LangCodes.Contains(languageCode);
         }
     }
 }

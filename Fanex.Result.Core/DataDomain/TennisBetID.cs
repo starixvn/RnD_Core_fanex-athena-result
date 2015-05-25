@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="BetIDDefinition.cs" company="Nexcel.vn">
+// <copyright file="TennisBetID.cs" company="Nexcel.vn">
 // TODO: Update copyright text.
 // </copyright>
 // -----------------------------------------------------------------------
@@ -9,7 +9,7 @@ namespace Fanex.Result.Core.DataDomain
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public static class BetIDDefinition
+    internal static class TennisBetID
     {
         public const int MinSet1GameY = 80101;
         public const int MaxSet1GameY = 80113;

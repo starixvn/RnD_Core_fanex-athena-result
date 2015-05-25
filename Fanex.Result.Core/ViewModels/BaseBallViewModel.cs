@@ -26,7 +26,7 @@ namespace Fanex.Result.Core.ViewModels
             get
             {
                 var temp = Convert.ToInt32(this.GetHomeAwaySet(9, false));
-                return temp >= 0 ? temp.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
+                return temp >= 0 ? temp.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
             }
         }
 
@@ -35,7 +35,7 @@ namespace Fanex.Result.Core.ViewModels
             get
             {
                 var temp = Convert.ToInt32(this.GetHomeAwaySet(9, true));
-                return temp >= 0 ? temp.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
+                return temp >= 0 ? temp.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
             }
         }
 
@@ -45,7 +45,7 @@ namespace Fanex.Result.Core.ViewModels
             {
                 return this.SPORTBOOK.HtAwayScore.HasValue ?
                     this.SPORTBOOK.HtAwayScore.Value.ToString(CultureInfo.InvariantCulture)
-                    : StringResources.HYPHEN;
+                    : ConstantValue.Hyphen;
             }
         }
 
@@ -53,7 +53,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             get
             {
-                return this.SPORTBOOK.HtHomeScore.HasValue ? this.SPORTBOOK.HtHomeScore.Value.ToString(CultureInfo.InvariantCulture) : StringResources.HYPHEN;
+                return this.SPORTBOOK.HtHomeScore.HasValue ? this.SPORTBOOK.HtHomeScore.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
             }
         }
 
@@ -63,7 +63,7 @@ namespace Fanex.Result.Core.ViewModels
             {
                 return this.SPORTBOOK.FinalAwayScore.HasValue ?
                     this.SPORTBOOK.FinalAwayScore.Value.ToString(CultureInfo.InvariantCulture)
-                    : StringResources.HYPHEN;
+                    : ConstantValue.Hyphen;
             }
         }
 
@@ -73,7 +73,7 @@ namespace Fanex.Result.Core.ViewModels
             {
                 return this.SPORTBOOK.FinalHomeScore.HasValue ?
                     this.SPORTBOOK.FinalHomeScore.Value.ToString(CultureInfo.InvariantCulture)
-                    : StringResources.HYPHEN;
+                    : ConstantValue.Hyphen;
             }
         }
 
@@ -88,7 +88,7 @@ namespace Fanex.Result.Core.ViewModels
         {
             if (index > 9)
             {
-                return StringResources.HYPHEN;
+                return ConstantValue.Hyphen;
             }
 
             if (this.HomeSet == null || this.AwaySet == null)
@@ -97,8 +97,8 @@ namespace Fanex.Result.Core.ViewModels
                 this.AwaySet = new string[10];
                 for (int j = 0; j < 9; j++)
                 {
-                    this.HomeSet[j] = StringResources.HYPHEN;
-                    this.AwaySet[j] = StringResources.HYPHEN;
+                    this.HomeSet[j] = ConstantValue.Hyphen;
+                    this.AwaySet[j] = ConstantValue.Hyphen;
                 }
 
                 this.HomeSet[9] = this.AwaySet[9] = "-1";

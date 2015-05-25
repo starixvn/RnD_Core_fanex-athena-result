@@ -182,7 +182,7 @@
                         @if (item.VisibleDetailedLink && !viewModel.IsPopUp)
                         {
                             <div>
-                                <span class="detail-link tennis-detail-link" data-league-id="@item.LeagueId"
+                                <span class="detail-link" data-league-id="@item.LeagueId"
                                              data-match-id="@item.MatchId">
                                     @lang.Details </span>
                             </div>
@@ -249,15 +249,15 @@
         {
             var setValue = item.SetDetail[i];
 
-            if ((viewModel.IsDetail || item.VisibleSet(i + 1)) && setValue != null)
+            if (setValue != null && (viewModel.IsDetail || item.VisibleSet(i + 1)))
             {
 
-                {
+                
                     if (viewModel.IsDetail)
                     {
-    <br />
+                         <br />
                     }
-    <table class="fn-rs popup">
+            <table class="fn-rs popup">
         <thead>
             @if (!viewModel.IsDetail && viewModel.VisiblePopUpTitle)
             {
@@ -271,7 +271,7 @@
                 <th class="cl-match">
                     @lang.Set&nbsp;@(i + 1)&nbsp;@lang.GameResult
                 </th>
-                @for (var k = 1; k <= ConstantValueDefinition.NUMBERGAMEOFTENNISSET; k++)
+                @for (var k = 1; k <= ConstantValue.NUMBERGAMEOFTENNISSET; k++)
                 {
                     <th class="cl-s">
                         @k
@@ -284,18 +284,18 @@
 
                 var maxGameId = setValue.Games.Count;
                 var subRowspan = 1;
-                if (maxGameId > ConstantValueDefinition.NUMBERGAMEOFTENNISSET)
+                if (maxGameId > ConstantValue.NUMBERGAMEOFTENNISSET)
                 {
-                    subRowspan = (maxGameId / ConstantValueDefinition.NUMBERGAMEOFTENNISSET) * 2;
+                    subRowspan = (maxGameId / ConstantValue.NUMBERGAMEOFTENNISSET) * 2;
                     subRowspan += (subRowspan / 2) - 1;
                 }
-                var lastGameId = ConstantValueDefinition.NUMBERGAMEOFTENNISSET;
+                var lastGameId = ConstantValue.NUMBERGAMEOFTENNISSET;
                 var startGameId = 0;
 
-                for (var t = 0; t < maxGameId; t += ConstantValueDefinition.NUMBERGAMEOFTENNISSET)
+                for (var t = 0; t < maxGameId; t += ConstantValue.NUMBERGAMEOFTENNISSET)
                 {
 
-                    if (t >= ConstantValueDefinition.NUMBERGAMEOFTENNISSET)
+                    if (t >= ConstantValue.NUMBERGAMEOFTENNISSET)
                     {
                         startGameId = lastGameId;
                         lastGameId += 13;
@@ -309,7 +309,7 @@
                 </tr>
                     }
                 <tr class="data odd">
-                    @if (maxGameId == ConstantValueDefinition.NUMBERGAMEOFTENNISSET)
+                    @if (maxGameId == ConstantValue.NUMBERGAMEOFTENNISSET)
                     {
                         <td class="cl-match home">
                             @Raw(item.HomeTeam)
@@ -335,7 +335,7 @@
                 </tr>
 
                 <tr class="data odd">
-                    @if (maxGameId == ConstantValueDefinition.NUMBERGAMEOFTENNISSET)
+                    @if (maxGameId == ConstantValue.NUMBERGAMEOFTENNISSET)
                     {
                         <td class="cl-match away">
                             @Raw(item.AwayTeam)
@@ -354,7 +354,7 @@
             }
         </tbody>
     </table>
-                }
+                
 
             }
             else
@@ -365,10 +365,6 @@
 
         visibleNoInfomationRow = numOfNullSet == 5;
     }
-    else
-    {
-        visibleNoInfomationRow = true;
-    }
     if (visibleNoInfomationRow)
     {
     <table class="fn-rs popup">
@@ -377,7 +373,7 @@
                 <th class="cl-match">
                     @lang.GameResult
                 </th>
-                @for (var k = 1; k <= ConstantValueDefinition.NUMBERGAMEOFTENNISSET; k++)
+                @for (var k = 1; k <= ConstantValue.NUMBERGAMEOFTENNISSET; k++)
                 {
                     <th class="cl-s">
                         @k

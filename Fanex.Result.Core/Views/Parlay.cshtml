@@ -16,6 +16,7 @@
                 <td class="sporttype">
                     <strong><span class="bl-sport-type">@firstItem.SportName &nbsp;- </span></strong>
                     <span class="bl-league-name">@firstItem.LeagueName</span>
+                   
                 </td>
             </tr>
             foreach (ParlayViewModel item in group.Data)
@@ -33,28 +34,57 @@
                     SportType = sportType
 
                 };
-                var matchItemViews = sportType == Fanex.Result.Core.SportType.Tennis ? item.TennisMatchItemView : item.ItemView;
+                var matchItemViews = item.MatchItemView;
 
                 var itemData = new List<GroupData>()
                 {
                     new GroupData
                     {
                         LeagueId = group.LeagueId,
-                        Data =matchItemViews
+                        Data =item.MatchItemView
                     }
                 };
                     }
-                    @if (sportType != Fanex.Result.Core.SportType.Tennis || matchItemViews.Count > 0)
+                    <!--Only render Match result-->
+                    @if (matchItemViews.Count > 0)
                     {
                         bindModle.Data.AddRange(itemData);
                         @Raw(item.Render(bindModle))
+                        <br />
                     }
-                    @if (sportType == Fanex.Result.Core.SportType.Tennis)
+                    <!--Render both match and detail game-->
+                    
+                           
+                    @foreach (var bothMatchAndGame in item.BothMatchAndDetailItemView)
                     {
-                        var gameItemViews = item.TennisGameDetailItemView;
-                        foreach (var gameItemView in gameItemViews)
+                        var bothMatchAnddetailData = new List<GroupData>()
+                                {
+                                    new GroupData
+                                    {
+                                        LeagueId=group.LeagueId,
+                                        Data = new List<IResultViewModel>(){bothMatchAndGame}
+                                    }
+                                };
+                        var bothMatchAnddetailBindModel = new Fanex.Result.Core.Models.RazorBinderModel
                         {
-                            var detailData = new List<GroupData>()
+                            Resource = lang,
+                            IsPopUp = true,
+                            VisibleMatchCodeIDColumn = viewModel.VisibleMatchCodeIDColumn,
+                            SportType = sportType,
+                            IsDetail = true
+
+                        };
+                        bothMatchAnddetailBindModel.Data.AddRange(bothMatchAnddetailData);
+                     
+                        @Raw(item.Render(bothMatchAnddetailBindModel))
+                        <br />
+                    }
+                    
+                   
+                   
+                    @foreach (var gameItemView in item.GameDetailItemView)
+                    {
+                        var detailData = new List<GroupData>()
                                 {
                                     new GroupData
                                     {
@@ -62,20 +92,22 @@
                                         Data = new List<IResultViewModel>(){gameItemView}
                                     }
                                 };
-                            var detailBindModel = new Fanex.Result.Core.Models.RazorBinderModel
-                              {
-                                  Resource = lang,
-                                  IsPopUp = true,
-                                  VisibleMatchCodeIDColumn = viewModel.VisibleMatchCodeIDColumn,
-                                  SportType = sportType,
+                        var detailBindModel = new Fanex.Result.Core.Models.RazorBinderModel
+                        {
+                            Resource = lang,
+                            IsPopUp = true,
+                            VisibleMatchCodeIDColumn = viewModel.VisibleMatchCodeIDColumn,
+                            SportType = sportType,
 
-                              };
-                            detailBindModel.Data.AddRange(detailData);
-                        <br />
+                        };
+                        detailBindModel.Data.AddRange(detailData);
+                     
                         @Raw(item.Render(detailBindModel))
-                        }
+                        <br />
 
                     }
+
+                    
                 </td>
             </tr>
             }

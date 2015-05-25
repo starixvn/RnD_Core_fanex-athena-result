@@ -132,15 +132,103 @@ public sealed class LangResources
               
 			  				 public string Team  { get ; set; }
               
-			  				 public string PenaltyShootoutYes  { get ; set; }
-              
-			  				 public string PenaltyShootoutNo  { get ; set; }
-              
 			  				 public string PS  { get ; set; }
               
 			  				 public string Details  { get ; set; }
               
 			  				 public string GameResult  { get ; set; }
+              
+			  				 public string Draw  { get ; set; }
+              
+			  				 public string Min  { get ; set; }
+              
+			  				 public string None  { get ; set; }
+              
+			  				 public string Yes  { get ; set; }
+              
+			  				 public string No  { get ; set; }
+              
+			  				 public string RegularTime  { get ; set; }
+              
+			  				 public string ExtraTime  { get ; set; }
+              
+			  				 public string Penalty  { get ; set; }
+              
+			  				 public string Goals  { get ; set; }
+              
+			  				 public string GoalRecord  { get ; set; }
+              
+			  				 public string GoalTime  { get ; set; }
+              
+			  				 public string GoalScorer  { get ; set; }
+              
+			  				 public string Corner  { get ; set; }
+              
+			  				 public string FirstLastCorners  { get ; set; }
+              
+			  				 public string PlayerSentOff  { get ; set; }
+              
+			  				 public string HomeAwayPlayerSentOff  { get ; set; }
+              
+			  				 public string Special  { get ; set; }
+              
+			  				 public string MoreResults  { get ; set; }
+              
+			  				 public string RS176  { get ; set; }
+              
+			  				 public string RS174  { get ; set; }
+              
+			  				 public string RS180  { get ; set; }
+              
+			  				 public string RS160  { get ; set; }
+              
+			  				 public string RS164  { get ; set; }
+              
+			  				 public string RS192  { get ; set; }
+              
+			  				 public string RS193  { get ; set; }
+              
+			  				 public string RS169  { get ; set; }
+              
+			  				 public string RS05  { get ; set; }
+              
+			  				 public string RS207  { get ; set; }
+              
+			  				 public string RS209  { get ; set; }
+              
+			  				 public string RS04  { get ; set; }
+              
+			  				 public string RS206  { get ; set; }
+              
+			  				 public string RS208  { get ; set; }
+              
+			  				 public string RS211  { get ; set; }
+              
+			  				 public string RS210  { get ; set; }
+              
+			  				 public string RS213  { get ; set; }
+              
+			  				 public string RS215  { get ; set; }
+              
+			  				 public string RS214  { get ; set; }
+              
+			  				 public string RS212  { get ; set; }
+              
+			  				 public string RS173  { get ; set; }
+              
+			  				 public string RS135  { get ; set; }
+              
+			  				 public string RS175  { get ; set; }
+              
+			  				 public string RS168  { get ; set; }
+              
+			  				 public string RS217  { get ; set; }
+              
+			  				 public string RS216  { get ; set; }
+              
+			  				 public string Home  { get ; set; }
+              
+			  				 public string Away  { get ; set; }
               
 			           		 }
 }

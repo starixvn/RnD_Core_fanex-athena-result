@@ -23,6 +23,9 @@ namespace Fanex.Result.Core.ViewModels
         private readonly Parlay _parlay;
         private readonly ResultSetting _sportSetting;
         private IList<IResultViewModel> _viewModelData = null;
+        private IList<IResultViewModel> _onlyMatchItemViewModel = null;
+        private IList<IResultViewModel> _onlyGameDetailItemViewModel = null;
+        private IList<IResultViewModel> _bothMatchAndGameDetailItemViewModel = null;
 
         public ParlayViewModel(Parlay parlay, ResultSetting setting, LangResources resource)
             : base(setting, resource)
@@ -73,60 +76,42 @@ namespace Fanex.Result.Core.ViewModels
             }
         }
 
-        public IList<IResultViewModel> ItemView
+        public IList<IResultViewModel> MatchItemView
         {
             get
             {
-                if (_viewModelData == null)
+                if (_onlyMatchItemViewModel == null)
                 {
                     CreateItemViewModel();
                 }
 
-                return _viewModelData;
+                return _onlyMatchItemViewModel;
             }
         }
 
-        public IList<IResultViewModel> TennisMatchItemView
+        public IList<IResultViewModel> GameDetailItemView
         {
             get
             {
-                if (_viewModelData == null)
+                if (_onlyGameDetailItemViewModel == null)
                 {
                     CreateItemViewModel();
                 }
 
-                var result = new List<IResultViewModel>();
-                foreach (TennisViewModel item in this._viewModelData)
-                {
-                    if (item.VisibleMatchResult)
-                    {
-                        result.Add(item);
-                    }
-                }
-
-                return result;
+                return _onlyGameDetailItemViewModel;
             }
         }
 
-        public IList<IResultViewModel> TennisGameDetailItemView
+        public IList<IResultViewModel> BothMatchAndDetailItemView
         {
             get
             {
-                if (_viewModelData == null)
+                if (_bothMatchAndGameDetailItemViewModel == null)
                 {
                     CreateItemViewModel();
                 }
 
-                var result = new List<IResultViewModel>();
-                foreach (TennisViewModel item in this._viewModelData)
-                {
-                    if (item.VisibleGameDetail)
-                    {
-                        result.Add(item);
-                    }
-                }
-
-                return result;
+                return this._viewModelData.Where(i => i.VisibleGameDetail && i.VisibleMatchResult).ToList();
             }
         }
 
@@ -153,10 +138,31 @@ namespace Fanex.Result.Core.ViewModels
             return Razor.Run(sportType.StringMe(), model);
         }
 
+        /// <summary>
+        /// Create view model for parlay result.
+        /// </summary>
         private void CreateItemViewModel()
         {
-            _viewModelData = this._parlay.Sportbook.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(
-                i, _sportSetting, Lang)).ToList();
+            if (_viewModelData == null)
+            {
+                _viewModelData = this._parlay.Sportbook.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(
+                    i, _sportSetting, Lang)).ToList();
+            }
+
+            if (_bothMatchAndGameDetailItemViewModel == null)
+            {
+                _bothMatchAndGameDetailItemViewModel = _viewModelData.Where(i => i.VisibleMatchResult && i.VisibleGameDetail).ToList();
+            }
+
+            if (_onlyMatchItemViewModel == null)
+            {
+                _onlyMatchItemViewModel = _viewModelData.Except(_bothMatchAndGameDetailItemViewModel).Where(i => i.VisibleMatchResult && !i.VisibleGameDetail).ToList();
+            }
+
+            if (_onlyGameDetailItemViewModel == null)
+            {
+                _onlyGameDetailItemViewModel = _viewModelData.Except(_bothMatchAndGameDetailItemViewModel).Except(_onlyMatchItemViewModel).ToList();
+            }
         }
     }
 }

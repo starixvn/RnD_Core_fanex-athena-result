@@ -27,6 +27,7 @@ namespace Fanex.Result.Core.ViewModels
         private bool _visibleDetailedLink = false;
 
         private bool _highlightWinnerTeam = false;
+        private bool _visisibleGoalRecord = false;
 
         public SportsbookBaseViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resource)
             : base(setting, resource)
@@ -36,6 +37,7 @@ namespace Fanex.Result.Core.ViewModels
             this.Sport = setting.SportType;
             this._visibleDetailedLink = setting.VisibleDetailedLink;
             this._highlightWinnerTeam = setting.HighlightWinnerTeam;
+            this._visisibleGoalRecord = setting.VisibleGoalRecord;
         }
 
         public string[] HomeSet
@@ -89,6 +91,24 @@ namespace Fanex.Result.Core.ViewModels
                     this.SPORTBOOK.Calculate,
                     this.Lang);
             }
+        }
+
+        public new virtual bool VisibleMatchResult
+        {
+            get { return true; }
+        }
+
+        public virtual bool VisisibleGoalRecord
+        {
+            get
+            {
+                return this._visisibleGoalRecord;
+            }
+        }
+
+        public new virtual bool VisibleGameDetail
+        {
+            get { return false; }
         }
 
         #region onlyForSettlementSite
@@ -197,7 +217,7 @@ namespace Fanex.Result.Core.ViewModels
 
         public virtual string GetHomeAwaySet(int index, bool isHome)
         {
-            return StringResources.HYPHEN;
+            return ConstantValue.Hyphen;
         }
 
         protected virtual string GetWonTeam(bool isHome)
@@ -206,7 +226,7 @@ namespace Fanex.Result.Core.ViewModels
             {
                 var temp = this.SPORTBOOK.FinalHomeScore.Value - this.SPORTBOOK.FinalAwayScore.Value;
 
-                return (isHome && temp > 0) || (!isHome && temp < 0) ? ResourceConfig.WINFORMAT : string.Empty;
+                return (isHome && temp > 0) || (!isHome && temp < 0) ? ConstantValue.WinFormat : string.Empty;
             }
 
             return string.Empty;

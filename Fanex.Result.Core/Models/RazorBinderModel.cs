@@ -33,7 +33,7 @@ namespace Fanex.Result.Core.Models
         public bool VisibleMatchCodeIDColumn { get; set; }
 
         public bool VisibleDetailedLink { get; set; }
-
+        
         public bool VisibleFreeHeader { get; set; }
 
         public bool IsDetail { get; set; }
@@ -42,27 +42,20 @@ namespace Fanex.Result.Core.Models
         {
             get
             {
-                if (this.IsDetail || !IsPopUp)
+                if (!this.IsDetail && this.IsPopUp && this._data.Count == 1)
                 {
-                    return true;
-                }
-
-                if (SportType == SportType.Tennis && this._data.Count == 1)
-                {
-                    foreach (TennisViewModel item in this._data[0].Data)
+                    foreach (IResultViewModel item in this._data[0].Data)
                     {
                         if (item.VisibleMatchResult)
                         {
                             return true;
                         }
                     }
-                }
-                else
-                {
-                    return true;
+
+                    return false;
                 }
 
-                return false;
+                return true;
             }
         }
 
@@ -70,10 +63,18 @@ namespace Fanex.Result.Core.Models
         {
             get
             {
+                return this.IsDetail || CheckVisibleDetailResult;
+            }
+        }
+
+        private bool CheckVisibleDetailResult
+        {
+            get
+            {
                 var visible = false;
-                if (SportType == SportType.Tennis && this.IsPopUp && this._data.Count == 1)
+                if (this.IsPopUp && this._data.Count == 1)
                 {
-                    foreach (TennisViewModel item in this._data[0].Data)
+                    foreach (IResultViewModel item in this._data[0].Data)
                     {
                         if (item.VisibleGameDetail)
                         {
@@ -83,7 +84,7 @@ namespace Fanex.Result.Core.Models
                     }
                 }
 
-                return this.IsDetail || visible;
+                return visible;
             }
         }
     }

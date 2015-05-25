@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="ConstantValueDefinition.cs" company="">
+// <copyright file="ConstantValue.cs" company="">
 // TODO: Update copyright text.
 // </copyright>
 // -----------------------------------------------------------------------
@@ -11,7 +11,7 @@ namespace Fanex.Result.Core.DataDomain
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public static class ConstantValueDefinition
+    public static class ConstantValue
     {
         [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", Justification = "Reviewed.")]
         public const int NUMBERGAMEOFTENNISSET = 13;
@@ -25,19 +25,34 @@ namespace Fanex.Result.Core.DataDomain
         public const string BackgroundPending = "cl-bg-pending";
         public const string BackgroundPosponed = "cl-bg-postponed";
 
-        public const string Running = "running";
-        public const string Completed = "completed";
+        public const string RunningStatus = "running";
+        public const string CompletedStatus = "completed";
 
-        public const string Closed = "closed";
-        public const string Postponed = "postponed";
+        public const string ClosedStatus = "closed";
+        public const string PostponedStatus = "postponed";
 
         public const string InternalString = "internal";
 
-        public const string Refund = "refund";
+        public const string RefundStatus = "refund";
 
-        public const string Refundft = "refundft";
+        public const string RefundftStatus = "refundft";
 
-        public const string Refundht = "refundht";
+        public const string RefundhtStatus = "refundht";
         public const string Won = "won";
+
+        public const string Hyphen = "-";
+
+        public const string RefundFT = "Refund FT";
+
+        public const string Refund = "Refund";
+
+        public const string Void = "Void";
+        public const string PenaltyLabel = "PS:";
+        public const string Zero = "0";
+        public const string WinFormat = "win";
+
+        public const string None = "None";
+
+        public const string Yes = "Y";
     }
 }

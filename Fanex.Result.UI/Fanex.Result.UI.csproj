@@ -66,14 +66,18 @@
     <Content Include="Content\Fanex.Result\images\goal-icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\en-US.xml" />
+    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\en-US.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="App_Data\Fanex.Result.Resource\zh-TW.xml" />
     <EmbeddedResource Include="App_Data\Fanex.Result.Resource\ja-JP.xml" />
     <EmbeddedResource Include="App_Data\Fanex.Result.Resource\ko-KR.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="App_Data\Fanex.Result.Resource\th-TH.xml" />
-    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\vi-VN.xml" />
+    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\vi-VN.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="App_Data\Fanex.Result.Resource\zh-CN.xml" />
   </ItemGroup>
   <ItemGroup>

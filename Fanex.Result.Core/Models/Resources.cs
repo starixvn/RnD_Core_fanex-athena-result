@@ -55,7 +55,7 @@ namespace Fanex.Result.Core.Models
         /// <returns>Return language object.</returns>
         public LangResources GetLanguage(string languageCode, string languagePath)
         {
-            if (!ResourceConfig.LangCodes.Contains(languageCode))
+            if (!CoreResourceConfig.LangCodes.Contains(languageCode))
             {
                 return new LangResources();
             }

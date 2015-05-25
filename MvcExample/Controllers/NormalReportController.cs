@@ -52,7 +52,7 @@
                 VisibleMatchCodeIDColumn = showMatchCode,
                 VisibleDetailedLink = true,
                 VisibleFreeHeader = true,
-                HighlightWinnerTeam = true
+                HighlightWinnerTeam = true,
             };
             var htmlResult = string.Empty;
             switch (sportType)
@@ -120,23 +120,24 @@
         /// Generate tennis detailed result.
         /// </summary>
         /// <param name="matchId">The match ID.</param>
+        /// <param name="sportId">The sport type.</param>
         /// <param name="languageCode">The language code.</param>
         /// <param name="showMatchCode">If true, show match code column.</param>
         /// <returns>The html result.</returns>
         [HttpGet]
-        public string GenHtmlTennisDetail(int matchId, string languageCode, bool showMatchCode)
+        public string GenHtmlGameDetail(int matchId, int sportId, string languageCode, bool showMatchCode)
         {
-            var detailedData = _resultService.GetGameDetail(matchId);
+            var detailedData = _resultService.GetGameDetail(new GetGameDetailCriteria { MatchId = matchId });
             if (detailedData != null && detailedData.MatchId > 0)
             {
                 return ResultEngine.HtmlGameDetailParser(
                     detailedData,
                     new ResultSetting
                     {
-                        SportType = SportType.Tennis,
+                        SportType = (SportType)sportId,
                         VisibleMatchCodeIDColumn = showMatchCode,
                         LanguageCode = languageCode,
-                        HighlightWinnerTeam = true
+                        HighlightWinnerTeam = true,
                     });
             }
 
@@ -228,88 +229,6 @@
             }
 
             return File(excelResult.ToArray(), "application/vnd.ms-excel", "result-report.xls");
-        }
-
-        /// <summary>
-        /// Gen JSON result.
-        /// </summary>
-        /// <param name="date">The result date.</param>
-        /// <param name="sportId">The sport ID.</param>
-        /// <param name="leagueId">The league ID.</param>
-        /// <param name="languageCode">The language code.</param>
-        /// <returns>The JSON  result.</returns>
-        [SuppressMessage(
-          "StyleCop.CSharp.Nexcel.NexcelCustomRules",
-          "SP2101:MethodMustNotContainMoreLinesThan",
-          Justification = "Reviewed. Suppression is OK here.")]
-        [HttpPost]
-        public string GenJson(DateTime date, short sportId, int leagueId, string languageCode)
-        {
-            var sportType = (SportType)sportId;
-            var resultSetting = new ResultSetting
-            {
-                SportType = sportType,
-                LanguageCode = languageCode
-            };
-            string jsonResult = string.Empty;
-            switch (sportType)
-            {
-                case SportType.HorseRacing:
-                case SportType.Greyhound:
-                case SportType.Harness:
-                case SportType.VirtualHorseRacing:
-                case SportType.VirtualGreyhounds:
-                case SportType.VirtualMotorRacing:
-                case SportType.VirtualSpeedway:
-                case SportType.VirtualCycling:
-                    var dataRc = _resultService.GetRacingResult(new GetRacingResultCriteria
-                    {
-                        Sporttype = sportId,
-                        FromDate = date,
-                        isShowAll = true,
-                        LeagueID = leagueId
-                    });
-                    jsonResult = ResultEngine.JsonParser<Racing>(dataRc.ToList(), resultSetting);
-                    break;
-
-                case SportType.LiveCasino:
-                    var dataLC = _resultService.GetLiveCasinoResult(new GetLiveCasinoResultCriteria
-                    {
-                        FromDate = date,
-                        sporttype = (byte)sportId,
-                        isShowAll = true,
-                        LeagueID = leagueId
-                    });
-                    jsonResult = ResultEngine.JsonParser<LiveCasino>(dataLC.ToList(), resultSetting);
-
-                    break;
-
-                case SportType.NumberGame:
-                    var dataNg = _resultService.GetNumberGameResult(new GetNumberGameResultCriteria
-                    {
-                        FromDate = date,
-                        LeagueID = leagueId,
-                        ToDate = date
-                    });
-                    jsonResult = ResultEngine.JsonParser<NumberGame>(dataNg.ToList(), resultSetting);
-
-                    break;
-
-                default:
-                    var dataSb = _resultService.GetSportbookResult(
-                        new GetSportbookResultCriteria
-                        {
-                            FromDate = date,
-                            sporttype = (byte)sportId,
-                            isShowAll = true,
-                            LeagueID = leagueId
-                        });
-                    jsonResult = ResultEngine.JsonParser<Sportsbook>(dataSb.ToList(), resultSetting);
-
-                    break;
-            }
-
-            return jsonResult;
         }
 
         [HttpGet]

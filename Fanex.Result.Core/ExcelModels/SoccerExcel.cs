@@ -62,10 +62,6 @@ namespace Fanex.Result.Core.ExcelModels
 
             MergeResultCells(sheet, currentRow, currentRow + 1, ColumnKickOffTime, this.ColumnStatus);
             var eventStatus = exportRow.EventStatus;
-            if (!string.IsNullOrEmpty(exportRow.PenaltyShootoutResult))
-            {
-                eventStatus = Helper.ToRtfString(exportRow.EventStatus + "<br />[" + Lang.PS + ":" + exportRow.PenaltyShootoutResult + "]");
-            }
 
             AssignStringData(
                             rowHome,

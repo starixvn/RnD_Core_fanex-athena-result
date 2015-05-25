@@ -82,36 +82,5 @@
 
             return File(excelResult.ToArray(), "application/vnd.ms-excel", "result-report.xls");
         }
-
-        /// <summary>
-        /// Gen JSON result.
-        /// </summary>
-        /// <param name="date">The result date.</param>
-        /// <param name="languageCode">The language code.</param>
-        /// <returns>The JSON result.</returns>
-        [HttpPost]
-        public string GenJson(DateTime date, string languageCode)
-        {
-            string jsonResult = string.Empty;
-            var outRightData = _resultService.GetOutRightResult(new Models.Criteria.GetOutRightResult
-            {
-                FromDate = date,
-                isShowAll = true,
-                ToDate = date
-            });
-
-            jsonResult = ResultEngine.JsonParser<Fanex.Result.Core.DTO.OutRight>(
-                    outRightData.ToList(),
-                    new ResultSetting
-                    {
-                        LanguageCode = languageCode,
-                        IsOutRight = true,
-                        IsPopUp = false,
-                        ExcelTitle = "OutRight Result Report",
-                        ExcelTemplatePath = Server.MapPath(@"~/App_Data/Fanex.Result/")
-                    });
-
-            return jsonResult;
-        }
     }
 }

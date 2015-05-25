@@ -7,7 +7,6 @@
 namespace Fanex.Result.Core.Models
 {
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using Fanex.Result.Core.DTO;
 
@@ -16,15 +15,6 @@ namespace Fanex.Result.Core.Models
     /// </summary>
     public interface IBuilder
     {
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", Justification = "Reviewed")]
-        string JSONSportTypeBuilder<T>(IList<T> dataList, ResultSetting setting);
-
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", Justification = "Reviewed")]
-        string JSONParlayBuilder<T>(IList<T> dataList, ResultSetting setting);
-
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", Justification = "Reviewed")]
-        string JSONOutRightBuilder<T>(IList<T> dataList, ResultSetting setting);
-
         string HtmlBuilder<T>(IList<T> dataList, ResultSetting setting);
 
         string HtmlGameDetailBuilder(Sportsbook data, ResultSetting setting);

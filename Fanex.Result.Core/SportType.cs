@@ -229,5 +229,7 @@ namespace Fanex.Result.Core
         VirtualTennis = 186,
 
         #endregion VirtualSport
+        [StringValue("GoldDeluxe")]
+        GoldDeluxe = 255,
     }
 }

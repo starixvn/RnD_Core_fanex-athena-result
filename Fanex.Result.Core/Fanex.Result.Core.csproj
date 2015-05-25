@@ -91,6 +91,7 @@
   <ItemGroup>
     <Compile Include="DataDomain\GameResourceID.cs" />
     <Compile Include="DataDomain\GameResources.cs" />
+    <Compile Include="DataDomain\GoldDeluxeBettype.cs" />
     <Compile Include="DataDomain\TennisBetID.cs" />
     <Compile Include="DataDomain\BetTypeID.cs" />
     <Compile Include="DataDomain\ConstantValue.cs" />
@@ -102,6 +103,8 @@
       <DependentUpon>LangResources.tt</DependentUpon>
     </Compile>
     <Compile Include="DTO\GameDetail.cs" />
+    <Compile Include="DTO\GoldDeluxe.cs" />
+    <Compile Include="ExcelModels\GoldDeluxeExcel.cs" />
     <Compile Include="ExcelModels\IExcelModel.cs" />
     <Compile Include="Models\GroupData.cs" />
     <Compile Include="DTO\LiveCasino.cs" />
@@ -138,6 +141,7 @@
     <Compile Include="ResultSetting.cs" />
     <Compile Include="SportType.cs" />
     <Compile Include="Extension\StringValueAttribute.cs" />
+    <Compile Include="Utilities\GoldDeluxeHelper.cs" />
     <Compile Include="Utilities\MapEventStatus.cs" />
     <Compile Include="Extension\Extension.cs" />
     <Compile Include="Utilities\Helper.cs" />
@@ -158,6 +162,7 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\BasketBallViewModel.cs" />
     <Compile Include="ViewModels\BilliardViewModel.cs" />
+    <Compile Include="ViewModels\GoldDeluxeViewModel.cs" />
     <Compile Include="ViewModels\SoccerInfo\SoccerDetailViewModel.cs" />
     <Compile Include="ViewModels\SoccerInfo\SoccerDetailInfo.cs" />
     <Compile Include="ViewModels\SoccerInfo\SoccerGameDetailItem.cs" />
@@ -211,6 +216,7 @@
     <EmbeddedResource Include="Views\SoccerDetail\GoalTime.cshtml" />
     <EmbeddedResource Include="Views\SoccerDetail\GoalRecord.cshtml" />
     <EmbeddedResource Include="Views\SoccerDetail\Goals.cshtml" />
+    <EmbeddedResource Include="Views\GoldDeluxe.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

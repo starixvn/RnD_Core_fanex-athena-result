@@ -15,6 +15,8 @@ var popupReport = (function () {
                     options += "<option value=\"" + data[i].Id + "\">" + data[i].Name + "</option>";
                 }
             }
+            options += "<option value=\"255\">GoldDeluxe</option>";
+
             $("#sport").html(options);
             invokeLoadingMsg(false);
         });
@@ -106,7 +108,7 @@ var popupReport = (function () {
                 invokeLoadingMsg(true);
             },
             success: function (data) {
-                $("#report-content").html(data);
+                 $("#report-content").html(data);
                 invokeLoadingMsg(false);
             },
             error: function () {

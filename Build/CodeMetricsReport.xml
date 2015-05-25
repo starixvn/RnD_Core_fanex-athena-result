@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <CodeMetricsReport Version="10.0">
   <Targets>
-    <Target Name="D:\TeamProject\GIT_LAB\LRF\fanex-athena-result\Build\Fanex.Result.Core.dll">
+    <Target Name="D:\teamproject\git_lab\lrf\fanex-athena-result\Build\Fanex.Result.Core.dll">
       <Modules>
         <Module Name="Fanex.Result.Core.dll" AssemblyVersion="1.6.4.0" FileVersion="1.6.4.0">
           <Metrics>

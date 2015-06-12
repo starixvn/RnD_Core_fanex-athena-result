@@ -64,7 +64,7 @@ namespace Fanex.Result.Core.GoldDeLuxe.Models
             {
                 throw new ObjectNullException("Sport Type");
             }
-            var item = (DTO.GoldDeluxe)(IProductResult)obj;
+            var item = obj as DTO.GoldDeluxe;
             var viewModel = new GoldDeluxeViewModel(item, setting, resource);
             return (IResultViewModel)viewModel;
         }

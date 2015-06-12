@@ -16,7 +16,7 @@ namespace Fanex.Result.Core.NumberGame.Models
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Exception;
     using Fanex.Result.Core.Base.Extension;
-using Fanex.Result.Core.NumberGame.ViewModels;
+    using Fanex.Result.Core.NumberGame.ViewModels;
     using Fanex.Result.Core.Base.DataDomain;
     /// <summary>
     /// TODO: Update summary.
@@ -63,7 +63,7 @@ using Fanex.Result.Core.NumberGame.ViewModels;
             {
                 throw new ObjectNullException("Sport Type");
             }
-            var item = (DTO.NumberGame)(IProductResult)obj;
+            var item = obj as DTO.NumberGame;
             var viewModel = new NumberGameViewModel(item, setting, resource);
             return (IResultViewModel)viewModel;
         }

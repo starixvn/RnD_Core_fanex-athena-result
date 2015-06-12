@@ -63,7 +63,7 @@ using Fanex.Result.Core.LiveCasino.ViewModels;
             {
                 throw new ObjectNullException("Sport Type");
             }
-            var item = (DTO.LiveCasino)(IProductResult)obj;
+            var item = obj as DTO.LiveCasino;
             var viewModel = new LiveCasinoViewModel(item, setting, resource);
             return (IResultViewModel)viewModel;
         }

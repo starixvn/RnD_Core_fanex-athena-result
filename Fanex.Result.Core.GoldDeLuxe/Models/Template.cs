@@ -17,7 +17,7 @@ namespace Fanex.Result.Core.GoldDeLuxe.Models
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public class Template : BaseCore.ITemplate
+    internal class Template : BaseCore.ITemplate
     {
         private static readonly object SynceObject = new object();
 

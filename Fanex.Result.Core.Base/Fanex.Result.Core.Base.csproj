@@ -80,6 +80,8 @@
       <DependentUpon>LangResources.tt</DependentUpon>
     </Compile>
     <Compile Include="DTO\IProductResult.cs" />
+    <Compile Include="ExcelModels\ExcelBase.cs" />
+    <Compile Include="ExcelModels\IExcelModel.cs" />
     <Compile Include="Exception\ObjectNullException.cs" />
     <Compile Include="Exception\ObjectUnSupportedException.cs" />
     <Compile Include="Exception\ResultCoreException.cs" />

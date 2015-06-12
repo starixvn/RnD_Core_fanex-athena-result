@@ -81,26 +81,26 @@
                     break;
 
                 case SportType.LiveCasino:
-                    //var dataLC = _resultService.GetLiveCasinoResult(new GetLiveCasinoResultCriteria
-                    //{
-                    //    FromDate = date,
-                    //    sporttype = (byte)sportId,
-                    //    isShowAll = true,
-                    //    LeagueID = leagueId
-                    //});
+                    var dataLC = _resultService.GetLiveCasinoResult(new GetLiveCasinoResultCriteria
+                    {
+                        FromDate = date,
+                        sporttype = (byte)sportId,
+                        isShowAll = true,
+                        LeagueID = leagueId
+                    });
 
-                    //htmlResult = ResultEngine.HtmlParser<LiveCasino>(dataLC.ToList(), resultSetting);
+                    htmlResult = ResultEngine.HtmlParser(dataLC.ToList(), resultSetting);
                     break;
 
                 case SportType.NumberGame:
-                    //var dataNg = _resultService.GetNumberGameResult(new GetNumberGameResultCriteria
-                    //{
-                    //    FromDate = date,
-                    //    LeagueID = leagueId,
-                    //    ToDate = date
-                    //});
+                    var dataNg = _resultService.GetNumberGameResult(new GetNumberGameResultCriteria
+                    {
+                        FromDate = date,
+                        LeagueID = leagueId,
+                        ToDate = date
+                    });
 
-                    //htmlResult = ResultEngine.HtmlParser<NumberGame>(dataNg.ToList(), resultSetting);
+                    htmlResult = ResultEngine.HtmlParser(dataNg.ToList(), resultSetting);
                     break;
                 case SportType.GoldDeluxe:
                     var dataGd = _resultService.GetGoldDeluxePopUpResult(new GetGolDeluxePopUpResultCriteria

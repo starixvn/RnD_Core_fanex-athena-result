@@ -181,6 +181,10 @@ namespace Fanex.Result.Core
                     return new Sportsbook.Models.Builder();
                 case DTOType.GOLEDELUXE:
                     return new GoldDeLuxe.Models.Builder();
+                case DTOType.NUMBERGAME:
+                    return new NumberGame.Models.Builder();
+                case DTOType.LIVECASINO:
+                    return new LiveCasino.Models.Builder();
                 default:
                     return new Sportsbook.Models.Builder();
             }

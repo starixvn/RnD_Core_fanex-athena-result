@@ -52,9 +52,17 @@
       <Project>{DBD59404-19D9-422C-83F1-8F20E02545ED}</Project>
       <Name>Fanex.Result.Core.GoldDeLuxe</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Fanex.Result.Core.LiveCasino\Fanex.Result.Core.LiveCasino.csproj">
+      <Project>{C67A0F1F-9F62-4E75-A982-0894FDD79008}</Project>
+      <Name>Fanex.Result.Core.LiveCasino</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.NumberGame\Fanex.Result.Core.NumberGame.csproj">
       <Project>{CEBAE710-7919-4FC6-8978-862A3096972C}</Project>
       <Name>Fanex.Result.Core.NumberGame</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fanex.Result.Core.Racing\Fanex.Result.Core.Racing.csproj">
+      <Project>{4869ED23-CD0C-4472-BCE6-54A9E170ED6E}</Project>
+      <Name>Fanex.Result.Core.Racing</Name>
     </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.Sportsbook\Fanex.Result.Core.Sportsbook.csproj">
       <Project>{0469C900-5E5B-4D2C-8DB3-7EAEA991095B}</Project>

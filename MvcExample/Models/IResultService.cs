@@ -11,6 +11,8 @@ namespace MvcExample.Models
     using MvcExample.Models.DTO;
     using Fanex.Result.Core.Sportsbook.DTO;
     using Fanex.Result.Core.GoldDeLuxe.DTO;
+    using Fanex.Result.Core.NumberGame.DTO;
+    using Fanex.Result.Core.LiveCasino.DTO;
 
     /// <summary>
     /// TODO: Update summary.
@@ -25,9 +27,9 @@ namespace MvcExample.Models
 
         //IEnumerable<Racing> GetRacingResult(GetRacingResultCriteria criteria);
 
-        //IEnumerable<NumberGame> GetNumberGameResult(GetNumberGameResultCriteria criteria);
+        IEnumerable<NumberGame> GetNumberGameResult(GetNumberGameResultCriteria criteria);
 
-        //IEnumerable<LiveCasino> GetLiveCasinoResult(GetLiveCasinoResultCriteria criteria);
+        IEnumerable<LiveCasino> GetLiveCasinoResult(GetLiveCasinoResultCriteria criteria);
 
         IEnumerable<Sportsbook> GetSportbookResult(GetSportbookResultCriteria criteria);
 
@@ -39,9 +41,9 @@ namespace MvcExample.Models
 
         //IEnumerable<Racing> GetRacingPopupResult(GetRacingPopupResultCriteria criteria);
 
-        //IEnumerable<NumberGame> GetNumberGamePopupResult(GetNumberGamePopupResultCriteria criteria);
+        IEnumerable<NumberGame> GetNumberGamePopupResult(GetNumberGamePopupResultCriteria criteria);
 
-        //IEnumerable<LiveCasino> GetLiveCasinoPopupResult(GetLiveCasinoPopupResultCriteria criteria);
+        IEnumerable<LiveCasino> GetLiveCasinoPopupResult(GetLiveCasinoPopupResultCriteria criteria);
 
         IEnumerable<Sportsbook> GetSportbookPopupResult(GetSportbookPopupResultCriteria criteria);
 

@@ -16,6 +16,8 @@ namespace MvcExample.Models
     using MvcExample.Models.DTO;
     using Fanex.Result.Core.Sportsbook.DTO;
     using Fanex.Result.Core.GoldDeLuxe.DTO;
+    using Fanex.Result.Core.NumberGame.DTO;
+using Fanex.Result.Core.LiveCasino.DTO;
 
     /// <summary>
     /// The result service.
@@ -92,49 +94,49 @@ namespace MvcExample.Models
         //    return result;
         //}
 
-        ///// <summary>
-        ///// Get number game result.
-        ///// </summary>
-        ///// <param name="criteria">The criterion.</param>
-        ///// <returns>The number game data.</returns>
-        //public IEnumerable<Fanex.Result.Core.DTO.NumberGame> GetNumberGameResult(GetNumberGameResultCriteria criteria)
-        //{
-        //    var result = new List<NumberGame>();
-        //    using (var db = new ObjectDb(criteria.GetSettingKey()))
-        //    {
-        //        using (var reader = db.ExecuteReader(criteria.GetSpParams()))
-        //        {
-        //            while (reader.Read())
-        //            {
-        //                BindNumberGame(result, reader);
-        //            }
-        //        }
-        //    }
+        /// <summary>
+        /// Get number game result.
+        /// </summary>
+        /// <param name="criteria">The criterion.</param>
+        /// <returns>The number game data.</returns>
+        public IEnumerable<NumberGame> GetNumberGameResult(GetNumberGameResultCriteria criteria)
+        {
+            var result = new List<NumberGame>();
+            using (var db = new ObjectDb(criteria.GetSettingKey()))
+            {
+                using (var reader = db.ExecuteReader(criteria.GetSpParams()))
+                {
+                    while (reader.Read())
+                    {
+                        BindNumberGame(result, reader);
+                    }
+                }
+            }
 
-        //    return result;
-        //}
+            return result;
+        }
 
-        ///// <summary>
-        ///// Get live casino result.
-        ///// </summary>
-        ///// <param name="criteria">The criterion.</param>
-        ///// <returns>The live casino data.</returns>
-        //public IEnumerable<Fanex.Result.Core.DTO.LiveCasino> GetLiveCasinoResult(GetLiveCasinoResultCriteria criteria)
-        //{
-        //    var result = new List<LiveCasino>();
-        //    using (var db = new ObjectDb(criteria.GetSettingKey()))
-        //    {
-        //        using (var reader = db.ExecuteReader(criteria.GetSpParams()))
-        //        {
-        //            while (reader.Read())
-        //            {
-        //                result.Add(BindLiveCasino(reader));
-        //            }
-        //        }
-        //    }
+        /// <summary>
+        /// Get live casino result.
+        /// </summary>
+        /// <param name="criteria">The criterion.</param>
+        /// <returns>The live casino data.</returns>
+        public IEnumerable<LiveCasino> GetLiveCasinoResult(GetLiveCasinoResultCriteria criteria)
+        {
+            var result = new List<LiveCasino>();
+            using (var db = new ObjectDb(criteria.GetSettingKey()))
+            {
+                using (var reader = db.ExecuteReader(criteria.GetSpParams()))
+                {
+                    while (reader.Read())
+                    {
+                        result.Add(BindLiveCasino(reader));
+                    }
+                }
+            }
 
-        //    return result;
-        //}
+            return result;
+        }
 
         /// <summary>
         /// Get SPORTBOOK result.
@@ -198,49 +200,49 @@ namespace MvcExample.Models
         //    return result;
         //}
 
-        ///// <summary>
-        ///// Get number game POPUP result.
-        ///// </summary>
-        ///// <param name="criteria">The criterion.</param>
-        ///// <returns>The number game POPUP data.</returns>
-        //public IEnumerable<Fanex.Result.Core.DTO.NumberGame> GetNumberGamePopupResult(GetNumberGamePopupResultCriteria criteria)
-        //{
-        //    var result = new List<NumberGame>();
-        //    using (var db = new ObjectDb(criteria.GetSettingKey()))
-        //    {
-        //        using (var reader = db.ExecuteReader(criteria.GetSpParams()))
-        //        {
-        //            while (reader.Read())
-        //            {
-        //                BindNumberGame(result, reader);
-        //            }
-        //        }
-        //    }
+        /// <summary>
+        /// Get number game POPUP result.
+        /// </summary>
+        /// <param name="criteria">The criterion.</param>
+        /// <returns>The number game POPUP data.</returns>
+        public IEnumerable<NumberGame> GetNumberGamePopupResult(GetNumberGamePopupResultCriteria criteria)
+        {
+            var result = new List<NumberGame>();
+            using (var db = new ObjectDb(criteria.GetSettingKey()))
+            {
+                using (var reader = db.ExecuteReader(criteria.GetSpParams()))
+                {
+                    while (reader.Read())
+                    {
+                        BindNumberGame(result, reader);
+                    }
+                }
+            }
 
-        //    return result;
-        //}
+            return result;
+        }
 
-        ///// <summary>
-        ///// Get live casino POPUP result.
-        ///// </summary>
-        ///// <param name="criteria">The criterion.</param>
-        ///// <returns>The live casino POPUP data.</returns>
-        //public IEnumerable<Fanex.Result.Core.DTO.LiveCasino> GetLiveCasinoPopupResult(GetLiveCasinoPopupResultCriteria criteria)
-        //{
-        //    var result = new List<LiveCasino>();
-        //    using (var db = new ObjectDb(criteria.GetSettingKey()))
-        //    {
-        //        using (var reader = db.ExecuteReader(criteria.GetSpParams()))
-        //        {
-        //            while (reader.Read())
-        //            {
-        //                result.Add(BindLiveCasino(reader));
-        //            }
-        //        }
-        //    }
+        /// <summary>
+        /// Get live casino POPUP result.
+        /// </summary>
+        /// <param name="criteria">The criterion.</param>
+        /// <returns>The live casino POPUP data.</returns>
+        public IEnumerable<LiveCasino> GetLiveCasinoPopupResult(GetLiveCasinoPopupResultCriteria criteria)
+        {
+            var result = new List<LiveCasino>();
+            using (var db = new ObjectDb(criteria.GetSettingKey()))
+            {
+                using (var reader = db.ExecuteReader(criteria.GetSpParams()))
+                {
+                    while (reader.Read())
+                    {
+                        result.Add(BindLiveCasino(reader));
+                    }
+                }
+            }
 
-        //    return result;
-        //}
+            return result;
+        }
 
         /// <summary>
         /// Get SPORTBOOK POPUP result.
@@ -461,31 +463,31 @@ namespace MvcExample.Models
             return item;
         }
 
-        ///// <summary>
-        ///// Bind data from IDATAREADER to DTO.
-        ///// </summary>
-        ///// <param name="reader">The IDATAREADER.</param>
-        ///// <returns>The live casino DTO.</returns>
-        //private static LiveCasino BindLiveCasino(System.Data.IDataReader reader)
-        //{
-        //    return new LiveCasino
-        //    {
-        //        ShowTime = reader["showtime"].ToString(),
-        //        LeagueId = int.Parse(reader["leagueid"].ToString()),
-        //        EventStatus = reader["eventstatus"].ToString(),
-        //        FinalAwayScore =
-        //            reader["finalawayscore"] != DBNull.Value ? int.Parse(reader["finalawayscore"].ToString()) : new int?(),
-        //        FinalHomeScore =
-        //            reader["finalhomescore"] != DBNull.Value ? int.Parse(reader["finalhomescore"].ToString()) : new int?(),
-        //        EventDate = DateTime.Parse(reader["eventdate"].ToString()),
-        //        IsPending = bool.Parse(reader["IsPending"].ToString()),
-        //        KickOffTime = DateTime.Parse(reader["kickofftime"].ToString()),
-        //        IsHTCal = Convert.ToBoolean(reader["IsHTCal"]),
-        //        Calculate = Convert.ToBoolean(reader["Calculate"]),
-        //        BetStatus = reader["betstatus"] != DBNull.Value ? reader["betstatus"].ToString() : string.Empty,
-        //        Bettype = int.Parse(reader["homeid2"].ToString())
-        //    };
-        //}
+        /// <summary>
+        /// Bind data from IDATAREADER to DTO.
+        /// </summary>
+        /// <param name="reader">The IDATAREADER.</param>
+        /// <returns>The live casino DTO.</returns>
+        private static LiveCasino BindLiveCasino(System.Data.IDataReader reader)
+        {
+            return new LiveCasino
+            {
+                ShowTime = reader["showtime"].ToString(),
+                LeagueId = int.Parse(reader["leagueid"].ToString()),
+                EventStatus = reader["eventstatus"].ToString(),
+                FinalAwayScore =
+                    reader["finalawayscore"] != DBNull.Value ? int.Parse(reader["finalawayscore"].ToString()) : new int?(),
+                FinalHomeScore =
+                    reader["finalhomescore"] != DBNull.Value ? int.Parse(reader["finalhomescore"].ToString()) : new int?(),
+                EventDate = DateTime.Parse(reader["eventdate"].ToString()),
+                IsPending = bool.Parse(reader["IsPending"].ToString()),
+                KickOffTime = DateTime.Parse(reader["kickofftime"].ToString()),
+                IsHTCal = Convert.ToBoolean(reader["IsHTCal"]),
+                Calculate = Convert.ToBoolean(reader["Calculate"]),
+                BetStatus = reader["betstatus"] != DBNull.Value ? reader["betstatus"].ToString() : string.Empty,
+                Bettype = int.Parse(reader["homeid2"].ToString())
+            };
+        }
 
         ///// <summary>
         ///// Bind data from IDATAREADER to DTO.
@@ -513,35 +515,35 @@ namespace MvcExample.Models
         //    };
         //}
 
-        ///// <summary>
-        ///// Bind data from IDATAREADER to DTO.
-        ///// </summary>
-        ///// <param name="result">The result list.</param>
-        ///// <param name="reader">The IDATAREADER.</param>
-        //private static void BindNumberGame(List<NumberGame> result, System.Data.IDataReader reader)
-        //{
-        //    var matchId = int.Parse(reader["matchid"].ToString());
-        //    var existMatch = result.SingleOrDefault(i => i.MatchId == matchId);
-        //    if (existMatch != null)
-        //    {
-        //        existMatch.Seg.Add(int.Parse(reader["seq"].ToString()));
-        //        existMatch.Ball.Add(int.Parse(reader["number"].ToString()));
-        //    }
-        //    else
-        //    {
-        //        result.Add(new NumberGame
-        //        {
-        //            LeagueId = int.Parse(reader["leagueid"].ToString()),
-        //            MatchId = int.Parse(reader["matchid"].ToString()),
-        //            EventStatus = reader["eventstatus"].ToString(),
-        //            EventDate = DateTime.Parse(reader["eventdate"].ToString()),
-        //            KickOffTime = DateTime.Parse(reader["kickofftime"].ToString()),
-        //            MatchCode = reader["matchcode"].ToString(),
-        //            Seg = new List<int> { int.Parse(reader["seq"].ToString()) },
-        //            Ball = new List<int> { int.Parse(reader["number"].ToString()) }
-        //        });
-        //    }
-        //}
+        /// <summary>
+        /// Bind data from IDATAREADER to DTO.
+        /// </summary>
+        /// <param name="result">The result list.</param>
+        /// <param name="reader">The IDATAREADER.</param>
+        private static void BindNumberGame(List<NumberGame> result, System.Data.IDataReader reader)
+        {
+            var matchId = int.Parse(reader["matchid"].ToString());
+            var existMatch = result.SingleOrDefault(i => i.MatchId == matchId);
+            if (existMatch != null)
+            {
+                existMatch.Seg.Add(int.Parse(reader["seq"].ToString()));
+                existMatch.Ball.Add(int.Parse(reader["number"].ToString()));
+            }
+            else
+            {
+                result.Add(new NumberGame
+                {
+                    LeagueId = int.Parse(reader["leagueid"].ToString()),
+                    MatchId = int.Parse(reader["matchid"].ToString()),
+                    EventStatus = reader["eventstatus"].ToString(),
+                    EventDate = DateTime.Parse(reader["eventdate"].ToString()),
+                    KickOffTime = DateTime.Parse(reader["kickofftime"].ToString()),
+                    MatchCode = reader["matchcode"].ToString(),
+                    Seg = new List<int> { int.Parse(reader["seq"].ToString()) },
+                    Ball = new List<int> { int.Parse(reader["number"].ToString()) }
+                });
+            }
+        }
 
         /// <summary>
         /// Check the column existed in data reader.
@@ -604,5 +606,8 @@ namespace MvcExample.Models
         }
 
         #endregion Utilites
+
+
+    
     }
 }

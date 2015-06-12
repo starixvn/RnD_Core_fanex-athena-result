@@ -7,9 +7,10 @@
 namespace MvcExample.Models
 {
     using System.Collections.Generic;
-    using Fanex.Result.Core.DTO;
     using MvcExample.Models.Criteria;
     using MvcExample.Models.DTO;
+    using Fanex.Result.Core.Sportsbook.DTO;
+    using Fanex.Result.Core.GoldDeLuxe.DTO;
 
     /// <summary>
     /// TODO: Update summary.
@@ -22,11 +23,11 @@ namespace MvcExample.Models
 
         IEnumerable<League> GetLeagues(GetLeaguesBySportCriteria criteria);
 
-        IEnumerable<Racing> GetRacingResult(GetRacingResultCriteria criteria);
+        //IEnumerable<Racing> GetRacingResult(GetRacingResultCriteria criteria);
 
-        IEnumerable<NumberGame> GetNumberGameResult(GetNumberGameResultCriteria criteria);
+        //IEnumerable<NumberGame> GetNumberGameResult(GetNumberGameResultCriteria criteria);
 
-        IEnumerable<LiveCasino> GetLiveCasinoResult(GetLiveCasinoResultCriteria criteria);
+        //IEnumerable<LiveCasino> GetLiveCasinoResult(GetLiveCasinoResultCriteria criteria);
 
         IEnumerable<Sportsbook> GetSportbookResult(GetSportbookResultCriteria criteria);
 
@@ -36,11 +37,11 @@ namespace MvcExample.Models
 
         #region PopUp
 
-        IEnumerable<Racing> GetRacingPopupResult(GetRacingPopupResultCriteria criteria);
+        //IEnumerable<Racing> GetRacingPopupResult(GetRacingPopupResultCriteria criteria);
 
-        IEnumerable<NumberGame> GetNumberGamePopupResult(GetNumberGamePopupResultCriteria criteria);
+        //IEnumerable<NumberGame> GetNumberGamePopupResult(GetNumberGamePopupResultCriteria criteria);
 
-        IEnumerable<LiveCasino> GetLiveCasinoPopupResult(GetLiveCasinoPopupResultCriteria criteria);
+        //IEnumerable<LiveCasino> GetLiveCasinoPopupResult(GetLiveCasinoPopupResultCriteria criteria);
 
         IEnumerable<Sportsbook> GetSportbookPopupResult(GetSportbookPopupResultCriteria criteria);
 
@@ -50,13 +51,13 @@ namespace MvcExample.Models
 
         #region Parlay
 
-        IEnumerable<Parlay> GetParlayResult(GetParlayResultCriteria criteria);
+        //IEnumerable<Parlay> GetParlayResult(GetParlayResultCriteria criteria);
 
         #endregion Parlay
 
         #region OutRight
 
-        IEnumerable<OutRight> GetOutRightResult(GetOutRightResult criteria);
+        //IEnumerable<OutRight> GetOutRightResult(GetOutRightResult criteria);
 
         #endregion OutRight
     }

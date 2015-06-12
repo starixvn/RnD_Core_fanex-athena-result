@@ -55,17 +55,13 @@
     <Reference Include="Fanex.Data">
       <HintPath>..\packages\Fanex.Data.0.5.404.63\lib\net40\Fanex.Data.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Result.Core, Version=1.6.2.4, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Build\Fanex.Result.Core.dll</HintPath>
-    </Reference>
     <Reference Include="Glimpse.AspNet, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Glimpse.AspNet.1.8.0\lib\net40\Glimpse.AspNet.dll</HintPath>
     </Reference>
-    <Reference Include="Glimpse.Core, Version=1.8.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Glimpse.1.8.2\lib\net40\Glimpse.Core.dll</HintPath>
+    <Reference Include="Glimpse.Core, Version=1.8.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Glimpse.1.8.6\lib\net40\Glimpse.Core.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="Glimpse.Mvc4">
       <HintPath>..\packages\Glimpse.Mvc4.1.5.3\lib\net40\Glimpse.Mvc4.dll</HintPath>
@@ -187,6 +183,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="ThirdPartyLib">
+      <HintPath>..\Fanex.Result.Core.Microgaming\dependencies\ThirdPartyLib.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
     </Reference>
@@ -196,8 +195,6 @@
     <Compile Include="Controllers\DocsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NormalReportController.cs" />
-    <Compile Include="Controllers\OutRightReportController.cs" />
-    <Compile Include="Controllers\PopUpReportController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -455,6 +452,24 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\Fanex.Result.Resource\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj">
+      <Project>{8673F024-7726-4C30-8464-5A8357F79BF0}</Project>
+      <Name>Fanex.Result.Core.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fanex.Result.Core.GoldDeLuxe\Fanex.Result.Core.GoldDeLuxe.csproj">
+      <Project>{DBD59404-19D9-422C-83F1-8F20E02545ED}</Project>
+      <Name>Fanex.Result.Core.GoldDeLuxe</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fanex.Result.Core.Sportsbook\Fanex.Result.Core.Sportsbook.csproj">
+      <Project>{0469C900-5E5B-4D2C-8DB3-7EAEA991095B}</Project>
+      <Name>Fanex.Result.Core.Sportsbook</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fanex.Result.Core\Fanex.Result.Core.csproj">
+      <Project>{73AAEA31-C52D-47D2-BC47-087A06794F55}</Project>
+      <Name>Fanex.Result.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

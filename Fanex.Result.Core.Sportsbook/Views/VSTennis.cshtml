@@ -1,0 +1,166 @@
+﻿@{
+    var viewModel = (Fanex.Result.Core.Models.RazorBinderModel)Model;
+
+    var lang = (Fanex.Result.Core.DataDomain.LangResources)viewModel.Resource;
+    var colspan = viewModel.VisibleMatchCodeIDColumn ? 5 : 4;
+    var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
+
+}
+@using Fanex.Result.Core.ViewModels;
+@using Fanex.Result.Core.Models;
+@using System.Collections;
+@if (viewModel.VisibleFreeHeader)
+{
+    <div class="fn-rs-content-header">
+        <table class="fn-rs @popupCss">
+            <thead>
+                @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+                {
+                    var item = ((GroupData)viewModel.Data[0]).Data[0];
+                    <tr class="row-title">
+                        <th class="cl-title" colspan="@colspan">
+                            <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                        </th>
+                    </tr>
+                }
+                <tr class="header">
+                    @if (viewModel.VisibleMatchCodeIDColumn)
+                    {
+                        <th class="cl-m-code">
+                            @lang.MatchCode/@lang.ID
+                        </th>
+                    }
+                    <th class="cl-ko-time">
+                        @lang.KickOffTime
+                    </th>
+                    <th class="cl-match">
+                        @Raw(lang.Match)
+                    </th>
+                    <th class="cl-totalpoint">
+                        @Raw(lang.TotalPoints)
+                    </th>
+                    <th class="cl-status">
+                        @lang.Status
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+}
+@if (viewModel.VisibleFreeHeader)
+{
+    @Raw("<div class=\"fn-rs-content-scroll\">")
+
+}
+<table class="fn-rs @popupCss">
+    @if (!viewModel.VisibleFreeHeader)
+    {
+        <thead>
+            @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+            {
+                var item = ((GroupData)viewModel.Data[0]).Data[0];
+                <tr class="row-title">
+                    <th class="cl-title" colspan="@colspan">
+                        <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                    </th>
+                </tr>
+            }
+            <tr class="header">
+                @if (viewModel.VisibleMatchCodeIDColumn)
+                {
+                    <th class="cl-m-code">
+                        @lang.MatchCode/@lang.ID
+                    </th>
+                }
+                <th class="cl-ko-time">
+                    @lang.KickOffTime
+                </th>
+                <th class="cl-match">
+                    @Raw(lang.Match)
+                </th>
+                <th class="cl-totalpoint">
+                    @Raw(lang.TotalPoints)
+                </th>
+                <th class="cl-status">
+                    @lang.Status
+                </th>
+            </tr>
+        </thead>
+    }
+    <tbody>
+        @if (viewModel.Data.Count > 0)
+        {
+            var index = 0;
+            foreach (var itemObj in viewModel.Data)
+            {
+                var group = (GroupData)itemObj;
+
+                if (!viewModel.IsPopUp)
+                {
+
+            <tr class="data">
+                <td colspan="@colspan" class="cl-league">
+                    @group.Data[0].LeagueName
+                </td>
+            </tr>
+
+                }
+                foreach (var temp in group.Data)
+                {
+                    var item = (VSTennisViewModel)temp;
+                    index++;
+            <tr class="data @item.Color(index, "even", "odd")">
+                @if (viewModel.VisibleMatchCodeIDColumn)
+                {
+                    <td class="cl-m-code">
+                        <div class="m-code">
+                            @item.MatchCode
+                        </div>
+                    </td>
+                }
+                <td class="cl-ko-time" rowspan="2">
+                    @Raw(item.KickOffTime)
+                </td>
+                <td class="cl-match home @item.HomeWin">
+                    @Raw(item.HomeTeam)
+                </td>
+                <td class="cl-totalpoint home">
+                    @item.HomePoint
+                </td>
+                <td rowspan="2" class="cl-status @item.EventStatusBackground">
+                    @item.EventStatus
+                </td>
+            </tr>
+            <tr class="data @item.Color(index, "even", "odd")">
+                @if (viewModel.VisibleMatchCodeIDColumn)
+                {
+                    <td class="cl-m-code">
+                        @item.MatchId
+                    </td>
+                }
+                <td class="cl-match away @item.AwayWin">
+                    @Raw(item.AwayTeam)
+                </td>
+                <td class="cl-totalpoint away">
+                    @item.AwayPoint
+                </td>
+            </tr>
+                }
+            }
+        }
+        else
+        {
+            <!--NoInfo-->
+            <tr class="row-noinfo">
+                <td colspan="@colspan">
+                    @viewModel.Resource.NoInfo
+                </td>
+            </tr>
+            <!--/NoInfo-->
+        }
+    </tbody>
+</table>
+@if (viewModel.VisibleFreeHeader)
+{
+    @Raw("</div>")
+}

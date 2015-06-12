@@ -1,89 +1,22 @@
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\Fanex.Result.Core.dll
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\Fanex.Result.Core.pdb
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\Fanex.Common.dll
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\IBCFile.dll
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\Newtonsoft.Json.dll
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\NPOI.dll
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\RazorEngine.dll
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\RemotingRef.dll
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\System.Web.Razor.dll
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\Ionic.Zip.dll
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\SPSRemoting.dll
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\Fanex.Common.pdb
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\Newtonsoft.Json.xml
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\NPOI.xml
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\RazorEngine.pdb
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\RazorEngine.xml
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\System.Web.Razor.xml
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.dll
-G:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.pdb
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\Fanex.Result.Core.dll
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\Fanex.Result.Core.pdb
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\Fanex.Common.dll
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\IBCFile.dll
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\Newtonsoft.Json.dll
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\NPOI.dll
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\RazorEngine.dll
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\RemotingRef.dll
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\System.Web.Razor.dll
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\Ionic.Zip.dll
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\SPSRemoting.dll
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\Fanex.Common.pdb
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\Newtonsoft.Json.xml
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\NPOI.xml
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\RazorEngine.pdb
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\RazorEngine.xml
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\bin\Debug\System.Web.Razor.xml
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.dll
-D:\TeamProject\TFS_213\Fanex.Result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.pdb
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\Fanex.Result.Core.dll
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\Fanex.Result.Core.pdb
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\Fanex.Common.dll
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\IBCFile.dll
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\Newtonsoft.Json.dll
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\NPOI.dll
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\RazorEngine.dll
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\RemotingRef.dll
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\System.Web.Razor.dll
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\Fanex.Common.pdb
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\Newtonsoft.Json.xml
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\NPOI.xml
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\RazorEngine.pdb
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\RazorEngine.xml
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\System.Web.Razor.xml
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.dll
-D:\TeamProject\GIT\NewLRF-Project\fanex-athena-result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.pdb
-D:\Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\Fanex.Result.Core.dll
-D:\Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\Fanex.Result.Core.pdb
-D:\Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\IBCFile.dll
-D:\Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\Newtonsoft.Json.dll
-D:\Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\NPOI.dll
-D:\Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\RazorEngine.dll
-D:\Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\RemotingRef.dll
-D:\Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\System.Web.Razor.dll
-D:\Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\Newtonsoft.Json.xml
-D:\Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\NPOI.xml
-D:\Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\RazorEngine.pdb
-D:\Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\RazorEngine.xml
-D:\Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\System.Web.Razor.xml
-D:\Project\fanex-athena-result\Fanex.Result.Core\obj\Debug\ResolveAssemblyReference.cache
-D:\Project\fanex-athena-result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.dll
-D:\Project\fanex-athena-result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.pdb
-D:\Project\fanex-athena-result\Fanex.Result.Core\bin\Debug\SPSRemoting.dll
-D:\Git LAB\fanex-athena-result\Fanex.Result.Core\obj\Debug\ResolveAssemblyReference.cache
-D:\Git LAB\fanex-athena-result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.dll
-D:\Git LAB\fanex-athena-result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.pdb
-D:\Git LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\Fanex.Result.Core.dll
-D:\Git LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\Fanex.Result.Core.pdb
-D:\Git LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\IBCFile.dll
-D:\Git LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\Newtonsoft.Json.dll
-D:\Git LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\NPOI.dll
-D:\Git LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\RazorEngine.dll
-D:\Git LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\RemotingRef.dll
-D:\Git LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\SPSRemoting.dll
-D:\Git LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\System.Web.Razor.dll
-D:\Git LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\Newtonsoft.Json.xml
-D:\Git LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\NPOI.xml
-D:\Git LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\RazorEngine.pdb
-D:\Git LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\RazorEngine.xml
-D:\Git LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\System.Web.Razor.xml
+D:\TeamProject\GIT_LAB\Fanex.Result\Fanex.Result.Core\bin\Debug\Fanex.Result.Core.dll
+D:\TeamProject\GIT_LAB\Fanex.Result\Fanex.Result.Core\bin\Debug\Fanex.Result.Core.pdb
+D:\TeamProject\GIT_LAB\Fanex.Result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.dll
+D:\TeamProject\GIT_LAB\Fanex.Result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.pdb
+D:\TeamProject\GIT_LAB\Fanex.Result\Fanex.Result.Core\bin\Debug\Fanex.Result.Core.Base.dll
+D:\TeamProject\GIT_LAB\Fanex.Result\Fanex.Result.Core\bin\Debug\Fanex.Result.Core.Sportsbook.dll
+D:\TeamProject\GIT_LAB\Fanex.Result\Fanex.Result.Core\bin\Debug\NPOI.dll
+D:\TeamProject\GIT_LAB\Fanex.Result\Fanex.Result.Core\bin\Debug\RemotingRef.dll
+D:\TeamProject\GIT_LAB\Fanex.Result\Fanex.Result.Core\bin\Debug\RazorEngine.dll
+D:\TeamProject\GIT_LAB\Fanex.Result\Fanex.Result.Core\bin\Debug\ICSharpCode.SharpZipLib.dll
+D:\TeamProject\GIT_LAB\Fanex.Result\Fanex.Result.Core\bin\Debug\SPSRemoting.dll
+D:\TeamProject\GIT_LAB\Fanex.Result\Fanex.Result.Core\bin\Debug\IBCFile.dll
+D:\TeamProject\GIT_LAB\Fanex.Result\Fanex.Result.Core\bin\Debug\Fanex.Result.Core.Base.pdb
+D:\TeamProject\GIT_LAB\Fanex.Result\Fanex.Result.Core\bin\Debug\Fanex.Result.Core.Sportsbook.pdb
+D:\TeamProject\GIT_LAB\Fanex.Result\Fanex.Result.Core\bin\Debug\NPOI.xml
+D:\TeamProject\GIT_LAB\Fanex.Result\Fanex.Result.Core\bin\Debug\RazorEngine.pdb
+D:\TeamProject\GIT_LAB\Fanex.Result\Fanex.Result.Core\bin\Debug\RazorEngine.xml
+D:\TeamProject\GIT_LAB\Fanex.Result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.csprojResolveAssemblyReference.cache
+D:\TeamProject\GIT_LAB\Fanex.Result\Fanex.Result.Core\bin\Debug\Fanex.Result.Core.GoldDeLuxe.dll
+D:\TeamProject\GIT_LAB\Fanex.Result\Fanex.Result.Core\bin\Debug\Fanex.Result.Core.GoldDeLuxe.pdb
+D:\TeamProject\GIT_LAB\Fanex.Result\Fanex.Result.Core\bin\Debug\Fanex.Result.Core.NumberGame.dll
+D:\TeamProject\GIT_LAB\Fanex.Result\Fanex.Result.Core\bin\Debug\Fanex.Result.Core.NumberGame.pdb

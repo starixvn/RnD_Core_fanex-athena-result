@@ -7,7 +7,7 @@
     using MvcExample.Models;
     using MvcExample.Models.Criteria;
     using MvcExample.Models.MetaModel;
-
+    using Fanex.Result.Core.Microgaming;
     /// <summary>
     /// POPUP result page.
     /// </summary>
@@ -142,6 +142,8 @@
                         return ResultEngine.HtmlParser(dataGd.ToList(), setting);
                     }
 
+                    break;
+                case SportType.MicroGaming:
                     break;
                 case SportType.NumberGame:
                     var dataNg = _resultService.GetNumberGamePopupResult(new GetNumberGamePopupResultCriteria { MatchID = metalModel.MatchId });

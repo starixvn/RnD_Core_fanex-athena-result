@@ -8,13 +8,11 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
 {
     using System;
     using System.Globalization;
-    using Fanex.Result.Core.DataDomain;
-    using Fanex.Result.Core.Sportsbook.DTO;
-    using Fanex.Result.Core.Base.Utilities;
-    using RemotingRef;
-    using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.Utilities;
+    using Fanex.Result.Core.Base.ViewModels;
+    using RemotingRef;
 
     /// <summary>
     /// TODO: Update summary.
@@ -25,14 +23,14 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
 
         private string[] _awaySet;
 
-        private Sportsbook _sportbook;
+        private DTO.Sportsbook _sportbook;
 
         private bool _visibleDetailedLink = false;
 
         private bool _highlightWinnerTeam = false;
         private bool _visisibleGoalRecord = false;
 
-        public SportsbookBaseViewModel(Sportsbook sportbook, ResultSetting setting, LangResources resource)
+        public SportsbookBaseViewModel(DTO.Sportsbook sportbook, ResultSetting setting, LangResources resource)
             : base(setting, resource)
         {
             this.SPORTBOOK = sportbook;
@@ -174,7 +172,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
             }
         }
 
-        protected Sportsbook SPORTBOOK
+        protected DTO.Sportsbook SPORTBOOK
         {
             get { return this._sportbook; }
             set { this._sportbook = value; }

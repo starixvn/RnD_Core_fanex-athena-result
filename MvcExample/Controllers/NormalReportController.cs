@@ -2,17 +2,13 @@
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using System.IO;
     using System.Linq;
     using System.Web.Mvc;
     using Fanex.Result.Core;
+    using Fanex.Result.Core.Base;
+    using Fanex.Result.Core.Racing.DTO;
     using MvcExample.Models;
     using MvcExample.Models.Criteria;
-    using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Sportsbook.DTO;
-    using System.Collections.Generic;
-    using System.Collections;
-    using Fanex.Result.Core.Base.DTO;
     /// <summary>
     /// Normal result page.
     /// </summary>
@@ -68,15 +64,15 @@
                 case SportType.VirtualMotorRacing:
                 case SportType.VirtualSpeedway:
                 case SportType.VirtualCycling:
-                    //var dataRc = _resultService.GetRacingResult(new GetRacingResultCriteria
-                    //{
-                    //    Sporttype = sportId,
-                    //    FromDate = date,
-                    //    isShowAll = true,
-                    //    LeagueID = leagueId
-                    //});
+                    var dataRc = _resultService.GetRacingResult(new GetRacingResultCriteria
+                    {
+                        Sporttype = sportId,
+                        FromDate = date,
+                        isShowAll = true,
+                        LeagueID = leagueId
+                    });
 
-                    //htmlResult = ResultEngine.HtmlParser<Racing>(dataRc.ToList(), resultSetting);
+                    htmlResult = ResultEngine.HtmlParser<Racing>(dataRc.ToList(), resultSetting);
 
                     break;
 
@@ -105,7 +101,7 @@
                 case SportType.GoldDeluxe:
                     var dataGd = _resultService.GetGoldDeluxePopUpResult(new GetGolDeluxePopUpResultCriteria
                    {
-                       TransID = 7377235665,
+                       TransID = 7396592187,
                        Bettype = 1701
                    });
 

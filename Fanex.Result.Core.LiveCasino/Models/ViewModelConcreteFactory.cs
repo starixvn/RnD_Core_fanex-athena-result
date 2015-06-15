@@ -14,10 +14,10 @@ namespace Fanex.Result.Core.LiveCasino.Models
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Base.DTO;
     using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Exception;
     using Fanex.Result.Core.Base.Extension;
 using Fanex.Result.Core.LiveCasino.ViewModels;
     using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.Exception;
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
@@ -66,6 +66,21 @@ using Fanex.Result.Core.LiveCasino.ViewModels;
             var item = obj as DTO.LiveCasino;
             var viewModel = new LiveCasinoViewModel(item, setting, resource);
             return (IResultViewModel)viewModel;
+        }
+
+        public override IResultViewModel GetOutRightViewModel(object obj, ResultSetting setting, LangResources resource)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override IResultViewModel GetParlayViewModel(object obj, ResultSetting setting, LangResources resource)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override Base.ExcelModels.IExcelModel GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting, LangResources resource)
+        {
+            throw new NotImplementedException();
         }
     }
 }

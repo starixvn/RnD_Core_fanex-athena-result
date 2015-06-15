@@ -13,6 +13,7 @@ namespace MvcExample.Models
     using Fanex.Result.Core.GoldDeLuxe.DTO;
     using Fanex.Result.Core.NumberGame.DTO;
     using Fanex.Result.Core.LiveCasino.DTO;
+    using Fanex.Result.Core.Racing.DTO;
 
     /// <summary>
     /// TODO: Update summary.
@@ -25,7 +26,7 @@ namespace MvcExample.Models
 
         IEnumerable<League> GetLeagues(GetLeaguesBySportCriteria criteria);
 
-        //IEnumerable<Racing> GetRacingResult(GetRacingResultCriteria criteria);
+        IEnumerable<Racing> GetRacingResult(GetRacingResultCriteria criteria);
 
         IEnumerable<NumberGame> GetNumberGameResult(GetNumberGameResultCriteria criteria);
 
@@ -39,7 +40,7 @@ namespace MvcExample.Models
 
         #region PopUp
 
-        //IEnumerable<Racing> GetRacingPopupResult(GetRacingPopupResultCriteria criteria);
+        IEnumerable<Racing> GetRacingPopupResult(GetRacingPopupResultCriteria criteria);
 
         IEnumerable<NumberGame> GetNumberGamePopupResult(GetNumberGamePopupResultCriteria criteria);
 
@@ -53,13 +54,13 @@ namespace MvcExample.Models
 
         #region Parlay
 
-        //IEnumerable<Parlay> GetParlayResult(GetParlayResultCriteria criteria);
+        IEnumerable<Parlay> GetParlayResult(GetParlayResultCriteria criteria);
 
         #endregion Parlay
 
         #region OutRight
 
-        //IEnumerable<OutRight> GetOutRightResult(GetOutRightResult criteria);
+        IEnumerable<OutRight> GetOutRightResult(GetOutRightResult criteria);
 
         #endregion OutRight
     }

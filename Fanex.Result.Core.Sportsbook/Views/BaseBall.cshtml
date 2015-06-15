@@ -1,12 +1,12 @@
 ﻿@{
-    var viewModel = (Fanex.Result.Core.Models.RazorBinderModel)Model;
-    var lang = (Fanex.Result.Core.DataDomain.LangResources)viewModel.Resource;
+    var viewModel = (Fanex.Result.Core.Base.ViewModels.RazorBinderModel)Model;
+    var lang = (Fanex.Result.Core.Base.DataDomain.LangResources)viewModel.Resource;
     var colspan = viewModel.VisibleMatchCodeIDColumn ? 16 : 15;
     var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
 
 }
-@using Fanex.Result.Core.ViewModels;
-@using Fanex.Result.Core.Models;
+@using Fanex.Result.Core.Base.ViewModels;
+@using Fanex.Result.Core.Sportsbook.ViewModels;
 @using System.Collections;
 @if (viewModel.VisibleFreeHeader)
 {

@@ -37,8 +37,8 @@
       <HintPath>..\packages\Fanex.File.1.0.0\lib\net40\IBCFile.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="RazorEngine, Version=3.2.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
-      <HintPath>..\packages\RazorEngine.3.2.0\lib\net40\RazorEngine.dll</HintPath>
+    <Reference Include="RazorEngine, Version=3.7.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.7.0\lib\net40\RazorEngine.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="RemotingRef, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
@@ -52,7 +52,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml.Linq" />
@@ -74,11 +74,23 @@
     <Compile Include="Models\ViewModelConcreteFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\SportsbookHelper.cs" />
+    <Compile Include="ViewModels\BadmintonViewModel.cs" />
+    <Compile Include="ViewModels\BaseBallViewModel.cs" />
+    <Compile Include="ViewModels\BasketBallViewModel.cs" />
+    <Compile Include="ViewModels\BilliardViewModel.cs" />
+    <Compile Include="ViewModels\HockeyViewModel.cs" />
+    <Compile Include="ViewModels\OtherViewModel.cs" />
+    <Compile Include="ViewModels\OutRightViewModel.cs" />
+    <Compile Include="ViewModels\ParlayViewModel.cs" />
     <Compile Include="ViewModels\SoccerInfo\SoccerDetailInfo.cs" />
     <Compile Include="ViewModels\SoccerInfo\SoccerDetailViewModel.cs" />
     <Compile Include="ViewModels\SoccerInfo\SoccerGameDetailItem.cs" />
     <Compile Include="ViewModels\SoccerViewModel.cs" />
     <Compile Include="ViewModels\SportsbookBaseViewModel.cs" />
+    <Compile Include="ViewModels\TennisDetail\GameValue.cs" />
+    <Compile Include="ViewModels\TennisDetail\SetValue.cs" />
+    <Compile Include="ViewModels\TennisViewModel.cs" />
+    <Compile Include="ViewModels\VSTennisViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj">

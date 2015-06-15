@@ -10,19 +10,19 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
+    using System.IO;
     using System.Linq;
     using System.Text;
-    using Fanex.Result.Core.DataDomain;
-    using Fanex.Result.Core.Models;
-    using RazorEngine;
-    using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Sportsbook.DTO;
     using Fanex.Result.Core.Base.DataDomain;
-    using Fanex.Result.Core.Sportsbook.Utilities;
+    using Fanex.Result.Core.Base.ViewModels;
+    using Fanex.Result.Core.DataDomain;
+    using Fanex.Result.Core.Sportsbook.DTO;
     using Fanex.Result.Core.Sportsbook.Models;
+    using Fanex.Result.Core.Sportsbook.Utilities;
     using Fanex.Result.Core.Sportsbook.ViewModels.SoccerInfo;
-
+    using RazorEngine;
+    using RazorEngine.Templating;
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
@@ -198,15 +198,20 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
                     var templateByGroup = templateOperator.GetRazorTemplate(templateName);
                     if (!string.IsNullOrEmpty(templateByGroup))
                     {
-                        Razor.GetTemplate(templateByGroup, templateName);
                         var binderModel = new SoccerDetailViewModel
                         {
                             Name = item.FirstOrDefault().GroupName,
                             Resource = this.Lang,
                             DetailItems = item.ToList()
                         };
+                        var result = new StringBuilder();
+                        using (var writer = new StringWriter(result))
+                        {
+                            Engine.Razor.RunCompile(templateByGroup, templateName, writer, 
+                                typeof(SoccerDetailViewModel), binderModel, null);
+                        }
 
-                        temp.Append(Razor.Run(templateName, binderModel));
+                        temp.Append(result.ToString());
                     }
                 }
 

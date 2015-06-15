@@ -4,7 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Fanex.Result.Core.Exception
+namespace Fanex.Result.Core.Base.Exception
 {
     using System;
 

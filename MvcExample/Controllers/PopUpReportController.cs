@@ -7,7 +7,7 @@
     using MvcExample.Models;
     using MvcExample.Models.Criteria;
     using MvcExample.Models.MetaModel;
-    using Fanex.Result.Core.Microgaming;
+    using Fanex.Result.Core.Base;
     /// <summary>
     /// POPUP result page.
     /// </summary>

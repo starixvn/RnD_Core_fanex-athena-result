@@ -15,9 +15,12 @@ namespace Fanex.Result.Core.Sportsbook.Models
     using Fanex.Result.Core.Base.DTO;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.DataDomain;
-    using Fanex.Result.Core.Exception;
     using Fanex.Result.Core.Base.Extension;
     using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.Exception;
+    using Fanex.Result.Core.Sportsbook.ViewModels;
+    using Fanex.Result.Core.Sportsbook.DTO;
+    using Fanex.Result.Core.Base.ExcelModels;
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
@@ -78,6 +81,36 @@ namespace Fanex.Result.Core.Sportsbook.Models
             }
 
             return (IResultViewModel)Activator.CreateInstance(viewModel, obj, setting, resource);
+        }
+
+        public override IResultViewModel GetOutRightViewModel(object obj, ResultSetting setting, LangResources resource)
+        {
+            return new OutRightViewModel((OutRight)obj, setting, resource);
+        }
+
+        public override IResultViewModel GetParlayViewModel(object obj, ResultSetting setting, LangResources resource)
+        {
+            return new ParlayViewModel((Parlay)obj, setting, resource);
+        }
+
+        public override Base.ExcelModels.IExcelModel GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting, LangResources resource)
+        {
+            if ((int)setting.SportType <= 0)
+            {
+                throw new ObjectNullException("Sport Type");
+            }
+
+            var dtoName = setting.SportType.StringMe();
+
+            var realTemplatePath = setting.ExcelTemplatePath + dtoName + ".xls";
+            var dataMaped = dataList.Select(i => this.GetViewModel(i, setting, resource)).ToList();
+            var excelViewModel = Type.GetType(EXCELNAMESPACE + dtoName + EXCELEXTNAME);
+            if (excelViewModel == null)
+            {
+                throw new ObjectNullException(dtoName);
+            }
+
+            return (IExcelModel)Activator.CreateInstance(excelViewModel, realTemplatePath, setting, dataMaped, resource);
         }
     }
 }

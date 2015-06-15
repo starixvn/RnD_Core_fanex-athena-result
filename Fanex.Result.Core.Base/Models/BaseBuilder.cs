@@ -15,6 +15,8 @@ namespace Fanex.Result.Core.Base.Models
     using Fanex.Result.Core.Models;
     using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.DTO;
+    using RazorEngine.Templating;
+    using System.IO;
 
     /// <summary>
     /// TODO: Update summary.
@@ -37,15 +39,14 @@ namespace Fanex.Result.Core.Base.Models
         /// <returns>The html result.</returns>
         protected virtual string HtmlRender(ITemplate templateInstance, string templateName, RazorBinderModel model)
         {
-            // loading a template might be expensive, so be careful to cache content
-            if (Razor.Resolve(templateName) == null)
+            var templateContent = templateInstance.GetRazorTemplate(templateName);
+            var result = new StringBuilder();
+            using (var writer = new StringWriter(result))
             {
-                // we've never seen this template before, so compile it and stick it in cache.
-                var templateContent = templateInstance.GetRazorTemplate(templateName);
-                Razor.Compile(templateContent, templateName);
+                Engine.Razor.RunCompile(templateContent, templateName, writer, typeof(RazorBinderModel), model, null);
             }
 
-            return Razor.Run(templateName, model);
+            return result.ToString();
         }
 
         /// <summary>

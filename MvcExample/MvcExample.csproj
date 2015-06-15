@@ -110,6 +110,10 @@
     <Reference Include="NPOI">
       <HintPath>..\packages\NPOI.2.0.6\lib\net40\NPOI.dll</HintPath>
     </Reference>
+    <Reference Include="RazorEngine, Version=3.7.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.7.0\lib\net40\RazorEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="RemotingRef, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\RemotingRef.1.0.0.2\lib\net40\RemotingRef.dll</HintPath>
       <Private>True</Private>
@@ -195,6 +199,7 @@
     <Compile Include="Controllers\DocsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NormalReportController.cs" />
+    <Compile Include="Controllers\PopUpReportController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -469,6 +474,10 @@
     <ProjectReference Include="..\Fanex.Result.Core.NumberGame\Fanex.Result.Core.NumberGame.csproj">
       <Project>{CEBAE710-7919-4FC6-8978-862A3096972C}</Project>
       <Name>Fanex.Result.Core.NumberGame</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fanex.Result.Core.Racing\Fanex.Result.Core.Racing.csproj">
+      <Project>{4869ED23-CD0C-4472-BCE6-54A9E170ED6E}</Project>
+      <Name>Fanex.Result.Core.Racing</Name>
     </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.Sportsbook\Fanex.Result.Core.Sportsbook.csproj">
       <Project>{0469C900-5E5B-4D2C-8DB3-7EAEA991095B}</Project>

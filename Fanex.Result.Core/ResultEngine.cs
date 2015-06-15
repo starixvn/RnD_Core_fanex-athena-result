@@ -15,7 +15,7 @@ namespace Fanex.Result.Core
     using Fanex.Result.Core.Base.DataDomain;
     using System;
     using Fanex.Result.Core.Base.Utilities;
-    using Fanex.Result.Core.Exception;
+    using Fanex.Result.Core.Base.Exception;
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
@@ -185,6 +185,8 @@ namespace Fanex.Result.Core
                     return new NumberGame.Models.Builder();
                 case DTOType.LIVECASINO:
                     return new LiveCasino.Models.Builder();
+                case DTOType.RACING:
+                    return new Racing.Models.Builder();
                 default:
                     return new Sportsbook.Models.Builder();
             }

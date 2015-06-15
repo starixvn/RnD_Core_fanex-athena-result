@@ -2,18 +2,19 @@
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.IO;
     using System.Linq;
     using System.Web.Mvc;
     using Fanex.Result.Core;
     using Fanex.Result.Core.Base;
+    using Fanex.Result.Core.GoldDeLuxe.DTO;
+    using Fanex.Result.Core.LiveCasino.DTO;
+    using Fanex.Result.Core.NumberGame.DTO;
     using Fanex.Result.Core.Racing.DTO;
+    using Fanex.Result.Core.Sportsbook.DTO;
     using MvcExample.Models;
     using MvcExample.Models.Criteria;
-    using Fanex.Result.Core.Sportsbook.DTO;
-    using Fanex.Result.Core.GoldDeLuxe.DTO;
-    using Fanex.Result.Core.NumberGame.DTO;
-    using Fanex.Result.Core.LiveCasino.DTO;
-    using System.IO;
+
     /// <summary>
     /// Normal result page.
     /// </summary>
@@ -103,6 +104,7 @@
 
                     htmlResult = ResultEngine.HtmlParser(dataNg.ToList(), resultSetting);
                     break;
+
                 case SportType.GoldDeluxe:
                     var dataGd = _resultService.GetGoldDeluxePopUpResult(new GetGolDeluxePopUpResultCriteria
                    {
@@ -112,6 +114,7 @@
 
                     htmlResult = ResultEngine.HtmlParser(dataGd.ToList(), resultSetting);
                     break;
+
                 default:
 
                     var dataSb = _resultService.GetSportbookResult(new GetSportbookResultCriteria

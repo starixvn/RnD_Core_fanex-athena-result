@@ -6,18 +6,17 @@
 
 namespace Fanex.Result.Core.Base
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
+    using System.Diagnostics.CodeAnalysis;
     using Fanex.Result.Core.Base.Extension;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
+    [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1602:EnumerationItemsMustBeDocumented", Justification = "Reviewed.")]
+    [SuppressMessage("Microsoft.Design", "CA1008:EnumsShouldHaveZeroValue", Justification = "Reviewed.")]
     public enum SportType : int
     {
-          [StringValue("Soccer")]
+        [StringValue("Soccer")]
         Soccer = 1,
 
         #region BasketBall
@@ -230,8 +229,10 @@ namespace Fanex.Result.Core.Base
         VirtualTennis = 186,
 
         #endregion VirtualSport
+
         [StringValue("GoldDeluxe")]
         GoldDeluxe = 255,
+
         [StringValue("MicroGaming")]
         MicroGaming = 256,
     }

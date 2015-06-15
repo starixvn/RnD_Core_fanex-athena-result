@@ -5,9 +5,9 @@
     using System.Linq;
     using System.Web.Mvc;
     using Fanex.Result.Core;
-    using MvcExample.Models;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Sportsbook.DTO;
+    using MvcExample.Models;
 
     /// <summary>
     /// OutRight result page.

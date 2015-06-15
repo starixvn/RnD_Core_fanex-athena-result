@@ -8,21 +8,17 @@ namespace Fanex.Result.Core
     using System.Collections.Generic;
     using System.IO;
     using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.DTO;
-    using System.Linq;
-    using System.Collections;
-    using Fanex.Result.Core.Base.Models;
     using Fanex.Result.Core.Base.DataDomain;
-    using System;
-    using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Base.Exception;
     using Fanex.Result.Core.Base.Extension;
+    using Fanex.Result.Core.Base.Models;
+    using Fanex.Result.Core.Base.Utilities;
+
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
     public static class ResultEngine
     {
-
         /// <summary>
         /// Render detail result by sport.
         /// </summary>
@@ -100,7 +96,6 @@ namespace Fanex.Result.Core
             return builder.ExcelBuilder(dataList, setting);
         }
 
-
         /// <summary>
         /// Render html result.
         /// </summary>
@@ -110,10 +105,8 @@ namespace Fanex.Result.Core
         /// <returns>The html string.</returns>
         public static string HtmlParser<T>(IList<T> dataList, ResultSetting setting)
         {
-
             ReCheckSetting<T>(dataList, setting);
             var dtoName = typeof(T).Name;
-
 
             if (setting.IsOutRight && !setting.IsPopUp)
             {
@@ -129,7 +122,6 @@ namespace Fanex.Result.Core
             {
                 return HtmlPopUpParser<T>(dataList, setting, dtoName);
             }
-
 
             if (!Validate.Instance.ValidateNormal(dtoName, setting.SportType))
             {
@@ -157,6 +149,7 @@ namespace Fanex.Result.Core
             {
                 throw new ObjectNullException(string.Format(CoreResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
             }
+
             var builder = GetBuilder(dtoName);
             return
                 Helper.RemoveWhiteSpace(
@@ -169,6 +162,7 @@ namespace Fanex.Result.Core
             {
                 throw new ObjectNullException(string.Format(CoreResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
             }
+
             var builder = GetBuilder(dtoName);
             return Helper.RemoveWhiteSpace(
                 builder.PopUpParalyBuilder<T>(dataList, setting));
@@ -180,10 +174,12 @@ namespace Fanex.Result.Core
             {
                 throw new ObjectNullException(string.Format(CoreResourceConfig.ARGUEMENTMESOUTRIGHT, dtoName));
             }
+
             var builder = GetBuilder(dtoName);
             return Helper.RemoveWhiteSpace(
                 builder.OutRightHtmlBuilder<T>(dataList, setting));
         }
+
         /// <summary>
         /// Valid result setting and set default setting value.
         /// </summary>
@@ -216,13 +212,14 @@ namespace Fanex.Result.Core
                 setting.ResourcePath = System.AppDomain.CurrentDomain.BaseDirectory + CoreResourceConfig.RESOURCEPATH;
             }
         }
+
         private static IBuilder GetBuilder(string productType)
         {
             switch (productType)
             {
                 case DTOType.SPORTSBOOK:
                     return new Sportsbook.Models.Builder();
-                case DTOType.GOLEDELUXE:
+                case DTOType.GOLDDELUXE:
                     return new GoldDeLuxe.Models.Builder();
                 case DTOType.NUMBERGAME:
                     return new NumberGame.Models.Builder();
@@ -233,8 +230,6 @@ namespace Fanex.Result.Core
                 default:
                     return new Sportsbook.Models.Builder();
             }
-
         }
-
     }
 }

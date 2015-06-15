@@ -17,7 +17,7 @@
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>false</UseIISExpress>
     <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
-    <JSLintSkip>\Scripts\json.human.js|\Scripts\crel.js</JSLintSkip>
+    <JSLintSkip>\Scripts\jquery-1.9.0.js|\Scripts\jquery-1.9.0-vsdoc.js|\Scripts\bootstrap.min.js|\Scripts\bootstrap.js|\Scripts\jquery-1.9.0.min.js|\Scripts\jquery-ui.min-1.11.1.js|\Scripts\jquery-ui-1.11.1.js</JSLintSkip>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
   </PropertyGroup>
@@ -248,6 +248,7 @@
     <Content Include="App_Data\SpName.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="CodeAnalysis\CodeAnalysisConfiguration.xml" />
     <Content Include="Content\Core\img\btn-close.png" />
     <Content Include="Content\Core\img\favicon.ico" />
     <Content Include="Content\Core\img\icon-calendar.png" />

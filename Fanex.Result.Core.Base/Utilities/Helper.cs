@@ -18,14 +18,14 @@ namespace Fanex.Result.Core.Base.Utilities
     {
         private static readonly CultureInfo Cult = new CultureInfo("en-US");
 
-        public static string FullDateFormat(object obj, string formatPattern)
+        public static string FullDateFormat(object dateValue, string formatPattern)
         {
-            if (Convert.IsDBNull(obj) || obj == null)
+            if (Convert.IsDBNull(dateValue) || dateValue == null)
             {
                 return string.Empty;
             }
 
-            return string.Format(Cult, formatPattern, obj);
+            return string.Format(Cult, formatPattern, dateValue);
         }
 
         public static string RemoveWhiteSpace(string html)
@@ -63,6 +63,5 @@ namespace Fanex.Result.Core.Base.Utilities
             Regex isnumber = new Regex("[^0-9]");
             return !isnumber.IsMatch(inputvalue);
         }
-
     }
 }

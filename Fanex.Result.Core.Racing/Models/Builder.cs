@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="BuilderSportsbook.cs" company="">
+// <copyright file="Builder.cs" company="">
 // TODO: Update copyright text.
 // </copyright>
 // -----------------------------------------------------------------------
@@ -8,30 +8,19 @@ namespace Fanex.Result.Core.Racing.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
+    using Fanex.Result.Core.Base.Extension;
     using Fanex.Result.Core.Base.Models;
     using Fanex.Result.Core.Models;
-    using Fanex.Result.Core.Base.ViewModels;
-    using Fanex.Result.Core.Base.Extension;
-    using Fanex.Result.Core.Base.DTO;
+
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
     public class Builder : BaseBuilder, IBuilder
     {
-
         public string HtmlBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
         {
             return GenerateHtmlContent(dataList, setting);
         }
-
-        private string GenerateHtmlContent<T>(IList<T> dataList, Base.ResultSetting setting)
-        {
-            var model = GenerateViewModelData(dataList, setting, ViewModelConcreteFactory.Instance);
-            return HtmlRender(Template.Instance, setting.SportType.StringMe(), model);
-        }
-
 
         public System.IO.MemoryStream ExcelBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
         {
@@ -40,13 +29,10 @@ namespace Fanex.Result.Core.Racing.Models
             return excelParser.Export();
         }
 
-
-
         public string PopUpHtmlBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
         {
             return GenerateHtmlContent(dataList, setting);
         }
-
 
         public string OutRightHtmlBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
         {
@@ -63,10 +49,15 @@ namespace Fanex.Result.Core.Racing.Models
             throw new NotImplementedException();
         }
 
-
         public System.IO.MemoryStream OutRightExcelBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
         {
             throw new NotImplementedException();
+        }
+
+        private string GenerateHtmlContent<T>(IList<T> dataList, Base.ResultSetting setting)
+        {
+            var model = GenerateViewModelData(dataList, setting, ViewModelConcreteFactory.Instance);
+            return HtmlRender(Template.Instance, setting.SportType.StringMe(), model);
         }
     }
 }

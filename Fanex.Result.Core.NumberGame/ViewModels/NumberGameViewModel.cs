@@ -9,11 +9,10 @@ namespace Fanex.Result.Core.NumberGame.ViewModels
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
-    using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Base.DataDomain;
-  
+    using Fanex.Result.Core.Base.Utilities;
+    using Fanex.Result.Core.Base.ViewModels;
 
     /// <summary>
     /// Number game view model class.

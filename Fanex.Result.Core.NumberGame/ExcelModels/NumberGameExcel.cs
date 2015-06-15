@@ -17,6 +17,7 @@ namespace Fanex.Result.Core.NumberGame.ExcelModels
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.NumberGame.ViewModels;
     using NPOI.SS.UserModel;
+
     /// <summary>
     /// Number game excel model class.
     /// </summary>

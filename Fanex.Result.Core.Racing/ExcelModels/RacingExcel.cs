@@ -16,6 +16,7 @@ namespace Fanex.Result.Core.Racing.ExcelModels
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Racing.ViewModels;
     using NPOI.SS.UserModel;
+
     /// <summary>
     /// Racing excel model class.
     /// </summary>

@@ -4,10 +4,11 @@
     using System.Linq;
     using System.Web.Mvc;
     using Fanex.Result.Core;
+    using Fanex.Result.Core.Base;
     using MvcExample.Models;
     using MvcExample.Models.Criteria;
     using MvcExample.Models.MetaModel;
-    using Fanex.Result.Core.Base;
+
     /// <summary>
     /// POPUP result page.
     /// </summary>
@@ -131,6 +132,7 @@
                     }
 
                     break;
+
                 case SportType.GoldDeluxe:
                     var dataGd = _resultService.GetGoldDeluxePopUpResult(new GetGolDeluxePopUpResultCriteria
                     {
@@ -143,8 +145,10 @@
                     }
 
                     break;
+
                 case SportType.MicroGaming:
                     break;
+
                 case SportType.NumberGame:
                     var dataNg = _resultService.GetNumberGamePopupResult(new GetNumberGamePopupResultCriteria { MatchID = metalModel.MatchId });
                     if (dataNg != null)

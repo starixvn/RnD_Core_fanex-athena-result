@@ -16,9 +16,8 @@
 /// <reference path="/Scripts/Fanex.Grid/Fanex.Grid.js" />
 /// <reference path="/Scripts/bootstrap.js" />
 
-
 /// JSense excludes minified JavaScript, Web Services and Web Forms by default.
-/// Remove the exclusion tag below to include these types. You may also include your own exclusion tags 
+/// Remove the exclusion tag below to include these types. You may also include your own exclusion tags
 /// using a regular expression pattern. Please note that JSense tags require tripple leading slashes ///.
 
 /// example: <JSense exclude=".*[^\.debug]\.js" /> will exclude all .js files NOT marked .debug.js
@@ -26,5 +25,3 @@
 /// <JSense exclude=".*\.min\.js" />
 /// <JSense exclude=".*\.asmx" />
 /// <JSense exclude=".*\.aspx" />
-
-

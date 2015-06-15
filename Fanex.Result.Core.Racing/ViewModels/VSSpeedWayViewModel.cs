@@ -8,11 +8,11 @@ namespace Fanex.Result.Core.Racing.ViewModels
 {
     using System;
     using System.Globalization;
-    using RemotingRef;
-    using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.Utilities;
+    using Fanex.Result.Core.Base.ViewModels;
+    using RemotingRef;
 
     /// <summary>
     /// TODO: Update summary.

@@ -7,13 +7,9 @@
 namespace Fanex.Result.Core.Sportsbook.Models
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using RazorEngine.Templating;
-    using System.Reflection;
     using System.IO;
-    using BaseCore= Fanex.Result.Core.Base.Models;
+    using System.Reflection;
+    using BaseCore = Fanex.Result.Core.Base.Models;
 
     /// <summary>
     /// TODO: Update summary.

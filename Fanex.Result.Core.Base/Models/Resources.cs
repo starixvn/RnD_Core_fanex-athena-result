@@ -12,8 +12,8 @@ namespace Fanex.Result.Core.Models
     using System.Linq;
     using System.Reflection;
     using System.Xml.Linq;
-    using Fanex.Result.Core.Base.Models;
     using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.Models;
 
     /// <summary>
     /// TODO: Update summary.

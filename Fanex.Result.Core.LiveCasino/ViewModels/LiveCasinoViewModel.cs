@@ -9,12 +9,11 @@ namespace Fanex.Result.Core.LiveCasino.ViewModels
     using System;
     using System.Globalization;
     using System.Linq;
-    using Fanex.Result.Core.Base.DataDomain;
-    using Fanex.Result.Core.Base.DTO;
-    using Fanex.Result.Core.Base.Utilities;
-    using RemotingRef;
-    using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Base;
+    using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.Utilities;
+    using Fanex.Result.Core.Base.ViewModels;
+    using RemotingRef;
 
     /// <summary>
     /// Live casino view model class.

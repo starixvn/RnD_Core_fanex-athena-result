@@ -9,8 +9,8 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     using System;
     using System.Globalization;
     using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.ViewModels;
 
     /// <summary>
     /// TODO: Update summary.

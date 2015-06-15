@@ -7,7 +7,6 @@
 namespace Fanex.Result.Core.Sportsbook.ViewModels.SoccerInfo
 {
     using System.Collections.Generic;
-    using Fanex.Result.Core.DataDomain;
     using Fanex.Result.Core.Base.DataDomain;
 
     /// <summary>

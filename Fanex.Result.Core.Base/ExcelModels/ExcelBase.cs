@@ -10,11 +10,12 @@ namespace Fanex.Result.Core.Base.ExcelModels
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
-    using NPOI.HSSF.UserModel;
-    using NPOI.SS.UserModel;
-    using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.Extension;
+    using Fanex.Result.Core.Base.ViewModels;
+    using NPOI.HSSF.UserModel;
+    using NPOI.SS.UserModel;
+
     /// <summary>
     /// Excel base class.
     /// </summary>
@@ -42,14 +43,14 @@ namespace Fanex.Result.Core.Base.ExcelModels
 
         #endregion Fields
 
-        protected ExcelBase(string _templatePath, ResultSetting _setting, IList<IResultViewModel> _data, LangResources _resource)
+        protected ExcelBase(string templatePath, ResultSetting setting, IList<IResultViewModel> data, LangResources resource)
         {
-            this.TemplatePath = _templatePath;
-            this.Lang = _resource;
-            this.ReportTitle = _setting.ExcelTitle;
-            this.Setting = _setting;
-            this.ViewModelData = _data;
-            this.NumofRow = _data.Count;
+            this.TemplatePath = templatePath;
+            this.Lang = resource;
+            this.ReportTitle = setting.ExcelTitle;
+            this.Setting = setting;
+            this.ViewModelData = data;
+            this.NumofRow = data.Count;
         }
 
         protected int NumofRow { get; set; }
@@ -185,6 +186,7 @@ namespace Fanex.Result.Core.Base.ExcelModels
             }
         }
 
+        [SuppressMessage("Microsoft.Design", "CA1045:DoNotPassTypesByReference", Justification = "Reviewed!")]
         protected virtual void SetDataForMatch(ISheet sheet, IResultViewModel data, ref int currentRow)
         {
         }

@@ -9,22 +9,20 @@ namespace Fanex.Result.Core.Sportsbook.Models
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using Fanex.Result.Core.Models;
-    using Fanex.Result.Core.Base.ViewModels;
-    using Fanex.Result.Core.Base.DTO;
     using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.DataDomain;
-    using Fanex.Result.Core.Base.Extension;
     using Fanex.Result.Core.Base.DataDomain;
-    using Fanex.Result.Core.Base.Exception;
-    using Fanex.Result.Core.Sportsbook.ViewModels;
-    using Fanex.Result.Core.Sportsbook.DTO;
     using Fanex.Result.Core.Base.ExcelModels;
+    using Fanex.Result.Core.Base.Exception;
+    using Fanex.Result.Core.Base.Extension;
+    using Fanex.Result.Core.Base.ViewModels;
+    using Fanex.Result.Core.Models;
+    using Fanex.Result.Core.Sportsbook.DTO;
+    using Fanex.Result.Core.Sportsbook.ViewModels;
+
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    internal sealed class ViewModelConcreteFactory:ViewModelFactory
+    internal sealed class ViewModelConcreteFactory : ViewModelFactory
     {
         private const string EXTNAME = "ViewModel";
         private const string EXCELEXTNAME = "Excel";
@@ -57,14 +55,7 @@ namespace Fanex.Result.Core.Sportsbook.Models
                 return instance;
             }
         }
-        /// <summary>
-        /// Get view model.
-        /// Used for render html result.
-        /// </summary>
-        /// <param name="obj">The DTO type.</param>
-        /// <param name="setting">The result setting.</param>
-        /// <param name="resource">The language resource.</param>
-        /// <returns>The view model.</returns>
+
         public override IResultViewModel GetViewModel<T>(T obj, ResultSetting setting, LangResources resource)
         {
             if ((int)setting.SportType <= 0)

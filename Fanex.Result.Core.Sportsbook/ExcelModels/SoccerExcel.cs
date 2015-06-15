@@ -8,15 +8,14 @@ namespace Fanex.Result.Core.Sportsbook.ExcelModels
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using Fanex.Result.Core.DataDomain;
+    using Fanex.Result.Core.Base;
+    using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.ExcelModels;
     using Fanex.Result.Core.Base.Extension;
     using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Base.ViewModels;
-    using NPOI.SS.UserModel;
-    using Fanex.Result.Core.Base.ExcelModels;
-    using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Sportsbook.ViewModels;
-    using Fanex.Result.Core.Base.DataDomain;
+    using NPOI.SS.UserModel;
 
     /// <summary>
     /// Soccer excel model class.

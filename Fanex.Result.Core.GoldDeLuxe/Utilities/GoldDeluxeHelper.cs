@@ -23,13 +23,13 @@ namespace Fanex.Result.Core.GoldDeLuxe.Utilities
         private const string PlayerKey = "P";
         private const string Aces = "A";
 
-        private static readonly string[] RoutletRedResult = new string[] 
+        private static readonly string[] RoutletRedResult = new string[]
         {
             "1", "3", "5", "7", "9", "12", "14", "16", "18",
             "19", "21", "23", "25", "27", "30", "32", "34", "36"
         };
 
-        private static readonly IDictionary<string, string> CardType = new Dictionary<string, string>() 
+        private static readonly IDictionary<string, string> CardType = new Dictionary<string, string>()
         {
         { "club", "&clubs;" },
         { "spade", "&spades;" },

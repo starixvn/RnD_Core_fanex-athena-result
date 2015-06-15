@@ -15,6 +15,7 @@ namespace Fanex.Result.Core.GoldDeLuxe.ExcelModels
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.GoldDeLuxe.ViewModels;
     using NPOI.SS.UserModel;
+
     /// <summary>
     /// Live casino excel model class.
     /// </summary>

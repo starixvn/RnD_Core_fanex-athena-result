@@ -9,9 +9,9 @@ namespace Fanex.Result.Core.Base.ViewModels
     using System;
     using System.Collections.Generic;
     using System.Globalization;
-    using RemotingRef;
     using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.Utilities;
+    using RemotingRef;
 
     /// <summary>
     /// TODO: Update summary.

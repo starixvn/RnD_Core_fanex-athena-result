@@ -7,12 +7,9 @@
 namespace Fanex.Result.Core.LiveCasino.Models
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Reflection;
     using System.IO;
-    using BaseCore= Fanex.Result.Core.Base.Models;
+    using System.Reflection;
+    using BaseCore = Fanex.Result.Core.Base.Models;
 
     /// <summary>
     /// TODO: Update summary.

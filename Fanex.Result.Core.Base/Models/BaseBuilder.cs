@@ -6,17 +6,15 @@
 
 namespace Fanex.Result.Core.Base.Models
 {
-    using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
     using System.Text;
-    using Fanex.Result.Core.Base.ViewModels;
-    using RazorEngine;
-    using Fanex.Result.Core.Models;
     using Fanex.Result.Core.Base.DataDomain;
-    using Fanex.Result.Core.Base.DTO;
+    using Fanex.Result.Core.Base.ViewModels;
+    using Fanex.Result.Core.Models;
+    using RazorEngine;
     using RazorEngine.Templating;
-    using System.IO;
 
     /// <summary>
     /// TODO: Update summary.
@@ -34,9 +32,10 @@ namespace Fanex.Result.Core.Base.Models
         /// <summary>
         /// Render html result.
         /// </summary>
+        /// <param name="templateInstance">The template instance.</param>
         /// <param name="templateName">The template name.</param>
         /// <param name="model">The binder model.</param>
-        /// <returns>The html result.</returns>
+        /// <returns>The HTML result.</returns>
         protected virtual string HtmlRender(ITemplate templateInstance, string templateName, RazorBinderModel model)
         {
             var templateContent = templateInstance.GetRazorTemplate(templateName);

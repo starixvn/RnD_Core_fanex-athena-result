@@ -8,9 +8,10 @@
  *
  * http://api.jqueryui.com/autocomplete/#theming
  */
-.ui-autocomplete {
-	position: absolute;
-	top: 0;
-	left: 0;
-	cursor: default;
+.ui-autocomplete
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: default;
 }

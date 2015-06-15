@@ -134,8 +134,8 @@ var normalReport = (function () {
             var detailPopUp = $("#game-detail");
             $.ajax({
                 url: window.rootUrl + "normalreport/GenHtmlGameDetail?matchid="
-                 + $(this).attr("data-match-id")+"&languageCode="+$("#language").val()
-                 +"&showmatchcode=" + $("#showmatchcode").is(":checked")+"&sportId="+$("#sport").val() ,
+                 + $(this).attr("data-match-id") + "&languageCode=" + $("#language").val()
+                 + "&showmatchcode=" + $("#showmatchcode").is(":checked") + "&sportId=" + $("#sport").val(),
                 datatype: "html",
                 type: "GET",
                 contentType: "application/x-www-form-urlencoded; charset=UTF-8",

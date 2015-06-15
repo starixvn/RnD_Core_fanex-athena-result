@@ -6,7 +6,8 @@
  * Released under the MIT license.
  * http://jquery.org/license
  */
-.ui-sortable-handle {
-	-ms-touch-action: none;
-	touch-action: none;
+.ui-sortable-handle
+{
+    -ms-touch-action: none;
+    touch-action: none;
 }

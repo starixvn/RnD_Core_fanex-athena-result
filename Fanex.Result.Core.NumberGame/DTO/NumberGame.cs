@@ -13,7 +13,7 @@ namespace Fanex.Result.Core.NumberGame.DTO
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public sealed class NumberGame:IProductResult
+    public sealed class NumberGame : IProductResult
     {
         public NumberGame()
         {

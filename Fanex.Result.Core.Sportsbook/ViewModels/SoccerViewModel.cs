@@ -23,6 +23,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     using Fanex.Result.Core.Sportsbook.ViewModels.SoccerInfo;
     using RazorEngine;
     using RazorEngine.Templating;
+
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
@@ -207,8 +208,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
                         var result = new StringBuilder();
                         using (var writer = new StringWriter(result))
                         {
-                            Engine.Razor.RunCompile(templateByGroup, templateName, writer, 
-                                typeof(SoccerDetailViewModel), binderModel, null);
+                            Engine.Razor.RunCompile(templateByGroup, templateName, writer, typeof(SoccerDetailViewModel), binderModel, null);
                         }
 
                         temp.Append(result.ToString());

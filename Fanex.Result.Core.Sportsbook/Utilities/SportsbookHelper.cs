@@ -6,15 +6,13 @@
 
 namespace Fanex.Result.Core.Sportsbook.Utilities
 {
-    using System;
-    using System.Collections.Generic;
+    using System.Globalization;
     using System.Linq;
     using System.Text;
     using System.Text.RegularExpressions;
-    using System.Globalization;
-    using Fanex.Result.Core.DataDomain;
-    using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.Utilities;
+    using Fanex.Result.Core.DataDomain;
 
     /// <summary>
     /// TODO: Update summary.
@@ -22,7 +20,6 @@ namespace Fanex.Result.Core.Sportsbook.Utilities
     internal static class SportsbookHelper
     {
         private const string ResourceIDSuffix = "RS";
-        private static readonly CultureInfo Cult = new CultureInfo("en-US");
         private static Regex setXGameYRegex = new Regex("^80[1-5]{1}\\d{2}$");
 
         private static Regex[] soccerRangeResourceIDRegex = new Regex[5]
@@ -42,6 +39,7 @@ namespace Fanex.Result.Core.Sportsbook.Utilities
             new Regex("^04\\d{2}$"),
             new Regex("^05\\d{2}$")
         };
+
         public static bool IsSetXGameYBetID(string betID)
         {
             if (string.IsNullOrEmpty(betID))
@@ -56,6 +54,7 @@ namespace Fanex.Result.Core.Sportsbook.Utilities
         {
             return setXRGameYResourceID[sexIndex - 1].IsMatch(resourceId);
         }
+
         /// <summary>
         /// Validate game resource ID.
         /// </summary>
@@ -77,6 +76,7 @@ namespace Fanex.Result.Core.Sportsbook.Utilities
 
             return pattern == resourceId;
         }
+
         /// <summary>
         /// Get language text by key.
         /// </summary>

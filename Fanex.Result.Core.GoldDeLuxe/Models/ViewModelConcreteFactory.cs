@@ -51,20 +51,13 @@ namespace Fanex.Result.Core.GoldDeLuxe.Models
             }
         }
 
-        /// <summary>
-        /// Get view model.
-        /// Used for render html result.
-        /// </summary>
-        /// <param name="obj">The DTO type.</param>
-        /// <param name="setting">The result setting.</param>
-        /// <param name="resource">The language resource.</param>
-        /// <returns>The view model.</returns>
         public override IResultViewModel GetViewModel<T>(T obj, ResultSetting setting, LangResources resource)
         {
             if ((int)setting.SportType <= 0)
             {
                 throw new ObjectNullException("Sport Type");
             }
+
             var item = obj as DTO.GoldDeluxe;
             var viewModel = new GoldDeluxeViewModel(item, setting, resource);
             return (IResultViewModel)viewModel;

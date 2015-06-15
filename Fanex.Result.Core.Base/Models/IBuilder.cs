@@ -8,7 +8,6 @@ namespace Fanex.Result.Core.Base.Models
 {
     using System.Collections.Generic;
     using System.IO;
-    using Fanex.Result.Core.Base.DTO;
 
     /// <summary>
     /// TODO: Update summary.
@@ -24,7 +23,9 @@ namespace Fanex.Result.Core.Base.Models
         string OutRightHtmlBuilder<T>(IList<T> dataList, ResultSetting setting);
 
         string PopUpParalyBuilder<T>(IList<T> dataList, ResultSetting setting);
+
         string HtmlGameDetailBuilder(dynamic data, ResultSetting setting);
+
         MemoryStream OutRightExcelBuilder<T>(IList<T> dataList, ResultSetting setting);
     }
 }

@@ -13,7 +13,7 @@ namespace Fanex.Result.Core.Sportsbook.DTO
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public sealed class Sportsbook:IProductResult
+    public sealed class Sportsbook : IProductResult
     {
         private string _betStatus = string.Empty;
         private string _goalRecord = string.Empty;

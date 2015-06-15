@@ -7,13 +7,13 @@
 namespace MvcExample.Models
 {
     using System.Collections.Generic;
+    using Fanex.Result.Core.GoldDeLuxe.DTO;
+    using Fanex.Result.Core.LiveCasino.DTO;
+    using Fanex.Result.Core.NumberGame.DTO;
+    using Fanex.Result.Core.Racing.DTO;
+    using Fanex.Result.Core.Sportsbook.DTO;
     using MvcExample.Models.Criteria;
     using MvcExample.Models.DTO;
-    using Fanex.Result.Core.Sportsbook.DTO;
-    using Fanex.Result.Core.GoldDeLuxe.DTO;
-    using Fanex.Result.Core.NumberGame.DTO;
-    using Fanex.Result.Core.LiveCasino.DTO;
-    using Fanex.Result.Core.Racing.DTO;
 
     /// <summary>
     /// TODO: Update summary.

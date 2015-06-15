@@ -21,13 +21,12 @@ var outRightReport = (function () {
         $("#date").datepicker(
         {
             dateFormat: "mm/dd/yy"
-           
         });
-      
+
         $("#gen-html").click(function () {
             var criteria = {
                 date: $.datepicker.formatDate('mm/dd/yy', $("#date").datepicker('getDate')),
-              
+
                 languageCode: $("#language").val()
             };
             $.ajax({
@@ -53,7 +52,7 @@ var outRightReport = (function () {
 
         $("#gen-excel").click(function () {
             var url = window.rootUrl + "OutRightReport/GenExcel?date=" + $.datepicker.formatDate('mm/dd/yy', $("#date").datepicker('getDate'));
-           
+
             url += "&languageCode=" + $("#language").val();
             window.open(url, "_blank");
         });
@@ -61,7 +60,7 @@ var outRightReport = (function () {
             $("#report-content").html("");
             var criteria = {
                 date: $.datepicker.formatDate('mm/dd/yy', $("#date").datepicker('getDate')),
-              
+
                 languageCode: $("#language").val()
             };
             $.ajax({

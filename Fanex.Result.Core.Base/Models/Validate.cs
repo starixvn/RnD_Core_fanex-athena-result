@@ -10,7 +10,6 @@ namespace Fanex.Result.Core.Base.Models
     using System.Linq;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.DataDomain;
-    using Fanex.Result.Core.Base.Models;
 
     /// <summary>
     /// TODO: Update summary.
@@ -89,7 +88,7 @@ namespace Fanex.Result.Core.Base.Models
                 case SportType.LiveCasino:
                     return dtoName == DTOType.LIVECASINO;
                 case SportType.GoldDeluxe:
-                    return dtoName == DTOType.GOLEDELUXE;
+                    return dtoName == DTOType.GOLDDELUXE;
                 default:
                     return dtoName == DTOType.SPORTSBOOK;
             }

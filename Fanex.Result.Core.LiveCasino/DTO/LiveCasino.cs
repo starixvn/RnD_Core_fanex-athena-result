@@ -14,7 +14,7 @@ namespace Fanex.Result.Core.LiveCasino.DTO
     /// TODO: Update summary.
     /// </summary>
     [ExcludeFromCodeCoverage]
-    public sealed class LiveCasino:IProductResult
+    public sealed class LiveCasino : IProductResult
     {
         public LiveCasino()
         {

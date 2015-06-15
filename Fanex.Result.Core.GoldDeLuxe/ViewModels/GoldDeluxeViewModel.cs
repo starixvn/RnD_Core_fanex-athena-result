@@ -8,14 +8,13 @@ namespace Fanex.Result.Core.GoldDeLuxe.ViewModels
 {
     using System;
     using System.Globalization;
-    using Fanex.Result.Core.Base.ViewModels;
-    using Fanex.Result.Core.GoldDeLuxe.DTO;
     using Fanex.Result.Core.Base;
-    using RemotingRef;
-    using Fanex.Result.Core.GoldDeLuxe.DataDomain;
-    using Fanex.Result.Core.GoldDeLuxe.Utilities;
     using Fanex.Result.Core.Base.DataDomain;
-   
+    using Fanex.Result.Core.Base.ViewModels;
+    using Fanex.Result.Core.GoldDeLuxe.DataDomain;
+    using Fanex.Result.Core.GoldDeLuxe.DTO;
+    using Fanex.Result.Core.GoldDeLuxe.Utilities;
+    using RemotingRef;
 
     /// <summary>
     /// TODO: Update summary.

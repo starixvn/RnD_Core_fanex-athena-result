@@ -22,22 +22,22 @@ namespace Fanex.Result.Core.DataDomain
         { "Corner", new List<string> { GameResourceID.FirstHalfCorners, GameResourceID.FinalCorners } },
         { "FirstLastCorners", new List<string> { GameResourceID.First1HCorner, GameResourceID.Last1HCorner, GameResourceID.FirstCorner, GameResourceID.LastCorner } },
         { "PlayerSentOff", new List<string> { GameResourceID.PlayserSentOff1H, GameResourceID.PlayerSentOff } },
-        { "HomeAwayPlayerSentOff", new List<string> 
-        { 
+        { "HomeAwayPlayerSentOff", new List<string>
+        {
             GameResourceID.AwayPlayserSentOff1H,
-            GameResourceID.HomePlayserSentOff1H, 
-            GameResourceID.HomePlayserSentOff, 
-            GameResourceID.AwayPlayserSentOff 
-        } 
+            GameResourceID.HomePlayserSentOff1H,
+            GameResourceID.HomePlayserSentOff,
+            GameResourceID.AwayPlayserSentOff
+        }
         },
-        { "Special", new List<string> 
-        { 
-            GameResourceID.ExtraTimeYesNo, 
+        { "Special", new List<string>
+        {
+            GameResourceID.ExtraTimeYesNo,
             GameResourceID.ExtraTimeAndGoal,
-            GameResourceID.PenaltyShootout, 
-            GameResourceID.MatchDecidedMethod, 
-            GameResourceID.WhoAdvancesToNextRound 
-        } 
+            GameResourceID.PenaltyShootout,
+            GameResourceID.MatchDecidedMethod,
+            GameResourceID.WhoAdvancesToNextRound
+        }
         }
         };
 

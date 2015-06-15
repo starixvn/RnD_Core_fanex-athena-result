@@ -4,11 +4,11 @@
     if (typeof define === 'function' && define.amd) {
         define(['crel'], factory);
     } else if (typeof module !== 'undefined' && module.exports) {
-		module.exports = factory(require('../lib/crel'));
+        module.exports = factory(require('../lib/crel'));
     } else {
         root.JsonHuman = factory(root.crel);
     }
-}(this, function (crel) {
+} (this, function (crel) {
     "use strict";
     var toString = Object.prototype.toString,
         ARRAY = 1,
@@ -54,79 +54,79 @@
             type = getType(data);
 
         switch (type) {
-        case BOOL:
-            result = crel("span", {"class": p("type-bool")}, "" + data);
-            break;
-        case STRING:
-            if (data !== "") {
-                result = crel("span", {"class": p("type-string")}, "");
-                result.innerHTML = data
+            case BOOL:
+                result = crel("span", { "class": p("type-bool") }, "" + data);
+                break;
+            case STRING:
+                if (data !== "") {
+                    result = crel("span", { "class": p("type-string") }, "");
+                    result.innerHTML = data
                     .replace(/&/g, '&amp;')
                     .replace(/ /g, "&nbsp;")
                     .replace(/</g, '&lt;')
                     .replace(/>/g, '&gt;')
                     .replace(/[\r\n]/g, '<br/>')
                     .replace(/"/g, '&quot;'); // ")
-            } else {
-                result = crel("span",
-                         {"class": p("type-string") + " " + p("empty")},
+                } else {
+                    result = crel("span",
+                         { "class": p("type-string") + " " + p("empty") },
                          "(Empty Text)");
-            }
-            break;
-        case INT:
-            result = crel("span",
-                         {"class": p("type-int") + " " + p("type-number")},
-                          "" + data);
-            break;
-        case FLOAT:
-            result = crel("span",
-                         {"class": p("type-float") + " " + p("type-number")},
-                         "" + data);
-            break;
-        case OBJECT:
-            result = crel("table", {"class": p("type-object")});
-            for (key in data) {
-                isEmpty = false;
-                keyNode = crel("th",
-                         {"class": p("key") + " " + p("object-key")},
-                         "" + key);
-                valNode = crel("td",
-                         {"class": p("value") + " " + p("object-value")},
-                         _format(data[key], p));
-                result.appendChild(crel("tr", keyNode, valNode));
-            }
-
-            if (isEmpty) {
+                }
+                break;
+            case INT:
                 result = crel("span",
-                         {"class": p("type-object") + " " + p("empty")},
-                         "(Empty Object)");
-            }
-            break;
-        case FUNCTION:
-            result = crel("span", {"class": p("type-function")}, "" + data);
-            break;
-        case ARRAY:
-            if (data.length > 0) {
-                result = crel("table", {"class": p("type-array")});
-                for (key = 0; key < data.length; key += 1) {
+                         { "class": p("type-int") + " " + p("type-number") },
+                          "" + data);
+                break;
+            case FLOAT:
+                result = crel("span",
+                         { "class": p("type-float") + " " + p("type-number") },
+                         "" + data);
+                break;
+            case OBJECT:
+                result = crel("table", { "class": p("type-object") });
+                for (key in data) {
+                    isEmpty = false;
                     keyNode = crel("th",
-                             {"class": p("key") + " " + p("array-key")},
-                             "" + key);
+                         { "class": p("key") + " " + p("object-key") },
+                         "" + key);
                     valNode = crel("td",
-                             {"class": p("value") + " " + p("array-value")},
-                             _format(data[key], p));
+                         { "class": p("value") + " " + p("object-value") },
+                         _format(data[key], p));
                     result.appendChild(crel("tr", keyNode, valNode));
                 }
-            } else {
-                result = crel("span",
-                         {"class": p("type-array") + " " + p("empty")},
+
+                if (isEmpty) {
+                    result = crel("span",
+                         { "class": p("type-object") + " " + p("empty") },
+                         "(Empty Object)");
+                }
+                break;
+            case FUNCTION:
+                result = crel("span", { "class": p("type-function") }, "" + data);
+                break;
+            case ARRAY:
+                if (data.length > 0) {
+                    result = crel("table", { "class": p("type-array") });
+                    for (key = 0; key < data.length; key += 1) {
+                        keyNode = crel("th",
+                             { "class": p("key") + " " + p("array-key") },
+                             "" + key);
+                        valNode = crel("td",
+                             { "class": p("value") + " " + p("array-value") },
+                             _format(data[key], p));
+                        result.appendChild(crel("tr", keyNode, valNode));
+                    }
+                } else {
+                    result = crel("span",
+                         { "class": p("type-array") + " " + p("empty") },
                          "(Empty List)");
-            }
-            break;
-        default:
-            result = crel("span", {"class": p("type-unk")},
+                }
+                break;
+            default:
+                result = crel("span", { "class": p("type-unk") },
                           "" + data);
-            break;
+                break;
         }
 
         return result;

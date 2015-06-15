@@ -8,7 +8,9 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
 {
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using System.IO;
     using System.Linq;
+    using System.Text;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.Extension;
@@ -16,9 +18,8 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     using Fanex.Result.Core.Sportsbook.DTO;
     using Fanex.Result.Core.Sportsbook.Models;
     using RazorEngine;
-    using System.Text;
-    using System.IO;
     using RazorEngine.Templating;
+
     /// <summary>
     /// Parlay view model class.
     /// </summary>
@@ -143,11 +144,9 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
             using (var writer = new StringWriter(result))
             {
                 Engine.Razor.RunCompile(templateContent, sportName, writer, typeof(RazorBinderModel), model, null);
-
             }
 
             return result.ToString();
-
         }
 
         /// <summary>

@@ -6,17 +6,12 @@
 
 namespace Fanex.Result.Core.Base
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
     public class ResultSetting
     {
-         private string _dateTimeFormat = "{0:MM/dd/yyyy<br/>hh:mm:ss tt}";
+        private string _dateTimeFormat = "{0:MM/dd/yyyy<br/>hh:mm:ss tt}";
 
         public string LanguageCode { get; set; }
 
@@ -68,6 +63,5 @@ namespace Fanex.Result.Core.Base
         }
 
         public bool VisibleFreeHeader { get; set; }
-    
     }
 }

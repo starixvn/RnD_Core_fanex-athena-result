@@ -2,8 +2,6 @@
 
 namespace MvcExample.Models.Criteria
 {
-    using System;
-    using System.Diagnostics.CodeAnalysis;
     using Fanex.Data.Repository;
 
     public class GetGameDetailCriteria : CriteriaBase

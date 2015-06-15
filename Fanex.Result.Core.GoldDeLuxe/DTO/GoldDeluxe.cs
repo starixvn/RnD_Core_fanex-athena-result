@@ -4,9 +4,10 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using Fanex.Result.Core.Base.DTO;
 namespace Fanex.Result.Core.GoldDeLuxe.DTO
 {
+    using Fanex.Result.Core.Base.DTO;
+
     /// <summary>
     /// TODO: Update summary.
     /// </summary>

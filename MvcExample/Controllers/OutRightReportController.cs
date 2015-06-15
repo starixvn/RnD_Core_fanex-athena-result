@@ -6,6 +6,8 @@
     using System.Web.Mvc;
     using Fanex.Result.Core;
     using MvcExample.Models;
+    using Fanex.Result.Core.Base;
+    using Fanex.Result.Core.Sportsbook.DTO;
 
     /// <summary>
     /// OutRight result page.
@@ -41,7 +43,7 @@
                 ToDate = date
             });
 
-            htmlResult = ResultEngine.HtmlParser<Fanex.Result.Core.DTO.OutRight>(
+            htmlResult = ResultEngine.HtmlParser<OutRight>(
                     outRightData.ToList(),
                     new ResultSetting
                     {
@@ -69,7 +71,7 @@
                 ToDate = date
             });
 
-            excelResult = ResultEngine.ExcelParser<Fanex.Result.Core.DTO.OutRight>(
+            excelResult = ResultEngine.ExcelParser<OutRight>(
                     outRightData.ToList(),
                     new ResultSetting
                     {

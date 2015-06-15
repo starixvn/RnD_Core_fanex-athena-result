@@ -9,13 +9,13 @@ namespace Fanex.Result.Core.Racing.ExcelModels
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using NPOI.SS.UserModel;
-    using Fanex.Result.Core.Base.ExcelModels;
     using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.ExcelModels;
     using Fanex.Result.Core.Base.Extension;
+    using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Racing.ViewModels;
+    using NPOI.SS.UserModel;
     /// <summary>
     /// Racing excel model class.
     /// </summary>

@@ -9,16 +9,16 @@ namespace Fanex.Result.Core.GoldDeLuxe.Models
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using Fanex.Result.Core.Models;
-    using Fanex.Result.Core.Base.ViewModels;
-    using Fanex.Result.Core.Base.DTO;
     using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.Extension;
-    using Fanex.Result.Core.GoldDeLuxe.ViewModels;
-    using Fanex.Result.Core.GoldDeLuxe.DTO;
     using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.ExcelModels;
     using Fanex.Result.Core.Base.Exception;
+    using Fanex.Result.Core.Base.Extension;
+    using Fanex.Result.Core.Base.ViewModels;
+    using Fanex.Result.Core.GoldDeLuxe.ExcelModels;
+    using Fanex.Result.Core.GoldDeLuxe.ViewModels;
+    using Fanex.Result.Core.Models;
+
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
@@ -50,6 +50,7 @@ namespace Fanex.Result.Core.GoldDeLuxe.Models
                 return instance;
             }
         }
+
         /// <summary>
         /// Get view model.
         /// Used for render html result.
@@ -81,7 +82,19 @@ namespace Fanex.Result.Core.GoldDeLuxe.Models
 
         public override Base.ExcelModels.IExcelModel GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting, LangResources resource)
         {
-            throw new NotImplementedException();
+            if ((int)setting.SportType <= 0)
+            {
+                throw new ObjectNullException("Sport Type");
+            }
+
+            var dtoName = setting.SportType.StringMe();
+
+            var realTemplatePath = setting.ExcelTemplatePath + dtoName + ".xls";
+            var dataMaped = dataList.Select(i => this.GetViewModel(i, setting, resource)).ToList();
+
+            var viewModel = new GoldDeluxeExcel(realTemplatePath, setting, dataMaped, resource);
+
+            return viewModel as IExcelModel;
         }
     }
 }

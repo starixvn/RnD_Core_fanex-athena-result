@@ -199,6 +199,7 @@
     <Compile Include="Controllers\DocsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NormalReportController.cs" />
+    <Compile Include="Controllers\OutRightReportController.cs" />
     <Compile Include="Controllers\PopUpReportController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

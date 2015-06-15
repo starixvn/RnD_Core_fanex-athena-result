@@ -37,6 +37,14 @@
       <HintPath>..\packages\Fanex.File.1.0.0\lib\net40\IBCFile.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.0.6\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI, Version=2.0.6.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.0.6\lib\net40\NPOI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="RemotingRef, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\RemotingRef.1.0.0.2\lib\net40\RemotingRef.dll</HintPath>
       <Private>True</Private>
@@ -56,6 +64,7 @@
   <ItemGroup>
     <Compile Include="DataDomain\GoldDeluxeBettype.cs" />
     <Compile Include="DTO\GoldDeluxe.cs" />
+    <Compile Include="ExcelModels\GoldDeluxeExcel.cs" />
     <Compile Include="Models\Builder.cs" />
     <Compile Include="Models\Template.cs" />
     <Compile Include="Models\ViewModelConcreteFactory.cs" />

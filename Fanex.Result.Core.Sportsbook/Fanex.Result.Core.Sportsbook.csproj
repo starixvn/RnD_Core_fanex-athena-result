@@ -37,6 +37,14 @@
       <HintPath>..\packages\Fanex.File.1.0.0\lib\net40\IBCFile.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.0.6\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI, Version=2.0.6.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.0.6\lib\net40\NPOI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="RazorEngine, Version=3.7.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
       <HintPath>..\packages\RazorEngine.3.7.0\lib\net40\RazorEngine.dll</HintPath>
       <Private>True</Private>
@@ -69,6 +77,16 @@
     <Compile Include="DTO\OutRight.cs" />
     <Compile Include="DTO\Parlay.cs" />
     <Compile Include="DTO\Sportsbook.cs" />
+    <Compile Include="ExcelModels\BadmintonExcel.cs" />
+    <Compile Include="ExcelModels\BaseBallExcel.cs" />
+    <Compile Include="ExcelModels\BasketballExcel.cs" />
+    <Compile Include="ExcelModels\BilliardExcel.cs" />
+    <Compile Include="ExcelModels\HockeyExcel.cs" />
+    <Compile Include="ExcelModels\OtherExcel.cs" />
+    <Compile Include="ExcelModels\OutRightExcel.cs" />
+    <Compile Include="ExcelModels\SoccerExcel.cs" />
+    <Compile Include="ExcelModels\TennisExcel.cs" />
+    <Compile Include="ExcelModels\VSTennisExcel.cs" />
     <Compile Include="Models\Builder.cs" />
     <Compile Include="Models\Template.cs" />
     <Compile Include="Models\ViewModelConcreteFactory.cs" />

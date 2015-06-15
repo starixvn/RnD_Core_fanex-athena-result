@@ -30,6 +30,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.MetricGam
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Products", "Products", "{35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.UI", "Fanex.Result.UI\Fanex.Result.UI.csproj", "{FA14D5CB-B702-4D24-A938-A091E3032D06}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -76,6 +78,10 @@ Global
 		{76CD2383-849A-4291-AD55-378F6C26836C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{76CD2383-849A-4291-AD55-378F6C26836C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{76CD2383-849A-4291-AD55-378F6C26836C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA14D5CB-B702-4D24-A938-A091E3032D06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA14D5CB-B702-4D24-A938-A091E3032D06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA14D5CB-B702-4D24-A938-A091E3032D06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA14D5CB-B702-4D24-A938-A091E3032D06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

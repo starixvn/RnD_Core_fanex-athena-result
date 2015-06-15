@@ -16,7 +16,6 @@
                 <td class="sporttype">
                     <strong><span class="bl-sport-type">@firstItem.SportName &nbsp;- </span></strong>
                     <span class="bl-league-name">@firstItem.LeagueName</span>
-                   
                 </td>
             </tr>
             foreach (ParlayViewModel item in group.Data)
@@ -24,9 +23,9 @@
             <tr>
                 <td>
                     @{
-                var sportType = (Fanex.Result.Core.SportType)item.SportId;
+                var sportType = (Fanex.Result.Core.Base.SportType)item.SportId;
 
-                var bindModle = new Fanex.Result.Core.Models.RazorBinderModel
+                var bindModle = new Fanex.Result.Core.Base.ViewModels.RazorBinderModel
                 {
                     Resource = lang,
                     IsPopUp = true,
@@ -53,8 +52,6 @@
                         <br />
                     }
                     <!--Render both match and detail game-->
-                    
-                           
                     @foreach (var bothMatchAndGame in item.BothMatchAndDetailItemView)
                     {
                         var bothMatchAnddetailData = new List<GroupData>()
@@ -65,7 +62,7 @@
                                         Data = new List<IResultViewModel>(){bothMatchAndGame}
                                     }
                                 };
-                        var bothMatchAnddetailBindModel = new Fanex.Result.Core.Models.RazorBinderModel
+                        var bothMatchAnddetailBindModel = new Fanex.Result.Core.Base.ViewModels.RazorBinderModel
                         {
                             Resource = lang,
                             IsPopUp = true,
@@ -79,9 +76,6 @@
                         @Raw(item.Render(bothMatchAnddetailBindModel))
                         <br />
                     }
-                    
-                   
-                   
                     @foreach (var gameItemView in item.GameDetailItemView)
                     {
                         var detailData = new List<GroupData>()
@@ -92,7 +86,7 @@
                                         Data = new List<IResultViewModel>(){gameItemView}
                                     }
                                 };
-                        var detailBindModel = new Fanex.Result.Core.Models.RazorBinderModel
+                        var detailBindModel = new Fanex.Result.Core.Base.ViewModels.RazorBinderModel
                         {
                             Resource = lang,
                             IsPopUp = true,
@@ -106,8 +100,6 @@
                         <br />
 
                     }
-
-                    
                 </td>
             </tr>
             }

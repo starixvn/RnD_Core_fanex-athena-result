@@ -17,6 +17,7 @@ namespace Fanex.Result.Core.Racing.Models
     using Fanex.Result.Core.Base.Extension;
     using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.Exception;
+    using Fanex.Result.Core.Base.ExcelModels;
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
@@ -91,7 +92,23 @@ namespace Fanex.Result.Core.Racing.Models
 
         public override Base.ExcelModels.IExcelModel GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting, LangResources resource)
         {
-            throw new NotImplementedException();
+            if ((int)setting.SportType <= 0)
+            {
+                throw new ObjectNullException("Sport Type");
+            }
+
+            var dtoName = setting.SportType.StringMe();
+
+            var realTemplatePath = setting.ExcelTemplatePath + dtoName + ".xls";
+            var dataMaped = dataList.Select(i => this.GetViewModel(i, setting, resource)).ToList();
+            var excelViewModel = Type.GetType(EXCELNAMESPACE + dtoName + EXCELEXTNAME);
+            if (excelViewModel == null)
+            {
+                throw new ObjectNullException(dtoName);
+            }
+
+            return (IExcelModel)Activator.CreateInstance(excelViewModel, realTemplatePath, setting, dataMaped, resource);
+
         }
     }
 }

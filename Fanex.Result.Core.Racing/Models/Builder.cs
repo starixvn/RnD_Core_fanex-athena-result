@@ -33,11 +33,13 @@ namespace Fanex.Result.Core.Racing.Models
         }
 
 
-
         public System.IO.MemoryStream ExcelBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
         {
-            throw new NotImplementedException();
+            var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
+            var excelParser = ViewModelConcreteFactory.Instance.GetExcelViewModel<T>(dataList, setting, lang);
+            return excelParser.Export();
         }
+
 
 
         public string PopUpHtmlBuilder<T>(IList<T> dataList, Base.ResultSetting setting)

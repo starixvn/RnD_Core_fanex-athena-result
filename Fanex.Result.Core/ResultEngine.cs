@@ -16,11 +16,53 @@ namespace Fanex.Result.Core
     using System;
     using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Base.Exception;
+    using Fanex.Result.Core.Base.Extension;
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
     public static class ResultEngine
     {
+
+        /// <summary>
+        /// Render detail result by sport.
+        /// </summary>
+        /// <param name="data">The SPORTSBOOK data.</param>
+        /// <param name="setting">The result setting.</param>
+        /// <returns>The html result.</returns>
+        public static string HtmlGameDetailParser(dynamic data, ResultSetting setting)
+        {
+            if (setting.SportType != SportType.Tennis && setting.SportType != SportType.Soccer)
+            {
+                throw new ObjectUnSupportedException(string.Format(CoreResourceConfig.UNSUPPORTSPORTTYPEARGUEMENTMES, setting.SportType.StringMe()));
+            }
+
+            if (data == null)
+            {
+                throw new ObjectNullException("The data is null");
+            }
+
+            if (data.GameDetails.Count == 0 && setting.SportType == SportType.Tennis)
+            {
+                throw new ObjectNullException("Game data is null");
+            }
+
+            if (string.IsNullOrEmpty(setting.LanguageCode))
+            {
+                setting.LanguageCode = CoreResourceConfig.ENGLISHLANGCODE;
+            }
+            else if (!Validate.Instance.ValidateResource(setting.LanguageCode))
+            {
+                throw new ObjectUnSupportedException(string.Format(CoreResourceConfig.LANGUAGEARGUEMENTMES, setting.LanguageCode));
+            }
+
+            if (string.IsNullOrEmpty(setting.ResourcePath))
+            {
+                setting.ResourcePath = System.AppDomain.CurrentDomain.BaseDirectory + CoreResourceConfig.RESOURCEPATH;
+            }
+
+            var builder = new Sportsbook.Models.Builder();
+            return builder.HtmlGameDetailBuilder(data, setting);
+        }
 
         /// <summary>
         /// Create excel file.
@@ -73,11 +115,6 @@ namespace Fanex.Result.Core
             var dtoName = typeof(T).Name;
 
 
-            if (!Validate.Instance.ValidateNormal(dtoName, setting.SportType))
-            {
-                throw new ObjectUnSupportedException(string.Format(CoreResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
-            }
-
             if (setting.IsOutRight && !setting.IsPopUp)
             {
                 return HtmlOutRightParser<T>(dataList, setting, dtoName);
@@ -91,6 +128,12 @@ namespace Fanex.Result.Core
             if (setting.IsPopUp)
             {
                 return HtmlPopUpParser<T>(dataList, setting, dtoName);
+            }
+
+
+            if (!Validate.Instance.ValidateNormal(dtoName, setting.SportType))
+            {
+                throw new ObjectUnSupportedException(string.Format(CoreResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
             }
 
             var builder = GetBuilder(dtoName);
@@ -117,7 +160,7 @@ namespace Fanex.Result.Core
             var builder = GetBuilder(dtoName);
             return
                 Helper.RemoveWhiteSpace(
-                builder.PopUpHtmlBuilder(dataList, setting));
+                builder.HtmlBuilder(dataList, setting));
         }
 
         private static string HtmlParlayParser<T>(IList<T> dataList, ResultSetting setting, string dtoName)

@@ -16,7 +16,9 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     using Fanex.Result.Core.Sportsbook.DTO;
     using Fanex.Result.Core.Sportsbook.Models;
     using RazorEngine;
-
+    using System.Text;
+    using System.IO;
+    using RazorEngine.Templating;
     /// <summary>
     /// Parlay view model class.
     /// </summary>
@@ -130,14 +132,22 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
             }
 
             var sportType = (SportType)this._parlay.SportId;
-            var template = Template.Instance.GetRazorTemplate(sportType.StringMe());
-            if (string.IsNullOrEmpty(template))
+            var sportName = sportType.StringMe();
+            var templateContent = Template.Instance.GetRazorTemplate(sportName);
+            if (string.IsNullOrEmpty(templateContent))
             {
                 return string.Empty;
             }
 
-            Razor.GetTemplate(template, sportType.StringMe());
-            return Razor.Run(sportType.StringMe(), model);
+            var result = new StringBuilder();
+            using (var writer = new StringWriter(result))
+            {
+                Engine.Razor.RunCompile(templateContent, sportName, writer, typeof(RazorBinderModel), model, null);
+
+            }
+
+            return result.ToString();
+
         }
 
         /// <summary>

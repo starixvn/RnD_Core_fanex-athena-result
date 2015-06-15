@@ -18,6 +18,8 @@ namespace Fanex.Result.Core.NumberGame.Models
     using Fanex.Result.Core.NumberGame.ViewModels;
     using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.Exception;
+    using Fanex.Result.Core.NumberGame.ExcelModels;
+    using Fanex.Result.Core.Base.ExcelModels;
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
@@ -80,7 +82,19 @@ namespace Fanex.Result.Core.NumberGame.Models
 
         public override Base.ExcelModels.IExcelModel GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting, LangResources resource)
         {
-            throw new NotImplementedException();
+            if ((int)setting.SportType <= 0)
+            {
+                throw new ObjectNullException("Sport Type");
+            }
+
+            var dtoName = setting.SportType.StringMe();
+
+            var realTemplatePath = setting.ExcelTemplatePath + dtoName + ".xls";
+            var dataMaped = dataList.Select(i => this.GetViewModel(i, setting, resource)).ToList();
+
+            var viewModel = new NumberGameExcel(realTemplatePath, setting, dataMaped, resource);
+
+            return viewModel as IExcelModel;
         }
     }
 }

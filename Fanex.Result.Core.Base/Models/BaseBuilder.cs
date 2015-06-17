@@ -21,6 +21,7 @@ namespace Fanex.Result.Core.Base.Models
     /// </summary>
     public class BaseBuilder
     {
+
         protected virtual RazorBinderModel GenerateViewModelData<T>(IList<T> dataList, Base.ResultSetting setting, ViewModelFactory viewModelFactory)
         {
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);

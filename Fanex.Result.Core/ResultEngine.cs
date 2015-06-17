@@ -108,7 +108,7 @@ namespace Fanex.Result.Core
             ReCheckSetting<T>(dataList, setting);
             var dtoName = typeof(T).Name;
 
-            if (setting.IsOutRight && !setting.IsPopUp)
+            if (setting.IsOutRight)
             {
                 return HtmlOutRightParser<T>(dataList, setting, dtoName);
             }
@@ -118,11 +118,6 @@ namespace Fanex.Result.Core
                 return HtmlParlayParser<T>(dataList, setting, dtoName);
             }
 
-            if (setting.IsPopUp)
-            {
-                return HtmlPopUpParser<T>(dataList, setting, dtoName);
-            }
-
             if (!Validate.Instance.ValidateNormal(dtoName, setting.SportType))
             {
                 throw new ObjectUnSupportedException(string.Format(CoreResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
@@ -130,27 +125,6 @@ namespace Fanex.Result.Core
 
             var builder = GetBuilder(dtoName);
 
-            return
-                Helper.RemoveWhiteSpace(
-                builder.HtmlBuilder(dataList, setting));
-        }
-
-        /// <summary>
-        /// Render html for popup page.
-        /// </summary>
-        /// <typeparam name="T">The DTO object (FANEX.Result.Core.DTO).</typeparam>
-        /// <param name="dataList">The DTO list.</param>
-        /// <param name="setting">The result setting.</param>
-        /// <param name="dtoName">The DTO name.</param>
-        /// <returns>The html string.</returns>
-        private static string HtmlPopUpParser<T>(IList<T> dataList, ResultSetting setting, string dtoName)
-        {
-            if (!Validate.Instance.ValidateNormal(dtoName, setting.SportType))
-            {
-                throw new ObjectNullException(string.Format(CoreResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
-            }
-
-            var builder = GetBuilder(dtoName);
             return
                 Helper.RemoveWhiteSpace(
                 builder.HtmlBuilder(dataList, setting));

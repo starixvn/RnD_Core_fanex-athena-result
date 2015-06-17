@@ -16,8 +16,6 @@ namespace Fanex.Result.Core.Base.Models
     {
         string HtmlBuilder<T>(IList<T> dataList, ResultSetting setting);
 
-        string PopUpHtmlBuilder<T>(IList<T> dataList, ResultSetting setting);
-
         MemoryStream ExcelBuilder<T>(IList<T> dataList, ResultSetting setting);
 
         string OutRightHtmlBuilder<T>(IList<T> dataList, ResultSetting setting);

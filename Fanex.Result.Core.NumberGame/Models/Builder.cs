@@ -19,7 +19,8 @@ namespace Fanex.Result.Core.NumberGame.Models
     {
         public string HtmlBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
         {
-            return GenerateHtmlContent(dataList, setting);
+            var model = GenerateViewModelData(dataList, setting, ViewModelConcreteFactory.Instance);
+            return HtmlRender(Template.Instance, setting.SportType.StringMe(), model);
         }
 
         public System.IO.MemoryStream ExcelBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
@@ -27,11 +28,6 @@ namespace Fanex.Result.Core.NumberGame.Models
             var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
             var excelParser = ViewModelConcreteFactory.Instance.GetExcelViewModel<T>(dataList, setting, lang);
             return excelParser.Export();
-        }
-
-        public string PopUpHtmlBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
-        {
-            return GenerateHtmlContent(dataList, setting);
         }
 
         public string OutRightHtmlBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
@@ -52,12 +48,6 @@ namespace Fanex.Result.Core.NumberGame.Models
         public System.IO.MemoryStream OutRightExcelBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
         {
             throw new NotImplementedException();
-        }
-
-        private string GenerateHtmlContent<T>(IList<T> dataList, Base.ResultSetting setting)
-        {
-            var model = GenerateViewModelData(dataList, setting, ViewModelConcreteFactory.Instance);
-            return HtmlRender(Template.Instance, setting.SportType.StringMe(), model);
         }
     }
 }

@@ -56,6 +56,10 @@
       <Project>{C67A0F1F-9F62-4E75-A982-0894FDD79008}</Project>
       <Name>Fanex.Result.Core.LiveCasino</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Fanex.Result.Core.MicroGaming\Fanex.Result.Core.MicroGaming.csproj">
+      <Project>{083CA0EF-F420-4A62-BE5B-4145AFFEDEC1}</Project>
+      <Name>Fanex.Result.Core.MicroGaming</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.NumberGame\Fanex.Result.Core.NumberGame.csproj">
       <Project>{CEBAE710-7919-4FC6-8978-862A3096972C}</Project>
       <Name>Fanex.Result.Core.NumberGame</Name>

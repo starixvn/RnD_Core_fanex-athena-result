@@ -61,7 +61,7 @@ namespace Fanex.Result.Core
                 setting.ResourcePath = System.AppDomain.CurrentDomain.BaseDirectory + CoreResourceConfig.RESOURCEPATH;
             }
 
-            var builder = new Sportsbook.Models.Builder();
+            var builder = GetBuilder(DTOType.SPORTSBOOK);
             return builder.HtmlGameDetailBuilder(data, setting);
         }
 

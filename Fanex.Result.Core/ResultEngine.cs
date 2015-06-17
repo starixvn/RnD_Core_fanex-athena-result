@@ -5,8 +5,10 @@
 // -----------------------------------------------------------------------
 namespace Fanex.Result.Core
 {
+    using System;
     using System.Collections.Generic;
     using System.IO;
+    using System.Linq;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.Exception;
@@ -19,6 +21,9 @@ namespace Fanex.Result.Core
     /// </summary>
     public static class ResultEngine
     {
+        private const string PLUGINPATTERN = "Fanex.Result.Core.{0}";
+        private const string BUILDERNAMESPACEPATTERN = "Fanex.Result.Core.{0}.Models.Builder";
+
         /// <summary>
         /// Render detail result by sport.
         /// </summary>
@@ -189,21 +194,25 @@ namespace Fanex.Result.Core
 
         private static IBuilder GetBuilder(string productType)
         {
-            switch (productType)
+            var assemblyList = AppDomain.CurrentDomain.GetAssemblies();
+
+            var builderName = string.Format(BUILDERNAMESPACEPATTERN, productType);
+            var pluginName = string.Format(PLUGINPATTERN, productType);
+            var plugin = assemblyList.Where(i => i.FullName.IndexOf(pluginName, StringComparison.OrdinalIgnoreCase) > -1)
+                .FirstOrDefault();
+            if (plugin == null)
             {
-                case DTOType.SPORTSBOOK:
-                    return new Sportsbook.Models.Builder();
-                case DTOType.GOLDDELUXE:
-                    return new GoldDeLuxe.Models.Builder();
-                case DTOType.NUMBERGAME:
-                    return new NumberGame.Models.Builder();
-                case DTOType.LIVECASINO:
-                    return new LiveCasino.Models.Builder();
-                case DTOType.RACING:
-                    return new Racing.Models.Builder();
-                default:
-                    return new Sportsbook.Models.Builder();
+                throw new ObjectUnSupportedException(productType);
             }
+
+            var typeBuilder = plugin.GetType(builderName);
+
+            if (typeBuilder == null)
+            {
+                throw new ObjectNullException(productType);
+            }
+
+            return (IBuilder)Activator.CreateInstance(typeBuilder);
         }
     }
 }

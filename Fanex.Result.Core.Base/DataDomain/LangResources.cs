@@ -236,7 +236,7 @@ public sealed class LangResources
               
 			  				 public string Player  { get ; set; }
               
-			  				 public string vs  { get ; set; }
+			  				 public string VS  { get ; set; }
               
 			           		 }
 }

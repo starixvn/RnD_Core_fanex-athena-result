@@ -12,13 +12,13 @@ namespace MvcExample.Models
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using Fanex.Data;
+    using Fanex.Result.Core.GoldDeluxe.DTO;
     using Fanex.Result.Core.LiveCasino.DTO;
     using Fanex.Result.Core.NumberGame.DTO;
     using Fanex.Result.Core.Racing.DTO;
     using Fanex.Result.Core.Sportsbook.DTO;
     using MvcExample.Models.Criteria;
     using MvcExample.Models.DTO;
-    using Fanex.Result.Core.GoldDeluxe.DTO;
 
     /// <summary>
     /// The result service.

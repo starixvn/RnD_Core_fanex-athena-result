@@ -37,6 +37,7 @@ namespace Fanex.Result.Core.MetricGaming.ViewModels
                 return _metricGaming.LeagueId;
             }
         }
+
         public string HomeTeam
         {
             get
@@ -44,6 +45,7 @@ namespace Fanex.Result.Core.MetricGaming.ViewModels
                 return RefData.GetTeamName(_metricGaming.HomeId, GetSupportedLanguage, string.Empty);
             }
         }
+
         public string AwatTeam
         {
             get
@@ -51,6 +53,7 @@ namespace Fanex.Result.Core.MetricGaming.ViewModels
                 return RefData.GetTeamName(_metricGaming.AwayId, GetSupportedLanguage, string.Empty);
             }
         }
+
         public int GameId
         {
             get

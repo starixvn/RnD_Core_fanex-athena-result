@@ -14,6 +14,7 @@ namespace Fanex.Result.Core.MetricGaming.DTO
     public class MetricGaming : IProductResult
     {
         public int LeagueId { get; set; }
+
         public int MatchId { get; set; }
 
         public int GameId { get; set; }
@@ -25,7 +26,9 @@ namespace Fanex.Result.Core.MetricGaming.DTO
         public string GameResult { get; set; }
 
         public string OtherInfo { get; set; }
+
         public string HomeId { get; set; }
+
         public string AwayId { get; set; }
     }
 }

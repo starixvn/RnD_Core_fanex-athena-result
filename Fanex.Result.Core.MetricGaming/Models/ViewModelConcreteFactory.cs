@@ -8,23 +8,19 @@ namespace Fanex.Result.Core.MetricGaming.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.ExcelModels;
     using Fanex.Result.Core.Base.Exception;
-    using Fanex.Result.Core.Base.Extension;
     using Fanex.Result.Core.Base.ViewModels;
-    using Fanex.Result.Core.Models;
-    using Fanex.Result.Core.MetricGaming.DTO;
     using Fanex.Result.Core.MetricGaming.ViewModels;
+    using Fanex.Result.Core.Models;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
     internal sealed class ViewModelConcreteFactory : ViewModelFactory
     {
-
         private static readonly object SynceObject = new object();
 
         private static ViewModelFactory instance;
@@ -61,11 +57,9 @@ namespace Fanex.Result.Core.MetricGaming.Models
 
             var item = obj as DTO.MetricGaming;
             var viewModel = new SoccerViewModel(item, setting, resource);
-          
+
             return (IResultViewModel)viewModel;
         }
-
-
 
         public override IResultViewModel GetOutRightViewModel(object resultData, ResultSetting setting, LangResources resource)
         {

@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="CodeAnalysis\CodeAnalysisConfiguration.xml" />
     <Content Include="runopencover.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

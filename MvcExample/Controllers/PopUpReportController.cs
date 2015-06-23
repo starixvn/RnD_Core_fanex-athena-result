@@ -5,11 +5,11 @@
     using System.Web.Mvc;
     using Fanex.Result.Core;
     using Fanex.Result.Core.Base;
+    using Fanex.Result.Core.MicroGaming;
+    using Fanex.Result.Core.MicroGaming.DTO;
     using MvcExample.Models;
     using MvcExample.Models.Criteria;
     using MvcExample.Models.MetaModel;
-    using Fanex.Result.Core.MicroGaming;
-    using Fanex.Result.Core.MicroGaming.DTO;
 
     /// <summary>
     /// POPUP result page.
@@ -151,9 +151,8 @@
                 case SportType.MicroGaming:
                     return ParserService.Instance.Parser(new MicroGaming
                     {
-                        NoInformationMessage="No information"
+                        NoInformationMessage = "No information"
                     });
-                   
 
                 case SportType.NumberGame:
                     var dataNg = _resultService.GetNumberGamePopupResult(new GetNumberGamePopupResultCriteria { MatchID = metalModel.MatchId });

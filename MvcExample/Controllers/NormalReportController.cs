@@ -7,13 +7,13 @@
     using System.Web.Mvc;
     using Fanex.Result.Core;
     using Fanex.Result.Core.Base;
+    using Fanex.Result.Core.GoldDeluxe.DTO;
     using Fanex.Result.Core.LiveCasino.DTO;
     using Fanex.Result.Core.NumberGame.DTO;
     using Fanex.Result.Core.Racing.DTO;
     using Fanex.Result.Core.Sportsbook.DTO;
     using MvcExample.Models;
     using MvcExample.Models.Criteria;
-    using Fanex.Result.Core.GoldDeluxe.DTO;
 
     /// <summary>
     /// Normal result page.

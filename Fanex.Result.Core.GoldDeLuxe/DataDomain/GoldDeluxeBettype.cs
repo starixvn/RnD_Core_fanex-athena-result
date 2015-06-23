@@ -4,7 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Fanex.Result.Core.GoldDeLuxe.DataDomain
+namespace Fanex.Result.Core.GoldDeluxe.DataDomain
 {
     /// <summary>
     /// TODO: Update summary.

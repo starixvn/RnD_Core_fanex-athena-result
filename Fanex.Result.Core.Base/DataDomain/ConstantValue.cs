@@ -54,5 +54,7 @@ namespace Fanex.Result.Core.Base.DataDomain
         public const string None = "None";
 
         public const string Yes = "Y";
+
+        public const string RefIDSuperLive = "SuperLive";
     }
 }

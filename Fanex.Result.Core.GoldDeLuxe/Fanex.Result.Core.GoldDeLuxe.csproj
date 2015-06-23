@@ -8,8 +8,8 @@
     <ProjectGuid>{DBD59404-19D9-422C-83F1-8F20E02545ED}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Fanex.Result.Core.GoldDeLuxe</RootNamespace>
-    <AssemblyName>Fanex.Result.Core.GoldDeLuxe</AssemblyName>
+    <RootNamespace>Fanex.Result.Core.GoldDeluxe</RootNamespace>
+    <AssemblyName>Fanex.Result.Core.GoldDeluxe</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>

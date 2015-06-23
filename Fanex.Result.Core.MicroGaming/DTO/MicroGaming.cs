@@ -19,9 +19,6 @@ namespace Fanex.Result.Core.MicroGaming.DTO
 
         public int GameId { get; set; }
 
-        [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Reviewed!")]
-        public string APIUrl { get; set; }
-
         public string NoInformationMessage { get; set; }
     }
 }

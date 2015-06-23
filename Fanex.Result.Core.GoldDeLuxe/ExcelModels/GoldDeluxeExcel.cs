@@ -4,7 +4,7 @@
 // </copyright>
 // ---------------------------------------------------------------------
 
-namespace Fanex.Result.Core.GoldDeLuxe.ExcelModels
+namespace Fanex.Result.Core.GoldDeluxe.ExcelModels
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -13,7 +13,7 @@ namespace Fanex.Result.Core.GoldDeLuxe.ExcelModels
     using Fanex.Result.Core.Base.ExcelModels;
     using Fanex.Result.Core.Base.Extension;
     using Fanex.Result.Core.Base.ViewModels;
-    using Fanex.Result.Core.GoldDeLuxe.ViewModels;
+    using Fanex.Result.Core.GoldDeluxe.ViewModels;
     using NPOI.SS.UserModel;
 
     /// <summary>

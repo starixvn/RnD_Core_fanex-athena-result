@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="Service.cs" company="">
+// <copyright file="ParserService.cs" company="">
 // TODO: Update copyright text.
 // </copyright>
 // -----------------------------------------------------------------------
@@ -8,24 +8,58 @@ namespace Fanex.Result.Core.MicroGaming
 {
     using System;
     using System.Collections.Generic;
+    using System.Configuration;
     using System.IO;
     using System.Net.Http;
     using System.Xml.Serialization;
+    using Fanex.Result.Core.MicroGaming.Exceptions;
     using Fanex.Result.Core.MicroGaming.ViewModels;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public static class Service
+    public class ParserService : IParserService
     {
-        private const string IFRAMERESULT = "<div class=\"iframe-result\"><iframe src=\"{0}\" ></iframe></div>";
-        private const string NORESULT = "<div class=\"iframe-result\">{0}</div>";
+        private const string IFRAMERESULT = "<div class=\"iframe-rs-wrap\"><iframe class=\"iframe-rs\" src=\"{0}\" ></iframe></div>";
+        private const string NORESULT = "<div class=\"no-info-rs\">{0}</div>";
+        /*singleton*/
+        private static readonly object SynceObject = new object();
+        private static IParserService instance;
 
-        public static string Parser(DTO.MicroGaming param)
+        private ParserService()
+        {
+        }
+
+        public static IParserService Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    lock (SynceObject)
+                    {
+                        if (instance == null)
+                        {
+                            instance = new ParserService();
+                        }
+                    }
+                }
+
+                return instance;
+            }
+        }
+
+        public string Parser(DTO.MicroGaming param)
         {
             try
             {
                 var result = GetViewResult(GetXmlResult(param));
+
+                if (result.ReturnCode == 1)
+                {
+                    throw new MicroGamingException("Get an Error from API result:" + result.ReturnMessage);
+                }
+
                 return result.ReturnCode == 0 ? string.Format(IFRAMERESULT, result.ReturnMessage) :
                     string.Format(NORESULT, param.NoInformationMessage);
             }
@@ -54,11 +88,11 @@ namespace Fanex.Result.Core.MicroGaming
                 new KeyValuePair<string, string>("GameID", param.GameId.ToString()),
             };
             var content = new FormUrlEncodedContent(nameValues);
-
+            var api = ConfigurationManager.AppSettings["MicroGamingResultAPI"];
             using (var client = new HttpClient())
             {
                 return client
-                    .PostAsync(param.APIUrl, content)
+                    .PostAsync(api, content)
                     .Result
                     .Content
                     .ReadAsStringAsync()

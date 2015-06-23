@@ -142,7 +142,7 @@ namespace Fanex.Result.Core
                 throw new ObjectNullException(string.Format(CoreResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
             }
 
-            var builder = GetBuilder(dtoName);
+            var builder = GetBuilder(DTOType.SPORTSBOOK);
             return Helper.RemoveWhiteSpace(
                 builder.PopUpParalyBuilder<T>(dataList, setting));
         }
@@ -154,7 +154,7 @@ namespace Fanex.Result.Core
                 throw new ObjectNullException(string.Format(CoreResourceConfig.ARGUEMENTMESOUTRIGHT, dtoName));
             }
 
-            var builder = GetBuilder(dtoName);
+            var builder = GetBuilder(DTOType.SPORTSBOOK);
             return Helper.RemoveWhiteSpace(
                 builder.OutRightHtmlBuilder<T>(dataList, setting));
         }

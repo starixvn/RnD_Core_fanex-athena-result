@@ -4,7 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Fanex.Result.Core.GoldDeLuxe.Models
+namespace Fanex.Result.Core.GoldDeluxe.Models
 {
     using System;
     using System.Collections.Generic;
@@ -15,8 +15,8 @@ namespace Fanex.Result.Core.GoldDeLuxe.Models
     using Fanex.Result.Core.Base.Exception;
     using Fanex.Result.Core.Base.Extension;
     using Fanex.Result.Core.Base.ViewModels;
-    using Fanex.Result.Core.GoldDeLuxe.ExcelModels;
-    using Fanex.Result.Core.GoldDeLuxe.ViewModels;
+    using Fanex.Result.Core.GoldDeluxe.ExcelModels;
+    using Fanex.Result.Core.GoldDeluxe.ViewModels;
     using Fanex.Result.Core.Models;
 
     /// <summary>

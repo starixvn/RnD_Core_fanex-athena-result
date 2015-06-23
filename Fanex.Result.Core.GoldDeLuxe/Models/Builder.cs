@@ -4,7 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Fanex.Result.Core.GoldDeLuxe.Models
+namespace Fanex.Result.Core.GoldDeluxe.Models
 {
     using System;
     using System.Collections.Generic;

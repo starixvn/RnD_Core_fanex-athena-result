@@ -16,7 +16,7 @@ var popupReport = (function () {
                 }
             }
             options += "<option value=\"255\">GoldDeluxe</option>";
-
+            options += "<option value=\"256\">MicroGaming</option>";
             $("#sport").html(options);
             invokeLoadingMsg(false);
         });

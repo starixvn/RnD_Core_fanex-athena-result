@@ -4,7 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Fanex.Result.Core.GoldDeLuxe.DTO
+namespace Fanex.Result.Core.GoldDeluxe.DTO
 {
     using Fanex.Result.Core.Base.DTO;
 

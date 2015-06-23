@@ -4,16 +4,16 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Fanex.Result.Core.GoldDeLuxe.ViewModels
+namespace Fanex.Result.Core.GoldDeluxe.ViewModels
 {
     using System;
     using System.Globalization;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.ViewModels;
-    using Fanex.Result.Core.GoldDeLuxe.DataDomain;
-    using Fanex.Result.Core.GoldDeLuxe.DTO;
-    using Fanex.Result.Core.GoldDeLuxe.Utilities;
+    using Fanex.Result.Core.GoldDeluxe.DataDomain;
+    using Fanex.Result.Core.GoldDeluxe.DTO;
+    using Fanex.Result.Core.GoldDeluxe.Utilities;
     using RemotingRef;
 
     /// <summary>

@@ -4,7 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Fanex.Result.Core.GoldDeLuxe.Models
+namespace Fanex.Result.Core.GoldDeluxe.Models
 {
     using System;
     using System.IO;
@@ -56,7 +56,7 @@ namespace Fanex.Result.Core.GoldDeLuxe.Models
             }
 
             using (var stream = Assembly.GetExecutingAssembly()
-           .GetManifestResourceStream("Fanex.Result.Core.GoldDeLuxe.Views." + templateName + ".cshtml"))
+           .GetManifestResourceStream("Fanex.Result.Core.GoldDeluxe.Views." + templateName + ".cshtml"))
             {
                 if (stream == null)
                 {

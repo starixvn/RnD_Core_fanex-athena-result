@@ -90,7 +90,7 @@ namespace Fanex.Result.Core.Base.Models
                 case SportType.GoldDeluxe:
                     return dtoName == DTOType.GOLDDELUXE;
                 default:
-                    return dtoName == DTOType.SPORTSBOOK;
+                    return dtoName == DTOType.SPORTSBOOK || dtoName == DTOType.METRICGAMING;
             }
         }
     }

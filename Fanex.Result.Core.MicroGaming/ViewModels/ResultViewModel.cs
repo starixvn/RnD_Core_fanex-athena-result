@@ -16,7 +16,7 @@ namespace Fanex.Result.Core.MicroGaming.ViewModels
     /// TODO: Update summary.
     /// </summary>
     [XmlRoot("URL"), Serializable]
-    internal class ResultViewModel
+    public class ResultViewModel
     {
         [XmlElement("ReturnCode")]
         public int ReturnCode { get; set; }

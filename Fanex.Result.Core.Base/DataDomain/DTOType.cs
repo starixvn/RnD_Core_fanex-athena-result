@@ -24,5 +24,6 @@ namespace Fanex.Result.Core.Base.DataDomain
         public const string PARLAY = "Parlay";
         public const string GOLDDELUXE = "GoldDeluxe";
         public const string MICROGAMING = "MicroGaming";
+        public const string METRICGAMING = "MetricGaming";
     }
 }

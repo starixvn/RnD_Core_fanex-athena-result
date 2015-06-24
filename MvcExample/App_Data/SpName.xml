@@ -20,6 +20,17 @@
         </Setting>
         <Setting Key="Lrf_BetList_SelMatchResult" SpName="Lrf_BetList_SelMatchResult_xtest" DbName="DBEXT.bodb02.bodbLicenseeNet">
         </Setting>-->
+        <Setting Key="All_BetList_MatchResultDetail3rdSel" SpName="All_BetList_MatchResultDetail3rdSel" DbName="DBACC.bodb02.BODBDownlineNet">
+            <Mapping ObjectProperty="LeagueId" DataField="Leagueid" />
+            <Mapping ObjectProperty="MatchId" DataField="MatchID" />
+            <Mapping ObjectProperty="GameId" DataField="GameID" />
+            <Mapping ObjectProperty="BetTypeTime" DataField="Custom1" />
+            <Mapping ObjectProperty="SettlementStatusId" DataField="SettlementStatusID" />
+            <Mapping ObjectProperty="GameResult" DataField="GameResult" />
+            <Mapping ObjectProperty="OtherInfo" DataField="OtherInfo" />
+            <Mapping ObjectProperty="HomeId" DataField="homeid" />
+            <Mapping ObjectProperty="AwayId" DataField="awayid" />
+        </Setting>
         <Setting Key="Lrf_Result_MatchSelByLeague" SpName="Age_Result_MatchSelByLeague_xtest" DbName="DBACC.bodb02.BODBDownlineNet">
         </Setting>
         <Setting Key="Lrf_Result_MatchSelByLeague_Detail" SpName="Age_Result_MatchSelResultDetail_xtest" DbName="DBACC.bodb02.BODBDownlineNet">

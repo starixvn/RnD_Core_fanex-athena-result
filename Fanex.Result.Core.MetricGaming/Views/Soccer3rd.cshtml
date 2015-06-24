@@ -32,12 +32,12 @@
                 foreach (var temp in group.Data)
                 {
                     var item = (SoccerViewModel)temp;
-            <tr class="data">
-                <td colspan="@colspan" class="cl-league">
-                    @item.HomeTeam&nbsp;-&nbsp;@lang.vs&nbsp;@item.AwatTeam
+            <tr class="header">
+                <td colspan="@colspan" class="cl-match">
+                    @item.HomeTeam&nbsp;-&nbsp;@lang.VS&nbsp;@item.AwatTeam
                 </td>
             </tr>
-            <tr class="header">
+            <tr class="data data-header">
                 <td class="cl-event">
                     @lang.Event
                 </td>

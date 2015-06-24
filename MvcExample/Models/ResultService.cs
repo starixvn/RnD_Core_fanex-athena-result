@@ -14,6 +14,7 @@ namespace MvcExample.Models
     using Fanex.Data;
     using Fanex.Result.Core.GoldDeluxe.DTO;
     using Fanex.Result.Core.LiveCasino.DTO;
+    using Fanex.Result.Core.MetricGaming.DTO;
     using Fanex.Result.Core.NumberGame.DTO;
     using Fanex.Result.Core.Racing.DTO;
     using Fanex.Result.Core.Sportsbook.DTO;
@@ -412,6 +413,14 @@ namespace MvcExample.Models
             }
 
             return result;
+        }
+
+        public IEnumerable<Fanex.Result.Core.MetricGaming.DTO.MetricGaming> Get3rdResult(GetMatchResultDetail3rdSelCriteria criteria)
+        {
+            using (var db = new ObjectDb(criteria.GetSettingKey()))
+            {
+                return db.Query<MetricGaming>(criteria.GetSpParams());
+            }
         }
 
         #region Utilites

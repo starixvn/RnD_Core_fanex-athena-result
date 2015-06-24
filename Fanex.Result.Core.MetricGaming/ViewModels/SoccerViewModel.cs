@@ -90,7 +90,7 @@ namespace Fanex.Result.Core.MetricGaming.ViewModels
         {
             get
             {
-                return this.EventResult.Count == 0;
+                return this.EventResult.Count == 0 || this._metricGaming.SettlementStatusId == 0;
             }
         }
 
@@ -98,6 +98,8 @@ namespace Fanex.Result.Core.MetricGaming.ViewModels
         {
             if (this._eventResult == null)
             {
+                this._eventResult = new List<string>();
+
                 if (!string.IsNullOrEmpty(this._metricGaming.GameResult))
                 {
                     var gameResultToken = this._metricGaming.GameResult.Split(new char[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
@@ -111,10 +113,6 @@ namespace Fanex.Result.Core.MetricGaming.ViewModels
                         this._eventResult.Add(resultItem + " " + timeOfResult);
                     }
                 }
-                else
-                {
-                    this._eventResult = new List<string>();
-                }
             }
         }
 
@@ -125,7 +123,7 @@ namespace Fanex.Result.Core.MetricGaming.ViewModels
                 return _metricGaming.OtherInfo.Split(new char[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
             }
 
-            return new string[0];
+            return new string[1] { string.Empty };
         }
 
         private string GetGameResult(string gameResourceId)

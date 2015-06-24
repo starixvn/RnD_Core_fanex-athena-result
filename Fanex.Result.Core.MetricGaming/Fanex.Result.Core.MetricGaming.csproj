@@ -77,7 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <EmbeddedResource Include="Views\Soccer.cshtml" />
+    <EmbeddedResource Include="Views\Soccer3rd.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

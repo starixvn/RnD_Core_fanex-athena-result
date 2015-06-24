@@ -9,6 +9,7 @@ namespace MvcExample.Models
     using System.Collections.Generic;
     using Fanex.Result.Core.GoldDeluxe.DTO;
     using Fanex.Result.Core.LiveCasino.DTO;
+    using Fanex.Result.Core.MetricGaming.DTO;
     using Fanex.Result.Core.NumberGame.DTO;
     using Fanex.Result.Core.Racing.DTO;
     using Fanex.Result.Core.Sportsbook.DTO;
@@ -63,5 +64,11 @@ namespace MvcExample.Models
         IEnumerable<OutRight> GetOutRightResult(GetOutRightResult criteria);
 
         #endregion OutRight
+
+        #region Result3rd
+
+        IEnumerable<MetricGaming> Get3rdResult(GetMatchResultDetail3rdSelCriteria criteria);
+
+        #endregion Result3rd
     }
 }

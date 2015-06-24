@@ -18,7 +18,7 @@
     {
         private const int MixParlayBettype = 9;
         private const int SystemParlayBettype = 29;
-
+        private const int MetricGaming801 = 801;
         private readonly IResultService _resultService = new ResultService();
 
         [HttpGet]
@@ -164,6 +164,16 @@
                     break;
 
                 default:
+                    if (metalModel.Bettype == MetricGaming801)
+                    {
+                        var metricGamingData = _resultService.Get3rdResult(new GetMatchResultDetail3rdSelCriteria
+                        {
+                            BetId = metalModel.BetId
+                        });
+
+                        return ResultEngine.HtmlParser(metricGamingData.ToList(), setting);
+                    }
+
                     var data = _resultService.GetSportbookPopupResult(
                new GetSportbookPopupResultCriteria
                {

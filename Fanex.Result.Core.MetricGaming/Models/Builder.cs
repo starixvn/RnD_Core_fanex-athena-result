@@ -7,7 +7,6 @@
 namespace Fanex.Result.Core.MetricGaming.Models
 {
     using System.Collections.Generic;
-    using Fanex.Result.Core.Base.Extension;
     using Fanex.Result.Core.Base.Models;
 
     /// <summary>
@@ -15,10 +14,12 @@ namespace Fanex.Result.Core.MetricGaming.Models
     /// </summary>
     public class Builder : BaseBuilder, IBuilder
     {
+        private const string TemplateName = "Soccer3rd";
+
         public string HtmlBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
         {
             var model = GenerateViewModelData(dataList, setting, ViewModelConcreteFactory.Instance);
-            return HtmlRender(Template.Instance, setting.SportType.StringMe(), model);
+            return HtmlRender(Template.Instance, TemplateName, model);
         }
 
         public System.IO.MemoryStream ExcelBuilder<T>(IList<T> dataList, Base.ResultSetting setting)

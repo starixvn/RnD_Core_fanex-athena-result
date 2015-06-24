@@ -77,15 +77,10 @@ namespace Fanex.Result.Core
             ReCheckSetting<T>(dataList, setting);
 
             var dtoName = typeof(T).Name;
-            var builder = GetBuilder(dtoName);
+
             if (setting.IsOutRight)
             {
-                if (!Validate.Instance.ValidateOutRight(dtoName))
-                {
-                    throw new ObjectNullException(string.Format(CoreResourceConfig.ARGUEMENTMESOUTRIGHT, dtoName));
-                }
-
-                return builder.OutRightExcelBuilder<T>(dataList, setting);
+                return ExcelOutRightParser(dataList, setting, dtoName);
             }
 
             if (setting.IsPopUp || setting.IsParlayPopUp)
@@ -98,6 +93,7 @@ namespace Fanex.Result.Core
                 throw new ObjectNullException(string.Format(CoreResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
             }
 
+            var builder = GetBuilder(dtoName);
             return builder.ExcelBuilder(dataList, setting);
         }
 
@@ -149,14 +145,26 @@ namespace Fanex.Result.Core
 
         private static string HtmlOutRightParser<T>(IList<T> dataList, ResultSetting setting, string dtoName)
         {
+            var builder = CreateOutRightBuilder(dtoName);
+            return Helper.RemoveWhiteSpace(
+                builder.OutRightHtmlBuilder<T>(dataList, setting));
+        }
+
+        private static IBuilder CreateOutRightBuilder(string dtoName)
+        {
             if (!Validate.Instance.ValidateOutRight(dtoName))
             {
                 throw new ObjectNullException(string.Format(CoreResourceConfig.ARGUEMENTMESOUTRIGHT, dtoName));
             }
 
-            var builder = GetBuilder(DTOType.SPORTSBOOK);
-            return Helper.RemoveWhiteSpace(
-                builder.OutRightHtmlBuilder<T>(dataList, setting));
+            return GetBuilder(DTOType.SPORTSBOOK);
+        }
+
+        private static MemoryStream ExcelOutRightParser<T>(IList<T> dataList, ResultSetting setting, string dtoName)
+        {
+            var builder = CreateOutRightBuilder(dtoName);
+            return
+                builder.OutRightExcelBuilder<T>(dataList, setting);
         }
 
         /// <summary>

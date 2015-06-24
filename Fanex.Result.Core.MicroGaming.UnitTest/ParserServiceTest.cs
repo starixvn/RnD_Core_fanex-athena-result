@@ -7,41 +7,31 @@
 
 namespace Fanex.Result.Core.MicroGaming.UnitTest
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
     using NUnit.Framework;
+
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
     public class ParserServiceTest
     {
-        private DTO.MicroGaming param;
-
         [SetUp]
         public void Setup()
         {
-
         }
 
         [Test]
         public void Parser_NoInfomation()
         {
-
         }
 
         [Test]
         public void Parser_IframeResult()
         {
-
         }
 
         [Test]
         public void Parser_ExceptionResult()
         {
-
         }
-
     }
 }

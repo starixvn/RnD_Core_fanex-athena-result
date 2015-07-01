@@ -151,7 +151,9 @@
                 case SportType.MicroGaming:
                     return ParserService.Instance.Parser(new MicroGaming
                     {
-                        NoInformationMessage = "No information"
+                        DepositCustId = 123456,
+                        SiteName = "spondemo",
+                        GameId = 123456,
                     });
 
                 case SportType.NumberGame:

@@ -55,13 +55,12 @@ namespace Fanex.Result.Core.MicroGaming
             {
                 var result = GetViewResult(GetXmlResult(param));
 
-                if (result.ReturnCode == 1)
+                if (result.ReturnCode != 0)
                 {
                     throw new MicroGamingException("Get an Error from API result:" + result.ReturnMessage);
                 }
 
-                return result.ReturnCode == 0 ? string.Format(IFRAMERESULT, result.ReturnMessage) :
-                    string.Format(NORESULT, param.NoInformationMessage);
+                return string.Format(IFRAMERESULT, result.Url);
             }
             catch (Exception exception)
             {

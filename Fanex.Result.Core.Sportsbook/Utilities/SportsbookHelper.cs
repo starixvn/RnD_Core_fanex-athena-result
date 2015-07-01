@@ -6,13 +6,12 @@
 
 namespace Fanex.Result.Core.Sportsbook.Utilities
 {
-    using System.Globalization;
     using System.Linq;
     using System.Text;
     using System.Text.RegularExpressions;
     using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.Utilities;
-    using Fanex.Result.Core.DataDomain;
+    using Fanex.Result.Core.Sportsbook.DataDomain;
 
     /// <summary>
     /// TODO: Update summary.

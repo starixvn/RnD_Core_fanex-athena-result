@@ -25,19 +25,19 @@
 {
     switch (item.ResourceID)
     {
-        case Fanex.Result.Core.DataDomain.GameResourceID.HomePlayserSentOff:
+        case Fanex.Result.Core.Sportsbook.DataDomain.GameResourceID.HomePlayserSentOff:
             fullTimeResource = item.ResourceName;
             homePlayserSentOff = item;
             break;
-        case Fanex.Result.Core.DataDomain.GameResourceID.AwayPlayserSentOff:
+        case Fanex.Result.Core.Sportsbook.DataDomain.GameResourceID.AwayPlayserSentOff:
             fullTimeResource = item.ResourceName;
             awayPlayserSentOff = item;
             break;
-        case Fanex.Result.Core.DataDomain.GameResourceID.HomePlayserSentOff1H:
+        case Fanex.Result.Core.Sportsbook.DataDomain.GameResourceID.HomePlayserSentOff1H:
             firstHalfResource = item.ResourceName;
             homePlayserSentOff1H = item;
             break;
-        case Fanex.Result.Core.DataDomain.GameResourceID.AwayPlayserSentOff1H:
+        case Fanex.Result.Core.Sportsbook.DataDomain.GameResourceID.AwayPlayserSentOff1H:
             firstHalfResource = item.ResourceName;
             awayPlayserSentOff1H = item;
             break;
@@ -53,7 +53,7 @@
         <td class="cl-result home">
             @if (homePlayserSentOff1H == null || string.IsNullOrEmpty(homePlayserSentOff1H.HomeValue))
             {
-                @Fanex.Result.Core.DataDomain.ConstantValue.Hyphen
+                @Fanex.Result.Core.Base.DataDomain.ConstantValue.Hyphen
             }
             else
             {
@@ -63,7 +63,7 @@
         <td class="cl-result away">
             @if (awayPlayserSentOff1H == null || string.IsNullOrEmpty(awayPlayserSentOff1H.HomeValue))
             {
-                @Fanex.Result.Core.DataDomain.ConstantValue.Hyphen
+                 @Fanex.Result.Core.Base.DataDomain.ConstantValue.Hyphen
             }
             else
             {
@@ -81,7 +81,7 @@
         <td class="cl-result home">
             @if (homePlayserSentOff == null || string.IsNullOrEmpty(homePlayserSentOff.HomeValue))
             {
-                @Fanex.Result.Core.DataDomain.ConstantValue.Hyphen
+                @Fanex.Result.Core.Base.DataDomain.ConstantValue.Hyphen
             }
             else
             {
@@ -91,7 +91,7 @@
         <td class="cl-result away">
             @if (awayPlayserSentOff == null || string.IsNullOrEmpty(awayPlayserSentOff.HomeValue))
             {
-                @Fanex.Result.Core.DataDomain.ConstantValue.Hyphen
+                @Fanex.Result.Core.Base.DataDomain.ConstantValue.Hyphen
             }
             else
             {

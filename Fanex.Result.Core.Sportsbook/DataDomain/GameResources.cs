@@ -4,7 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Fanex.Result.Core.DataDomain
+namespace Fanex.Result.Core.Sportsbook.DataDomain
 {
     using System.Collections.Generic;
 

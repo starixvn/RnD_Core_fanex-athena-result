@@ -234,6 +234,6 @@ namespace Fanex.Result.Core.Base
         GoldDeluxe = 255,
 
         [StringValue("MicroGaming")]
-        MicroGaming = 256,
+        MicroGaming = 203,
     }
 }

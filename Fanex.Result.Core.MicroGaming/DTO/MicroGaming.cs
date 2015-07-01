@@ -6,8 +6,6 @@
 
 namespace Fanex.Result.Core.MicroGaming.DTO
 {
-    using System.Diagnostics.CodeAnalysis;
-
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
@@ -18,7 +16,5 @@ namespace Fanex.Result.Core.MicroGaming.DTO
         public int DepositCustId { get; set; }
 
         public int GameId { get; set; }
-
-        public string NoInformationMessage { get; set; }
     }
 }

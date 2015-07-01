@@ -16,14 +16,11 @@ namespace Fanex.Result.Core.Base.Models
     {
         string HtmlBuilder<T>(IList<T> dataList, ResultSetting setting);
 
-        MemoryStream ExcelBuilder<T>(IList<T> dataList, ResultSetting setting);
-
         string OutRightHtmlBuilder<T>(IList<T> dataList, ResultSetting setting);
 
         string PopUpParalyBuilder<T>(IList<T> dataList, ResultSetting setting);
 
         string HtmlGameDetailBuilder(dynamic data, ResultSetting setting);
 
-        MemoryStream OutRightExcelBuilder<T>(IList<T> dataList, ResultSetting setting);
     }
 }

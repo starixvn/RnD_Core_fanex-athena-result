@@ -11,6 +11,7 @@ namespace Fanex.Result.Core.MicroGaming.ViewModels
     using System.Linq;
     using System.Text;
     using System.Xml.Serialization;
+    using System.Diagnostics.CodeAnalysis;
 
     /// <summary>
     /// TODO: Update summary.
@@ -18,6 +19,7 @@ namespace Fanex.Result.Core.MicroGaming.ViewModels
     [XmlRoot("URL"), XmlType("URL"), Serializable]
     public class ResultViewModel
     {
+        [SuppressMessage("Microsoft.Design", "CA1056:UriPropertiesShouldNotBeStrings", Justification = "Reviewed!")]
         [XmlElement("URL")]
         public string Url { get; set; }
 

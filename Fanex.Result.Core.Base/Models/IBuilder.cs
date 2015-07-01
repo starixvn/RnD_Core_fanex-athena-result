@@ -14,6 +14,8 @@ namespace Fanex.Result.Core.Base.Models
     /// </summary>
     public interface IBuilder
     {
+        MemoryStream ExcelBuilder<T>(IList<T> dataList, ResultSetting setting);
+
         string HtmlBuilder<T>(IList<T> dataList, ResultSetting setting);
 
         string OutRightHtmlBuilder<T>(IList<T> dataList, ResultSetting setting);
@@ -22,5 +24,6 @@ namespace Fanex.Result.Core.Base.Models
 
         string HtmlGameDetailBuilder(dynamic data, ResultSetting setting);
 
+        MemoryStream OutRightExcelBuilder<T>(IList<T> dataList, ResultSetting setting);
     }
 }

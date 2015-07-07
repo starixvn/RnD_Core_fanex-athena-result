@@ -7,11 +7,8 @@
 namespace Fanex.Result.Core.MicroGaming.ViewModels
 {
     using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Xml.Serialization;
     using System.Diagnostics.CodeAnalysis;
+    using System.Xml.Serialization;
 
     /// <summary>
     /// TODO: Update summary.

@@ -92,21 +92,37 @@ namespace Fanex.Result.Core.GoldDeluxe.ViewModels
             }
         }
 
+        private static string GetGameId(string gameToken)
+        {
+            var gameTokens = gameToken.Split(new char[] { '=' }, StringSplitOptions.RemoveEmptyEntries);
+            return gameTokens.Length >= 2 ? gameTokens[1] : string.Empty;
+        }
+
+        private static string GetDetailedGameResult(string gameDetailedTokens)
+        {
+            var detailResultToken = gameDetailedTokens.Split(new char[] { '=' }, StringSplitOptions.RemoveEmptyEntries);
+            return detailResultToken.Length >= 2 ? detailResultToken[1] : string.Empty;
+        }
+
         private void BindingResult()
         {
             if (!string.IsNullOrEmpty(this._goldDeluxe.Result))
             {
                 var resultTokens = this._goldDeluxe.Result.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
-                _gameId = resultTokens[0].Split(new char[] { '=' }, StringSplitOptions.RemoveEmptyEntries)[1];
-                _result = resultTokens[1].Split(new char[] { '=' }, StringSplitOptions.RemoveEmptyEntries)[1];
-                if (this._goldDeluxe.Bettype == GoldDeluxeBettype.Roulette)
+                if (resultTokens.Length >= 2)
                 {
-                    _htmlResult = GoldDeluxeHelper.GetRoutletResult(_result);
+                    _gameId = GetGameId(resultTokens[0]);
+                    _result = GetDetailedGameResult(resultTokens[1]);
                 }
-                else
-                {
-                    _htmlResult = GoldDeluxeHelper.GetBacaratResult(_result, Lang.Banker, Lang.Player);
-                }
+            }
+
+            if (this._goldDeluxe.Bettype == GoldDeluxeBettype.Roulette)
+            {
+                _htmlResult = GoldDeluxeHelper.GetRoutletResult(_result);
+            }
+            else
+            {
+                _htmlResult = GoldDeluxeHelper.GetBacaratResult(_result, Lang.Banker, Lang.Player);
             }
         }
     }

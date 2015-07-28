@@ -39,11 +39,6 @@ namespace Fanex.Result.Core.GoldDeluxe.Utilities
 
         public static string GetBacaratResult(string result, string bankerText, string playerText)
         {
-            if (string.IsNullOrEmpty(result))
-            {
-                return string.Empty;
-            }
-
             var bankerResult = new List<string>();
             var playerResult = new List<string>();
             var bankerPoint = 0;
@@ -59,11 +54,6 @@ namespace Fanex.Result.Core.GoldDeluxe.Utilities
 
         public static string GetRoutletResult(string result)
         {
-            if (string.IsNullOrEmpty(result))
-            {
-                return string.Empty;
-            }
-
             var color = result == "0" ? "green" : RoutletRedResult.Contains(result) ?
                 "red" : "black";
 

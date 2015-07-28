@@ -80,7 +80,11 @@ namespace Fanex.Result.Core.MetricGaming.ViewModels
         {
             get
             {
-                GetEventResult();
+
+                if (this._eventResult == null)
+                {
+                    GetEventResult();
+                }
 
                 return _eventResult;
             }
@@ -96,24 +100,22 @@ namespace Fanex.Result.Core.MetricGaming.ViewModels
 
         private void GetEventResult()
         {
-            if (this._eventResult == null)
+            this._eventResult = new List<string>();
+
+            if (!string.IsNullOrEmpty(this._metricGaming.GameResult))
             {
-                this._eventResult = new List<string>();
+                var gameResultToken = this._metricGaming.GameResult.Split(new char[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
+                string[] otherInforToken = GetOtherInforList();
 
-                if (!string.IsNullOrEmpty(this._metricGaming.GameResult))
+                for (var i = 0; i < gameResultToken.Length; i++)
                 {
-                    var gameResultToken = this._metricGaming.GameResult.Split(new char[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
-                    string[] otherInforToken = GetOtherInforList();
-
-                    for (var i = 0; i < gameResultToken.Length; i++)
-                    {
-                        var resultItem =
-                           GetGameResult(gameResultToken[i]);
-                        var timeOfResult = i < otherInforToken.Length ? otherInforToken[i] : string.Empty;
-                        this._eventResult.Add(resultItem + " " + timeOfResult);
-                    }
+                    var resultItem =
+                       GetGameResult(gameResultToken[i]);
+                    var timeOfResult = i < otherInforToken.Length ? otherInforToken[i] : string.Empty;
+                    this._eventResult.Add(resultItem + " " + timeOfResult);
                 }
             }
+
         }
 
         private string[] GetOtherInforList()

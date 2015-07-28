@@ -116,13 +116,12 @@ namespace Fanex.Result.Core.GoldDeluxe.ViewModels
                 }
             }
 
-            if (this._goldDeluxe.Bettype == GoldDeluxeBettype.Roulette)
+            _htmlResult = Lang.NoInfo;
+
+            if (!string.IsNullOrEmpty(_result))
             {
-                _htmlResult = GoldDeluxeHelper.GetRoutletResult(_result);
-            }
-            else
-            {
-                _htmlResult = GoldDeluxeHelper.GetBacaratResult(_result, Lang.Banker, Lang.Player);
+                _htmlResult = this._goldDeluxe.Bettype == GoldDeluxeBettype.Roulette ? GoldDeluxeHelper.GetRoutletResult(_result)
+                   : GoldDeluxeHelper.GetBacaratResult(_result, Lang.Banker, Lang.Player);
             }
         }
     }

@@ -151,9 +151,9 @@
                 case SportType.MicroGaming:
                     return ParserService.Instance.Parser(new MicroGaming
                     {
-                        DepositCustId = 123456,
+                        CustId = 18543926,
                         SiteName = "spondemo",
-                        GameId = 123456,
+                        GameId = 74,
                     });
 
                 case SportType.NumberGame:

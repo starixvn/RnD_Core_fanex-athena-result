@@ -83,7 +83,7 @@ namespace Fanex.Result.Core.MicroGaming
             var nameValues = new[]
             {
                 new KeyValuePair<string, string>("SiteName", param.SiteName),
-                new KeyValuePair<string, string>("Deposit_CustID", param.DepositCustId.ToString()),
+                new KeyValuePair<string, string>("CustID", param.CustId.ToString()),
                 new KeyValuePair<string, string>("GameID", param.GameId.ToString()),
             };
             var content = new FormUrlEncodedContent(nameValues);

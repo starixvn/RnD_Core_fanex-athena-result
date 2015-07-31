@@ -13,7 +13,7 @@ namespace Fanex.Result.Core.MicroGaming.DTO
     {
         public string SiteName { get; set; }
 
-        public int DepositCustId { get; set; }
+        public int CustId { get; set; }
 
         public int GameId { get; set; }
     }

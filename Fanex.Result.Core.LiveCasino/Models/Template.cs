@@ -14,15 +14,11 @@ namespace Fanex.Result.Core.LiveCasino.Models
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    internal class Template : BaseCore.ITemplate
+    internal class Template : BaseCore.BaseTemplate, BaseCore.ITemplate
     {
         private static readonly object SynceObject = new object();
 
         private static BaseCore.ITemplate instance;
-
-        private Template()
-        {
-        }
 
         public static BaseCore.ITemplate Instance
         {
@@ -43,31 +39,15 @@ namespace Fanex.Result.Core.LiveCasino.Models
             }
         }
 
-        /// <summary>
-        /// Get razor template.
-        /// </summary>
-        /// <param name="templateName">The template name.</param>
-        /// <returns>The html string.</returns>
-        public string GetRazorTemplate(string templateName)
+        protected override Stream GetViewAbsemblyName(string templateName)
         {
-            if (string.IsNullOrEmpty(templateName) || string.IsNullOrWhiteSpace(templateName))
-            {
-                throw new ArgumentNullException("templateName");
-            }
+            return Assembly.GetExecutingAssembly()
+             .GetManifestResourceStream(string.Format(VIEWDOMAINPATTERN, GetProductName, templateName));
+        }
 
-            using (var stream = Assembly.GetExecutingAssembly()
-           .GetManifestResourceStream("Fanex.Result.Core.LiveCasino.Views." + templateName + ".cshtml"))
-            {
-                if (stream == null)
-                {
-                    throw new ArgumentNullException(string.Format("The {0} was not found", templateName));
-                }
-
-                using (var reader = new StreamReader(stream))
-                {
-                    return reader.ReadToEnd();
-                }
-            }
+        protected override string GetProductName
+        {
+            get { return "LiveCasino"; }
         }
     }
 }

@@ -227,6 +227,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\fr-FR .xml">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <Content Include="App_Data\Fanex.Result\Other.xls" />
     <Content Include="App_Data\Fanex.Result\Racing.xls" />
     <Content Include="App_Data\Fanex.Result\VSSpeedWay.xls" />
@@ -455,9 +459,7 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\Fanex.Result.Resource\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj">
       <Project>{8673F024-7726-4C30-8464-5A8357F79BF0}</Project>

@@ -67,7 +67,7 @@ namespace Fanex.Result.Core.Base.Models
 
         public bool ValidateResource(string languageCode)
         {
-            return CoreResourceConfig.LangCodes.Contains(languageCode);
+            return !string.IsNullOrWhiteSpace(languageCode);
         }
 
         private static bool IsValidDTO(string dtoName, SportType sportType)

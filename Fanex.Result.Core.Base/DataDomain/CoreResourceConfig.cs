@@ -21,8 +21,5 @@ namespace Fanex.Result.Core.Base.DataDomain
         public const string LANGUAGEARGUEMENTMES = "Fanex.Result.Core doesn't support this language {0}";
         public const string UNSUPPORTDTOARGUEMENTMES = "We still don't support DTO {0}";
         public const string UNSUPPORTSPORTTYPEARGUEMENTMES = "We still don't support this sport [{0}]";
-
-        [SuppressMessage("Microsoft.Security", "CA2105:ArrayFieldsShouldNotBeReadOnly", Justification = "Reviewed!")]
-        public static readonly string[] LangCodes = { "en-US", "ja-JP", "ko-KR", "vi-VN", "zh-CN", "zh-TW", "th-TH" };
     }
 }

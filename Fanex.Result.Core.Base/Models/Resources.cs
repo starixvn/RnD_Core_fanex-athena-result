@@ -9,7 +9,6 @@ namespace Fanex.Result.Core.Models
     using System;
     using System.Collections.Generic;
     using System.IO;
-    using System.Linq;
     using System.Reflection;
     using System.Xml.Linq;
     using Fanex.Result.Core.Base.DataDomain;
@@ -56,11 +55,6 @@ namespace Fanex.Result.Core.Models
         /// <returns>Return language object.</returns>
         public LangResources GetLanguage(string languageCode, string languagePath)
         {
-            if (!CoreResourceConfig.LangCodes.Contains(languageCode))
-            {
-                return new LangResources();
-            }
-
             if (!this._langs.Keys.Contains(languageCode))
             {
                 this._langs.Add(languageCode, GetResources(languageCode, languagePath));
@@ -83,17 +77,9 @@ namespace Fanex.Result.Core.Models
                 throw new ArgumentNullException("languageCode");
             }
 
-            var realPath = languagePath + languageCode + ".xml";
-            Stream resourceStream = null;
-            if (File.Exists(realPath))
-            {
-                resourceStream = new FileStream(realPath, FileMode.Open, FileAccess.Read);
-            }
-            else
-            {
-                resourceStream = Assembly.GetExecutingAssembly()
-                 .GetManifestResourceStream("Fanex.Result.Core.Base.Resources." + languageCode + ".xml");
-            }
+            var realPath = Path.Combine(languagePath + languageCode + ".xml");
+
+            var resourceStream = GetResourceStream(languageCode, realPath);
 
             ParseResource(lang, resourceStream);
 
@@ -103,6 +89,21 @@ namespace Fanex.Result.Core.Models
             }
 
             return lang;
+        }
+
+        private static Stream GetResourceStream(string languageCode, string realPath)
+        {
+            if (File.Exists(realPath))
+            {
+                return new FileStream(realPath, FileMode.Open, FileAccess.Read);
+            }
+            else
+            {
+                var resourceStream = Assembly.GetExecutingAssembly()
+                 .GetManifestResourceStream("Fanex.Result.Core.Base.Resources." + languageCode + ".xml");
+
+                return resourceStream ?? GetResourceStream(CoreResourceConfig.ENGLISHLANGCODE, realPath);
+            }
         }
 
         /// <summary>

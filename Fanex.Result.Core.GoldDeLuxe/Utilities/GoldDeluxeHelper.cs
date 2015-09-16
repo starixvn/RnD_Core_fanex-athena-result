@@ -22,6 +22,11 @@ namespace Fanex.Result.Core.GoldDeluxe.Utilities
         private const string BankerKey = "B";
         private const string PlayerKey = "P";
         private const string Aces = "A";
+        private const string Red = "red";
+        private const string Black = "black";
+        private const string Green = "green";
+        private const string Zero = "0";
+        private const string Card10 = "10";
 
         private static readonly string[] RoutletRedResult = new string[]
         {
@@ -54,8 +59,8 @@ namespace Fanex.Result.Core.GoldDeluxe.Utilities
 
         public static string GetRoutletResult(string result)
         {
-            var color = result == "0" ? "green" : RoutletRedResult.Contains(result) ?
-                "red" : "black";
+            var color = result == Zero ? Green : RoutletRedResult.Contains(result) ?
+                Red : Black;
 
             return string.Format(RoutletResultTemplate, color, result);
         }
@@ -123,7 +128,7 @@ namespace Fanex.Result.Core.GoldDeluxe.Utilities
         private static int GetPoint(string value)
         {
             return value.Equals(Aces, StringComparison.OrdinalIgnoreCase) ? 1 :
-                Helper.IsIntegerNumber(value) && value != "10" ? int.Parse(value) : 0;
+                Helper.IsIntegerNumber(value) && value != Card10 ? int.Parse(value) : 0;
         }
     }
 }

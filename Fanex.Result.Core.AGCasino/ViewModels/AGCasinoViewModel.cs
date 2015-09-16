@@ -8,12 +8,12 @@ namespace Fanex.Result.Core.AGCasino.ViewModels
 {
     using System;
     using System.Globalization;
-    using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.DataDomain;
-    using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.AGCasino.DataDomain;
     using Fanex.Result.Core.AGCasino.DTO;
     using Fanex.Result.Core.AGCasino.Utilities;
+    using Fanex.Result.Core.Base;
+    using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.ViewModels;
     using RemotingRef;
 
     /// <summary>
@@ -79,19 +79,6 @@ namespace Fanex.Result.Core.AGCasino.ViewModels
             }
         }
 
-        public string ResultInExcel
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(_result))
-                {
-                    BindingResult();
-                }
-
-                return _result;
-            }
-        }
-
         private static string GetGameId(string gameToken)
         {
             var gameTokens = gameToken.Split(new char[] { '=' }, StringSplitOptions.RemoveEmptyEntries);
@@ -116,12 +103,14 @@ namespace Fanex.Result.Core.AGCasino.ViewModels
                 }
             }
 
-            _htmlResult = Lang.NoInfo;
-
             if (!string.IsNullOrEmpty(_result))
             {
                 _htmlResult = this._agCasino.Bettype == AGCasinoBettype.Roulette ? AGCasinoHelper.GetRoutletResult(_result)
                    : AGCasinoHelper.GetBacaratResult(_result, Lang.Banker, Lang.Player);
+            }
+            else
+            {
+                _htmlResult = Lang.NoInfo;
             }
         }
     }

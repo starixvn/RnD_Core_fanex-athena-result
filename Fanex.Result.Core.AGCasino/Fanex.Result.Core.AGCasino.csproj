@@ -63,9 +63,7 @@
     <Compile Include="Utilities\AGCasinoHelper.cs" />
     <Compile Include="ViewModels\AGCasinoViewModel.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj">
       <Project>{8673F024-7726-4C30-8464-5A8357F79BF0}</Project>
@@ -74,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <EmbeddedResource Include="Views\AGCasino.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

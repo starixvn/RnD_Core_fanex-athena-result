@@ -230,10 +230,14 @@ namespace Fanex.Result.Core.Base
 
         #endregion VirtualSport
 
-        [StringValue("GoldDeluxe")]
-        GoldDeluxe = 255,
-
         [StringValue("MicroGaming")]
         MicroGaming = 203,
+
+        [StringValue("AGCasino")]
+        MicroGaming = 250,
+
+        [StringValue("GoldDeluxe")]
+        GoldDeluxe = 255
+
     }
 }

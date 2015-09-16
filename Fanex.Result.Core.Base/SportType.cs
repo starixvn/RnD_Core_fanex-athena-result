@@ -234,7 +234,7 @@ namespace Fanex.Result.Core.Base
         MicroGaming = 203,
 
         [StringValue("AGCasino")]
-        MicroGaming = 250,
+        AGCasino = 250,
 
         [StringValue("GoldDeluxe")]
         GoldDeluxe = 255

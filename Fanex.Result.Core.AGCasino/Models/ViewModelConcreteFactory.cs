@@ -8,14 +8,11 @@ namespace Fanex.Result.Core.AGCasino.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
+    using Fanex.Result.Core.AGCasino.ViewModels;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.DataDomain;
-    using Fanex.Result.Core.Base.ExcelModels;
     using Fanex.Result.Core.Base.Exception;
-    using Fanex.Result.Core.Base.Extension;
     using Fanex.Result.Core.Base.ViewModels;
-    using Fanex.Result.Core.AGCasino.ViewModels;
     using Fanex.Result.Core.Models;
 
     /// <summary>
@@ -23,7 +20,7 @@ namespace Fanex.Result.Core.AGCasino.Models
     /// </summary>
     internal sealed class ViewModelConcreteFactory : ViewModelFactory
     {
-        private static readonly Lazy<ViewModelFactory> lazy = new Lazy<ViewModelFactory>(() => new ViewModelConcreteFactory());
+        private static readonly Lazy<ViewModelFactory> LazyViewModelService = new Lazy<ViewModelFactory>(() => new ViewModelConcreteFactory());
 
         private ViewModelConcreteFactory()
         {
@@ -33,7 +30,7 @@ namespace Fanex.Result.Core.AGCasino.Models
         {
             get
             {
-                return lazy.Value;
+                return LazyViewModelService.Value;
             }
         }
 

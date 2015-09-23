@@ -24,7 +24,7 @@ namespace Fanex.Result.Core.LiveCasino.Models
     /// </summary>
     internal sealed class ViewModelConcreteFactory : ViewModelFactory
     {
-        private static readonly Lazy<ViewModelFactory> lazy = new Lazy<ViewModelFactory>(() => new ViewModelConcreteFactory());
+        private static readonly Lazy<ViewModelFactory> LazyViewModelService = new Lazy<ViewModelFactory>(() => new ViewModelConcreteFactory());
 
         private ViewModelConcreteFactory()
         {
@@ -34,7 +34,7 @@ namespace Fanex.Result.Core.LiveCasino.Models
         {
             get
             {
-                return lazy.Value;
+                return LazyViewModelService.Value;
             }
         }
 

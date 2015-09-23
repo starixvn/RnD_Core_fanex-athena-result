@@ -202,25 +202,32 @@ namespace Fanex.Result.Core
 
         private static IBuilder GetBuilder(string productType)
         {
-            var assemblyList = AppDomain.CurrentDomain.GetAssemblies();
-
-            var builderName = string.Format(BUILDERNAMESPACEPATTERN, productType);
-            var pluginName = string.Format(PLUGINPATTERN, productType);
-            var plugin = assemblyList.Where(i => i.FullName.IndexOf(pluginName, StringComparison.OrdinalIgnoreCase) > -1)
-                .FirstOrDefault();
-            if (plugin == null)
+            try
             {
-                throw new ObjectUnSupportedException(productType);
+                var assemblyList = AppDomain.CurrentDomain.GetAssemblies();
+
+                var builderName = string.Format(BUILDERNAMESPACEPATTERN, productType);
+                var pluginName = string.Format(PLUGINPATTERN, productType);
+                var plugin = assemblyList.Where(i => i.FullName.IndexOf(pluginName, StringComparison.OrdinalIgnoreCase) > -1)
+                    .FirstOrDefault();
+                if (plugin == null)
+                {
+                    throw new ObjectUnSupportedException(productType);
+                }
+
+                var typeBuilder = plugin.GetType(builderName);
+
+                if (typeBuilder == null)
+                {
+                    throw new ObjectNullException(productType);
+                }
+
+                return (IBuilder)Activator.CreateInstance(typeBuilder);
             }
-
-            var typeBuilder = plugin.GetType(builderName);
-
-            if (typeBuilder == null)
+            catch (Exception exception)
             {
-                throw new ObjectNullException(productType);
+                throw new ResultCoreException(exception.Message, exception.InnerException);
             }
-
-            return (IBuilder)Activator.CreateInstance(typeBuilder);
         }
     }
 }

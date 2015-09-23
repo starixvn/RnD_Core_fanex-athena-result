@@ -80,7 +80,6 @@ namespace Fanex.Result.Core.MetricGaming.ViewModels
         {
             get
             {
-
                 if (this._eventResult == null)
                 {
                     GetEventResult();
@@ -115,7 +114,6 @@ namespace Fanex.Result.Core.MetricGaming.ViewModels
                     this._eventResult.Add(resultItem + " " + timeOfResult);
                 }
             }
-
         }
 
         private string[] GetOtherInforList()

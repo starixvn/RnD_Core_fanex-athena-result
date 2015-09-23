@@ -17,7 +17,7 @@ namespace Fanex.Result.Core.Base.Models
     public sealed class Validate : IValidate
     {
         /*singleton*/
-        private static readonly Lazy<IValidate> lazy = new Lazy<IValidate>(() => new Validate());
+        private static readonly Lazy<IValidate> LazyValidationService = new Lazy<IValidate>(() => new Validate());
 
         private Validate()
         {
@@ -27,7 +27,7 @@ namespace Fanex.Result.Core.Base.Models
         {
             get
             {
-                return lazy.Value;
+                return LazyValidationService.Value;
             }
         }
 

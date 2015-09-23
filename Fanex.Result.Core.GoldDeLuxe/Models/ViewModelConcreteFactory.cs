@@ -24,7 +24,7 @@ namespace Fanex.Result.Core.GoldDeluxe.Models
     /// </summary>
     internal sealed class ViewModelConcreteFactory : ViewModelFactory
     {
-        private static readonly Lazy<ViewModelFactory> lazy = new Lazy<ViewModelFactory>(() => new ViewModelConcreteFactory());
+        private static readonly Lazy<ViewModelFactory> LazyViewModel = new Lazy<ViewModelFactory>(() => new ViewModelConcreteFactory());
 
         private ViewModelConcreteFactory()
         {
@@ -34,7 +34,7 @@ namespace Fanex.Result.Core.GoldDeluxe.Models
         {
             get
             {
-                return lazy.Value;
+                return LazyViewModel.Value;
             }
         }
 

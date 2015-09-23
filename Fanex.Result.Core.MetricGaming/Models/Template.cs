@@ -16,26 +16,25 @@ namespace Fanex.Result.Core.MetricGaming.Models
     /// </summary>
     internal class Template : BaseCore.BaseTemplate, BaseCore.ITemplate
     {
-
-
-        private static readonly Lazy<BaseCore.ITemplate> lazy = new Lazy<BaseCore.ITemplate>(() => new Template());
+        private static readonly Lazy<BaseCore.ITemplate> LazyTemplateService = new Lazy<BaseCore.ITemplate>(() => new Template());
 
         public static BaseCore.ITemplate Instance
         {
             get
             {
-                return lazy.Value;
+                return LazyTemplateService.Value;
             }
-        }
-        protected override Stream GetViewAbsemblyName(string templateName)
-        {
-            return Assembly.GetExecutingAssembly()
-             .GetManifestResourceStream(string.Format(VIEWDOMAINPATTERN, GetProductName, templateName));
         }
 
         protected override string GetProductName
         {
             get { return "MetricGaming"; }
+        }
+
+        protected override Stream GetViewAbsemblyName(string templateName)
+        {
+            return Assembly.GetExecutingAssembly()
+             .GetManifestResourceStream(string.Format(VIEWDOMAINPATTERN, GetProductName, templateName));
         }
     }
 }

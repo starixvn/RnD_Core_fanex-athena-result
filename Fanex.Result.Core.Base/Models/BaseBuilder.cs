@@ -11,6 +11,7 @@ namespace Fanex.Result.Core.Base.Models
     using System.Linq;
     using System.Text;
     using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.Exception;
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Models;
     using RazorEngine;
@@ -38,14 +39,21 @@ namespace Fanex.Result.Core.Base.Models
         /// <returns>The HTML result.</returns>
         protected virtual string HtmlRender(ITemplate templateInstance, string templateName, RazorBinderModel model)
         {
-            var templateContent = templateInstance.GetRazorTemplate(templateName);
-            var result = new StringBuilder();
-            using (var writer = new StringWriter(result))
+            try
             {
-                Engine.Razor.RunCompile(templateContent, templateName, writer, typeof(RazorBinderModel), model, null);
-            }
+                var templateContent = templateInstance.GetRazorTemplate(templateName);
+                var result = new StringBuilder();
+                using (var writer = new StringWriter(result))
+                {
+                    Engine.Razor.RunCompile(templateContent, templateName, writer, typeof(RazorBinderModel), model, null);
+                }
 
-            return result.ToString();
+                return result.ToString();
+            }
+            catch (System.Exception exception)
+            {
+                throw new ResultCoreException(exception.Message, exception.InnerException);
+            }
         }
 
         /// <summary>

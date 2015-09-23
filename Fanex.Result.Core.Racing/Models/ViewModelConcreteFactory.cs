@@ -27,9 +27,8 @@ namespace Fanex.Result.Core.Racing.Models
         private const string NAMESPACE = "Fanex.Result.Core.Racing.ViewModels.";
         private const string EXCELNAMESPACE = "Fanex.Result.Core.Racing.ExcelModels.";
 
+        private static readonly Lazy<ViewModelFactory> LazyViewModelService = new Lazy<ViewModelFactory>(() => new ViewModelConcreteFactory());
 
-        private static readonly Lazy<ViewModelFactory> lazy =new Lazy<ViewModelFactory>(()=>new ViewModelConcreteFactory());
-        
         private ViewModelConcreteFactory()
         {
         }
@@ -38,7 +37,7 @@ namespace Fanex.Result.Core.Racing.Models
         {
             get
             {
-                return lazy.Value;
+                return LazyViewModelService.Value;
             }
         }
 

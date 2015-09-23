@@ -7,11 +7,12 @@
 namespace Fanex.Result.Core.Models
 {
     using System;
-    using System.Collections.Generic;
+    using System.Collections.Concurrent;
     using System.IO;
     using System.Reflection;
     using System.Xml.Linq;
     using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.Exception;
     using Fanex.Result.Core.Base.Models;
 
     /// <summary>
@@ -19,21 +20,21 @@ namespace Fanex.Result.Core.Models
     /// </summary>
     public sealed class Resources : IResource
     {
-        private static readonly Lazy<IResource> lazy =
+        private static readonly Lazy<IResource> LazyResourceService =
         new Lazy<IResource>(() => new Resources());
 
-        private readonly IDictionary<string, LangResources> _langs;
+        private readonly ConcurrentDictionary<string, LangResources> _langs;
 
         private Resources()
         {
-            this._langs = new Dictionary<string, LangResources>();
+            this._langs = new ConcurrentDictionary<string, LangResources>();
         }
 
         public static IResource Instance
         {
             get
             {
-                return lazy.Value;
+                return LazyResourceService.Value;
             }
         }
 
@@ -45,12 +46,19 @@ namespace Fanex.Result.Core.Models
         /// <returns>Return language object.</returns>
         public LangResources GetLanguage(string languageCode, string languagePath)
         {
-            if (!this._langs.Keys.Contains(languageCode))
+            try
             {
-                this._langs.Add(languageCode, GetResources(languageCode, languagePath));
-            }
+                if (!this._langs.Keys.Contains(languageCode))
+                {
+                    this._langs.TryAdd(languageCode, GetResources(languageCode, languagePath));
+                }
 
-            return this._langs[languageCode];
+                return this._langs[languageCode];
+            }
+            catch (Exception exception)
+            {
+                throw new ResultCoreException(exception.Message, exception.InnerException);
+            }
         }
 
         /// <summary>

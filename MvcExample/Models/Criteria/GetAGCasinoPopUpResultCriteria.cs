@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Fanex.Data.Repository;
-
-namespace MvcExample.Models.Criteria
+﻿namespace MvcExample.Models.Criteria
 {
+    using Fanex.Data.Repository;
+
     public class GetAGCasinoPopUpResultCriteria : CriteriaBase
     {
         [SpParam(Ignored = true)]

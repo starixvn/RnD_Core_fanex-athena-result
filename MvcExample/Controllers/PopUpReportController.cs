@@ -147,7 +147,18 @@
                     }
 
                     break;
+                case SportType.AGCasino:
+                    var dataAG = _resultService.GetGoldDeluxePopUpResult(new GetGolDeluxePopUpResultCriteria
+                    {
+                        TransID = metalModel.RefNo.HasValue ? metalModel.RefNo.Value : 0,
+                        Bettype = metalModel.Bettype
+                    });
+                    if (dataAG != null)
+                    {
+                        return ResultEngine.HtmlParser(dataAG.ToList(), setting);
+                    }
 
+                    break;
                 case SportType.MicroGaming:
                     return ParserService.Instance.Parser(new MicroGaming
                     {

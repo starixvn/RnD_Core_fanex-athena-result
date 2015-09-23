@@ -6,6 +6,7 @@
 
 namespace Fanex.Result.Core.Sportsbook.Models
 {
+    using System;
     using System.IO;
     using System.Reflection;
     using BaseCore = Fanex.Result.Core.Base.Models;
@@ -15,26 +16,14 @@ namespace Fanex.Result.Core.Sportsbook.Models
     /// </summary>
     internal class Template : BaseCore.BaseTemplate, BaseCore.ITemplate
     {
-        private static readonly object SynceObject = new object();
 
-        private static BaseCore.ITemplate instance;
+        private static readonly Lazy<BaseCore.ITemplate> lazy = new Lazy<BaseCore.ITemplate>(() => new Template());
 
         public static BaseCore.ITemplate Instance
         {
             get
             {
-                if (instance == null)
-                {
-                    lock (SynceObject)
-                    {
-                        if (instance == null)
-                        {
-                            instance = new Template();
-                        }
-                    }
-                }
-
-                return instance;
+                return lazy.Value;
             }
         }
 

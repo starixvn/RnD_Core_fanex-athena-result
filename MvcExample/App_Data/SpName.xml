@@ -50,5 +50,7 @@
         </Setting>
         <Setting Key="All_BetList_MatchResultGDSel" SpName="All_BetList_MatchResultGDSel" DbName="DBEXT.bodb02.bodbLicenseeNet">
         </Setting>
+        <Setting Key="All_BetList_MatchResultAGSel" SpName="All_BetList_MatchResultAGSel" DbName="DBEXT.bodb02.bodbLicenseeNet">
+        </Setting>
     </Function>
 </Functions>

@@ -127,7 +127,9 @@
     <EmbeddedResource Include="Views\Other.cshtml" />
     <EmbeddedResource Include="Views\OutRight.cshtml" />
     <EmbeddedResource Include="Views\Parlay.cshtml" />
-    <EmbeddedResource Include="Views\Soccer.cshtml" />
+    <EmbeddedResource Include="Views\Soccer.cshtml">
+      <LastGenOutput>Soccer.generated.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\SoccerDetail\Corner.cshtml" />
     <EmbeddedResource Include="Views\SoccerDetail\FirstLastCorners.cshtml" />
     <EmbeddedResource Include="Views\SoccerDetail\GoalRecord.cshtml" />

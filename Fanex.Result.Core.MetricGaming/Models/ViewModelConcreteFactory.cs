@@ -21,9 +21,7 @@ namespace Fanex.Result.Core.MetricGaming.Models
     /// </summary>
     internal sealed class ViewModelConcreteFactory : ViewModelFactory
     {
-        private static readonly object SynceObject = new object();
-
-        private static ViewModelFactory instance;
+        private static readonly Lazy<ViewModelFactory> lazy = new Lazy<ViewModelFactory>(() => new ViewModelConcreteFactory());
 
         private ViewModelConcreteFactory()
         {
@@ -33,18 +31,7 @@ namespace Fanex.Result.Core.MetricGaming.Models
         {
             get
             {
-                if (instance == null)
-                {
-                    lock (SynceObject)
-                    {
-                        if (instance == null)
-                        {
-                            instance = new ViewModelConcreteFactory();
-                        }
-                    }
-                }
-
-                return instance;
+                return lazy.Value;
             }
         }
 

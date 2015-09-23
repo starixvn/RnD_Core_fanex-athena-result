@@ -19,8 +19,9 @@ namespace Fanex.Result.Core.Models
     /// </summary>
     public sealed class Resources : IResource
     {
-        private static readonly object SynceObject = new object();
-        private static IResource instance;
+        private static readonly Lazy<IResource> lazy =
+        new Lazy<IResource>(() => new Resources());
+
         private readonly IDictionary<string, LangResources> _langs;
 
         private Resources()
@@ -32,18 +33,7 @@ namespace Fanex.Result.Core.Models
         {
             get
             {
-                if (instance == null)
-                {
-                    lock (SynceObject)
-                    {
-                        if (instance == null)
-                        {
-                            instance = new Resources();
-                        }
-                    }
-                }
-
-                return instance;
+                return lazy.Value;
             }
         }
 
@@ -72,20 +62,16 @@ namespace Fanex.Result.Core.Models
         private static LangResources GetResources(string languageCode, string languagePath)
         {
             var lang = new LangResources();
-            if (string.IsNullOrEmpty(languageCode) || string.IsNullOrWhiteSpace(languageCode))
+            if (string.IsNullOrWhiteSpace(languageCode))
             {
                 throw new ArgumentNullException("languageCode");
             }
 
             var realPath = Path.Combine(languagePath + languageCode + ".xml");
 
-            var resourceStream = GetResourceStream(languageCode, realPath);
-
-            ParseResource(lang, resourceStream);
-
-            if (resourceStream != null)
+            using (var resourceStream = GetResourceStream(languageCode, realPath))
             {
-                resourceStream.Close();
+                ParseResource(lang, resourceStream);
             }
 
             return lang;

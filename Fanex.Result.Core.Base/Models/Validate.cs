@@ -17,8 +17,7 @@ namespace Fanex.Result.Core.Base.Models
     public sealed class Validate : IValidate
     {
         /*singleton*/
-        private static readonly object SynceObject = new object();
-        private static IValidate instance;
+        private static readonly Lazy<IValidate> lazy = new Lazy<IValidate>(() => new Validate());
 
         private Validate()
         {
@@ -28,18 +27,7 @@ namespace Fanex.Result.Core.Base.Models
         {
             get
             {
-                if (instance == null)
-                {
-                    lock (SynceObject)
-                    {
-                        if (instance == null)
-                        {
-                            instance = new Validate();
-                        }
-                    }
-                }
-
-                return instance;
+                return lazy.Value;
             }
         }
 

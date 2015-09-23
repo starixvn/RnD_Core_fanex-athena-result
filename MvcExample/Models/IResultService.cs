@@ -15,6 +15,7 @@ namespace MvcExample.Models
     using Fanex.Result.Core.Sportsbook.DTO;
     using MvcExample.Models.Criteria;
     using MvcExample.Models.DTO;
+    using Fanex.Result.Core.AGCasino.DTO;
 
     /// <summary>
     /// TODO: Update summary.
@@ -50,6 +51,7 @@ namespace MvcExample.Models
         IEnumerable<Sportsbook> GetSportbookPopupResult(GetSportbookPopupResultCriteria criteria);
 
         IEnumerable<GoldDeluxe> GetGoldDeluxePopUpResult(GetGolDeluxePopUpResultCriteria criteria);
+        IEnumerable<AGCasino> GetAGCasinoPopUpResult(GetAGCasinoPopUpResultCriteria criteria);
 
         #endregion PopUp
 

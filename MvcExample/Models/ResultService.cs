@@ -616,5 +616,11 @@ namespace MvcExample.Models
         }
 
         #endregion Utilites
+
+
+        public IEnumerable<Fanex.Result.Core.AGCasino.DTO.AGCasino> GetAGCasinoPopUpResult(GetAGCasinoPopUpResultCriteria criteria)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -218,6 +218,7 @@
     <Compile Include="Models\Criteria\GetParlayResultCriteria.cs" />
     <Compile Include="Models\Criteria\GetOutRightResult.cs" />
     <Compile Include="Models\Criteria\GetGolDeluxePopUpResultCriteria.cs" />
+    <Compile Include="Models\Criteria\GetAGCasinoPopUpResultCriteria.cs" />
     <Compile Include="Models\IResultService.cs" />
     <Compile Include="Models\MetaModel\ResultPopupMetalModel.cs" />
     <Compile Include="Models\ResultService.cs" />
@@ -461,6 +462,10 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\Fanex.Result.Core.AGCasino\Fanex.Result.Core.AGCasino.csproj">
+      <Project>{0A57E89B-3C07-498A-A704-E893C2C3F7E9}</Project>
+      <Name>Fanex.Result.Core.AGCasino</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj">
       <Project>{8673F024-7726-4C30-8464-5A8357F79BF0}</Project>
       <Name>Fanex.Result.Core.Base</Name>

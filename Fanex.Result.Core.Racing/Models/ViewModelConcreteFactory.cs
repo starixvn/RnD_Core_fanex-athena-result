@@ -27,10 +27,9 @@ namespace Fanex.Result.Core.Racing.Models
         private const string NAMESPACE = "Fanex.Result.Core.Racing.ViewModels.";
         private const string EXCELNAMESPACE = "Fanex.Result.Core.Racing.ExcelModels.";
 
-        private static readonly object SynceObject = new object();
 
-        private static ViewModelFactory instance;
-
+        private static readonly Lazy<ViewModelFactory> lazy =new Lazy<ViewModelFactory>(()=>new ViewModelConcreteFactory());
+        
         private ViewModelConcreteFactory()
         {
         }
@@ -39,18 +38,7 @@ namespace Fanex.Result.Core.Racing.Models
         {
             get
             {
-                if (instance == null)
-                {
-                    lock (SynceObject)
-                    {
-                        if (instance == null)
-                        {
-                            instance = new ViewModelConcreteFactory();
-                        }
-                    }
-                }
-
-                return instance;
+                return lazy.Value;
             }
         }
 

@@ -17,29 +17,16 @@ namespace Fanex.Result.Core.MetricGaming.Models
     internal class Template : BaseCore.BaseTemplate, BaseCore.ITemplate
     {
 
-        private static readonly object SynceObject = new object();
 
-        private static BaseCore.ITemplate instance;
+        private static readonly Lazy<BaseCore.ITemplate> lazy = new Lazy<BaseCore.ITemplate>(() => new Template());
 
         public static BaseCore.ITemplate Instance
         {
             get
             {
-                if (instance == null)
-                {
-                    lock (SynceObject)
-                    {
-                        if (instance == null)
-                        {
-                            instance = new Template();
-                        }
-                    }
-                }
-
-                return instance;
+                return lazy.Value;
             }
         }
-
         protected override Stream GetViewAbsemblyName(string templateName)
         {
             return Assembly.GetExecutingAssembly()

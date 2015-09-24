@@ -2,7 +2,7 @@
     var viewModel = (Fanex.Result.Core.Base.ViewModels.RazorBinderModel)Model;
 
     var lang = (Fanex.Result.Core.Base.DataDomain.LangResources)viewModel.Resource;
-    var colspan = 3;
+    var colspan = 2;
     var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
 
 }
@@ -25,9 +25,6 @@
                     </tr>
                 }
                 <tr class="header">
-                    <th class="cl-ko-time">
-                        @lang.GameID
-                    </th>
                     <th class="cl-match">
                         @lang.Result
                     </th>
@@ -58,9 +55,6 @@
                 </tr>
             }
             <tr class="header">
-                <th class="cl-ko-time">
-                    @lang.GameID
-                </th>
                 <th class="cl-match">
                     @lang.Result
                 </th>
@@ -84,12 +78,9 @@
                     index++;
 
             <tr class="data @item.Color(index, "even", "odd")">
-                <td class="cl-ko-time">
-                    @item.GameID
-                </td>
                 <td class="cl-match">
                     <div class="gd">
-                        @Raw(item.ResultInHtml)
+                        @Raw(item.Result)
                     </div>
                 </td>
                 <td class="cl-status @item.EventStatusBackground">

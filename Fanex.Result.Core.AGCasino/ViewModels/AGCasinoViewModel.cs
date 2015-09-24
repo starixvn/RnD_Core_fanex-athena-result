@@ -15,6 +15,7 @@ namespace Fanex.Result.Core.AGCasino.ViewModels
     using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.ViewModels;
     using RemotingRef;
+    using Newtonsoft.Json.Linq;
 
     /// <summary>
     /// TODO: Update summary.
@@ -22,8 +23,6 @@ namespace Fanex.Result.Core.AGCasino.ViewModels
     public class AGCasinoViewModel : BaseViewModel, IResultViewModel
     {
         private readonly AGCasino _agCasino;
-        private string _result;
-        private string _gameId;
         private string _htmlResult;
 
         public AGCasinoViewModel(AGCasino agCasino, ResultSetting setting, LangResources resource)
@@ -53,20 +52,7 @@ namespace Fanex.Result.Core.AGCasino.ViewModels
             }
         }
 
-        public string GameID
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(_gameId))
-                {
-                    BindingResult();
-                }
-
-                return _gameId;
-            }
-        }
-
-        public string ResultInHtml
+        public string Result
         {
             get
             {
@@ -79,39 +65,34 @@ namespace Fanex.Result.Core.AGCasino.ViewModels
             }
         }
 
-        private static string GetGameId(string gameToken)
-        {
-            var gameTokens = gameToken.Split(new char[] { '=' }, StringSplitOptions.RemoveEmptyEntries);
-            return gameTokens.Length >= 2 ? gameTokens[1] : string.Empty;
-        }
-
-        private static string GetDetailedGameResult(string gameDetailedTokens)
-        {
-            var detailResultToken = gameDetailedTokens.Split(new char[] { '=' }, StringSplitOptions.RemoveEmptyEntries);
-            return detailResultToken.Length >= 2 ? detailResultToken[1] : string.Empty;
-        }
 
         private void BindingResult()
         {
-            if (!string.IsNullOrEmpty(this._agCasino.Result))
+            _htmlResult = Lang.NoInfo;
+
+            if (!string.IsNullOrEmpty(_agCasino.Result))
             {
-                var resultTokens = this._agCasino.Result.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
-                if (resultTokens.Length >= 2)
+                dynamic gameResult = JObject.Parse(_agCasino.Result);
+
+                switch (_agCasino.Bettype)
                 {
-                    _gameId = GetGameId(resultTokens[0]);
-                    _result = GetDetailedGameResult(resultTokens[1]);
+                    case AGCasinoBettype.Bacarat:
+                        _htmlResult = AGCasinoHelper.GetBacaratResult(gameResult, Lang.Banker, Lang.Player);
+                        break;
+                    case AGCasinoBettype.Roulette:
+                        _htmlResult = AGCasinoHelper.GetRoutletResult(gameResult);
+                        break;
+                    case AGCasinoBettype.DragonTiger:
+                        _htmlResult = AGCasinoHelper.GetDragonTigerResult(gameResult);
+                        break;
+                    case AGCasinoBettype.SicBo:
+                        _htmlResult = AGCasinoHelper.GetSicBoResult(gameResult);
+                        break;
+
                 }
+
             }
 
-            if (!string.IsNullOrEmpty(_result))
-            {
-                _htmlResult = this._agCasino.Bettype == AGCasinoBettype.Roulette ? AGCasinoHelper.GetRoutletResult(_result)
-                   : AGCasinoHelper.GetBacaratResult(_result, Lang.Banker, Lang.Player);
-            }
-            else
-            {
-                _htmlResult = Lang.NoInfo;
-            }
         }
     }
 }

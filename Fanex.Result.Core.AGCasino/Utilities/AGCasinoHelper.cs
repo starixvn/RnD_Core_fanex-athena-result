@@ -11,22 +11,23 @@ namespace Fanex.Result.Core.AGCasino.Utilities
     using System.Linq;
     using System.Text;
     using Fanex.Result.Core.Base.Utilities;
+    using Fanex.Result.Core.AGCasino.DataDomain;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
     internal static class AGCasinoHelper
     {
-        private const string RoutletResultTemplate = "<span class=\"{0}\">{1}</span>";
+        private const string RoutletResultTemplate = "<span class=\"black\">{1}</span>";
         private const string BacaratResultTemplate = "<li><span class=\"{0}\"><span class=\"icon\">{1}</span><span class=\"card\">{2}</span></span></li>";
+        private const string DragonTigerResultTemplate = "<li><span class=\"daragon-tiger\">{0}&nbsp;<span class=\"icon\">{1}</span><span class=\"card\">{2}</span></span></li>";
+        private const string SicboResultTemplate = "<li class=\"sicbo\"><span class=\"black\">{1}</span></li>";
         private const string BankerKey = "B";
         private const string PlayerKey = "P";
         private const string Aces = "A";
-        private const string Red = "red";
-        private const string Black = "black";
-        private const string Green = "green";
         private const string Zero = "0";
         private const string Card10 = "10";
+        private const string DaragonKey = "D";
 
         private static readonly string[] RoutletRedResult = new string[]
         {
@@ -36,13 +37,13 @@ namespace Fanex.Result.Core.AGCasino.Utilities
 
         private static readonly IDictionary<string, string> CardType = new Dictionary<string, string>()
         {
-        { "club", "&clubs;" },
-        { "spade", "&spades;" },
-        { "diamond", "&diams;" },
-        { "heart", "&hearts;" }
+        { "C", "&clubs;" },
+        { "S", "&spades;" },
+        { "D", "&diams;" },
+        { "H", "&hearts;" }
         };
 
-        public static string GetBacaratResult(string result, string bankerText, string playerText)
+        internal static string GetBacaratResult(string result, string bankerText, string playerText)
         {
             var bankerResult = new List<string>();
             var playerResult = new List<string>();
@@ -51,21 +52,18 @@ namespace Fanex.Result.Core.AGCasino.Utilities
             GetBankerAndPlayerResultValue(result, bankerResult, playerResult, ref bankerPoint, ref playerPoint);
 
             var htmlResult = new StringBuilder();
-            htmlResult.Append(GetHtmlResult(bankerText, BankerKey, bankerResult, bankerPoint));
-            htmlResult.Append(GetHtmlResult(playerText, PlayerKey, playerResult, playerPoint));
+            htmlResult.Append(GetBacaratHtmlResult(bankerText, BankerKey, bankerResult, bankerPoint));
+            htmlResult.Append(GetBacaratHtmlResult(playerText, PlayerKey, playerResult, playerPoint));
 
             return htmlResult.ToString();
         }
 
-        public static string GetRoutletResult(string result)
+        internal static string GetRoutletResult(string result)
         {
-            var color = result == Zero ? Green : RoutletRedResult.Contains(result) ?
-                Red : Black;
-
-            return string.Format(RoutletResultTemplate, color, result);
+            return string.Format(RoutletResultTemplate, result);
         }
 
-        private static string GetHtmlResult(string choiceName, string choiceKey, List<string> choiceResult, int choicePoint)
+        private static string GetBacaratHtmlResult(string choiceName, string choiceKey, List<string> choiceResult, int choicePoint)
         {
             var htmlResult = new StringBuilder("<ul class=\"" + choiceName.ToLower() + "\">");
             htmlResult.Append(string.Format(BacaratResultTemplate, choiceKey, string.Empty, choiceName + "&nbsp;(" + choicePoint + ")&nbsp;"));
@@ -129,6 +127,35 @@ namespace Fanex.Result.Core.AGCasino.Utilities
         {
             return value.Equals(Aces, StringComparison.OrdinalIgnoreCase) ? 1 :
                 Helper.IsIntegerNumber(value) && value != Card10 ? int.Parse(value) : 0;
+        }
+
+        internal static string GetDragonTigerResult(string gameResult, string daragonName, string tigerName)
+        {
+            var resultTokens = gameResult.Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
+            var tempResult = new StringBuilder();
+
+            foreach (var item in resultTokens)
+            {
+                var choiceTokens = item.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+                var choiceKey = choiceTokens[0].Equals(DaragonKey, StringComparison.OrdinalIgnoreCase) ? daragonName : tigerName;
+                var cardTokens = choiceTokens[1].ToCharArray();
+                var cardType = CardType[cardTokens[0].ToString()];
+                tempResult.Append(string.Format(DragonTigerResultTemplate, choiceKey, cardType, cardTokens[1]));
+            }
+
+            return tempResult.ToString();
+        }
+
+        internal static string GetSicBoResult(string gameResult)
+        {
+            var tempResult = new StringBuilder();
+            var resultTokens = gameResult.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var item in resultTokens)
+            {
+                tempResult.Append(string.Format(SicboResultTemplate, item));
+            }
+
+            return tempResult.ToString();
         }
     }
 }

@@ -27,6 +27,8 @@ namespace Fanex.Result.Core.GoldDeluxe.Utilities
         private const string Green = "green";
         private const string Zero = "0";
         private const string Card10 = "10";
+        private const string CSSBanker = "banker";
+        private const string CSSPlayer = "player";
 
         private static readonly string[] RoutletRedResult = new string[]
         {
@@ -67,8 +69,8 @@ namespace Fanex.Result.Core.GoldDeluxe.Utilities
 
         private static string GetHtmlResult(string choiceName, string choiceKey, List<string> choiceResult, int choicePoint)
         {
-            var htmlResult = new StringBuilder("<ul class=\"" + choiceName.ToLower() + "\">");
-            htmlResult.Append(string.Format(BacaratResultTemplate, choiceKey, string.Empty, choiceName + "&nbsp;(" + choicePoint + ")&nbsp;"));
+            var htmlResult = new StringBuilder("<ul class=\"" + (choiceKey == BankerKey ? CSSBanker : CSSPlayer) + "\">");
+            htmlResult.Append(string.Format(BacaratResultTemplate, choiceKey, string.Empty, choiceName + "&nbsp;(" + choicePoint + ")&nbsp;:"));
             KeyValuePair<string, string> currentCard = new KeyValuePair<string, string>("space", "&nbsp;");
             foreach (var item in choiceResult.Skip(1))
             {

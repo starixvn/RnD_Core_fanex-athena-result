@@ -148,7 +148,7 @@
 
                     break;
                 case SportType.AGCasino:
-                    var dataAG = _resultService.GetGoldDeluxePopUpResult(new GetGolDeluxePopUpResultCriteria
+                    var dataAG = _resultService.GetAGCasinoPopUpResult(new GetAGCasinoPopUpResultCriteria
                     {
                         TransID = metalModel.RefNo.HasValue ? metalModel.RefNo.Value : 0,
                         Bettype = metalModel.Bettype

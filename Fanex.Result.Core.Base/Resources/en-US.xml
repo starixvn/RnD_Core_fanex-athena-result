@@ -116,4 +116,6 @@
     <item key="Banker">Banker</item>
     <item key="Player">Player</item>
     <item key="VS">vs</item>
+    <item key="Daragon">Daragon</item>
+    <item key="Tiger">Tiger</item>
 </root>

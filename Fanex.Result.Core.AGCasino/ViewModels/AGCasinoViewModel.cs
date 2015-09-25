@@ -6,7 +6,6 @@
 
 namespace Fanex.Result.Core.AGCasino.ViewModels
 {
-    using System;
     using System.Globalization;
     using Fanex.Result.Core.AGCasino.DataDomain;
     using Fanex.Result.Core.AGCasino.DTO;
@@ -14,8 +13,8 @@ namespace Fanex.Result.Core.AGCasino.ViewModels
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.ViewModels;
-    using RemotingRef;
     using Newtonsoft.Json.Linq;
+    using RemotingRef;
 
     /// <summary>
     /// TODO: Update summary.
@@ -65,7 +64,6 @@ namespace Fanex.Result.Core.AGCasino.ViewModels
             }
         }
 
-
         private void BindingResult()
         {
             _htmlResult = Lang.NoInfo;
@@ -73,26 +71,29 @@ namespace Fanex.Result.Core.AGCasino.ViewModels
             if (!string.IsNullOrEmpty(_agCasino.Result))
             {
                 dynamic gameResult = JObject.Parse(_agCasino.Result);
-
-                switch (_agCasino.Bettype)
+                var resultToken = gameResult.result != null ? gameResult.result.Value : string.Empty;
+                if (!string.IsNullOrEmpty(resultToken))
                 {
-                    case AGCasinoBettype.Bacarat:
-                        _htmlResult = AGCasinoHelper.GetBacaratResult(gameResult, Lang.Banker, Lang.Player);
-                        break;
-                    case AGCasinoBettype.Roulette:
-                        _htmlResult = AGCasinoHelper.GetRoutletResult(gameResult);
-                        break;
-                    case AGCasinoBettype.DragonTiger:
-                        _htmlResult = AGCasinoHelper.GetDragonTigerResult(gameResult);
-                        break;
-                    case AGCasinoBettype.SicBo:
-                        _htmlResult = AGCasinoHelper.GetSicBoResult(gameResult);
-                        break;
+                    switch (_agCasino.Bettype)
+                    {
+                        case AGCasinoBettype.Bacarat:
+                            _htmlResult = AGCasinoHelper.GetBacaratResult(resultToken, Lang.Banker, Lang.Player);
+                            break;
 
+                        case AGCasinoBettype.Roulette:
+                            _htmlResult = AGCasinoHelper.GetRoutletResult(resultToken);
+                            break;
+
+                        case AGCasinoBettype.DragonTiger:
+                            _htmlResult = AGCasinoHelper.GetDragonTigerResult(resultToken, Lang.Daragon, Lang.Tiger);
+                            break;
+
+                        case AGCasinoBettype.SicBo:
+                            _htmlResult = AGCasinoHelper.GetSicBoResult(resultToken);
+                            break;
+                    }
                 }
-
             }
-
         }
     }
 }

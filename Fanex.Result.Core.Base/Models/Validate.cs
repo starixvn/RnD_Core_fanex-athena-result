@@ -77,6 +77,8 @@ namespace Fanex.Result.Core.Base.Models
                     return dtoName == DTOType.LIVECASINO;
                 case SportType.GoldDeluxe:
                     return dtoName == DTOType.GOLDDELUXE;
+                case SportType.AGCasino:
+                    return dtoName == DTOType.AGCASINO;
                 default:
                     return dtoName == DTOType.SPORTSBOOK || dtoName == DTOType.METRICGAMING;
             }

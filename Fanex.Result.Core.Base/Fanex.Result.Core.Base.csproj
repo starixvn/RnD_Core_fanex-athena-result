@@ -112,11 +112,6 @@
     <Compile Include="ViewModels\RazorBinderModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\hi-IN.xml">
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="DataDomain\LangResources.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>LangResources.cs</LastGenOutput>

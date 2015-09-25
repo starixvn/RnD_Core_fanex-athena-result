@@ -20,6 +20,7 @@ namespace MvcExample.Models
     using Fanex.Result.Core.Sportsbook.DTO;
     using MvcExample.Models.Criteria;
     using MvcExample.Models.DTO;
+    using Fanex.Result.Core.AGCasino.DTO;
 
     /// <summary>
     /// The result service.
@@ -423,9 +424,34 @@ namespace MvcExample.Models
             }
         }
 
-        public IEnumerable<Fanex.Result.Core.AGCasino.DTO.AGCasino> GetAGCasinoPopUpResult(GetAGCasinoPopUpResultCriteria criteria)
+        public IEnumerable<AGCasino> GetAGCasinoPopUpResult(GetAGCasinoPopUpResultCriteria criteria)
         {
-            throw new NotImplementedException();
+            var result = new List<AGCasino>();
+            result.Add(new AGCasino
+            {
+                Bettype = 1801,
+                Result = "{\"round\":\"DSP\",\"tableCode\":\"va21\",\"game\":\"BAC\",\"type\":\"1\",\"result\":\"B;H5;CK;DA:P;HK;DQ;HJ\",\"winResult\":\"1;6\",\"result2\":\"B;5:P;0\"}"
+
+            });
+            result.Add(new AGCasino
+            {
+                Bettype = 1802,
+                Result = "{\"round\":\"DSP\",\"tableCode\":\"va21\",\"game\":\"ROU\",\"type\":\"1\",\"result\":\"20\",\"winResult\":\"108;112;115;116;119\"}"
+
+            });
+            result.Add(new AGCasino
+            {
+                Bettype = 1803,
+                Result = "{\"round\":\"DSP\",\"tableCode\":\"va21\",\"game\":\"DT\",\"type\":\"21\",\"result\":\"D;H3:T;C9\",\"winResult\":\"22\",\"result2\":\"D;3:T;9\"}"
+
+            });
+            result.Add(new AGCasino
+            {
+                Bettype = 1804,
+                Result = "{\"round\":\"AGQ\",\"tableCode\":\"va21\",\"game\":\"SHB\",\"type\":\"41\",\"result\":\"4;3;3\",\"winResult\":\"42;44;54;55;61;73;85\"}"
+
+            });
+            return result;
         }
 
         #region Utilites

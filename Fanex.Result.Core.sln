@@ -47,6 +47,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Sportsboo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.AGCasino", "Fanex.Result.Core.AGCasino\Fanex.Result.Core.AGCasino.csproj", "{0A57E89B-3C07-498A-A704-E893C2C3F7E9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.AGCasinoUnitTest", "Fanex.Result.AGCasinoUnitTest\Fanex.Result.AGCasinoUnitTest.csproj", "{65FEAFB9-6241-4856-BE05-6B686EB93BE1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -109,6 +111,10 @@ Global
 		{0A57E89B-3C07-498A-A704-E893C2C3F7E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A57E89B-3C07-498A-A704-E893C2C3F7E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A57E89B-3C07-498A-A704-E893C2C3F7E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65FEAFB9-6241-4856-BE05-6B686EB93BE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65FEAFB9-6241-4856-BE05-6B686EB93BE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65FEAFB9-6241-4856-BE05-6B686EB93BE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65FEAFB9-6241-4856-BE05-6B686EB93BE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -124,5 +130,6 @@ Global
 		{0A57E89B-3C07-498A-A704-E893C2C3F7E9} = {35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}
 		{1F4C1A91-6AC3-4698-A50C-66E7F7B4308A} = {CCA318B4-A6C4-4767-B6A5-2348BACBA831}
 		{236CD008-31D0-4217-8213-FDC8590F4F8A} = {CCA318B4-A6C4-4767-B6A5-2348BACBA831}
+		{65FEAFB9-6241-4856-BE05-6B686EB93BE1} = {CCA318B4-A6C4-4767-B6A5-2348BACBA831}
 	EndGlobalSection
 EndGlobal

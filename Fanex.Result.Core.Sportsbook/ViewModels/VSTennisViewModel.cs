@@ -15,8 +15,8 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     /// </summary>
     public class VSTennisViewModel : SportsbookBaseViewModel, IResultViewModel
     {
-        public VSTennisViewModel(DTO.Sportsbook sportbook, ResultSetting setting, LangResources resources)
-            : base(sportbook, setting, resources)
+        public VSTennisViewModel(DTO.Sportsbook sportbook, ResultSetting setting)
+            : base(sportbook, setting)
         {
         }
 

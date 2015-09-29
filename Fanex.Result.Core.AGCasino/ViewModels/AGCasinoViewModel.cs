@@ -11,7 +11,7 @@ namespace Fanex.Result.Core.AGCasino.ViewModels
     using Fanex.Result.Core.AGCasino.DTO;
     using Fanex.Result.Core.AGCasino.Utilities;
     using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.ViewModels;
     using Newtonsoft.Json.Linq;
     using RemotingRef;
@@ -24,8 +24,8 @@ namespace Fanex.Result.Core.AGCasino.ViewModels
         private readonly AGCasino _agCasino;
         private string _htmlResult;
 
-        public AGCasinoViewModel(AGCasino agCasino, ResultSetting setting, LangResources resource)
-            : base(setting, resource)
+        public AGCasinoViewModel(AGCasino agCasino, ResultSetting setting)
+            : base(setting)
         {
             this._agCasino = agCasino;
             this.LanguageCode = setting.LanguageCode;
@@ -47,7 +47,7 @@ namespace Fanex.Result.Core.AGCasino.ViewModels
         {
             get
             {
-                return Lang.Completed;
+                return LangResource.Completed;
             }
         }
 
@@ -66,7 +66,7 @@ namespace Fanex.Result.Core.AGCasino.ViewModels
 
         private void BindingResult()
         {
-            _htmlResult = Lang.NoInfo;
+            _htmlResult = LangResource.NoInfo;
 
             if (!string.IsNullOrEmpty(_agCasino.Result))
             {
@@ -77,7 +77,7 @@ namespace Fanex.Result.Core.AGCasino.ViewModels
                     switch (_agCasino.Bettype)
                     {
                         case AGCasinoBettype.Bacarat:
-                            _htmlResult = AGCasinoHelper.GetBacaratResult(resultToken, Lang.Banker, Lang.Player);
+                            _htmlResult = AGCasinoHelper.GetBacaratResult(resultToken, LangResource.Banker, LangResource.Player);
                             break;
 
                         case AGCasinoBettype.Roulette:
@@ -85,7 +85,7 @@ namespace Fanex.Result.Core.AGCasino.ViewModels
                             break;
 
                         case AGCasinoBettype.DragonTiger:
-                            _htmlResult = AGCasinoHelper.GetDragonTigerResult(resultToken, Lang.Daragon, Lang.Tiger);
+                            _htmlResult = AGCasinoHelper.GetDragonTigerResult(resultToken, LangResource.Daragon, LangResource.Tiger);
                             break;
 
                         case AGCasinoBettype.SicBo:

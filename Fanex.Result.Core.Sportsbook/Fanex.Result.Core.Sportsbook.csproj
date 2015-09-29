@@ -70,6 +70,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataDomain\BetTypeID.cs" />
     <Compile Include="DataDomain\GameResourceID.cs" />
     <Compile Include="DataDomain\GameResources.cs" />
     <Compile Include="DataDomain\TennisBetID.cs" />

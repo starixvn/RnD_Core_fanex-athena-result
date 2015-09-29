@@ -13,7 +13,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Base.ViewModels;
     using RemotingRef;
-
+    using Fanex.Result.Core.Base.Resources;
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
@@ -30,8 +30,8 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
         private bool _highlightWinnerTeam = false;
         private bool _visisibleGoalRecord = false;
 
-        public SportsbookBaseViewModel(DTO.Sportsbook sportbook, ResultSetting setting, LangResources resource)
-            : base(setting, resource)
+        public SportsbookBaseViewModel(DTO.Sportsbook sportbook, ResultSetting setting)
+            : base(setting)
         {
             this.SPORTBOOK = sportbook;
             this.LanguageCode = setting.LanguageCode;
@@ -89,8 +89,8 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
                     this.SPORTBOOK.EventStatus,
                     this.SPORTBOOK.IsPending,
                     this.SPORTBOOK.IsHTCal,
-                    this.SPORTBOOK.Calculate,
-                    this.Lang);
+                    this.SPORTBOOK.Calculate
+                    );
             }
         }
 
@@ -242,7 +242,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
         private string GetSportbookHomeTeam(int homeId, bool isNeutral)
         {
             return RefData.GetTeamName(homeId.ToString(CultureInfo.InvariantCulture), this.GetSupportedLanguage, string.Empty)
-                + (isNeutral ? Lang.IsNeutral : string.Empty);
+                + (isNeutral ? LangResource.IsNeutral : string.Empty);
         }
 
         /// <summary>

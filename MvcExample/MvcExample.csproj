@@ -228,10 +228,15 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\fr-FR .xml">
+    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\en-US.xml">
       <SubType>Designer</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\zh-TW.xml" />
+    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\ja-JP.xml" />
+    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\ko-KR.xml" />
+    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\th-TH.xml" />
+    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\vi-VN.xml" />
+    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\zh-CN.xml" />
     <Content Include="App_Data\Fanex.Result\Other.xls" />
     <Content Include="App_Data\Fanex.Result\Racing.xls" />
     <Content Include="App_Data\Fanex.Result\VSSpeedWay.xls" />

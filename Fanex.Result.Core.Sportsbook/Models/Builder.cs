@@ -27,33 +27,29 @@ namespace Fanex.Result.Core.Sportsbook.Models
 
         public System.IO.MemoryStream ExcelBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
         {
-            var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
-            var excelParser = ViewModelConcreteFactory.Instance.GetExcelViewModel<T>(dataList, setting, lang);
+            var excelParser = ViewModelConcreteFactory.Instance.GetExcelViewModel<T>(dataList, setting);
             return excelParser.Export();
         }
 
         public string OutRightHtmlBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
         {
-            var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
-            var groupData = dataList.Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting, lang))
+            var groupData = dataList.Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting))
                 .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToList() });
-            var model = CreateModel(lang, groupData, setting);
+            var model = CreateModel(groupData, setting);
             return HtmlRender(Template.Instance, "OutRight", model);
         }
 
         public string PopUpParalyBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
         {
-            var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
-            var groupData = dataList.Select(i => ViewModelConcreteFactory.Instance.GetParlayViewModel(i, setting, lang))
+            var groupData = dataList.Select(i => ViewModelConcreteFactory.Instance.GetParlayViewModel(i, setting))
                  .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToList() });
-            var model = CreateModel(lang, groupData, setting);
+            var model = CreateModel(groupData, setting);
             return HtmlRender(Template.Instance, "Parlay", model);
         }
 
         public string HtmlGameDetailBuilder(dynamic data, Base.ResultSetting setting)
         {
-            var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
-            var viewModelData = ViewModelConcreteFactory.Instance.GetViewModel(data, setting, lang);
+            var viewModelData = ViewModelConcreteFactory.Instance.GetViewModel(data, setting);
 
             IList<GroupData> groupData = new List<GroupData>()
             {
@@ -67,19 +63,18 @@ namespace Fanex.Result.Core.Sportsbook.Models
                 }
             };
 
-            var model = CreateModel(lang, groupData, setting, true);
+            var model = CreateModel(groupData, setting, true);
             return HtmlRender(Template.Instance, setting.SportType.StringMe(), model);
         }
 
         public System.IO.MemoryStream OutRightExcelBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
         {
-            var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
             var outRightData =
                 dataList
-                .Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting, lang))
+                .Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting))
                 .ToList();
             var realTemplatePath = setting.ExcelTemplatePath + "Outright.xls";
-            var excelParser = new OutRightExcel(realTemplatePath, setting, outRightData, lang);
+            var excelParser = new OutRightExcel(realTemplatePath, setting, outRightData);
             return excelParser.Export();
         }
     }

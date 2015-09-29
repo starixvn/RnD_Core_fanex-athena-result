@@ -117,17 +117,71 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Away" xml:space="preserve">
+    <value>Away</value>
+  </data>
+  <data name="Banker" xml:space="preserve">
+    <value>Banker</value>
+  </data>
   <data name="Closed" xml:space="preserve">
     <value>Closed</value>
   </data>
   <data name="Completed" xml:space="preserve">
     <value>Completed</value>
   </data>
+  <data name="Corner" xml:space="preserve">
+    <value>Corner</value>
+  </data>
+  <data name="Daragon" xml:space="preserve">
+    <value>Daragon</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>[i]</value>
+  </data>
+  <data name="Draw" xml:space="preserve">
+    <value>Draw</value>
+  </data>
+  <data name="Even" xml:space="preserve">
+    <value>Even</value>
+  </data>
   <data name="Event" xml:space="preserve">
     <value>Event</value>
   </data>
+  <data name="ExtraTime" xml:space="preserve">
+    <value>Extra Time</value>
+  </data>
   <data name="FinalScore" xml:space="preserve">
     <value>Final Score</value>
+  </data>
+  <data name="FirstLastCorners" xml:space="preserve">
+    <value>First/Last Corners</value>
+  </data>
+  <data name="GameID" xml:space="preserve">
+    <value>Game ID</value>
+  </data>
+  <data name="GameResult" xml:space="preserve">
+    <value>Game Result</value>
+  </data>
+  <data name="GameTypeAndTableNumber" xml:space="preserve">
+    <value>Game Type - Table Number</value>
+  </data>
+  <data name="GoalRecord" xml:space="preserve">
+    <value>Goal Record</value>
+  </data>
+  <data name="Goals" xml:space="preserve">
+    <value>Goals</value>
+  </data>
+  <data name="GoalScorer" xml:space="preserve">
+    <value>Goal Scorer</value>
+  </data>
+  <data name="GoalTime" xml:space="preserve">
+    <value>Goal Time</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="HomeAwayPlayerSentOff" xml:space="preserve">
+    <value>Home/Away - Player Sent Off</value>
   </data>
   <data name="HTScore" xml:space="preserve">
     <value>HT Score</value>
@@ -144,6 +198,9 @@
   <data name="KickOffTime" xml:space="preserve">
     <value>Kick Off. Time</value>
   </data>
+  <data name="LastBall" xml:space="preserve">
+    <value>Last Ball</value>
+  </data>
   <data name="Lbl1P" xml:space="preserve">
     <value>1P</value>
   </data>
@@ -152,6 +209,15 @@
   </data>
   <data name="Lbl1S" xml:space="preserve">
     <value>1S</value>
+  </data>
+  <data name="Lbl1st" xml:space="preserve">
+    <value>1st</value>
+  </data>
+  <data name="Lbl1stBall" xml:space="preserve">
+    <value>1st Ball</value>
+  </data>
+  <data name="Lbl2nd" xml:space="preserve">
+    <value>2nd</value>
   </data>
   <data name="Lbl2P" xml:space="preserve">
     <value>2P</value>
@@ -168,11 +234,26 @@
   <data name="Lbl3Q" xml:space="preserve">
     <value>3Q</value>
   </data>
+  <data name="Lbl3rd" xml:space="preserve">
+    <value>3rd</value>
+  </data>
   <data name="Lbl3S" xml:space="preserve">
     <value>3S</value>
   </data>
   <data name="Lbl4Q" xml:space="preserve">
     <value>4Q</value>
+  </data>
+  <data name="Lbl4S" xml:space="preserve">
+    <value>4S</value>
+  </data>
+  <data name="Lbl4th" xml:space="preserve">
+    <value>4th</value>
+  </data>
+  <data name="Lbl5S" xml:space="preserve">
+    <value>5S</value>
+  </data>
+  <data name="LblOEFT" xml:space="preserve">
+    <value>O/E FT</value>
   </data>
   <data name="LblOT" xml:space="preserve">
     <value>OT</value>
@@ -183,14 +264,56 @@
   <data name="MatchCode" xml:space="preserve">
     <value>Match Code</value>
   </data>
+  <data name="Min" xml:space="preserve">
+    <value>Min</value>
+  </data>
+  <data name="MoreResults" xml:space="preserve">
+    <value>MoreResults</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
   <data name="NoInfo" xml:space="preserve">
     <value>No information is available</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="Noothers" xml:space="preserve">
+    <value>th</value>
+  </data>
+  <data name="NumberGameNo" xml:space="preserve">
+    <value>Number Game No</value>
+  </data>
+  <data name="Odd" xml:space="preserve">
+    <value>Odd</value>
+  </data>
+  <data name="Official" xml:space="preserve">
+    <value>Official</value>
+  </data>
+  <data name="Penalty" xml:space="preserve">
+    <value>Penalty</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>Pending</value>
   </data>
+  <data name="Place" xml:space="preserve">
+    <value>Place</value>
+  </data>
+  <data name="Player" xml:space="preserve">
+    <value>Player</value>
+  </data>
+  <data name="PlayerSentOff" xml:space="preserve">
+    <value>Player Sent Off</value>
+  </data>
   <data name="PostPoned" xml:space="preserve">
     <value>Postponed</value>
+  </data>
+  <data name="PS" xml:space="preserve">
+    <value>PS</value>
+  </data>
+  <data name="Race" xml:space="preserve">
+    <value>Race</value>
   </data>
   <data name="Refund" xml:space="preserve">
     <value>Refund</value>
@@ -201,13 +324,151 @@
   <data name="Refundht" xml:space="preserve">
     <value>Refund HT</value>
   </data>
+  <data name="RegularTime" xml:space="preserve">
+    <value>Regular Time</value>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>Result</value>
+  </data>
+  <data name="Results" xml:space="preserve">
+    <value>Results</value>
+  </data>
+  <data name="RS04" xml:space="preserve">
+    <value>Full Time</value>
+  </data>
+  <data name="RS05" xml:space="preserve">
+    <value>1st Half</value>
+  </data>
+  <data name="RS135" xml:space="preserve">
+    <value>Penalty Shootout Yes/No</value>
+  </data>
+  <data name="RS160" xml:space="preserve">
+    <value>FT - Goal {0}</value>
+  </data>
+  <data name="RS164" xml:space="preserve">
+    <value>ET - Goal {0}</value>
+  </data>
+  <data name="RS168" xml:space="preserve">
+    <value>Who advances to next round</value>
+  </data>
+  <data name="RS169" xml:space="preserve">
+    <value>Goal {0}</value>
+  </data>
+  <data name="RS173" xml:space="preserve">
+    <value>Extra Time Yes/No</value>
+  </data>
+  <data name="RS174" xml:space="preserve">
+    <value>Extra Time and Goal</value>
+  </data>
+  <data name="RS175" xml:space="preserve">
+    <value>Match Decided Method</value>
+  </data>
+  <data name="RS176" xml:space="preserve">
+    <value>First 10 Minutes 1X2</value>
+  </data>
+  <data name="RS180" xml:space="preserve">
+    <value>1H - Goal {0}</value>
+  </data>
+  <data name="RS192" xml:space="preserve">
+    <value>First Goal Time (10 Min)</value>
+  </data>
+  <data name="RS193" xml:space="preserve">
+    <value>First Goal Time (15 Min)</value>
+  </data>
+  <data name="RS206" xml:space="preserve">
+    <value>FT - First Corner</value>
+  </data>
+  <data name="RS207" xml:space="preserve">
+    <value>1H - First Corner</value>
+  </data>
+  <data name="RS208" xml:space="preserve">
+    <value>FT - Last Corner</value>
+  </data>
+  <data name="RS209" xml:space="preserve">
+    <value>1H - Last Corner</value>
+  </data>
+  <data name="RS210" xml:space="preserve">
+    <value>Full Time</value>
+  </data>
+  <data name="RS211" xml:space="preserve">
+    <value>1st Half</value>
+  </data>
+  <data name="RS212" xml:space="preserve">
+    <value>Full Time</value>
+  </data>
+  <data name="RS213" xml:space="preserve">
+    <value>1st Half</value>
+  </data>
+  <data name="RS214" xml:space="preserve">
+    <value>Full Time</value>
+  </data>
+  <data name="RS215" xml:space="preserve">
+    <value>1st Half</value>
+  </data>
+  <data name="RS216" xml:space="preserve">
+    <value>Goal {0}</value>
+  </data>
+  <data name="RS217" xml:space="preserve">
+    <value>First Goal</value>
+  </data>
   <data name="Running" xml:space="preserve">
     <value>Running</value>
+  </data>
+  <data name="Score" xml:space="preserve">
+    <value>Score</value>
+  </data>
+  <data name="SCR" xml:space="preserve">
+    <value>SCR</value>
+  </data>
+  <data name="Set" xml:space="preserve">
+    <value>Set</value>
+  </data>
+  <data name="Special" xml:space="preserve">
+    <value>Special</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>Status</value>
   </data>
+  <data name="Team" xml:space="preserve">
+    <value>Team</value>
+  </data>
+  <data name="TF" xml:space="preserve">
+    <value>TF</value>
+  </data>
+  <data name="Tiger" xml:space="preserve">
+    <value>Tiger</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="TotalGames" xml:space="preserve">
+    <value>Total Games</value>
+  </data>
+  <data name="TotalPoints" xml:space="preserve">
+    <value>Total Points</value>
+  </data>
+  <data name="TotalSet" xml:space="preserve">
+    <value>Total Set</value>
+  </data>
+  <data name="VS" xml:space="preserve">
+    <value>vs</value>
+  </data>
+  <data name="Warrior" xml:space="preserve">
+    <value>Warrior</value>
+  </data>
+  <data name="Warrior2ndBall" xml:space="preserve">
+    <value>2nd ball win</value>
+  </data>
+  <data name="Warrior3rdBall" xml:space="preserve">
+    <value>3rd ball win</value>
+  </data>
+  <data name="Win" xml:space="preserve">
+    <value>Win</value>
+  </data>
   <data name="Won" xml:space="preserve">
     <value>Won</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
   </data>
 </root>

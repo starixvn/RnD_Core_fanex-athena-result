@@ -17,6 +17,7 @@ namespace Fanex.Result.Core.LiveCasino.ExcelModels
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.LiveCasino.ViewModels;
     using NPOI.SS.UserModel;
+    using Fanex.Result.Core.Base.Resources;
 
     /// <summary>
     /// Live casino excel model class.
@@ -27,9 +28,8 @@ namespace Fanex.Result.Core.LiveCasino.ExcelModels
         public LiveCasinoExcel(
             string templatePath,
             ResultSetting setting,
-            IList<IResultViewModel> data,
-            LangResources resource)
-            : base(templatePath, setting, data, resource)
+            IList<IResultViewModel> data)
+            : base(templatePath, setting, data)
         {
             this.ColumnTemplateCount = 6;
             this.ColumnStatus = 5;
@@ -40,12 +40,12 @@ namespace Fanex.Result.Core.LiveCasino.ExcelModels
         {
             var colidx = 0;
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
-            row.Cells[colidx++].SetCellValue(Lang.MatchCode);
-            row.Cells[colidx++].SetCellValue(this.Lang.KickOffTime);
-            row.Cells[colidx++].SetCellValue(this.Lang.GameTypeAndTableNumber);
-            row.Cells[colidx++].SetCellValue(this.Lang.FinalScore);
-            row.Cells[colidx++].SetCellValue(this.Lang.Results);
-            row.Cells[colidx].SetCellValue(this.Lang.Status);
+            row.Cells[colidx++].SetCellValue(LangResource.MatchCode);
+            row.Cells[colidx++].SetCellValue(LangResource.KickOffTime);
+            row.Cells[colidx++].SetCellValue(LangResource.GameTypeAndTableNumber);
+            row.Cells[colidx++].SetCellValue(LangResource.FinalScore);
+            row.Cells[colidx++].SetCellValue(LangResource.Results);
+            row.Cells[colidx].SetCellValue(LangResource.Status);
         }
 
         /// <summary>

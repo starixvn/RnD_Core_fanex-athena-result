@@ -9,9 +9,9 @@ namespace Fanex.Result.Core.Sportsbook.ExcelModels
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.ExcelModels;
     using Fanex.Result.Core.Base.Extension;
+    using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Sportsbook.ViewModels;
@@ -23,8 +23,8 @@ namespace Fanex.Result.Core.Sportsbook.ExcelModels
     internal sealed class BilliardExcel : ExcelBase, IExcelModel
     {
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
-        public BilliardExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data, LangResources resource)
-            : base(templatePath, setting, data, resource)
+        public BilliardExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
+            : base(templatePath, setting, data)
         {
             this.ColumnTemplateCount = 5;
             this.ColumnStatus = 4;
@@ -35,12 +35,12 @@ namespace Fanex.Result.Core.Sportsbook.ExcelModels
         {
             var colidx = 0;
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
-            row.Cells[colidx++].SetCellValue(Lang.MatchCode + "/" + Lang.ID);
+            row.Cells[colidx++].SetCellValue(LangResource.MatchCode + "/" + LangResource.ID);
 
-            row.Cells[colidx++].SetCellValue(Lang.KickOffTime);
-            row.Cells[colidx++].SetCellValue(Lang.Match);
-            row.Cells[colidx++].SetCellValue(Lang.FinalScore);
-            row.Cells[colidx].SetCellValue(Lang.Status);
+            row.Cells[colidx++].SetCellValue(LangResource.KickOffTime);
+            row.Cells[colidx++].SetCellValue(LangResource.Match);
+            row.Cells[colidx++].SetCellValue(LangResource.FinalScore);
+            row.Cells[colidx].SetCellValue(LangResource.Status);
         }
 
         #region Assign Cell Data

@@ -43,7 +43,7 @@ namespace Fanex.Result.Core.Sportsbook.Models
             }
         }
 
-        public override IResultViewModel GetViewModel<T>(T obj, ResultSetting setting, LangResources resource)
+        public override IResultViewModel GetViewModel<T>(T obj, ResultSetting setting)
         {
             if ((int)setting.SportType <= 0)
             {
@@ -58,20 +58,20 @@ namespace Fanex.Result.Core.Sportsbook.Models
                 throw new ObjectNullException(dtoName);
             }
 
-            return (IResultViewModel)Activator.CreateInstance(viewModel, obj, setting, resource);
+            return (IResultViewModel)Activator.CreateInstance(viewModel, obj, setting);
         }
 
-        public override IResultViewModel GetOutRightViewModel(object obj, ResultSetting setting, LangResources resource)
+        public override IResultViewModel GetOutRightViewModel(object obj, ResultSetting setting)
         {
-            return new OutRightViewModel((OutRight)obj, setting, resource);
+            return new OutRightViewModel((OutRight)obj, setting);
         }
 
-        public override IResultViewModel GetParlayViewModel(object obj, ResultSetting setting, LangResources resource)
+        public override IResultViewModel GetParlayViewModel(object obj, ResultSetting setting)
         {
-            return new ParlayViewModel((Parlay)obj, setting, resource);
+            return new ParlayViewModel((Parlay)obj, setting);
         }
 
-        public override Base.ExcelModels.IExcelModel GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting, LangResources resource)
+        public override Base.ExcelModels.IExcelModel GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting)
         {
             if ((int)setting.SportType <= 0)
             {
@@ -81,14 +81,14 @@ namespace Fanex.Result.Core.Sportsbook.Models
             var dtoName = setting.SportType.StringMe();
 
             var realTemplatePath = setting.ExcelTemplatePath + dtoName + ".xls";
-            var dataMaped = dataList.Select(i => this.GetViewModel(i, setting, resource)).ToList();
+            var dataMaped = dataList.Select(i => this.GetViewModel(i, setting)).ToList();
             var excelViewModel = Type.GetType(EXCELNAMESPACE + dtoName + EXCELEXTNAME);
             if (excelViewModel == null)
             {
                 throw new ObjectNullException(dtoName);
             }
 
-            return (IExcelModel)Activator.CreateInstance(excelViewModel, realTemplatePath, setting, dataMaped, resource);
+            return (IExcelModel)Activator.CreateInstance(excelViewModel, realTemplatePath, setting, dataMaped);
         }
     }
 }

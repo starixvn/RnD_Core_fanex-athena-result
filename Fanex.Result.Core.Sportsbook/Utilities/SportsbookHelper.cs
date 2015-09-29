@@ -9,9 +9,10 @@ namespace Fanex.Result.Core.Sportsbook.Utilities
     using System.Linq;
     using System.Text;
     using System.Text.RegularExpressions;
-    using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Sportsbook.DataDomain;
+    using System.Resources;
 
     /// <summary>
     /// TODO: Update summary.
@@ -82,7 +83,7 @@ namespace Fanex.Result.Core.Sportsbook.Utilities
         /// <param name="keyName">The key name.</param>
         /// <param name="lang">The language objects.</param>
         /// <returns>The language value.</returns>
-        public static string GetResourceLang(string keyName, LangResources lang)
+        public static string GetResourceLang(string keyName)
         {
             if (string.IsNullOrEmpty(keyName))
             {
@@ -112,7 +113,8 @@ namespace Fanex.Result.Core.Sportsbook.Utilities
                 realKeyName.Append(keyName);
             }
 
-            var result = lang.GetType().GetProperty(realKeyName.ToString()).GetValue(lang, null).ToString();
+            var result = LangResource.ResourceManager.GetString(realKeyName.ToString());
+          
             if (!string.IsNullOrEmpty(resourceNum))
             {
                 return string.Format(result, resourceNum);

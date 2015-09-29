@@ -21,8 +21,6 @@ namespace Fanex.Result.Core.Base.ViewModels
             get { return _data; }
         }
 
-        public LangResources Resource { get; set; }
-
         public bool IsPopUp { get; set; }
 
         public bool VisiblePopUpTitle { get; set; }

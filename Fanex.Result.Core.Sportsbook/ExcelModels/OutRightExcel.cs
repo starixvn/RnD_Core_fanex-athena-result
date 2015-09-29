@@ -7,9 +7,9 @@ namespace Fanex.Result.Core.Sportsbook.ExcelModels
 {
     using System.Collections.Generic;
     using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.ExcelModels;
     using Fanex.Result.Core.Base.Extension;
+    using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Sportsbook.ViewModels;
@@ -29,8 +29,8 @@ namespace Fanex.Result.Core.Sportsbook.ExcelModels
 
         #endregion Fields
 
-        public OutRightExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data, LangResources resource)
-            : base(templatePath, setting, data, resource)
+        public OutRightExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
+            : base(templatePath, setting, data)
         {
             this.ColumnTemplateCount = 3;
             this.ColumnStatus = 4;
@@ -40,9 +40,9 @@ namespace Fanex.Result.Core.Sportsbook.ExcelModels
         protected override void AssignHeader(ISheet sheet)
         {
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
-            row.Cells[ColumnTime].SetCellValue(Lang.Time);
-            row.Cells[ColumnTeam].SetCellValue(Lang.Team);
-            row.Cells[ColumnResults].SetCellValue(Lang.Results);
+            row.Cells[ColumnTime].SetCellValue(LangResource.Time);
+            row.Cells[ColumnTeam].SetCellValue(LangResource.Team);
+            row.Cells[ColumnResults].SetCellValue(LangResource.Results);
         }
 
         protected override void ProcessUI(ISheet sheet)
@@ -56,7 +56,7 @@ namespace Fanex.Result.Core.Sportsbook.ExcelModels
 
         protected override void AssignNoInfoRow(ISheet sheet)
         {
-            SetTextRowValue(sheet, RowNoInfo, RowLeagueTemplate, ColumnTemplateCount, Lang.NoInfo);
+            SetTextRowValue(sheet, RowNoInfo, RowLeagueTemplate, ColumnTemplateCount, LangResource.NoInfo);
         }
 
         /// <summary>

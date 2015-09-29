@@ -9,7 +9,7 @@ namespace Fanex.Result.Core.Racing.ViewModels
     using System;
     using System.Globalization;
     using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Base.ViewModels;
     using RemotingRef;
@@ -77,18 +77,18 @@ namespace Fanex.Result.Core.Racing.ViewModels
                 {
                     case "01":
                     case "1":
-                        return this.Lang.Lbl1st;
+                        return LangResource.Lbl1st;
                     case "02":
                     case "2":
-                        return this.Lang.Lbl2nd;
+                        return LangResource.Lbl2nd;
                     case "03":
                     case "3":
-                        return this.Lang.Lbl3rd;
+                        return LangResource.Lbl3rd;
                     case "04":
                     case "4":
-                        return this.Lang.Lbl4th;
+                        return LangResource.Lbl4th;
                     default:
-                        return this._racing.Place + this.Lang.Noothers;
+                        return this._racing.Place + LangResource.Noothers;
                 }
             }
         }

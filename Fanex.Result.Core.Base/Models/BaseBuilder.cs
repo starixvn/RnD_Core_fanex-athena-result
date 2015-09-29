@@ -24,10 +24,9 @@ namespace Fanex.Result.Core.Base.Models
     {
         protected virtual RazorBinderModel GenerateViewModelData<T>(IList<T> dataList, Base.ResultSetting setting, ViewModelFactory viewModelFactory)
         {
-            var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
-            var groupData = dataList.Select(i => viewModelFactory.GetViewModel(i, setting, lang))
+            var groupData = dataList.Select(i => viewModelFactory.GetViewModel(i, setting))
                 .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToList() });
-            return CreateModel(lang, groupData, setting);
+            return CreateModel(groupData, setting);
         }
 
         /// <summary>
@@ -67,7 +66,6 @@ namespace Fanex.Result.Core.Base.Models
         /// Returns RAZOR model.
         /// </returns>
         protected virtual RazorBinderModel CreateModel(
-            LangResources lang,
             IEnumerable<GroupData> groupData,
             ResultSetting setting,
             bool isDetail = false)
@@ -75,7 +73,6 @@ namespace Fanex.Result.Core.Base.Models
             var isPopUp = setting.IsParlayPopUp || setting.IsPopUp;
             var model = new RazorBinderModel
             {
-                Resource = lang,
                 IsPopUp = isPopUp,
                 VisiblePopUpTitle = setting.VisiblePopUpTitle,
                 SportType = setting.SportType,

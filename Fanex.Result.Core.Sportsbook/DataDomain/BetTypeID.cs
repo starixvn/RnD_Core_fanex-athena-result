@@ -1,18 +1,16 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="IResource.cs" company="Nexcel">
+// <copyright file="BetTypeID.cs" company="">
 // TODO: Update copyright text.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Fanex.Result.Core.Base.Models
+namespace Fanex.Result.Core.Sportsbook.DataDomain
 {
-    using Fanex.Result.Core.Base.DataDomain;
-
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public interface IResource
+    public static class BetTypeID
     {
-        LangResources GetLanguage(string languageCode, string languagePath);
+        public const int SetXGameYWinner = 1324;
     }
 }

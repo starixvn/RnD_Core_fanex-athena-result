@@ -13,6 +13,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Sportsbook.DTO;
     using RemotingRef;
+    using Fanex.Result.Core.Base.Resources;
 
     /// <summary>
     /// Outright view model class.
@@ -21,8 +22,8 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     {
         private readonly OutRight _outRight;
 
-        public OutRightViewModel(OutRight outRight, ResultSetting setting, LangResources resource)
-            : base(setting, resource)
+        public OutRightViewModel(OutRight outRight, ResultSetting setting)
+            : base(setting)
         {
             this._outRight = outRight;
             this.LanguageCode = setting.LanguageCode;
@@ -78,24 +79,24 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
                 switch (keyStatus)
                 {
                     case ConstantValue.RunningStatus:
-                        return Lang.Running;
+                        return LangResource.Running;
                     case ConstantValue.CompletedStatus:
-                        return Lang.Completed;
+                        return LangResource.Completed;
                     case ConstantValue.ClosedStatus:
-                        return Lang.Closed;
+                        return LangResource.Closed;
                     case ConstantValue.PostponedStatus:
 
-                        return Lang.PostPoned;
+                        return LangResource.PostPoned;
                     case ConstantValue.InternalString:
-                        return Lang.Internal;
+                        return LangResource.Internal;
                     case ConstantValue.RefundStatus:
-                        return Lang.Refund;
+                        return LangResource.Refund;
                     case ConstantValue.RefundftStatus:
-                        return Lang.Refundft;
+                        return LangResource.Refundft;
                     case ConstantValue.RefundhtStatus:
-                        return Lang.Refundht;
+                        return LangResource.Refundht;
                     case ConstantValue.Won:
-                        return Lang.Won;
+                        return LangResource.Won;
                     default:
                         return this._outRight.Status;
                 }

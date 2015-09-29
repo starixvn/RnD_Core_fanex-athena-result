@@ -19,9 +19,8 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     {
         private int _totalPointHome;
         private int _totalPointAway;
-
-        public BadmintonViewModel(DTO.Sportsbook sportbook, ResultSetting setting, LangResources resource)
-            : base(sportbook, setting, resource)
+        public BadmintonViewModel(DTO.Sportsbook sportbook, ResultSetting setting)
+            : base(sportbook, setting)
         {
         }
 

@@ -1,8 +1,6 @@
 ﻿@{
     var viewModel = (Fanex.Result.Core.Base.ViewModels.RazorBinderModel)Model;
 
-    var lang = (Fanex.Result.Core.Base.DataDomain.LangResources)viewModel.Resource;
-
 }
 @using Fanex.Result.Core.Base.ViewModels;
 @using Fanex.Result.Core.Sportsbook.ViewModels;
@@ -27,7 +25,7 @@
 
                 var bindModle = new Fanex.Result.Core.Base.ViewModels.RazorBinderModel
                 {
-                    Resource = lang,
+                   
                     IsPopUp = true,
                     VisibleMatchCodeIDColumn = viewModel.VisibleMatchCodeIDColumn,
                     SportType = sportType
@@ -64,7 +62,7 @@
                                 };
                         var bothMatchAnddetailBindModel = new Fanex.Result.Core.Base.ViewModels.RazorBinderModel
                         {
-                            Resource = lang,
+                          
                             IsPopUp = true,
                             VisibleMatchCodeIDColumn = viewModel.VisibleMatchCodeIDColumn,
                             SportType = sportType,
@@ -88,7 +86,7 @@
                                 };
                         var detailBindModel = new Fanex.Result.Core.Base.ViewModels.RazorBinderModel
                         {
-                            Resource = lang,
+                            
                             IsPopUp = true,
                             VisibleMatchCodeIDColumn = viewModel.VisibleMatchCodeIDColumn,
                             SportType = sportType,

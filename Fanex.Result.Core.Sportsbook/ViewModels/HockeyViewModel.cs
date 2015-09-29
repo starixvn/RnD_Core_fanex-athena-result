@@ -17,8 +17,8 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     /// </summary>
     public sealed class HockeyViewModel : SportsbookBaseViewModel, IResultViewModel
     {
-        public HockeyViewModel(DTO.Sportsbook sportbook, ResultSetting setting, LangResources resource)
-            : base(sportbook, setting, resource)
+        public HockeyViewModel(DTO.Sportsbook sportbook, ResultSetting setting)
+            : base(sportbook, setting)
         {
         }
 

@@ -56,11 +56,6 @@ namespace Fanex.Result.Core
                 throw new ObjectUnSupportedException(string.Format(CoreResourceConfig.LANGUAGEARGUEMENTMES, setting.LanguageCode));
             }
 
-            if (string.IsNullOrEmpty(setting.ResourcePath))
-            {
-                setting.ResourcePath = System.AppDomain.CurrentDomain.BaseDirectory + CoreResourceConfig.RESOURCEPATH;
-            }
-
             var builder = GetBuilder(DTOType.SPORTSBOOK);
             return builder.HtmlGameDetailBuilder(data, setting);
         }
@@ -193,27 +188,24 @@ namespace Fanex.Result.Core
             {
                 setting.ExcelTemplatePath = System.AppDomain.CurrentDomain.BaseDirectory + CoreResourceConfig.EXCELTEMPLATEPATH;
             }
-
-            if (string.IsNullOrEmpty(setting.ResourcePath))
-            {
-                setting.ResourcePath = System.AppDomain.CurrentDomain.BaseDirectory + CoreResourceConfig.RESOURCEPATH;
-            }
         }
 
         private static IBuilder GetBuilder(string productType)
         {
             try
             {
-                var assemblyList = AppDomain.CurrentDomain.GetAssemblies();
-
-                var builderName = string.Format(BUILDERNAMESPACEPATTERN, productType);
                 var pluginName = string.Format(PLUGINPATTERN, productType);
-                var plugin = assemblyList.Where(i => i.FullName.IndexOf(pluginName, StringComparison.OrdinalIgnoreCase) > -1)
+
+                var plugin = AppDomain.CurrentDomain.GetAssemblies()
+                .Where(i => i.FullName.IndexOf(pluginName, StringComparison.OrdinalIgnoreCase) > -1)
                     .FirstOrDefault();
+
                 if (plugin == null)
                 {
                     throw new ObjectUnSupportedException(productType);
                 }
+
+                var builderName = string.Format(BUILDERNAMESPACEPATTERN, productType);
 
                 var typeBuilder = plugin.GetType(builderName);
 

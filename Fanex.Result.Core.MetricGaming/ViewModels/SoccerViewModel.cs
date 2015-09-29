@@ -22,8 +22,8 @@ namespace Fanex.Result.Core.MetricGaming.ViewModels
         private string _eventName;
         private IList<string> _eventResult = null;
 
-        public SoccerViewModel(DTO.MetricGaming metricGaming, ResultSetting setting, LangResources resources)
-            : base(setting, resources)
+        public SoccerViewModel(DTO.MetricGaming metricGaming, ResultSetting setting)
+            : base(setting)
         {
             this._metricGaming = metricGaming;
             this.LanguageCode = setting.LanguageCode;

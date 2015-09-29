@@ -58,7 +58,6 @@
                 VisibleDetailedLink = true,
                 VisibleFreeHeader = true,
                 HighlightWinnerTeam = true,
-                ResourcePath = Server.MapPath("~/App_Data/Fanex.Result.Resource/")
             };
             var htmlResult = string.Empty;
             switch (sportType)

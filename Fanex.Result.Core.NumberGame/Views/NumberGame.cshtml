@@ -1,7 +1,6 @@
 ﻿@{
     var viewModel = (Fanex.Result.Core.Base.ViewModels.RazorBinderModel)Model;
 
-    var lang = (Fanex.Result.Core.Base.DataDomain.LangResources)viewModel.Resource;
     var colspan = viewModel.VisibleMatchCodeIDColumn ? 9 : 8;
     var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
 
@@ -9,6 +8,7 @@
 @using Fanex.Result.Core.NumberGame.ViewModels;
 @using Fanex.Result.Core.Base.ViewModels;
 @using System.Collections;
+@using Fanex.Result.Core.Base.Resources;
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
@@ -28,32 +28,32 @@
             @if (viewModel.VisibleMatchCodeIDColumn)
             {
                 <th class="cl-m-code">
-                    @lang.MatchCode/@lang.ID
+                    @LangResource.MatchCode/@LangResource.ID
                 </th>
             }
             <th class="cl-ko-time">
-                @lang.KickOffTime
+                @LangResource.KickOffTime
             </th>
             <th class="cl-match">
-                @Raw(lang.Match)
+                @Raw(LangResource.Match)
             </th>
             <th class="cl-result">
-                @Raw(lang.Result)
+                @Raw(LangResource.Result)
             </th>
             <th class="cl-warrior">
-                @Raw(lang.Warrior)
+                @Raw(LangResource.Warrior)
             </th>
             <th class="cl-lblOEFT">
-                @Raw(lang.LblOEFT)
+                @Raw(LangResource.LblOEFT)
             </th>
             <th class="cl-lbl1stball">
-                @Raw(lang.Lbl1stBall)
+                @Raw(LangResource.Lbl1stBall)
             </th>
             <th class="cl-lastball">
-                @lang.LastBall
+                @LangResource.LastBall
             </th>
             <th class="cl-status">
-                @lang.Status
+                @LangResource.Status
             </th>
         </tr>
     </thead>
@@ -83,32 +83,32 @@
             @if (viewModel.VisibleMatchCodeIDColumn)
             {
                 <th class="cl-m-code">
-                    @lang.MatchCode/@lang.ID
+                    @LangResource.MatchCode/@LangResource.ID
                 </th>
             }
             <th class="cl-ko-time">
-                @lang.KickOffTime
+                @LangResource.KickOffTime
             </th>
             <th class="cl-match">
-                @Raw(lang.Match)
+                @Raw(LangResource.Match)
             </th>
             <th class="cl-result">
-                @Raw(lang.Result)
+                @Raw(LangResource.Result)
             </th>
             <th class="cl-warrior">
-                @Raw(lang.Warrior)
+                @Raw(LangResource.Warrior)
             </th>
             <th class="cl-lblOEFT">
-                @Raw(lang.LblOEFT)
+                @Raw(LangResource.LblOEFT)
             </th>
             <th class="cl-lbl1stball">
-                @Raw(lang.Lbl1stBall)
+                @Raw(LangResource.Lbl1stBall)
             </th>
             <th class="cl-lastball">
-                @lang.LastBall
+                @LangResource.LastBall
             </th>
             <th class="cl-status">
-                @lang.Status
+                @LangResource.Status
             </th>
         </tr>
     </thead>
@@ -152,7 +152,7 @@
                     @Raw(item.KickOffTime)
                 </td>
                 <td class="cl-match">
-                    @lang.NumberGameNo&nbsp;@item.GameNo
+                    @LangResource.NumberGameNo&nbsp;@item.GameNo
                 </td>
                 <td class="cl-result">
                     @foreach (var ball in item.Result)
@@ -185,7 +185,7 @@
             <!--NoInfo-->
             <tr class="row-noinfo">
                 <td colspan="@colspan">
-                    @viewModel.Resource.NoInfo
+                    @LangResource.NoInfo
                 </td>
             </tr>
             <!--/NoInfo-->

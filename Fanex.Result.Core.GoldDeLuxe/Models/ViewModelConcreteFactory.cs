@@ -38,7 +38,7 @@ namespace Fanex.Result.Core.GoldDeluxe.Models
             }
         }
 
-        public override IResultViewModel GetViewModel<T>(T obj, ResultSetting setting, LangResources resource)
+        public override IResultViewModel GetViewModel<T>(T obj, ResultSetting setting)
         {
             if ((int)setting.SportType <= 0)
             {
@@ -46,21 +46,21 @@ namespace Fanex.Result.Core.GoldDeluxe.Models
             }
 
             var item = obj as DTO.GoldDeluxe;
-            var viewModel = new GoldDeluxeViewModel(item, setting, resource);
+            var viewModel = new GoldDeluxeViewModel(item, setting);
             return (IResultViewModel)viewModel;
         }
 
-        public override IResultViewModel GetOutRightViewModel(object obj, ResultSetting setting, LangResources resource)
+        public override IResultViewModel GetOutRightViewModel(object obj, ResultSetting setting)
         {
             throw new NotImplementedException();
         }
 
-        public override IResultViewModel GetParlayViewModel(object obj, ResultSetting setting, LangResources resource)
+        public override IResultViewModel GetParlayViewModel(object obj, ResultSetting setting)
         {
             throw new NotImplementedException();
         }
 
-        public override Base.ExcelModels.IExcelModel GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting, LangResources resource)
+        public override Base.ExcelModels.IExcelModel GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting)
         {
             if ((int)setting.SportType <= 0)
             {
@@ -70,9 +70,9 @@ namespace Fanex.Result.Core.GoldDeluxe.Models
             var dtoName = setting.SportType.StringMe();
 
             var realTemplatePath = setting.ExcelTemplatePath + dtoName + ".xls";
-            var dataMaped = dataList.Select(i => this.GetViewModel(i, setting, resource)).ToList();
+            var dataMaped = dataList.Select(i => this.GetViewModel(i, setting)).ToList();
 
-            var viewModel = new GoldDeluxeExcel(realTemplatePath, setting, dataMaped, resource);
+            var viewModel = new GoldDeluxeExcel(realTemplatePath, setting, dataMaped);
 
             return viewModel as IExcelModel;
         }

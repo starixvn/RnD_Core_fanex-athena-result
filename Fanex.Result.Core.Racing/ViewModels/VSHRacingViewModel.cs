@@ -21,8 +21,8 @@ namespace Fanex.Result.Core.Racing.ViewModels
     {
         private readonly DTO.Racing _racing;
 
-        public VSHRacingViewModel(DTO.Racing racing, ResultSetting setting, LangResources resources)
-            : base(setting, resources)
+        public VSHRacingViewModel(DTO.Racing racing, ResultSetting setting)
+            : base(setting)
         {
             this._racing = racing;
             this.LanguageCode = setting.LanguageCode;

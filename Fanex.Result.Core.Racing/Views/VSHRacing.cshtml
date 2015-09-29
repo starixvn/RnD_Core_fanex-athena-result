@@ -1,7 +1,7 @@
 ﻿@{
     var viewModel = (Fanex.Result.Core.Base.ViewModels.RazorBinderModel)Model;
 
-    var lang = (Fanex.Result.Core.Base.DataDomain.LangResources)viewModel.Resource;
+   
     const int colspan = 7;
     var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
 
@@ -9,6 +9,7 @@
 @using Fanex.Result.Core.Base.ViewModels;
 @using Fanex.Result.Core.Racing.ViewModels;
 @using System.Collections;
+@using Fanex.Result.Core.Base.Resources;
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
@@ -25,19 +26,19 @@
                 }
                 <tr class="header">
                     <th class="cl-race">
-                        @lang.Race
+                        @LangResource.Race
                     </th>
                     <th class="cl-result">
-                        @Raw(lang.Result)
+                        @Raw(LangResource.Result)
                     </th>
                     <th class="cl-win">
-                        @Raw(lang.Win)
+                        @Raw(LangResource.Win)
                     </th>
                     <th class="cl-place">
-                        @Raw(lang.Place)
+                        @Raw(LangResource.Place)
                     </th>
                     <th class="cl-status">
-                        @lang.Status
+                        @LangResource.Status
                     </th>
                 </tr>
             </thead>
@@ -65,19 +66,19 @@
             }
             <tr class="header">
                 <th class="cl-race" colspan="3">
-                    @lang.Race
+                    @LangResource.Race
                 </th>
                 <th class="cl-result">
-                    @Raw(lang.Result)
+                    @Raw(LangResource.Result)
                 </th>
                 <th class="cl-win">
-                    @Raw(lang.Win)
+                    @Raw(LangResource.Win)
                 </th>
                 <th class="cl-place">
-                    @Raw(lang.Place)
+                    @Raw(LangResource.Place)
                 </th>
                 <th class="cl-status">
-                    @lang.Status
+                    @LangResource.Status
                 </th>
             </tr>
         </thead>
@@ -167,7 +168,7 @@
             <!--NoInfo-->
             <tr class="row-noinfo">
                 <td colspan="@colspan">
-                    @viewModel.Resource.NoInfo
+                    @LangResource.NoInfo
                 </td>
             </tr>
             <!--/NoInfo-->

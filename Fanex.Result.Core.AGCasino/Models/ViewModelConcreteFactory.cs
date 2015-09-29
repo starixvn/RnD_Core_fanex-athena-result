@@ -34,7 +34,7 @@ namespace Fanex.Result.Core.AGCasino.Models
             }
         }
 
-        public override IResultViewModel GetViewModel<T>(T obj, ResultSetting setting, LangResources resource)
+        public override IResultViewModel GetViewModel<T>(T obj, ResultSetting setting)
         {
             if ((int)setting.SportType <= 0)
             {
@@ -42,21 +42,21 @@ namespace Fanex.Result.Core.AGCasino.Models
             }
 
             var item = obj as DTO.AGCasino;
-            var viewModel = new AGCasinoViewModel(item, setting, resource);
+            var viewModel = new AGCasinoViewModel(item, setting);
             return (IResultViewModel)viewModel;
         }
 
-        public override IResultViewModel GetOutRightViewModel(object obj, ResultSetting setting, LangResources resource)
+        public override IResultViewModel GetOutRightViewModel(object obj, ResultSetting setting)
         {
             throw new NotImplementedException();
         }
 
-        public override IResultViewModel GetParlayViewModel(object obj, ResultSetting setting, LangResources resource)
+        public override IResultViewModel GetParlayViewModel(object obj, ResultSetting setting)
         {
             throw new NotImplementedException();
         }
 
-        public override Base.ExcelModels.IExcelModel GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting, LangResources resource)
+        public override Base.ExcelModels.IExcelModel GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting)
         {
             throw new NotImplementedException();
         }

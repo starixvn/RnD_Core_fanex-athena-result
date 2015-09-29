@@ -1,7 +1,6 @@
 ﻿@{
     var viewModel = (Fanex.Result.Core.Base.ViewModels.RazorBinderModel)Model;
 
-    var lang = (Fanex.Result.Core.Base.DataDomain.LangResources)viewModel.Resource;
     var colspan = 2;
     var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
 
@@ -10,6 +9,7 @@
 @using Fanex.Result.Core.Models;
 @using Fanex.Result.Core.AGCasino.ViewModels;
 @using System.Collections;
+@using Fanex.Result.Core.Base.Resources;
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
@@ -26,10 +26,10 @@
                 }
                 <tr class="header">
                     <th class="cl-match">
-                        @lang.Result
+                        @LangResource.Result
                     </th>
                     <th class="cl-status">
-                        @lang.Completed
+                        @LangResource.Completed
                     </th>
                 </tr>
             </thead>
@@ -56,10 +56,10 @@
             }
             <tr class="header">
                 <th class="cl-match">
-                    @lang.Result
+                    @LangResource.Result
                 </th>
                 <th class="cl-status">
-                    @lang.Status
+                    @LangResource.Status
                 </th>
             </tr>
         </thead>
@@ -96,7 +96,7 @@
             <!--NoInfo-->
             <tr class="row-noinfo">
                 <td colspan="@colspan">
-                    @viewModel.Resource.NoInfo
+                    @LangResource.NoInfo
                 </td>
             </tr>
             <!--/NoInfo-->

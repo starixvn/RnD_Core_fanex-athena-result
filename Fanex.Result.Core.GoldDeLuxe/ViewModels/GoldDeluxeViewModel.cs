@@ -9,7 +9,7 @@ namespace Fanex.Result.Core.GoldDeluxe.ViewModels
     using System;
     using System.Globalization;
     using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.GoldDeluxe.DataDomain;
     using Fanex.Result.Core.GoldDeluxe.DTO;
@@ -26,8 +26,8 @@ namespace Fanex.Result.Core.GoldDeluxe.ViewModels
         private string _gameId;
         private string _htmlResult;
 
-        public GoldDeluxeViewModel(GoldDeluxe goldDeluxe, ResultSetting setting, LangResources resource)
-            : base(setting, resource)
+        public GoldDeluxeViewModel(GoldDeluxe goldDeluxe, ResultSetting setting)
+            : base(setting)
         {
             this._goldDeluxe = goldDeluxe;
             this.LanguageCode = setting.LanguageCode;
@@ -49,7 +49,7 @@ namespace Fanex.Result.Core.GoldDeluxe.ViewModels
         {
             get
             {
-                return Lang.Completed;
+                return LangResource.Completed;
             }
         }
 
@@ -119,11 +119,11 @@ namespace Fanex.Result.Core.GoldDeluxe.ViewModels
             if (!string.IsNullOrEmpty(_result))
             {
                 _htmlResult = this._goldDeluxe.Bettype == GoldDeluxeBettype.Roulette ? GoldDeluxeHelper.GetRoutletResult(_result)
-                   : GoldDeluxeHelper.GetBacaratResult(_result, Lang.Banker, Lang.Player);
+                   : GoldDeluxeHelper.GetBacaratResult(_result, LangResource.Banker, LangResource.Player);
             }
             else
             {
-                _htmlResult = Lang.NoInfo;
+                _htmlResult = LangResource.NoInfo;
             }
         }
     }

@@ -35,7 +35,7 @@ namespace Fanex.Result.Core.MetricGaming.Models
             }
         }
 
-        public override IResultViewModel GetViewModel<T>(T obj, ResultSetting setting, LangResources resource)
+        public override IResultViewModel GetViewModel<T>(T obj, ResultSetting setting)
         {
             if ((int)setting.SportType <= 0)
             {
@@ -43,22 +43,22 @@ namespace Fanex.Result.Core.MetricGaming.Models
             }
 
             var item = obj as DTO.MetricGaming;
-            var viewModel = new SoccerViewModel(item, setting, resource);
+            var viewModel = new SoccerViewModel(item, setting);
 
             return (IResultViewModel)viewModel;
         }
 
-        public override IResultViewModel GetOutRightViewModel(object resultData, ResultSetting setting, LangResources resource)
+        public override IResultViewModel GetOutRightViewModel(object resultData, ResultSetting setting)
         {
             throw new NotImplementedException();
         }
 
-        public override IResultViewModel GetParlayViewModel(object resultData, ResultSetting setting, LangResources resource)
+        public override IResultViewModel GetParlayViewModel(object resultData, ResultSetting setting)
         {
             throw new NotImplementedException();
         }
 
-        public override IExcelModel GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting, LangResources resource)
+        public override IExcelModel GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting)
         {
             throw new NotImplementedException();
         }

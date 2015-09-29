@@ -23,8 +23,8 @@ namespace Fanex.Result.Core.MicroGaming
         private const string IFRAMERESULT = "<div class=\"iframe-rs-wrap\"><iframe class=\"iframe-rs\" src=\"{0}\" ></iframe></div>";
         private const string NORESULT = "<div class=\"no-info-rs\">{0}</div>";
         /*singleton*/
-        private static readonly object SynceObject = new object();
-        private static IParserService instance;
+
+        private static readonly Lazy<IParserService> lazyParserService = new Lazy<IParserService>(() => new ParserService());
 
         private ParserService()
         {
@@ -34,18 +34,7 @@ namespace Fanex.Result.Core.MicroGaming
         {
             get
             {
-                if (instance == null)
-                {
-                    lock (SynceObject)
-                    {
-                        if (instance == null)
-                        {
-                            instance = new ParserService();
-                        }
-                    }
-                }
-
-                return instance;
+                return lazyParserService.Value;
             }
         }
 

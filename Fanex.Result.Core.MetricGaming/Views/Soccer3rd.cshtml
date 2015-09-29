@@ -1,7 +1,6 @@
 ﻿@{
     var viewModel = (Fanex.Result.Core.Base.ViewModels.RazorBinderModel)Model;
 
-    var lang = (Fanex.Result.Core.Base.DataDomain.LangResources)viewModel.Resource;
     var colspan = 2;
     var popupCss = viewModel.IsPopUp || viewModel.IsDetail ? "popup" : string.Empty;
     
@@ -9,6 +8,7 @@
 @using Fanex.Result.Core.Base.ViewModels;
 @using Fanex.Result.Core.MetricGaming.ViewModels;
 @using System.Collections;
+@using Fanex.Result.Core.Base.Resources;
 <table class="fn-rs metric-gaming @popupCss">
     <thead>
         @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
@@ -39,17 +39,17 @@
             </tr>
             <tr class="data data-header">
                 <td class="cl-event">
-                    @lang.Event
+                    @LangResource.Event
                 </td>
                 <td class="cl-result">
-                    @lang.Result
+                    @LangResource.Result
                 </td>
             </tr>
                     if (item.IsShowNoInfoRow)
                     {
             <tr class="row-noinfo">
                 <td colspan="@colspan">
-                    @viewModel.Resource.NoInfo
+                    @LangResource.NoInfo
                 </td>
             </tr>   
                     }
@@ -84,7 +84,7 @@
             <!--NoInfo-->
             <tr class="row-noinfo">
                 <td colspan="@colspan">
-                    @viewModel.Resource.NoInfo
+                    @LangResource.NoInfo
                 </td>
             </tr>
             <!--/NoInfo-->

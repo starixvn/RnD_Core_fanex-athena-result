@@ -1,7 +1,9 @@
 ﻿namespace MvcExample.Controllers
 {
     using System.Diagnostics.CodeAnalysis;
+    using System.Globalization;
     using System.Linq;
+    using System.Threading;
     using System.Web.Mvc;
     using Fanex.Result.Core;
     using Fanex.Result.Core.Base;
@@ -30,6 +32,14 @@
         [HttpPost]
         public string GenHtml(ResultPopupMetaModel metalModel)
         {
+            CultureInfo def = System.Globalization.CultureInfo.CreateSpecificCulture(metalModel.LanguageCode);
+
+            var newCulture = new CultureInfo(metalModel.LanguageCode);
+            newCulture.DateTimeFormat = def.DateTimeFormat;
+            newCulture.NumberFormat = def.NumberFormat;
+
+            Thread.CurrentThread.CurrentCulture = newCulture;
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture(metalModel.LanguageCode);
             return GetPopUpData(metalModel);
         }
 

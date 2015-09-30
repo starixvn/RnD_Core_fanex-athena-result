@@ -1,0 +1,259 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Event" xml:space="preserve">
+    <value>การแข่งขัน</value>
+  </data>
+  <data name="Team" xml:space="preserve">
+    <value>ทีม</value>
+  </data>
+  <data name="Refund" xml:space="preserve">
+    <value>คืนเงิน</value>
+  </data>
+  <data name="SCR" xml:space="preserve">
+    <value>ไม่เข้ารอบ</value>
+  </data>
+  <data name="Running" xml:space="preserve">
+    <value>กำลังแข่งขัน</value>
+  </data>
+  <data name="Won" xml:space="preserve">
+    <value>ชนะ</value>
+  </data>
+  <data name="Win" xml:space="preserve">
+    <value>ชนะ</value>
+  </data>
+  <data name="Match" xml:space="preserve">
+    <value>การแข่งขัน</value>
+  </data>
+  <data name="Race" xml:space="preserve">
+    <value>แข่งขัน</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>ระหว่างการดำเนินการ</value>
+  </data>
+  <data name="Lbl4Q" xml:space="preserve">
+    <value>การแข่งขันควอเตอร์ที่ 4</value>
+  </data>
+  <data name="Lbl4S" xml:space="preserve">
+    <value>ตัวแทนสูงสุดอันดับที่ 4</value>
+  </data>
+  <data name="Lbl4th" xml:space="preserve">
+    <value>ที่สี่</value>
+  </data>
+  <data name="Lbl5S" xml:space="preserve">
+    <value>ตัวแทนสูงสุดอันดับที่ 5</value>
+  </data>
+  <data name="Warrior2ndBall" xml:space="preserve">
+    <value>บอลลูกที่ 2 ชนะ</value>
+  </data>
+  <data name="Lbl2Q" xml:space="preserve">
+    <value>การแข่งขันควอเตอร์ที่ 2</value>
+  </data>
+  <data name="Lbl2P" xml:space="preserve">
+    <value>เล่น 2 คน</value>
+  </data>
+  <data name="Lbl2S" xml:space="preserve">
+    <value>ตัวแทนสูงสุดอันดับที่ 2</value>
+  </data>
+  <data name="Lbl2nd" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Warrior3rdBall" xml:space="preserve">
+    <value>บอลลูกที่ 3 ชนะ</value>
+  </data>
+  <data name="Lbl3Q" xml:space="preserve">
+    <value>การแข่งขันควอเตอร์ที่ 3</value>
+  </data>
+  <data name="Lbl3P" xml:space="preserve">
+    <value>เล่น 3 คน</value>
+  </data>
+  <data name="Lbl3S" xml:space="preserve">
+    <value>ตัวแทนสูงสุดอันดับที่ 3</value>
+  </data>
+  <data name="Lbl3rd" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="Lbl1P" xml:space="preserve">
+    <value>เล่น 1 คน</value>
+  </data>
+  <data name="Lbl1Q" xml:space="preserve">
+    <value>การแข่งขันควอเตอร์ที่ 1</value>
+  </data>
+  <data name="Lbl1S" xml:space="preserve">
+    <value>ตัวแทนสูงสุดอันดับที่ 1</value>
+  </data>
+  <data name="Lbl1stBall" xml:space="preserve">
+    <value>ลูกแรก</value>
+  </data>
+  <data name="Lbl1st" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="NumberGameNo" xml:space="preserve">
+    <value>เกมหมายเลข เลขที่</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>สถานะ</value>
+  </data>
+  <data name="TotalGames" xml:space="preserve">
+    <value>จำนวนรวมของเกมส์</value>
+  </data>
+  <data name="NoInfo" xml:space="preserve">
+    <value>ไม่มีข้อมูล</value>
+  </data>
+  <data name="Score" xml:space="preserve">
+    <value>ผล</value>
+  </data>
+  <data name="FinalScore" xml:space="preserve">
+    <value>ประตูสุดท้าย</value>
+  </data>
+  <data name="LastBall" xml:space="preserve">
+    <value>บอลสุดท้าย</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>เวลา</value>
+  </data>
+  <data name="Warrior" xml:space="preserve">
+    <value>นักรบ</value>
+  </data>
+  <data name="PostPoned" xml:space="preserve">
+    <value>เลื่อน</value>
+  </data>
+  <data name="TotalPoints" xml:space="preserve">
+    <value>จำนวนรวมของแต้ม</value>
+  </data>
+  <data name="TotalSet" xml:space="preserve">
+    <value>จำนวนรวมของเซต</value>
+  </data>
+  <data name="KickOffTime" xml:space="preserve">
+    <value>เวลาที่เริ่มการแข่งขัน</value>
+  </data>
+  <data name="LblOT" xml:space="preserve">
+    <value>การต่อเวลาพิเศษ</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>เสร็จสมบูรณ์</value>
+  </data>
+  <data name="Official" xml:space="preserve">
+    <value>เป็นทางการ</value>
+  </data>
+  <data name="TF" xml:space="preserve">
+    <value>ความผันผวนสูงสุด</value>
+  </data>
+  <data name="Even" xml:space="preserve">
+    <value>คู่</value>
+  </data>
+  <data name="Odd" xml:space="preserve">
+    <value>คี่</value>
+  </data>
+  <data name="Internal" xml:space="preserve">
+    <value>ภายใน</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>ปิด</value>
+  </data>
+  <data name="Refundft" xml:space="preserve">
+    <value>คืนเงินเต็มเวลา</value>
+  </data>
+  <data name="Place" xml:space="preserve">
+    <value>วาง</value>
+  </data>
+  <data name="Refundht" xml:space="preserve">
+    <value>คืนเงินครึ่งแรก</value>
+  </data>
+</root>

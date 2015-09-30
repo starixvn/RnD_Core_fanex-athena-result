@@ -48,7 +48,12 @@ D:\TeamProject\GIT_LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\Fanex.Res
 D:\TeamProject\GIT_LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\Newtonsoft.Json.xml
 D:\TeamProject\GIT_LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\NPOI.xml
 D:\TeamProject\GIT_LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\RazorEngine.xml
+D:\TeamProject\GIT_LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\ja-JP\Fanex.Result.Core.Base.resources.dll
 D:\TeamProject\GIT_LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\ko-KR\Fanex.Result.Core.Base.resources.dll
+D:\TeamProject\GIT_LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\th-TH\Fanex.Result.Core.Base.resources.dll
+D:\TeamProject\GIT_LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\vi-VN\Fanex.Result.Core.Base.resources.dll
+D:\TeamProject\GIT_LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\zh-CN\Fanex.Result.Core.Base.resources.dll
+D:\TeamProject\GIT_LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\zh-TW\Fanex.Result.Core.Base.resources.dll
 D:\TeamProject\GIT_LAB\fanex-athena-result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.csprojResolveAssemblyReference.cache
 D:\TeamProject\GIT_LAB\fanex-athena-result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.dll
 D:\TeamProject\GIT_LAB\fanex-athena-result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.pdb

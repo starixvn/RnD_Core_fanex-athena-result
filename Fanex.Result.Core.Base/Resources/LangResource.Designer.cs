@@ -29,7 +29,7 @@ namespace Fanex.Result.Core.Base.Resources {
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        public LangResource() {
+        internal LangResource() {
         }
         
         /// <summary>
@@ -106,20 +106,20 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Daragon.
-        /// </summary>
-        public static string Daragon {
-            get {
-                return ResourceManager.GetString("Daragon", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to [i].
         /// </summary>
         public static string Details {
             get {
                 return ResourceManager.GetString("Details", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dragon.
+        /// </summary>
+        public static string Dragon {
+            get {
+                return ResourceManager.GetString("Dragon", resourceCulture);
             }
         }
         

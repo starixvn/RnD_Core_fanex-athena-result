@@ -85,7 +85,7 @@ namespace Fanex.Result.Core.AGCasino.ViewModels
                             break;
 
                         case AGCasinoBettype.DragonTiger:
-                            _htmlResult = AGCasinoHelper.GetDragonTigerResult(resultToken, LangResource.Daragon, LangResource.Tiger);
+                            _htmlResult = AGCasinoHelper.GetDragonTigerResult(resultToken, LangResource.Dragon, LangResource.Tiger);
                             break;
 
                         case AGCasinoBettype.SicBo:

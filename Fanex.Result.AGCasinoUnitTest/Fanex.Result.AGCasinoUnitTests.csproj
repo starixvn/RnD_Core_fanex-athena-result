@@ -8,8 +8,8 @@
     <ProjectGuid>{65FEAFB9-6241-4856-BE05-6B686EB93BE1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Fanex.Result.AGCasinoUnitTest</RootNamespace>
-    <AssemblyName>Fanex.Result.AGCasinoUnitTest</AssemblyName>
+    <RootNamespace>Fanex.Result.AGCasinoUnitTests</RootNamespace>
+    <AssemblyName>Fanex.Result.AGCasinoUnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>

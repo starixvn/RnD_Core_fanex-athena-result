@@ -47,7 +47,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Sportsboo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.AGCasino", "Fanex.Result.Core.AGCasino\Fanex.Result.Core.AGCasino.csproj", "{0A57E89B-3C07-498A-A704-E893C2C3F7E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.AGCasinoUnitTest", "Fanex.Result.AGCasinoUnitTest\Fanex.Result.AGCasinoUnitTest.csproj", "{65FEAFB9-6241-4856-BE05-6B686EB93BE1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.AGCasinoUnitTests", "Fanex.Result.AGCasinoUnitTest\Fanex.Result.AGCasinoUnitTests.csproj", "{65FEAFB9-6241-4856-BE05-6B686EB93BE1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

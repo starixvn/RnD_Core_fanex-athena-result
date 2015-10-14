@@ -471,4 +471,13 @@
   <data name="Yes" xml:space="preserve">
     <value>Yes</value>
   </data>
+  <data name="Lose" xml:space="preserve">
+    <value>Lose</value>
+  </data>
+  <data name="FiveRoundsCompleted" xml:space="preserve">
+    <value>5 rounds completed</value>
+  </data>
+  <data name="KOInRound" xml:space="preserve">
+    <value>KO in round {0}</value>
+  </data>
 </root>

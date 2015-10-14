@@ -345,6 +345,7 @@
     <Content Include="App_Data\Fanex.Result\VSHRacing.xls" />
     <Content Include="App_Data\Fanex.Result\VSTennis.xls" />
     <Content Include="App_Data\Fanex.Result\GoldDeluxe.xls" />
+    <Content Include="App_Data\Fanex.Result\MuayThai.xls" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>

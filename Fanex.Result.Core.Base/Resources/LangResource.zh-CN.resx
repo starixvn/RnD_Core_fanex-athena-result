@@ -265,4 +265,7 @@
   <data name="Lbl1S" xml:space="preserve">
     <value>第一盘</value>
   </data>
+  <data name="Lose" xml:space="preserve">
+    <value>输</value>
+  </data>
 </root>

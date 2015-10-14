@@ -82,6 +82,7 @@
     <Compile Include="ExcelModels\BaseBallExcel.cs" />
     <Compile Include="ExcelModels\BasketballExcel.cs" />
     <Compile Include="ExcelModels\BilliardExcel.cs" />
+    <Compile Include="ExcelModels\MuayThaiExcel.cs" />
     <Compile Include="ExcelModels\HockeyExcel.cs" />
     <Compile Include="ExcelModels\OtherExcel.cs" />
     <Compile Include="ExcelModels\OutRightExcel.cs" />
@@ -97,6 +98,7 @@
     <Compile Include="ViewModels\BaseBallViewModel.cs" />
     <Compile Include="ViewModels\BasketBallViewModel.cs" />
     <Compile Include="ViewModels\BilliardViewModel.cs" />
+    <Compile Include="ViewModels\MuayThaiViewModel.cs" />
     <Compile Include="ViewModels\HockeyViewModel.cs" />
     <Compile Include="ViewModels\OtherViewModel.cs" />
     <Compile Include="ViewModels\OutRightViewModel.cs" />
@@ -142,6 +144,7 @@
     <EmbeddedResource Include="Views\SoccerDetail\Special.cshtml" />
     <EmbeddedResource Include="Views\Tennis.cshtml" />
     <EmbeddedResource Include="Views\VSTennis.cshtml" />
+    <EmbeddedResource Include="Views\MuayThai.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

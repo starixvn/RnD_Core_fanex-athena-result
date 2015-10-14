@@ -57,3 +57,4 @@ D:\TeamProject\GIT_LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\zh-TW\Fan
 D:\TeamProject\GIT_LAB\fanex-athena-result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.csprojResolveAssemblyReference.cache
 D:\TeamProject\GIT_LAB\fanex-athena-result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.dll
 D:\TeamProject\GIT_LAB\fanex-athena-result\Fanex.Result.Core\obj\Debug\Fanex.Result.Core.pdb
+D:\TeamProject\GIT_LAB\fanex-athena-result\Fanex.Result.Core\bin\Debug\zh-Hans\Fanex.Result.Core.Base.resources.dll

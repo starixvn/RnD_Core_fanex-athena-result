@@ -21,7 +21,6 @@ namespace Fanex.Result.Core.Sportsbook.Utilities
     {
         private const string ResourceIDSuffix = "RS";
         private static Regex setXGameYRegex = new Regex("^80[1-5]{1}\\d{2}$");
-
         private static Regex[] soccerRangeResourceIDRegex = new Regex[5]
         {
             new Regex(GameResourceID.NextGoalTime),
@@ -114,7 +113,7 @@ namespace Fanex.Result.Core.Sportsbook.Utilities
             }
 
             var result = LangResource.ResourceManager.GetString(realKeyName.ToString());
-          
+
             if (!string.IsNullOrEmpty(resourceNum))
             {
                 return string.Format(result, resourceNum);

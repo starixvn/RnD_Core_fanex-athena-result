@@ -256,4 +256,7 @@
   <data name="Refundht" xml:space="preserve">
     <value>คืนเงินครึ่งแรก</value>
   </data>
+  <data name="Lose" xml:space="preserve">
+    <value>เสีย</value>
+  </data>
 </root>

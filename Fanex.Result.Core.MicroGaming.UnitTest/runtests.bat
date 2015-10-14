@@ -1,1 +1,0 @@
-..\..\..\packages\NUnit.Runners.2.6.4\tools\nunit-console.exe Fanex.Result.Core.MicroGaming.UnitTest.dll /noshadow

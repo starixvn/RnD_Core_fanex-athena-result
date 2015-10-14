@@ -361,4 +361,7 @@
   <data name="Won" xml:space="preserve">
     <value>승리</value>
   </data>
+  <data name="Lose" xml:space="preserve">
+    <value>패배</value>
+  </data>
 </root>

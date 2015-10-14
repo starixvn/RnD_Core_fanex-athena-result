@@ -2,8 +2,10 @@
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Globalization;
     using System.IO;
     using System.Linq;
+    using System.Threading;
     using System.Web.Mvc;
     using Fanex.Result.Core;
     using Fanex.Result.Core.Base;
@@ -14,8 +16,6 @@
     using Fanex.Result.Core.Sportsbook.DTO;
     using MvcExample.Models;
     using MvcExample.Models.Criteria;
-    using System.Globalization;
-    using System.Threading;
 
     /// <summary>
     /// Normal result page.
@@ -34,7 +34,7 @@
         {
             return View();
         }
-       
+
         /// <summary>
         /// Gen html result.
         /// </summary>
@@ -59,7 +59,6 @@
 
             Thread.CurrentThread.CurrentCulture = newCulture;
             Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture(languageCode);
-        
 
             var sportType = (SportType)sportId;
             var resultSetting = new ResultSetting
@@ -261,6 +260,7 @@
                         isShowAll = true,
                         LeagueID = leagueId
                     });
+
                     excelResult = ResultEngine.ExcelParser<Sportsbook>(dataSb.ToList(), resultSetting);
 
                     break;

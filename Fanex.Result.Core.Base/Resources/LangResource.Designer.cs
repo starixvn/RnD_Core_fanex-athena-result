@@ -178,6 +178,15 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 5 rounds completed.
+        /// </summary>
+        public static string FiveRoundsCompleted {
+            get {
+                return ResourceManager.GetString("FiveRoundsCompleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Game ID.
         /// </summary>
         public static string GameID {
@@ -300,6 +309,15 @@ namespace Fanex.Result.Core.Base.Resources {
         public static string KickOffTime {
             get {
                 return ResourceManager.GetString("KickOffTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to KO in round {0}.
+        /// </summary>
+        public static string KOInRound {
+            get {
+                return ResourceManager.GetString("KOInRound", resourceCulture);
             }
         }
         
@@ -480,6 +498,15 @@ namespace Fanex.Result.Core.Base.Resources {
         public static string LblOT {
             get {
                 return ResourceManager.GetString("LblOT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lose.
+        /// </summary>
+        public static string Lose {
+            get {
+                return ResourceManager.GetString("Lose", resourceCulture);
             }
         }
         

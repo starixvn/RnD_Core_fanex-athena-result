@@ -265,4 +265,7 @@
   <data name="HTScore" xml:space="preserve">
     <value>上半場比分</value>
   </data>
+  <data name="Lose" xml:space="preserve">
+    <value>輸</value>
+  </data>
 </root>

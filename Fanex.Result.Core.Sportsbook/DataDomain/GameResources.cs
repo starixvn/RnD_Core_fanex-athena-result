@@ -48,5 +48,9 @@ namespace Fanex.Result.Core.Sportsbook.DataDomain
                 return _betRada;
             }
         }
+
+        public static int[] PossibleMuayThaiScore = { 0, 1, 5 };
+
+
     }
 }

@@ -25,6 +25,7 @@ namespace Fanex.Result.Core.Base.ViewModels
         { "en-US", "en" },
         { "zh-TW", "ch" },
         { "zh-CN", "cs" },
+        { "zh-Hans", "zhcn" },
         { "ja-JP", "jp" },
         { "th-TH", "th" },
         { "ko-KR", "ko" },

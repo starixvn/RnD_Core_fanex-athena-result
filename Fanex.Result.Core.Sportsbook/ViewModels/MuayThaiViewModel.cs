@@ -81,7 +81,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
                     if (this.SPORTBOOK.FinalHomeScore.Value != this.SPORTBOOK.FinalAwayScore.Value
                         && !string.IsNullOrEmpty(this.SPORTBOOK.BetStatus))
                     {
-                        string.Format(LangResource.KOInRound, this.SPORTBOOK.BetStatus);
+                       return string.Format(LangResource.KOInRound, this.SPORTBOOK.BetStatus);
                     }
                 }
 

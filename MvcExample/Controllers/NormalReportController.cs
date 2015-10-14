@@ -51,13 +51,7 @@
         [HttpPost]
         public string GenHtml(DateTime date, short sportId, int leagueId, string languageCode, bool showMatchCode)
         {
-            CultureInfo def = System.Globalization.CultureInfo.CreateSpecificCulture(languageCode);
-
-            var newCulture = new CultureInfo(languageCode);
-            newCulture.DateTimeFormat = def.DateTimeFormat;
-            newCulture.NumberFormat = def.NumberFormat;
-
-            Thread.CurrentThread.CurrentCulture = newCulture;
+           
             Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture(languageCode);
 
             var sportType = (SportType)sportId;

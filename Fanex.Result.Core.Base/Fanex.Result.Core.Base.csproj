@@ -124,6 +124,7 @@
     <EmbeddedResource Include="Resources\LangResource.th-TH.resx" />
     <EmbeddedResource Include="Resources\LangResource.vi-VN.resx" />
     <EmbeddedResource Include="Resources\LangResource.zh-CN.resx" />
+    <EmbeddedResource Include="Resources\LangResource.zh-Hans.resx" />
     <EmbeddedResource Include="Resources\LangResource.zh-TW.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

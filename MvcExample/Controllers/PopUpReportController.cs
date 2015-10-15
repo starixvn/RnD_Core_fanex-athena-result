@@ -32,7 +32,8 @@
         [HttpPost]
         public string GenHtml(ResultPopupMetaModel metalModel)
         {
-            Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture(metalModel.LanguageCode);
+            Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentUICulture = new CultureInfo(metalModel.LanguageCode);
+
 
             return GetPopUpData(metalModel);
         }

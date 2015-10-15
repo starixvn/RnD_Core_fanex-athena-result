@@ -37,8 +37,7 @@
         [HttpPost]
         public string GenHtml(DateTime date, string languageCode)
         {
-            Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture(languageCode);
-
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(languageCode);
 
             string htmlResult = string.Empty;
             var outRightData = _resultService.GetOutRightResult(new Models.Criteria.GetOutRightResult

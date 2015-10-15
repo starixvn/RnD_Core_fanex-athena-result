@@ -1,0 +1,367 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Away" xml:space="preserve">
+    <value>Away</value>
+  </data>
+  <data name="Banker" xml:space="preserve">
+    <value>Banker</value>
+  </data>
+  <data name="Closed" xml:space="preserve">
+    <value>중지</value>
+  </data>
+  <data name="Corner" xml:space="preserve">
+    <value>Corners</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>완료됨</value>
+  </data>
+  <data name="Dragon" xml:space="preserve">
+    <value>Dragon</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>[i]</value>
+  </data>
+  <data name="Draw" xml:space="preserve">
+    <value>Draw</value>
+  </data>
+  <data name="Event" xml:space="preserve">
+    <value>경기</value>
+  </data>
+  <data name="Even" xml:space="preserve">
+    <value>짝수</value>
+  </data>
+  <data name="ExtraTime" xml:space="preserve">
+    <value>Extra Time</value>
+  </data>
+  <data name="FirstLastCorners" xml:space="preserve">
+    <value>First/Last Corners</value>
+  </data>
+  <data name="FinalScore" xml:space="preserve">
+    <value>최종 점수</value>
+  </data>
+  <data name="GameID" xml:space="preserve">
+    <value>Game ID</value>
+  </data>
+  <data name="GameResult" xml:space="preserve">
+    <value>Game Result</value>
+  </data>
+  <data name="GameTypeAndTableNumber" xml:space="preserve">
+    <value>Game Type - Table Number</value>
+  </data>
+  <data name="GoalRecord" xml:space="preserve">
+    <value>Goal Record</value>
+  </data>
+  <data name="GoalScorer" xml:space="preserve">
+    <value>Goal Scorer</value>
+  </data>
+  <data name="Goals" xml:space="preserve">
+    <value>Goals</value>
+  </data>
+  <data name="GoalTime" xml:space="preserve">
+    <value>Goal Time</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="HomeAwayPlayerSentOff" xml:space="preserve">
+    <value>Home/Away - Player Sent Off</value>
+  </data>
+  <data name="HTScore" xml:space="preserve">
+    <value>전반점 점수</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Internal" xml:space="preserve">
+    <value>내부의</value>
+  </data>
+  <data name="IsNeutral" xml:space="preserve">
+    <value>(N)</value>
+  </data>
+  <data name="KickOffTime" xml:space="preserve">
+    <value>경기 시작 시간</value>
+  </data>
+  <data name="LastBall" xml:space="preserve">
+    <value>마지막공</value>
+  </data>
+  <data name="Lbl1P" xml:space="preserve">
+    <value>1포인</value>
+  </data>
+  <data name="Lbl1Q" xml:space="preserve">
+    <value>1쿼터</value>
+  </data>
+  <data name="Lbl1S" xml:space="preserve">
+    <value>1세트</value>
+  </data>
+  <data name="Lbl1st" xml:space="preserve">
+    <value>첫번째</value>
+  </data>
+  <data name="Lbl1stBall" xml:space="preserve">
+    <value>첫번째 공</value>
+  </data>
+  <data name="Lbl2nd" xml:space="preserve">
+    <value>두번째</value>
+  </data>
+  <data name="Lbl2P" xml:space="preserve">
+    <value>2포인</value>
+  </data>
+  <data name="Lbl2Q" xml:space="preserve">
+    <value>2쿼터</value>
+  </data>
+  <data name="Lbl2S" xml:space="preserve">
+    <value>2세트</value>
+  </data>
+  <data name="Lbl3P" xml:space="preserve">
+    <value>3포인</value>
+  </data>
+  <data name="Lbl3Q" xml:space="preserve">
+    <value>3쿼터</value>
+  </data>
+  <data name="Lbl3rd" xml:space="preserve">
+    <value>세번째</value>
+  </data>
+  <data name="Lbl3S" xml:space="preserve">
+    <value>3세트</value>
+  </data>
+  <data name="Lbl4Q" xml:space="preserve">
+    <value>4쿼터</value>
+  </data>
+  <data name="Lbl4S" xml:space="preserve">
+    <value>4세트</value>
+  </data>
+  <data name="Lbl4th" xml:space="preserve">
+    <value>네번째</value>
+  </data>
+  <data name="Lbl5S" xml:space="preserve">
+    <value>5세트</value>
+  </data>
+  <data name="LblOEFT" xml:space="preserve">
+    <value>O/E FT</value>
+  </data>
+  <data name="LblOT" xml:space="preserve">
+    <value>연장전</value>
+  </data>
+  <data name="Match" xml:space="preserve">
+    <value>매치</value>
+  </data>
+  <data name="Min" xml:space="preserve">
+    <value>Min</value>
+  </data>
+  <data name="MatchCode" xml:space="preserve">
+    <value>Match Code</value>
+  </data>
+  <data name="MoreResults" xml:space="preserve">
+    <value>More Results</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="NoInfo" xml:space="preserve">
+    <value>가능한 정보가 없습니다</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="Noothers" xml:space="preserve">
+    <value>번째</value>
+  </data>
+  <data name="NumberGameNo" xml:space="preserve">
+    <value>라이브빙고게임 번호</value>
+  </data>
+  <data name="Odd" xml:space="preserve">
+    <value>홀수</value>
+  </data>
+  <data name="Official" xml:space="preserve">
+    <value>확정</value>
+  </data>
+  <data name="Penalty" xml:space="preserve">
+    <value>Penalty</value>
+  </data>
+  <data name="Pending" xml:space="preserve">
+    <value>보류</value>
+  </data>
+  <data name="Place" xml:space="preserve">
+    <value>순위</value>
+  </data>
+  <data name="Player" xml:space="preserve">
+    <value>Player</value>
+  </data>
+  <data name="PlayerSentOff" xml:space="preserve">
+    <value>Player Sent Off</value>
+  </data>
+  <data name="PostPoned" xml:space="preserve">
+    <value>연기</value>
+  </data>
+  <data name="PS" xml:space="preserve">
+    <value>PS</value>
+  </data>
+  <data name="Race" xml:space="preserve">
+    <value>경주</value>
+  </data>
+  <data name="Refund" xml:space="preserve">
+    <value>환급</value>
+  </data>
+  <data name="Refundft" xml:space="preserve">
+    <value>전후반 환불</value>
+  </data>
+  <data name="Refundht" xml:space="preserve">
+    <value>전반전 환불</value>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>결과</value>
+  </data>
+  <data name="Results" xml:space="preserve">
+    <value>결과</value>
+  </data>
+  <data name="RegularTime" xml:space="preserve">
+    <value>Regular Time</value>
+  </data>
+  <data name="Running" xml:space="preserve">
+    <value>진행중</value>
+  </data>
+  <data name="Score" xml:space="preserve">
+    <value>점수</value>
+  </data>
+  <data name="SCR" xml:space="preserve">
+    <value>미출전</value>
+  </data>
+  <data name="Set" xml:space="preserve">
+    <value>세트</value>
+  </data>
+  <data name="Status" xml:space="preserve">
+    <value>상황</value>
+  </data>
+  <data name="Team" xml:space="preserve">
+    <value>팀</value>
+  </data>
+  <data name="TF" xml:space="preserve">
+    <value>최고변동</value>
+  </data>
+  <data name="Time" xml:space="preserve">
+    <value>시간</value>
+  </data>
+  <data name="TotalGames" xml:space="preserve">
+    <value>총 게임</value>
+  </data>
+  <data name="TotalPoints" xml:space="preserve">
+    <value>총 포인트</value>
+  </data>
+  <data name="TotalSet" xml:space="preserve">
+    <value>총 세트</value>
+  </data>
+  <data name="Warrior" xml:space="preserve">
+    <value>경고자</value>
+  </data>
+  <data name="Warrior2ndBall" xml:space="preserve">
+    <value>2번째 공 승리</value>
+  </data>
+  <data name="Warrior3rdBall" xml:space="preserve">
+    <value>세번째 공 승리</value>
+  </data>
+  <data name="Win" xml:space="preserve">
+    <value>승리</value>
+  </data>
+  <data name="Won" xml:space="preserve">
+    <value>승리</value>
+  </data>
+  <data name="Lose" xml:space="preserve">
+    <value>패배</value>
+  </data>
+</root>

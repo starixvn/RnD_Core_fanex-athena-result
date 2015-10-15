@@ -1,7 +1,7 @@
 ﻿@{
     var viewModel = (Fanex.Result.Core.Base.ViewModels.RazorBinderModel)Model;
 
-    var lang = (Fanex.Result.Core.Base.DataDomain.LangResources)viewModel.Resource;
+   
     var colspan = viewModel.VisibleMatchCodeIDColumn ? 6 : 5;
     var popupCss = viewModel.IsPopUp || viewModel.IsDetail ? "popup" : string.Empty;
     
@@ -9,6 +9,7 @@
 @using Fanex.Result.Core.Base.ViewModels;
 @using Fanex.Result.Core.Sportsbook.ViewModels;
 @using System.Collections;
+@using Fanex.Result.Core.Base.Resources;
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
@@ -27,23 +28,23 @@
                     @if (viewModel.VisibleMatchCodeIDColumn)
                     {
                         <th class="cl-m-code">
-                            @lang.MatchCode/@lang.ID
+                            @LangResource.MatchCode/@LangResource.ID
                         </th>
                     }
                     <th class="cl-ko-time">
-                        @lang.KickOffTime
+                        @LangResource.KickOffTime
                     </th>
                     <th class="cl-match">
-                        @Raw(lang.Match)
+                        @Raw(LangResource.Match)
                     </th>
                     <th class="cl-ht-score">
-                        @Raw(lang.HTScore)
+                        @Raw(LangResource.HTScore)
                     </th>
                     <th class="cl-f-score">
-                        @lang.FinalScore
+                        @LangResource.FinalScore
                     </th>
                     <th class="cl-status">
-                        @lang.Status
+                        @LangResource.Status
                     </th>
                 </tr>
             </thead>
@@ -72,23 +73,23 @@
                 @if (viewModel.VisibleMatchCodeIDColumn)
                 {
                     <th class="cl-m-code">
-                        @lang.MatchCode/@lang.ID
+                        @LangResource.MatchCode/@LangResource.ID
                     </th>
                 }
                 <th class="cl-ko-time">
-                    @lang.KickOffTime
+                    @LangResource.KickOffTime
                 </th>
                 <th class="cl-match">
-                    @Raw(lang.Match)
+                    @Raw(LangResource.Match)
                 </th>
                 <th class="cl-ht-score">
-                    @Raw(lang.HTScore)
+                    @Raw(LangResource.HTScore)
                 </th>
                 <th class="cl-f-score">
-                    @lang.FinalScore
+                    @LangResource.FinalScore
                 </th>
                 <th class="cl-status">
-                    @lang.Status
+                    @LangResource.Status
                 </th>
             </tr>
         </thead>
@@ -164,7 +165,7 @@
                     {
                         <div>
                             <span class="detail-link" data-match-id="@item.MatchId" data-league-id="@item.LeagueId" data-home-id="@item.HomeId" data-away-id="@item.AwayId">
-                                @lang.Details </span>
+                                @LangResource.Details </span>
                         </div>
                     }
                 </td>
@@ -215,7 +216,7 @@
             <!--NoInfo-->
             <tr class="row-noinfo">
                 <td colspan="@colspan">
-                    @viewModel.Resource.NoInfo
+                    @LangResource.NoInfo
                 </td>
             </tr>
             <!--/NoInfo-->
@@ -240,7 +241,7 @@
         <thead>
             <tr class="header">
                 <th class="cl-goal" colspan="2">
-                    @lang.GoalRecord
+                    @LangResource.GoalRecord
                 </th>
             </tr>
         </thead>
@@ -254,7 +255,7 @@
                         @homeScore - @awayScore
                     </td>
                     <td class="cl-goal">
-                        @(Equals('h', char.ToLower(goal)) ? lang.Home : lang.Away)
+                        @(Equals('h', char.ToLower(goal)) ? LangResource.Home : LangResource.Away)
                     </td>
                 </tr>
             }
@@ -269,7 +270,7 @@
         <thead>
             <tr class="header">
                 <th class="cl-match">
-                    @lang.MoreResults
+                    @LangResource.MoreResults
                 </th>
                 <th class="cl-result home">
                     @mainItem.HomeTeam

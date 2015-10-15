@@ -1,2 +1,0 @@
-..\..\..\packages\OpenCover.4.5.4107-rc1226\OpenCover.Console.exe -target:runtests.bat -register:user -filter:+[Fanex.Result.Core.MicroGaming]* 
-..\..\..\packages\ReportGenerator.2.1.7.0\tools\reportgenerator.exe -reports:results.xml -targetdir:coverage

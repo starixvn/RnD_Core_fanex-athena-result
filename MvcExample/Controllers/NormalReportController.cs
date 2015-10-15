@@ -2,8 +2,10 @@
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
+    using System.Globalization;
     using System.IO;
     using System.Linq;
+    using System.Threading;
     using System.Web.Mvc;
     using Fanex.Result.Core;
     using Fanex.Result.Core.Base;
@@ -49,6 +51,9 @@
         [HttpPost]
         public string GenHtml(DateTime date, short sportId, int leagueId, string languageCode, bool showMatchCode)
         {
+           
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture(languageCode);
+
             var sportType = (SportType)sportId;
             var resultSetting = new ResultSetting
             {
@@ -58,7 +63,6 @@
                 VisibleDetailedLink = true,
                 VisibleFreeHeader = true,
                 HighlightWinnerTeam = true,
-                ResourcePath = Server.MapPath("~/App_Data/Fanex.Result.Resource/")
             };
             var htmlResult = string.Empty;
             switch (sportType)
@@ -250,6 +254,7 @@
                         isShowAll = true,
                         LeagueID = leagueId
                     });
+
                     excelResult = ResultEngine.ExcelParser<Sportsbook>(dataSb.ToList(), resultSetting);
 
                     break;

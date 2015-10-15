@@ -9,9 +9,9 @@ namespace Fanex.Result.Core.Sportsbook.ExcelModels
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.ExcelModels;
     using Fanex.Result.Core.Base.Extension;
+    using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Sportsbook.ViewModels;
@@ -28,8 +28,8 @@ namespace Fanex.Result.Core.Sportsbook.ExcelModels
         private const string LastGoalHT = "1L";
 
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
-        public SoccerExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data, LangResources resource)
-            : base(templatePath, setting, data, resource)
+        public SoccerExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
+            : base(templatePath, setting, data)
         {
             this.ColumnTemplateCount = 6;
             this.ColumnStatus = 5;
@@ -40,12 +40,12 @@ namespace Fanex.Result.Core.Sportsbook.ExcelModels
         {
             var colidx = 0;
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
-            row.Cells[colidx++].SetCellValue(Lang.MatchCode + "/" + Lang.ID);
-            row.Cells[colidx++].SetCellValue(this.Lang.KickOffTime);
-            row.Cells[colidx++].SetCellValue(this.Lang.Match);
-            row.Cells[colidx++].SetCellValue(this.Lang.HTScore);
-            row.Cells[colidx++].SetCellValue(this.Lang.FinalScore);
-            row.Cells[colidx].SetCellValue(this.Lang.Status);
+            row.Cells[colidx++].SetCellValue(LangResource.MatchCode + "/" + LangResource.ID);
+            row.Cells[colidx++].SetCellValue(LangResource.KickOffTime);
+            row.Cells[colidx++].SetCellValue(LangResource.Match);
+            row.Cells[colidx++].SetCellValue(LangResource.HTScore);
+            row.Cells[colidx++].SetCellValue(LangResource.FinalScore);
+            row.Cells[colidx].SetCellValue(LangResource.Status);
         }
 
         #region Assign Cell Data

@@ -25,8 +25,7 @@ namespace Fanex.Result.Core.NumberGame.Models
 
         public System.IO.MemoryStream ExcelBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
         {
-            var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
-            var excelParser = ViewModelConcreteFactory.Instance.GetExcelViewModel<T>(dataList, setting, lang);
+            var excelParser = ViewModelConcreteFactory.Instance.GetExcelViewModel<T>(dataList, setting);
             return excelParser.Export();
         }
 

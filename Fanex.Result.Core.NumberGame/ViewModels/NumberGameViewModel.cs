@@ -11,6 +11,7 @@ namespace Fanex.Result.Core.NumberGame.ViewModels
     using System.Linq;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Base.ViewModels;
 
@@ -21,8 +22,8 @@ namespace Fanex.Result.Core.NumberGame.ViewModels
     {
         private readonly DTO.NumberGame _numberGame;
 
-        public NumberGameViewModel(DTO.NumberGame numberGame, ResultSetting setting, LangResources resources)
-            : base(setting, resources)
+        public NumberGameViewModel(DTO.NumberGame numberGame, ResultSetting setting)
+            : base(setting)
         {
             this._numberGame = numberGame;
             this.LanguageCode = setting.LanguageCode;
@@ -94,7 +95,7 @@ namespace Fanex.Result.Core.NumberGame.ViewModels
             get
             {
                 return this._numberGame.Ball.Count > 2 ? this._numberGame.Ball[1] > this._numberGame.Ball[2]
-                       ? Lang.Warrior2ndBall : Lang.Warrior3rdBall :
+                       ? LangResource.Warrior2ndBall : LangResource.Warrior3rdBall :
 
                        ConstantValue.Hyphen;
             }
@@ -102,7 +103,7 @@ namespace Fanex.Result.Core.NumberGame.ViewModels
 
         public string OEFT
         {
-            get { return this._numberGame.Ball.Sum() % 2 == 1 ? Lang.Odd : Lang.Even; }
+            get { return this._numberGame.Ball.Sum() % 2 == 1 ? LangResource.Odd : LangResource.Even; }
         }
 
         public IList<string> Result
@@ -114,7 +115,7 @@ namespace Fanex.Result.Core.NumberGame.ViewModels
         {
             get
             {
-                return MapEventStatus.MapEventStatusString(this._numberGame.EventStatus, this._numberGame.IsPending, false, false, this.Lang);
+                return MapEventStatus.MapEventStatusString(this._numberGame.EventStatus, this._numberGame.IsPending, false, false);
             }
         }
 

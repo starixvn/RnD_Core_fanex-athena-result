@@ -44,6 +44,10 @@
     <Compile Include="ResultEngine.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Fanex.Result.Core.AGCasino\Fanex.Result.Core.AGCasino.csproj">
+      <Project>{0A57E89B-3C07-498A-A704-E893C2C3F7E9}</Project>
+      <Name>Fanex.Result.Core.AGCasino</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj">
       <Project>{8673F024-7726-4C30-8464-5A8357F79BF0}</Project>
       <Name>Fanex.Result.Core.Base</Name>

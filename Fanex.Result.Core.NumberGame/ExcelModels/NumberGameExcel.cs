@@ -10,9 +10,9 @@ namespace Fanex.Result.Core.NumberGame.ExcelModels
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.ExcelModels;
     using Fanex.Result.Core.Base.Extension;
+    using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.NumberGame.ViewModels;
@@ -30,8 +30,8 @@ namespace Fanex.Result.Core.NumberGame.ExcelModels
         #endregion Fields
 
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
-        public NumberGameExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data, LangResources resource)
-            : base(templatePath, setting, data, resource)
+        public NumberGameExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
+            : base(templatePath, setting, data)
         {
             this.ColumnTemplateCount = 9;
             this.ColumnStatus = 8;
@@ -46,15 +46,15 @@ namespace Fanex.Result.Core.NumberGame.ExcelModels
         {
             var colidx = 0;
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
-            row.Cells[colidx++].SetCellValue(Lang.MatchCode + "/" + Lang.ID);
-            row.Cells[colidx++].SetCellValue(Lang.KickOffTime);
-            row.Cells[colidx++].SetCellValue(Lang.Match);
-            row.Cells[colidx++].SetCellValue(Lang.Results);
-            row.Cells[colidx++].SetCellValue(Lang.Warrior);
-            row.Cells[colidx++].SetCellValue(Lang.LblOEFT);
-            row.Cells[colidx++].SetCellValue(Lang.Lbl1stBall);
-            row.Cells[colidx++].SetCellValue(Lang.LastBall);
-            row.Cells[colidx].SetCellValue(Lang.Status);
+            row.Cells[colidx++].SetCellValue(LangResource.MatchCode + "/" + LangResource.ID);
+            row.Cells[colidx++].SetCellValue(LangResource.KickOffTime);
+            row.Cells[colidx++].SetCellValue(LangResource.Match);
+            row.Cells[colidx++].SetCellValue(LangResource.Results);
+            row.Cells[colidx++].SetCellValue(LangResource.Warrior);
+            row.Cells[colidx++].SetCellValue(LangResource.LblOEFT);
+            row.Cells[colidx++].SetCellValue(LangResource.Lbl1stBall);
+            row.Cells[colidx++].SetCellValue(LangResource.LastBall);
+            row.Cells[colidx].SetCellValue(LangResource.Status);
         }
 
         /// <summary>
@@ -87,7 +87,7 @@ namespace Fanex.Result.Core.NumberGame.ExcelModels
                                     ColumnMatchCode,
                                     Helper.ToRtfString(exportRow.MatchCode + "<br/>" + exportRow.MatchId),
                                      Helper.ToRtfString(exportRow.KickOffTime),
-                                      string.Format(Match, Lang.NumberGameNo, exportRow.GameNo),
+                                      string.Format(Match, LangResource.NumberGameNo, exportRow.GameNo),
                                       string.Join("-", results),
                                       exportRow.Warrior,
                                       exportRow.OEFT,

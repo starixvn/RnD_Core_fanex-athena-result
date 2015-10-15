@@ -10,8 +10,8 @@ namespace Fanex.Result.Core.Base.ExcelModels
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
-    using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.Extension;
+    using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.ViewModels;
     using NPOI.HSSF.UserModel;
     using NPOI.SS.UserModel;
@@ -43,10 +43,10 @@ namespace Fanex.Result.Core.Base.ExcelModels
 
         #endregion Fields
 
-        protected ExcelBase(string templatePath, ResultSetting setting, IList<IResultViewModel> data, LangResources resource)
+        protected ExcelBase(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
         {
             this.TemplatePath = templatePath;
-            this.Lang = resource;
+
             this.ReportTitle = setting.ExcelTitle;
             this.Setting = setting;
             this.ViewModelData = data;
@@ -54,8 +54,6 @@ namespace Fanex.Result.Core.Base.ExcelModels
         }
 
         protected int NumofRow { get; set; }
-
-        protected LangResources Lang { get; set; }
 
         protected IList<IResultViewModel> ViewModelData { get; set; }
 
@@ -161,7 +159,7 @@ namespace Fanex.Result.Core.Base.ExcelModels
 
         protected virtual void AssignNoInfoRow(ISheet sheet)
         {
-            SetTextRowValue(sheet, RowNoInfoTemplate, RowLeagueTemplate, ColumnTemplateCount, this.Lang.NoInfo);
+            SetTextRowValue(sheet, RowNoInfoTemplate, RowLeagueTemplate, ColumnTemplateCount, LangResource.NoInfo);
         }
 
         /// <summary>

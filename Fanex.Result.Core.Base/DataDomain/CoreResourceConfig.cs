@@ -14,7 +14,6 @@ namespace Fanex.Result.Core.Base.DataDomain
     public static class CoreResourceConfig
     {
         public const string EXCELTEMPLATEPATH = "App_Data/Fanex.Result/";
-        public const string RESOURCEPATH = "App_Data/Fanex.Result.Resource/";
         public const string SPORTTYPEARGUEMENTMES = "Sport Type is invalid or DTO ({0}) doesn't match with sportType";
         public const string ARGUEMENTMESOUTRIGHT = "DTO ({0}) is invalid";
         public const string ENGLISHLANGCODE = "en-US";

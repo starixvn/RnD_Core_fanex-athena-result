@@ -10,6 +10,7 @@ namespace Fanex.Result.Core.Base.Utilities
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.Resources;
 
     /// <summary>
     /// TODO: Update summary.
@@ -57,7 +58,7 @@ namespace Fanex.Result.Core.Base.Utilities
                 { Convert.ToInt32("0010011", 2), "postponed" },
                 { Convert.ToInt32("0000011", 2), "postponed" },
                 { Convert.ToInt32("0011000", 2), "internal" },
-                { Convert.ToInt32("0001000", 2), "nternal" },
+                { Convert.ToInt32("0001000", 2), "internal" },
 };
 
         /// <summary>
@@ -74,7 +75,7 @@ namespace Fanex.Result.Core.Base.Utilities
     "SA1305:FieldNamesMustNotUseHungarianNotation",
     Justification = "Using Win32 naming for consistency.")]
         [SuppressMessage("Microsoft.Globalization", "CA1308:NormalizeStringsToUppercase", Justification = "Reviewed.")]
-        public static string MapEventStatusString(string eventstatus, bool isPending, bool isHTcal, bool calculate, LangResources lang)
+        public static string MapEventStatusString(string eventstatus, bool isPending, bool isHTcal, bool calculate)
         {
             var pending = Convert.ToInt32(isPending);
             var htCal = Convert.ToInt32(isHTcal);
@@ -91,12 +92,12 @@ namespace Fanex.Result.Core.Base.Utilities
                 resultKey |= Event[eventstatus.ToLowerInvariant()]; // Or with event status
                 if (Result.ContainsKey(resultKey))
                 {
-                    return GetLogResource(Result[resultKey], lang);
+                    return GetLogResource(Result[resultKey]);
                 }
 
                 /* Get status from resource lang, if have.*/
                 var str = eventstatus.Replace(" ", string.Empty);
-                return GetLogResource(str.ToLower(), lang);
+                return GetLogResource(str.ToLower());
             }
 
             return UppercaseFirst(eventstatus);
@@ -108,29 +109,29 @@ namespace Fanex.Result.Core.Base.Utilities
         /// <param name="key">The status key.</param>
         /// <param name="lang">The language resource.</param>
         /// <returns>The status string.</returns>
-        private static string GetLogResource(string key, LangResources lang)
+        private static string GetLogResource(string key)
         {
             switch (key.ToLower())
             {
                 case ConstantValue.RunningStatus:
-                    return lang.Running;
+                    return LangResource.Running;
                 case ConstantValue.CompletedStatus:
-                    return lang.Completed;
+                    return LangResource.Completed;
                 case ConstantValue.ClosedStatus:
-                    return lang.Closed;
+                    return LangResource.Closed;
                 case ConstantValue.PostponedStatus:
 
-                    return lang.PostPoned;
+                    return LangResource.PostPoned;
                 case ConstantValue.InternalString:
-                    return lang.Internal;
+                    return LangResource.Internal;
                 case ConstantValue.RefundStatus:
-                    return lang.Refund;
+                    return LangResource.Refund;
                 case ConstantValue.RefundftStatus:
-                    return lang.Refundft;
+                    return LangResource.Refundft;
                 case ConstantValue.RefundhtStatus:
-                    return lang.Refundht;
+                    return LangResource.Refundht;
                 case ConstantValue.Won:
-                    return lang.Won;
+                    return LangResource.Won;
                 default:
                     return UppercaseFirst(key);
             }

@@ -35,14 +35,6 @@ namespace Fanex.Result.Core.Base
 
         public bool HighlightWinnerTeam { get; set; }
 
-        /// <summary>
-        /// Gets or sets Resource Path.
-        /// Default path ="APP_DATA/FANEX.RESUST.RESOURCE"
-        /// Must be physical path .
-        /// </summary>
-        /// <value>String value.</value>
-        public string ResourcePath { get; set; }
-
         public string ExcelTitle { get; set; }
 
         public bool VisibleMatchCodeIDColumn { get; set; }

@@ -11,6 +11,7 @@ namespace Fanex.Result.Core.Base.Models
     using System.Linq;
     using System.Text;
     using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.Exception;
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Models;
     using RazorEngine;
@@ -23,10 +24,9 @@ namespace Fanex.Result.Core.Base.Models
     {
         protected virtual RazorBinderModel GenerateViewModelData<T>(IList<T> dataList, Base.ResultSetting setting, ViewModelFactory viewModelFactory)
         {
-            var lang = Resources.Instance.GetLanguage(setting.LanguageCode, setting.ResourcePath);
-            var groupData = dataList.Select(i => viewModelFactory.GetViewModel(i, setting, lang))
+            var groupData = dataList.Select(i => viewModelFactory.GetViewModel(i, setting))
                 .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToList() });
-            return CreateModel(lang, groupData, setting);
+            return CreateModel(groupData, setting);
         }
 
         /// <summary>
@@ -38,14 +38,21 @@ namespace Fanex.Result.Core.Base.Models
         /// <returns>The HTML result.</returns>
         protected virtual string HtmlRender(ITemplate templateInstance, string templateName, RazorBinderModel model)
         {
-            var templateContent = templateInstance.GetRazorTemplate(templateName);
-            var result = new StringBuilder();
-            using (var writer = new StringWriter(result))
+            try
             {
-                Engine.Razor.RunCompile(templateContent, templateName, writer, typeof(RazorBinderModel), model, null);
-            }
+                var templateContent = templateInstance.GetRazorTemplate(templateName);
+                var result = new StringBuilder();
+                using (var writer = new StringWriter(result))
+                {
+                    Engine.Razor.RunCompile(templateContent, templateName, writer, typeof(RazorBinderModel), model, null);
+                }
 
-            return result.ToString();
+                return result.ToString();
+            }
+            catch (System.Exception exception)
+            {
+                throw new ResultCoreException(exception.Message, exception.InnerException);
+            }
         }
 
         /// <summary>
@@ -59,7 +66,6 @@ namespace Fanex.Result.Core.Base.Models
         /// Returns RAZOR model.
         /// </returns>
         protected virtual RazorBinderModel CreateModel(
-            LangResources lang,
             IEnumerable<GroupData> groupData,
             ResultSetting setting,
             bool isDetail = false)
@@ -67,7 +73,6 @@ namespace Fanex.Result.Core.Base.Models
             var isPopUp = setting.IsParlayPopUp || setting.IsPopUp;
             var model = new RazorBinderModel
             {
-                Resource = lang,
                 IsPopUp = isPopUp,
                 VisiblePopUpTitle = setting.VisiblePopUpTitle,
                 SportType = setting.SportType,

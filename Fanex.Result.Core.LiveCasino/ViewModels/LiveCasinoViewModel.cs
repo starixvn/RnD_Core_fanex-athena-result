@@ -28,8 +28,8 @@ namespace Fanex.Result.Core.LiveCasino.ViewModels
 
         private string _result;
 
-        public LiveCasinoViewModel(DTO.LiveCasino livecasino, ResultSetting setting, LangResources resource)
-            : base(setting, resource)
+        public LiveCasinoViewModel(DTO.LiveCasino livecasino, ResultSetting setting)
+            : base(setting)
         {
             this._liveCasino = livecasino;
             this.LanguageCode = setting.LanguageCode;
@@ -131,8 +131,8 @@ namespace Fanex.Result.Core.LiveCasino.ViewModels
                     this._liveCasino.EventStatus,
                     this._liveCasino.IsPending,
                     this._liveCasino.IsHTCal,
-                    this._liveCasino.Calculate,
-                    this.Lang);
+                    this._liveCasino.Calculate
+                    );
             }
         }
 

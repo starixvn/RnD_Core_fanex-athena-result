@@ -16,6 +16,7 @@ namespace Fanex.Result.Core.ExcelModels
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Sportsbook.ViewModels;
     using NPOI.SS.UserModel;
+    using Fanex.Result.Core.Base.Resources;
 
     /// <summary>
     /// TODO: Update summary.
@@ -23,8 +24,8 @@ namespace Fanex.Result.Core.ExcelModels
     internal class VSTennisExcel : ExcelBase, IExcelModel
     {
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
-        public VSTennisExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data, LangResources resource)
-            : base(templatePath, setting, data, resource)
+        public VSTennisExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
+            : base(templatePath, setting, data)
         {
             this.ColumnTemplateCount = 6;
             this.ColumnStatus = 4;
@@ -35,12 +36,12 @@ namespace Fanex.Result.Core.ExcelModels
         {
             var colidx = 0;
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
-            row.Cells[colidx++].SetCellValue(Lang.MatchCode + "/" + Lang.ID);
+            row.Cells[colidx++].SetCellValue(LangResource.MatchCode + "/" + LangResource.ID);
 
-            row.Cells[colidx++].SetCellValue(this.Lang.KickOffTime);
-            row.Cells[colidx++].SetCellValue(this.Lang.Team);
-            row.Cells[colidx++].SetCellValue(this.Lang.TotalPoints);
-            row.Cells[colidx].SetCellValue(this.Lang.Status);
+            row.Cells[colidx++].SetCellValue(LangResource.KickOffTime);
+            row.Cells[colidx++].SetCellValue(LangResource.Team);
+            row.Cells[colidx++].SetCellValue(LangResource.TotalPoints);
+            row.Cells[colidx].SetCellValue(LangResource.Status);
         }
 
         #region Assign Cell Data

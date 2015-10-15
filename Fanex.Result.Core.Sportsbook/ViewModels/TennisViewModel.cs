@@ -13,6 +13,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     using System.Linq;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Sportsbook.DataDomain;
@@ -31,8 +32,8 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
         private string _totalSetHome;
         private string _totalSetAway;
 
-        public TennisViewModel(DTO.Sportsbook sportbook, ResultSetting setting, LangResources resources)
-            : base(sportbook, setting, resources)
+        public TennisViewModel(DTO.Sportsbook sportbook, ResultSetting setting)
+            : base(sportbook, setting)
         {
         }
 
@@ -44,7 +45,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
                     .SingleOrDefault(i => i.ResourceId.Equals(TennisBetID.TotalSet, System.StringComparison.OrdinalIgnoreCase));
                 if (matchResultInfo != null && matchResultInfo.SettlementStatusID == EventStatusID.RefundStettlementStatusID)
                 {
-                    return Lang.Refund;
+                    return LangResource.Refund;
                 }
 
                 return base.EventStatus;
@@ -196,18 +197,18 @@ Justification = "Reviewed. Suppression is OK here.")]
                                     break;
 
                                 case EventStatusID.RefundStettlementStatusID:
-                                    this.HomeSet[i] = Lang.Refund;
-                                    this.AwaySet[i] = Lang.Refund;
+                                    this.HomeSet[i] = LangResource.Refund;
+                                    this.AwaySet[i] = LangResource.Refund;
                                     break;
 
                                 case EventStatusID.RefundHTSettlementStatusID:
-                                    this.HomeSet[i] = Lang.Refundht;
-                                    this.AwaySet[i] = Lang.Refundht;
+                                    this.HomeSet[i] = LangResource.Refundht;
+                                    this.AwaySet[i] = LangResource.Refundht;
                                     break;
 
                                 case EventStatusID.RefundFTSettlementStatusID:
-                                    this.HomeSet[i] = Lang.Refundft;
-                                    this.AwaySet[i] = Lang.Refundft;
+                                    this.HomeSet[i] = LangResource.Refundft;
+                                    this.AwaySet[i] = LangResource.Refundft;
                                     break;
 
                                 default:
@@ -283,15 +284,15 @@ Justification = "Reviewed. Suppression is OK here.")]
                             break;
 
                         case EventStatusID.RefundStettlementStatusID:
-                            this._totalSetHome = this._totalSetAway = Lang.Refund;
+                            this._totalSetHome = this._totalSetAway = LangResource.Refund;
                             break;
 
                         case EventStatusID.RefundHTSettlementStatusID:
-                            this._totalSetHome = this._totalSetAway = Lang.Refundht;
+                            this._totalSetHome = this._totalSetAway = LangResource.Refundht;
                             break;
 
                         case EventStatusID.RefundFTSettlementStatusID:
-                            this._totalSetHome = this._totalSetAway = Lang.Refundft;
+                            this._totalSetHome = this._totalSetAway = LangResource.Refundft;
                             break;
 
                         default:
@@ -421,15 +422,15 @@ Justification = "Reviewed. Suppression is OK here.")]
                         break;
 
                     case EventStatusID.RefundStettlementStatusID:
-                        item.HomeValue = item.AwayValue = Lang.Refund;
+                        item.HomeValue = item.AwayValue = LangResource.Refund;
                         break;
 
                     case EventStatusID.RefundHTSettlementStatusID:
-                        item.HomeValue = item.AwayValue = Lang.Refundht;
+                        item.HomeValue = item.AwayValue = LangResource.Refundht;
                         break;
 
                     case EventStatusID.RefundFTSettlementStatusID:
-                        item.HomeValue = item.AwayValue = Lang.Refundft;
+                        item.HomeValue = item.AwayValue = LangResource.Refundft;
                         break;
 
                     default:

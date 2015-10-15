@@ -9,9 +9,9 @@ namespace Fanex.Result.Core.Sportsbook.ExcelModels
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.ExcelModels;
     using Fanex.Result.Core.Base.Extension;
+    using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Sportsbook.ViewModels;
@@ -23,8 +23,8 @@ namespace Fanex.Result.Core.Sportsbook.ExcelModels
     internal sealed class TennisExcel : ExcelBase, IExcelModel
     {
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
-        public TennisExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data, LangResources resource)
-            : base(templatePath, setting, data, resource)
+        public TennisExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
+            : base(templatePath, setting, data)
         {
             this.ColumnTemplateCount = 11;
             this.ColumnStatus = 10;
@@ -39,18 +39,18 @@ namespace Fanex.Result.Core.Sportsbook.ExcelModels
         {
             var colidx = 0;
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
-            row.Cells[colidx++].SetCellValue(Lang.MatchCode + "/" + Lang.ID);
+            row.Cells[colidx++].SetCellValue(LangResource.MatchCode + "/" + LangResource.ID);
 
-            row.Cells[colidx++].SetCellValue(Lang.KickOffTime);
-            row.Cells[colidx++].SetCellValue(Lang.Match);
-            row.Cells[colidx++].SetCellValue(Lang.Lbl1S);
-            row.Cells[colidx++].SetCellValue(Lang.Lbl2S);
-            row.Cells[colidx++].SetCellValue(Lang.Lbl3S);
-            row.Cells[colidx++].SetCellValue(Lang.Lbl4S);
-            row.Cells[colidx++].SetCellValue(Lang.Lbl5S);
-            row.Cells[colidx++].SetCellValue(Lang.TotalGames);
-            row.Cells[colidx++].SetCellValue(Lang.TotalSet);
-            row.Cells[colidx].SetCellValue(Lang.Status);
+            row.Cells[colidx++].SetCellValue(LangResource.KickOffTime);
+            row.Cells[colidx++].SetCellValue(LangResource.Match);
+            row.Cells[colidx++].SetCellValue(LangResource.Lbl1S);
+            row.Cells[colidx++].SetCellValue(LangResource.Lbl2S);
+            row.Cells[colidx++].SetCellValue(LangResource.Lbl3S);
+            row.Cells[colidx++].SetCellValue(LangResource.Lbl4S);
+            row.Cells[colidx++].SetCellValue(LangResource.Lbl5S);
+            row.Cells[colidx++].SetCellValue(LangResource.TotalGames);
+            row.Cells[colidx++].SetCellValue(LangResource.TotalSet);
+            row.Cells[colidx].SetCellValue(LangResource.Status);
         }
 
         #region Assign Cell Data

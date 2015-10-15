@@ -62,29 +62,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Fanex.Result.Resource\hi-IN.xml">
-      <SubType>Designer</SubType>
-    </Content>
     <Content Include="Content\Fanex.Result\fanex.result.css" />
     <Content Include="Content\Fanex.Result\images\goal-icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\en-US.xml">
-      <SubType>
-      </SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\zh-TW.xml" />
-    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\ja-JP.xml" />
-    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\ko-KR.xml">
-      <SubType>
-      </SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\th-TH.xml" />
-    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\vi-VN.xml">
-      <SubType>
-      </SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="App_Data\Fanex.Result.Resource\zh-CN.xml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Fanex.Result\Badminton.xls" />
@@ -103,6 +82,7 @@
     <Content Include="App_Data\Fanex.Result\VSSpeedWay.xls" />
     <Content Include="App_Data\Fanex.Result\VSTennis.xls" />
     <Content Include="App_Data\Fanex.Result\GoldDeluxe.xls" />
+    <Content Include="App_Data\Fanex.Result\MuayThai.xls" />
     <None Include="Content\Fanex.Result\fanex.result.less" />
     <None Include="Fanex.Result.UI.licenseheader" />
   </ItemGroup>

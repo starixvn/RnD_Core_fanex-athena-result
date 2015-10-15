@@ -9,9 +9,9 @@ namespace Fanex.Result.Core.GoldDeluxe.ExcelModels
     using System.Collections.Generic;
     using System.Linq;
     using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.ExcelModels;
     using Fanex.Result.Core.Base.Extension;
+    using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.GoldDeluxe.ViewModels;
     using NPOI.SS.UserModel;
@@ -24,9 +24,8 @@ namespace Fanex.Result.Core.GoldDeluxe.ExcelModels
         public GoldDeluxeExcel(
             string templatePath,
             ResultSetting setting,
-            IList<IResultViewModel> data,
-            LangResources resource)
-            : base(templatePath, setting, data, resource)
+            IList<IResultViewModel> data)
+            : base(templatePath, setting, data)
         {
             this.ColumnTemplateCount = 3;
             this.ColumnStatus = 2;
@@ -37,9 +36,9 @@ namespace Fanex.Result.Core.GoldDeluxe.ExcelModels
         {
             var colidx = 0;
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
-            row.Cells[colidx++].SetCellValue(this.Lang.GameID);
-            row.Cells[colidx++].SetCellValue(this.Lang.Result);
-            row.Cells[colidx++].SetCellValue(this.Lang.Status);
+            row.Cells[colidx++].SetCellValue(LangResource.GameID);
+            row.Cells[colidx++].SetCellValue(LangResource.Result);
+            row.Cells[colidx++].SetCellValue(LangResource.Status);
         }
 
         /// <summary>

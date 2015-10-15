@@ -32,8 +32,8 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
         private IList<IResultViewModel> _onlyGameDetailItemViewModel = null;
         private IList<IResultViewModel> _bothMatchAndGameDetailItemViewModel = null;
 
-        public ParlayViewModel(Parlay parlay, ResultSetting setting, LangResources resource)
-            : base(setting, resource)
+        public ParlayViewModel(Parlay parlay, ResultSetting setting)
+            : base(setting)
         {
             this._parlay = parlay;
             this.LanguageCode = setting.LanguageCode;
@@ -157,7 +157,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
             if (_viewModelData == null)
             {
                 _viewModelData = this._parlay.Sportbook.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(
-                    i, _sportSetting, Lang)).ToList();
+                    i, _sportSetting)).ToList();
             }
 
             if (_bothMatchAndGameDetailItemViewModel == null)

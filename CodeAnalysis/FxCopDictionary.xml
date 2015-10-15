@@ -10,9 +10,11 @@
     </Words>
     <Acronyms>
         <CasingExceptions>
+            <Acronym>AGCasino</Acronym>
             <Acronym>METRICGAMING</Acronym>
             <Acronym>MICROGAMING</Acronym>
-            
+            <Acronym>ag</Acronym>
+
             <Acronym>th</Acronym>
             <Acronym>nd</Acronym>
             <Acronym>st</Acronym>

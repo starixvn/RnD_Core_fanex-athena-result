@@ -27,9 +27,7 @@ namespace Fanex.Result.Core.Racing.Models
         private const string NAMESPACE = "Fanex.Result.Core.Racing.ViewModels.";
         private const string EXCELNAMESPACE = "Fanex.Result.Core.Racing.ExcelModels.";
 
-        private static readonly object SynceObject = new object();
-
-        private static ViewModelFactory instance;
+        private static readonly Lazy<ViewModelFactory> LazyViewModelService = new Lazy<ViewModelFactory>(() => new ViewModelConcreteFactory());
 
         private ViewModelConcreteFactory()
         {
@@ -39,22 +37,11 @@ namespace Fanex.Result.Core.Racing.Models
         {
             get
             {
-                if (instance == null)
-                {
-                    lock (SynceObject)
-                    {
-                        if (instance == null)
-                        {
-                            instance = new ViewModelConcreteFactory();
-                        }
-                    }
-                }
-
-                return instance;
+                return LazyViewModelService.Value;
             }
         }
 
-        public override IResultViewModel GetViewModel<T>(T obj, ResultSetting setting, LangResources resource)
+        public override IResultViewModel GetViewModel<T>(T obj, ResultSetting setting)
         {
             if ((int)setting.SportType <= 0)
             {
@@ -69,20 +56,20 @@ namespace Fanex.Result.Core.Racing.Models
                 throw new ObjectNullException(dtoName);
             }
 
-            return (IResultViewModel)Activator.CreateInstance(viewModel, obj, setting, resource);
+            return (IResultViewModel)Activator.CreateInstance(viewModel, obj, setting);
         }
 
-        public override IResultViewModel GetOutRightViewModel(object obj, ResultSetting setting, LangResources resource)
+        public override IResultViewModel GetOutRightViewModel(object obj, ResultSetting setting)
         {
             throw new NotImplementedException();
         }
 
-        public override IResultViewModel GetParlayViewModel(object obj, ResultSetting setting, LangResources resource)
+        public override IResultViewModel GetParlayViewModel(object obj, ResultSetting setting)
         {
             throw new NotImplementedException();
         }
 
-        public override Base.ExcelModels.IExcelModel GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting, LangResources resource)
+        public override Base.ExcelModels.IExcelModel GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting)
         {
             if ((int)setting.SportType <= 0)
             {
@@ -92,14 +79,14 @@ namespace Fanex.Result.Core.Racing.Models
             var dtoName = setting.SportType.StringMe();
 
             var realTemplatePath = setting.ExcelTemplatePath + dtoName + ".xls";
-            var dataMaped = dataList.Select(i => this.GetViewModel(i, setting, resource)).ToList();
+            var dataMaped = dataList.Select(i => this.GetViewModel(i, setting)).ToList();
             var excelViewModel = Type.GetType(EXCELNAMESPACE + dtoName + EXCELEXTNAME);
             if (excelViewModel == null)
             {
                 throw new ObjectNullException(dtoName);
             }
 
-            return (IExcelModel)Activator.CreateInstance(excelViewModel, realTemplatePath, setting, dataMaped, resource);
+            return (IExcelModel)Activator.CreateInstance(excelViewModel, realTemplatePath, setting, dataMaped);
         }
     }
 }

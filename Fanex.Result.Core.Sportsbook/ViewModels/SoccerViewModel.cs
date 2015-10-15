@@ -23,6 +23,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     using Fanex.Result.Core.Sportsbook.ViewModels.SoccerInfo;
     using RazorEngine;
     using RazorEngine.Templating;
+    using Fanex.Result.Core.Base.Resources;
 
     /// <summary>
     /// TODO: Update summary.
@@ -34,8 +35,8 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
         private bool? _hasValidGameData;
         private IList<SoccerGameDetailItem> _detailedItemModels = null;
 
-        public SoccerViewModel(Sportsbook soccer, ResultSetting setting, LangResources resource)
-            : base(soccer, setting, resource)
+        public SoccerViewModel(Sportsbook soccer, ResultSetting setting)
+            : base(soccer, setting)
         {
         }
 
@@ -202,7 +203,6 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
                         var binderModel = new SoccerDetailViewModel
                         {
                             Name = item.FirstOrDefault().GroupName,
-                            Resource = this.Lang,
                             DetailItems = item.ToList()
                         };
                         var result = new StringBuilder();
@@ -292,8 +292,8 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
             {
                 GroupCode = groupCode,
                 ResourceID = detailedItem.ResourceId,
-                GroupName = SportsbookHelper.GetResourceLang(groupCode, this.Lang),
-                ResourceName = SportsbookHelper.GetResourceLang(detailedItem.ResourceId, this.Lang),
+                GroupName = SportsbookHelper.GetResourceLang(groupCode),
+                ResourceName = SportsbookHelper.GetResourceLang(detailedItem.ResourceId),
             };
 
             switch (detailedItem.SettlementStatusID)
@@ -304,16 +304,16 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
                     break;
 
                 case EventStatusID.RefundStettlementStatusID:
-                    item.HomeValue = item.AwayValue = this.Lang.Refund;
+                    item.HomeValue = item.AwayValue = LangResource.Refund;
                     break;
 
                 case EventStatusID.RefundHTSettlementStatusID:
-                    item.HomeValue = item.AwayValue = this.Lang.Refundht;
+                    item.HomeValue = item.AwayValue = LangResource.Refundht;
 
                     break;
 
                 case EventStatusID.RefundFTSettlementStatusID:
-                    item.HomeValue = item.AwayValue = this.Lang.Refundft;
+                    item.HomeValue = item.AwayValue = LangResource.Refundft;
 
                     break;
 
@@ -337,7 +337,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
             {
                 /*Group: Goals.*/
                 case GameResourceID.FirstTenMinutes1X2:
-                    item.HomeValue = item.AwayValue = GetResourceGameValueByPattern1X2(detailedValue.HomeValue, Lang.Draw);
+                    item.HomeValue = item.AwayValue = GetResourceGameValueByPattern1X2(detailedValue.HomeValue, LangResource.Draw);
                     break;
                 /*Group: Goal Time*/
                 case GameResourceID.FirstGoalTime10Min:
@@ -361,7 +361,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
                 case GameResourceID.FirstCorner:
                 case GameResourceID.LastCorner:
                     item.HomeValue = item.AwayValue =
-                    GetResourceGameValueByPattern1X2(detailedValue.HomeValue, Lang.None);
+                    GetResourceGameValueByPattern1X2(detailedValue.HomeValue, LangResource.None);
                     break;
                 /*Group :Player sent Off*/
                 case GameResourceID.PlayerSentOff:
@@ -412,7 +412,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
                     {
                         /*Group :Goal Record*/
 
-                        item.HomeValue = item.AwayValue = GetResourceGameValueByPattern1X2(detailedValue.HomeValue, Lang.None);
+                        item.HomeValue = item.AwayValue = GetResourceGameValueByPattern1X2(detailedValue.HomeValue, LangResource.None);
                     }
 
                     break;
@@ -433,11 +433,11 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
 
             if (homeValue.Equals(ConstantValue.None, StringComparison.OrdinalIgnoreCase))
             {
-                return Lang.None;
+                return LangResource.None;
             }
             else
             {
-                return homeValue + " " + Lang.Min;
+                return homeValue + " " + LangResource.Min;
             }
         }
 
@@ -453,22 +453,22 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
                 switch (homeValue.ToUpper())
                 {
                     case "HR":
-                        return this.HomeTeam + "/" + Lang.RegularTime;
+                        return this.HomeTeam + "/" + LangResource.RegularTime;
 
                     case "HE":
-                        return this.HomeTeam + "/" + Lang.ExtraTime;
+                        return this.HomeTeam + "/" + LangResource.ExtraTime;
 
                     case "HP":
-                        return this.HomeTeam + "/" + Lang.Penalty;
+                        return this.HomeTeam + "/" + LangResource.Penalty;
 
                     case "AR":
-                        return this.AwayTeam + "/" + Lang.RegularTime;
+                        return this.AwayTeam + "/" + LangResource.RegularTime;
 
                     case "AE":
-                        return this.AwayTeam + "/" + Lang.ExtraTime;
+                        return this.AwayTeam + "/" + LangResource.ExtraTime;
 
                     case "AP":
-                        return this.AwayTeam + "/" + Lang.Penalty;
+                        return this.AwayTeam + "/" + LangResource.Penalty;
                 }
             }
 
@@ -483,7 +483,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
             }
 
             return choice.Equals(ConstantValue.Yes, StringComparison.OrdinalIgnoreCase)
-                        ? Lang.Yes : Lang.No;
+                        ? LangResource.Yes : LangResource.No;
         }
 
         /// <summary>

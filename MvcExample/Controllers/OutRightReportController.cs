@@ -1,8 +1,10 @@
 ﻿namespace MvcExample.Controllers
 {
     using System;
+    using System.Globalization;
     using System.IO;
     using System.Linq;
+    using System.Threading;
     using System.Web.Mvc;
     using Fanex.Result.Core;
     using Fanex.Result.Core.Base;
@@ -35,6 +37,9 @@
         [HttpPost]
         public string GenHtml(DateTime date, string languageCode)
         {
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture(languageCode);
+
+
             string htmlResult = string.Empty;
             var outRightData = _resultService.GetOutRightResult(new Models.Criteria.GetOutRightResult
             {

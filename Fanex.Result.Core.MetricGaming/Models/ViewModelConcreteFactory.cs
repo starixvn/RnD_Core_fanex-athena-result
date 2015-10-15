@@ -21,9 +21,7 @@ namespace Fanex.Result.Core.MetricGaming.Models
     /// </summary>
     internal sealed class ViewModelConcreteFactory : ViewModelFactory
     {
-        private static readonly object SynceObject = new object();
-
-        private static ViewModelFactory instance;
+        private static readonly Lazy<ViewModelFactory> LazyViewModelService = new Lazy<ViewModelFactory>(() => new ViewModelConcreteFactory());
 
         private ViewModelConcreteFactory()
         {
@@ -33,22 +31,11 @@ namespace Fanex.Result.Core.MetricGaming.Models
         {
             get
             {
-                if (instance == null)
-                {
-                    lock (SynceObject)
-                    {
-                        if (instance == null)
-                        {
-                            instance = new ViewModelConcreteFactory();
-                        }
-                    }
-                }
-
-                return instance;
+                return LazyViewModelService.Value;
             }
         }
 
-        public override IResultViewModel GetViewModel<T>(T obj, ResultSetting setting, LangResources resource)
+        public override IResultViewModel GetViewModel<T>(T obj, ResultSetting setting)
         {
             if ((int)setting.SportType <= 0)
             {
@@ -56,22 +43,22 @@ namespace Fanex.Result.Core.MetricGaming.Models
             }
 
             var item = obj as DTO.MetricGaming;
-            var viewModel = new SoccerViewModel(item, setting, resource);
+            var viewModel = new SoccerViewModel(item, setting);
 
             return (IResultViewModel)viewModel;
         }
 
-        public override IResultViewModel GetOutRightViewModel(object resultData, ResultSetting setting, LangResources resource)
+        public override IResultViewModel GetOutRightViewModel(object resultData, ResultSetting setting)
         {
             throw new NotImplementedException();
         }
 
-        public override IResultViewModel GetParlayViewModel(object resultData, ResultSetting setting, LangResources resource)
+        public override IResultViewModel GetParlayViewModel(object resultData, ResultSetting setting)
         {
             throw new NotImplementedException();
         }
 
-        public override IExcelModel GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting, LangResources resource)
+        public override IExcelModel GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting)
         {
             throw new NotImplementedException();
         }

@@ -10,6 +10,7 @@ namespace Fanex.Result.Core.Base.ViewModels
     using System.Collections.Generic;
     using System.Globalization;
     using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.Utilities;
     using RemotingRef;
 
@@ -24,6 +25,7 @@ namespace Fanex.Result.Core.Base.ViewModels
         { "en-US", "en" },
         { "zh-TW", "ch" },
         { "zh-CN", "cs" },
+        { "zh-Hans", "zhcn" },
         { "ja-JP", "jp" },
         { "th-TH", "th" },
         { "ko-KR", "ko" },
@@ -35,12 +37,10 @@ namespace Fanex.Result.Core.Base.ViewModels
         private string _languageCode = ConstantValue.EnglishLanguageCode;
 
         private SportType _sportType = SportType.Soccer;
-        private LangResources _lang;
 
-        protected BaseViewModel(ResultSetting setting, LangResources resource)
+        protected BaseViewModel(ResultSetting setting)
         {
             this.DateTimeFormat = setting.DateTimeFormat;
-            this.Lang = resource;
         }
 
         public string DateTimeFormat
@@ -87,7 +87,7 @@ namespace Fanex.Result.Core.Base.ViewModels
         {
             get
             {
-                if (this.EventStatus.Equals(Lang.PostPoned, StringComparison.OrdinalIgnoreCase))
+                if (this.EventStatus.Equals(LangResource.PostPoned, StringComparison.OrdinalIgnoreCase))
                 {
                     return ConstantValue.BackgroundPosponed;
                 }
@@ -131,12 +131,6 @@ namespace Fanex.Result.Core.Base.ViewModels
         {
             get { return _languageCode; }
             set { _languageCode = value; }
-        }
-
-        protected LangResources Lang
-        {
-            get { return this._lang; }
-            set { this._lang = value; }
         }
 
         protected SportType Sport

@@ -17,8 +17,7 @@ namespace Fanex.Result.Core.Base.Models
     public sealed class Validate : IValidate
     {
         /*singleton*/
-        private static readonly object SynceObject = new object();
-        private static IValidate instance;
+        private static readonly Lazy<IValidate> LazyValidationService = new Lazy<IValidate>(() => new Validate());
 
         private Validate()
         {
@@ -28,18 +27,7 @@ namespace Fanex.Result.Core.Base.Models
         {
             get
             {
-                if (instance == null)
-                {
-                    lock (SynceObject)
-                    {
-                        if (instance == null)
-                        {
-                            instance = new Validate();
-                        }
-                    }
-                }
-
-                return instance;
+                return LazyValidationService.Value;
             }
         }
 
@@ -89,6 +77,8 @@ namespace Fanex.Result.Core.Base.Models
                     return dtoName == DTOType.LIVECASINO;
                 case SportType.GoldDeluxe:
                     return dtoName == DTOType.GOLDDELUXE;
+                case SportType.AGCasino:
+                    return dtoName == DTOType.AGCASINO;
                 default:
                     return dtoName == DTOType.SPORTSBOOK || dtoName == DTOType.METRICGAMING;
             }

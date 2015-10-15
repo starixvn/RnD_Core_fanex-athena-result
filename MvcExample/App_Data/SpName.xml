@@ -31,13 +31,13 @@
             <Mapping ObjectProperty="HomeId" DataField="homeid" />
             <Mapping ObjectProperty="AwayId" DataField="awayid" />
         </Setting>
-        <Setting Key="Lrf_Result_MatchSelByLeague" SpName="Age_Result_MatchSelByLeague_xtest" DbName="DBACC.bodb02.BODBDownlineNet">
+        <Setting Key="Lrf_Result_MatchSelByLeague" SpName="Age_Result_MatchSelByLeague" DbName="DBACC.bodb02.BODBDownlineNet">
         </Setting>
-        <Setting Key="Lrf_Result_MatchSelByLeague_Detail" SpName="Age_Result_MatchSelResultDetail_xtest" DbName="DBACC.bodb02.BODBDownlineNet">
+        <Setting Key="Lrf_Result_MatchSelByLeague_Detail" SpName="Age_Result_MatchSelResultDetail" DbName="DBACC.bodb02.BODBDownlineNet">
         </Setting>
-        <Setting Key="Lrf_BetList_SelMatchResultParlay" SpName="Age_BetList_SelMatchResultParlay_xtest" DbName="DBACC.bodb02.BODBDownlineNet">
+        <Setting Key="Lrf_BetList_SelMatchResultParlay" SpName="Age_BetList_SelMatchResultParlay" DbName="DBACC.bodb02.BODBDownlineNet">
         </Setting>
-        <Setting Key="Lrf_BetList_SelMatchResult" SpName="Age_BetList_SelMatchResult_xtest" DbName="DBACC.bodb02.BODBDownlineNet">
+        <Setting Key="Lrf_BetList_SelMatchResult" SpName="Age_BetList_SelMatchResult" DbName="DBACC.bodb02.BODBDownlineNet">
         </Setting>
 
         <Setting Key="Lrf_Result_RaceSelByMeeting" SpName="Lrf_Result_RaceSelByMeeting" DbName="DBEXT.bodb02.bodbLicenseeNet">
@@ -49,6 +49,8 @@
         <Setting Key="Lrf_Result_Outright" SpName="Lrf_Result_Outright" DbName="DBEXT.bodb02.bodbLicenseeNet">
         </Setting>
         <Setting Key="All_BetList_MatchResultGDSel" SpName="All_BetList_MatchResultGDSel" DbName="DBEXT.bodb02.bodbLicenseeNet">
+        </Setting>
+        <Setting Key="All_BetList_MatchResultAGSel" SpName="All_BetList_MatchResultAGSel" DbName="DBEXT.bodb02.bodbLicenseeNet">
         </Setting>
     </Function>
 </Functions>

@@ -10,9 +10,9 @@ namespace Fanex.Result.Core.Racing.ExcelModels
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.ExcelModels;
     using Fanex.Result.Core.Base.Extension;
+    using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Racing.ViewModels;
     using NPOI.SS.UserModel;
@@ -25,24 +25,24 @@ namespace Fanex.Result.Core.Racing.ExcelModels
         private string _formatStatus = string.Empty;
 
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
-        public RacingExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data, LangResources resource)
-            : base(templatePath, setting, data, resource)
+        public RacingExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
+            : base(templatePath, setting, data)
         {
             this.ColumnTemplateCount = 7;
             this.ColumnStatus = 6;
             this.RowContentTemplate = 3;
-            this._formatStatus = resource.Official + " {0} {1}";
+            this._formatStatus = LangResource.Official + " {0} {1}";
         }
 
         protected override void AssignHeader(ISheet sheet)
         {
             var colidx = 3;
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
-            row.Cells[ColumnRace].SetCellValue(Lang.Race);
-            row.Cells[colidx++].SetCellValue(Lang.Results);
-            row.Cells[colidx++].SetCellValue(Lang.Win);
-            row.Cells[colidx++].SetCellValue(Lang.Place);
-            row.Cells[colidx].SetCellValue(Lang.Status);
+            row.Cells[ColumnRace].SetCellValue(LangResource.Race);
+            row.Cells[colidx++].SetCellValue(LangResource.Results);
+            row.Cells[colidx++].SetCellValue(LangResource.Win);
+            row.Cells[colidx++].SetCellValue(LangResource.Place);
+            row.Cells[colidx].SetCellValue(LangResource.Status);
         }
 
         /// <summary>
@@ -111,8 +111,8 @@ namespace Fanex.Result.Core.Racing.ExcelModels
 
                 status = string.Format(
                     this._formatStatus,
-                    string.IsNullOrEmpty(exportRow.SCR) ? string.Empty : "\n" + Lang.SCR + ":" + exportRow.SCR,
-                    string.IsNullOrEmpty(exportRow.TF) ? string.Empty : "\n" + Lang.TF + ":" + exportRow.TF);
+                    string.IsNullOrEmpty(exportRow.SCR) ? string.Empty : "\n" + LangResource.SCR + ":" + exportRow.SCR,
+                    string.IsNullOrEmpty(exportRow.TF) ? string.Empty : "\n" + LangResource.TF + ":" + exportRow.TF);
             }
 
             var rowHome = sheet.CopyRow(TemplateSheet, RowContentTemplate, currentRow);

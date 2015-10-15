@@ -17,12 +17,12 @@ namespace Fanex.Result.Core.Models
     /// </summary>
     public abstract class ViewModelFactory
     {
-        public abstract IResultViewModel GetViewModel<T>(T resultData, ResultSetting setting, LangResources resource);
+        public abstract IResultViewModel GetViewModel<T>(T resultData, ResultSetting setting);
 
-        public abstract IResultViewModel GetOutRightViewModel(object resultData, ResultSetting setting, LangResources resource);
+        public abstract IResultViewModel GetOutRightViewModel(object resultData, ResultSetting setting);
 
-        public abstract IResultViewModel GetParlayViewModel(object resultData, ResultSetting setting, LangResources resource);
+        public abstract IResultViewModel GetParlayViewModel(object resultData, ResultSetting setting);
 
-        public abstract IExcelModel GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting, LangResources resource);
+        public abstract IExcelModel GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting);
     }
 }

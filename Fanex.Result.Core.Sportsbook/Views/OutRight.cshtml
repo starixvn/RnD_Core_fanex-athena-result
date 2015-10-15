@@ -1,14 +1,14 @@
 ﻿@{
     var viewModel = (Fanex.Result.Core.Base.ViewModels.RazorBinderModel)Model;
 
-    var lang = (Fanex.Result.Core.Base.DataDomain.LangResources)viewModel.Resource;
-    const int colspan = 5;
+       const int colspan = 5;
     var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
 
 }
 @using Fanex.Result.Core.Base.ViewModels;
 @using Fanex.Result.Core.Sportsbook.ViewModels;
 @using System.Collections;
+@using Fanex.Result.Core.Base.Resources;
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
@@ -25,13 +25,13 @@
                 }
                 <tr class="header">
                     <th class="cl-time">
-                        @lang.Time
+                        @LangResource.Time
                     </th>
                     <th class="cl-team">
-                        @lang.Team
+                        @LangResource.Team
                     </th>
                     <th class="cl-result">
-                        @lang.Result
+                        @LangResource.Result
                     </th>
                 </tr>
             </thead>
@@ -58,13 +58,13 @@
             }
             <tr class="header">
                 <th class="cl-time">
-                    @lang.Time
+                    @LangResource.Time
                 </th>
                 <th class="cl-team">
-                    @lang.Team
+                    @LangResource.Team
                 </th>
                 <th class="cl-result">
-                    @lang.Result
+                    @LangResource.Result
                 </th>
             </tr>
         </thead>
@@ -114,7 +114,7 @@
             <!--NoInfo-->
             <tr class="row-noinfo">
                 <td colspan="3">
-                    @viewModel.Resource.NoInfo
+                    @LangResource.NoInfo
                 </td>
             </tr>
             <!--/NoInfo-->

@@ -16,6 +16,7 @@ namespace Fanex.Result.Core.Sportsbook.ExcelModels
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Sportsbook.ViewModels;
     using NPOI.SS.UserModel;
+    using Fanex.Result.Core.Base.Resources;
 
     /// <summary>
     /// Baseball excel model class.
@@ -29,8 +30,8 @@ namespace Fanex.Result.Core.Sportsbook.ExcelModels
         #endregion Fields
 
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
-        public BaseBallExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data, LangResources resource)
-            : base(templatePath, setting, data, resource)
+        public BaseBallExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
+            : base(templatePath, setting, data)
         {
             this.ColumnTemplateCount = 16;
             this.ColumnStatus = 15;
@@ -45,14 +46,14 @@ namespace Fanex.Result.Core.Sportsbook.ExcelModels
         {
             var colidx = 0;
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
-            row.Cells[colidx++].SetCellValue(Lang.MatchCode + "/" + Lang.ID);
-            row.Cells[colidx++].SetCellValue(Lang.KickOffTime);
-            row.Cells[colidx].SetCellValue(Lang.Event);
+            row.Cells[colidx++].SetCellValue(LangResource.MatchCode + "/" + LangResource.ID);
+            row.Cells[colidx++].SetCellValue(LangResource.KickOffTime);
+            row.Cells[colidx].SetCellValue(LangResource.Event);
 
             colidx = ColumnHTScore;
-            row.Cells[colidx++].SetCellValue(Lang.HTScore);
-            row.Cells[colidx++].SetCellValue(Lang.FinalScore);
-            row.Cells[colidx].SetCellValue(Lang.Status);
+            row.Cells[colidx++].SetCellValue(LangResource.HTScore);
+            row.Cells[colidx++].SetCellValue(LangResource.FinalScore);
+            row.Cells[colidx].SetCellValue(LangResource.Status);
         }
 
         #region Assign Cell Data

@@ -39,7 +39,7 @@ namespace Fanex.Result.Core.Base.Exception
             get
             {
                 return
-                    string.Format("Exception when call Keno Result Api. Exception: {0}", base.Message);
+                    string.Format("Result.Core Exception. Exception: {0}", base.Message);
             }
         }
 

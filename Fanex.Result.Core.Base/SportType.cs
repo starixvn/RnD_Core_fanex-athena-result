@@ -19,6 +19,9 @@ namespace Fanex.Result.Core.Base
         [StringValue("Soccer")]
         Soccer = 1,
 
+        [StringValue("MuayThai")]
+        MuayThai = 44,
+
         #region BasketBall
 
         [StringValue("BasketBall")]
@@ -230,10 +233,13 @@ namespace Fanex.Result.Core.Base
 
         #endregion VirtualSport
 
-        [StringValue("GoldDeluxe")]
-        GoldDeluxe = 255,
-
         [StringValue("MicroGaming")]
         MicroGaming = 203,
+
+        [StringValue("AGCasino")]
+        AGCasino = 250,
+
+        [StringValue("GoldDeluxe")]
+        GoldDeluxe = 255
     }
 }

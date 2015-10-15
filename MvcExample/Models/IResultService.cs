@@ -7,6 +7,7 @@
 namespace MvcExample.Models
 {
     using System.Collections.Generic;
+    using Fanex.Result.Core.AGCasino.DTO;
     using Fanex.Result.Core.GoldDeluxe.DTO;
     using Fanex.Result.Core.LiveCasino.DTO;
     using Fanex.Result.Core.MetricGaming.DTO;
@@ -50,6 +51,8 @@ namespace MvcExample.Models
         IEnumerable<Sportsbook> GetSportbookPopupResult(GetSportbookPopupResultCriteria criteria);
 
         IEnumerable<GoldDeluxe> GetGoldDeluxePopUpResult(GetGolDeluxePopUpResultCriteria criteria);
+
+        IEnumerable<AGCasino> GetAGCasinoPopUpResult(GetAGCasinoPopUpResultCriteria criteria);
 
         #endregion PopUp
 

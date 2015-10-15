@@ -22,8 +22,8 @@ namespace Fanex.Result.Core.MetricGaming.ViewModels
         private string _eventName;
         private IList<string> _eventResult = null;
 
-        public SoccerViewModel(DTO.MetricGaming metricGaming, ResultSetting setting, LangResources resources)
-            : base(setting, resources)
+        public SoccerViewModel(DTO.MetricGaming metricGaming, ResultSetting setting)
+            : base(setting)
         {
             this._metricGaming = metricGaming;
             this.LanguageCode = setting.LanguageCode;
@@ -80,7 +80,6 @@ namespace Fanex.Result.Core.MetricGaming.ViewModels
         {
             get
             {
-
                 if (this._eventResult == null)
                 {
                     GetEventResult();
@@ -115,7 +114,6 @@ namespace Fanex.Result.Core.MetricGaming.ViewModels
                     this._eventResult.Add(resultItem + " " + timeOfResult);
                 }
             }
-
         }
 
         private string[] GetOtherInforList()

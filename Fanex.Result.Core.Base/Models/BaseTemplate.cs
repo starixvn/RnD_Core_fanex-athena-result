@@ -8,7 +8,6 @@ namespace Fanex.Result.Core.Base.Models
 {
     using System;
     using System.IO;
-    using System.Reflection;
 
     /// <summary>
     /// TODO: Update summary.
@@ -17,9 +16,8 @@ namespace Fanex.Result.Core.Base.Models
     {
         protected const string VIEWDOMAINPATTERN = "Fanex.Result.Core.{0}.Views.{1}.cshtml";
 
-        protected abstract Stream GetViewAbsemblyName(string templateName);
-
         protected abstract string GetProductName { get; }
+
         /// <summary>
         /// Get razor template.
         /// </summary>
@@ -45,5 +43,7 @@ namespace Fanex.Result.Core.Base.Models
                 }
             }
         }
+
+        protected abstract Stream GetViewAbsemblyName(string templateName);
     }
 }

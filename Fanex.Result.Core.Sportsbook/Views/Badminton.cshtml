@@ -1,12 +1,12 @@
 ﻿@{
     var viewModel = (Fanex.Result.Core.Base.ViewModels.RazorBinderModel)Model;
-    var lang = (Fanex.Result.Core.Base.DataDomain.LangResources)viewModel.Resource;
     var colspan = viewModel.VisibleMatchCodeIDColumn ? 11 : 10;
     var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
 }
 @using Fanex.Result.Core.Base.ViewModels;
 @using Fanex.Result.Core.Sportsbook.ViewModels;
 @using System.Collections;
+@using Fanex.Result.Core.Base.Resources;
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
@@ -25,38 +25,38 @@
                     @if (viewModel.VisibleMatchCodeIDColumn)
                     {
                         <th class="cl-m-code">
-                            @lang.MatchCode/@lang.ID
+                           @LangResource.MatchCode/@LangResource.ID
                         </th>
                     }
                     <th class="cl-ko-time">
-                        @lang.KickOffTime
+                        @LangResource.KickOffTime
                     </th>
                     <th class="cl-match">
-                        @Raw(lang.Match)
+                        @Raw(LangResource.Match)
                     </th>
                     <th class="cl-s">
-                        @lang.Lbl1S
+                        @LangResource.Lbl1S
                     </th>
                     <th class="cl-s">
-                        @lang.Lbl2S
+                        @LangResource.Lbl2S
                     </th>
                     <th class="cl-s">
-                        @lang.Lbl3S
+                        @LangResource.Lbl3S
                     </th>
                     <th class="cl-s">
-                        @lang.Lbl4S
+                        @LangResource.Lbl4S
                     </th>
                     <th class="cl-s">
-                        @lang.Lbl5S
+                        @LangResource.Lbl5S
                     </th>
                     <th class="cl-totalgames">
-                        @lang.TotalPoints
+                        @LangResource.TotalPoints
                     </th>
                     <th class="cl-totalset">
-                        @lang.TotalSet
+                        @LangResource.TotalSet
                     </th>
                     <th class="cl-status">
-                        @lang.Status
+                        @LangResource.Status
                     </th>
                 </tr>
             </thead>
@@ -85,38 +85,38 @@
                 @if (viewModel.VisibleMatchCodeIDColumn)
                 {
                     <th class="cl-m-code">
-                        @lang.MatchCode/@lang.ID
+                        @LangResource.MatchCode/@LangResource.ID
                     </th>
                 }
                 <th class="cl-ko-time">
-                    @lang.KickOffTime
+                    @LangResource.KickOffTime
                 </th>
                 <th class="cl-match">
-                    @Raw(lang.Match)
+                    @Raw(LangResource.Match)
                 </th>
                 <th class="cl-s">
-                    @lang.Lbl1S
+                    @LangResource.Lbl1S
                 </th>
                 <th class="cl-s">
-                    @lang.Lbl2S
+                    @LangResource.Lbl2S
                 </th>
                 <th class="cl-s">
-                    @lang.Lbl3S
+                    @LangResource.Lbl3S
                 </th>
                 <th class="cl-s">
-                    @lang.Lbl4S
+                    @LangResource.Lbl4S
                 </th>
                 <th class="cl-s">
-                    @lang.Lbl5S
+                    @LangResource.Lbl5S
                 </th>
                 <th class="cl-totalgames">
-                    @lang.TotalPoints
+                    @LangResource.TotalPoints
                 </th>
                 <th class="cl-totalset">
-                    @lang.TotalSet
+                    @LangResource.TotalSet
                 </th>
                 <th class="cl-status">
-                    @lang.Status
+                    @LangResource.Status
                 </th>
             </tr>
         </thead>
@@ -211,7 +211,7 @@
             <!--NoInfo-->
             <tr class="row-noinfo">
                 <td colspan="@colspan">
-                    @viewModel.Resource.NoInfo
+                    @LangResource.NoInfo
                 </td>
             </tr>
             <!--/NoInfo-->

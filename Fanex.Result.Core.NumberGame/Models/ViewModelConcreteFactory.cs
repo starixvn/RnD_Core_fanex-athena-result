@@ -24,9 +24,7 @@ namespace Fanex.Result.Core.NumberGame.Models
     /// </summary>
     internal sealed class ViewModelConcreteFactory : ViewModelFactory
     {
-        private static readonly object SynceObject = new object();
-
-        private static ViewModelFactory instance;
+        private static readonly Lazy<ViewModelFactory> LazyViewModelService = new Lazy<ViewModelFactory>(() => new ViewModelConcreteFactory());
 
         private ViewModelConcreteFactory()
         {
@@ -36,22 +34,11 @@ namespace Fanex.Result.Core.NumberGame.Models
         {
             get
             {
-                if (instance == null)
-                {
-                    lock (SynceObject)
-                    {
-                        if (instance == null)
-                        {
-                            instance = new ViewModelConcreteFactory();
-                        }
-                    }
-                }
-
-                return instance;
+                return LazyViewModelService.Value;
             }
         }
 
-        public override IResultViewModel GetViewModel<T>(T obj, ResultSetting setting, LangResources resource)
+        public override IResultViewModel GetViewModel<T>(T obj, ResultSetting setting)
         {
             if ((int)setting.SportType <= 0)
             {
@@ -59,21 +46,21 @@ namespace Fanex.Result.Core.NumberGame.Models
             }
 
             var item = obj as DTO.NumberGame;
-            var viewModel = new NumberGameViewModel(item, setting, resource);
+            var viewModel = new NumberGameViewModel(item, setting);
             return (IResultViewModel)viewModel;
         }
 
-        public override IResultViewModel GetOutRightViewModel(object obj, ResultSetting setting, LangResources resource)
+        public override IResultViewModel GetOutRightViewModel(object obj, ResultSetting setting)
         {
             throw new NotImplementedException();
         }
 
-        public override IResultViewModel GetParlayViewModel(object obj, ResultSetting setting, LangResources resource)
+        public override IResultViewModel GetParlayViewModel(object obj, ResultSetting setting)
         {
             throw new NotImplementedException();
         }
 
-        public override Base.ExcelModels.IExcelModel GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting, LangResources resource)
+        public override Base.ExcelModels.IExcelModel GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting)
         {
             if ((int)setting.SportType <= 0)
             {
@@ -83,9 +70,9 @@ namespace Fanex.Result.Core.NumberGame.Models
             var dtoName = setting.SportType.StringMe();
 
             var realTemplatePath = setting.ExcelTemplatePath + dtoName + ".xls";
-            var dataMaped = dataList.Select(i => this.GetViewModel(i, setting, resource)).ToList();
+            var dataMaped = dataList.Select(i => this.GetViewModel(i, setting)).ToList();
 
-            var viewModel = new NumberGameExcel(realTemplatePath, setting, dataMaped, resource);
+            var viewModel = new NumberGameExcel(realTemplatePath, setting, dataMaped);
 
             return viewModel as IExcelModel;
         }

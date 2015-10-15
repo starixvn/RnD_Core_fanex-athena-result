@@ -1,7 +1,9 @@
 ﻿namespace MvcExample.Controllers
 {
     using System.Diagnostics.CodeAnalysis;
+    using System.Globalization;
     using System.Linq;
+    using System.Threading;
     using System.Web.Mvc;
     using Fanex.Result.Core;
     using Fanex.Result.Core.Base;
@@ -30,6 +32,8 @@
         [HttpPost]
         public string GenHtml(ResultPopupMetaModel metalModel)
         {
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.CreateSpecificCulture(metalModel.LanguageCode);
+
             return GetPopUpData(metalModel);
         }
 
@@ -147,7 +151,18 @@
                     }
 
                     break;
+                case SportType.AGCasino:
+                    var dataAG = _resultService.GetAGCasinoPopUpResult(new GetAGCasinoPopUpResultCriteria
+                    {
+                        TransID = metalModel.RefNo.HasValue ? metalModel.RefNo.Value : 0,
+                        Bettype = metalModel.Bettype
+                    });
+                    if (dataAG != null)
+                    {
+                        return ResultEngine.HtmlParser(dataAG.ToList(), setting);
+                    }
 
+                    break;
                 case SportType.MicroGaming:
                     return ParserService.Instance.Parser(new MicroGaming
                     {

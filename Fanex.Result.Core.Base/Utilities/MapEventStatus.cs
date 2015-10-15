@@ -58,7 +58,7 @@ namespace Fanex.Result.Core.Base.Utilities
                 { Convert.ToInt32("0010011", 2), "postponed" },
                 { Convert.ToInt32("0000011", 2), "postponed" },
                 { Convert.ToInt32("0011000", 2), "internal" },
-                { Convert.ToInt32("0001000", 2), "nternal" },
+                { Convert.ToInt32("0001000", 2), "internal" },
 };
 
         /// <summary>

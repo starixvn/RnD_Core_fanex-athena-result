@@ -1,7 +1,7 @@
 ﻿@{
     var viewModel = (Fanex.Result.Core.Base.ViewModels.RazorBinderModel)Model;
 
-    var colspan = viewModel.VisibleMatchCodeIDColumn ? 16 : 15;
+    var colspan = viewModel.VisibleMatchCodeIDColumn ? 5 : 4;
     var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
 
 }
@@ -77,6 +77,9 @@
                 </th>
                 <th class="cl-match home">
                     @Raw(LangResource.Match)
+                </th>
+                <th class="cl-f-score">
+                    @LangResource.FinalScore
                 </th>
                 <th class="cl-status">
                     @LangResource.Status

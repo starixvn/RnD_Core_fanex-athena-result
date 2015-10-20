@@ -25,7 +25,7 @@ namespace Fanex.Result.Core.Base.Models
         protected virtual RazorBinderModel GenerateViewModelData<T>(IList<T> dataList, Base.ResultSetting setting, ViewModelFactory viewModelFactory)
         {
             var groupData = dataList.Select(i => viewModelFactory.GetViewModel(i, setting))
-                .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToList() });
+                .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToList() }).ToList();
             return CreateModel(groupData, setting);
         }
 
@@ -65,7 +65,7 @@ namespace Fanex.Result.Core.Base.Models
         /// Returns RAZOR model.
         /// </returns>
         protected virtual RazorBinderModel CreateModel(
-            IEnumerable<GroupData> groupData,
+            IList<GroupData> groupData,
             ResultSetting setting,
             bool isDetail = false)
         {

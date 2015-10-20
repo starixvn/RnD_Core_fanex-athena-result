@@ -24,7 +24,7 @@ namespace Fanex.Result.Core.MicroGaming
         private const string NORESULT = "<div class=\"no-info-rs\">{0}</div>";
         /*singleton*/
 
-        private static readonly Lazy<IParserService> lazyParserService = new Lazy<IParserService>(() => new ParserService());
+        private static readonly Lazy<IParserService> LazyParserService = new Lazy<IParserService>(() => new ParserService());
 
         private ParserService()
         {
@@ -34,7 +34,7 @@ namespace Fanex.Result.Core.MicroGaming
         {
             get
             {
-                return lazyParserService.Value;
+                return LazyParserService.Value;
             }
         }
 

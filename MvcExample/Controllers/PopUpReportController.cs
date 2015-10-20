@@ -34,7 +34,6 @@
         {
             Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentUICulture = new CultureInfo(metalModel.LanguageCode);
 
-
             return GetPopUpData(metalModel);
         }
 
@@ -152,6 +151,7 @@
                     }
 
                     break;
+
                 case SportType.AGCasino:
                     var dataAG = _resultService.GetAGCasinoPopUpResult(new GetAGCasinoPopUpResultCriteria
                     {
@@ -164,6 +164,7 @@
                     }
 
                     break;
+
                 case SportType.MicroGaming:
                     return ParserService.Instance.Parser(new MicroGaming
                     {

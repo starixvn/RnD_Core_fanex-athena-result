@@ -131,8 +131,7 @@ namespace Fanex.Result.Core.LiveCasino.ViewModels
                     this._liveCasino.EventStatus,
                     this._liveCasino.IsPending,
                     this._liveCasino.IsHTCal,
-                    this._liveCasino.Calculate
-                    );
+                    this._liveCasino.Calculate);
             }
         }
 

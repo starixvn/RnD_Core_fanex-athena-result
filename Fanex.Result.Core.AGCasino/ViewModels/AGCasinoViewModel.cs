@@ -21,13 +21,13 @@ namespace Fanex.Result.Core.AGCasino.ViewModels
     /// </summary>
     public class AGCasinoViewModel : BaseViewModel, IResultViewModel
     {
-        private readonly AGCasino _agCasino;
+        private readonly AGCasino _casino;
         private string _htmlResult;
 
-        public AGCasinoViewModel(AGCasino agCasino, ResultSetting setting)
+        public AGCasinoViewModel(AGCasino casino, ResultSetting setting)
             : base(setting)
         {
-            this._agCasino = agCasino;
+            this._casino = casino;
             this.LanguageCode = setting.LanguageCode;
             this.Sport = setting.SportType;
         }
@@ -37,7 +37,7 @@ namespace Fanex.Result.Core.AGCasino.ViewModels
             get
             {
                 return RefData.GetBetTypeName(
-               this._agCasino.Bettype.ToString(CultureInfo.InvariantCulture),
+               this._casino.Bettype.ToString(CultureInfo.InvariantCulture),
                this.GetSupportedLanguage,
                string.Empty);
             }
@@ -68,13 +68,13 @@ namespace Fanex.Result.Core.AGCasino.ViewModels
         {
             _htmlResult = LangResource.NoInfo;
 
-            if (!string.IsNullOrEmpty(_agCasino.Result))
+            if (!string.IsNullOrEmpty(_casino.Result))
             {
-                dynamic gameResult = JObject.Parse(_agCasino.Result);
+                dynamic gameResult = JObject.Parse(_casino.Result);
                 var resultToken = gameResult.result != null ? gameResult.result.Value : string.Empty;
                 if (!string.IsNullOrEmpty(resultToken))
                 {
-                    switch (_agCasino.Bettype)
+                    switch (_casino.Bettype)
                     {
                         case AGCasinoBettype.Bacarat:
                             _htmlResult = AGCasinoHelper.GetBacaratResult(resultToken, LangResource.Banker, LangResource.Player);

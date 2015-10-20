@@ -10,10 +10,11 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     using System.Globalization;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Base.ViewModels;
     using RemotingRef;
-    using Fanex.Result.Core.Base.Resources;
+
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
@@ -89,8 +90,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
                     this.SPORTBOOK.EventStatus,
                     this.SPORTBOOK.IsPending,
                     this.SPORTBOOK.IsHTCal,
-                    this.SPORTBOOK.Calculate
-                    );
+                    this.SPORTBOOK.Calculate);
             }
         }
 

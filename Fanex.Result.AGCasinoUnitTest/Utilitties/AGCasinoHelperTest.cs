@@ -6,7 +6,6 @@
 
 namespace Fanex.Result.AGCasinoUnitTests.Utilitties
 {
-    using System;
     using Fanex.Result.Core.AGCasino.Utilities;
     using NUnit.Framework;
 
@@ -19,6 +18,7 @@ namespace Fanex.Result.AGCasinoUnitTests.Utilitties
         private string bankerText;
         private string playerText;
         private string htmlPatternExpression;
+
         [SetUp]
         public void Setup()
         {
@@ -30,9 +30,9 @@ namespace Fanex.Result.AGCasinoUnitTests.Utilitties
         [Test]
         public void GetBacaratResult_WhenValidResult_ReturnValidHtml()
         {
-            //Arrange
+            //// Arrange
             var inputResult = "B;H5;C8;D7:P;H10;D9;HJ";
-            //Action
+            //// Action
 
             var result = AGCasinoHelper.GetBacaratResult(inputResult, bankerText, playerText);
 
@@ -44,10 +44,10 @@ namespace Fanex.Result.AGCasinoUnitTests.Utilitties
         [TestCase("B;H10;CJ;DK:P;H10;DK;SJ", "(0)")]
         public void GetBacaratResult_WhenValidResult_ReturnValidBankerPoint(string inputResult, string expectedResult)
         {
-            //Action
+            // Action
             var result = AGCasinoHelper.GetBacaratResult(inputResult, bankerText, playerText);
 
-            //Assert
+            // Assert
             StringAssert.Contains(expectedResult, result);
         }
 
@@ -56,32 +56,32 @@ namespace Fanex.Result.AGCasinoUnitTests.Utilitties
         [TestCase("B;H5;C8;D7:P;H10;DK;SJ", "(0)")]
         public void GetBacaratResult_WhenValidResult_ReturnValidPlayerPoint(string inputResult, string expectedResult)
         {
-            //Action
+            // Action
             var result = AGCasinoHelper.GetBacaratResult(inputResult, bankerText, playerText);
 
-            //Assert
+            // Assert
             StringAssert.Contains(expectedResult, result);
         }
 
         [Test]
         public void GetBacaratResult_WhenEmptyResult_ReturnEmptyText()
         {
-            //Arrange
+            // Arrange
             var expectedResult = string.Empty;
 
-            //Action
+            // Action
             var result = AGCasinoHelper.GetBacaratResult(string.Empty, bankerText, playerText);
 
-            //Assert
+            // Assert
             Assert.AreEqual(expectedResult, result);
         }
 
         [Test]
         public void GetBacaratResult_WhenNullResult_ThrowException()
         {
-            //Arrange
+            //// Arrange
             string inputResult = null;
-            //Assert
+            //// Assert
             Assert.Throws<System.NullReferenceException>(() => AGCasinoHelper.GetBacaratResult(inputResult, bankerText, playerText));
         }
 
@@ -89,39 +89,38 @@ namespace Fanex.Result.AGCasinoUnitTests.Utilitties
         [TestCase("0")]
         public void GetRoutletResult_WhenValidResult_ReturnValidStringText(string inputResult)
         {
-            //Arrange
+            //// Arrange
             var expectedResultPattern = "<span class=\"black\">{0}</span>";
             var expectedResult = string.Format(expectedResultPattern, inputResult);
-            //Action
+            //// Action
             var result = AGCasinoHelper.GetRoutletResult(inputResult);
-            //Assert
+            //// Assert
             StringAssert.AreEqualIgnoringCase(expectedResult, result);
         }
 
         [Test]
         public void GetSicBoResult_WhenValidResult_ReturnValidHtml()
         {
-            //Arrange
+            // Arrange
             var inputResult = "4;3;3";
 
-            //Action
+            // Action
             var result = AGCasinoHelper.GetSicBoResult(inputResult);
 
-            //Assert
+            // Assert
             StringAssert.IsMatch(htmlPatternExpression, result);
         }
-
 
         [Test]
         public void GetDragonTigerResult_WhenValidResult_ReturnValidHtml()
         {
-            //Arrange
+            // Arrange
             var inputResult = "D;H3:T;C9";
 
-            //Action
+            // Action
             var result = AGCasinoHelper.GetDragonTigerResult(inputResult, bankerText, playerText);
 
-            //Assert
+            // Assert
             StringAssert.IsMatch(htmlPatternExpression, result);
         }
     }

@@ -68,7 +68,6 @@ namespace Fanex.Result.Core.Base.Utilities
         /// <param name="isPending">Is pending.</param>
         /// <param name="isHTcal">Is HT calculation.</param>
         /// <param name="calculate">Is calculation.</param>
-        /// <param name="lang">The resource language.</param>
         /// <returns>The status string.</returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage(
     "Microsoft.StyleCop.CSharp.NamingRules",
@@ -107,7 +106,6 @@ namespace Fanex.Result.Core.Base.Utilities
         /// Get status from resource language.
         /// </summary>
         /// <param name="key">The status key.</param>
-        /// <param name="lang">The language resource.</param>
         /// <returns>The status string.</returns>
         private static string GetLogResource(string key)
         {

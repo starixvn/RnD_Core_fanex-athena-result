@@ -12,7 +12,6 @@ namespace Fanex.Result.Core.Sportsbook.Utilities
     using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Sportsbook.DataDomain;
-    using System.Resources;
 
     /// <summary>
     /// TODO: Update summary.
@@ -80,7 +79,6 @@ namespace Fanex.Result.Core.Sportsbook.Utilities
         /// Get language text by key.
         /// </summary>
         /// <param name="keyName">The key name.</param>
-        /// <param name="lang">The language objects.</param>
         /// <returns>The language value.</returns>
         public static string GetResourceLang(string keyName)
         {

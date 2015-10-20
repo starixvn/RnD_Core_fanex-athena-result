@@ -9,11 +9,11 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     using System.Globalization;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Sportsbook.DTO;
     using RemotingRef;
-    using Fanex.Result.Core.Base.Resources;
 
     /// <summary>
     /// Outright view model class.

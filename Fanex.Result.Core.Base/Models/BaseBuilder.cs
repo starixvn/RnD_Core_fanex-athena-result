@@ -58,7 +58,6 @@ namespace Fanex.Result.Core.Base.Models
         /// <summary>
         /// Creates the model.
         /// </summary>
-        /// <param name="lang">The language.</param>
         /// <param name="groupData">The data list.</param>
         /// <param name="setting">The result setting.</param>
         /// <param name="isDetail">If true,all detailed game will be rendered.</param>

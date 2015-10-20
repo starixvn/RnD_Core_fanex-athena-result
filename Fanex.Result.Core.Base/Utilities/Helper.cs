@@ -18,6 +18,7 @@ namespace Fanex.Result.Core.Base.Utilities
     {
         private static readonly CultureInfo Cult = new CultureInfo("en-US");
         private static readonly Regex NumberPattern = new Regex("[0-9]");
+
         public static string FullDateFormat(object dateValue, string formatPattern)
         {
             if (Convert.IsDBNull(dateValue) || dateValue == null)
@@ -59,7 +60,7 @@ namespace Fanex.Result.Core.Base.Utilities
             {
                 return false;
             }
-          
+
             return NumberPattern.IsMatch(inputvalue);
         }
     }

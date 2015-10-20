@@ -41,6 +41,8 @@ namespace Fanex.Result.Core.Sportsbook.DataDomain
         }
         };
 
+        private static int[] _possibleMuayThaiScore = { 0, 1, 5 };
+
         public static IDictionary<string, List<string>> BetRada
         {
             get
@@ -49,8 +51,12 @@ namespace Fanex.Result.Core.Sportsbook.DataDomain
             }
         }
 
-        public static int[] PossibleMuayThaiScore = { 0, 1, 5 };
-
-
+        public static int[] PossibleMuayThaiScore
+        {
+            get
+            {
+                return _possibleMuayThaiScore;
+            }
+        }
     }
 }

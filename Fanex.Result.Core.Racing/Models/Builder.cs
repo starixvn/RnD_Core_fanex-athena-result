@@ -10,7 +10,6 @@ namespace Fanex.Result.Core.Racing.Models
     using System.Collections.Generic;
     using Fanex.Result.Core.Base.Extension;
     using Fanex.Result.Core.Base.Models;
-    using Fanex.Result.Core.Models;
 
     /// <summary>
     /// TODO: Update summary.
@@ -25,7 +24,6 @@ namespace Fanex.Result.Core.Racing.Models
 
         public System.IO.MemoryStream ExcelBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
         {
-          
             var excelParser = ViewModelConcreteFactory.Instance.GetExcelViewModel<T>(dataList, setting);
             return excelParser.Export();
         }

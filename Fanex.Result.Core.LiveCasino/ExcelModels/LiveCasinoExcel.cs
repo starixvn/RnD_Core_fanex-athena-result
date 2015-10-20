@@ -10,14 +10,13 @@ namespace Fanex.Result.Core.LiveCasino.ExcelModels
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.ExcelModels;
     using Fanex.Result.Core.Base.Extension;
+    using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.LiveCasino.ViewModels;
     using NPOI.SS.UserModel;
-    using Fanex.Result.Core.Base.Resources;
 
     /// <summary>
     /// Live casino excel model class.

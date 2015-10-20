@@ -51,7 +51,6 @@
         [HttpPost]
         public string GenHtml(DateTime date, short sportId, int leagueId, string languageCode, bool showMatchCode)
         {
-
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(languageCode);
 
             var sportType = (SportType)sportId;

@@ -15,6 +15,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     using System.Text;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Sportsbook.DataDomain;
     using Fanex.Result.Core.Sportsbook.DTO;
@@ -23,7 +24,6 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     using Fanex.Result.Core.Sportsbook.ViewModels.SoccerInfo;
     using RazorEngine;
     using RazorEngine.Templating;
-    using Fanex.Result.Core.Base.Resources;
 
     /// <summary>
     /// TODO: Update summary.

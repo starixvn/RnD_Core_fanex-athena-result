@@ -148,6 +148,7 @@ namespace MvcExample.Models
         /// <returns>The SPORTBOOK data.</returns>
         public IEnumerable<Sportsbook> GetSportbookResult(GetSportbookResultCriteria criteria)
         {
+            criteria.sporttype = 0;
             var results = new List<Sportsbook>();
             var gameDetails = new List<GameDetail>();
             using (var db = new ObjectDb(criteria.GetSettingKey()))

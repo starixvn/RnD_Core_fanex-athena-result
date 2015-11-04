@@ -101,7 +101,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
 
         private string GetFinalScore(int keyScore)
         {
-            return keyScore == 0 ? LangResource.Draw : (keyScore > 0 ? LangResource.Win : LangResource.Lose);
+            return keyScore == 0 ? LangResource.Draw : (keyScore > 0 ? LangResource.Won : LangResource.Lose);
         }
     }
 }

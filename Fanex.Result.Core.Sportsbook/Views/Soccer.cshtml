@@ -248,14 +248,15 @@
         <tbody>
             @foreach (var goal in mainItem.GoalRecord)
             {
-                homeScore += 'h' == char.ToLower(goal) ? 1 : 0;
-                awayScore += 'a' == char.ToLower(goal) ? 1 : 0;
+                var goalLower = char.ToLower(goal);
+                homeScore += 'h' == goalLower ? 1 : 0;
+                awayScore += 'a' == goalLower ? 1 : 0;
                 <tr class="data">
                     <td class="cl-goal">
                         @homeScore - @awayScore
                     </td>
                     <td class="cl-goal">
-                        @(Equals('h', char.ToLower(goal)) ? LangResource.Home : LangResource.Away)
+                        @(Equals('h', goalLower) ? LangResource.Home : LangResource.Away)
                     </td>
                 </tr>
             }

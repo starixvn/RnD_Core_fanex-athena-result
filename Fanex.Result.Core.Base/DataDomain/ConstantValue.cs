@@ -25,21 +25,6 @@ namespace Fanex.Result.Core.Base.DataDomain
         public const string BackgroundPending = "cl-bg-pending";
         public const string BackgroundPosponed = "cl-bg-postponed";
 
-        public const string RunningStatus = "running";
-        public const string CompletedStatus = "completed";
-
-        public const string ClosedStatus = "closed";
-        public const string PostponedStatus = "postponed";
-
-        public const string InternalString = "internal";
-
-        public const string RefundStatus = "refund";
-
-        public const string RefundftStatus = "refundft";
-
-        public const string RefundhtStatus = "refundht";
-        public const string Won = "won";
-
         public const string Hyphen = "-";
 
         public const string RefundFT = "Refund FT";

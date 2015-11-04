@@ -8,7 +8,6 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
 {
     using System.Globalization;
     using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Base.ViewModels;
@@ -75,31 +74,11 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
                     return string.Empty;
                 }
 
-                var keyStatus = this._outRight.Status.Trim().ToLower();
-                switch (keyStatus)
-                {
-                    case ConstantValue.RunningStatus:
-                        return LangResource.Running;
-                    case ConstantValue.CompletedStatus:
-                        return LangResource.Completed;
-                    case ConstantValue.ClosedStatus:
-                        return LangResource.Closed;
-                    case ConstantValue.PostponedStatus:
+                var keyStatus = this._outRight.Status.Replace(" ", string.Empty);
 
-                        return LangResource.PostPoned;
-                    case ConstantValue.InternalString:
-                        return LangResource.Internal;
-                    case ConstantValue.RefundStatus:
-                        return LangResource.Refund;
-                    case ConstantValue.RefundftStatus:
-                        return LangResource.Refundft;
-                    case ConstantValue.RefundhtStatus:
-                        return LangResource.Refundht;
-                    case ConstantValue.Won:
-                        return LangResource.Won;
-                    default:
-                        return this._outRight.Status;
-                }
+                var item = LangResource.ResourceManager.GetString(keyStatus);
+
+                return string.IsNullOrEmpty(item) ? this._outRight.Status : item;
             }
         }
 

@@ -9,7 +9,6 @@ namespace Fanex.Result.Core.Base.Utilities
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.Resources;
 
     /// <summary>
@@ -27,9 +26,8 @@ namespace Fanex.Result.Core.Base.Utilities
         { "refund", Convert.ToInt32("0000100", 2) },
         { "refund ft", Convert.ToInt32("0000101", 2) },
         { "refund ht", Convert.ToInt32("0000110", 2) },
-        { "won", Convert.ToInt32("0000111", 2) },
-        { "internal", Convert.ToInt32("0001000", 2) }
-        };
+        { "won", Convert.ToInt32("0000111", 2) }
+       };
 
         /*
          * Define list key for Result: isPending(1 bit) isHTCal(1 bit) calculate(1 bit) enventStatus(4 bit)
@@ -77,8 +75,8 @@ namespace Fanex.Result.Core.Base.Utilities
         public static string MapEventStatusString(string eventstatus, bool isPending, bool isHTcal, bool calculate)
         {
             var pending = Convert.ToInt32(isPending);
-            var htCal = Convert.ToInt32(isHTcal);
-            var cal = Convert.ToInt32(calculate);
+            var htCal = Convert.ToInt32(true);
+            var cal = Convert.ToInt32(true);
 
             pending <<= 6; // Shift right 6 bit for pending status
             htCal <<= 5; // Shift right 5 bit for haft time calculate status
@@ -109,30 +107,10 @@ namespace Fanex.Result.Core.Base.Utilities
         /// <returns>The status string.</returns>
         private static string GetLogResource(string key)
         {
-            switch (key.ToLower())
-            {
-                case ConstantValue.RunningStatus:
-                    return LangResource.Running;
-                case ConstantValue.CompletedStatus:
-                    return LangResource.Completed;
-                case ConstantValue.ClosedStatus:
-                    return LangResource.Closed;
-                case ConstantValue.PostponedStatus:
+            var keyStatus = key.Replace(" ", string.Empty);
+            var item = LangResource.ResourceManager.GetString(keyStatus);
 
-                    return LangResource.PostPoned;
-                case ConstantValue.InternalString:
-                    return LangResource.Internal;
-                case ConstantValue.RefundStatus:
-                    return LangResource.Refund;
-                case ConstantValue.RefundftStatus:
-                    return LangResource.Refundft;
-                case ConstantValue.RefundhtStatus:
-                    return LangResource.Refundht;
-                case ConstantValue.Won:
-                    return LangResource.Won;
-                default:
-                    return UppercaseFirst(key);
-            }
+            return string.IsNullOrEmpty(item) ? UppercaseFirst(key) : item;
         }
 
         private static string UppercaseFirst(string s)

@@ -130,8 +130,7 @@ namespace Fanex.Result.Core.LiveCasino.ViewModels
                 return MapEventStatus.MapEventStatusString(
                     this._liveCasino.EventStatus,
                     this._liveCasino.IsPending,
-                    this._liveCasino.IsHTCal,
-                    this._liveCasino.Calculate);
+                   this.VisibleInternalEventStatus);
             }
         }
 

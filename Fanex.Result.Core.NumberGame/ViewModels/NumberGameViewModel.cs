@@ -115,7 +115,7 @@ namespace Fanex.Result.Core.NumberGame.ViewModels
         {
             get
             {
-                return MapEventStatus.MapEventStatusString(this._numberGame.EventStatus, this._numberGame.IsPending, false, false);
+                return MapEventStatus.MapEventStatusString(this._numberGame.EventStatus, this._numberGame.IsPending, this.VisibleInternalEventStatus);
             }
         }
 

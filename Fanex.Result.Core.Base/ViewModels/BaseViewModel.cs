@@ -41,6 +41,7 @@ namespace Fanex.Result.Core.Base.ViewModels
         protected BaseViewModel(ResultSetting setting)
         {
             this.DateTimeFormat = setting.DateTimeFormat;
+            this.VisibleInternalEventStatus = setting.VisibleInternalEventStatus;
         }
 
         public string DateTimeFormat
@@ -48,6 +49,8 @@ namespace Fanex.Result.Core.Base.ViewModels
             get { return this._dateTimeFormat; }
             set { _dateTimeFormat = value; }
         }
+
+        public bool VisibleInternalEventStatus { get; private set; }
 
         public string GetSupportedLanguage
         {

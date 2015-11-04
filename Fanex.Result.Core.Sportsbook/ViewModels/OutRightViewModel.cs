@@ -69,16 +69,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
         {
             get
             {
-                if (string.IsNullOrEmpty(this._outRight.Status))
-                {
-                    return string.Empty;
-                }
-
-                var keyStatus = this._outRight.Status.Replace(" ", string.Empty);
-
-                var item = LangResource.ResourceManager.GetString(keyStatus);
-
-                return string.IsNullOrEmpty(item) ? this._outRight.Status : item;
+                return MapEventStatus.GetLogResource(this._outRight.Status);
             }
         }
 

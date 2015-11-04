@@ -89,8 +89,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
                 return MapEventStatus.MapEventStatusString(
                     this.SPORTBOOK.EventStatus,
                     this.SPORTBOOK.IsPending,
-                    this.SPORTBOOK.IsHTCal,
-                    this.SPORTBOOK.Calculate);
+                    this.VisibleInternalEventStatus);
             }
         }
 

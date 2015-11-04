@@ -55,5 +55,7 @@ namespace Fanex.Result.Core.Base
         }
 
         public bool VisibleFreeHeader { get; set; }
+
+        public bool VisibleInternalEventStatus { get; set; }
     }
 }

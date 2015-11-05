@@ -23,8 +23,7 @@ namespace Fanex.Result.Core.Base.Utilities
         /// </summary>
         /// <param name="eventstatus">The event status.</param>
         /// <param name="isPending">Is pending.</param>
-        /// <param name="isHTcal">Is HT calculation.</param>
-        /// <param name="calculate">Is calculation.</param>
+        /// <param name="visibleInternalEventStatus">Show internal status.</param>
         /// <returns>The status string.</returns>
         [System.Diagnostics.CodeAnalysis.SuppressMessage(
     "Microsoft.StyleCop.CSharp.NamingRules",
@@ -59,14 +58,13 @@ namespace Fanex.Result.Core.Base.Utilities
                 return ConstantValue.Hyphen;
             }
 
-            var upCaseKey = UppercaseFirst(key);
+            var upperCaseKey = UppercaseFirst(key);
 
-            var keyStatus = upCaseKey.Replace(" ", string.Empty);
+            var keyStatus = upperCaseKey.Replace(" ", string.Empty);
 
             var item = LangResource.ResourceManager.GetString(keyStatus);
 
-            return string.IsNullOrEmpty(item) ? upCaseKey : item;
-
+            return string.IsNullOrEmpty(item) ? upperCaseKey : item;
         }
 
         private static string UppercaseFirst(string s)

@@ -165,7 +165,7 @@
 
                     break;
 
-                case SportType.MicroGaming:
+                case SportType.MicroGamingLC:
                     return ParserService.Instance.Parser(new MicroGaming
                     {
                         CustId = 18543926,

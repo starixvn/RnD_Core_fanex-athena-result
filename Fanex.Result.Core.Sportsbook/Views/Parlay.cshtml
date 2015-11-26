@@ -4,10 +4,11 @@
 }
 @using Fanex.Result.Core.Base.ViewModels;
 @using Fanex.Result.Core.Sportsbook.ViewModels;
+@using System.Collections.Generic;
 @if (viewModel != null && viewModel.Data.Count > 0)
 {
     <table class="fn-rs-popup parlay">
-        @foreach (var group in viewModel.Data)
+        @foreach(var group in viewModel.Data)
         {
             var firstItem = group.Data[0];
             <tr>
@@ -23,7 +24,7 @@
                     @{
                 var sportType = (Fanex.Result.Core.Base.SportType)item.SportId;
 
-                var bindModle = new Fanex.Result.Core.Base.ViewModels.RazorBinderModel
+                var bindModel = new Fanex.Result.Core.Base.ViewModels.RazorBinderModel
                 {
                    
                     IsPopUp = true,
@@ -45,8 +46,8 @@
                     <!--Only render Match result-->
                     @if (matchItemViews.Count > 0)
                     {
-                        bindModle.Data.AddRange(itemData);
-                        @Raw(item.Render(bindModle))
+                        bindModel.Data.AddRange(itemData);
+                        @Raw(item.Render(bindModel))
                         <br />
                     }
                     <!--Render both match and detail game-->

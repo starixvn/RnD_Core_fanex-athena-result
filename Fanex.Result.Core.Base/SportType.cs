@@ -233,8 +233,11 @@ namespace Fanex.Result.Core.Base
 
         #endregion VirtualSport
 
-        [StringValue("MicroGaming")]
-        MicroGaming = 203,
+        [StringValue("MicroGamingLC")]
+        MicroGamingLC = 203,
+
+        [StringValue("MicroGamingRNG")]
+        MicroGamingRNG = 205,
 
         [StringValue("AGCasino")]
         AGCasino = 250,

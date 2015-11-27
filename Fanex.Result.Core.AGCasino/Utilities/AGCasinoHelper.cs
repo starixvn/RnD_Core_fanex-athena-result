@@ -33,6 +33,7 @@ namespace Fanex.Result.Core.AGCasino.Utilities
         private const string CSSDragon = "dragon";
         private const string CSSTiger = "tiger";
         private static readonly Regex NoneNumber = new Regex("[^0-9]");
+        private static readonly Regex AGCasinoResultPattern = new Regex("\\*result=([^\\*]+)\\*winResult");
 
         private static readonly IDictionary<string, string> CardType = new Dictionary<string, string>()
         {
@@ -49,6 +50,16 @@ namespace Fanex.Result.Core.AGCasino.Utilities
         { "D", "diamond" },
         { "H", "heart" }
         };
+
+        internal static string GetAGCasinoResultToken(string resultData)
+        {
+            if (string.IsNullOrEmpty(resultData))
+            {
+                return string.Empty;
+            }
+
+            return AGCasinoResultPattern.Match(resultData).Groups[1].Value;
+        }
 
         internal static string GetBacaratResult(string result, string bankerText, string playerText)
         {

@@ -27,6 +27,24 @@ namespace Fanex.Result.AGCasinoUnitTests.Utilitties
             htmlPatternExpression = @"</?\w+\s+[^>]*>";
         }
 
+        [TestCase("", "")]
+        [TestCase(null, "")]
+        [TestCase("round=DSP*tableCode=va21*game=BAC*type=1*val=*result=B;H5;CK;DA:P;HK;DQ;HJ*winResult=1;6*result2=B;5:P;0", "B;H5;CK;DA:P;HK;DQ;HJ")]
+        [TestCase("round=DSP*tableCode=va21*game=DT*type=21*val=*result=D;H3:T;C9*winResult=22*result2=D;3:T;9", "D;H3:T;C9")]
+        [TestCase("round=AGQ*tableCode=va21*game=SHB*type=41*val=*result=4;3;3*winResult=42;44;54;55;61;73;85*result2=", "4;3;3")]
+        [TestCase("round=DSP*tableCode=va21*game=ROU*type=101*val=6*result=20*winResult=108;112;115;116;119*result2=", "20")]
+        [TestCase("round=DSP*tableCode=va21*game=ROU*type=101*val=6*result=*winResult=108;112;115;116;119*result2=", "")]
+        [TestCase("round=DSP*tableCode=va21*game=ROU*type=101*val=6*winResult=108;112;115;116;119*result2=", "")]
+        [TestCase("round=DSP*tableCode=va21*game=ROU*type=101*val=*winResult=108;112;115;116;119*result2=", "")]
+        [TestCase("round=DSP*tableCode=va21*game=ROU*type=101*val=*result=**winResult=108;112;115;116;119*result2=", "")]
+        public void GetAGCasinoResultToken_WhenAnyResult_ReturnValidResultToken(string inputResult, string expectedResultToken)
+        {
+            //// Action
+            var result = AGCasinoHelper.GetAGCasinoResultToken(inputResult);
+
+            StringAssert.AreEqualIgnoringCase(expectedResultToken, result);
+        }
+
         [Test]
         public void GetBacaratResult_WhenValidResult_ReturnValidHtml()
         {

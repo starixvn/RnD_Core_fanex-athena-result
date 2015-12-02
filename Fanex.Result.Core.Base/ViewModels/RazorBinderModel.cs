@@ -7,7 +7,7 @@
 namespace Fanex.Result.Core.Base.ViewModels
 {
     using System.Collections.Generic;
-    using Fanex.Result.Core.Base.DataDomain;
+    using System.Linq;
 
     /// <summary>
     /// TODO: Update summary.
@@ -41,15 +41,7 @@ namespace Fanex.Result.Core.Base.ViewModels
             {
                 if (!this.IsDetail && this.IsPopUp && this._data.Count == 1)
                 {
-                    foreach (IResultViewModel item in this._data[0].Data)
-                    {
-                        if (item.VisibleMatchResult)
-                        {
-                            return true;
-                        }
-                    }
-
-                    return false;
+                    return this._data[0].Data.Any(i => i.VisibleMatchResult);
                 }
 
                 return true;
@@ -68,20 +60,12 @@ namespace Fanex.Result.Core.Base.ViewModels
         {
             get
             {
-                var visible = false;
                 if (this.IsPopUp && this._data.Count == 1)
                 {
-                    foreach (IResultViewModel item in this._data[0].Data)
-                    {
-                        if (item.VisibleGameDetail)
-                        {
-                            visible = true;
-                            break;
-                        }
-                    }
+                    return this._data[0].Data.Any(i => i.VisibleGameDetail);
                 }
 
-                return visible;
+                return false;
             }
         }
     }

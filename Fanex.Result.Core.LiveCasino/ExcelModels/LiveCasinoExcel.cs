@@ -54,7 +54,7 @@ namespace Fanex.Result.Core.LiveCasino.ExcelModels
         protected override void AssignSheetData(ISheet sheet)
         {
             var currentRow = RowLeagueTemplate;
-            var groupData = this.ViewModelData.GroupBy(i => i.LeagueId);
+            var groupData = this.ViewModelData.GroupBy(i => i.LeagueId).ToList();
             foreach (var item in groupData)
             {
                 var firstItem = (LiveCasinoViewModel)item.FirstOrDefault();
@@ -67,7 +67,7 @@ namespace Fanex.Result.Core.LiveCasino.ExcelModels
                     rowLeague.Cells[2].SetCellValue(string.Empty);
                 }
 
-                foreach (LiveCasinoViewModel exportRow in item)
+                foreach (LiveCasinoViewModel exportRow in item.ToList())
                 {
                     var rowMatch = sheet.CopyRow(TemplateSheet, RowContentTemplate, currentRow, ColumnTemplateIndexList);
 

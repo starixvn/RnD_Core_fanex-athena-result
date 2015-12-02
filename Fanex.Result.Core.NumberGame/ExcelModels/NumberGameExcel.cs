@@ -65,13 +65,13 @@ namespace Fanex.Result.Core.NumberGame.ExcelModels
         {
             var currentRow = RowLeagueTemplate;
             var currentLeagueId = 0;
-            var groupData = this.ViewModelData.GroupBy(i => i.LeagueId);
+            var groupData = this.ViewModelData.GroupBy(i => i.LeagueId).ToList();
             foreach (var item in groupData)
             {
                 var firstItem = (NumberGameViewModel)item.FirstOrDefault();
                 SetLeague(sheet, firstItem.LeagueId, firstItem.LeagueName, ref currentLeagueId, ref currentRow);
 
-                foreach (NumberGameViewModel exportRow in item)
+                foreach (NumberGameViewModel exportRow in item.ToList())
                 {
                     var rowMatch = sheet.CopyRow(TemplateSheet, RowContentTemplate, currentRow);
 

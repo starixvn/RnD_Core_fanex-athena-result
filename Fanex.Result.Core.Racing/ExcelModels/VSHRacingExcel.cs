@@ -53,10 +53,10 @@ namespace Fanex.Result.Core.Racing.ExcelModels
             var currentRow = RowLeagueTemplate;
             var currentLeagueId = 0;
             var endRowSpan = 3;
-            var groupData = this.ViewModelData.GroupBy(i => i.LeagueId);
+            var groupData = this.ViewModelData.GroupBy(i => i.LeagueId).ToList();
             foreach (var item in groupData)
             {
-                foreach (VSHRacingViewModel exportRow in item)
+                foreach (VSHRacingViewModel exportRow in item.ToList())
                 {
                     if (exportRow.Place > 4)
                     {

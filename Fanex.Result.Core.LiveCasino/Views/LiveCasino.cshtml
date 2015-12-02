@@ -8,6 +8,7 @@
 @using Fanex.Result.Core.Base.ViewModels;
 @using Fanex.Result.Core.LiveCasino.ViewModels;
 @using System.Collections;
+@using System.Linq;
 @using Fanex.Result.Core.Base.Resources;
 @if (viewModel.VisibleFreeHeader)
 {
@@ -98,7 +99,7 @@
         {
             var index = 0;
             var leagueColspan = viewModel.VisibleMatchCodeIDColumn ? 3 : 2;
-            foreach (var itemObj in viewModel.Data)
+            foreach (var itemObj in viewModel.Data.ToList())
             {
                 var group = (GroupData)itemObj;
 

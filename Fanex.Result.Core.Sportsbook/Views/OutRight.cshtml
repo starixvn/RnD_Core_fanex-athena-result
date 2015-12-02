@@ -8,6 +8,7 @@
 @using Fanex.Result.Core.Base.ViewModels;
 @using Fanex.Result.Core.Sportsbook.ViewModels;
 @using System.Collections;
+@using System.Linq;
 @using Fanex.Result.Core.Base.Resources;
 @if (viewModel.VisibleFreeHeader)
 {
@@ -74,7 +75,7 @@
         @if (viewModel.Data.Count > 0)
         {
             var index = 0;
-            foreach (var itemObj in viewModel.Data)
+            foreach (var itemObj in viewModel.Data.ToList())
             {
                 var group = (GroupData)itemObj;
 

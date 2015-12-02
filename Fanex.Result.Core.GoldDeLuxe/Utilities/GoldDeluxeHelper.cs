@@ -72,7 +72,7 @@ namespace Fanex.Result.Core.GoldDeluxe.Utilities
             var htmlResult = new StringBuilder("<ul class=\"" + (choiceKey == BankerKey ? CSSBanker : CSSPlayer) + "\">");
             htmlResult.Append(string.Format(BacaratResultTemplate, choiceKey, string.Empty, choiceName + "&nbsp;(" + choicePoint + ")&nbsp;:"));
             KeyValuePair<string, string> currentCard = new KeyValuePair<string, string>("space", "&nbsp;");
-            foreach (var item in choiceResult.Skip(1))
+            foreach (var item in choiceResult.Skip(1).ToList())
             {
                 if (CardType.Keys.Any(i => i.Equals(item, StringComparison.OrdinalIgnoreCase)))
                 {

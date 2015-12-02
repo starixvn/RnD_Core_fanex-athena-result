@@ -5,10 +5,11 @@
 @using Fanex.Result.Core.Base.ViewModels;
 @using Fanex.Result.Core.Sportsbook.ViewModels;
 @using System.Collections.Generic;
+@using System.Linq;
 @if (viewModel != null && viewModel.Data.Count > 0)
 {
     <table class="fn-rs-popup parlay">
-        @foreach(var group in viewModel.Data)
+        @foreach(var group in viewModel.Data.ToList())
         {
             var firstItem = group.Data[0];
             <tr>

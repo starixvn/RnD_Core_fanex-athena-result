@@ -48,7 +48,7 @@ namespace Fanex.Result.Core.GoldDeluxe.ExcelModels
         protected override void AssignSheetData(ISheet sheet)
         {
             var currentRow = RowLeagueTemplate;
-            var groupData = this.ViewModelData.GroupBy(i => i.LeagueId);
+            var groupData = this.ViewModelData.GroupBy(i => i.LeagueId).ToList();
             foreach (var item in groupData)
             {
                 var firstItem = (GoldDeluxeViewModel)item.FirstOrDefault();
@@ -57,7 +57,7 @@ namespace Fanex.Result.Core.GoldDeluxe.ExcelModels
                 sheet.MergeCells(currentRow, 0, currentRow, 1);
                 currentRow++;
 
-                foreach (GoldDeluxeViewModel exportRow in item)
+                foreach (GoldDeluxeViewModel exportRow in item.ToList())
                 {
                     var rowMatch = sheet.CopyRow(TemplateSheet, RowContentTemplate, currentRow, ColumnTemplateIndexList);
 

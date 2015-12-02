@@ -170,14 +170,14 @@ namespace Fanex.Result.Core.Base.ExcelModels
         {
             var currentRow = RowLeagueTemplate;
             var currentLeagueId = 0;
-            var groupData = this.ViewModelData.GroupBy(i => i.LeagueId);
+            var groupData = this.ViewModelData.GroupBy(i => i.LeagueId).ToList();
             foreach (var item in groupData)
             {
                 var firstItem = item.FirstOrDefault();
 
                 SetLeague(sheet, firstItem.LeagueId, firstItem.LeagueName, ref currentLeagueId, ref currentRow);
 
-                foreach (var exportRow in item)
+                foreach (var exportRow in item.ToList())
                 {
                     SetDataForMatch(sheet, exportRow, ref currentRow);
                 }

@@ -193,7 +193,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
 
                 var temp = new StringBuilder();
                 var templateOperator = Template.Instance;
-                var detailedReulstByGroup = this._detailedItemModels.GroupBy(i => i.GroupCode);
+                var detailedReulstByGroup = this._detailedItemModels.GroupBy(i => i.GroupCode).ToList();
                 foreach (var item in detailedReulstByGroup)
                 {
                     var templateName = TemplateNameSpace + item.Key;
@@ -270,7 +270,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
                 foreach (var game in group.Value)
                 {
                     var detailedGameRecords = this.SPORTBOOK.GameDetails
-                   .Where(i => SportsbookHelper.IsValidResourceId(game, i.ResourceId));
+                   .Where(i => SportsbookHelper.IsValidResourceId(game, i.ResourceId)).ToList();
 
                     foreach (var detailedItem in detailedGameRecords)
                     {

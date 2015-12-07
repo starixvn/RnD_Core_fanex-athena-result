@@ -98,6 +98,16 @@ namespace Fanex.Result.Core.MetricGaming.ViewModels
             }
         }
 
+        private static string[] GetOtherInforList(string otherInfo)
+        {
+            if (!string.IsNullOrEmpty(otherInfo))
+            {
+                return otherInfo.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            }
+
+            return new string[1] { string.Empty };
+        }
+
         private string ComposeBetTypeTime(string bettypeTime)
         {
             if (string.IsNullOrEmpty(bettypeTime))
@@ -112,16 +122,6 @@ namespace Fanex.Result.Core.MetricGaming.ViewModels
             }
 
             return bettypeTime;
-        }
-
-        private static string[] GetOtherInforList(string otherInfo)
-        {
-            if (!string.IsNullOrEmpty(otherInfo))
-            {
-                return otherInfo.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-            }
-
-            return new string[1] { string.Empty };
         }
 
         private string GetGameResult(string gameResourceId)

@@ -9,15 +9,16 @@ namespace Fanex.Result.Core
     using System.Collections.Generic;
     using System.IO;
     using System.Linq;
+    using System.Reflection;
+    using System.Runtime.Caching;
+    using System.Web.Compilation;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.Exception;
     using Fanex.Result.Core.Base.Extension;
     using Fanex.Result.Core.Base.Models;
     using Fanex.Result.Core.Base.Utilities;
-    using System.Runtime.Caching;
-    using System.Reflection;
-    using System.Web.Compilation;
+
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
@@ -26,6 +27,7 @@ namespace Fanex.Result.Core
         private const string PLUGINPATTERN = "Fanex.Result.Core.{0}";
         private const string BUILDERNAMESPACEPATTERN = "Fanex.Result.Core.{0}.Models.Builder";
         private const string CACHEKEY = "Fanex.Result.Core.CacheKey";
+
         /// <summary>
         /// Render detail result by sport.
         /// </summary>
@@ -200,7 +202,7 @@ namespace Fanex.Result.Core
 
                 var plugins = GetResultPlugins();
 
-                var plugin=plugins.Where(i => i.FullName.IndexOf(pluginName, StringComparison.OrdinalIgnoreCase) > -1)
+                var plugin = plugins.Where(i => i.FullName.IndexOf(pluginName, StringComparison.OrdinalIgnoreCase) > -1)
                     .FirstOrDefault();
 
                 if (plugin == null)
@@ -239,7 +241,7 @@ namespace Fanex.Result.Core
                 }
                 catch
                 {
-                    assemblies = AppDomain.CurrentDomain.GetAssemblies().ToList();
+                    assemblies = AppDomain.CurrentDomain.GetAssemblies().Where(i => i.IsDynamic == false).ToList();
                 }
 
                 CacheItemPolicy policy = new CacheItemPolicy();

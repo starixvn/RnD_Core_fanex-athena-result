@@ -10,7 +10,6 @@
 @using Fanex.Result.Core.Models;
 @using Fanex.Result.Core.GoldDeluxe.ViewModels;
 @using System.Collections;
-@using System.Linq;
 @using Fanex.Result.Core.Base.Resources;
 @if (viewModel.VisibleFreeHeader)
 {
@@ -76,7 +75,7 @@
         @if (viewModel.Data.Count > 0)
         {
             var index = 0;
-            foreach (var itemObj in viewModel.Data.ToList())
+            foreach (var itemObj in viewModel.Data)
             {
                 var group = (GroupData)itemObj;
 

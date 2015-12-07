@@ -9,7 +9,6 @@
 @using Fanex.Result.Core.Base.ViewModels;
 @using Fanex.Result.Core.Racing.ViewModels;
 @using System.Collections;
-@using System.Linq;
 @using Fanex.Result.Core.Base.Resources;
 @if (viewModel.VisibleFreeHeader)
 {
@@ -89,7 +88,7 @@
         {
             var currentRace = DateTime.MinValue;
             var index = 0;
-            foreach (var itemObj in viewModel.Data.ToList())
+            foreach (var itemObj in viewModel.Data)
             {
                 var group = (GroupData)itemObj;
 

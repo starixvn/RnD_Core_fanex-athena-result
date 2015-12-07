@@ -6,6 +6,7 @@
 
 namespace Fanex.Result.Core.MetricGaming.ViewModels
 {
+    using System;
     using System.Collections.Generic;
     using System.Globalization;
     using Fanex.Result.Core.Base;
@@ -69,7 +70,7 @@ namespace Fanex.Result.Core.MetricGaming.ViewModels
                 if (string.IsNullOrEmpty(_eventName))
                 {
                     var gameName = RefData.GetBetTypeName(this._metricGaming.GameId.ToString(CultureInfo.CurrentCulture), this.GetSupportedLanguage, string.Empty);
-                    this._eventName = gameName + " " + this._metricGaming.BetTypeTime;
+                    this._eventName = gameName + " " + ComposeBetTypeTime(this._metricGaming.BetTypeTime);
                 }
 
                 return this._eventName;
@@ -97,6 +98,37 @@ namespace Fanex.Result.Core.MetricGaming.ViewModels
             }
         }
 
+        private string ComposeBetTypeTime(string bettypeTime)
+        {
+            if (string.IsNullOrEmpty(bettypeTime))
+            {
+                return string.Empty;
+            }
+
+            if (bettypeTime.IndexOf(",") > -1)
+            {
+                var tokens = bettypeTime.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                return RefData.GetTeamName(tokens[0], this.GetSupportedLanguage, string.Empty) + "," + tokens[1];
+            }
+
+            return bettypeTime;
+        }
+
+        private static string[] GetOtherInforList(string otherInfo)
+        {
+            if (!string.IsNullOrEmpty(otherInfo))
+            {
+                return otherInfo.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            }
+
+            return new string[1] { string.Empty };
+        }
+
+        private string GetGameResult(string gameResourceId)
+        {
+            return RefData.GetResourceDataByRefIdAndResourceId(ConstantValue.RefIDSuperLive, gameResourceId, this.GetSupportedLanguage, string.Empty);
+        }
+
         private void GetEventResult()
         {
             this._eventResult = new List<string>();
@@ -104,7 +136,7 @@ namespace Fanex.Result.Core.MetricGaming.ViewModels
             if (!string.IsNullOrEmpty(this._metricGaming.GameResult))
             {
                 var gameResultToken = this._metricGaming.GameResult.Split(new char[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
-                string[] otherInforToken = GetOtherInforList();
+                string[] otherInforToken = GetOtherInforList(this._metricGaming.OtherInfo);
 
                 for (var i = 0; i < gameResultToken.Length; i++)
                 {
@@ -114,21 +146,6 @@ namespace Fanex.Result.Core.MetricGaming.ViewModels
                     this._eventResult.Add(resultItem + " " + timeOfResult);
                 }
             }
-        }
-
-        private string[] GetOtherInforList()
-        {
-            if (!string.IsNullOrEmpty(_metricGaming.OtherInfo))
-            {
-                return _metricGaming.OtherInfo.Split(new char[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
-            }
-
-            return new string[1] { string.Empty };
-        }
-
-        private string GetGameResult(string gameResourceId)
-        {
-            return RefData.GetResourceDataByRefIdAndResourceId(ConstantValue.RefIDSuperLive, gameResourceId, this.GetSupportedLanguage, string.Empty);
         }
     }
 }

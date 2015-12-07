@@ -15,7 +15,9 @@ namespace Fanex.Result.Core
     using Fanex.Result.Core.Base.Extension;
     using Fanex.Result.Core.Base.Models;
     using Fanex.Result.Core.Base.Utilities;
-
+    using System.Runtime.Caching;
+    using System.Reflection;
+    using System.Web.Compilation;
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
@@ -23,7 +25,7 @@ namespace Fanex.Result.Core
     {
         private const string PLUGINPATTERN = "Fanex.Result.Core.{0}";
         private const string BUILDERNAMESPACEPATTERN = "Fanex.Result.Core.{0}.Models.Builder";
-
+        private const string CACHEKEY = "Fanex.Result.Core.CacheKey";
         /// <summary>
         /// Render detail result by sport.
         /// </summary>
@@ -196,8 +198,9 @@ namespace Fanex.Result.Core
             {
                 var pluginName = string.Format(PLUGINPATTERN, productType);
 
-                var plugin = AppDomain.CurrentDomain.GetAssemblies()
-                .Where(i => i.FullName.IndexOf(pluginName, StringComparison.OrdinalIgnoreCase) > -1)
+                var plugins = GetResultPlugins();
+
+                var plugin=plugins.Where(i => i.FullName.IndexOf(pluginName, StringComparison.OrdinalIgnoreCase) > -1)
                     .FirstOrDefault();
 
                 if (plugin == null)
@@ -218,8 +221,36 @@ namespace Fanex.Result.Core
             }
             catch (Exception exception)
             {
-                throw new ResultCoreException(exception.Message, exception.InnerException);
+                throw new ResultCoreException(exception.Message, exception);
             }
+        }
+
+        private static IList<Assembly> GetResultPlugins()
+        {
+            ObjectCache cache = MemoryCache.Default;
+
+            var assemblies = (List<Assembly>)cache[CACHEKEY];
+
+            if (assemblies == null || !assemblies.Any())
+            {
+                try
+                {
+                    assemblies = BuildManager.GetReferencedAssemblies().Cast<Assembly>().ToList();
+                }
+                catch
+                {
+                    assemblies = AppDomain.CurrentDomain.GetAssemblies().ToList();
+                }
+
+                CacheItemPolicy policy = new CacheItemPolicy();
+                policy.Priority = CacheItemPriority.NotRemovable;
+
+                assemblies = assemblies.Where(x => x.FullName.StartsWith("Fanex.Result.Core", StringComparison.InvariantCulture)).ToList();
+
+                cache.Set(CACHEKEY, assemblies, policy);
+            }
+
+            return assemblies;
         }
     }
 }

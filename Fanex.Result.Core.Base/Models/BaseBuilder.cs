@@ -10,7 +10,6 @@ namespace Fanex.Result.Core.Base.Models
     using System.IO;
     using System.Linq;
     using System.Text;
-    using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.Exception;
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Models;
@@ -44,7 +43,14 @@ namespace Fanex.Result.Core.Base.Models
                 var result = new StringBuilder();
                 using (var writer = new StringWriter(result))
                 {
-                    Engine.Razor.RunCompile(templateContent, templateName, writer, typeof(RazorBinderModel), model, null);
+                    var typeOfBinderModel = typeof(RazorBinderModel);
+                    if (!Engine.Razor.IsTemplateCached(templateName, typeOfBinderModel))
+                    {
+                        Engine.Razor.AddTemplate(templateName, templateContent);
+                        Engine.Razor.Compile(templateName, typeOfBinderModel);
+                    }
+
+                    Engine.Razor.Run(templateName, writer, typeOfBinderModel, model);
                 }
 
                 return result.ToString();

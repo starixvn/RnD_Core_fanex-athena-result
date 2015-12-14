@@ -12,7 +12,6 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     using System.Linq;
     using System.Text;
     using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.Extension;
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Sportsbook.DTO;
@@ -135,6 +134,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
             var sportType = (SportType)this._parlay.SportId;
             var sportName = sportType.StringMe();
             var templateContent = Template.Instance.GetRazorTemplate(sportName);
+
             if (string.IsNullOrEmpty(templateContent))
             {
                 return string.Empty;
@@ -143,7 +143,14 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
             var result = new StringBuilder();
             using (var writer = new StringWriter(result))
             {
-                Engine.Razor.RunCompile(templateContent, sportName, writer, typeof(RazorBinderModel), model, null);
+                var typeOfBinderModel = typeof(RazorBinderModel);
+                if (!Engine.Razor.IsTemplateCached(sportName, typeOfBinderModel))
+                {
+                    Engine.Razor.AddTemplate(sportName, templateContent);
+                    Engine.Razor.Compile(sportName, typeOfBinderModel);
+                }
+
+                Engine.Razor.Run(sportName, writer, typeOfBinderModel, model);
             }
 
             return result.ToString();

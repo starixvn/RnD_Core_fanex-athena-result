@@ -7,8 +7,6 @@
 namespace Fanex.Result.Core.MetricGaming.Models
 {
     using System;
-    using System.IO;
-    using System.Reflection;
     using BaseCore = Fanex.Result.Core.Base.Models;
 
     /// <summary>
@@ -29,12 +27,6 @@ namespace Fanex.Result.Core.MetricGaming.Models
         protected override string GetProductName
         {
             get { return "MetricGaming"; }
-        }
-
-        protected override Stream GetViewAbsemblyName(string templateName)
-        {
-            return Assembly.GetExecutingAssembly()
-             .GetManifestResourceStream(string.Format(VIEWDOMAINPATTERN, GetProductName, templateName));
         }
     }
 }

@@ -26,7 +26,7 @@ namespace Fanex.Result.Core
     {
         private const string PLUGINPATTERN = "Fanex.Result.Core.{0}";
         private const string BUILDERNAMESPACEPATTERN = "Fanex.Result.Core.{0}.Models.Builder";
-        private const string CACHEKEY = "Fanex.Result.Core.CacheKey";
+        private const string CACHEKEY = "Fanex.Result.Core.Plugin.CacheKey";
 
         /// <summary>
         /// Render detail result by sport.

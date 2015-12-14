@@ -51,7 +51,7 @@ namespace Fanex.Result.Core.Base.Models
             }
             catch (System.Exception exception)
             {
-                throw new ResultCoreException(exception.Message, exception.InnerException);
+                throw new ResultCoreException(exception.Message, exception);
             }
         }
 

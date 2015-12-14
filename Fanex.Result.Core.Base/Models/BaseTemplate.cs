@@ -8,6 +8,7 @@ namespace Fanex.Result.Core.Base.Models
 {
     using System;
     using System.IO;
+    using System.Runtime.Caching;
 
     /// <summary>
     /// TODO: Update summary.
@@ -16,6 +17,8 @@ namespace Fanex.Result.Core.Base.Models
     {
         protected const string VIEWDOMAINPATTERN = "Fanex.Result.Core.{0}.Views.{1}.cshtml";
 
+        private const string CACHEPATTERN = "Fanex.Result.Core.{0}.Views.{1}";
+       
         protected abstract string GetProductName { get; }
 
         /// <summary>
@@ -30,7 +33,26 @@ namespace Fanex.Result.Core.Base.Models
                 throw new ArgumentNullException("templateName");
             }
 
-            using (var stream = GetViewAbsemblyName(templateName))
+            var cache = MemoryCache.Default;
+            var templateCacheName = string.Format(CACHEPATTERN, GetProductName, templateName);
+            var item = cache[templateCacheName] as string;
+
+            if (string.IsNullOrEmpty(item))
+            {
+                item = GetTemplateFromPlugin(templateName);
+                CacheItemPolicy policy = new CacheItemPolicy();
+                policy.Priority = CacheItemPriority.NotRemovable;
+                cache.Set(templateCacheName, item, policy);
+            }
+
+            return item;
+        }
+
+        private string GetTemplateFromPlugin(string templateName)
+        {
+            var assembly = this.GetType().Assembly;
+            using (var stream = assembly
+             .GetManifestResourceStream(string.Format(VIEWDOMAINPATTERN, GetProductName, templateName)))
             {
                 if (stream == null)
                 {
@@ -43,7 +65,5 @@ namespace Fanex.Result.Core.Base.Models
                 }
             }
         }
-
-        protected abstract Stream GetViewAbsemblyName(string templateName);
     }
 }

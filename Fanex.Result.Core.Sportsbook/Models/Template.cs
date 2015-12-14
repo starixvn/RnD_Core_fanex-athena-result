@@ -7,8 +7,6 @@
 namespace Fanex.Result.Core.Sportsbook.Models
 {
     using System;
-    using System.IO;
-    using System.Reflection;
     using BaseCore = Fanex.Result.Core.Base.Models;
 
     /// <summary>
@@ -29,12 +27,6 @@ namespace Fanex.Result.Core.Sportsbook.Models
         protected override string GetProductName
         {
             get { return "Sportsbook"; }
-        }
-
-        protected override Stream GetViewAbsemblyName(string templateName)
-        {
-            return Assembly.GetExecutingAssembly()
-             .GetManifestResourceStream(string.Format(VIEWDOMAINPATTERN, GetProductName, templateName));
         }
     }
 }

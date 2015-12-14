@@ -7,8 +7,6 @@
 namespace Fanex.Result.Core.AGCasino.Models
 {
     using System;
-    using System.IO;
-    using System.Reflection;
     using BaseCore = Fanex.Result.Core.Base.Models;
 
     /// <summary>
@@ -29,12 +27,6 @@ namespace Fanex.Result.Core.AGCasino.Models
         protected override string GetProductName
         {
             get { return "AGCasino"; }
-        }
-
-        protected override Stream GetViewAbsemblyName(string templateName)
-        {
-            return Assembly.GetExecutingAssembly()
-             .GetManifestResourceStream(string.Format(VIEWDOMAINPATTERN, GetProductName, templateName));
         }
     }
 }

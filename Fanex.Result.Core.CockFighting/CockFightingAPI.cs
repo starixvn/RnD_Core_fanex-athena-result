@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="ParserService.cs" company="Microsoft">
+// <copyright file="CockFightingAPI.cs" company="Microsoft">
 // TODO: Update copyright text.
 // </copyright>
 // -----------------------------------------------------------------------
@@ -23,44 +23,6 @@ namespace Fanex.Result.Core.CockFighting
         public CockFightingAPI()
         {
             this._config = GetConfig();
-        }
-
-        private void ValidateConfig()
-        {
-            if (string.IsNullOrEmpty(_config.AuthorizedAPI))
-            {
-                throw new CockFightingException("Wrong Config!Not found CockFightingAuthorizedAPI key !");
-            }
-
-            if (string.IsNullOrEmpty(_config.ExtendedAPI))
-            {
-                throw new CockFightingException("Wrong Config! Not found CockFightingExtendedAPI key !");
-            }
-            if (string.IsNullOrEmpty(_config.SiteId))
-            {
-                throw new CockFightingException("Wrong Config! Not found CockFightingSiteId key !");
-            }
-            if (string.IsNullOrEmpty(_config.Vendor))
-            {
-                throw new CockFightingException("Wrong Config! Not found CockFightingVendor key !");
-            }
-            if (string.IsNullOrEmpty(_config.VendorKey))
-            {
-                throw new CockFightingException("Wrong Config! Not found CockFightingVendorKey key!");
-            }
-        }
-
-        private static Config GetConfig()
-        {
-            var setting = WebConfigurationManager.AppSettings;
-            return new Config
-            {
-                AuthorizedAPI = setting["CockFightingAuthorizedAPI"],
-                ExtendedAPI = setting["CockFightingExtendedAPI"],
-                SiteId = setting["CockFightingSiteId"],
-                Vendor = setting["CockFightingVendor"],
-                VendorKey = setting["CockFightingVendorKey"]
-            };
         }
 
         public string GetResultToken(string customerId, string languageCode = "en")
@@ -142,6 +104,47 @@ namespace Fanex.Result.Core.CockFighting
         {
             var regex = new Regex(@"(http|https):\/\/[^\/]+\/subCF\/\?action=[^&]*&siteID=[^&]*&lang=[^&]*&date=[^&]*&authorization=[^&]*&timezone=[^&]*");
             return regex.IsMatch(resultToken);
+        }
+
+        private static Config GetConfig()
+        {
+            var setting = WebConfigurationManager.AppSettings;
+            return new Config
+            {
+                AuthorizedAPI = setting["CockFightingAuthorizedAPI"],
+                ExtendedAPI = setting["CockFightingExtendedAPI"],
+                SiteId = setting["CockFightingSiteId"],
+                Vendor = setting["CockFightingVendor"],
+                VendorKey = setting["CockFightingVendorKey"]
+            };
+        }
+
+        private void ValidateConfig()
+        {
+            if (string.IsNullOrEmpty(_config.AuthorizedAPI))
+            {
+                throw new CockFightingException("Wrong Config!Not found CockFightingAuthorizedAPI key !");
+            }
+
+            if (string.IsNullOrEmpty(_config.ExtendedAPI))
+            {
+                throw new CockFightingException("Wrong Config! Not found CockFightingExtendedAPI key !");
+            }
+
+            if (string.IsNullOrEmpty(_config.SiteId))
+            {
+                throw new CockFightingException("Wrong Config! Not found CockFightingSiteId key !");
+            }
+
+            if (string.IsNullOrEmpty(_config.Vendor))
+            {
+                throw new CockFightingException("Wrong Config! Not found CockFightingVendor key !");
+            }
+
+            if (string.IsNullOrEmpty(_config.VendorKey))
+            {
+                throw new CockFightingException("Wrong Config! Not found CockFightingVendorKey key!");
+            }
         }
     }
 }

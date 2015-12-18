@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="CockFighting.cs" company="Microsoft">
+// <copyright file="Config.cs" company="Microsoft">
 // TODO: Update copyright text.
 // </copyright>
 // -----------------------------------------------------------------------
@@ -20,8 +20,11 @@ namespace Fanex.Result.Core.CockFighting
         public string SiteId { get; set; }
 
         public string Vendor { get; set; }
+     
         public string VendorKey { get; set; }
+       
         public string AuthorizedAPI { get; set; }
+       
         public string ExtendedAPI { get; set; }
     }
 }

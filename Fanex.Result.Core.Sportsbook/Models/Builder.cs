@@ -34,7 +34,7 @@ namespace Fanex.Result.Core.Sportsbook.Models
         public string OutRightHtmlBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
         {
             var groupData = dataList.Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting))
-                .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToList() }).ToSafeList();
+                .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToSafeList() }).ToSafeList();
             var model = CreateModel(groupData, setting);
             return HtmlRender(Template.Instance, "OutRight", model);
         }
@@ -42,7 +42,7 @@ namespace Fanex.Result.Core.Sportsbook.Models
         public string PopUpParalyBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
         {
             var groupData = dataList.Select(i => ViewModelConcreteFactory.Instance.GetParlayViewModel(i, setting))
-                 .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToList() }).ToSafeList();
+                 .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToSafeList() }).ToSafeList();
             var model = CreateModel(groupData, setting);
             return HtmlRender(Template.Instance, "Parlay", model);
         }
@@ -51,12 +51,12 @@ namespace Fanex.Result.Core.Sportsbook.Models
         {
             var viewModelData = ViewModelConcreteFactory.Instance.GetViewModel(data, setting);
 
-            IList<GroupData> groupData = new List<GroupData>()
+            IList<GroupData> groupData = new SafeList<GroupData>()
             {
                 new GroupData
                 {
                     LeagueId = viewModelData.LeagueId,
-                    Data = new List<IResultViewModel>
+                    Data = new SafeList<IResultViewModel>
                     {
                         viewModelData
                     }
@@ -72,7 +72,7 @@ namespace Fanex.Result.Core.Sportsbook.Models
             var outRightData =
                 dataList
                 .Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting))
-                .ToList();
+                .ToSafeList();
             var realTemplatePath = setting.ExcelTemplatePath + "Outright.xls";
             var excelParser = new OutRightExcel(realTemplatePath, setting, outRightData);
             return excelParser.Export();

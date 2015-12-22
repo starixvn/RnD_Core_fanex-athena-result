@@ -6,12 +6,14 @@
 
 namespace Fanex.Result.Core.Sportsbook.ViewModels
 {
+    using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
     using System.Text;
     using Fanex.Result.Core.Base;
+    using Fanex.Result.Core.Base.Exception;
     using Fanex.Result.Core.Base.Extension;
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Sportsbook.DTO;
@@ -26,10 +28,10 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     {
         private readonly Parlay _parlay;
         private readonly ResultSetting _sportSetting;
-        private IList<IResultViewModel> _viewModelData = null;
-        private IList<IResultViewModel> _onlyMatchItemViewModel = null;
-        private IList<IResultViewModel> _onlyGameDetailItemViewModel = null;
-        private IList<IResultViewModel> _bothMatchAndGameDetailItemViewModel = null;
+        private IEnumerable<IResultViewModel> _viewModelData = null;
+        private IEnumerable<IResultViewModel> _onlyMatchItemViewModel = null;
+        private IEnumerable<IResultViewModel> _onlyGameDetailItemViewModel = null;
+        private IEnumerable<IResultViewModel> _bothMatchAndGameDetailItemViewModel = null;
 
         public ParlayViewModel(Parlay parlay, ResultSetting setting)
             : base(setting)
@@ -80,7 +82,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
             }
         }
 
-        public IList<IResultViewModel> MatchItemView
+        public IEnumerable<IResultViewModel> MatchItemView
         {
             get
             {
@@ -93,7 +95,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
             }
         }
 
-        public IList<IResultViewModel> GameDetailItemView
+        public IEnumerable<IResultViewModel> GameDetailItemView
         {
             get
             {
@@ -106,7 +108,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
             }
         }
 
-        public IList<IResultViewModel> BothMatchAndDetailItemView
+        public IEnumerable<IResultViewModel> BothMatchAndDetailItemView
         {
             get
             {
@@ -115,7 +117,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
                     CreateItemViewModel();
                 }
 
-                return this._viewModelData.Where(i => i.VisibleGameDetail && i.VisibleMatchResult).ToList();
+                return _bothMatchAndGameDetailItemViewModel;
             }
         }
 
@@ -126,34 +128,41 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
         /// <returns>The sport  result.</returns>
         public string Render(RazorBinderModel model)
         {
-            if (this._parlay.SportId == 0)
+            try
             {
-                return string.Empty;
-            }
-
-            var sportType = (SportType)this._parlay.SportId;
-            var sportName = sportType.StringMe();
-            var templateContent = Template.Instance.GetRazorTemplate(sportName);
-
-            if (string.IsNullOrEmpty(templateContent))
-            {
-                return string.Empty;
-            }
-
-            var result = new StringBuilder();
-            using (var writer = new StringWriter(result))
-            {
-                var typeOfBinderModel = typeof(RazorBinderModel);
-                if (!Engine.Razor.IsTemplateCached(sportName, typeOfBinderModel))
+                if (this._parlay.SportId == 0)
                 {
-                    Engine.Razor.AddTemplate(sportName, templateContent);
-                    Engine.Razor.Compile(sportName, typeOfBinderModel);
+                    return string.Empty;
                 }
 
-                Engine.Razor.Run(sportName, writer, typeOfBinderModel, model);
-            }
+                var sportType = (SportType)this._parlay.SportId;
+                var sportName = sportType.StringMe();
+                var templateContent = Template.Instance.GetRazorTemplate(sportName);
 
-            return result.ToString();
+                if (string.IsNullOrEmpty(templateContent))
+                {
+                    return string.Empty;
+                }
+
+                var result = new StringBuilder();
+                using (var writer = new StringWriter(result))
+                {
+                    var typeOfBinderModel = typeof(RazorBinderModel);
+                    if (!Engine.Razor.IsTemplateCached(sportName, typeOfBinderModel))
+                    {
+                        Engine.Razor.AddTemplate(sportName, templateContent);
+                        Engine.Razor.Compile(sportName, typeOfBinderModel);
+                    }
+
+                    Engine.Razor.Run(sportName, writer, typeOfBinderModel, model);
+                }
+
+                return result.ToString();
+            }
+            catch (Exception exception)
+            {
+                throw new ResultCoreException(exception.Message, exception.InnerException);
+            }
         }
 
         /// <summary>
@@ -164,22 +173,22 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
             if (_viewModelData == null)
             {
                 _viewModelData = this._parlay.Sportbook.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(
-                    i, _sportSetting)).ToSafeList();
+                    i, _sportSetting));
             }
 
             if (_bothMatchAndGameDetailItemViewModel == null)
             {
-                _bothMatchAndGameDetailItemViewModel = _viewModelData.Where(i => i.VisibleMatchResult && i.VisibleGameDetail).ToSafeList();
+                _bothMatchAndGameDetailItemViewModel = _viewModelData.Where(i => i.VisibleMatchResult && i.VisibleGameDetail);
             }
 
             if (_onlyMatchItemViewModel == null)
             {
-                _onlyMatchItemViewModel = _viewModelData.Except(_bothMatchAndGameDetailItemViewModel).Where(i => i.VisibleMatchResult && !i.VisibleGameDetail).ToSafeList();
+                _onlyMatchItemViewModel = _viewModelData.Except(_bothMatchAndGameDetailItemViewModel).Where(i => i.VisibleMatchResult && !i.VisibleGameDetail);
             }
 
             if (_onlyGameDetailItemViewModel == null)
             {
-                _onlyGameDetailItemViewModel = _viewModelData.Except(_bothMatchAndGameDetailItemViewModel).Except(_onlyMatchItemViewModel).ToSafeList();
+                _onlyGameDetailItemViewModel = _viewModelData.Except(_bothMatchAndGameDetailItemViewModel).Except(_onlyMatchItemViewModel);
             }
         }
     }

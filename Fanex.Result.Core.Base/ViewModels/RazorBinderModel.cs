@@ -8,13 +8,21 @@ namespace Fanex.Result.Core.Base.ViewModels
 {
     using System.Collections.Generic;
     using System.Linq;
+    using Fanex.Result.Core.Base.Extension;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
     public class RazorBinderModel
     {
-        public IList<GroupData> Data { get; set; }
+        private IList<GroupData> _data = new SafeList<GroupData>();
+
+        public IList<GroupData> Data
+        {
+            get { return _data; }
+            set { _data = value; }
+
+        }
 
         public bool IsPopUp { get; set; }
 

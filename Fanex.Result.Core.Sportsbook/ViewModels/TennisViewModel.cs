@@ -20,7 +20,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     using Fanex.Result.Core.Sportsbook.DTO;
     using Fanex.Result.Core.Sportsbook.Utilities;
     using Fanex.Result.Core.Sportsbook.ViewModels.TennisDetail;
-
+    using Fanex.Result.Core.Base.Extension;
     /// <summary>
     /// Tennis view model class.
     /// </summary>
@@ -348,7 +348,8 @@ Justification = "Reviewed. Suppression is OK here.")]
         private SetValue CreateSetAndGameValue(string setIndex)
         {
             var setIndexId = int.Parse(setIndex);
-            var gameDetails = this.SPORTBOOK.GameDetails.Where(i => SportsbookHelper.IsTennisGameResourceID(setIndexId, i.ResourceId)).OrderBy(i => i.ResourceId).ToList();
+            var gameDetails = this.SPORTBOOK.GameDetails.Where(i => SportsbookHelper.IsTennisGameResourceID(setIndexId, i.ResourceId))
+                .OrderBy(i => i.ResourceId).ToSafeList();
             if (gameDetails.Count == 0)
             {
                 return null;

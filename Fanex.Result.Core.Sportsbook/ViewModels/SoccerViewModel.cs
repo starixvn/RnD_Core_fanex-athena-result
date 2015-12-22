@@ -24,6 +24,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     using Fanex.Result.Core.Sportsbook.ViewModels.SoccerInfo;
     using RazorEngine;
     using RazorEngine.Templating;
+    using Fanex.Result.Core.Base.Extension;
 
     /// <summary>
     /// TODO: Update summary.
@@ -203,7 +204,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
                         var binderModel = new SoccerDetailViewModel
                         {
                             Name = item.FirstOrDefault().GroupName,
-                            DetailItems = item.ToList()
+                            DetailItems = item.ToSafeList()
                         };
                         var result = new StringBuilder();
                         using (var writer = new StringWriter(result))
@@ -264,15 +265,15 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
         /// </summary>
         private void GetDetailedResult()
         {
-            this._detailedItemModels = new List<SoccerGameDetailItem>();
+            this._detailedItemModels = new SafeList<SoccerGameDetailItem>();
             foreach (var group in GameResources.BetRada)
             {
                 foreach (var game in group.Value)
                 {
                     var detailedGameRecords = this.SPORTBOOK.GameDetails
-                   .Where(i => SportsbookHelper.IsValidResourceId(game, i.ResourceId)).ToList();
+                   .Where(i => SportsbookHelper.IsValidResourceId(game, i.ResourceId)).ToSafeList<GameDetail>();
 
-                    foreach (var detailedItem in detailedGameRecords)
+                    foreach (GameDetail detailedItem in detailedGameRecords)
                     {
                         this._detailedItemModels.Add(MapDetailedGameValue(group.Key, detailedItem));
                     }

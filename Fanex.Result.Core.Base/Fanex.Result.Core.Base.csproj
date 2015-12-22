@@ -86,6 +86,9 @@
     <Compile Include="Extension\HSSFCellExtension.cs" />
     <Compile Include="Extension\HSSFSheetExtension.cs" />
     <Compile Include="Extension\HSSFWorkbookExtension.cs" />
+    <Compile Include="Extension\SafeEnumerable.cs" />
+    <Compile Include="Extension\SafeEnumerator.cs" />
+    <Compile Include="Extension\SafeList.cs" />
     <Compile Include="Extension\StringValueAttribute.cs" />
     <Compile Include="Models\BaseBuilder.cs" />
     <Compile Include="Models\BaseTemplate.cs" />

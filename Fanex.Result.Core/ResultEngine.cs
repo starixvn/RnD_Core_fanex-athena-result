@@ -223,7 +223,7 @@ namespace Fanex.Result.Core
             }
             catch (Exception exception)
             {
-                throw new ResultCoreException(exception.Message, exception);
+                throw new ResultCoreException(exception.Message, exception.InnerException);
             }
         }
 

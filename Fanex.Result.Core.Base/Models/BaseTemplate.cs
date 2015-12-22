@@ -9,6 +9,7 @@ namespace Fanex.Result.Core.Base.Models
     using System;
     using System.IO;
     using System.Runtime.Caching;
+    using Fanex.Result.Core.Base.Exception;
 
     /// <summary>
     /// TODO: Update summary.
@@ -18,7 +19,7 @@ namespace Fanex.Result.Core.Base.Models
         protected const string VIEWDOMAINPATTERN = "Fanex.Result.Core.{0}.Views.{1}.cshtml";
 
         private const string CACHEPATTERN = "Fanex.Result.Core.{0}.Views.{1}";
-       
+
         protected abstract string GetProductName { get; }
 
         /// <summary>
@@ -50,19 +51,26 @@ namespace Fanex.Result.Core.Base.Models
 
         private string GetTemplateFromPlugin(string templateName)
         {
-            var assembly = this.GetType().Assembly;
-            using (var stream = assembly
-             .GetManifestResourceStream(string.Format(VIEWDOMAINPATTERN, GetProductName, templateName)))
+            try
             {
-                if (stream == null)
+                var assembly = this.GetType().Assembly;
+                using (var stream = assembly
+                 .GetManifestResourceStream(string.Format(VIEWDOMAINPATTERN, GetProductName, templateName)))
                 {
-                    throw new ArgumentNullException(string.Format("The {0} was not found", templateName));
-                }
+                    if (stream == null)
+                    {
+                        throw new ArgumentNullException(string.Format("The {0} was not found", templateName));
+                    }
 
-                using (var reader = new StreamReader(stream))
-                {
-                    return reader.ReadToEnd();
+                    using (var reader = new StreamReader(stream))
+                    {
+                        return reader.ReadToEnd();
+                    }
                 }
+            }
+            catch (Exception exception)
+            {
+                throw new ResultCoreException(exception.Message, exception.InnerException);
             }
         }
     }

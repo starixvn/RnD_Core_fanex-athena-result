@@ -164,22 +164,22 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
             if (_viewModelData == null)
             {
                 _viewModelData = this._parlay.Sportbook.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(
-                    i, _sportSetting)).ToList();
+                    i, _sportSetting)).ToSafeList();
             }
 
             if (_bothMatchAndGameDetailItemViewModel == null)
             {
-                _bothMatchAndGameDetailItemViewModel = _viewModelData.Where(i => i.VisibleMatchResult && i.VisibleGameDetail).ToList();
+                _bothMatchAndGameDetailItemViewModel = _viewModelData.Where(i => i.VisibleMatchResult && i.VisibleGameDetail).ToSafeList();
             }
 
             if (_onlyMatchItemViewModel == null)
             {
-                _onlyMatchItemViewModel = _viewModelData.Except(_bothMatchAndGameDetailItemViewModel).Where(i => i.VisibleMatchResult && !i.VisibleGameDetail).ToList();
+                _onlyMatchItemViewModel = _viewModelData.Except(_bothMatchAndGameDetailItemViewModel).Where(i => i.VisibleMatchResult && !i.VisibleGameDetail).ToSafeList();
             }
 
             if (_onlyGameDetailItemViewModel == null)
             {
-                _onlyGameDetailItemViewModel = _viewModelData.Except(_bothMatchAndGameDetailItemViewModel).Except(_onlyMatchItemViewModel).ToList();
+                _onlyGameDetailItemViewModel = _viewModelData.Except(_bothMatchAndGameDetailItemViewModel).Except(_onlyMatchItemViewModel).ToSafeList();
             }
         }
     }

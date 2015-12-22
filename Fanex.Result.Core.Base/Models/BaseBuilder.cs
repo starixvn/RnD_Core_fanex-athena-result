@@ -11,6 +11,7 @@ namespace Fanex.Result.Core.Base.Models
     using System.Linq;
     using System.Text;
     using Fanex.Result.Core.Base.Exception;
+    using Fanex.Result.Core.Base.Extension;
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Models;
     using RazorEngine;
@@ -24,7 +25,7 @@ namespace Fanex.Result.Core.Base.Models
         protected virtual RazorBinderModel GenerateViewModelData<T>(IList<T> dataList, Base.ResultSetting setting, ViewModelFactory viewModelFactory)
         {
             var groupData = dataList.Select(i => viewModelFactory.GetViewModel(i, setting))
-                .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToList() }).ToList();
+                .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToSafeList() }).ToSafeList();
             return CreateModel(groupData, setting);
         }
 
@@ -57,7 +58,7 @@ namespace Fanex.Result.Core.Base.Models
             }
             catch (System.Exception exception)
             {
-                throw new ResultCoreException(exception.Message, exception);
+                throw new ResultCoreException(exception.Message, exception.InnerException);
             }
         }
 
@@ -87,7 +88,7 @@ namespace Fanex.Result.Core.Base.Models
                 IsDetail = isDetail,
             };
 
-            model.Data.AddRange(groupData);
+            model.Data = groupData;
 
             return model;
         }

@@ -14,12 +14,7 @@ namespace Fanex.Result.Core.Base.ViewModels
     /// </summary>
     public class RazorBinderModel
     {
-        private List<GroupData> _data = new List<GroupData>();
-
-        public List<GroupData> Data
-        {
-            get { return _data; }
-        }
+        public IList<GroupData> Data { get; set; }
 
         public bool IsPopUp { get; set; }
 
@@ -39,9 +34,9 @@ namespace Fanex.Result.Core.Base.ViewModels
         {
             get
             {
-                if (!this.IsDetail && this.IsPopUp && this._data.Count == 1)
+                if (!this.IsDetail && this.IsPopUp && this.Data.Count == 1)
                 {
-                    return this._data[0].Data.Any(i => i.VisibleMatchResult);
+                    return this.Data[0].Data.Any(i => i.VisibleMatchResult);
                 }
 
                 return true;
@@ -60,9 +55,9 @@ namespace Fanex.Result.Core.Base.ViewModels
         {
             get
             {
-                if (this.IsPopUp && this._data.Count == 1)
+                if (this.IsPopUp && this.Data.Count == 1)
                 {
-                    return this._data[0].Data.Any(i => i.VisibleGameDetail);
+                    return this.Data[0].Data.Any(i => i.VisibleGameDetail);
                 }
 
                 return false;

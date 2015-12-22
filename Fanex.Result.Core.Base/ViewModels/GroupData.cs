@@ -7,13 +7,14 @@
 namespace Fanex.Result.Core.Base.ViewModels
 {
     using System.Collections.Generic;
+    using Fanex.Result.Core.Base.Extension;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
     public class GroupData
     {
-        private IList<IResultViewModel> _data = new List<IResultViewModel>();
+        private IList<IResultViewModel> _data = new SafeList<IResultViewModel>();
 
         public int LeagueId { get; set; }
 

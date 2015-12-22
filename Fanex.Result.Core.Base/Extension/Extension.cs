@@ -6,6 +6,8 @@
 
 namespace Fanex.Result.Core.Base.Extension
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
@@ -18,6 +20,11 @@ namespace Fanex.Result.Core.Base.Extension
             var attribs = fieldInfo.GetCustomAttributes(
                 typeof(StringValueAttribute), false) as StringValueAttribute[];
             return attribs != null && attribs.Length > 0 ? attribs[0].ToString() : null;
+        }
+
+        public static SafeList<T> ToSafeList<T>(this IEnumerable<T> value)
+        {
+            return new SafeList<T>(value);
         }
     }
 }

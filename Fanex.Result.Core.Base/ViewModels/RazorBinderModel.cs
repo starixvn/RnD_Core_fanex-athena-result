@@ -21,7 +21,6 @@ namespace Fanex.Result.Core.Base.ViewModels
         {
             get { return _data; }
             set { _data = value; }
-
         }
 
         public bool IsPopUp { get; set; }

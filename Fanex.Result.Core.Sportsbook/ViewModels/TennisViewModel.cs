@@ -13,6 +13,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     using System.Linq;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.Extension;
     using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Base.ViewModels;
@@ -20,7 +21,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     using Fanex.Result.Core.Sportsbook.DTO;
     using Fanex.Result.Core.Sportsbook.Utilities;
     using Fanex.Result.Core.Sportsbook.ViewModels.TennisDetail;
-    using Fanex.Result.Core.Base.Extension;
+
     /// <summary>
     /// Tennis view model class.
     /// </summary>

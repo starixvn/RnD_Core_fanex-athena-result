@@ -27,6 +27,7 @@ namespace Fanex.Result.Core.CockFighting
 
         public string GetResultToken(string customerId, string languageCode = "en")
         {
+            ValidateConfig();
             if (string.IsNullOrEmpty(customerId))
             {
                 throw new CockFightingException("Invalid customer ID");
@@ -54,7 +55,7 @@ namespace Fanex.Result.Core.CockFighting
                             var result = streamReader.ReadToEnd();
                             if (!IsValidResultToken(result))
                             {
-                                throw new CockFightingException("Cock Fighting API Exception - The raw message:" + result);
+                                throw new CockFightingException("Cock Fighting API Exception - The raw message:" + result + "\n Url=" + authorizedAPI);
                             }
 
                             return result.Replace("\"", string.Empty);
@@ -70,6 +71,8 @@ namespace Fanex.Result.Core.CockFighting
 
         public string ExtendToken(string customerId)
         {
+            ValidateConfig();
+
             if (string.IsNullOrEmpty(customerId))
             {
                 throw new CockFightingException("Invalid customer ID");

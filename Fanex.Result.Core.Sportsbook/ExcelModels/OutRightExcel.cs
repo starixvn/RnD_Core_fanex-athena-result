@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="OutRightExcel.cs" company="Nexcel">
+// <copyright file="OutrightExcel.cs" company="Nexcel">
 // TODO: Update copyright text.
 // </copyright>
 // ---------------------------------------------------------------------
@@ -18,7 +18,7 @@ namespace Fanex.Result.Core.Sportsbook.ExcelModels
     /// <summary>
     /// Outright excel model class.
     /// </summary>
-    internal sealed class OutRightExcel : ExcelBase, IExcelModel
+    internal sealed class OutrightExcel : ExcelBase, IExcelModel
     {
         #region Fields
 
@@ -29,7 +29,7 @@ namespace Fanex.Result.Core.Sportsbook.ExcelModels
 
         #endregion Fields
 
-        public OutRightExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
+        public OutrightExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
             : base(templatePath, setting, data)
         {
             this.ColumnTemplateCount = 3;
@@ -67,7 +67,7 @@ namespace Fanex.Result.Core.Sportsbook.ExcelModels
         /// <param name="currentRow">The current row.</param>
         protected override void SetDataForMatch(ISheet sheet, IResultViewModel data, ref int currentRow)
         {
-            var exportRow = (OutRightViewModel)data;
+            var exportRow = (OutrightViewModel)data;
             var row = sheet.CopyRow(TemplateSheet, RowContentTemplate, currentRow);
 
             AssignStringData(

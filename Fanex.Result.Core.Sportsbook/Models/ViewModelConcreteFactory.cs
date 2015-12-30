@@ -61,9 +61,9 @@ namespace Fanex.Result.Core.Sportsbook.Models
             return (IResultViewModel)Activator.CreateInstance(viewModel, obj, setting);
         }
 
-        public override IResultViewModel GetOutRightViewModel(object obj, ResultSetting setting)
+        public override IResultViewModel GetOutrightViewModel(object obj, ResultSetting setting)
         {
-            return new OutRightViewModel((OutRight)obj, setting);
+            return new OutrightViewModel((Outright)obj, setting);
         }
 
         public override IResultViewModel GetParlayViewModel(object obj, ResultSetting setting)

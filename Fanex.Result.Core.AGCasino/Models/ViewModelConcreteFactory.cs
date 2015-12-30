@@ -46,7 +46,7 @@ namespace Fanex.Result.Core.AGCasino.Models
             return (IResultViewModel)viewModel;
         }
 
-        public override IResultViewModel GetOutRightViewModel(object obj, ResultSetting setting)
+        public override IResultViewModel GetOutrightViewModel(object obj, ResultSetting setting)
         {
             throw new NotImplementedException();
         }

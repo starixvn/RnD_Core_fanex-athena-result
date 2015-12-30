@@ -8,13 +8,12 @@ namespace Fanex.Result.Core.LiveCasino.DTO
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using Fanex.Result.Core.Base.DTO;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
     [ExcludeFromCodeCoverage]
-    public sealed class LiveCasino : IProductResult
+    public sealed class LiveCasino
     {
         public LiveCasino()
         {

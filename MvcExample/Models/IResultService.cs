@@ -64,7 +64,7 @@ namespace MvcExample.Models
 
         #region OutRight
 
-        IEnumerable<OutRight> GetOutRightResult(GetOutRightResult criteria);
+        IEnumerable<Outright> GetOutRightResult(GetOutRightResult criteria);
 
         #endregion OutRight
 

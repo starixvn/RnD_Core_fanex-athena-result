@@ -28,7 +28,7 @@ namespace Fanex.Result.Core.AGCasino.Models
             throw new NotImplementedException();
         }
 
-        public string OutRightHtmlBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
+        public string OutrightHtmlBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
         {
             throw new NotImplementedException();
         }
@@ -43,7 +43,7 @@ namespace Fanex.Result.Core.AGCasino.Models
             throw new NotImplementedException();
         }
 
-        public System.IO.MemoryStream OutRightExcelBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
+        public System.IO.MemoryStream OutrightExcelBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
         {
             throw new NotImplementedException();
         }

@@ -8,12 +8,11 @@ namespace Fanex.Result.Core.Sportsbook.DTO
 {
     using System;
     using System.Collections.Generic;
-    using Fanex.Result.Core.Base.DTO;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public sealed class Sportsbook : IProductResult
+    public sealed class Sportsbook
     {
         private string _betStatus = string.Empty;
         private string _goalRecord = string.Empty;

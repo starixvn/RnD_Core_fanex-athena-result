@@ -19,7 +19,7 @@ namespace Fanex.Result.Core.Models
     {
         public abstract IResultViewModel GetViewModel<T>(T resultData, ResultSetting setting);
 
-        public abstract IResultViewModel GetOutRightViewModel(object resultData, ResultSetting setting);
+        public abstract IResultViewModel GetOutrightViewModel(object resultData, ResultSetting setting);
 
         public abstract IResultViewModel GetParlayViewModel(object resultData, ResultSetting setting);
 

@@ -20,7 +20,7 @@ namespace Fanex.Result.Core.Base.DataDomain
         public const string LIVECASINO = "LiveCasino";
         public const string NUMBERGAME = "NumberGame";
         public const string RACING = "Racing";
-        public const string OUTRIGHT = "OutRight";
+        public const string OUTRIGHT = "Outright";
         public const string PARLAY = "Parlay";
         public const string GOLDDELUXE = "GoldDeluxe";
         public const string MICROGAMING = "MicroGaming";

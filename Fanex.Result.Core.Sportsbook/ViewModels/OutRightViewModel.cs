@@ -1,5 +1,5 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="OutRightViewModel.cs" company="Nexcel">
+// <copyright file="OutrightViewModel.cs" company="Nexcel">
 // TODO: Update copyright text.
 // </copyright>
 // -----------------------------------------------------------------------
@@ -17,11 +17,11 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     /// <summary>
     /// Outright view model class.
     /// </summary>
-    public sealed class OutRightViewModel : BaseViewModel, IResultViewModel
+    public sealed class OutrightViewModel : BaseViewModel, IResultViewModel
     {
-        private readonly OutRight _outRight;
+        private readonly Outright _outRight;
 
-        public OutRightViewModel(OutRight outRight, ResultSetting setting)
+        public OutrightViewModel(Outright outRight, ResultSetting setting)
             : base(setting)
         {
             this._outRight = outRight;

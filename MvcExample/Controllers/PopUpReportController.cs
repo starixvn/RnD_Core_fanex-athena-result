@@ -50,7 +50,7 @@
             var setting = new ResultSetting
             {
                 SportType = sportType,
-                IsOutRight = metalModel.IsOutRight.HasValue && metalModel.IsOutRight.Value > 0,
+                IsOutright = metalModel.IsOutRight.HasValue && metalModel.IsOutRight.Value > 0,
                 IsParlayPopUp = metalModel.Bettype == MixParlayBettype || metalModel.Bettype == SystemParlayBettype,
                 IsPopUp = true,
                 VisiblePopUpTitle = true,

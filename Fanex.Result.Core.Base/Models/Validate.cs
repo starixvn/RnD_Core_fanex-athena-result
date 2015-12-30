@@ -43,7 +43,7 @@ namespace Fanex.Result.Core.Base.Models
                 Enum.IsDefined(typeof(SportType), sportType) && IsValidDTO(dtoName, sportType);
         }
 
-        public bool ValidateOutRight(string dtoName)
+        public bool ValidateOutright(string dtoName)
         {
             return !string.IsNullOrEmpty(dtoName) && dtoName == DTOType.OUTRIGHT;
         }

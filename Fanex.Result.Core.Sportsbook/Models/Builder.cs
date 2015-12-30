@@ -31,12 +31,12 @@ namespace Fanex.Result.Core.Sportsbook.Models
             return excelParser.Export();
         }
 
-        public string OutRightHtmlBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
+        public string OutrightHtmlBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
         {
-            var groupData = dataList.Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting))
+            var groupData = dataList.Select(i => ViewModelConcreteFactory.Instance.GetOutrightViewModel(i, setting))
                 .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToSafeList() }).ToSafeList();
             var model = CreateModel(groupData, setting);
-            return HtmlRender(Template.Instance, "OutRight", model);
+            return HtmlRender(Template.Instance, "Outright", model);
         }
 
         public string PopUpParalyBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
@@ -67,14 +67,14 @@ namespace Fanex.Result.Core.Sportsbook.Models
             return HtmlRender(Template.Instance, setting.SportType.StringMe(), model);
         }
 
-        public System.IO.MemoryStream OutRightExcelBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
+        public System.IO.MemoryStream OutrightExcelBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
         {
             var outRightData =
                 dataList
-                .Select(i => ViewModelConcreteFactory.Instance.GetOutRightViewModel(i, setting))
+                .Select(i => ViewModelConcreteFactory.Instance.GetOutrightViewModel(i, setting))
                 .ToSafeList();
             var realTemplatePath = setting.ExcelTemplatePath + "Outright.xls";
-            var excelParser = new OutRightExcel(realTemplatePath, setting, outRightData);
+            var excelParser = new OutrightExcel(realTemplatePath, setting, outRightData);
             return excelParser.Export();
         }
     }

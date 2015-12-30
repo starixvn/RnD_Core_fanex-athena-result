@@ -11,6 +11,7 @@ namespace Fanex.Result.Core.NumberGame.ViewModels
     using System.Linq;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.Extension;
     using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Base.ViewModels;
@@ -108,7 +109,7 @@ namespace Fanex.Result.Core.NumberGame.ViewModels
 
         public IList<string> Result
         {
-            get { return this._numberGame.Ball.Select(i => Helper.FormatTwoDigit(i)).ToList(); }
+            get { return this._numberGame.Ball.Select(i => Helper.FormatTwoDigit(i)).ToSafeList(); }
         }
 
         public override string EventStatus

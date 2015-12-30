@@ -59,7 +59,7 @@ namespace Fanex.Result.Core.Racing.Models
             return (IResultViewModel)Activator.CreateInstance(viewModel, obj, setting);
         }
 
-        public override IResultViewModel GetOutRightViewModel(object obj, ResultSetting setting)
+        public override IResultViewModel GetOutrightViewModel(object obj, ResultSetting setting)
         {
             throw new NotImplementedException();
         }
@@ -79,7 +79,7 @@ namespace Fanex.Result.Core.Racing.Models
             var dtoName = setting.SportType.StringMe();
 
             var realTemplatePath = setting.ExcelTemplatePath + dtoName + ".xls";
-            var dataMaped = dataList.Select(i => this.GetViewModel(i, setting)).ToList();
+            var dataMaped = dataList.Select(i => this.GetViewModel(i, setting)).ToSafeList();
             var excelViewModel = Type.GetType(EXCELNAMESPACE + dtoName + EXCELEXTNAME);
             if (excelViewModel == null)
             {

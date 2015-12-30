@@ -19,7 +19,7 @@ namespace Fanex.Result.Core.Base
 
         public bool IsParlayPopUp { get; set; }
 
-        public bool IsOutRight { get; set; }
+        public bool IsOutright { get; set; }
 
         public bool VisiblePopUpTitle { get; set; }
 

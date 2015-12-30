@@ -370,9 +370,9 @@ namespace MvcExample.Models
         /// </summary>
         /// <param name="criteria">The criterion.</param>
         /// <returns>The Out Right data.</returns>
-        public IEnumerable<OutRight> GetOutRightResult(GetOutRightResult criteria)
+        public IEnumerable<Outright> GetOutRightResult(GetOutRightResult criteria)
         {
-            var result = new List<OutRight>();
+            var result = new List<Outright>();
 
             using (var db = new ObjectDb(criteria.GetSettingKey()))
             {
@@ -380,7 +380,7 @@ namespace MvcExample.Models
                 {
                     while (reader.Read())
                     {
-                        result.Add(new OutRight
+                        result.Add(new Outright
                         {
                             EventDate = DateTime.Parse(reader["eventdate"].ToString()),
                             SportType = int.Parse(reader["sporttype"].ToString()),

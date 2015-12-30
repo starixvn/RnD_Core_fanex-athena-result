@@ -47,12 +47,12 @@
                 ToDate = date
             });
 
-            htmlResult = ResultEngine.HtmlParser<OutRight>(
+            htmlResult = ResultEngine.HtmlParser<Outright>(
                     outRightData.ToList(),
                     new ResultSetting
                     {
                         LanguageCode = languageCode,
-                        IsOutRight = true,
+                        IsOutright = true,
                         IsPopUp = false
                     });
             return htmlResult;
@@ -75,12 +75,12 @@
                 ToDate = date
             });
 
-            excelResult = ResultEngine.ExcelParser<OutRight>(
+            excelResult = ResultEngine.ExcelParser<Outright>(
                     outRightData.ToList(),
                     new ResultSetting
                     {
                         LanguageCode = languageCode,
-                        IsOutRight = true,
+                        IsOutright = true,
                         IsPopUp = false,
                         ExcelTitle = "OutRight Result Report",
                         ExcelTemplatePath = Server.MapPath(@"~/App_Data/Fanex.Result/")

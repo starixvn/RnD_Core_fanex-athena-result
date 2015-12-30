@@ -75,7 +75,6 @@
     <Compile Include="DataDomain\CoreResourceConfig.cs" />
     <Compile Include="DataDomain\DTOType.cs" />
     <Compile Include="DataDomain\EventStatusID.cs" />
-    <Compile Include="DTO\IProductResult.cs" />
     <Compile Include="ExcelModels\ExcelBase.cs" />
     <Compile Include="ExcelModels\IExcelModel.cs" />
     <Compile Include="Exception\ObjectNullException.cs" />

@@ -8,12 +8,11 @@ namespace Fanex.Result.Core.NumberGame.DTO
 {
     using System;
     using System.Collections.Generic;
-    using Fanex.Result.Core.Base.DTO;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public sealed class NumberGame : IProductResult
+    public sealed class NumberGame
     {
         public NumberGame()
         {

@@ -13,7 +13,7 @@ namespace Fanex.Result.Core.Base.Models
     {
         bool ValidateNormal(string dtoName, SportType sportType);
 
-        bool ValidateOutRight(string dtoName);
+        bool ValidateOutright(string dtoName);
 
         bool ValidateParlay(string dtoName);
 

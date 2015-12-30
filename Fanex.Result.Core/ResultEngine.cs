@@ -77,9 +77,9 @@ namespace Fanex.Result.Core
 
             var dtoName = typeof(T).Name;
 
-            if (setting.IsOutRight)
+            if (setting.IsOutright)
             {
-                return ExcelOutRightParser(dataList, setting, dtoName);
+                return ExcelOutrightParser(dataList, setting, dtoName);
             }
 
             if (setting.IsPopUp || setting.IsParlayPopUp)
@@ -108,9 +108,9 @@ namespace Fanex.Result.Core
             ReCheckSetting<T>(dataList, setting);
             var dtoName = typeof(T).Name;
 
-            if (setting.IsOutRight)
+            if (setting.IsOutright)
             {
-                return HtmlOutRightParser<T>(dataList, setting, dtoName);
+                return HtmlOutrightParser<T>(dataList, setting, dtoName);
             }
 
             if (setting.IsParlayPopUp)
@@ -142,16 +142,16 @@ namespace Fanex.Result.Core
                 builder.PopUpParalyBuilder<T>(dataList, setting));
         }
 
-        private static string HtmlOutRightParser<T>(IList<T> dataList, ResultSetting setting, string dtoName)
+        private static string HtmlOutrightParser<T>(IList<T> dataList, ResultSetting setting, string dtoName)
         {
-            var builder = CreateOutRightBuilder(dtoName);
+            var builder = CreateOutrightBuilder(dtoName);
             return Helper.RemoveWhiteSpace(
-                builder.OutRightHtmlBuilder<T>(dataList, setting));
+                builder.OutrightHtmlBuilder<T>(dataList, setting));
         }
 
-        private static IBuilder CreateOutRightBuilder(string dtoName)
+        private static IBuilder CreateOutrightBuilder(string dtoName)
         {
-            if (!Validate.Instance.ValidateOutRight(dtoName))
+            if (!Validate.Instance.ValidateOutright(dtoName))
             {
                 throw new ObjectNullException(string.Format(CoreResourceConfig.ARGUEMENTMESOUTRIGHT, dtoName));
             }
@@ -159,11 +159,11 @@ namespace Fanex.Result.Core
             return GetBuilder(DTOType.SPORTSBOOK);
         }
 
-        private static MemoryStream ExcelOutRightParser<T>(IList<T> dataList, ResultSetting setting, string dtoName)
+        private static MemoryStream ExcelOutrightParser<T>(IList<T> dataList, ResultSetting setting, string dtoName)
         {
-            var builder = CreateOutRightBuilder(dtoName);
+            var builder = CreateOutrightBuilder(dtoName);
             return
-                builder.OutRightExcelBuilder<T>(dataList, setting);
+                builder.OutrightExcelBuilder<T>(dataList, setting);
         }
 
         /// <summary>

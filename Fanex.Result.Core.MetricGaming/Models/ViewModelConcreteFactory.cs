@@ -48,7 +48,7 @@ namespace Fanex.Result.Core.MetricGaming.Models
             return (IResultViewModel)viewModel;
         }
 
-        public override IResultViewModel GetOutRightViewModel(object resultData, ResultSetting setting)
+        public override IResultViewModel GetOutrightViewModel(object resultData, ResultSetting setting)
         {
             throw new NotImplementedException();
         }

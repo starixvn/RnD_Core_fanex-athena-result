@@ -6,12 +6,10 @@
 
 namespace Fanex.Result.Core.AGCasino.DTO
 {
-    using Fanex.Result.Core.Base.DTO;
-
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public class AGCasino : IProductResult
+    public class AGCasino
     {
         public int Bettype { get; set; }
 

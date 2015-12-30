@@ -6,12 +6,10 @@
 
 namespace Fanex.Result.Core.MetricGaming.DTO
 {
-    using Fanex.Result.Core.Base.DTO;
-
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
-    public class MetricGaming : IProductResult
+    public class MetricGaming
     {
         public int LeagueId { get; set; }
 

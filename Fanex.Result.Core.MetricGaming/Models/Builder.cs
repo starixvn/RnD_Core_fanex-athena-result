@@ -27,7 +27,7 @@ namespace Fanex.Result.Core.MetricGaming.Models
             throw new System.NotImplementedException();
         }
 
-        public string OutRightHtmlBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
+        public string OutrightHtmlBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
         {
             throw new System.NotImplementedException();
         }
@@ -42,7 +42,7 @@ namespace Fanex.Result.Core.MetricGaming.Models
             throw new System.NotImplementedException();
         }
 
-        public System.IO.MemoryStream OutRightExcelBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
+        public System.IO.MemoryStream OutrightExcelBuilder<T>(IList<T> dataList, Base.ResultSetting setting)
         {
             throw new System.NotImplementedException();
         }

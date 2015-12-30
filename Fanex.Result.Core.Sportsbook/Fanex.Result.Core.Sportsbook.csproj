@@ -75,7 +75,7 @@
     <Compile Include="DataDomain\GameResources.cs" />
     <Compile Include="DataDomain\TennisBetID.cs" />
     <Compile Include="DTO\GameDetail.cs" />
-    <Compile Include="DTO\OutRight.cs" />
+    <Compile Include="DTO\Outright.cs" />
     <Compile Include="DTO\Parlay.cs" />
     <Compile Include="DTO\Sportsbook.cs" />
     <Compile Include="ExcelModels\BadmintonExcel.cs" />
@@ -85,7 +85,7 @@
     <Compile Include="ExcelModels\MuayThaiExcel.cs" />
     <Compile Include="ExcelModels\HockeyExcel.cs" />
     <Compile Include="ExcelModels\OtherExcel.cs" />
-    <Compile Include="ExcelModels\OutRightExcel.cs" />
+    <Compile Include="ExcelModels\OutrightExcel.cs" />
     <Compile Include="ExcelModels\SoccerExcel.cs" />
     <Compile Include="ExcelModels\TennisExcel.cs" />
     <Compile Include="ExcelModels\VSTennisExcel.cs" />
@@ -101,7 +101,7 @@
     <Compile Include="ViewModels\MuayThaiViewModel.cs" />
     <Compile Include="ViewModels\HockeyViewModel.cs" />
     <Compile Include="ViewModels\OtherViewModel.cs" />
-    <Compile Include="ViewModels\OutRightViewModel.cs" />
+    <Compile Include="ViewModels\OutrightViewModel.cs" />
     <Compile Include="ViewModels\ParlayViewModel.cs" />
     <Compile Include="ViewModels\SoccerInfo\SoccerDetailInfo.cs" />
     <Compile Include="ViewModels\SoccerInfo\SoccerDetailViewModel.cs" />
@@ -128,7 +128,7 @@
     <EmbeddedResource Include="Views\Billiard.cshtml" />
     <EmbeddedResource Include="Views\Hockey.cshtml" />
     <EmbeddedResource Include="Views\Other.cshtml" />
-    <EmbeddedResource Include="Views\OutRight.cshtml" />
+    <EmbeddedResource Include="Views\Outright.cshtml" />
     <EmbeddedResource Include="Views\Parlay.cshtml" />
     <EmbeddedResource Include="Views\Soccer.cshtml">
       <LastGenOutput>Soccer.generated.cs</LastGenOutput>

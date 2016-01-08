@@ -186,6 +186,9 @@ namespace Fanex.Result.Core.Base
         Cricket = 27,
 
         [StringValue("Other")]
+        CricketIndia = 50,
+
+        [StringValue("Other")]
         OtherSports = 99,
 
         [StringValue("Other")]

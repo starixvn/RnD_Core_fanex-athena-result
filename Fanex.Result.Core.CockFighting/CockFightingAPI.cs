@@ -9,6 +9,7 @@ namespace Fanex.Result.Core.CockFighting
     using System;
     using System.IO;
     using System.Net;
+    using System.Net.Cache;
     using System.Text.RegularExpressions;
     using System.Web.Configuration;
     using Fanex.Result.Core.CockFighting.Exceptions;
@@ -40,27 +41,19 @@ namespace Fanex.Result.Core.CockFighting
 
             try
             {
-                var authorizedAPI = string.Format(_config.AuthorizedAPI, _config.SiteId, languageCode, DateTime.Now.ToString("yyyymmdd"), customerId);
+                var authorizedAPI = string.Format(_config.AuthorizedAPI, _config.SiteId, languageCode, DateTime.Now.ToString("yyyyMMdd"), customerId);
 
-                WebRequest request = WebRequest.Create(authorizedAPI);
-
-                request.Credentials = CredentialCache.DefaultCredentials;
-
-                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+                using (var client = new WebClient())
                 {
-                    using (var dataStream = response.GetResponseStream())
+                    client.CachePolicy = new System.Net.Cache.RequestCachePolicy(System.Net.Cache.RequestCacheLevel.BypassCache);
+                    client.UseDefaultCredentials = true;
+                    var result = client.DownloadString(new Uri(authorizedAPI));
+                    if (!IsValidResultToken(result))
                     {
-                        using (var streamReader = new StreamReader(dataStream))
-                        {
-                            var result = streamReader.ReadToEnd();
-                            if (!IsValidResultToken(result))
-                            {
-                                throw new CockFightingException("Cock Fighting API Exception - The raw message:" + result + "\n Url=" + authorizedAPI);
-                            }
-
-                            return result.Replace("\"", string.Empty);
-                        }
+                        throw new CockFightingException("Cock Fighting API Exception - The raw message:" + result + "\n Url=" + authorizedAPI);
                     }
+
+                    return result.Replace("\"", string.Empty);
                 }
             }
             catch (Exception exception)
@@ -85,7 +78,7 @@ namespace Fanex.Result.Core.CockFighting
                 WebRequest request = WebRequest.Create(extendedAPI);
 
                 request.Credentials = CredentialCache.DefaultCredentials;
-
+                request.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);
                 using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                 {
                     using (var dataStream = response.GetResponseStream())

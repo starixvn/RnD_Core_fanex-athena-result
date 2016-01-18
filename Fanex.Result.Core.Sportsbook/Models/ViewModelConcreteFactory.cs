@@ -82,7 +82,9 @@ namespace Fanex.Result.Core.Sportsbook.Models
 
             var realTemplatePath = setting.ExcelTemplatePath + dtoName + ".xls";
             var dataMaped = dataList.Select(i => this.GetViewModel(i, setting)).ToSafeList();
+          
             var excelViewModel = Type.GetType(EXCELNAMESPACE + dtoName + EXCELEXTNAME);
+           
             if (excelViewModel == null)
             {
                 throw new ObjectNullException(dtoName);

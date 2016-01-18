@@ -4,7 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Fanex.Result.Core.ExcelModels
+namespace Fanex.Result.Core.Sportsbook.ExcelModels
 {
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
@@ -26,7 +26,7 @@ namespace Fanex.Result.Core.ExcelModels
         public VSTennisExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
             : base(templatePath, setting, data)
         {
-            this.ColumnTemplateCount = 6;
+            this.ColumnTemplateCount = 5;
             this.ColumnStatus = 4;
             this.RowContentTemplate = 3;
         }

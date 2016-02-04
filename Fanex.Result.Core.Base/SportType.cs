@@ -241,11 +241,15 @@ namespace Fanex.Result.Core.Base
 
         [StringValue("MicroGamingRNG")]
         MicroGamingRNG = 205,
+        [StringValue("AllBetCasino")]
+        AllBetCasino = 211,
 
         [StringValue("AGCasino")]
         AGCasino = 250,
 
         [StringValue("GoldDeluxe")]
         GoldDeluxe = 255
+
+
     }
 }

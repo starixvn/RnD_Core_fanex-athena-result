@@ -1,14 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Sportsbook", "Fanex.Result.Core.Sportsbook\Fanex.Result.Core.Sportsbook.csproj", "{0469C900-5E5B-4D2C-8DB3-7EAEA991095B}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Base", "Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj", "{8673F024-7726-4C30-8464-5A8357F79BF0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core", "Fanex.Result.Core\Fanex.Result.Core.csproj", "{73AAEA31-C52D-47D2-BC47-087A06794F55}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcExample", "MvcExample\MvcExample.csproj", "{EBD31F24-8F67-4E36-BD6D-1BB78A71E54B}"
-EndProject
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{9CF3C046-BF76-4A72-AF58-7D9A98B527F7}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\NuGet.Config = .nuget\NuGet.Config
@@ -16,6 +10,24 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{9CF3C0
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 		.nuget\packages.config = .nuget\packages.config
 	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Products", "Products", "{35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeAnalysis", "CodeAnalysis", "{196797E2-4532-4A28-9C85-30646FFA4A6C}"
+	ProjectSection(SolutionItems) = preProject
+		CodeAnalysis\CodeAnalysisConfiguration.xml = CodeAnalysis\CodeAnalysisConfiguration.xml
+		CodeAnalysis\FxCopDictionary.xml = CodeAnalysis\FxCopDictionary.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest", "UnitTest", "{CCA318B4-A6C4-4767-B6A5-2348BACBA831}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Sportsbook", "Fanex.Result.Core.Sportsbook\Fanex.Result.Core.Sportsbook.csproj", "{0469C900-5E5B-4D2C-8DB3-7EAEA991095B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Base", "Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj", "{8673F024-7726-4C30-8464-5A8357F79BF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core", "Fanex.Result.Core\Fanex.Result.Core.csproj", "{73AAEA31-C52D-47D2-BC47-087A06794F55}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcExample", "MvcExample\MvcExample.csproj", "{EBD31F24-8F67-4E36-BD6D-1BB78A71E54B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.GoldDeluxe", "Fanex.Result.Core.GoldDeLuxe\Fanex.Result.Core.GoldDeluxe.csproj", "{DBD59404-19D9-422C-83F1-8F20E02545ED}"
 EndProject
@@ -29,23 +41,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.MicroGami
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.MetricGaming", "Fanex.Result.Core.MetricGaming\Fanex.Result.Core.MetricGaming.csproj", "{76CD2383-849A-4291-AD55-378F6C26836C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Products", "Products", "{35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.UI", "Fanex.Result.UI\Fanex.Result.UI.csproj", "{FA14D5CB-B702-4D24-A938-A091E3032D06}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CodeAnalysis", "CodeAnalysis", "{196797E2-4532-4A28-9C85-30646FFA4A6C}"
-	ProjectSection(SolutionItems) = preProject
-		CodeAnalysis\CodeAnalysisConfiguration.xml = CodeAnalysis\CodeAnalysisConfiguration.xml
-		CodeAnalysis\FxCopDictionary.xml = CodeAnalysis\FxCopDictionary.xml
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UnitTest", "UnitTest", "{CCA318B4-A6C4-4767-B6A5-2348BACBA831}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.AGCasino", "Fanex.Result.Core.AGCasino\Fanex.Result.Core.AGCasino.csproj", "{0A57E89B-3C07-498A-A704-E893C2C3F7E9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.AGCasinoUnitTests", "Fanex.Result.AGCasinoUnitTest\Fanex.Result.AGCasinoUnitTests.csproj", "{65FEAFB9-6241-4856-BE05-6B686EB93BE1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.CockFighting", "Fanex.Result.Core.CockFighting\Fanex.Result.Core.CockFighting.csproj", "{29F23CC1-8D52-4E0B-84C9-6F463BC0A80C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.AllBetCasino", "Fanex.Result.Core.AllBet\Fanex.Result.Core.AllBetCasino.csproj", "{D9303680-11B8-41C1-9EB2-2AE37D02FFB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -109,20 +113,25 @@ Global
 		{29F23CC1-8D52-4E0B-84C9-6F463BC0A80C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29F23CC1-8D52-4E0B-84C9-6F463BC0A80C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29F23CC1-8D52-4E0B-84C9-6F463BC0A80C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9303680-11B8-41C1-9EB2-2AE37D02FFB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9303680-11B8-41C1-9EB2-2AE37D02FFB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9303680-11B8-41C1-9EB2-2AE37D02FFB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9303680-11B8-41C1-9EB2-2AE37D02FFB1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{0469C900-5E5B-4D2C-8DB3-7EAEA991095B} = {35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}
 		{DBD59404-19D9-422C-83F1-8F20E02545ED} = {35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}
 		{CEBAE710-7919-4FC6-8978-862A3096972C} = {35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}
 		{C67A0F1F-9F62-4E75-A982-0894FDD79008} = {35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}
 		{4869ED23-CD0C-4472-BCE6-54A9E170ED6E} = {35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}
 		{083CA0EF-F420-4A62-BE5B-4145AFFEDEC1} = {35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}
 		{76CD2383-849A-4291-AD55-378F6C26836C} = {35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}
-		{0469C900-5E5B-4D2C-8DB3-7EAEA991095B} = {35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}
 		{0A57E89B-3C07-498A-A704-E893C2C3F7E9} = {35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}
-		{29F23CC1-8D52-4E0B-84C9-6F463BC0A80C} = {35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}
 		{65FEAFB9-6241-4856-BE05-6B686EB93BE1} = {CCA318B4-A6C4-4767-B6A5-2348BACBA831}
+		{29F23CC1-8D52-4E0B-84C9-6F463BC0A80C} = {35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}
+		{D9303680-11B8-41C1-9EB2-2AE37D02FFB1} = {35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}
 	EndGlobalSection
 EndGlobal

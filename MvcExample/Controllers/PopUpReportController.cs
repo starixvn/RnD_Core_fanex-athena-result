@@ -164,7 +164,18 @@
                     }
 
                     break;
+                case SportType.AllBetCasino:
+                    var dataAllBet = _resultService.GetAllBetCasinoPopUpResult(new GetAllBetCasinoPopUpResultCriteria
+                    {
+                        TransID = metalModel.RefNo.HasValue ? metalModel.RefNo.Value : 0,
+                        Bettype = metalModel.Bettype
+                    });
+                    if (dataAllBet != null)
+                    {
+                        return ResultEngine.HtmlParser(dataAllBet.ToList(), setting);
+                    }
 
+                    break;
                 case SportType.MicroGamingLC:
                     return ParserService.Instance.Parser(new MicroGaming
                     {

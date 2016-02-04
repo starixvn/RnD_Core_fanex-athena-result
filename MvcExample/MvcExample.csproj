@@ -20,6 +20,11 @@
     <JSLintSkip>\Scripts\jquery-1.9.0.js|\Scripts\jquery-1.9.0-vsdoc.js|\Scripts\bootstrap.min.js|\Scripts\bootstrap.js|\Scripts\jquery-1.9.0.min.js|\Scripts\jquery-ui.min-1.11.1.js|\Scripts\jquery-ui-1.11.1.js</JSLintSkip>
     <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
     <RestorePackages>true</RestorePackages>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -219,6 +224,7 @@
     <Compile Include="Models\Criteria\GetOutRightResult.cs" />
     <Compile Include="Models\Criteria\GetGolDeluxePopUpResultCriteria.cs" />
     <Compile Include="Models\Criteria\GetAGCasinoPopUpResultCriteria.cs" />
+    <Compile Include="Models\Criteria\GetAllBetCasinoPopUpResultCriteria.cs" />
     <Compile Include="Models\IResultService.cs" />
     <Compile Include="Models\MetaModel\ResultPopupMetalModel.cs" />
     <Compile Include="Models\ResultService.cs" />
@@ -462,6 +468,10 @@
     <ProjectReference Include="..\Fanex.Result.Core.AGCasino\Fanex.Result.Core.AGCasino.csproj">
       <Project>{0A57E89B-3C07-498A-A704-E893C2C3F7E9}</Project>
       <Name>Fanex.Result.Core.AGCasino</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fanex.Result.Core.AllBet\Fanex.Result.Core.AllBetCasino.csproj">
+      <Project>{d9303680-11b8-41c1-9eb2-2ae37d02ffb1}</Project>
+      <Name>Fanex.Result.Core.AllBetCasino</Name>
     </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj">
       <Project>{8673F024-7726-4C30-8464-5A8357F79BF0}</Project>

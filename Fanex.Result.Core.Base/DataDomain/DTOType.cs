@@ -26,5 +26,6 @@ namespace Fanex.Result.Core.Base.DataDomain
         public const string MICROGAMING = "MicroGaming";
         public const string METRICGAMING = "MetricGaming";
         public const string AGCASINO = "AGCasino";
+        public const string ALLBETCASINO = "AllBetCasino";
     }
 }

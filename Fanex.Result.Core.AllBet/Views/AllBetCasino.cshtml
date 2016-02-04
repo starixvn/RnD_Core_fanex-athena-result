@@ -1,0 +1,109 @@
+﻿@{
+    var viewModel = (Fanex.Result.Core.Base.ViewModels.RazorBinderModel)Model;
+
+    var colspan = 2;
+    var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
+
+}
+@using Fanex.Result.Core.Base.ViewModels;
+@using Fanex.Result.Core.Models;
+@using Fanex.Result.Core.AllBetCasino.ViewModels;
+@using System.Collections;
+@using Fanex.Result.Core.Base.Resources;
+@if (viewModel.VisibleFreeHeader)
+{
+    <div class="fn-rs-content-header">
+        <table class="fn-rs ag-cs @popupCss">
+            <thead>
+                @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+                {
+                    var item = ((GroupData)viewModel.Data[0]).Data[0];
+                    <tr class="row-title">
+                        <th class="cl-title" colspan="@colspan">
+                            <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                        </th>
+                    </tr>
+                }
+                <tr class="header">
+                    <th class="cl-match">
+                        @LangResource.Result
+                    </th>
+                    <th class="cl-status">
+                        @LangResource.Completed
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+}
+@if (viewModel.VisibleFreeHeader)
+{
+    @Raw("<div class=\"fn-rs-content-scroll\">")
+
+}
+<table class="fn-rs ag-cs @popupCss">
+    @if (!viewModel.VisibleFreeHeader)
+    {
+        <thead>
+            @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+            {
+                var item = ((GroupData)viewModel.Data[0]).Data[0];
+                <tr class="row-title">
+                    <th class="cl-title" colspan="@colspan">
+                        <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                    </th>
+                </tr>
+            }
+            <tr class="header">
+                <th class="cl-match">
+                    @LangResource.Result
+                </th>
+                <th class="cl-status">
+                    @LangResource.Status
+                </th>
+            </tr>
+        </thead>
+    }
+    <tbody>
+        @if (viewModel.Data.Count > 0)
+        {
+            var index = 0;
+            foreach (var itemObj in viewModel.Data)
+            {
+                var group = (GroupData)itemObj;
+
+                foreach (var temp in group.Data)
+                {
+                    var item = (AllBetCasinoViewModel)temp;
+                    index++;
+
+            <tr class="data @item.Color(index, "even", "odd")">
+                <td class="cl-match">
+                    <div class="gd">
+                        @Raw(item.Result)
+                    </div>
+                </td>
+                <td class="cl-status @item.EventStatusBackground">
+                    @item.EventStatus
+                </td>
+            </tr>
+
+                }
+            }
+        }
+        else
+        {
+            <!--NoInfo-->
+            <tr class="row-noinfo">
+                <td colspan="@colspan">
+                    @LangResource.NoInfo
+                </td>
+            </tr>
+            <!--/NoInfo-->
+        }
+    </tbody>
+</table>
+@if (viewModel.VisibleFreeHeader)
+{
+    @Raw("</div>")
+}

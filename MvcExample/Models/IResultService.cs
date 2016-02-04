@@ -16,7 +16,7 @@ namespace MvcExample.Models
     using Fanex.Result.Core.Sportsbook.DTO;
     using MvcExample.Models.Criteria;
     using MvcExample.Models.DTO;
-
+    using Fanex.Result.Core.AllBetCasino.DTO;
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
@@ -71,6 +71,7 @@ namespace MvcExample.Models
         #region Result3rd
 
         IEnumerable<MetricGaming> Get3rdResult(GetMatchResultDetail3rdSelCriteria criteria);
+        IEnumerable<AllBetCasino> GetAllBetCasinoPopUpResult(GetAllBetCasinoPopUpResultCriteria getAllBetCasinoPopUpResultCriteria);
 
         #endregion Result3rd
     }

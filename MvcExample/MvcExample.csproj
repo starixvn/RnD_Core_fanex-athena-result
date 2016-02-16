@@ -227,7 +227,9 @@
     <Compile Include="Models\Criteria\GetAllBetCasinoPopUpResultCriteria.cs" />
     <Compile Include="Models\IResultService.cs" />
     <Compile Include="Models\MetaModel\ResultPopupMetalModel.cs" />
-    <Compile Include="Models\ResultService.cs" />
+    <Compile Include="Models\ResultService.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

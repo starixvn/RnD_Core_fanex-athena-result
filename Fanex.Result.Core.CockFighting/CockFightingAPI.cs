@@ -41,7 +41,14 @@ namespace Fanex.Result.Core.CockFighting
 
             try
             {
-                var authorizedAPI = string.Format(_config.AuthorizedAPI, _config.SiteId, languageCode, DateTime.Now.ToString("yyyyMMdd"), customerId, _config.Vendor, _config.VendorKey);
+                var authorizedAPI = string.Format(
+                    _config.AuthorizedAPI,
+                    _config.SiteId,
+                    languageCode,
+                    DateTime.Now.ToString("yyyyMMdd"),
+                    customerId,
+                    _config.Vendor,
+                    _config.VendorKey);
 
                 using (var client = new WebClient())
                 {

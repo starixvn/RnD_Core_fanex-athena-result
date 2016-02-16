@@ -15,16 +15,16 @@ namespace Fanex.Result.AGCasinoUnitTests.Utilitties
     [TestFixture]
     public class AGCasinoHelperTest
     {
-        private string bankerText;
-        private string playerText;
-        private string htmlPatternExpression;
+        private string _bankerText;
+        private string _playerText;
+        private string _htmlPatternExpression;
 
         [SetUp]
         public void Setup()
         {
-            bankerText = "Banker";
-            playerText = "Player";
-            htmlPatternExpression = @"</?\w+\s+[^>]*>";
+            _bankerText = "Banker";
+            _playerText = "Player";
+            _htmlPatternExpression = @"</?\w+\s+[^>]*>";
         }
 
         [TestCase("", "")]
@@ -52,9 +52,9 @@ namespace Fanex.Result.AGCasinoUnitTests.Utilitties
             var inputResult = "B;H5;C8;D7:P;H10;D9;HJ";
             //// Action
 
-            var result = AGCasinoHelper.GetBacaratResult(inputResult, bankerText, playerText);
+            var result = AGCasinoHelper.GetBacaratResult(inputResult, _bankerText, _playerText);
 
-            StringAssert.IsMatch(htmlPatternExpression, result);
+            StringAssert.IsMatch(_htmlPatternExpression, result);
         }
 
         [TestCase("B;H5;C8;D7:P;H10;D9;", "(0)")]
@@ -63,7 +63,7 @@ namespace Fanex.Result.AGCasinoUnitTests.Utilitties
         public void GetBacaratResult_WhenValidResult_ReturnValidBankerPoint(string inputResult, string expectedResult)
         {
             // Action
-            var result = AGCasinoHelper.GetBacaratResult(inputResult, bankerText, playerText);
+            var result = AGCasinoHelper.GetBacaratResult(inputResult, _bankerText, _playerText);
 
             // Assert
             StringAssert.Contains(expectedResult, result);
@@ -75,7 +75,7 @@ namespace Fanex.Result.AGCasinoUnitTests.Utilitties
         public void GetBacaratResult_WhenValidResult_ReturnValidPlayerPoint(string inputResult, string expectedResult)
         {
             // Action
-            var result = AGCasinoHelper.GetBacaratResult(inputResult, bankerText, playerText);
+            var result = AGCasinoHelper.GetBacaratResult(inputResult, _bankerText, _playerText);
 
             // Assert
             StringAssert.Contains(expectedResult, result);
@@ -88,7 +88,7 @@ namespace Fanex.Result.AGCasinoUnitTests.Utilitties
             var expectedResult = string.Empty;
 
             // Action
-            var result = AGCasinoHelper.GetBacaratResult(string.Empty, bankerText, playerText);
+            var result = AGCasinoHelper.GetBacaratResult(string.Empty, _bankerText, _playerText);
 
             // Assert
             Assert.AreEqual(expectedResult, result);
@@ -100,7 +100,7 @@ namespace Fanex.Result.AGCasinoUnitTests.Utilitties
             //// Arrange
             string inputResult = null;
             //// Assert
-            Assert.Throws<System.NullReferenceException>(() => AGCasinoHelper.GetBacaratResult(inputResult, bankerText, playerText));
+            Assert.Throws<System.NullReferenceException>(() => AGCasinoHelper.GetBacaratResult(inputResult, _bankerText, _playerText));
         }
 
         [TestCase("20")]
@@ -126,7 +126,7 @@ namespace Fanex.Result.AGCasinoUnitTests.Utilitties
             var result = AGCasinoHelper.GetSicBoResult(inputResult);
 
             // Assert
-            StringAssert.IsMatch(htmlPatternExpression, result);
+            StringAssert.IsMatch(_htmlPatternExpression, result);
         }
 
         [Test]
@@ -136,10 +136,10 @@ namespace Fanex.Result.AGCasinoUnitTests.Utilitties
             var inputResult = "D;H3:T;C9";
 
             // Action
-            var result = AGCasinoHelper.GetDragonTigerResult(inputResult, bankerText, playerText);
+            var result = AGCasinoHelper.GetDragonTigerResult(inputResult, _bankerText, _playerText);
 
             // Assert
-            StringAssert.IsMatch(htmlPatternExpression, result);
+            StringAssert.IsMatch(_htmlPatternExpression, result);
         }
     }
 }

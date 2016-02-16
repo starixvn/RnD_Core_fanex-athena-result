@@ -249,7 +249,5 @@ namespace Fanex.Result.Core.Base
 
         [StringValue("GoldDeluxe")]
         GoldDeluxe = 255
-
-
     }
 }

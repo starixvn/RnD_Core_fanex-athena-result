@@ -1,22 +1,20 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="AGCasinoViewModel.cs" company="">
+// <copyright file="AllBetCasinoViewModel.cs" company="">
 // TODO: Update copyright text.
 // </copyright>
 // -----------------------------------------------------------------------
 
 namespace Fanex.Result.Core.AllBetCasino.ViewModels
 {
-    using DataDomain;    
-    using Fanex.Result.Core.AllBetCasino.DTO;
-    using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.Resources;
-    using Fanex.Result.Core.Base.ViewModels;
-    using RemotingRef;
     using System.Globalization;
+    using Base;
+    using Base.Resources;
+    using Base.ViewModels;
+    using DataDomain;
+    using DTO;
+    using RemotingRef;
     using Utilities;
-/// <summary>
-                         /// TODO: Update summary.
-                         /// </summary>
+
     public class AllBetCasinoViewModel : BaseViewModel, IResultViewModel
     {
         private readonly AllBetCasino _casino;

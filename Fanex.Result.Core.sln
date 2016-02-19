@@ -51,6 +51,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.CockFight
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.AllBetCasino", "Fanex.Result.Core.AllBet\Fanex.Result.Core.AllBetCasino.csproj", "{D9303680-11B8-41C1-9EB2-2AE37D02FFB1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.AllBetCasinoUnitTests", "Fanex.Result.AllBetCasinoUnitTests\Fanex.Result.AllBetCasinoUnitTests.csproj", "{067456C0-086C-46A8-B37F-1405717B7BFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,10 @@ Global
 		{D9303680-11B8-41C1-9EB2-2AE37D02FFB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9303680-11B8-41C1-9EB2-2AE37D02FFB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9303680-11B8-41C1-9EB2-2AE37D02FFB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{067456C0-086C-46A8-B37F-1405717B7BFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{067456C0-086C-46A8-B37F-1405717B7BFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{067456C0-086C-46A8-B37F-1405717B7BFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{067456C0-086C-46A8-B37F-1405717B7BFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -133,5 +139,6 @@ Global
 		{65FEAFB9-6241-4856-BE05-6B686EB93BE1} = {CCA318B4-A6C4-4767-B6A5-2348BACBA831}
 		{29F23CC1-8D52-4E0B-84C9-6F463BC0A80C} = {35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}
 		{D9303680-11B8-41C1-9EB2-2AE37D02FFB1} = {35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}
+		{067456C0-086C-46A8-B37F-1405717B7BFC} = {CCA318B4-A6C4-4767-B6A5-2348BACBA831}
 	EndGlobalSection
 EndGlobal

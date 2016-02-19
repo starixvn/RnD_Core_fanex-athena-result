@@ -21,7 +21,6 @@ namespace MvcExample.Models
     using Fanex.Result.Core.Sportsbook.DTO;
     using MvcExample.Models.Criteria;
     using MvcExample.Models.DTO;
-    using Fanex.Result.Core.AllBetCasino.DTO;
     /// <summary>
     /// The result service.
     /// </summary>
@@ -656,51 +655,6 @@ namespace MvcExample.Models
             }
 
             return string.Empty;
-        }
-
-        public IEnumerable<AllBetCasino> GetAllBetCasinoPopUpResult(GetAllBetCasinoPopUpResultCriteria criteria)
-        {
-            var result = new List<AllBetCasino>();
-            result.Add(new AllBetCasino
-            {
-                Bettype = 2401,
-                Result = "round=DSP*tableCode=va21*game=BAC*type=1*val=*result=B;H5;CK;DA:P;HK;DQ;HJ*winResult=1;6*result2=B;5:P;0"
-            });
-
-            result.Add(new AllBetCasino
-            {
-                Bettype = 2401,
-                Result = "round=DSP*tableCode=va21*game=BAC*type=1*val=*result=B;H3;CK;DA:P;HK;D9;HJ*winResult=1;6*result2=B;5:P;0"
-            });
-            result.Add(new AllBetCasino
-            {
-                Bettype = 2402,
-                Result = "round=DSP*tableCode=va21*game=ROU*type=101*val=6*result=20*winResult=108;112;115;116;119*result2="
-            });
-            result.Add(new AllBetCasino
-            {
-                Bettype = 2402,
-                Result = "round=DSP*tableCode=va21*game=ROU*type=101*val=6*result=*winResult=108;112;115;116;119*result2="
-            });
-           
-            result.Add(new AllBetCasino
-            {
-                Bettype = 2405,
-                Result = "round=DSP*tableCode=va21*game=DT*type=21*val=*result=D;H3:T;C9*winResult=22*result2=D;3:T;9"
-            });
-          
-            result.Add(new AllBetCasino
-            {
-                Bettype = 2404,
-                Result = "{\"round\":\"AGQ\",\"tableCode\":\"va21\",\"game\":\"SHB\",\"type\":\"41\",\"result\":\"4;3;3\",\"winResult\":\"42;44;54;55;61;73;85\"}"
-            });
-            result.Add(new AllBetCasino
-            {
-                Bettype = 2404,
-                Result = "round=AGQ*tableCode=va21*game=SHB*type=41*val=*result=4;3;3*winResult=42;44;54;55;61;73;85*result2="
-            });
-          
-            return result;
         }
 
         #endregion Utilites

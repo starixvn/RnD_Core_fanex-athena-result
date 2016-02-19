@@ -7,6 +7,6 @@ namespace Fanex.Result.Core.AllBetCasino
 {
     interface IBuilderService
     {
-        string Render(string transID, string languageCode);
+        string Render(string transID, string languageCode = "en");
     }
 }

@@ -10,14 +10,9 @@ namespace Fanex.Result.Core.AllBetCasino
 {
     public class BuilderService : IBuilderService
     {
-        public BuilderService()
-        {
-
-        }
-
         private const string InvalidTransIdErrorMessage = "The TransId is invalid!";
-        private const string InvalidConfigErrorMessage = "Not found [Fanex.Result.Core.3rdLiveCasino] connection string Or [Fanex.Result.Core.3rdLiveCasinoTplPath] template path";
-
+        private const string InvalidConfigErrorMessage = @"Not found [Fanex.Result.Core.3rdLiveCasino] connection string
+        Or [Fanex.Result.Core.3rdLiveCasinoTplPath] template path";
         public virtual string GetConnectionString
         {
             get
@@ -51,14 +46,13 @@ namespace Fanex.Result.Core.AllBetCasino
 
             try
             {
-                ResultPop LCResult = new ResultPop(HttpContext.Current, conn, tplPath);
-                return LCResult.genResultPopHtmlbyID(transID, languageCode);
+                ResultPop resultContext = new ResultPop(HttpContext.Current, conn, tplPath);
+                return resultContext.genResultPopHtmlbyID(transID, languageCode);
             }
             catch (Exception exception)
             {
                 throw new AllBetCasinoException(exception.Message, exception.InnerException);
             }
-
         }
     }
 }

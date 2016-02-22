@@ -23,7 +23,8 @@ namespace Fanex.Result.AllBetCasinoUnitTests
             /// Arrange
             var expectedExceptionMessage = "AllBetCasino Result API Exception. Exception: The TransId is invalid!";
             /// Assert
-            Assert.That(() => _targetBuilder.Render(transId),
+            Assert.That(
+                () => _targetBuilder.Render(transId),
                 Throws.Exception.TypeOf<AllBetCasinoException>().With.Property("Message").EqualTo(expectedExceptionMessage));
         }
 
@@ -33,11 +34,12 @@ namespace Fanex.Result.AllBetCasinoUnitTests
             /// Arrange
             var transId = "123456789";
             var expectedMessage = "Not found [Fanex.Result.Core.3rdLiveCasino] connection string Or [Fanex.Result.Core.3rdLiveCasinoTplPath] template path";
-            _targetBuilder.GetConnectionString.Returns("");
-            _targetBuilder.GetTemplatePath.Returns("");
+            _targetBuilder.GetConnectionString.Returns(string.Empty);
+            _targetBuilder.GetTemplatePath.Returns(string.Empty);
             /// Assert
-            Assert.That(() => _targetBuilder.Render(transId), Throws.Exception.TypeOf<AllBetCasinoException>()
-                .With.Property("Message").Contains(expectedMessage));
+            Assert.That(
+                () => _targetBuilder.Render(transId),
+                Throws.Exception.TypeOf<AllBetCasinoException>().With.Property("Message").Contains(expectedMessage));
         }
 
         [Test]

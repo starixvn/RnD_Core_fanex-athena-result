@@ -1,4 +1,6 @@
 ﻿using Fanex.Result.Core.AllBetCasino;
+using LiveCasinoResult;
+using NSubstitute;
 using NUnit.Framework;
 
 namespace Fanex.Result.AllBetCasinoUnitTests
@@ -6,6 +8,13 @@ namespace Fanex.Result.AllBetCasinoUnitTests
     [TestFixture]
     public class BuilderServiceTest
     {
+        private BuilderService _targetBuilder;
+        [SetUp]
+        public void Setup()
+        {
+            _targetBuilder = Substitute.For<BuilderService>();
+        }
+
         [TestCase(null)]
         [TestCase("")]
         [TestCase(" as 1243 sdf ")]
@@ -14,30 +23,33 @@ namespace Fanex.Result.AllBetCasinoUnitTests
         {
             /// Arrange
             var expectedExceptionMessage = "AllBetCasino Result API Exception. Exception: The TransId is invalid!";
-            var builder = new BuilderService();
-
             /// Assert
-            Assert.That(() => builder.Render(transId),Throws.Exception.TypeOf<AllBetCasinoException>()
+            Assert.That(() => _targetBuilder.Render(transId), Throws.Exception.TypeOf<AllBetCasinoException>()
                 .With.Property("Message").EqualTo(expectedExceptionMessage));
         }
-        [TestCase]
+        [Test]
         public void Render_WhenInvalidConfig_ThrowAllBetCasinoException()
         {
             /// Arrange
-
-            /// Action
-
+            var transId = "123456789";
+            var expectedMessage = "Not found [Fanex.Result.Core.3rdLiveCasino] connection string Or [Fanex.Result.Core.3rdLiveCasinoTplPath] template path";
+            _targetBuilder.GetConnectionString.Returns("");
+            _targetBuilder.GetTemplatePath.Returns("");
             /// Assert
+            Assert.That(() => _targetBuilder.Render(transId), Throws.Exception.TypeOf<AllBetCasinoException>()
+                .With.Property("Message").Contains(expectedMessage));
         }
 
-        [TestCase]
-        public void Render_WhenValidConfigAndInputValue_ReturnValidHTMLResult()
+        [Test]
+        public void Render_WhenValidConfigAndInputValue_Return3rdException()
         {
             /// Arrange
-
-            /// Action
-
+            var transId = "12345";
+            _targetBuilder.GetConnectionString.Returns("A connection string");
+            _targetBuilder.GetTemplatePath.Returns("A template path");
+           
             /// Assert
+            Assert.Throws<AllBetCasinoException>(() => _targetBuilder.Render(transId));
         }
     }
 }

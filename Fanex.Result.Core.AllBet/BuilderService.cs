@@ -1,15 +1,38 @@
-﻿using System;
+﻿using LiveCasinoResult;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Text;
+using System.Web;
 
 namespace Fanex.Result.Core.AllBetCasino
 {
     public class BuilderService : IBuilderService
     {
-        private const string InvalidTransIdErrorMessage = "The TransId is invalid!";
+        public BuilderService()
+        {
 
+        }
+
+        private const string InvalidTransIdErrorMessage = "The TransId is invalid!";
+        private const string InvalidConfigErrorMessage = "Not found [Fanex.Result.Core.3rdLiveCasino] connection string Or [Fanex.Result.Core.3rdLiveCasinoTplPath] template path";
+
+        public virtual string GetConnectionString
+        {
+            get
+            {
+                return ConfigurationManager.ConnectionStrings["Fanex.Result.Core.3rdLiveCasino"].ConnectionString;
+            }
+        }
+
+        public virtual string GetTemplatePath
+        {
+            get
+            {
+                return ConfigurationManager.AppSettings["Fanex.Result.Core.3rdLiveCasinoTplPath"];
+            }
+        }
 
         public string Render(string transID, string languageCode = "en")
         {
@@ -18,11 +41,24 @@ namespace Fanex.Result.Core.AllBetCasino
                 throw new AllBetCasinoException(InvalidTransIdErrorMessage);
             }
 
-            var connectionString = ConfigurationManager.ConnectionStrings["Fanex.Result.Core.3rdLiveCasino"].ConnectionString;
-            var templatePath = ConfigurationManager.AppSettings["Fanex.Result.Core.3rdLiveCasinoTplPath"];
+            var conn = GetConnectionString;
+            var tplPath = GetTemplatePath;
 
+            if (string.IsNullOrEmpty(conn) || string.IsNullOrEmpty(tplPath))
+            {
+                throw new AllBetCasinoException(InvalidConfigErrorMessage);
+            }
 
-            return string.Empty;
+            try
+            {
+                ResultPop LCResult = new ResultPop(HttpContext.Current, conn, tplPath);
+                return LCResult.genResultPopHtmlbyID(transID, languageCode);
+            }
+            catch (Exception exception)
+            {
+                throw new AllBetCasinoException(exception.Message, exception.InnerException);
+            }
+
         }
     }
 }

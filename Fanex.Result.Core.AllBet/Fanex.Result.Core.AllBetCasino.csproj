@@ -34,6 +34,9 @@
       <HintPath>..\packages\Fanex.File.1.0.0\lib\net40\IBCFile.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="LiveCasinoResult">
+      <HintPath>Dependency\LiveCasinoResult.dll</HintPath>
+    </Reference>
     <Reference Include="RemotingRef, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\RemotingRef.1.0.0.4\lib\net40\RemotingRef.dll</HintPath>
       <Private>True</Private>

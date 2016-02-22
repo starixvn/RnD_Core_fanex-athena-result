@@ -5,8 +5,9 @@ using System.Text;
 
 namespace Fanex.Result.Core.AllBetCasino
 {
-    interface IBuilderService
+    public interface IBuilderService
     {
         string Render(string transID, string languageCode = "en");
+      
     }
 }

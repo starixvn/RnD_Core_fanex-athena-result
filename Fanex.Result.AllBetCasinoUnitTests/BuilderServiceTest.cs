@@ -12,6 +12,8 @@ namespace Fanex.Result.AllBetCasinoUnitTests
         public void Setup()
         {
             _targetBuilder = Substitute.For<BuilderService>();
+            _targetBuilder.GetConnectionString.Returns<string>(string.Empty);
+            _targetBuilder.GetTemplatePath.Returns<string>(string.Empty);
         }
 
         [TestCase(null)]
@@ -33,9 +35,7 @@ namespace Fanex.Result.AllBetCasinoUnitTests
         {
             /// Arrange
             var transId = "123456789";
-            var expectedMessage = "Not found [Fanex.Result.Core.3rdLiveCasino] connection string Or [Fanex.Result.Core.3rdLiveCasinoTplPath] template path";
-            _targetBuilder.GetConnectionString.Returns(string.Empty);
-            _targetBuilder.GetTemplatePath.Returns(string.Empty);
+            var expectedMessage = "Not found AllBetCasino Configuration";
             /// Assert
             Assert.That(
                 () => _targetBuilder.Render(transId),

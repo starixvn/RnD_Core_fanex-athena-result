@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-
-namespace Fanex.Result.Core.AllBetCasino
+﻿namespace Fanex.Result.Core.AllBetCasino
 {
+    using System;
+    using System.Runtime.Serialization;
+
     public class AllBetCasinoException : System.Exception
     {
         public AllBetCasinoException()

@@ -1,18 +1,16 @@
-﻿using LiveCasinoResult;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Linq;
-using System.Text;
-using System.Web;
-
-namespace Fanex.Result.Core.AllBetCasino
+﻿namespace Fanex.Result.Core.AllBetCasino
 {
+    using System;
+    using System.Configuration;
+    using System.Web;
+    using LiveCasinoResult;
+
     public class BuilderService : IBuilderService
     {
         private const string InvalidTransIdErrorMessage = "The TransId is invalid!";
-        private const string InvalidConfigErrorMessage = @"Not found [Fanex.Result.Core.3rdLiveCasino] connection string
-        Or [Fanex.Result.Core.3rdLiveCasinoTplPath] template path";
+
+        private const string InvalidConfigErrorMessage = "Not found AllBetCasino Configuration";
+
         public virtual string GetConnectionString
         {
             get

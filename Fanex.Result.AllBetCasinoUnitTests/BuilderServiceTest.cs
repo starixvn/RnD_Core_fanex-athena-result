@@ -1,5 +1,4 @@
 ﻿using Fanex.Result.Core.AllBetCasino;
-using LiveCasinoResult;
 using NSubstitute;
 using NUnit.Framework;
 
@@ -24,9 +23,10 @@ namespace Fanex.Result.AllBetCasinoUnitTests
             /// Arrange
             var expectedExceptionMessage = "AllBetCasino Result API Exception. Exception: The TransId is invalid!";
             /// Assert
-            Assert.That(() => _targetBuilder.Render(transId), Throws.Exception.TypeOf<AllBetCasinoException>()
-                .With.Property("Message").EqualTo(expectedExceptionMessage));
+            Assert.That(() => _targetBuilder.Render(transId),
+                Throws.Exception.TypeOf<AllBetCasinoException>().With.Property("Message").EqualTo(expectedExceptionMessage));
         }
+
         [Test]
         public void Render_WhenInvalidConfig_ThrowAllBetCasinoException()
         {
@@ -47,7 +47,7 @@ namespace Fanex.Result.AllBetCasinoUnitTests
             var transId = "12345";
             _targetBuilder.GetConnectionString.Returns("A connection string");
             _targetBuilder.GetTemplatePath.Returns("A template path");
-           
+
             /// Assert
             Assert.Throws<AllBetCasinoException>(() => _targetBuilder.Render(transId));
         }

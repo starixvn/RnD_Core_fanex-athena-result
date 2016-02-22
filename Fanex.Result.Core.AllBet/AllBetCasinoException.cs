@@ -6,9 +6,8 @@ using System.Text;
 
 namespace Fanex.Result.Core.AllBetCasino
 {
-    public class AllBetCasinoException:System.Exception
+    public class AllBetCasinoException : System.Exception
     {
-
         public AllBetCasinoException()
         {
         }
@@ -32,8 +31,7 @@ namespace Fanex.Result.Core.AllBetCasino
         {
             get
             {
-                return
-                    string.Format("AllBetCasino Result API Exception. Exception: {0}", base.Message);
+                return string.Format("AllBetCasino Result API Exception. Exception: {0}", base.Message);
             }
         }
 

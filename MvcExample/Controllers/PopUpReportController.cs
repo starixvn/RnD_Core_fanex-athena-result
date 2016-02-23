@@ -12,7 +12,7 @@
     using MvcExample.Models;
     using MvcExample.Models.Criteria;
     using MvcExample.Models.MetaModel;
-
+    using Fanex.Result.Core.AllBetCasino;
     /// <summary>
     /// POPUP result page.
     /// </summary>
@@ -165,8 +165,9 @@
 
                     break;
                 case SportType.AllBetCasino:
+                    var allbetResultService = new BuilderService();
+                    return allbetResultService.Render(metalModel.RefNo.ToString());
                     
-                    break;
                 case SportType.MicroGamingLC:
                     return ParserService.Instance.Parser(new MicroGaming
                     {

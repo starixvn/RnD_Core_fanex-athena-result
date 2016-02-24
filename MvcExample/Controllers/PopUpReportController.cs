@@ -166,8 +166,8 @@
                     break;
                 case SportType.AllBetCasino:
                     var allbetResultService = new BuilderService();
-                    return allbetResultService.Render(metalModel.RefNo.ToString());
-                    
+                    return allbetResultService.Render(metalModel.RefNo.ToString(), metalModel.LanguageCode);
+
                 case SportType.MicroGamingLC:
                     return ParserService.Instance.Parser(new MicroGaming
                     {

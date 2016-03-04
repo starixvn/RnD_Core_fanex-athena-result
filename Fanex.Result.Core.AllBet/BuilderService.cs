@@ -42,7 +42,7 @@
                 return ConfigurationManager.AppSettings["Fanex.Result.Core.3rdLiveCasinoTplPath"];
             }
         }
-
+      
         public string Render(string transID, string languageCode = "en-US")
         {
             if (string.IsNullOrWhiteSpace(transID) || transID.Contains(" "))
@@ -52,7 +52,6 @@
 
             var conn = GetConnectionString;
             var tplPath = GetTemplatePath;
-
             if (string.IsNullOrEmpty(conn) || string.IsNullOrEmpty(tplPath))
             {
                 throw new AllBetCasinoException(InvalidConfigErrorMessage);

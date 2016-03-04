@@ -335,6 +335,11 @@
     <Content Include="Content\Core\img\loading.gif" />
     <Content Include="Content\Core\img\sprites.png" />
     <Content Include="Content\Core\img\user.png" />
+    <Content Include="Content\Fanex.Result.3rdLiveCasino\css\table_w.css" />
+    <Content Include="Content\Fanex.Result.3rdLiveCasino\css\images\layout\btn_UI04.png" />
+    <Content Include="Content\Fanex.Result.3rdLiveCasino\css\images\layout\icon_UI02.png" />
+    <Content Include="Content\Fanex.Result.3rdLiveCasino\css\images\layout\oddsTable_th.png" />
+    <Content Include="Content\Fanex.Result.3rdLiveCasino\css\images\layout\popup.png" />
     <Content Include="Content\Fanex.Result\fanex.result.css" />
     <Content Include="Content\Fanex.Result\images\goal-icon.png" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />

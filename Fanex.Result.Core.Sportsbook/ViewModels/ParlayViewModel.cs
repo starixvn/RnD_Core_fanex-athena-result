@@ -174,7 +174,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
             {
                 _viewModelData = this._parlay.Sportbook.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(
                     i, _sportSetting)).ToSafeList();
-            }
+            }                                  
 
             if (_bothMatchAndGameDetailItemViewModel == null)
             {
@@ -183,12 +183,12 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
 
             if (_onlyMatchItemViewModel == null)
             {
-                _onlyMatchItemViewModel = _viewModelData.Except(_bothMatchAndGameDetailItemViewModel).Where(i => i.VisibleMatchResult && !i.VisibleGameDetail).ToSafeList();
+                _onlyMatchItemViewModel = _viewModelData.Where(i => i.VisibleMatchResult && !i.VisibleGameDetail).ToSafeList();
             }
 
             if (_onlyGameDetailItemViewModel == null)
             {
-                _onlyGameDetailItemViewModel = _viewModelData.Except(_bothMatchAndGameDetailItemViewModel).Except(_onlyMatchItemViewModel).ToSafeList();
+                _onlyGameDetailItemViewModel = _viewModelData.Where(i => !i.VisibleMatchResult && i.VisibleGameDetail).ToSafeList();
             }
         }
     }

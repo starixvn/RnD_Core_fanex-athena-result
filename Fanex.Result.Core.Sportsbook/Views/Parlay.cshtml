@@ -38,7 +38,7 @@
                     @if (item.MatchItemView.Count() > 0)
                     {
                         bindModel.Data.Add(new GroupData{LeagueId = group.LeagueId,
-                        Data = item.MatchItemView.ToSafeList()});
+                        Data = item.MatchItemView});
                         @Raw(item.Render(bindModel))
                         <br />
                     }

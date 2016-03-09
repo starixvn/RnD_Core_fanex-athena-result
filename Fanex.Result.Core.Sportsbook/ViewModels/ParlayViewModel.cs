@@ -28,10 +28,10 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     {
         private readonly Parlay _parlay;
         private readonly ResultSetting _sportSetting;
-        private IEnumerable<IResultViewModel> _viewModelData = null;
-        private IEnumerable<IResultViewModel> _onlyMatchItemViewModel = null;
-        private IEnumerable<IResultViewModel> _onlyGameDetailItemViewModel = null;
-        private IEnumerable<IResultViewModel> _bothMatchAndGameDetailItemViewModel = null;
+        private IList<IResultViewModel> _viewModelData = null;
+        private IList<IResultViewModel> _onlyMatchItemViewModel = null;
+        private IList<IResultViewModel> _onlyGameDetailItemViewModel = null;
+        private IList<IResultViewModel> _bothMatchAndGameDetailItemViewModel = null;
 
         public ParlayViewModel(Parlay parlay, ResultSetting setting)
             : base(setting)
@@ -82,7 +82,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
             }
         }
 
-        public IEnumerable<IResultViewModel> MatchItemView
+        public IList<IResultViewModel> MatchItemView
         {
             get
             {
@@ -95,7 +95,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
             }
         }
 
-        public IEnumerable<IResultViewModel> GameDetailItemView
+        public IList<IResultViewModel> GameDetailItemView
         {
             get
             {
@@ -108,7 +108,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
             }
         }
 
-        public IEnumerable<IResultViewModel> BothMatchAndDetailItemView
+        public IList<IResultViewModel> BothMatchAndDetailItemView
         {
             get
             {
@@ -173,22 +173,22 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
             if (_viewModelData == null)
             {
                 _viewModelData = this._parlay.Sportbook.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(
-                    i, _sportSetting));
+                    i, _sportSetting)).ToSafeList();
             }
 
             if (_bothMatchAndGameDetailItemViewModel == null)
             {
-                _bothMatchAndGameDetailItemViewModel = _viewModelData.Where(i => i.VisibleMatchResult && i.VisibleGameDetail);
+                _bothMatchAndGameDetailItemViewModel = _viewModelData.Where(i => i.VisibleMatchResult && i.VisibleGameDetail).ToSafeList();
             }
 
             if (_onlyMatchItemViewModel == null)
             {
-                _onlyMatchItemViewModel = _viewModelData.Except(_bothMatchAndGameDetailItemViewModel).Where(i => i.VisibleMatchResult && !i.VisibleGameDetail);
+                _onlyMatchItemViewModel = _viewModelData.Except(_bothMatchAndGameDetailItemViewModel).Where(i => i.VisibleMatchResult && !i.VisibleGameDetail).ToSafeList();
             }
 
             if (_onlyGameDetailItemViewModel == null)
             {
-                _onlyGameDetailItemViewModel = _viewModelData.Except(_bothMatchAndGameDetailItemViewModel).Except(_onlyMatchItemViewModel);
+                _onlyGameDetailItemViewModel = _viewModelData.Except(_bothMatchAndGameDetailItemViewModel).Except(_onlyMatchItemViewModel).ToSafeList();
             }
         }
     }

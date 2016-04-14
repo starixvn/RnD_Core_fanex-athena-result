@@ -1,0 +1,20 @@
+﻿namespace Fanex.Result.Core.Voidbridge.Exceptions
+{
+    using System;
+
+    public class VoidbridgeException : Exception
+    {
+        public VoidbridgeException(string message)
+            : base(message)
+        {
+        }
+
+        public override string Message
+        {
+            get
+            {
+                return $"Voidbridge Result API Exception. Exception: {base.Message}";
+            }
+        }
+    }
+}

@@ -60,6 +60,7 @@
         private void GenerateSeqCode(string custId, string gamePlayId)
         {
             var random = new Random();
+
             var hashedTimestampWithRandom = MD5.Create($"{_timeStamp}-{random.Next(0, int.MaxValue)}");
             var hashedPreInfo = MD5.Create($"{_config.SiteId}-{custId}-{gamePlayId}");
 

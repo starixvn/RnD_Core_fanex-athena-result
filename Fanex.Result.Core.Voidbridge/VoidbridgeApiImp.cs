@@ -4,7 +4,6 @@
     using System.Configuration;
     using System.Net;
     using System.Runtime.Caching;
-    using System.Security.Cryptography;
     using Exceptions;
     using Models;
     using Newtonsoft.Json;
@@ -61,10 +60,11 @@
         {
             var random = new Random();
 
-            var hashedTimestampWithRandom = MD5.Create($"{_timeStamp}-{random.Next(0, int.MaxValue)}");
-            var hashedPreInfo = MD5.Create($"{_config.SiteId}-{custId}-{gamePlayId}");
+            var timestampWithRandom = $"{DateTime.Now.Ticks}-{random.Next(0, int.MaxValue)}";
 
-            _seq = $"{hashedTimestampWithRandom}-{hashedPreInfo}";
+            var hashedPreInfo = $"{_config.SiteId}-{custId}-{gamePlayId}-{random.Next(0, int.MaxValue)}";
+
+            _seq = $"{timestampWithRandom}-{hashedPreInfo}";
         }
 
         private string SendRequest(string custId, string gamePlayId)
@@ -85,7 +85,7 @@
         {
             var request = CreateRequestObject(custId, gamePlayId);
 
-            return JsonConvert.SerializeObject(request);
+            return JsonConvert.SerializeObject(request, Formatting.None, new JsonSerializerSettings { });
         }
 
         private Request CreateRequestObject(string custId, string gamePlayId)
@@ -174,6 +174,7 @@
         private string GetUrlFromResponse(string response)
         {
             var responseObject = DeserializeResponse(response);
+
             var url = ValidateResponse(responseObject)
                         ? responseObject.Result.Url
                         : string.Empty;
@@ -188,12 +189,19 @@
 
         private bool ValidateResponse(Response responseObject)
         {
-            return responseObject.TimeStamp == _timeStamp && responseObject.Result.Seq == _seq;
-        }
+            var successStatus = "0";
 
-        public string RenderBetHistory(string custId, string gamePlayId)
-        {
-            throw new NotImplementedException();
+            if (responseObject.TimeStamp != _timeStamp || responseObject.Result.Seq != _seq)
+            {
+                throw new VoidbridgeException("Send request incorrectly!");
+            }
+
+            if (responseObject.Result.ErrorCode != successStatus)
+            {
+                throw new VoidbridgeException(responseObject.Result.ErrorDescription);
+            }
+
+            return true;
         }
     }
 }

@@ -2,6 +2,7 @@
 {
     using NUnit.Framework;
     using Voidbridge;
+
     [TestFixture]
     public class VoidbridgeApiImpTests
     {
@@ -14,7 +15,10 @@
             var gamePlayId = "5";
 
             // Act
-            voidbridgeApi.GetBetHistoryUrl(custId, gamePlayId);
+            var resultUrl = voidbridgeApi.GetBetHistoryUrl(custId, gamePlayId);
+
+            // Assert
+            StringAssert.AreNotEqualIgnoringCase(string.Empty, resultUrl);
         }
     }
 }

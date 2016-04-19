@@ -1,30 +1,22 @@
 ﻿namespace Fanex.Result.Core.Voidbridge
 {
     using System;
-    using System.Configuration;
+    using System.IO;
     using System.Net;
-    using System.Runtime.Caching;
+    using System.Runtime.Serialization.Json;
+    using System.Text;
     using Exceptions;
     using Models;
-    using Newtonsoft.Json;
 
     public class VoidbridgeApiImp : VoidbridgeApi
     {
-        private const string APIKey = "VoidbridgeAPI";
-        private const string LoginKey = "VoidbridgeLogin";
-        private const string PasswordKey = "VoidbridgePassword";
-        private const string SiteIdKey = "VoidbridgeSiteId";
-        private const string VendorIdKey = "VoidbridgeVendorId";
-
-        private const string ConfigCacheKey = "ConfigCacheKey";
-
-        private Config _config;
+        private VoidbridgeConfigs _configs;
         private string _timeStamp;
         private string _seq;
 
         public VoidbridgeApiImp()
         {
-            _config = GetConfig();
+            _configs = VoidbridgeConfigs.Configs;
             _timeStamp = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss.fff");
         }
 
@@ -62,7 +54,7 @@
 
             var timestampWithRandom = $"{DateTime.Now.Ticks}-{random.Next(0, int.MaxValue)}";
 
-            var hashedPreInfo = $"{_config.SiteId}-{custId}-{gamePlayId}-{random.Next(0, int.MaxValue)}";
+            var hashedPreInfo = $"{_configs.SiteId}-{custId}-{gamePlayId}-{random.Next(0, int.MaxValue)}";
 
             _seq = $"{timestampWithRandom}-{hashedPreInfo}";
         }
@@ -75,7 +67,7 @@
             using (var client = new WebClient())
             {
                 client.Headers[HttpRequestHeader.ContentType] = "application/json";
-                result = client.UploadString(_config.VoidbridgeAPI, jsonData);
+                result = client.UploadString(_configs.Url, jsonData);
             }
 
             return result;
@@ -83,9 +75,17 @@
 
         private string CreateJsonData(string custId, string gamePlayId)
         {
+            MemoryStream stream = new MemoryStream();
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(Request));
+
             var request = CreateRequestObject(custId, gamePlayId);
 
-            return JsonConvert.SerializeObject(request, Formatting.None, new JsonSerializerSettings { });
+            ser.WriteObject(stream, request);
+
+            stream.Position = 0;
+            var streamReader = new StreamReader(stream);
+
+            return streamReader.ReadToEnd();
         }
 
         private Request CreateRequestObject(string custId, string gamePlayId)
@@ -103,9 +103,9 @@
         {
             var auth = new Auth();
 
-            auth.Login = _config.Login;
-            auth.Password = _config.Password;
-            auth.SiteId = _config.SiteId;
+            auth.Login = _configs.Login;
+            auth.Password = _configs.Password;
+            auth.SiteId = _configs.SiteId;
 
             return auth;
         }
@@ -117,58 +117,9 @@
             call.Seq = _seq;
             call.OBCustId = custId;
             call.GamePlayId = gamePlayId;
-            call.VendorId = _config.VendorId;
+            call.VendorId = _configs.VendorId;
 
             return call;
-        }
-
-        private Config GetConfig()
-        {
-            ObjectCache cache = MemoryCache.Default;
-
-            var config = (Config)cache[ConfigCacheKey];
-            if (config == null)
-            {
-                config = new Config();
-
-                config.VoidbridgeAPI = ConfigurationManager.AppSettings[APIKey];
-                config.Login = ConfigurationManager.AppSettings[LoginKey];
-                config.Password = ConfigurationManager.AppSettings[PasswordKey];
-                config.SiteId = ConfigurationManager.AppSettings[SiteIdKey];
-                config.VendorId = ConfigurationManager.AppSettings[VendorIdKey];
-
-                ValidateConfig(config);
-            }
-
-            return config;
-        }
-
-        private void ValidateConfig(Config config)
-        {
-            if (string.IsNullOrEmpty(config.VoidbridgeAPI))
-            {
-                throw new VoidbridgeException($"Wrong Config! Not found {APIKey} key !");
-            }
-
-            if (string.IsNullOrEmpty(config.Login))
-            {
-                throw new VoidbridgeException($"Wrong Config! Not found {LoginKey} key !");
-            }
-
-            if (string.IsNullOrEmpty(config.Password))
-            {
-                throw new VoidbridgeException($"Wrong Config! Not found {PasswordKey} key !");
-            }
-
-            if (string.IsNullOrEmpty(config.SiteId))
-            {
-                throw new VoidbridgeException($"Wrong Config! Not found {SiteIdKey} key !");
-            }
-
-            if (string.IsNullOrEmpty(config.VendorId))
-            {
-                throw new VoidbridgeException($"Wrong Config! Not found {VendorIdKey} key !");
-            }
         }
 
         private string GetUrlFromResponse(string response)
@@ -184,7 +135,10 @@
 
         private Response DeserializeResponse(string response)
         {
-            return JsonConvert.DeserializeObject<Response>(response);
+            MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(response));
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(Response));
+
+            return (Response)ser.ReadObject(stream);
         }
 
         private bool ValidateResponse(Response responseObject)

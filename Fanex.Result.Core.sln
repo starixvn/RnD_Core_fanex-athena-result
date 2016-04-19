@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{9CF3C046-BF76-4A72-AF58-7D9A98B527F7}"
 	ProjectSection(SolutionItems) = preProject
@@ -52,6 +52,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.AllBetCasino", "Fanex.Result.Core.AllBet\Fanex.Result.Core.AllBetCasino.csproj", "{D9303680-11B8-41C1-9EB2-2AE37D02FFB1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.AllBetCasinoUnitTests", "Fanex.Result.AllBetCasinoUnitTests\Fanex.Result.AllBetCasinoUnitTests.csproj", "{067456C0-086C-46A8-B37F-1405717B7BFC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcApiExample", "MvcApiExample\MvcApiExample.csproj", "{DF029E67-80EA-4FA0-973B-FC61EF8E676F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Voidbridge", "Fanex.Result.Core.Voidbridge\Fanex.Result.Core.Voidbridge.csproj", "{394FFBAB-DD32-4EA6-9C4E-D513ADC51A74}"
 EndProject
@@ -127,6 +129,10 @@ Global
 		{067456C0-086C-46A8-B37F-1405717B7BFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{067456C0-086C-46A8-B37F-1405717B7BFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{067456C0-086C-46A8-B37F-1405717B7BFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF029E67-80EA-4FA0-973B-FC61EF8E676F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF029E67-80EA-4FA0-973B-FC61EF8E676F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF029E67-80EA-4FA0-973B-FC61EF8E676F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF029E67-80EA-4FA0-973B-FC61EF8E676F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{394FFBAB-DD32-4EA6-9C4E-D513ADC51A74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{394FFBAB-DD32-4EA6-9C4E-D513ADC51A74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{394FFBAB-DD32-4EA6-9C4E-D513ADC51A74}.Release|Any CPU.ActiveCfg = Release|Any CPU

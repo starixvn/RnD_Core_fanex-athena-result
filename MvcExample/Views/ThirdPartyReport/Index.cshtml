@@ -1,0 +1,32 @@
+﻿@using Fanex.Result.Core.Voidbridge;
+@{
+    var voidbridgeApi = new VoidbridgeApiImp();
+    var voidbridgeData = new List<string> {
+        "12345",
+        "23456"
+    };
+}
+<table>
+    <tr>
+        <th>Info</th>
+        <th>Result</th>
+    </tr>
+    <tr>
+        <td colspan="2">Voidbridge</td>
+    </tr>
+    @foreach (var custId in voidbridgeData)
+    {
+        var url = voidbridgeApi.GetBetHistoryUrl(custId, custId);
+
+        <tr>
+            <td>CustId: @custId</td>
+            <td><button onClick="showVoidbridgeResult('@url')">Detail</button></td>
+        </tr>
+    }
+</table>
+<script src="~/Scripts/Page/voidbridge-result.js"></script>
+<script>
+    var showVoidbridgeResult = function (url) {
+        openVoidbridgeResult(url);
+    }
+</script>

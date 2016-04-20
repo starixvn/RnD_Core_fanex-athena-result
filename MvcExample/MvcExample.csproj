@@ -203,6 +203,8 @@
     <Compile Include="Controllers\NormalReportController.cs" />
     <Compile Include="Controllers\OutRightReportController.cs" />
     <Compile Include="Controllers\PopUpReportController.cs" />
+    <Compile Include="Controllers\RNGSingleLobbyController.cs" />
+    <Compile Include="Controllers\ThirdPartyReportController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -227,6 +229,8 @@
     <Compile Include="Models\Criteria\GetAllBetCasinoPopUpResultCriteria.cs" />
     <Compile Include="Models\IResultService.cs" />
     <Compile Include="Models\MetaModel\ResultPopupMetalModel.cs" />
+    <Compile Include="Models\Voidbridge\Request.cs" />
+    <Compile Include="Models\Voidbridge\Response.cs" />
     <Compile Include="Models\ResultService.cs">
       <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
     </Compile>
@@ -394,9 +398,11 @@
     <Content Include="Scripts\jquery-ui-1.11.1.js" />
     <Content Include="Scripts\jquery-ui.min-1.11.1.js" />
     <Content Include="Scripts\json.human.js" />
+    <Content Include="Scripts\Page\cock-fighting-result.js" />
     <Content Include="Scripts\Page\outright-report.js" />
     <Content Include="Scripts\Page\popup-report.js" />
     <Content Include="Scripts\Page\normal-report.js" />
+    <Content Include="Scripts\Page\voidbridge-result.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -508,6 +514,7 @@
     <Content Include="Content\Core\custom.less" />
     <Content Include="Content\Core\site.less" />
     <Content Include="Content\Core\variables.less" />
+    <Content Include="ClassDiagram1.cd" />
     <None Include="Content\Fanex.Result\fanex.result.less" />
     <None Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <None Include="Content\fonts\glyphicons-halflings-regular.ttf" />
@@ -539,6 +546,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\_Menu.cshtml" />
+    <Content Include="Views\ThirdPartyReport\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -556,6 +564,10 @@
     <ProjectReference Include="..\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj">
       <Project>{8673F024-7726-4C30-8464-5A8357F79BF0}</Project>
       <Name>Fanex.Result.Core.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fanex.Result.Core.CockFighting\Fanex.Result.Core.CockFighting.csproj">
+      <Project>{29f23cc1-8d52-4e0b-84c9-6f463bc0a80c}</Project>
+      <Name>Fanex.Result.Core.CockFighting</Name>
     </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.GoldDeLuxe\Fanex.Result.Core.GoldDeluxe.csproj">
       <Project>{DBD59404-19D9-422C-83F1-8F20E02545ED}</Project>
@@ -584,6 +596,10 @@
     <ProjectReference Include="..\Fanex.Result.Core.Sportsbook\Fanex.Result.Core.Sportsbook.csproj">
       <Project>{0469C900-5E5B-4D2C-8DB3-7EAEA991095B}</Project>
       <Name>Fanex.Result.Core.Sportsbook</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fanex.Result.Core.Voidbridge\Fanex.Result.Core.Voidbridge.csproj">
+      <Project>{394ffbab-dd32-4ea6-9c4e-d513adc51a74}</Project>
+      <Name>Fanex.Result.Core.Voidbridge</Name>
     </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core\Fanex.Result.Core.csproj">
       <Project>{73AAEA31-C52D-47D2-BC47-087A06794F55}</Project>

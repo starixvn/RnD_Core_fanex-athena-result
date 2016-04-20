@@ -53,11 +53,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.AllBetCas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.AllBetCasinoUnitTests", "Fanex.Result.AllBetCasinoUnitTests\Fanex.Result.AllBetCasinoUnitTests.csproj", "{067456C0-086C-46A8-B37F-1405717B7BFC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcApiExample", "MvcApiExample\MvcApiExample.csproj", "{DF029E67-80EA-4FA0-973B-FC61EF8E676F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Voidbridge", "Fanex.Result.Core.Voidbridge\Fanex.Result.Core.Voidbridge.csproj", "{394FFBAB-DD32-4EA6-9C4E-D513ADC51A74}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.VoidbridgeUnitTests", "Fanex.Result.Core.VoidbridgeUnitTests\Fanex.Result.Core.VoidbridgeUnitTests.csproj", "{F6D3FC60-14B8-4041-8709-80816A296574}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -129,18 +125,10 @@ Global
 		{067456C0-086C-46A8-B37F-1405717B7BFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{067456C0-086C-46A8-B37F-1405717B7BFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{067456C0-086C-46A8-B37F-1405717B7BFC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DF029E67-80EA-4FA0-973B-FC61EF8E676F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DF029E67-80EA-4FA0-973B-FC61EF8E676F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DF029E67-80EA-4FA0-973B-FC61EF8E676F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DF029E67-80EA-4FA0-973B-FC61EF8E676F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{394FFBAB-DD32-4EA6-9C4E-D513ADC51A74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{394FFBAB-DD32-4EA6-9C4E-D513ADC51A74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{394FFBAB-DD32-4EA6-9C4E-D513ADC51A74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{394FFBAB-DD32-4EA6-9C4E-D513ADC51A74}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F6D3FC60-14B8-4041-8709-80816A296574}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F6D3FC60-14B8-4041-8709-80816A296574}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F6D3FC60-14B8-4041-8709-80816A296574}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F6D3FC60-14B8-4041-8709-80816A296574}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -159,6 +147,5 @@ Global
 		{D9303680-11B8-41C1-9EB2-2AE37D02FFB1} = {35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}
 		{067456C0-086C-46A8-B37F-1405717B7BFC} = {CCA318B4-A6C4-4767-B6A5-2348BACBA831}
 		{394FFBAB-DD32-4EA6-9C4E-D513ADC51A74} = {35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}
-		{F6D3FC60-14B8-4041-8709-80816A296574} = {CCA318B4-A6C4-4767-B6A5-2348BACBA831}
 	EndGlobalSection
 EndGlobal

@@ -20,13 +20,13 @@
             _timeStamp = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss.fff");
         }
 
-        public string GetBetHistoryUrl(string custId, string gamePlayId, bool debugMode = false)
+        public string GetBetHistoryUrl(string custId, string gamePlayId)
         {
             if (ValidateArguments(custId, gamePlayId))
             {
                 var jsonData = CreateJsonData(custId, gamePlayId);
 
-                if (debugMode)
+                if (_configs.DebugMode)
                 {
                     return jsonData;
                 }

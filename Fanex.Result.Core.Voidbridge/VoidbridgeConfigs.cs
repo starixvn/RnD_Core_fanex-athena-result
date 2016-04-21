@@ -12,7 +12,7 @@
         private const string __PASSWORD = "Password";
         private const string __SITE_ID = "SiteId";
         private const string __VENDOR_ID = "VendorId";
-        private const string __DEBUG_MODE = "DebugMode";
+        private const string __DEBUG_MODE = "Debug";
 
         #endregion const
 
@@ -61,11 +61,11 @@
             set { this[__VENDOR_ID] = value; }
         }
 
-        [ConfigurationProperty(__DEBUG_MODE, IsRequired = false, DefaultValue = "0")]
+        [ConfigurationProperty(__DEBUG_MODE, IsRequired = false, DefaultValue = false)]
         public bool DebugMode
         {
-            get { return this[__DEBUG_MODE].ToString() == "0" ? false : true; }
-            set { this[__DEBUG_MODE] = value.ToString(); }
+            get { return (bool)this[__DEBUG_MODE]; }
+            set { this[__DEBUG_MODE] = value; }
         }
     }
 }

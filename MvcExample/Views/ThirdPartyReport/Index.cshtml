@@ -23,17 +23,17 @@
     </tr>
     @foreach (var custId in voidbridgeData)
     {
-        var url = voidbridgeApi.GetBetHistoryUrl(custId, gamePlayId);
-
         <tr>
             <td>CustId: @custId; GamePlayId: @gamePlayId</td>
-            <td><button onClick="showVoidbridgeResult('@url')">Detail</button></td>
+            <td><button onClick="showVoidbridgeResult('@custId', '@gamePlayId')">Detail</button></td>
         </tr>
     }
 </table>
 <script src="~/Scripts/Page/voidbridge-result.js"></script>
 <script>
-    var showVoidbridgeResult = function (url) {
-        openVoidbridgeResult(url);
+    var showVoidbridgeResult = function (custId, gamePlayId) {
+        $.get('./VoidbridgeResult?custid=' + custId + '&gamePlayId=' + gamePlayId, function (result) {
+            openVoidbridgeResult(result);
+        });
     }
 </script>

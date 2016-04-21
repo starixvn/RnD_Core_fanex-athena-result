@@ -20,14 +20,21 @@
             _timeStamp = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss.fff");
         }
 
-        public string GetBetHistoryUrl(string custId, string gamePlayId)
+        public string GetBetHistoryUrl(string custId, string gamePlayId, bool debugMode = false)
         {
             if (ValidateArguments(custId, gamePlayId))
             {
-                GenerateSeqCode(custId, gamePlayId);
-                var response = SendRequest(custId, gamePlayId);
+                var jsonData = CreateJsonData(custId, gamePlayId);
 
-                return GetUrlFromResponse(response);
+                if (debugMode)
+                {
+                    return jsonData;
+                }
+                else
+                {
+                    var response = SendRequest(jsonData);
+                    return GetUrlFromResponse(response);
+                }
             }
 
             return string.Empty;
@@ -46,31 +53,6 @@
             }
 
             return true;
-        }
-
-        private void GenerateSeqCode(string custId, string gamePlayId)
-        {
-            var random = new Random();
-
-            var timestampWithRandom = $"{DateTime.Now.Ticks}-{random.Next(0, int.MaxValue)}";
-
-            var hashedPreInfo = $"{_configs.SiteId}-{custId}-{gamePlayId}-{random.Next(0, int.MaxValue)}";
-
-            _seq = $"{timestampWithRandom}-{hashedPreInfo}";
-        }
-
-        private string SendRequest(string custId, string gamePlayId)
-        {
-            var result = string.Empty;
-            var jsonData = CreateJsonData(custId, gamePlayId);
-
-            using (var client = new WebClient())
-            {
-                client.Headers[HttpRequestHeader.ContentType] = "application/json";
-                result = client.UploadString(_configs.Url, jsonData);
-            }
-
-            return result;
         }
 
         private string CreateJsonData(string custId, string gamePlayId)
@@ -114,12 +96,38 @@
         {
             var call = new Call();
 
+            GenerateSeqCode(custId, gamePlayId);
+
             call.Seq = _seq;
             call.OBCustId = custId;
             call.GamePlayId = gamePlayId;
             call.VendorId = _configs.VendorId;
 
             return call;
+        }
+
+        private void GenerateSeqCode(string custId, string gamePlayId)
+        {
+            var random = new Random();
+
+            var timestampWithRandom = $"{DateTime.Now.Ticks}-{random.Next(0, int.MaxValue)}";
+
+            var hashedPreInfo = $"{_configs.SiteId}-{custId}-{gamePlayId}-{random.Next(0, int.MaxValue)}";
+
+            _seq = $"{timestampWithRandom}-{hashedPreInfo}";
+        }
+
+        private string SendRequest(string jsonData)
+        {
+            var result = string.Empty;
+
+            using (var client = new WebClient())
+            {
+                client.Headers[HttpRequestHeader.ContentType] = "application/json";
+                result = client.UploadString(_configs.Url, jsonData);
+            }
+
+            return result;
         }
 
         private string GetUrlFromResponse(string response)

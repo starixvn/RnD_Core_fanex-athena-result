@@ -1,25 +1,32 @@
-﻿@using Fanex.Result.Core.Voidbridge;
+﻿@{
+    ViewBag.Title = "Fanex.Result.Core - Third party report.";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using Fanex.Result.Core.Voidbridge;
 @{
     var voidbridgeApi = new VoidbridgeApiImp();
     var voidbridgeData = new List<string> {
         "12345",
         "23456"
     };
+
+    var gamePlayId = "1000";
 }
 <table>
     <tr>
-        <th>Info</th>
+        <th style="width: 300px; text-align: left">Info</th>
         <th>Result</th>
     </tr>
     <tr>
-        <td colspan="2">Voidbridge</td>
+        <th colspan="2">Voidbridge</th>
     </tr>
     @foreach (var custId in voidbridgeData)
     {
-        var url = voidbridgeApi.GetBetHistoryUrl(custId, custId);
+        var url = voidbridgeApi.GetBetHistoryUrl(custId, gamePlayId);
 
         <tr>
-            <td>CustId: @custId</td>
+            <td>CustId: @custId; GamePlayId: @gamePlayId</td>
             <td><button onClick="showVoidbridgeResult('@url')">Detail</button></td>
         </tr>
     }

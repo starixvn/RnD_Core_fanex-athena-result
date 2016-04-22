@@ -1,5 +1,6 @@
 ﻿namespace MvcExample.Controllers
 {
+    using System;
     using System.Web.Mvc;
     using Fanex.Result.Core.Voidbridge;
 
@@ -12,9 +13,14 @@
 
         public string VoidbridgeResult(string custId, string gamePlayId)
         {
-            var voidbridgeApi = new VoidbridgeApiImp();
-
-            return voidbridgeApi.GetBetHistoryUrl(custId, gamePlayId);
+            try
+            {
+                var voidbridgeApi = new VoidbridgeApiImp();
+                return voidbridgeApi.GetBetHistoryUrl(custId, gamePlayId);
+            }
+            catch (Exception e) {
+                return e.ToString();
+            }
         }
     }
 }

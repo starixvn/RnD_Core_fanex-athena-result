@@ -22,22 +22,28 @@
 
         public string GetBetHistoryUrl(string custId, string gamePlayId)
         {
-            if (ValidateArguments(custId, gamePlayId))
-            {
-                var jsonData = CreateJsonData(custId, gamePlayId);
+            ValidateArguments(custId, gamePlayId);
 
-                if (_configs.DebugMode)
+            var url = string.Empty;
+            var jsonRequest = CreateJsonData(custId, gamePlayId);
+
+            if ((DebugMode)_configs.DebugMode == DebugMode.DontSendRequest)
+            {
+                return jsonRequest;
+            }
+            else
+            {
+                var response = SendRequest(jsonRequest);
+
+                var parsedResponse = DeserializeResponse(response);
+
+                if (ValidateResponse(parsedResponse, jsonRequest))
                 {
-                    return jsonData;
-                }
-                else
-                {
-                    var response = SendRequest(jsonData);
-                    return GetUrlFromResponse(response);
+                    url = parsedResponse.Result.Url;
                 }
             }
 
-            return string.Empty;
+            return url;
         }
 
         private bool ValidateArguments(string custId, string gamePlayId)
@@ -57,17 +63,9 @@
 
         private string CreateJsonData(string custId, string gamePlayId)
         {
-            MemoryStream stream = new MemoryStream();
-            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(Request));
-
             var request = CreateRequestObject(custId, gamePlayId);
 
-            ser.WriteObject(stream, request);
-
-            stream.Position = 0;
-            var streamReader = new StreamReader(stream);
-
-            return streamReader.ReadToEnd();
+            return SerializeRequest(request);
         }
 
         private Request CreateRequestObject(string custId, string gamePlayId)
@@ -117,6 +115,25 @@
             _seq = $"{timestampWithRandom}-{hashedPreInfo}";
         }
 
+        private string SerializeRequest(Request request)
+        {
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(Request));
+
+            return SerializeObject(ser, request);
+        }
+
+        private string SerializeObject(DataContractJsonSerializer ser, object request)
+        {
+            MemoryStream stream = new MemoryStream();
+
+            ser.WriteObject(stream, request);
+
+            stream.Position = 0;
+            var streamReader = new StreamReader(stream);
+
+            return streamReader.ReadToEnd();
+        }
+
         private string SendRequest(string jsonData)
         {
             var result = string.Empty;
@@ -130,17 +147,6 @@
             return result;
         }
 
-        private string GetUrlFromResponse(string response)
-        {
-            var responseObject = DeserializeResponse(response);
-
-            var url = ValidateResponse(responseObject)
-                        ? responseObject.Result.Url
-                        : string.Empty;
-
-            return url;
-        }
-
         private Response DeserializeResponse(string response)
         {
             MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(response));
@@ -149,13 +155,20 @@
             return (Response)ser.ReadObject(stream);
         }
 
-        private bool ValidateResponse(Response responseObject)
+        private bool ValidateResponse(Response responseObject, string request)
         {
             var successStatus = "0";
 
             if (responseObject.TimeStamp != _timeStamp || responseObject.Result.Seq != _seq)
             {
-                throw new VoidbridgeException("Send request incorrectly!");
+                if ((DebugMode)_configs.DebugMode == DebugMode.None)
+                {
+                    throw new VoidbridgeException("Send request incorrectly!");
+                }
+                else
+                {
+                    throw new VoidbridgeException($"Send request incorrectly! Detail request: {request}; Detail response: {SerializeResponse(responseObject)}");
+                }
             }
 
             if (responseObject.Result.ErrorCode != successStatus)
@@ -164,6 +177,13 @@
             }
 
             return true;
+        }
+
+        private string SerializeResponse(Response response)
+        {
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(Response));
+
+            return SerializeObject(ser, response);
         }
     }
 }

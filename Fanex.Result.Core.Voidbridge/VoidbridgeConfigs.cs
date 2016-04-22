@@ -61,10 +61,10 @@
             set { this[__VENDOR_ID] = value; }
         }
 
-        [ConfigurationProperty(__DEBUG_MODE, IsRequired = false, DefaultValue = false)]
-        public bool DebugMode
+        [ConfigurationProperty(__DEBUG_MODE, IsRequired = false, DefaultValue = 0)]
+        public int DebugMode
         {
-            get { return (bool)this[__DEBUG_MODE]; }
+            get { return (int)this[__DEBUG_MODE]; }
             set { this[__DEBUG_MODE] = value; }
         }
     }

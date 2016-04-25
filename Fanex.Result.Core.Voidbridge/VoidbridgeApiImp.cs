@@ -17,7 +17,7 @@
         public VoidbridgeApiImp()
         {
             _configs = VoidbridgeConfigs.Configs;
-            _timeStamp = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss.fff");
+            _timeStamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
         }
 
         public string GetBetHistoryUrl(string custId, string gamePlayId)
@@ -158,8 +158,15 @@
         private bool ValidateResponse(Response responseObject, string request)
         {
             var successStatus = "0";
+            var requestDateTime = new DateTime();
+            var responseDateTime = new DateTime();
 
-            if (responseObject.TimeStamp != _timeStamp || responseObject.Result.Seq != _seq)
+            DateTime.TryParse(_timeStamp, out requestDateTime);
+            DateTime.TryParse(responseObject.TimeStamp, out responseDateTime);
+
+            var isEqualTimeStamp = requestDateTime.Equals(responseDateTime);
+
+            if (!isEqualTimeStamp || responseObject.Result.Seq != _seq)
             {
                 if ((DebugMode)_configs.DebugMode == DebugMode.None)
                 {

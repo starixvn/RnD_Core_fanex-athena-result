@@ -47,7 +47,7 @@
             set { this[__PASSWORD] = value; }
         }
 
-        [ConfigurationProperty(__SITE_ID, IsRequired = true)]
+        [ConfigurationProperty(__SITE_ID, IsRequired = false, DefaultValue = null)]
         public string SiteId
         {
             get { return this[__SITE_ID].ToString(); }

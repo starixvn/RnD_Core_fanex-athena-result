@@ -13,6 +13,7 @@
         private VoidbridgeConfigs _configs;
         private string _timeStamp;
         private string _seq;
+        private string _siteId;
 
         public VoidbridgeApiImp()
         {
@@ -20,9 +21,10 @@
             _timeStamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
         }
 
-        public string GetBetHistoryUrl(string custId, string gamePlayId)
+        public string GetBetHistoryUrl(string custId, string gamePlayId, string siteId = null)
         {
-            ValidateArguments(custId, gamePlayId);
+            ValidateArguments(custId, gamePlayId, siteId);
+            _siteId = siteId ?? _configs.SiteId;
 
             var url = string.Empty;
             var jsonRequest = CreateJsonData(custId, gamePlayId);
@@ -46,7 +48,7 @@
             return url;
         }
 
-        private bool ValidateArguments(string custId, string gamePlayId)
+        private bool ValidateArguments(string custId, string gamePlayId, string siteId)
         {
             if (string.IsNullOrEmpty(custId))
             {
@@ -56,6 +58,11 @@
             if (string.IsNullOrEmpty(gamePlayId))
             {
                 throw new VoidbridgeException("gamePlayId is null or empty!");
+            }
+
+            if (string.IsNullOrEmpty(siteId) && string.IsNullOrEmpty(_configs.SiteId))
+            {
+                throw new VoidbridgeException("siteId argument must have value or SiteId in Web.config file!");
             }
 
             return true;
@@ -85,7 +92,7 @@
 
             auth.Login = _configs.Login;
             auth.Password = _configs.Password;
-            auth.SiteId = _configs.SiteId;
+            auth.SiteId = _siteId;
 
             return auth;
         }

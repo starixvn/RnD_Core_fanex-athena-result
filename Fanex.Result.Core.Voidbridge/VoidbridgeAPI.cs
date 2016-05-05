@@ -2,6 +2,6 @@
 {
     public interface VoidbridgeApi
     {
-        string GetBetHistoryUrl(string custId, string gamePlayId, string siteId = null);
+        string GetBetHistoryUrl(string custId, string gamePlayId, string language, string siteId = null);
     }
 }

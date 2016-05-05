@@ -16,5 +16,8 @@
 
         [DataMember]
         public string VendorId { get; set; }
+
+        [DataMember]
+        public string Language { get; set; }
     }
 }

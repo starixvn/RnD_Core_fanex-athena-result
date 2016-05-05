@@ -16,7 +16,7 @@
             try
             {
                 var voidbridgeApi = new VoidbridgeApiImp();
-                return voidbridgeApi.GetBetHistoryUrl(custId, gamePlayId, "12");
+                return voidbridgeApi.GetBetHistoryUrl(custId, gamePlayId, "en", "12");
             }
             catch (Exception e) {
                 return e.ToString();

@@ -27,5 +27,7 @@
         public string GamePlayId { get; set; }
 
         public string VendorId { get; set; }
+
+        public string Language { get; set; }
     }
 }

@@ -10,6 +10,7 @@
 
     public class VoidbridgeApiImp : VoidbridgeApi
     {
+        private const string DefaultLanguage = "en";
         private VoidbridgeConfigs _configs;
         private string _timeStamp;
         private string _seq;
@@ -21,13 +22,13 @@
             _timeStamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
         }
 
-        public string GetBetHistoryUrl(string custId, string gamePlayId, string siteId = null)
+        public string GetBetHistoryUrl(string custId, string gamePlayId, string language, string siteId = null)
         {
             ValidateArguments(custId, gamePlayId, siteId);
             _siteId = siteId ?? _configs.SiteId;
 
             var url = string.Empty;
-            var jsonRequest = CreateJsonData(custId, gamePlayId);
+            var jsonRequest = CreateJsonData(custId, gamePlayId, language);
 
             if ((DebugMode)_configs.DebugMode == DebugMode.DontSendRequest)
             {
@@ -68,20 +69,20 @@
             return true;
         }
 
-        private string CreateJsonData(string custId, string gamePlayId)
+        private string CreateJsonData(string custId, string gamePlayId, string language)
         {
-            var request = CreateRequestObject(custId, gamePlayId);
+            var request = CreateRequestObject(custId, gamePlayId, language);
 
             return SerializeRequest(request);
         }
 
-        private Request CreateRequestObject(string custId, string gamePlayId)
+        private Request CreateRequestObject(string custId, string gamePlayId, string language)
         {
             var request = new Request();
 
             request.TimeStamp = _timeStamp;
             request.Auth = CreateAuthObject();
-            request.Call = CreateCallObject(custId, gamePlayId);
+            request.Call = CreateCallObject(custId, gamePlayId, language);
 
             return request;
         }
@@ -97,7 +98,7 @@
             return auth;
         }
 
-        private Call CreateCallObject(string custId, string gamePlayId)
+        private Call CreateCallObject(string custId, string gamePlayId, string language)
         {
             var call = new Call();
 
@@ -107,6 +108,7 @@
             call.OBCustId = custId;
             call.GamePlayId = gamePlayId;
             call.VendorId = _configs.VendorId;
+            call.Language = string.IsNullOrEmpty(language) ? DefaultLanguage : language;
 
             return call;
         }

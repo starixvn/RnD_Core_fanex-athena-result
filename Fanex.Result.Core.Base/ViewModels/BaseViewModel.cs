@@ -19,17 +19,16 @@ namespace Fanex.Result.Core.Base.ViewModels
     /// </summary>
     public abstract class BaseViewModel
     {
-        private static Dictionary<string, string> supportedLanguage = new
-     Dictionary<string, string>
-             {
-        { "en-US", "en" },
-        { "zh-TW", "ch" },
-        { "zh-CN", "cs" },
-        { "zh-Hans", "zhcn" },
-        { "ja-JP", "jp" },
-        { "th-TH", "th" },
-        { "ko-KR", "ko" },
-        { "vi-VN", "vn" }
+        private static Dictionary<string, string> _supportedLanguage = new Dictionary<string, string>
+        {
+            { "en-US", "en" },
+            { "zh-TW", "ch" },
+            { "zh-CN", "cs" },
+            { "zh-Hans", "zhcn" },
+            { "ja-JP", "jp" },
+            { "th-TH", "th" },
+            { "ko-KR", "ko" },
+            { "vi-VN", "vn" }
         };
 
         private string _dateTimeFormat = "{0:MM/dd/yyyy<br/>hh:mm:ss tt}";
@@ -56,7 +55,7 @@ namespace Fanex.Result.Core.Base.ViewModels
         {
             get
             {
-                return supportedLanguage.ContainsKey(this.LanguageCode) ? supportedLanguage[this.LanguageCode] : supportedLanguage[ConstantValue.EnglishLanguageCode];
+                return _supportedLanguage.ContainsKey(this.LanguageCode) ? _supportedLanguage[this.LanguageCode] : _supportedLanguage[ConstantValue.EnglishLanguageCode];
             }
         }
 

@@ -1,6 +1,7 @@
 ﻿namespace Fanex.Result.Core.Voidbridge
 {
     using System;
+    using System.Collections.Generic;
     using System.IO;
     using System.Net;
     using System.Runtime.Serialization.Json;
@@ -10,7 +11,17 @@
 
     public class VoidbridgeApiImp : VoidbridgeApi
     {
-        private const string DefaultLanguage = "en";
+        private const string DefaultLanguage = "en-US";
+        private static readonly Dictionary<string, string> SupportedLanguage = new Dictionary<string, string>
+        {
+            { "en-US", "en" },
+            { "zh-CN", "cs" },
+            { "zh-Hans", "zhcn" },
+            { "th-TH", "th" },
+            { "vi-VN", "vn" },
+            { "id-ID", "id" }
+        };
+
         private VoidbridgeConfigs _configs;
         private string _timeStamp;
         private string _seq;
@@ -101,6 +112,9 @@
         private Call CreateCallObject(string custId, string gamePlayId, string language)
         {
             var call = new Call();
+            var languageCode = string.IsNullOrEmpty(language) || !SupportedLanguage.ContainsKey(language)
+                                ? SupportedLanguage[DefaultLanguage]
+                                : SupportedLanguage[language];
 
             GenerateSeqCode(custId, gamePlayId);
 
@@ -108,7 +122,7 @@
             call.OBCustId = custId;
             call.GamePlayId = gamePlayId;
             call.VendorId = _configs.VendorId;
-            call.Language = string.IsNullOrEmpty(language) ? DefaultLanguage : language;
+            call.Language = languageCode;
 
             return call;
         }

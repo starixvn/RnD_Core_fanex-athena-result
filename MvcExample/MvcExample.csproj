@@ -60,10 +60,6 @@
     <Reference Include="Fanex.Data">
       <HintPath>..\packages\Fanex.Data.0.5.404.63\lib\net40\Fanex.Data.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Result.Core.Voidbridge, Version=1.0.0.7, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.Result.Core.Voidbridge.1.0.0.7-beta\lib\Fanex.Result.Core.Voidbridge.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Glimpse.AspNet, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Glimpse.AspNet.1.8.0\lib\net40\Glimpse.AspNet.dll</HintPath>
@@ -610,6 +606,10 @@
     <ProjectReference Include="..\Fanex.Result.Core.Sportsbook\Fanex.Result.Core.Sportsbook.csproj">
       <Project>{0469C900-5E5B-4D2C-8DB3-7EAEA991095B}</Project>
       <Name>Fanex.Result.Core.Sportsbook</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fanex.Result.Core.Voidbridge\Fanex.Result.Core.Voidbridge.csproj">
+      <Project>{394ffbab-dd32-4ea6-9c4e-d513adc51a74}</Project>
+      <Name>Fanex.Result.Core.Voidbridge</Name>
     </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core\Fanex.Result.Core.csproj">
       <Project>{73AAEA31-C52D-47D2-BC47-087A06794F55}</Project>

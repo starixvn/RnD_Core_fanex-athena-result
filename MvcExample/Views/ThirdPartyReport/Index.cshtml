@@ -13,17 +13,28 @@
 
     var gamePlayId = "1000";
 }
-<table>
-    <tr>
+
+<form role="form" action="/" class="form-inline filter-form bet-setting">
+    <label for="Language">Language</label>
+    <select id="language" class="width-100">
+        <option value="en-US">en-US</option>
+        <option value="ko-KR">ko-KR</option>
+        <option value="zh-TW">zh-TW</option>
+        <option value="zh-CN">zh-CN</option>
+    </select>
+</form>
+
+<table class="fn-rs">
+    <tr class="header">
         <th style="width: 300px; text-align: left">Info</th>
         <th>Result</th>
     </tr>
-    <tr>
-        <th colspan="2">Voidbridge</th>
+    <tr class="data-header">
+        <th class="cl-league" colspan="2">Voidbridge</th>
     </tr>
     @foreach (var custId in voidbridgeData)
     {
-        <tr>
+        <tr class="data">
             <td>CustId: @custId; GamePlayId: @gamePlayId</td>
             <td><button onClick="showVoidbridgeResult('@custId', '@gamePlayId')">Detail</button></td>
         </tr>
@@ -32,7 +43,7 @@
 <script src="~/Scripts/Page/voidbridge-result.js"></script>
 <script>
     var showVoidbridgeResult = function (custId, gamePlayId) {
-        $.get('./VoidbridgeResult?custid=' + custId + '&gamePlayId=' + gamePlayId, function (result) {
+        $.get('./VoidbridgeResult?custid=' + custId + '&gamePlayId=' + gamePlayId + '&language=' + $('#language').val(), function (result) {
             openVoidbridgeResult(result);
         });
     }

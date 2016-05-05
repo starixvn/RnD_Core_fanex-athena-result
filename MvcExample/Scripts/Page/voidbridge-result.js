@@ -5,4 +5,4 @@ function openVoidbridgeResult(resultApi) {
     } else {
         alert("Could not open Voidbridge Result Page!");
     }
-};
+}

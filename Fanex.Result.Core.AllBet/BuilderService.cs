@@ -14,17 +14,16 @@
 
         private const string DefaultLanguageCode = "en";
 
-        private static Dictionary<string, string> supportedLanguage = new
-  Dictionary<string, string>
-             {
-        { "en-US", "en" },
-        { "zh-TW", "ch" },
-        { "zh-CN", "cs" },
-        { "zh-Hans", "zhcn" },
-        { "ja-JP", "jp" },
-        { "th-TH", "th" },
-        { "ko-KR", "ko" },
-        { "vi-VN", "vn" }
+        private static Dictionary<string, string> supportedLanguage = new Dictionary<string, string>
+        {
+            { "en-US", "en" },
+            { "zh-TW", "ch" },
+            { "zh-CN", "cs" },
+            { "zh-Hans", "zhcn" },
+            { "ja-JP", "jp" },
+            { "th-TH", "th" },
+            { "ko-KR", "ko" },
+            { "vi-VN", "vn" }
         };
 
         public virtual string GetConnectionString

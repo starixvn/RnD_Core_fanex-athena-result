@@ -12,6 +12,7 @@
     public class VoidbridgeApiImp : VoidbridgeApi
     {
         private const string DefaultLanguage = "en-US";
+
         private static readonly Dictionary<string, string> SupportedLanguage = new Dictionary<string, string>
         {
             { "en-US", "en" },
@@ -33,7 +34,7 @@
             _timeStamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
         }
 
-        public string GetBetHistoryUrl(string custId, string gamePlayId, string language, string siteId = null)
+        public string GetBetHistoryUrl(string custId, string gamePlayId, string language = DefaultLanguage, string siteId = null)
         {
             ValidateArguments(custId, gamePlayId, siteId);
             _siteId = siteId ?? _configs.SiteId;

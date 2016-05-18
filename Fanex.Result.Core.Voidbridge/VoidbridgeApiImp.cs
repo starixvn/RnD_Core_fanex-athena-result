@@ -190,21 +190,23 @@
 
             var isEqualTimeStamp = requestDateTime.Equals(responseDateTime);
 
-            if (!isEqualTimeStamp || responseObject.Result.Seq != _seq)
+            if (!isEqualTimeStamp || responseObject.Result.Seq != _seq || responseObject.Result.ErrorCode != successStatus)
             {
                 if ((DebugMode)_configs.DebugMode == DebugMode.None)
                 {
-                    throw new VoidbridgeException("Send request incorrectly!");
+                    if (responseObject.Result.ErrorCode != successStatus)
+                    {
+                        throw new VoidbridgeException(responseObject.Result.ErrorDescription);
+                    }
+                    else
+                    {
+                        throw new VoidbridgeException("Send request incorrectly!");
+                    }
                 }
                 else
                 {
                     throw new VoidbridgeException($"Send request incorrectly! Detail request: {request}; Detail response: {SerializeResponse(responseObject)}");
                 }
-            }
-
-            if (responseObject.Result.ErrorCode != successStatus)
-            {
-                throw new VoidbridgeException(responseObject.Result.ErrorDescription);
             }
 
             return true;

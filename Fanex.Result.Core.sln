@@ -55,6 +55,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.AllBetCasinoUn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Voidbridge", "Fanex.Result.Core.Voidbridge\Fanex.Result.Core.Voidbridge.csproj", "{394FFBAB-DD32-4EA6-9C4E-D513ADC51A74}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.BaseUnitTests", "Fanex.Result.Core.BaseUnitTests\Fanex.Result.Core.BaseUnitTests.csproj", "{77EA5F5D-52E9-47D8-BF8C-7974A2F00AF7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.SportsbookUnitTests", "Fanex.Result.Core.SportsbookUnitTests\Fanex.Result.Core.SportsbookUnitTests.csproj", "{978D3D90-0029-43DD-8791-E9D3368C735B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -129,6 +133,14 @@ Global
 		{394FFBAB-DD32-4EA6-9C4E-D513ADC51A74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{394FFBAB-DD32-4EA6-9C4E-D513ADC51A74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{394FFBAB-DD32-4EA6-9C4E-D513ADC51A74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77EA5F5D-52E9-47D8-BF8C-7974A2F00AF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77EA5F5D-52E9-47D8-BF8C-7974A2F00AF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77EA5F5D-52E9-47D8-BF8C-7974A2F00AF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77EA5F5D-52E9-47D8-BF8C-7974A2F00AF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{978D3D90-0029-43DD-8791-E9D3368C735B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{978D3D90-0029-43DD-8791-E9D3368C735B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{978D3D90-0029-43DD-8791-E9D3368C735B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{978D3D90-0029-43DD-8791-E9D3368C735B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -147,5 +159,7 @@ Global
 		{D9303680-11B8-41C1-9EB2-2AE37D02FFB1} = {35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}
 		{067456C0-086C-46A8-B37F-1405717B7BFC} = {CCA318B4-A6C4-4767-B6A5-2348BACBA831}
 		{394FFBAB-DD32-4EA6-9C4E-D513ADC51A74} = {35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}
+		{77EA5F5D-52E9-47D8-BF8C-7974A2F00AF7} = {CCA318B4-A6C4-4767-B6A5-2348BACBA831}
+		{978D3D90-0029-43DD-8791-E9D3368C735B} = {CCA318B4-A6C4-4767-B6A5-2348BACBA831}
 	EndGlobalSection
 EndGlobal

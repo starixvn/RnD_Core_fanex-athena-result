@@ -63,13 +63,13 @@
         }
 
         [Test]
-        public void To_FromNullObjectWithReturnTypeIsString_ReturnsEmpty()
+        public void To_FromNullObjectWithReturnTypeIsString_ReturnsNull()
         {
             // Act
             var convertedItem = Converter.To<string>(null);
 
             // Assert
-            Assert.IsNullOrEmpty(convertedItem);
+            Assert.IsNull(convertedItem);
         }
 
         [TestCase(true, 1)]

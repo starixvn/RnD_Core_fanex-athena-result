@@ -1,4 +1,4 @@
-﻿namespace Fanex.Result.Core.SportsbookUnitTests.Utilities
+﻿namespace Fanex.Result.Core.Sportsbook.Tests.Utilities
 {
     using NUnit.Framework;
     using Sportsbook.Utilities;

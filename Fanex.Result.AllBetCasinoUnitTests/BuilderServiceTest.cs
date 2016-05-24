@@ -2,7 +2,7 @@
 using NSubstitute;
 using NUnit.Framework;
 
-namespace Fanex.Result.AllBetCasinoUnitTests
+namespace Fanex.Result.AllBetCasino.Tests
 {
     [TestFixture]
     public class BuilderServiceTest

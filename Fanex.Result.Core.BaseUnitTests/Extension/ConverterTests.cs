@@ -1,4 +1,4 @@
-﻿namespace Fanex.Result.Core.BaseUnitTests.Extension
+﻿namespace Fanex.Result.Core.Base.Tests.Extension
 {
     using Base.Extension;
     using NUnit.Framework;

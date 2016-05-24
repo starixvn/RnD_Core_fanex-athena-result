@@ -45,21 +45,24 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.UI", "Fanex.Re
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.AGCasino", "Fanex.Result.Core.AGCasino\Fanex.Result.Core.AGCasino.csproj", "{0A57E89B-3C07-498A-A704-E893C2C3F7E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.AGCasinoUnitTests", "Fanex.Result.AGCasinoUnitTest\Fanex.Result.AGCasinoUnitTests.csproj", "{65FEAFB9-6241-4856-BE05-6B686EB93BE1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.AGCasino.Tests", "Fanex.Result.AGCasinoUnitTest\Fanex.Result.AGCasino.Tests.csproj", "{65FEAFB9-6241-4856-BE05-6B686EB93BE1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.CockFighting", "Fanex.Result.Core.CockFighting\Fanex.Result.Core.CockFighting.csproj", "{29F23CC1-8D52-4E0B-84C9-6F463BC0A80C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.AllBetCasino", "Fanex.Result.Core.AllBet\Fanex.Result.Core.AllBetCasino.csproj", "{D9303680-11B8-41C1-9EB2-2AE37D02FFB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.AllBetCasinoUnitTests", "Fanex.Result.AllBetCasinoUnitTests\Fanex.Result.AllBetCasinoUnitTests.csproj", "{067456C0-086C-46A8-B37F-1405717B7BFC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.AllBetCasino.Tests", "Fanex.Result.AllBetCasinoUnitTests\Fanex.Result.AllBetCasino.Tests.csproj", "{067456C0-086C-46A8-B37F-1405717B7BFC}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Voidbridge", "Fanex.Result.Core.Voidbridge\Fanex.Result.Core.Voidbridge.csproj", "{394FFBAB-DD32-4EA6-9C4E-D513ADC51A74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.BaseUnitTests", "Fanex.Result.Core.BaseUnitTests\Fanex.Result.Core.BaseUnitTests.csproj", "{77EA5F5D-52E9-47D8-BF8C-7974A2F00AF7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Base.Tests", "Fanex.Result.Core.BaseUnitTests\Fanex.Result.Core.Base.Tests.csproj", "{77EA5F5D-52E9-47D8-BF8C-7974A2F00AF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.SportsbookUnitTests", "Fanex.Result.Core.SportsbookUnitTests\Fanex.Result.Core.SportsbookUnitTests.csproj", "{978D3D90-0029-43DD-8791-E9D3368C735B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Sportsbook.Tests", "Fanex.Result.Core.SportsbookUnitTests\Fanex.Result.Core.Sportsbook.Tests.csproj", "{978D3D90-0029-43DD-8791-E9D3368C735B}"
 EndProject
 Global
+	GlobalSection(JSLint) = preSolution
+		SolutionConfigurationLocation = JSLintOptions.xml
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU

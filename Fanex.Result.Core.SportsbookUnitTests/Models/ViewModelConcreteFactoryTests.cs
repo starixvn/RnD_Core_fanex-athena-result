@@ -1,4 +1,4 @@
-﻿namespace Fanex.Result.Core.SportsbookUnitTests.Models
+﻿namespace Fanex.Result.Core.Sportsbook.Tests.Models
 {
     using System;
     using System.Collections.Generic;

@@ -1,4 +1,4 @@
-﻿namespace Fanex.Result.Core.BaseUnitTests.Models
+﻿namespace Fanex.Result.Core.Base.Tests.Models
 {
     using Base;
     using Base.Models;

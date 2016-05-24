@@ -4,7 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Fanex.Result.AGCasinoUnitTests.Utilitties
+namespace Fanex.Result.AGCasino.Tests.Utilitties
 {
     using Fanex.Result.Core.AGCasino.Utilities;
     using NUnit.Framework;

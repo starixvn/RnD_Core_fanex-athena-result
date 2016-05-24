@@ -1,7 +1,7 @@
 ﻿/* File Created: December 16, 2015 */
 
-"use strict";
 var cockFightingResult = function (resultApi) {
+    "use strict";
     var me = this;
     var _ajaxRequest = null;
     var _intervalId = 0;
@@ -12,7 +12,7 @@ var cockFightingResult = function (resultApi) {
                 cache: false,
                 url: _resultApi + "?IsKeepAlive=" + true,
             };
-            if (_ajaxRequest != null) {
+            if (_ajaxRequest !== null) {
                 _ajaxRequest.abort();
             }
             _ajaxRequest = $.ajax(option);
@@ -26,11 +26,12 @@ var cockFightingResult = function (resultApi) {
             success: function (response) {
                 clearInterval(_intervalId);
                 if (response.IsSuccess) {
-                  
-                    var cockFightingWindow = window.open(response.Url, '_blank', 'left=20,top=20,width=950,height=650,toolbar=1,resizable=1,scrollbars,status=1');
+                    var cockFightingWindow = window.open(response.Url,
+                        '_blank',
+                        'left=20,top=20,width=950,height=650' +
+                        'toolbar=1,resizable=1,scrollbars,status=1');
                     extendSession();
                 } else {
-
                     alert("Could not open Cock Fighting Result Page!");
                 }
             },
@@ -41,7 +42,7 @@ var cockFightingResult = function (resultApi) {
                 //place your block UI
             }
         };
-        if (_ajaxRequest != null) {
+        if (_ajaxRequest !== null) {
             _ajaxRequest.abort();
         }
         _ajaxRequest = $.ajax(option);

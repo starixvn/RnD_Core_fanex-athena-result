@@ -1,4 +1,4 @@
-﻿namespace Fanex.Result.Core.BaseUnitTests.Utilities
+﻿namespace Fanex.Result.Core.Base.Tests.Utilities
 {
     using System;
     using Base.Utilities;

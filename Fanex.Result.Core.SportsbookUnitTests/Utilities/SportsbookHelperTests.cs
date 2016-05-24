@@ -87,7 +87,7 @@
 
         [TestCase("0123", "0123a", false)]
         [TestCase("abc0", "abc0", true)]
-        public void IsValidResourceId_FromPatternDoesNotContainsCaretAndResourceIdIsNotNull_ReturnsExpectedResult(string pattern, string resourceId, bool expectedResult)
+        public void IsValidResourceId_FromPatternNotContainsCaretAndResourceIdIsNotNull_ReturnsExpectedResult(string pattern, string resourceId, bool expectedResult)
         {
             // Act
             var result = SportsbookHelper.IsValidResourceId(pattern, resourceId);

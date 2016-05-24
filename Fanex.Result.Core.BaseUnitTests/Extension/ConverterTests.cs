@@ -1,0 +1,123 @@
+﻿namespace Fanex.Result.Core.BaseUnitTests.Extension
+{
+    using Base.Extension;
+    using NUnit.Framework;
+
+    [TestFixture]
+    public class ConverterTests
+    {
+        ////[TestCase("None123")]
+        ////[TestCase("Hello")]
+        public void To_FromInvalidObjectWithReturnTypeIsBool_ReturnsFalse(object item)
+        {
+            // Act
+            var convertedItem = Converter.To<bool>(item);
+
+            // Assert
+            Assert.IsFalse(convertedItem);
+        }
+
+        [TestCase(true, true)]
+        [TestCase(false, false)]
+        [TestCase(-123, true)]
+        [TestCase(0, false)]
+        [TestCase(0000, false)]
+        [TestCase(1, true)]
+        [TestCase(01, true)]
+        [TestCase(12345, true)]
+        [TestCase("false", false)]
+        [TestCase("true", true)]
+        public void To_FromValidObjectWithReturnTypeIsBool_ReturnsExpectedResult(object item, bool expectedResult)
+        {
+            // Act
+            var convertedItem = Converter.To<bool>(item);
+
+            // Assert
+            Assert.AreEqual(expectedResult, convertedItem);
+        }
+
+        [Test]
+        public void To_FromNullObjectWithReturnTypeIsBool_ReturnsFalse()
+        {
+            // Act
+            var convertedItem = Converter.To<bool>(null);
+
+            // Assert
+            Assert.IsFalse(convertedItem);
+        }
+
+        [TestCase(true, "True")]
+        [TestCase(false, "False")]
+        [TestCase(-123, "-123")]
+        [TestCase(0, "0")]
+        [TestCase(012345, "12345")]
+        [TestCase(012.34, "12.34")]
+        [TestCase("This is a test", "This is a test")]
+        public void To_FromValidObjectWithReturnTypeIsString_ReturnsExpectedResult(object item, string expectedResult)
+        {
+            // Act
+            var convertedItem = Converter.To<string>(item);
+
+            // Assert
+            Assert.AreEqual(expectedResult, convertedItem);
+        }
+
+        [Test]
+        public void To_FromNullObjectWithReturnTypeIsString_ReturnsEmpty()
+        {
+            // Act
+            var convertedItem = Converter.To<string>(null);
+
+            // Assert
+            Assert.IsNullOrEmpty(convertedItem);
+        }
+
+        [TestCase(true, 1)]
+        [TestCase(false, 0)]
+        [TestCase("123", 123)]
+        [TestCase("00123", 123)]
+        [TestCase(-123.34, -123)]
+        public void To_FromValidObjectWithReturnTypeIsInt_ReturnsExpectedResult(object item, int expectedResult)
+        {
+            // Act
+            var convertedItem = Converter.To<int>(item);
+
+            // Assert
+            Assert.AreEqual(expectedResult, convertedItem);
+        }
+
+        [Test]
+        public void To_FromNullObjectWithReturnTypeIsInt_ReturnsZero()
+        {
+            // Act
+            var convertedItem = Converter.To<int>(null);
+
+            // Assert
+            Assert.AreEqual(0, convertedItem);
+        }
+
+        [TestCase(true, 1)]
+        [TestCase(false, 0)]
+        [TestCase("001.23", 1.23)]
+        [TestCase("-123", -123)]
+        [TestCase(-123.34, -123.34)]
+        public void To_FromValidObjectWithReturnTypeIsDecimal_ReturnsExpectedResult(object item, decimal expectedResult)
+        {
+            // Act
+            var convertedItem = Converter.To<decimal>(item);
+
+            // Assert
+            Assert.AreEqual(expectedResult, convertedItem);
+        }
+
+        [Test]
+        public void To_FromNullObjectWithReturnTypeIsDecimal_ReturnsZero()
+        {
+            // Act
+            var convertedItem = Converter.To<decimal>(null);
+
+            // Assert
+            Assert.AreEqual(0, convertedItem);
+        }
+    }
+}

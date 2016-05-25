@@ -1,6 +1,5 @@
 ﻿namespace Fanex.Result.Core.Base.Tests.Extension
 {
-    using System.Collections;
     using System.Collections.Generic;
     using Base;
     using Base.Extension;

@@ -4,5 +4,11 @@
     "inputFiles": [
       "Models/ValidateTests.cs"
     ]
+  },
+  {
+    "outputFileName": "Extension/HSSFSheetExtensionTests.cs",
+    "inputFiles": [
+      "Extension/HSSFSheetExtensionTests.cs"
+    ]
   }
 ]

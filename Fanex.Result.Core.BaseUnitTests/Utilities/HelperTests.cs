@@ -98,9 +98,19 @@
         [TestCase(null)]
         [TestCase("")]
         [TestCase("abc")]
-        ////[TestCase("123a")]
-        ////[TestCase("1.23")]
         public void IsIntegerNumber_FromInvalidInputValue_ReturnsFalse(string inputValue)
+        {
+            // Act
+            var isIntegerNumber = Helper.IsIntegerNumber(inputValue);
+
+            // Assert
+            Assert.IsFalse(isIntegerNumber);
+        }
+
+        [TestCase("123a")]
+        [TestCase("1.23")]
+        [Ignore("IsMatch with every input containing at least a digit")]
+        public void IsIntegerNumber_FromInputValueInvalidButContainsDigit_ReturnsFalse(string inputValue)
         {
             // Act
             var isIntegerNumber = Helper.IsIntegerNumber(inputValue);

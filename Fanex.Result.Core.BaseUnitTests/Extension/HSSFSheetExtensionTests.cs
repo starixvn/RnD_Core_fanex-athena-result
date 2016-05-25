@@ -1,0 +1,392 @@
+﻿namespace Fanex.Result.Core.Base.Tests.Extension
+{
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using Base.Extension;
+    using NPOI.HSSF.UserModel;
+    using NPOI.SS.UserModel;
+    using NSubstitute;
+    using NUnit.Framework;
+
+    [TestFixture]
+    public class HSSFSheetExtensionTests
+    {
+        private HSSFWorkbook _workbook;
+        private ISheet _sheet;
+
+        [SetUp]
+        public void SetUp()
+        {
+            var templatePath = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "../../Data/Soccer.xls";
+            var stream = new FileStream(templatePath, FileMode.Open, FileAccess.Read);
+            _workbook = new HSSFWorkbook(stream);
+            _sheet = _workbook.GetSheetAt(0);
+        }
+
+        [Test]
+        public void CopyRow_4Params_FromSourceRowIndexLessThanNumberRowsOfSheet_ReturnsLastRowIndexIsSourceRowIndex()
+        {
+            // Arrange
+            var newSheet = _workbook.CreateSheet("NewSheet");
+            var sourceRowIndex = 10;
+            var destRowIndex = 3;
+
+            // Act
+            newSheet.CopyRow(_sheet, sourceRowIndex, destRowIndex);
+
+            // Assert
+            Assert.AreEqual(destRowIndex, newSheet.LastRowNum);
+        }
+
+        [Test]
+        public void CopyRow_4Params_FromSourceRowIndexIsOutRange_ReturnsRowIsNull()
+        {
+            // Arrange
+            var newSheet = _workbook.CreateSheet("NewSheet");
+            var sourceRowIndex = 10;
+            var destRowIndex = 0;
+
+            // Act
+            var newRow = newSheet.CopyRow(_sheet, sourceRowIndex, destRowIndex);
+
+            // Assert
+            Assert.IsNull(newRow);
+        }
+
+        [Test]
+        public void CopyRow_4Params_FromValidSourceRowIndex_ReturnsRowIsNotNull()
+        {
+            // Arrange
+            var newSheet = _workbook.CreateSheet("NewSheet");
+            var sourceRowIndex = 2;
+            var destRowIndex = 0;
+
+            // Act
+            var newRow = newSheet.CopyRow(_sheet, sourceRowIndex, destRowIndex);
+
+            // Assert
+            Assert.IsNotNull(newRow);
+        }
+
+        [Test]
+        public void CopyRow_5Params_FromSourceRowIndexLessThanNumberRowsOfSheet_ReturnsLastRowIndexIsSourceRowIndex()
+        {
+            // Arrange
+            var newSheet = _workbook.CreateSheet("NewSheet");
+            var sourceRowIndex = 10;
+            var destRowIndex = 3;
+            var cellIndexList = new List<int>();
+
+            // Act
+            newSheet.CopyRow(_sheet, sourceRowIndex, destRowIndex, cellIndexList);
+
+            // Assert
+            Assert.AreEqual(destRowIndex, newSheet.LastRowNum);
+        }
+
+        [Test]
+        public void CopyRow_5Params_FromSourceRowIndexIsOutRange_ReturnsRowIsNull()
+        {
+            // Arrange
+            var newSheet = _workbook.CreateSheet("NewSheet");
+            var sourceRowIndex = 10;
+            var destRowIndex = 0;
+            var cellIndexList = new List<int>();
+
+            // Act
+            var newRow = newSheet.CopyRow(_sheet, sourceRowIndex, destRowIndex, cellIndexList);
+
+            // Assert
+            Assert.IsNull(newRow);
+        }
+
+        [Test]
+        public void CopyRow_5Params_FromValidSourceRowIndexAndCellList_ReturnRowIsNotNull()
+        {
+            // Arrange
+            var newSheet = _workbook.CreateSheet("NewSheet");
+            var sourceRowIndex = 2;
+            var destRowIndex = 3;
+            var cellIndexList = new List<int> { 0, 1 };
+
+            // Act
+            var newRow = newSheet.CopyRow(_sheet, sourceRowIndex, destRowIndex, cellIndexList);
+
+            // Assert
+            Assert.IsNotNull(newRow);
+        }
+
+        [Test]
+        public void CopyRow_6Params_FromSourceRowIndexLessThanNumberRowsOfSheet_ReturnsLastRowIndexIsSourceRowIndex()
+        {
+            // Arrange
+            var newSheet = _workbook.CreateSheet("NewSheet");
+            var sourceRowIndex = 10;
+            var destRowIndex = 3;
+            var cellIndexList = new List<int>();
+
+            // Act
+            newSheet.CopyRow(_sheet, sourceRowIndex, destRowIndex, cellIndexList, Arg.Any<ICellStyle>());
+
+            // Assert
+            Assert.AreEqual(destRowIndex, newSheet.LastRowNum);
+        }
+
+        [Test]
+        public void CopyRow_6Params_FromSourceRowIndexIsOutRange_ReturnsRowIsNull()
+        {
+            // Arrange
+            var newSheet = _workbook.CreateSheet("NewSheet");
+            var sourceRowIndex = 10;
+            var destRowIndex = 0;
+            var cellIndexList = new List<int>();
+
+            // Act
+            var newRow = newSheet.CopyRow(_sheet, sourceRowIndex, destRowIndex, cellIndexList, Arg.Any<ICellStyle>());
+
+            // Assert
+            Assert.IsNull(newRow);
+        }
+
+        [Test]
+        public void CopyRow_6Params_FromValidSourceRowIndexAndCellList_ReturnRowIsNotNull()
+        {
+            // Arrange
+            var newSheet = _workbook.CreateSheet("NewSheet");
+            var sourceRowIndex = 2;
+            var destRowIndex = 3;
+            var cellIndexList = new List<int> { 0, 1 };
+
+            // Act
+            var newRow = newSheet.CopyRow(_sheet, sourceRowIndex, destRowIndex, cellIndexList, Arg.Any<ICellStyle>());
+
+            // Assert
+            Assert.IsNotNull(newRow);
+        }
+
+        [TestCase(1, 2)]
+        [TestCase(2, 2)]
+        public void InsertCopy_FromRowNumLessThanOrEqualSourceRowNum_ReturnsNewRowHasFirstCellValueEqualFirstCellValueOfSourceRow(
+            int rowNum, int rowSourceNum)
+        {
+            // Act
+            var newRow = _sheet.InsertCopy(rowNum, rowSourceNum);
+            var sourceRow = _sheet.GetRow(rowSourceNum + 1);
+
+            // Assert
+            Assert.AreEqual(sourceRow.GetCell(0).StringCellValue, newRow.GetCell(0).StringCellValue);
+        }
+
+        [TestCase(2, 1)]
+        [TestCase(3, 1)]
+        [Ignore("Failed!")]
+        public void InsertCopy_FromRowNumGreaterThanSourceRowNum_ReturnsNewRowHasFirstCellValueEqualFirstCellValueOfSourceRow(
+            int rowNum, int rowSourceNum)
+        {
+            // Act
+            var newRow = _sheet.InsertCopy(rowNum, rowSourceNum);
+            var sourceRow = _sheet.GetRow(rowSourceNum);
+
+            // Assert
+            Assert.AreEqual(sourceRow.GetCell(0).StringCellValue, newRow.GetCell(0).StringCellValue);
+        }
+
+        [Test]
+        public void CopyCell_FromSourceCellIsNull_ReturnsNullCell()
+        {
+            // Arrange
+            ICell sourceCell = null;
+            ICell destCell = null;
+
+            // Act
+            _sheet.CopyCell(sourceCell, destCell);
+
+            // Assert
+            Assert.IsNull(destCell);
+        }
+
+        [Test]
+        public void CopyCell_FromDestCellHasComment_ReturnsDestCellCommentIsDestCellComment()
+        {
+            // Arrange
+            var commentContent = "This is a comment for test";
+            var comment = Substitute.For<IComment>();
+            comment.String.Returns(new HSSFRichTextString(commentContent));
+
+            var sourceCell = _sheet.GetCell(3, 2);
+            sourceCell.CellComment = comment;
+
+            var destCell = Substitute.For<ICell>();
+            destCell.CellComment = Substitute.For<IComment>();
+
+            // Act
+            _sheet.CopyCell(sourceCell, destCell);
+
+            // Assert
+            Assert.AreEqual(commentContent, destCell.CellComment.String.ToString());
+        }
+
+        [Test]
+        public void CopyCell_FromDestCellCommentIsNull_ReturnsDestCellCommentIsNull()
+        {
+            // Arrange
+            var sourceCell = _sheet.GetCell(3, 2);
+            var destCell = Substitute.For<ICell>();
+            destCell.CellComment = null;
+
+            // Act
+            _sheet.CopyCell(sourceCell, destCell);
+
+            // Assert
+            Assert.IsNull(destCell.CellComment);
+        }
+
+        [Test]
+        public void CopyCell_FromDestCellHasHyperlink_ReturnsDestCellHyperlinkIsDestCellHyperlink()
+        {
+            // Arrange
+            var address = "http://google.com";
+            var hyperlink = new HSSFHyperlink(HyperlinkType.Url);
+            hyperlink.Address = address;
+
+            var sourceCell = _sheet.GetCell(3, 2);
+            sourceCell.Hyperlink = hyperlink;
+
+            ICell destCell = Substitute.For<ICell>();
+            destCell.Hyperlink = Substitute.For<IHyperlink>();
+
+            // Act
+            _sheet.CopyCell(sourceCell, destCell);
+
+            // Assert
+            Assert.AreEqual(address, destCell.Hyperlink.Address);
+        }
+
+        [Test]
+        public void CopyCell_FromDestCellHyperlinkIsNull_ReturnsDestCellHyperlinkIsNull()
+        {
+            // Arrange
+            var sourceCell = _sheet.GetCell(3, 2);
+
+            var destCell = Substitute.For<ICell>();
+            destCell.Hyperlink = null;
+
+            // Act
+            _sheet.CopyCell(sourceCell, destCell);
+
+            // Assert
+            Assert.IsNull(destCell.Hyperlink);
+        }
+
+        [Test]
+        public void CopyCell_FromSourceCellTypeIsBlank_ReturnsDestCellHasStringValueEqualToSourceCellStringValue()
+        {
+            // Arrange
+            var sourceCell = _sheet.GetCell(5, 0);
+            var destCell = Substitute.For<ICell>();
+            destCell.Hyperlink = null;
+
+            // Act
+            _sheet.CopyCell(sourceCell, destCell);
+
+            // Assert
+            Assert.AreEqual(sourceCell.StringCellValue, destCell.StringCellValue);
+        }
+
+        [Test]
+        public void CopyCell_FromSourceCellTypeIsNumeric_ReturnsDestCellHasNumericValueEqualToSourceCellNumericValue()
+        {
+            // Arrange
+            var sourceCell = _sheet.GetCell(5, 4);
+            var destCell = _sheet.GetCell(7, 4);
+
+            // Act
+            _sheet.CopyCell(sourceCell, destCell);
+
+            // Assert
+            Assert.AreEqual(sourceCell.NumericCellValue, destCell.NumericCellValue);
+        }
+
+        [Test]
+        public void CopyCell_FromSourceCellTypeIsString_ReturnsDestCellHasStringValueEqualToSourceCellStringValue()
+        {
+            // Arrange
+            var sourceCell = _sheet.GetCell(5, 1);
+            var destCell = _sheet.GetCell(7, 1);
+
+            // Act
+            _sheet.CopyCell(sourceCell, destCell);
+
+            // Assert
+            Assert.AreEqual(sourceCell.RichStringCellValue.ToString(), destCell.RichStringCellValue.ToString());
+        }
+
+        [TestCase(1, 1)]
+        [TestCase(1, 2)]
+        public void GetCell_FromRowIndexAndColIndex_ReturnsSameAsOldGetCellFunc(int rowIndex, int colIndex)
+        {
+            // Act
+            var cell = _sheet.GetCell(rowIndex, colIndex);
+
+            // Assert
+            var expectedCell = _sheet.GetRow(rowIndex).GetCell(colIndex);
+            Assert.AreEqual(expectedCell, cell);
+        }
+
+        [Test]
+        [Ignore("Return null if rowIndex is out range")]
+        public void GetCell_FromRowIndexIsOutRamge_ReturnsNull()
+        {
+            // Arrange
+            var rowIndex = _sheet.LastRowNum + 10;
+
+            // Act
+            var cell = _sheet.GetCell(rowIndex, Arg.Any<int>());
+
+            // Assert
+            Assert.IsNull(cell);
+        }
+
+        [Test]
+        public void GetCell_FromInvalidRowIndexAndColIndexIsOutRamge_ReturnsNull()
+        {
+            // Arrange
+            var colIndex = 100;
+
+            // Act
+            var cell = _sheet.GetCell(0, colIndex);
+
+            // Assert
+            Assert.IsNull(cell);
+        }
+
+        [TestCase(1, 1, 3, 3)]
+        [TestCase(1, 1, 1, 3)]
+        [TestCase(1, 1, 1, 20)]
+        [TestCase(2, 0, 10, 20)]
+        public void MergeCells_FromFirstRowNLastRowNFirstColNLastCol_ReturnsTrue(
+            int firstRow,
+            int lastRow,
+            int firstCol,
+            int lastCol)
+        {
+            // Act
+            var result = _sheet.MergeCells(firstRow, lastRow, firstCol, lastCol);
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
+
+        [TestCase(1)]
+        [TestCase(3)]
+        public void DeleteRow_FromRowIndex_ThatRowIsNull(int rowIndex)
+        {
+            // Act
+            _sheet.DeleteRow(rowIndex);
+
+            // Assert
+            Assert.IsNull(_sheet.GetRow(rowIndex));
+        }
+    }
+}

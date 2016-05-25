@@ -68,5 +68,42 @@
             // Assert
             Assert.IsFalse(isValidated);
         }
+
+        [TestCase("Outright", true)]
+        [TestCase("", false)]
+        [TestCase("outright", false)]
+        [TestCase("Parlay", false)]
+        public void ValidateOutright_FromDtoName_RetunsExpectedResult(string dtoName, bool expectedResult)
+        {
+            // Act
+            var isValidated = Validate.Instance.ValidateOutright(dtoName);
+
+            // Assert
+            Assert.AreEqual(expectedResult, isValidated);
+        }
+
+        [TestCase("Parlay", true)]
+        [TestCase("", false)]
+        [TestCase("Outright", false)]
+        [TestCase("outright", false)]
+        public void ValidateParlay_FromDtoName_RetunsExpectedResult(string dtoName, bool expectedResult)
+        {
+            // Act
+            var isValidated = Validate.Instance.ValidateParlay(dtoName);
+
+            // Assert
+            Assert.AreEqual(expectedResult, isValidated);
+        }
+
+        [TestCase("", false)]
+        [TestCase("en", true)]
+        public void ValidateResource_FromDtoName_RetunsExpectedResult(string languageCode, bool expectedResult)
+        {
+            // Act
+            var isValidated = Validate.Instance.ValidateResource(languageCode);
+
+            // Assert
+            Assert.AreEqual(expectedResult, isValidated);
+        }
     }
 }

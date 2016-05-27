@@ -1,0 +1,112 @@
+﻿namespace Fanex.Result.Core.Sportsbook.Tests.ViewModels
+{
+    using Base;
+    using DTO;
+    using NSubstitute;
+    using NUnit.Framework;
+    using Sportsbook.ViewModels;
+
+    [TestFixture]
+    public class BasketBallViewModelTests
+    {
+        [Test]
+        public void GetHomeAwaySet_FromIndexGreaterThan4_ReturnsHyphen()
+        {
+            // Arrange
+            var viewModel = new BasketBallViewModel(Arg.Any<Sportsbook>(), new ResultSetting());
+
+            // Act
+            var homeAwaySet = viewModel.GetHomeAwaySet(10, Arg.Any<bool>());
+
+            // Assert
+            Assert.AreEqual("-", homeAwaySet);
+        }
+
+        [TestCase("")]
+        [TestCase(";343-343")]
+        [TestCase("343-343")]
+        public void GetHomeAwaySet_FromIndexLessThan4NBetStatusIsNullOrWrongFormat_ReturnsHyphen(string betStatus)
+        {
+            // Arrange
+            var sportsbookDto = new Sportsbook { BetStatus = betStatus };
+            var viewModel = new BasketBallViewModel(sportsbookDto, new ResultSetting());
+            var index = 3;
+
+            // Act
+            var homeAwaySet = viewModel.GetHomeAwaySet(index, Arg.Any<bool>());
+
+            // Assert
+            Assert.AreEqual("-", homeAwaySet);
+        }
+
+        [TestCase("")]
+        [TestCase(";343-343")]
+        [TestCase("343-343")]
+        public void GetHomeAwaySet_FromIndexIs4NBetStatusIsNullOrWrongFormat_ReturnsZero(string betStatus)
+        {
+            // Arrange
+            var sportsbookDto = new Sportsbook { BetStatus = betStatus };
+            var viewModel = new BasketBallViewModel(sportsbookDto, new ResultSetting());
+            var index = 4;
+
+            // Act
+            var homeAwaySet = viewModel.GetHomeAwaySet(index, Arg.Any<bool>());
+
+            // Assert
+            Assert.AreEqual("0", homeAwaySet);
+        }
+
+        [Test]
+        public void GetHomeAwaySet_FromBetStatusHasLessThan5SetsNIndexIs4_ReturnsZero()
+        {
+            // Arrange
+            var betStatus = ";1-2,3-1,2-3,1-2";
+            var index = 4;
+            var sportsbookDto = new Sportsbook { BetStatus = betStatus };
+            var viewModel = new BasketBallViewModel(sportsbookDto, new ResultSetting());
+
+            // Act
+            var homeAwaySet = viewModel.GetHomeAwaySet(index, Arg.Any<bool>());
+
+            // Assert
+            Assert.AreEqual("0", homeAwaySet);
+        }
+
+        [TestCase(";1-2,3-1", 3)]
+        [TestCase(";1-2,3-1", 2)]
+        public void GetHomeAwaySet_FromBetStatusHasLessThan5SetsNIndexIsNot4AndEqualOrGreaterThanSetNums_ReturnsHyphen(
+            string betStatus,
+            int index)
+        {
+            // Arrange
+            var sportsbookDto = new Sportsbook { BetStatus = betStatus };
+            var viewModel = new BasketBallViewModel(sportsbookDto, new ResultSetting());
+
+            // Act
+            var homeAwaySet = viewModel.GetHomeAwaySet(index, Arg.Any<bool>());
+
+            // Assert
+            Assert.AreEqual("-", homeAwaySet);
+        }
+
+        [TestCase(2, ";1-2,3-1,2-3", true, "2")]
+        [TestCase(2, ";1-2,3-1,2-3,1-2,3-3", false, "3")]
+        [TestCase(0, ";1-2,3-1,2-3,1-2,3-3", false, "2")]
+        public void GetHomeAwaySet_FromIndexLessThanBetStatusSets_ReturnsExpectedHomeAwaySet(
+            int index,
+            string betStatus,
+            bool isHome,
+            string expectedHomeAwaySet)
+        {
+            // Arrange
+            var sportsbookDto = new Sportsbook { BetStatus = betStatus };
+            var viewModel = new BasketBallViewModel(sportsbookDto, new ResultSetting());
+
+            // Act
+            var homeAwaySet = viewModel.GetHomeAwaySet(index, isHome);
+
+            // Assert
+            Assert.AreEqual(expectedHomeAwaySet, homeAwaySet);
+        }
+    }
+}

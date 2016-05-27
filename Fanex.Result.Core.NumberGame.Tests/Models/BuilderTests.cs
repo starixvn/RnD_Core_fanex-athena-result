@@ -6,6 +6,7 @@
     using NumberGame.Models;
     using NUnit.Framework;
 
+    [TestFixture]
     public class BuilderTests
     {
         [Test]

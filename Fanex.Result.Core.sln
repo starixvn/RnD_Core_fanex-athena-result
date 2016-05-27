@@ -61,6 +61,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Sportsboo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Racing.Tests", "Fanex.Result.Core.Racing.Tests\Fanex.Result.Core.Racing.Tests.csproj", "{B58DE44F-DD85-4C29-ACC8-58F2FC0751A2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.NumberGame.Tests", "Fanex.Result.Core.NumberGame.Tests\Fanex.Result.Core.NumberGame.Tests.csproj", "{400A42FF-5785-4CBA-9499-0F659DD4F688}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.MetricGaming.Tests", "Fanex.Result.Core.MetricGaming.Tests\Fanex.Result.Core.MetricGaming.Tests.csproj", "{F20A6D32-94E0-4486-8C66-320F3EF970D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -147,6 +151,14 @@ Global
 		{B58DE44F-DD85-4C29-ACC8-58F2FC0751A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B58DE44F-DD85-4C29-ACC8-58F2FC0751A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B58DE44F-DD85-4C29-ACC8-58F2FC0751A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{400A42FF-5785-4CBA-9499-0F659DD4F688}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{400A42FF-5785-4CBA-9499-0F659DD4F688}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{400A42FF-5785-4CBA-9499-0F659DD4F688}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{400A42FF-5785-4CBA-9499-0F659DD4F688}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F20A6D32-94E0-4486-8C66-320F3EF970D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F20A6D32-94E0-4486-8C66-320F3EF970D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F20A6D32-94E0-4486-8C66-320F3EF970D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F20A6D32-94E0-4486-8C66-320F3EF970D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -168,6 +180,8 @@ Global
 		{77EA5F5D-52E9-47D8-BF8C-7974A2F00AF7} = {CCA318B4-A6C4-4767-B6A5-2348BACBA831}
 		{978D3D90-0029-43DD-8791-E9D3368C735B} = {CCA318B4-A6C4-4767-B6A5-2348BACBA831}
 		{B58DE44F-DD85-4C29-ACC8-58F2FC0751A2} = {CCA318B4-A6C4-4767-B6A5-2348BACBA831}
+		{400A42FF-5785-4CBA-9499-0F659DD4F688} = {CCA318B4-A6C4-4767-B6A5-2348BACBA831}
+		{F20A6D32-94E0-4486-8C66-320F3EF970D2} = {CCA318B4-A6C4-4767-B6A5-2348BACBA831}
 	EndGlobalSection
 	GlobalSection(JSLint) = preSolution
 		SolutionConfigurationLocation = JSLintOptions.xml

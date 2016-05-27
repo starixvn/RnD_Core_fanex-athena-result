@@ -38,7 +38,7 @@
 
         [TestCase(100110)]
         [TestCase(99999)]
-        public void GetViewModel_FromInvalidSportType_ThrowException(int sportType)
+        public void GetViewModel_FromSportTypeUndefined_ThrowException(int sportType)
         {
             // Arrange
             _resultSetting.SportType = (SportType)sportType;
@@ -54,7 +54,7 @@
         [TestCase(44, "MuayThaiViewModel")]
         [TestCase(2, "BasketBallViewModel")]
         [TestCase(32, "BasketBallViewModel")]
-        public void GetViewModel_FromSportType_ReturnsExpectedViewModelType(int sportType, string expectedViewModelType)
+        public void GetViewModel_FromSportTypeIsDefined_ReturnsExpectedViewModelType(int sportType, string expectedViewModelType)
         {
             // Arrange
             _resultSetting.SportType = (SportType)sportType;
@@ -109,7 +109,7 @@
 
         [TestCase(100110)]
         [TestCase(99999)]
-        public void GetExcelViewModel_FromInvalidSportType_ThrowException(int sportType)
+        public void GetExcelViewModel_FromSportTypeIsUndefined_ThrowException(int sportType)
         {
             // Arrange
             _resultSetting.SportType = (SportType)sportType;
@@ -125,7 +125,7 @@
         [TestCase(44, "MuayThaiExcel")]
         [TestCase(2, "BasketBallExcel")]
         [TestCase(32, "BasketBallExcel")]
-        public void GetExcelViewModel_FromSportType_ReturnsExpectedExcelModelType(int sportType, string expectedExcelModelType)
+        public void GetExcelViewModel_FromSportTypeIsDefined_ReturnsExpectedExcelModelType(int sportType, string expectedExcelModelType)
         {
             // Arrange
             _resultSetting.SportType = (SportType)sportType;

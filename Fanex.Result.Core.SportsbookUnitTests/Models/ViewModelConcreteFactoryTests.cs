@@ -51,9 +51,11 @@
         }
 
         [TestCase(1, "SoccerViewModel")]
-        [TestCase(44, "MuayThaiViewModel")]
         [TestCase(2, "BasketBallViewModel")]
+        [TestCase(10, "BilliardViewModel")]
         [TestCase(32, "BasketBallViewModel")]
+        [TestCase(44, "MuayThaiViewModel")]
+        [TestCase(186, "VSTennisViewModel")]
         public void GetViewModel_FromSportTypeIsDefined_ReturnsExpectedViewModelType(int sportType, string expectedViewModelType)
         {
             // Arrange
@@ -122,9 +124,15 @@
         }
 
         [TestCase(1, "SoccerExcel")]
-        [TestCase(44, "MuayThaiExcel")]
         [TestCase(2, "BasketBallExcel")]
+        [TestCase(4, "HockeyExcel")]
+        [TestCase(5, "TennisExcel")]
+        [TestCase(6, "BadmintonExcel")]
+        [TestCase(8, "BaseBallExcel")]
+        [TestCase(10, "BilliardExcel")]
         [TestCase(32, "BasketBallExcel")]
+        [TestCase(44, "MuayThaiExcel")]
+        [TestCase(186, "VSTennisExcel")]
         public void GetExcelViewModel_FromSportTypeIsDefined_ReturnsExpectedExcelModelType(int sportType, string expectedExcelModelType)
         {
             // Arrange

@@ -22,29 +22,29 @@
         }
 
         [Test]
-        public void GetViewModel_FromSportTypeLessThanZero_ThrowsException()
+        public void GetViewModel_FromSportTypeIsNotGreaterThanZero_ThrowsException()
         {
             // Arrange
             _resultSetting.SportType = (SportType)(-1);
 
             // Act
-            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetViewModel(new List<Racing>(), _resultSetting);
+            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetViewModel<Racing>(null, _resultSetting);
 
             // Assert
             Assert.Throws<ObjectNullException>(testDelegate);
         }
 
         [Test]
-        public void GetViewModel_FromSportTypeIsUndefined_ThrowsException()
+        public void GetViewModel_FromSportTypeIsNotRacing_ThrowsException()
         {
             // Arrange
-            _resultSetting.SportType = (SportType)99999;
+            _resultSetting.SportType = SportType.Soccer;
 
             // Act
             TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetViewModel(new List<Racing>(), _resultSetting);
 
             // Assert
-            Assert.Throws<NullReferenceException>(testDelegate);
+            Assert.Throws<ObjectNullException>(testDelegate);
         }
 
         [TestCase(151, "RacingViewModel")]
@@ -55,7 +55,7 @@
         [TestCase(183, "VSSpeedWayViewModel")]
         [TestCase(184, "VSHRacingViewModel")]
         [TestCase(185, "VSHRacingViewModel")]
-        public void GetViewModel_FromSportTypeIsDefined__ReturnsExpectedViewModelType(int sportType, string expectedViewModelType)
+        public void GetViewModel_FromSportTypeIsRacing_ReturnsExpectedViewModelType(int sportType, string expectedViewModelType)
         {
             // Arrange
             _resultSetting.SportType = (SportType)sportType;
@@ -71,7 +71,7 @@
         public void GetOutrightViewModel_Always_ThrowsException()
         {
             // Act
-            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetOutrightViewModel(new List<Racing>(), _resultSetting);
+            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetOutrightViewModel(null, _resultSetting);
 
             // Assert
             Assert.Throws<NotImplementedException>(testDelegate);
@@ -81,14 +81,14 @@
         public void GetParlayViewModel_Always_ThrowsException()
         {
             // Act
-            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetParlayViewModel(new List<Racing>(), _resultSetting);
+            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetParlayViewModel(null, _resultSetting);
 
             // Assert
             Assert.Throws<NotImplementedException>(testDelegate);
         }
 
         [Test]
-        public void GetExcelViewModel_FromSportTypeLessThanZero_ThrowsException()
+        public void GetExcelViewModel_FromSportTypeIsNotGreaterThanZero_ThrowsException()
         {
             // Arrange
             _resultSetting.SportType = (SportType)(-1);
@@ -101,16 +101,16 @@
         }
 
         [Test]
-        public void GetExcelViewModel_FromSportTypeIsUndefined_ThrowsException()
+        public void GetExcelViewModel_FromSportTypeIsNotRacing_ThrowsException()
         {
             // Arrange
-            _resultSetting.SportType = (SportType)99999;
+            _resultSetting.SportType = SportType.Soccer;
 
             // Act
             TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetExcelViewModel(new List<Racing>(), _resultSetting);
 
             // Assert
-            Assert.Throws<NullReferenceException>(testDelegate);
+            Assert.Throws<ObjectNullException>(testDelegate);
         }
 
         [TestCase(151, "RacingExcel")]

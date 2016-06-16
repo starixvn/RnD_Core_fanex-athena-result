@@ -27,23 +27,23 @@
         }
 
         [Test]
-        public void GetViewModel_FromSportTypeLessThanZero_ThrowsException()
+        public void GetViewModel_FromSportTypeNotGreaterThanZero_ThrowsException()
         {
             // Arrange
             _resultSetting.SportType = (SportType)(-1);
 
             // Act
-            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetViewModel(new List<AGCasino>(), _resultSetting);
+            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetViewModel<AGCasino>(null, _resultSetting);
 
             // Assert
             Assert.Throws<ObjectNullException>(testDelegate);
         }
 
         [Test]
-        public void GetViewModel_FromSportTypeIsEqualOrGreaterThanZero_ReturnsNumberGame()
+        public void GetViewModel_FromSportTypeIsAGCasino_ReturnsAGCasinoViewModel()
         {
             // Arrange
-            _resultSetting.SportType = SportType.NumberGame;
+            _resultSetting.SportType = SportType.AGCasino;
 
             // Act
             var viewModel = ViewModelConcreteFactory.Instance.GetViewModel(_aGCasino, _resultSetting);
@@ -58,7 +58,7 @@
         public void GetOutrightViewModel_Always_ThrowsException()
         {
             // Act
-            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetOutrightViewModel(new List<AGCasino>(), _resultSetting);
+            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetOutrightViewModel(null, _resultSetting);
 
             // Assert
             Assert.Throws<NotImplementedException>(testDelegate);
@@ -68,7 +68,7 @@
         public void GetParlayViewModel_Always_ThrowsException()
         {
             // Act
-            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetParlayViewModel(new List<AGCasino>(), _resultSetting);
+            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetParlayViewModel(null, _resultSetting);
 
             // Assert
             Assert.Throws<NotImplementedException>(testDelegate);

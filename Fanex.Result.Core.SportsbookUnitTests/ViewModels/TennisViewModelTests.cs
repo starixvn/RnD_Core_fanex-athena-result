@@ -13,7 +13,7 @@
     public class TennisViewModelTests
     {
         [Test]
-        public void GetHomeAwaySet_FromIndexGreaterThan4_ReturnsHyphen()
+        public void GetHomeAwaySet_FromIndexIsGreaterThan4_ReturnsHyphen()
         {
             // Arrange
             var viewModel = new TennisViewModel(Arg.Any<Sportsbook>(), new ResultSetting());
@@ -27,7 +27,7 @@
         }
 
         [Test]
-        public void GetHomeAwaySet_FromIndexLessThan5AndGameDetailsDoesNotHaveAnyElement_ReturnsHyphen()
+        public void GetHomeAwaySet_FromIndexIsLessThan5AndGameDetailsDoesNotHaveAnyElement_ReturnsHyphen()
         {
             // Arrange
             var sportsbook = new Sportsbook
@@ -45,7 +45,7 @@
         }
 
         [Test]
-        public void GetHomeAwaySet_FromIndexLessThan5AndGameDetailsHasElementButNoneOfItHasResourceId1UnitGreaterThanIndex_ReturnsHyphen()
+        public void GetHomeAwaySet_FromIndexIsLessThan5AndFirstElementOfGameDetailsHasResourceIdNotEqualToIndexPlus1_ReturnsHyphen()
         {
             // Arrange
             var sportsbook = new Sportsbook
@@ -64,7 +64,7 @@
 
         [TestCase(true, "10")]
         [TestCase(false, "12")]
-        public void GetHomeAwaySet_FromIndexLessThan5AndGameDetailsHasResourceId1UnitGreaterThanIndexAndSettlementStatusIDIsRunning_ReturnsExpectedSet(
+        public void GetHomeAwaySet_FromIndexLessThan5AndFirstElementOfGameDetailsHasResourceIdIsEqualToIndexPlus1AndSettlementStatusIDIsRunning_ReturnsExpectedSet(
             bool isHome,
             string expectedSet)
         {
@@ -94,7 +94,7 @@
 
         [TestCase(true, "10")]
         [TestCase(false, "12")]
-        public void GetHomeAwaySet_FromIndexLessThan5AndGameDetailsHasResourceId1UnitGreaterThanIndexAndSettlementStatusIDIsCompleted_ReturnsExpectedSet(
+        public void GetHomeAwaySet_FromIndexLessThan5AndFirstElementOfGameDetailsHasResourceIdIsEqualToIndexPlus1AndSettlementStatusIDIsCompleted_ReturnsExpectedSet(
             bool isHome,
             string expectedSet)
         {
@@ -123,7 +123,7 @@
         }
 
         [Test]
-        public void GetHomeAwaySet_FromIndexLessThan5AndGameDetailsHasResourceId1UnitGreaterThanIndexAndSettlementStatusIDIsRefund_ReturnsRefund()
+        public void GetHomeAwaySet_FromIndexLessThan5AndFirstElementOfGameDetailsHasResourceIdIsEqualToIndexPlus1AndSettlementStatusIDIsRefund_ReturnsRefund()
         {
             // Arrange
             var index = 3;
@@ -150,7 +150,7 @@
         }
 
         [Test]
-        public void GetHomeAwaySet_FromIndexLessThan5AndGameDetailsHasResourceId1UnitGreaterThanIndexAndSettlementStatusIDIsRefundHT_ReturnsHTRefund()
+        public void GetHomeAwaySet_FromIndexLessThan5FirstElementOfGameDetailsHasResourceIdIsEqualToIndexPlus1AndAndSettlementStatusIDIsRefundHT_ReturnsHTRefund()
         {
             // Arrange
             var index = 3;
@@ -177,7 +177,7 @@
         }
 
         [Test]
-        public void GetHomeAwaySet_FromIndexLessThan5AndGameDetailsHasResourceId1UnitGreaterThanIndexAndSettlementStatusIDIsRefundFT_ReturnsRefundFT()
+        public void GetHomeAwaySet_FromIndexLessThan5FirstElementOfGameDetailsHasResourceIdIsEqualToIndexPlus1AndAndSettlementStatusIDIsRefundFT_ReturnsRefundFT()
         {
             // Arrange
             var index = 3;
@@ -204,7 +204,7 @@
         }
 
         [Test]
-        public void GetHomeAwaySet_FromIndexLessThan5AndGameDetailsHasResourceId1UnitGreaterThanIndexAndSettlementStatusIDIsOtherCases_ReturnsHyphen()
+        public void GetHomeAwaySet_FromIndexLessThan5FirstElementOfGameDetailsHasResourceIdIsEqualToIndexPlus1AndAndSettlementStatusIDIsOtherCases_ReturnsHyphen()
         {
             // Arrange
             var index = 3;
@@ -259,14 +259,9 @@
         }
 
         [TestCase(1, "80102")]
-        [TestCase(1, "80112")]
-        [TestCase(2, "80202")]
         [TestCase(2, "80205")]
         [TestCase(3, "80310")]
-        [TestCase(3, "80305")]
-        [TestCase(4, "80411")]
         [TestCase(4, "80412")]
-        [TestCase(5, "80502")]
         [TestCase(5, "80555")]
         public void VisibleSet_FromSetIsFrom1To5AndBetIDIsInRangeOfSet_ReturnsTrue(int set, string betId)
         {
@@ -282,14 +277,9 @@
         }
 
         [TestCase(1, "80100")]
-        [TestCase(1, "80301")]
-        [TestCase(2, "80513")]
         [TestCase(2, "80214")]
         [TestCase(3, "80410")]
-        [TestCase(3, "80201")]
-        [TestCase(4, "80414")]
         [TestCase(4, "80499")]
-        [TestCase(5, "80000")]
         [TestCase(5, "80099")]
         public void VisibleSet_FromSetIsFrom1To5AndBetIDIsOutRangeOfSet_ReturnsFalse(int set, string betId)
         {

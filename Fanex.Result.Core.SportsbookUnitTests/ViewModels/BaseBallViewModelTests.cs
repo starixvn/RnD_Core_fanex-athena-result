@@ -10,7 +10,7 @@
     public class BaseBallViewModelTests
     {
         [Test]
-        public void GetHomeAwaySet_FromIndexGreaterThan9_ReturnsHyphen()
+        public void GetHomeAwaySet_FromIndexIsGreaterThan9_ReturnsHyphen()
         {
             // Arrange
             var viewModel = new BaseBallViewModel(Arg.Any<Sportsbook>(), new ResultSetting());
@@ -23,26 +23,9 @@
         }
 
         [TestCase("")]
-        [TestCase(";343-343")]
-        [TestCase("343-343")]
-        public void GetHomeAwaySet_FromIndexLessThan9NBetStatusIsNullOrWrongFormat_ReturnsHyphen(string betStatus)
-        {
-            // Arrange
-            var sportsbookDto = new Sportsbook { BetStatus = betStatus };
-            var viewModel = new BaseBallViewModel(sportsbookDto, new ResultSetting());
-            var index = 5;
-
-            // Act
-            var homeAwaySet = viewModel.GetHomeAwaySet(index, Arg.Any<bool>());
-
-            // Assert
-            Assert.AreEqual("-", homeAwaySet);
-        }
-
-        [TestCase("")]
-        [TestCase(";343-343")]
-        [TestCase("343-343")]
-        public void GetHomeAwaySet_FromIndexIs9NBetStatusIsNullOrWrongFormat_ReturnsNegative1(string betStatus)
+        [TestCase(null)]
+        [TestCase("sdjsdf23423")]
+        public void GetHomeAwaySet_FromIndexIs9AndBetStatusIsNullOrEmptyOrHaveNotComma_ReturnsMinus1(string betStatus)
         {
             // Arrange
             var sportsbookDto = new Sportsbook { BetStatus = betStatus };
@@ -56,8 +39,25 @@
             Assert.AreEqual("-1", homeAwaySet);
         }
 
+        [TestCase("")]
+        [TestCase(null)]
+        [TestCase("sdjsdf23423")]
+        public void GetHomeAwaySet_FromIndexIsLessThan9AndBetStatusIsNullOrEmptyOrHaveNotComma_ReturnsHyphen(string betStatus)
+        {
+            // Arrange
+            var index = 3;
+            var sportsbookDto = new Sportsbook { BetStatus = betStatus };
+            var viewModel = new BaseBallViewModel(sportsbookDto, new ResultSetting());
+
+            // Act
+            var homeAwaySet = viewModel.GetHomeAwaySet(index, Arg.Any<bool>());
+
+            // Assert
+            Assert.AreEqual("-", homeAwaySet);
+        }
+
         [Test]
-        public void GetHomeAwaySet_FromBetStatusHasLessThan10SetsNIndexIs9_ReturnsNegative1()
+        public void GetHomeAwaySet_FromIndexIs9AndBetStatusSetsIsLessThan10_ReturnsMinus1()
         {
             // Arrange
             var betStatus = ";1-2,3-1,2-3,1-2,3-3,3-1,2-3";
@@ -72,13 +72,12 @@
             Assert.AreEqual("-1", homeAwaySet);
         }
 
-        [TestCase(";1-2,3-1,2-3,1-2,3-3,3-1,2-3", 7)]
-        [TestCase(";1-2,3-1,2-3,1-2,3-3,3-1,2-3", 8)]
-        public void GetHomeAwaySet_FromBetStatusHasLessThan10SetsNIndexIsNot9AndEqualOrGreaterThanSetNums_ReturnsHyphen(
-            string betStatus,
-            int index)
+        [Test]
+        public void GetHomeAwaySet_FromIndexIsLessThan9AndBetStatusSetsIsNotGreaterThanIndex_ReturnsHyphen()
         {
             // Arrange
+            var betStatus = ";1-2,3-1,2-3,1-2,3-3,3-1,2-3";
+            var index = 8;
             var sportsbookDto = new Sportsbook { BetStatus = betStatus };
             var viewModel = new BaseBallViewModel(sportsbookDto, new ResultSetting());
 
@@ -92,7 +91,7 @@
         [TestCase(2, ";1-2,3-1,2-3", true, "2")]
         [TestCase(2, ";1-2,3-1,2-3,1-2,3-3", false, "3")]
         [TestCase(9, ";1-2,3-1,2-3,1-2,3-3,3-1,2-3,1-2,3-3,2-3", false, "3")]
-        public void GetHomeAwaySet_FromIndexLessThanBetStatusSets_ReturnsExpectedHomeAwaySet(
+        public void GetHomeAwaySet_FromIndexIsLessThan10AndBetStatusSets_ReturnsExpectedHomeAwaySet(
             int index,
             string betStatus,
             bool isHome,

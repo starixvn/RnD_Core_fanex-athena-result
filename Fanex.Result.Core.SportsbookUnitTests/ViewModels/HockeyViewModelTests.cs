@@ -10,7 +10,7 @@
     public class HockeyViewModelTests
     {
         [Test]
-        public void GetHomeAwaySet_FromIndexGreaterThan3_ReturnsHyphen()
+        public void GetHomeAwaySet_FromIndexIsGreaterThan3_ReturnsHyphen()
         {
             // Arrange
             var viewModel = new HockeyViewModel(Arg.Any<Sportsbook>(), new ResultSetting());
@@ -23,9 +23,9 @@
         }
 
         [TestCase("")]
-        [TestCase(";343-343")]
+        [TestCase(null)]
         [TestCase("343-343")]
-        public void GetHomeAwaySet_FromIndexLessThan3NBetStatusIsNullOrWrongFormat_ReturnsHyphen(string betStatus)
+        public void GetHomeAwaySet_FromIndexLessThan3AndBetStatusIsNullOrEmptyOrNotContainsComma_ReturnsHyphen(string betStatus)
         {
             // Arrange
             var sportsbookDto = new Sportsbook { BetStatus = betStatus };
@@ -40,9 +40,9 @@
         }
 
         [TestCase("")]
-        [TestCase(";343-343")]
+        [TestCase(null)]
         [TestCase("343-343")]
-        public void GetHomeAwaySet_FromIndexIs3NBetStatusIsNullOrWrongFormat_ReturnsZero(string betStatus)
+        public void GetHomeAwaySet_FromIndexIs3AndBetStatusIsNullOrEmptyOrNotContainsComma_ReturnsZero(string betStatus)
         {
             // Arrange
             var sportsbookDto = new Sportsbook { BetStatus = betStatus };
@@ -57,7 +57,7 @@
         }
 
         [Test]
-        public void GetHomeAwaySet_FromBetStatusHasLessThan4SetsNIndexIs3_ReturnsZero()
+        public void GetHomeAwaySet_FromIndexIs3AndBetStatusHasLessThan4Sets_ReturnsZero()
         {
             // Arrange
             var betStatus = ";1-2,3-1";
@@ -72,13 +72,12 @@
             Assert.AreEqual("0", homeAwaySet);
         }
 
-        [TestCase(";1-2,3-1", 2)]
-        [TestCase(";1-2", 2)]
-        public void GetHomeAwaySet_FromBetStatusHasLessThan4SetsNIndexIsNot3AndEqualOrGreaterThanSetNums_ReturnsHyphen(
-            string betStatus,
-            int index)
+        [Test]
+        public void GetHomeAwaySet_FromIndexIsLessThan3AndBetStatusSetsIsNotGreaterThanIndex_ReturnsHyphen()
         {
             // Arrange
+            var index = 2;
+            var betStatus = ";1-2,3-1";
             var sportsbookDto = new Sportsbook { BetStatus = betStatus };
             var viewModel = new HockeyViewModel(sportsbookDto, new ResultSetting());
 
@@ -92,7 +91,7 @@
         [TestCase(1, ";1-2,3-1,2-3", true, "3")]
         [TestCase(1, ";1-2,3-1,2-3,1-2,3-3", false, "1")]
         [TestCase(0, ";1-2,3-1,2-3,1-2,3-3", false, "2")]
-        public void GetHomeAwaySet_FromIndexLessThanBetStatusSets_ReturnsExpectedHomeAwaySet(
+        public void GetHomeAwaySet_FromIndexIsLessThan4AndBetStatusSets_ReturnsExpectedHomeAwaySet(
             int index,
             string betStatus,
             bool isHome,

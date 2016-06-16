@@ -1,20 +1,21 @@
 ﻿namespace Fanex.Result.Core.Base.Tests.Extension
 {
+    using System;
     using Base.Extension;
     using NUnit.Framework;
 
     [TestFixture]
     public class ConverterTests
     {
-        ////[TestCase("None123")]
-        ////[TestCase("Hello")]
-        public void To_FromInvalidObjectWithReturnTypeIsBool_ReturnsFalse(object item)
+        [TestCase("None123")]
+        [TestCase("Hello")]
+        public void To_FromInvalidObjectWithReturnTypeIsBool_ThrowsException(object item)
         {
             // Act
-            var convertedItem = Converter.To<bool>(item);
+            TestDelegate testDelegate = () => Converter.To<bool>(item);
 
             // Assert
-            Assert.IsFalse(convertedItem);
+            Assert.Throws<FormatException>(testDelegate);
         }
 
         [TestCase(true, true)]

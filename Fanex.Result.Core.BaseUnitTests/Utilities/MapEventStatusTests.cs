@@ -10,7 +10,7 @@
     {
         [TestCase("running")]
         [TestCase("pending")]
-        public void MapEventStatusString_FromInvalidEventStatus_ReturnsIsNotInternal(string status)
+        public void MapEventStatusString_FromEventStatusIsNotInternal_ReturnsIsNotInternal(string status)
         {
             // Act
             var eventStatus = MapEventStatus.MapEventStatusString(status, Arg.Any<bool>(), Arg.Any<bool>());
@@ -20,13 +20,14 @@
             Assert.AreNotEqual(expectedEventStatus, eventStatus);
         }
 
-        public void MapEventStatusString_FromVisibleInternalStatusIsFalse_ReturnsNotInternal()
+        public void MapEventStatusString_FromEventStatusIsInternalVisibleInternalStatusIsFalse_ReturnsNotInternal()
         {
             // Arrange
-            var visibleInternalEventStatus = true;
+            var eventstatus = "Internal";
+            var visibleInternalEventStatus = false;
 
             // Act
-            var eventStatus = MapEventStatus.MapEventStatusString(Arg.Any<string>(), Arg.Any<bool>(), visibleInternalEventStatus);
+            var eventStatus = MapEventStatus.MapEventStatusString(eventstatus, Arg.Any<bool>(), visibleInternalEventStatus);
 
             // Assert
             var expectedEventStatus = "Internal";
@@ -35,7 +36,7 @@
 
         [TestCase("internal")]
         [TestCase("InTeRnal")]
-        public void MapEventStatusString_FromValidEventStatusAndVisibleInternalStatusIsTrue_ReturnsInternal(string status)
+        public void MapEventStatusString_FromEventStatusIsInternalAndVisibleInternalStatusIsTrue_ReturnsInternal(string status)
         {
             // Arrange
             var visibleInternalEventStatus = true;
@@ -51,7 +52,7 @@
         [TestCase("rUnNing", true)]
         [TestCase("pending", true)]
         [TestCase("internal", false)]
-        public void MapEventStatusString_FromInvalidEventStatusOrVisibleInternalStatusIsFalseAndPendingIsTrue_ReturnsPending(
+        public void MapEventStatusString_FromEventStatusIsNotInternalOrVisibleInternalStatusIsFalseAndPendingIsTrue_ReturnsPending(
             string status,
             bool visibleInternalEventStatus)
         {
@@ -66,12 +67,11 @@
             Assert.AreEqual(expectedEventStatus, eventStatus);
         }
 
-        [TestCase("Internal", "Running")]
-        [TestCase("thirdParty", "Thirdparty")]
-        public void MapEventStatusString_FromEventStatusAndVisibleInternalEventStatusIsFalseAndPendingIsFalse_ReturnsExpectedStatus(
-                string eventStatus, string expectedStatus)
+        [Test]
+        public void MapEventStatusString_FromEventStatusIsInternalAndVisibleInternalEventStatusIsFalseAndPendingIsFalse_ReturnsRunning()
         {
             // Arrange
+            var eventStatus = "Internal";
             var visibleInternalEventStatus = false;
             var isPending = false;
 
@@ -79,6 +79,22 @@
             var status = MapEventStatus.MapEventStatusString(eventStatus, isPending, visibleInternalEventStatus);
 
             // Assert
+            var expectedStatus = "Running";
+            Assert.AreEqual(expectedStatus, status);
+        }
+
+        [Test]
+        public void MapEventStatusString_FromEventStatusIsNotInternalAndPendingIsFalse_ReturnsRunning()
+        {
+            // Arrange
+            var eventStatus = "thirdParty";
+            var isPending = false;
+
+            // Act
+            var status = MapEventStatus.MapEventStatusString(eventStatus, isPending, Arg.Any<bool>());
+
+            // Assert
+            var expectedStatus = "Thirdparty";
             Assert.AreEqual(expectedStatus, status);
         }
 

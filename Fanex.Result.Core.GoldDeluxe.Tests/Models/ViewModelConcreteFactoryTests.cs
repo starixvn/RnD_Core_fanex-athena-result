@@ -22,7 +22,7 @@
         }
 
         [Test]
-        public void GetViewModel_FromSportTypeLessThanZero_ThrowsException()
+        public void GetViewModel_FromSportTypeIsNotGreaterThanZero_ThrowsException()
         {
             // Arrange
             _resultSetting.SportType = (SportType)(-1);
@@ -35,10 +35,10 @@
         }
 
         [Test]
-        public void GetViewModel_FromSportTypeIsEqualOrGreaterThanZero_ReturnsNumberGame()
+        public void GetViewModel_FromSportTypeIsGoldDeluxe_ReturnsGoldDeluxeViewModel()
         {
             // Arrange
-            _resultSetting.SportType = SportType.NumberGame;
+            _resultSetting.SportType = SportType.GoldDeluxe;
 
             // Act
             var viewModel = ViewModelConcreteFactory.Instance.GetViewModel(_goldDeluxe, _resultSetting);
@@ -53,7 +53,7 @@
         public void GetOutrightViewModel_Always_ThrowsException()
         {
             // Act
-            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetOutrightViewModel(new List<GoldDeluxe>(), _resultSetting);
+            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetOutrightViewModel(null, _resultSetting);
 
             // Assert
             Assert.Throws<NotImplementedException>(testDelegate);
@@ -63,14 +63,14 @@
         public void GetParlayViewModel_Always_ThrowsException()
         {
             // Act
-            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetParlayViewModel(new List<GoldDeluxe>(), _resultSetting);
+            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetParlayViewModel(null, _resultSetting);
 
             // Assert
             Assert.Throws<NotImplementedException>(testDelegate);
         }
 
         [Test]
-        public void GetExcelViewModel_FromSportTypeLessThanZero_ThrowsException()
+        public void GetExcelViewModel_FromSportTypeIsNotGreaterThanZero_ThrowsException()
         {
             // Arrange
             _resultSetting.SportType = (SportType)(-1);
@@ -83,7 +83,7 @@
         }
 
         [Test]
-        public void GetExcelViewModel_FromSportTypeIsEqualOrGreaterThanZero_ReturnsNumberGame()
+        public void GetExcelViewModel_FromSportTypeIsGoldDeluxe_ReturnsGoldDeluxeExcel()
         {
             // Arrange
             _resultSetting.SportType = SportType.GoldDeluxe;

@@ -70,28 +70,54 @@
             Assert.AreEqual(expectedFormattedDecimal, formattedDec);
         }
 
-        [TestCase(0, "00")]
-        [TestCase(5, "05")]
-        [TestCase(51, "51")]
-        [TestCase(151, "151")]
-        public void FormatTwoDigit_FromNumber_ReturnsExpectedTwoDigitsNumber(int number, string expectedNumber)
+        [TestCase(0)]
+        [TestCase(5)]
+        public void FormatTwoDigit_FromNumberIsLessThan10_ReturnsPrefixIs0(int number)
         {
             // Act
             var twoDigitsNumber = Helper.FormatTwoDigit(number);
 
             // Assert
+            var expectedNumber = $"0{number}";
             Assert.AreEqual(expectedNumber, twoDigitsNumber);
         }
 
-        [TestCase("Hello <br />Beautiful<br/> World<br/>  ", "Hello \nBeautiful\n World\n  ")]
-        [TestCase("Hello <b>Beautiful</b> World", "Hello Beautiful World")]
-        [TestCase("Hello <b>Beautiful<br/> World</b>", "Hello Beautiful\n World")]
-        public void ToRtfString_FromHtml_ReturnsExpectedRTFString(string html, string expectedRtfString)
+        [TestCase(51)]
+        [TestCase(151)]
+        public void FormatTwoDigit_FromNumber_ReturnsNoChange(int number)
         {
+            // Act
+            var twoDigitsNumber = Helper.FormatTwoDigit(number);
+
+            // Assert
+            Assert.AreEqual(number.ToString(), twoDigitsNumber);
+        }
+
+        [Test]
+        public void ToRtfString_FromHtmlContainsBrTag_ReturnsReplaceBrTagByEndLine()
+        {
+            // Arrange
+            var html = "Hello <br />Beautiful<br/> World<br/>";
+
             // Act
             var rtfString = Helper.ToRtfString(html);
 
             // Assert
+            var expectedRtfString = "Hello \nBeautiful\n World\n";
+            Assert.AreEqual(expectedRtfString, rtfString);
+        }
+
+        [Test]
+        public void ToRtfString_FromHtmlContainsBTag_ReturnsRemoveBTag()
+        {
+            // Arrange
+            var html = "Hello <b>Beautiful</b> World";
+
+            // Act
+            var rtfString = Helper.ToRtfString(html);
+
+            // Assert
+            var expectedRtfString = "Hello Beautiful World";
             Assert.AreEqual(expectedRtfString, rtfString);
         }
 

@@ -45,10 +45,9 @@
             // Arrange
             var newSheet = _workbook.CreateSheet("NewSheet");
             var sourceRowIndex = 10;
-            var destRowIndex = 0;
 
             // Act
-            var newRow = newSheet.CopyRow(_sheet, sourceRowIndex, destRowIndex);
+            var newRow = newSheet.CopyRow(_sheet, sourceRowIndex, Arg.Any<int>());
 
             // Assert
             Assert.IsNull(newRow);
@@ -91,11 +90,10 @@
             // Arrange
             var newSheet = _workbook.CreateSheet("NewSheet");
             var sourceRowIndex = 10;
-            var destRowIndex = 0;
             var cellIndexList = new List<int>();
 
             // Act
-            var newRow = newSheet.CopyRow(_sheet, sourceRowIndex, destRowIndex, cellIndexList);
+            var newRow = newSheet.CopyRow(_sheet, sourceRowIndex, Arg.Any<int>(), cellIndexList);
 
             // Assert
             Assert.IsNull(newRow);
@@ -139,11 +137,10 @@
             // Arrange
             var newSheet = _workbook.CreateSheet("NewSheet");
             var sourceRowIndex = 10;
-            var destRowIndex = 0;
             var cellIndexList = new List<int>();
 
             // Act
-            var newRow = newSheet.CopyRow(_sheet, sourceRowIndex, destRowIndex, cellIndexList, Arg.Any<ICellStyle>());
+            var newRow = newSheet.CopyRow(_sheet, sourceRowIndex, Arg.Any<int>(), cellIndexList, Arg.Any<ICellStyle>());
 
             // Assert
             Assert.IsNull(newRow);
@@ -335,21 +332,20 @@
         }
 
         [Test]
-        [Ignore("Return null if rowIndex is out range")]
-        public void GetCell_FromRowIndexIsOutRamge_ReturnsNull()
+        public void GetCell_FromRowIndexIsOutRange_ThrowsException()
         {
             // Arrange
             var rowIndex = _sheet.LastRowNum + 10;
 
             // Act
-            var cell = _sheet.GetCell(rowIndex, Arg.Any<int>());
+            TestDelegate testDelegate = () => _sheet.GetCell(rowIndex, Arg.Any<int>());
 
             // Assert
-            Assert.IsNull(cell);
+            Assert.Throws<NullReferenceException>(testDelegate);
         }
 
         [Test]
-        public void GetCell_FromInvalidRowIndexAndColIndexIsOutRamge_ReturnsNull()
+        public void GetCell_FromInvalidRowIndexAndColIndexIsOutRange_ReturnsNull()
         {
             // Arrange
             var colIndex = 100;

@@ -22,20 +22,20 @@
         }
 
         [Test]
-        public void GetViewModel_FromSportTypeLessThanZero_ThrowsException()
+        public void GetViewModel_FromSportTypeIsNotGreaterThanZero_ThrowsException()
         {
             // Arrange
             _resultSetting.SportType = (SportType)(-1);
 
             // Act
-            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetViewModel(new List<NumberGame>(), _resultSetting);
+            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetViewModel<NumberGame>(null, _resultSetting);
 
             // Assert
             Assert.Throws<ObjectNullException>(testDelegate);
         }
 
         [Test]
-        public void GetViewModel_FromSportTypeIsEqualOrGreaterThanZero_ReturnsNumberGame()
+        public void GetViewModel_FromSportTypeIsNumberGame_ReturnsNumberGameViewModel()
         {
             // Arrange
             _resultSetting.SportType = SportType.NumberGame;
@@ -45,7 +45,6 @@
 
             // Assert
             var expectViewModelTypeName = "NumberGameViewModel";
-
             Assert.AreEqual(expectViewModelTypeName, viewModel.GetType().Name);
         }
 
@@ -53,7 +52,7 @@
         public void GetOutrightViewModel_Always_ThrowsException()
         {
             // Act
-            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetOutrightViewModel(new List<NumberGame>(), _resultSetting);
+            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetOutrightViewModel(null, _resultSetting);
 
             // Assert
             Assert.Throws<NotImplementedException>(testDelegate);
@@ -63,14 +62,14 @@
         public void GetParlayViewModel_Always_ThrowsException()
         {
             // Act
-            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetParlayViewModel(new List<NumberGame>(), _resultSetting);
+            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetParlayViewModel(null, _resultSetting);
 
             // Assert
             Assert.Throws<NotImplementedException>(testDelegate);
         }
 
         [Test]
-        public void GetExcelViewModel_FromSportTypeLessThanZero_ThrowsException()
+        public void GetExcelViewModel_FromSportTypeIsNotGreaterThanZero_ThrowsException()
         {
             // Arrange
             _resultSetting.SportType = (SportType)(-1);
@@ -83,7 +82,7 @@
         }
 
         [Test]
-        public void GetExcelViewModel_FromSportTypeIsEqualOrGreaterThanZero_ReturnsNumberGame()
+        public void GetExcelViewModel_FromSportTypeIsNumberGame_ReturnsNumberGameExcel()
         {
             // Arrange
             _resultSetting.SportType = SportType.NumberGame;

@@ -22,20 +22,20 @@
         }
 
         [Test]
-        public void GetViewModel_FromSportTypeLessThanZero_ThrowsException()
+        public void GetViewModel_FromSportTypeNotGreaterThanZero_ThrowsException()
         {
             // Arrange
             _resultSetting.SportType = (SportType)(-1);
 
             // Act
-            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetViewModel(new List<LiveCasino>(), _resultSetting);
+            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetViewModel<LiveCasino>(null, _resultSetting);
 
             // Assert
             Assert.Throws<ObjectNullException>(testDelegate);
         }
 
         [Test]
-        public void GetViewModel_FromSportTypeIsEqualOrGreaterThanZero_ReturnsNumberGame()
+        public void GetViewModel_FromSportTypeIsLiveCasino_ReturnsLiveCasinoViewModel()
         {
             // Arrange
             _resultSetting.SportType = SportType.LiveCasino;
@@ -53,7 +53,7 @@
         public void GetOutrightViewModel_Always_ThrowsException()
         {
             // Act
-            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetOutrightViewModel(new List<LiveCasino>(), _resultSetting);
+            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetOutrightViewModel(null, _resultSetting);
 
             // Assert
             Assert.Throws<NotImplementedException>(testDelegate);
@@ -63,14 +63,14 @@
         public void GetParlayViewModel_Always_ThrowsException()
         {
             // Act
-            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetParlayViewModel(new List<LiveCasino>(), _resultSetting);
+            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetParlayViewModel(null, _resultSetting);
 
             // Assert
             Assert.Throws<NotImplementedException>(testDelegate);
         }
 
         [Test]
-        public void GetExcelViewModel_FromSportTypeLessThanZero_ThrowsException()
+        public void GetExcelViewModel_FromSportTypeIsNotGreaterThanZero_ThrowsException()
         {
             // Arrange
             _resultSetting.SportType = (SportType)(-1);
@@ -83,7 +83,7 @@
         }
 
         [Test]
-        public void GetExcelViewModel_FromSportTypeIsEqualOrGreaterThanZero_ReturnsNumberGame()
+        public void GetExcelViewModel_FromSportTypeIsLiveCasino_ReturnsLiveCasinoExcel()
         {
             // Arrange
             _resultSetting.SportType = SportType.LiveCasino;

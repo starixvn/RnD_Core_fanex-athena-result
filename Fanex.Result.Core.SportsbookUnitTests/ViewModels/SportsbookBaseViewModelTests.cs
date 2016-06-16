@@ -23,18 +23,7 @@
 
             _sportsbookBaseViewModel = new SportsbookBaseViewModel(sportsbookDTO, resultSetting);
         }
-
-        [TestCase(0, "red", "green", "red")]
-        [TestCase(1, "red", "green", "green")]
-        public void Color_FromIndexNBgNOddBg_ReturnsExpectedBg(int index, string bg, string oddBg, string expectedBg)
-        {
-            // Act
-            var realBg = _sportsbookBaseViewModel.Color(index, bg, oddBg);
-
-            // Assert
-            Assert.AreEqual(expectedBg, realBg);
-        }
-
+       
         [Test]
         public void GetHomeAwaySet_Always_ReturnsHyphen()
         {

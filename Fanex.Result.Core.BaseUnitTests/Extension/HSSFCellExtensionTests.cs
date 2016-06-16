@@ -13,6 +13,7 @@
     {
         private HSSFWorkbook _workbook;
         private ISheet _sheet;
+        private ICell _cell;
 
         [SetUp]
         public void SetUp()
@@ -21,142 +22,115 @@
             var stream = new FileStream(templatePath, FileMode.Open, FileAccess.Read);
             _workbook = new HSSFWorkbook(stream);
             _sheet = _workbook.GetSheetAt(0);
+            _cell = _sheet.GetCell(0, 0);
         }
 
         [TestCase(1000.1)]
         [TestCase(-1.20)]
         public void SetCellValue_FromDecimalValue_CellNumericValueEqualToValue(decimal value)
         {
-            // Arrange
-            var cell = _sheet.GetCell(0, 0);
-
             // Act
-            cell.SetCellValue(value);
+            _cell.SetCellValue(value);
 
             // Assert
-            Assert.AreEqual(value, cell.NumericCellValue);
+            Assert.AreEqual(value, _cell.NumericCellValue);
         }
 
         [TestCase(true)]
         [TestCase(false)]
         public void SetCellValue_FromBoolValue_CellBoolValueEqualToValue(bool value)
         {
-            // Arrange
-            var cell = _sheet.GetCell(0, 0);
-
             // Act
-            cell.SetCellValue(value);
+            _cell.SetCellValue(value);
 
             // Assert
-            Assert.AreEqual(value, cell.BooleanCellValue);
+            Assert.AreEqual(value, _cell.BooleanCellValue);
         }
 
         [Test]
         public void SetCellValue_FromDateTimeValue_CellDateTimeValueEqualToValue()
         {
             // Arrange
-            var cell = _sheet.GetCell(0, 0);
             var dateTime = DateTime.Now;
 
             // Act
-            cell.SetCellValue(dateTime);
+            _cell.SetCellValue(dateTime);
 
             // Assert
-            Assert.AreEqual(dateTime.ToString(), cell.DateCellValue.ToString());
+            Assert.AreEqual(dateTime.ToString(), _cell.DateCellValue.ToString());
         }
 
         [TestCase(1.2)]
         [TestCase(-1.20)]
         public void SetCellValue_FromDecimalObjectValue_CellNumbericValueEqualToValue(decimal value)
         {
-            // Arrange
-            var cell = _sheet.GetCell(0, 0);
-
             // Act
-            cell.SetCellValue((object)value);
+            _cell.SetCellValue((object)value);
 
             // Assert
-            Assert.AreEqual(value, cell.NumericCellValue);
+            Assert.AreEqual(value, _cell.NumericCellValue);
         }
 
         [TestCase(1.2)]
         [TestCase(-1.20)]
         public void SetCellValue_FromDoubleObjectValue_CellNumbericValueEqualToValue(double value)
         {
-            // Arrange
-            var cell = _sheet.GetCell(0, 0);
-
             // Act
-            cell.SetCellValue((object)value);
+            _cell.SetCellValue((object)value);
 
             // Assert
-            Assert.AreEqual(value, cell.NumericCellValue);
+            Assert.AreEqual(value, _cell.NumericCellValue);
         }
 
         [TestCase(100)]
         [TestCase(-120)]
         public void SetCellValue_FromIntObjectValue_CellNumbericValueEqualToValue(int value)
         {
-            // Arrange
-            var cell = _sheet.GetCell(0, 0);
-
             // Act
-            cell.SetCellValue((object)value);
+            _cell.SetCellValue((object)value);
 
             // Assert
-            Assert.AreEqual(value, cell.NumericCellValue);
+            Assert.AreEqual(value, _cell.NumericCellValue);
         }
 
         [TestCase(102020202)]
         [TestCase(-1231231)]
-        public void SetCellValue_FromLongObjectValue_CellNumbericValueEqualToValue(double value)
+        public void SetCellValue_FromLongObjectValue_CellNumbericValueEqualToValue(long value)
         {
-            // Arrange
-            var cell = _sheet.GetCell(0, 0);
-
             // Act
-            cell.SetCellValue((object)value);
+            _cell.SetCellValue((object)value);
 
             // Assert
-            Assert.AreEqual(value, cell.NumericCellValue);
+            Assert.AreEqual(value, _cell.NumericCellValue);
         }
 
         [TestCase("Hello world")]
         [TestCase("This is string")]
         public void SetCellValue_FromStringObjectValue_CellNumbericValueEqualToValue(string value)
         {
-            // Arrange
-            var cell = _sheet.GetCell(0, 0);
-
             // Act
-            cell.SetCellValue((object)value);
+            _cell.SetCellValue((object)value);
 
             // Assert
-            Assert.AreEqual(value, cell.StringCellValue);
+            Assert.AreEqual(value, _cell.StringCellValue);
         }
 
         [TestCase(102020202)]
         [TestCase(-1231231)]
-        public void SetCellValue_FromLongValue_CellNumbericValueEqualToValue(double value)
+        public void SetCellValue_FromLongValue_CellNumbericValueEqualToValue(long value)
         {
-            // Arrange
-            var cell = _sheet.GetCell(0, 0);
-
             // Act
-            cell.SetCellValue(value);
+            _cell.SetCellValue(value);
 
             // Assert
-            Assert.AreEqual(value, cell.NumericCellValue);
+            Assert.AreEqual(value, _cell.NumericCellValue);
         }
 
         [Test]
         public void SetEmptyCell_FromDefaultStyleIsNull_ThrowException()
         {
-            // Arrange
-            var cell = _sheet.GetCell(0, 0);
-
             // Act
-            TestDelegate testDelegate = () => cell.SetEmptyCell(Arg.Any<bool>(), Arg.Any<ICellStyle>());
+            TestDelegate testDelegate = () => _cell.SetEmptyCell(Arg.Any<bool>(), Arg.Any<ICellStyle>());
 
             // Assert
             Assert.Throws<NullReferenceException>(testDelegate);
@@ -167,14 +141,13 @@
         public void SetEmptyCell_FromStringObject_StringCellValueEqualToValue(string value)
         {
             // Arrange
-            var cell = _sheet.GetCell(0, 0);
             var defaultStyle = _sheet.GetCell(1, 0).CellStyle;
 
             // Act
-            cell.SetEmptyCell(value, defaultStyle);
+            _cell.SetEmptyCell(value, defaultStyle);
 
             // Assert
-            Assert.AreEqual(value, cell.StringCellValue);
+            Assert.AreEqual(value, _cell.StringCellValue);
         }
 
         [TestCase(1000.1)]
@@ -182,28 +155,26 @@
         public void SetEmptyCell_FromDecimalObject_NumricCellValueEqualToValue(decimal value)
         {
             // Arrange
-            var cell = _sheet.GetCell(0, 0);
             var defaultStyle = _sheet.GetCell(1, 0).CellStyle;
 
             // Act
-            cell.SetEmptyCell(value, defaultStyle);
+            _cell.SetEmptyCell(value, defaultStyle);
 
             // Assert
-            Assert.AreEqual(value, cell.NumericCellValue);
+            Assert.AreEqual(value, _cell.NumericCellValue);
         }
 
         [Test]
         public void SetEmptyCell_Always_CellHasDefaultStyle()
         {
             // Arrange
-            var cell = _sheet.GetCell(0, 0);
             var defaultStyle = _sheet.GetCell(1, 0).CellStyle;
 
             // Act
-            cell.SetEmptyCell(Arg.Any<bool>(), defaultStyle);
+            _cell.SetEmptyCell(Arg.Any<bool>(), defaultStyle);
 
             // Assert
-            Assert.AreEqual(defaultStyle, cell.CellStyle);
+            Assert.AreEqual(defaultStyle, _cell.CellStyle);
         }
     }
 }

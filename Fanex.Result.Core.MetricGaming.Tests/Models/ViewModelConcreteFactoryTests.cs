@@ -22,23 +22,24 @@
         }
 
         [Test]
-        public void GetViewModel_FromSportTypeLessThanZero_ThrowsException()
+        public void GetViewModel_FromSportTypeIsNotGreaterThanZero_ThrowsException()
         {
             // Arrange
             _resultSetting.SportType = (SportType)(-1);
 
             // Act
-            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetViewModel(new List<MetricGaming>(), _resultSetting);
+            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetViewModel<MetricGaming>(null, _resultSetting);
 
             // Assert
             Assert.Throws<ObjectNullException>(testDelegate);
         }
 
-        [Test]
-        public void GetViewModel_FromSportTypeIsEqualOrGreaterThanZero_ReturnsMetricGaming()
+        [TestCase(203)]
+        [TestCase(205)]
+        public void GetViewModel_FromSportTypeIsMicroGaming_ReturnsSoccerViewModel(SportType sportType)
         {
             // Arrange
-            _resultSetting.SportType = SportType.MicroGamingLC;
+            _resultSetting.SportType = sportType;
 
             // Act
             var viewModel = ViewModelConcreteFactory.Instance.GetViewModel(_metricGaming, _resultSetting);
@@ -53,7 +54,7 @@
         public void GetOutrightViewModel_Always_ThrowsException()
         {
             // Act
-            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetOutrightViewModel(new List<MetricGaming>(), _resultSetting);
+            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetOutrightViewModel(null, _resultSetting);
 
             // Assert
             Assert.Throws<NotImplementedException>(testDelegate);
@@ -63,7 +64,7 @@
         public void GetParlayViewModel_Always_ThrowsException()
         {
             // Act
-            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetParlayViewModel(new List<MetricGaming>(), _resultSetting);
+            TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetParlayViewModel(null, _resultSetting);
 
             // Assert
             Assert.Throws<NotImplementedException>(testDelegate);

@@ -24,7 +24,7 @@
         }
 
         [Test]
-        public void GetViewModel_FromSportTypeLessThanZero_ThrowException()
+        public void GetViewModel_FromSportTypeIsNotGreaterThanZero_ThrowException()
         {
             // Arrange
             _resultSetting.SportType = (SportType)(-1);
@@ -36,18 +36,17 @@
             Assert.Throws<ObjectNullException>(_testDelegate);
         }
 
-        [TestCase(100110)]
-        [TestCase(99999)]
-        public void GetViewModel_FromSportTypeUndefined_ThrowException(int sportType)
+        [Test]
+        public void GetViewModel_FromSportTypeIsNotSportsbook_ThrowException()
         {
             // Arrange
-            _resultSetting.SportType = (SportType)sportType;
+            _resultSetting.SportType = SportType.HorseRacing;
 
             // Act
             _testDelegate = () => ViewModelConcreteFactory.Instance.GetViewModel(Arg.Any<object>(), _resultSetting);
 
             // Assert
-            Assert.Throws<NullReferenceException>(_testDelegate);
+            Assert.Throws<ObjectNullException>(_testDelegate);
         }
 
         [TestCase(1, "SoccerViewModel")]
@@ -56,7 +55,7 @@
         [TestCase(32, "BasketBallViewModel")]
         [TestCase(44, "MuayThaiViewModel")]
         [TestCase(186, "VSTennisViewModel")]
-        public void GetViewModel_FromSportTypeIsDefined_ReturnsExpectedViewModelType(int sportType, string expectedViewModelType)
+        public void GetViewModel_FromSportTypeIsSportsbook_ReturnsExpectedViewModelType(int sportType, string expectedViewModelType)
         {
             // Arrange
             _resultSetting.SportType = (SportType)sportType;
@@ -83,7 +82,7 @@
         }
 
         [Test]
-        public void GetParlayViewModel_Always_ReturnsOutrighttParlayViewModel()
+        public void GetParlayViewModel_Always_ReturnsParlayViewModel()
         {
             // Arrange
             var parlay = new Parlay();
@@ -109,18 +108,17 @@
             Assert.Throws<ObjectNullException>(_testDelegate);
         }
 
-        [TestCase(100110)]
-        [TestCase(99999)]
-        public void GetExcelViewModel_FromSportTypeIsUndefined_ThrowException(int sportType)
+        [Test]
+        public void GetExcelViewModel_FromSportTypeIsUndefined_ThrowException()
         {
             // Arrange
-            _resultSetting.SportType = (SportType)sportType;
+            _resultSetting.SportType = SportType.HorseRacing;
 
             // Act
             _testDelegate = () => ViewModelConcreteFactory.Instance.GetExcelViewModel(new List<Sportsbook>(), _resultSetting);
 
             // Assert
-            Assert.Throws<NullReferenceException>(_testDelegate);
+            Assert.Throws<ObjectNullException>(_testDelegate);
         }
 
         [TestCase(1, "SoccerExcel")]
@@ -133,7 +131,7 @@
         [TestCase(32, "BasketBallExcel")]
         [TestCase(44, "MuayThaiExcel")]
         [TestCase(186, "VSTennisExcel")]
-        public void GetExcelViewModel_FromSportTypeIsDefined_ReturnsExpectedExcelModelType(int sportType, string expectedExcelModelType)
+        public void GetExcelViewModel_FromSportTypeIsSportsbook_ReturnsExpectedExcelModelType(int sportType, string expectedExcelModelType)
         {
             // Arrange
             _resultSetting.SportType = (SportType)sportType;

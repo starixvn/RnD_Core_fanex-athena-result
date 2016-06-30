@@ -1,19 +1,10 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="OtherViewModel.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Sportsbook.ViewModels
+﻿namespace Fanex.Result.Core.Sportsbook.ViewModels
 {
     using System.Globalization;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.ViewModels;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public sealed class OtherViewModel : SportsbookBaseViewModel, IResultViewModel
     {
         public OtherViewModel(DTO.Sportsbook sportbook, ResultSetting setting)

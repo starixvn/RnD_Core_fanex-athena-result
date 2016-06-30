@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="RacingViewModel.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Racing.ViewModels
+﻿namespace Fanex.Result.Core.Racing.ViewModels
 {
     using System.Globalization;
     using Fanex.Result.Core.Base;
@@ -13,9 +7,6 @@ namespace Fanex.Result.Core.Racing.ViewModels
     using Fanex.Result.Core.Base.ViewModels;
     using RemotingRef;
 
-    /// <summary>
-    /// Racing view model class.
-    /// </summary>
     public sealed class RacingViewModel : BaseViewModel, IResultViewModel
     {
         private readonly DTO.Racing _racing;
@@ -69,15 +60,19 @@ namespace Fanex.Result.Core.Racing.ViewModels
                     case "01":
                     case "1":
                         return LangResource.Lbl1st;
+
                     case "02":
                     case "2":
                         return LangResource.Lbl2nd;
+
                     case "03":
                     case "3":
                         return LangResource.Lbl3rd;
+
                     case "04":
                     case "4":
                         return LangResource.Lbl4th;
+
                     default:
                         return this._racing.Place + LangResource.Noothers;
                 }

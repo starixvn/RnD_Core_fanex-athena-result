@@ -1,11 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="DTOType.cs" company="Nexcel">
-// Data domain
-// </copyright>
-// <author>alex.nguyen@necel.vn</author>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Base.DataDomain
+﻿namespace Fanex.Result.Core.Base.DataDomain
 {
     using System.Diagnostics.CodeAnalysis;
 

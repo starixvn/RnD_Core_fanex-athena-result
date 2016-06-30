@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="ExcelBase.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// ---------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Base.ExcelModels
+﻿namespace Fanex.Result.Core.Base.ExcelModels
 {
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
@@ -16,9 +10,6 @@ namespace Fanex.Result.Core.Base.ExcelModels
     using NPOI.HSSF.UserModel;
     using NPOI.SS.UserModel;
 
-    /// <summary>
-    /// Excel base class.
-    /// </summary>
     public abstract class ExcelBase
     {
         #region Fields

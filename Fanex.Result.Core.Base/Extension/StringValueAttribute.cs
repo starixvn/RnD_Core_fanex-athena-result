@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="StringValueAttribute.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Base.Extension
+﻿namespace Fanex.Result.Core.Base.Extension
 {
     using System;
     using System.Diagnostics.CodeAnalysis;

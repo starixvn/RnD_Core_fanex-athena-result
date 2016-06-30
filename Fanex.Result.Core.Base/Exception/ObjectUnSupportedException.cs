@@ -1,16 +1,7 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="ObjectUnSupportedException.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Base.Exception
+﻿namespace Fanex.Result.Core.Base.Exception
 {
     using System;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     [Serializable]
     public class ObjectUnSupportedException : System.Exception
     {

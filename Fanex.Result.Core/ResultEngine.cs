@@ -1,9 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="ResultEngine.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-namespace Fanex.Result.Core
+﻿namespace Fanex.Result.Core
 {
     using System;
     using System.Collections.Generic;
@@ -19,9 +14,6 @@ namespace Fanex.Result.Core
     using Fanex.Result.Core.Base.Models;
     using Fanex.Result.Core.Base.Utilities;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public static class ResultEngine
     {
         private const string PLUGINPATTERN = "Fanex.Result.Core.{0}";

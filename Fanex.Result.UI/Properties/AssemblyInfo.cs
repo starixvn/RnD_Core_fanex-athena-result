@@ -1,8 +1,4 @@
 ﻿// --------------------------------------------------------------------------
-// <copyright file="AssemblyInfo.cs" company="Nexcel Solutions Vietnam">
-// Copyright (coffee) Nexcel Solutions Vietnam. All rights reserved.
-// </copyright>
-// --------------------------------------------------------------------------
 // <history>
 //   <change who="Alex" date="2013/09/30">Created</change>
 // </history>

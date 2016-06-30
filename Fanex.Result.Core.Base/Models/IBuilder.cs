@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="IBuilder.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Base.Models
+﻿namespace Fanex.Result.Core.Base.Models
 {
     using System.Collections.Generic;
     using System.IO;

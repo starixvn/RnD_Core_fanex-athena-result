@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="ParlayViewModel.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Sportsbook.ViewModels
+﻿namespace Fanex.Result.Core.Sportsbook.ViewModels
 {
     using System;
     using System.Collections.Generic;
@@ -21,9 +15,6 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     using RazorEngine;
     using RazorEngine.Templating;
 
-    /// <summary>
-    /// Parlay view model class.
-    /// </summary>
     public sealed class ParlayViewModel : BaseViewModel, IResultViewModel
     {
         private readonly Parlay _parlay;
@@ -174,7 +165,7 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
             {
                 _viewModelData = this._parlay.Sportbook.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(
                     i, _sportSetting)).ToSafeList();
-            }                                  
+            }
 
             if (_bothMatchAndGameDetailItemViewModel == null)
             {

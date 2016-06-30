@@ -1,16 +1,7 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="Parlay.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Sportsbook.DTO
+﻿namespace Fanex.Result.Core.Sportsbook.DTO
 {
     using System.Collections.Generic;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public sealed class Parlay
     {
         private IList<Sportsbook> _sportsBook = new List<Sportsbook>();

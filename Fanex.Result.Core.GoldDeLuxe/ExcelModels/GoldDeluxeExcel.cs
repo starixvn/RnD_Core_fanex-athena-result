@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="GoldDeluxeExcel.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// ---------------------------------------------------------------------
-
-namespace Fanex.Result.Core.GoldDeluxe.ExcelModels
+﻿namespace Fanex.Result.Core.GoldDeluxe.ExcelModels
 {
     using System.Collections.Generic;
     using System.Linq;
@@ -16,9 +10,6 @@ namespace Fanex.Result.Core.GoldDeluxe.ExcelModels
     using Fanex.Result.Core.GoldDeluxe.ViewModels;
     using NPOI.SS.UserModel;
 
-    /// <summary>
-    /// Live casino excel model class.
-    /// </summary>
     internal sealed class GoldDeluxeExcel : ExcelBase, IExcelModel
     {
         public GoldDeluxeExcel(

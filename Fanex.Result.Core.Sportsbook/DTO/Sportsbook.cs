@@ -1,17 +1,8 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="Sportsbook.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Sportsbook.DTO
+﻿namespace Fanex.Result.Core.Sportsbook.DTO
 {
     using System;
     using System.Collections.Generic;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public sealed class Sportsbook
     {
         private string _betStatus = string.Empty;

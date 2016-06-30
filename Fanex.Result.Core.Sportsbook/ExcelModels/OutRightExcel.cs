@@ -1,9 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="OutrightExcel.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// ---------------------------------------------------------------------
-namespace Fanex.Result.Core.Sportsbook.ExcelModels
+﻿namespace Fanex.Result.Core.Sportsbook.ExcelModels
 {
     using System.Collections.Generic;
     using Fanex.Result.Core.Base;
@@ -15,9 +10,6 @@ namespace Fanex.Result.Core.Sportsbook.ExcelModels
     using Fanex.Result.Core.Sportsbook.ViewModels;
     using NPOI.SS.UserModel;
 
-    /// <summary>
-    /// Outright excel model class.
-    /// </summary>
     internal sealed class OutrightExcel : ExcelBase, IExcelModel
     {
         #region Fields

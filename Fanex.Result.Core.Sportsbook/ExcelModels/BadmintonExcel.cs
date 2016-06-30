@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="BadmintonExcel.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Sportsbook.ExcelModels
+﻿namespace Fanex.Result.Core.Sportsbook.ExcelModels
 {
     using System;
     using System.Collections.Generic;

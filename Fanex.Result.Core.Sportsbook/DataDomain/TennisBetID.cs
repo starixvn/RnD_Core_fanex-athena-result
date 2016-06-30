@@ -1,14 +1,5 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="TennisBetID.cs" company="Nexcel.vn">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Sportsbook.DataDomain
+﻿namespace Fanex.Result.Core.Sportsbook.DataDomain
 {
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     internal static class TennisBetID
     {
         public const int MinSet1GameY = 80101;

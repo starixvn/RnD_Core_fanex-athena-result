@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="SportsbookBaseViewModel.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Sportsbook.ViewModels
+﻿namespace Fanex.Result.Core.Sportsbook.ViewModels
 {
     using System;
     using System.Globalization;
@@ -15,9 +9,6 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     using Fanex.Result.Core.Base.ViewModels;
     using RemotingRef;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public class SportsbookBaseViewModel : BaseViewModel, IResultViewModel
     {
         private string[] _homeSet;

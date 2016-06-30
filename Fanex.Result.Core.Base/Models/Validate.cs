@@ -1,19 +1,9 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="Validate.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Base.Models
+﻿namespace Fanex.Result.Core.Base.Models
 {
     using System;
-    using System.Linq;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.DataDomain;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public sealed class Validate : IValidate
     {
         /*singleton*/
@@ -71,16 +61,22 @@ namespace Fanex.Result.Core.Base.Models
                 case SportType.VirtualSpeedway:
                 case SportType.VirtualCycling:
                     return dtoName == DTOType.RACING;
+
                 case SportType.NumberGame:
                     return dtoName == DTOType.NUMBERGAME;
+
                 case SportType.LiveCasino:
                     return dtoName == DTOType.LIVECASINO;
+
                 case SportType.GoldDeluxe:
                     return dtoName == DTOType.GOLDDELUXE;
+
                 case SportType.AGCasino:
                     return dtoName == DTOType.AGCASINO;
+
                 case SportType.AllBetCasino:
                     return dtoName == DTOType.ALLBETCASINO;
+
                 default:
                     return dtoName == DTOType.SPORTSBOOK || dtoName == DTOType.METRICGAMING;
             }

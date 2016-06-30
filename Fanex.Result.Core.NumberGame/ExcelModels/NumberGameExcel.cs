@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="NumberGameExcel.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// ---------------------------------------------------------------------
-
-namespace Fanex.Result.Core.NumberGame.ExcelModels
+﻿namespace Fanex.Result.Core.NumberGame.ExcelModels
 {
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
@@ -18,9 +12,6 @@ namespace Fanex.Result.Core.NumberGame.ExcelModels
     using Fanex.Result.Core.NumberGame.ViewModels;
     using NPOI.SS.UserModel;
 
-    /// <summary>
-    /// Number game excel model class.
-    /// </summary>
     internal sealed class NumberGameExcel : ExcelBase, IExcelModel
     {
         #region Fields

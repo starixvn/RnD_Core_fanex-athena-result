@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="NumberGameViewModel.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.NumberGame.ViewModels
+﻿namespace Fanex.Result.Core.NumberGame.ViewModels
 {
     using System.Collections.Generic;
     using System.Globalization;
@@ -16,9 +10,6 @@ namespace Fanex.Result.Core.NumberGame.ViewModels
     using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Base.ViewModels;
 
-    /// <summary>
-    /// Number game view model class.
-    /// </summary>
     public sealed class NumberGameViewModel : BaseViewModel, IResultViewModel
     {
         private readonly DTO.NumberGame _numberGame;

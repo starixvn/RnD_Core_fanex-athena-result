@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="LiveCasinoViewModel.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.LiveCasino.ViewModels
+﻿namespace Fanex.Result.Core.LiveCasino.ViewModels
 {
     using System;
     using System.Globalization;
@@ -15,9 +9,6 @@ namespace Fanex.Result.Core.LiveCasino.ViewModels
     using Fanex.Result.Core.Base.ViewModels;
     using RemotingRef;
 
-    /// <summary>
-    /// Live casino view model class.
-    /// </summary>
     public sealed class LiveCasinoViewModel : BaseViewModel, IResultViewModel
     {
         private readonly int[] _rouletteBettype = new int[2] { 1102, 1104 };

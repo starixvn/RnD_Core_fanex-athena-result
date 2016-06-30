@@ -1,9 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="BasketballExcel.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// ---------------------------------------------------------------------
-namespace Fanex.Result.Core.Sportsbook.ExcelModels
+﻿namespace Fanex.Result.Core.Sportsbook.ExcelModels
 {
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
@@ -16,9 +11,6 @@ namespace Fanex.Result.Core.Sportsbook.ExcelModels
     using Fanex.Result.Core.Sportsbook.ViewModels;
     using NPOI.SS.UserModel;
 
-    /// <summary>
-    /// Basketball excel model class.
-    /// </summary>
     internal sealed class BasketBallExcel : ExcelBase, IExcelModel
     {
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]

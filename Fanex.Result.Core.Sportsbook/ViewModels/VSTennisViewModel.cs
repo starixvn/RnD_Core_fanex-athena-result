@@ -1,18 +1,9 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="VSTennisViewModel.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Sportsbook.ViewModels
+﻿namespace Fanex.Result.Core.Sportsbook.ViewModels
 {
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.ViewModels;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public class VSTennisViewModel : SportsbookBaseViewModel, IResultViewModel
     {
         public VSTennisViewModel(DTO.Sportsbook sportbook, ResultSetting setting)

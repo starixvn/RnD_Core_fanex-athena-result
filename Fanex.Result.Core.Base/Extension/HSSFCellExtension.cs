@@ -1,8 +1,4 @@
-﻿// <copyright file="HSSFCellExtension.cs" company="Nexcel Solutions Vietnam" >
-//  Copyright (c) Nexcel Solutions Vietnam. All rights reserved.
-// </copyright>
-//
-// <history>
+﻿// <history>
 //  <change who="jacob.phan" date="2012.5.8">Created</change>
 // </history>
 

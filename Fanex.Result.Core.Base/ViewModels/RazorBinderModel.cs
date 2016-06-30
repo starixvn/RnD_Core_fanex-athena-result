@@ -1,18 +1,9 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="RazorBinderModel.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Base.ViewModels
+﻿namespace Fanex.Result.Core.Base.ViewModels
 {
     using System.Collections.Generic;
     using System.Linq;
     using Fanex.Result.Core.Base.Extension;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public class RazorBinderModel
     {
         private IList<GroupData> _data = new SafeList<GroupData>();

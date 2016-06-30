@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="TennisViewModel.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Sportsbook.ViewModels
+﻿namespace Fanex.Result.Core.Sportsbook.ViewModels
 {
     using System;
     using System.Collections.Generic;
@@ -22,9 +16,6 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     using Fanex.Result.Core.Sportsbook.Utilities;
     using Fanex.Result.Core.Sportsbook.ViewModels.TennisDetail;
 
-    /// <summary>
-    /// Tennis view model class.
-    /// </summary>
     public class TennisViewModel : SportsbookBaseViewModel, IResultViewModel
     {
         private int _totalGameHome;
@@ -236,10 +227,13 @@ Justification = "Reviewed. Suppression is OK here.")]
             {
                 case 1:
                     return betID >= TennisBetID.MinSet1GameY && betID <= TennisBetID.MaxSet1GameY;
+
                 case 2:
                     return betID >= TennisBetID.MinSet2GameY && betID <= TennisBetID.MaxSet2GameY;
+
                 case 3:
                     return betID >= TennisBetID.MinSet3GameY && betID <= TennisBetID.MaxSet3GameY;
+
                 case 4:
                     return betID >= TennisBetID.MinSet4GameY && betID <= TennisBetID.MaxSet4GameY;
 

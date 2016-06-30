@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="LiveCasinoExcel.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// ---------------------------------------------------------------------
-
-namespace Fanex.Result.Core.LiveCasino.ExcelModels
+﻿namespace Fanex.Result.Core.LiveCasino.ExcelModels
 {
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
@@ -18,9 +12,6 @@ namespace Fanex.Result.Core.LiveCasino.ExcelModels
     using Fanex.Result.Core.LiveCasino.ViewModels;
     using NPOI.SS.UserModel;
 
-    /// <summary>
-    /// Live casino excel model class.
-    /// </summary>
     internal sealed class LiveCasinoExcel : ExcelBase, IExcelModel
     {
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]

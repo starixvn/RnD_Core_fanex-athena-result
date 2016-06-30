@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="RacingExcel.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// ---------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Racing.ExcelModels
+﻿namespace Fanex.Result.Core.Racing.ExcelModels
 {
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
@@ -17,9 +11,6 @@ namespace Fanex.Result.Core.Racing.ExcelModels
     using Fanex.Result.Core.Racing.ViewModels;
     using NPOI.SS.UserModel;
 
-    /// <summary>
-    /// Racing excel model class.
-    /// </summary>
     internal sealed class RacingExcel : ExcelBase, IExcelModel
     {
         private string _formatStatus = string.Empty;

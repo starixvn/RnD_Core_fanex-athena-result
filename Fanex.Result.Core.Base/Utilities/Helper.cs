@@ -1,19 +1,10 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="Helper.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Base.Utilities
+﻿namespace Fanex.Result.Core.Base.Utilities
 {
     using System;
     using System.Globalization;
     using System.Text.RegularExpressions;
     using Fanex.Result.Core.Base.DataDomain;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public static class Helper
     {
         private static readonly CultureInfo Cult = new CultureInfo("en-US");

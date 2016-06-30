@@ -1,17 +1,8 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="NumberGame.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.NumberGame.DTO
+﻿namespace Fanex.Result.Core.NumberGame.DTO
 {
     using System;
     using System.Collections.Generic;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public sealed class NumberGame
     {
         public NumberGame()

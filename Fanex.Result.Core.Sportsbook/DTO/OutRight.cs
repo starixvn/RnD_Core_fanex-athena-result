@@ -1,16 +1,7 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="Outright.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Sportsbook.DTO
+﻿namespace Fanex.Result.Core.Sportsbook.DTO
 {
     using System;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public sealed class Outright
     {
         public Outright()

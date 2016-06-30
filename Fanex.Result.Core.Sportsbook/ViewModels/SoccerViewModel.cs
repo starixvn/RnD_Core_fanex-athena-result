@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="SoccerViewModel.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Sportsbook.ViewModels
+﻿namespace Fanex.Result.Core.Sportsbook.ViewModels
 {
     using System;
     using System.Collections.Generic;
@@ -26,9 +20,6 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     using RazorEngine;
     using RazorEngine.Templating;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public sealed class SoccerViewModel : SportsbookBaseViewModel, IResultViewModel
     {
         private const string TemplateNameSpace = "SoccerDetail.";

@@ -1,17 +1,8 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="ResultCoreException.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Base.Exception
+﻿namespace Fanex.Result.Core.Base.Exception
 {
     using System;
     using System.Runtime.Serialization;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     [Serializable]
     public class ResultCoreException : System.Exception
     {

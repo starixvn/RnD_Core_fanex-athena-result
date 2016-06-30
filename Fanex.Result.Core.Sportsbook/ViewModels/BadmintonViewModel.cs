@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="BadmintonViewModel.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Sportsbook.ViewModels
+﻿namespace Fanex.Result.Core.Sportsbook.ViewModels
 {
     using System;
     using System.Globalization;
@@ -12,9 +6,6 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels
     using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.ViewModels;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public sealed class BadmintonViewModel : SportsbookBaseViewModel, IResultViewModel
     {
         private int _totalPointHome;

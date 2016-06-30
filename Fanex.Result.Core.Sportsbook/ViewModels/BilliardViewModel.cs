@@ -1,19 +1,10 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="BilliardViewModel.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Sportsbook.ViewModels
+﻿namespace Fanex.Result.Core.Sportsbook.ViewModels
 {
     using System.Globalization;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.ViewModels;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public sealed class BilliardViewModel : SportsbookBaseViewModel, IResultViewModel
     {
         public BilliardViewModel(DTO.Sportsbook sportbook, ResultSetting setting)

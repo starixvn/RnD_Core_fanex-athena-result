@@ -1,19 +1,10 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="MapEventStatus.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Base.Utilities
+﻿namespace Fanex.Result.Core.Base.Utilities
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
     using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.Resources;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public static class MapEventStatus
     {
         private static readonly string InternalStatus = "internal";

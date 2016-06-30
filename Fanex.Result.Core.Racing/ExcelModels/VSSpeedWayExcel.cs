@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="VSSpeedWayExcel.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Racing.ExcelModels
+﻿namespace Fanex.Result.Core.Racing.ExcelModels
 {
     using System;
     using System.Collections.Generic;
@@ -19,9 +13,6 @@ namespace Fanex.Result.Core.Racing.ExcelModels
     using Fanex.Result.Core.Racing.ViewModels;
     using NPOI.SS.UserModel;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     internal sealed class VSSpeedWayExcel : ExcelBase, IExcelModel
     {
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]

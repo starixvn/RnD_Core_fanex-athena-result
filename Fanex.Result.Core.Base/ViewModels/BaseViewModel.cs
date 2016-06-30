@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="BaseViewModel.cs" company="Nexcel">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Base.ViewModels
+﻿namespace Fanex.Result.Core.Base.ViewModels
 {
     using System;
     using System.Collections.Generic;
@@ -14,9 +8,6 @@ namespace Fanex.Result.Core.Base.ViewModels
     using Fanex.Result.Core.Base.Utilities;
     using RemotingRef;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public abstract class BaseViewModel
     {
         private static Dictionary<string, string> _supportedLanguage = new Dictionary<string, string>

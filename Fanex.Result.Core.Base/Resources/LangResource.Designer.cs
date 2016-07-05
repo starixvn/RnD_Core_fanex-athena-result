@@ -187,6 +187,15 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Free Kick.
+        /// </summary>
+        public static string FreeKick {
+            get {
+                return ResourceManager.GetString("FreeKick", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Game ID.
         /// </summary>
         public static string GameID {
@@ -246,6 +255,15 @@ namespace Fanex.Result.Core.Base.Resources {
         public static string GoalTime {
             get {
                 return ResourceManager.GetString("GoalTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Header.
+        /// </summary>
+        public static string Header {
+            get {
+                return ResourceManager.GetString("Header", resourceCulture);
             }
         }
         
@@ -538,7 +556,7 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to MoreResults.
+        ///   Looks up a localized string similar to More Results.
         /// </summary>
         public static string MoreResults {
             get {
@@ -552,6 +570,15 @@ namespace Fanex.Result.Core.Base.Resources {
         public static string No {
             get {
                 return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Goal.
+        /// </summary>
+        public static string NoGoal {
+            get {
+                return ResourceManager.GetString("NoGoal", resourceCulture);
             }
         }
         
@@ -606,6 +633,15 @@ namespace Fanex.Result.Core.Base.Resources {
         public static string Official {
             get {
                 return ResourceManager.GetString("Official", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Own Goal.
+        /// </summary>
+        public static string OwnGoal {
+            get {
+                return ResourceManager.GetString("OwnGoal", resourceCulture);
             }
         }
         
@@ -970,6 +1006,15 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to First Goal Method.
+        /// </summary>
+        public static string RS424 {
+            get {
+                return ResourceManager.GetString("RS424", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Running.
         /// </summary>
         public static string Running {
@@ -1002,6 +1047,15 @@ namespace Fanex.Result.Core.Base.Resources {
         public static string Set {
             get {
                 return ResourceManager.GetString("Set", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Shot.
+        /// </summary>
+        public static string Shot {
+            get {
+                return ResourceManager.GetString("Shot", resourceCulture);
             }
         }
         

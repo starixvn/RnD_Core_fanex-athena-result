@@ -32,7 +32,7 @@
         {
         }
 
-        #region Setttlement Site
+        #region Settlement Site
 
         public int HomeId
         {
@@ -52,7 +52,7 @@
             }
         }
 
-        #endregion Setttlement Site
+        #endregion Settlement Site
 
         public override bool VisibleGameDetail
         {
@@ -331,6 +331,10 @@
                 case GameResourceID.FirstTenMinutes1X2:
                     item.HomeValue = item.AwayValue = GetResourceGameValueByPattern1X2(detailedValue.HomeValue, LangResource.Draw);
                     break;
+
+                case GameResourceID.FirstGoalMethod:
+                    item.HomeValue = item.AwayValue = GetFirstGoalMethodResult(detailedValue.HomeValue);
+                    break;
                 /*Group: Goal Time*/
                 case GameResourceID.FirstGoalTime10Min:
                 case GameResourceID.FirstGoalTime15Min:
@@ -482,7 +486,7 @@
         /// Map resource value by pattern 1X2.
         /// </summary>
         /// <param name="homeValue">The raw game value.</param>
-        /// <param name="noneValue">This value is used incase "None" or no have value.</param>
+        /// <param name="noneValue">This value is used in case "None" or no have value.</param>
         /// <returns>The game value.</returns>
         private string GetResourceGameValueByPattern1X2(string homeValue, string noneValue)
         {
@@ -505,6 +509,32 @@
             }
 
             return ConstantValue.Hyphen;
+        }
+
+        private string GetFirstGoalMethodResult(string homeValue)
+        {
+            switch (homeValue.ToUpper())
+            {
+                case "S":
+                    return LangResource.Shot;
+
+                case "H":
+                    return LangResource.Header;
+
+                case "P":
+                    return LangResource.Penalty;
+
+                case "FK":
+                    return LangResource.FreeKick;
+
+                case "OG":
+                    return LangResource.OwnGoal;
+
+                case "NG":
+                    return LangResource.NoGoal;
+            }
+
+            return string.Empty;
         }
 
         /// <summary>

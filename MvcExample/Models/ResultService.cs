@@ -520,7 +520,7 @@ namespace MvcExample.Models
                 EventDate = DateTime.Parse(reader["eventdate"].ToString()),
                 IsNeutral = bool.Parse(reader["IsNeutral"].ToString()),
                 IsPending = bool.Parse(reader["IsPending"].ToString()),
-                KickOffTime = DateTime.Parse(reader["kickofftime"].ToString()),
+                KickOffTime = reader["kickofftime"].ToString() == ""? DateTime.Now: DateTime.Parse(reader["kickofftime"].ToString()),
                 MatchCode = reader["matchcode"].ToString(),
                 GoalRecord = reader["goalrecord"].ToString(),
                 IsHTCal = Convert.ToBoolean(reader["IsHTCal"]),

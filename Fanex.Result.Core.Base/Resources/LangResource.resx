@@ -268,7 +268,7 @@
     <value>Min</value>
   </data>
   <data name="MoreResults" xml:space="preserve">
-    <value>MoreResults</value>
+    <value>More Results</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>No</value>
@@ -479,5 +479,23 @@
   </data>
   <data name="KOInRound" xml:space="preserve">
     <value>KO in round {0}</value>
+  </data>
+  <data name="RS424" xml:space="preserve">
+    <value>First Goal Method</value>
+  </data>
+  <data name="FreeKick" xml:space="preserve">
+    <value>Free Kick</value>
+  </data>
+  <data name="Header" xml:space="preserve">
+    <value>Header</value>
+  </data>
+  <data name="NoGoal" xml:space="preserve">
+    <value>No Goal</value>
+  </data>
+  <data name="OwnGoal" xml:space="preserve">
+    <value>Own Goal</value>
+  </data>
+  <data name="Shot" xml:space="preserve">
+    <value>Shot</value>
   </data>
 </root>

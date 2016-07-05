@@ -155,5 +155,7 @@ namespace Fanex.Result.Core.Sportsbook.DataDomain
         /// Resource ID = 173.
         /// </summary>
         public const string ExtraTimeYesNo = "173";
+
+        public const string FirstGoalMethod = "424";
     }
 }

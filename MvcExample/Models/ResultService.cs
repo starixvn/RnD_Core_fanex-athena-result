@@ -297,7 +297,7 @@ namespace MvcExample.Models
         /// </summary>
         /// <param name="criteria">The criterion.</param>
         /// <returns>The Parlay data.</returns>
-        [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules", "SP2101:MethodMustNotContainMoreLinesThan",
+        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2101:MethodMustNotContainMoreLinesThan",
      Justification = "Reviewed. Suppression is OK here.")]
         public IEnumerable<Parlay> GetParlayResult(GetParlayResultCriteria criteria)
         {

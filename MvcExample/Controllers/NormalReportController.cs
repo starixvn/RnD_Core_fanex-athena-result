@@ -45,7 +45,7 @@
         /// <param name="showMatchCode">Visible match code column.</param>
         /// <returns>The html table result.</returns>
         [SuppressMessage(
-          "StyleCop.CSharp.Nexcel.NexcelCustomRules",
+          "StyleCop.CSharp.StylecopPlus.Rules",
           "SP2101:MethodMustNotContainMoreLinesThan",
           Justification = "Reviewed. Suppression is OK here.")]
         [HttpPost]
@@ -173,7 +173,7 @@
         /// <param name="showMatchCode">Visible match code column.</param>
         /// <returns>The Excel file.</returns>
         [SuppressMessage(
-          "StyleCop.CSharp.Nexcel.NexcelCustomRules",
+          "StyleCop.CSharp.StylecopPlus.Rules",
           "SP2101:MethodMustNotContainMoreLinesThan",
           Justification = "Reviewed. Suppression is OK here.")]
         [HttpGet]

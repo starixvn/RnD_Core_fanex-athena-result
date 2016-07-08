@@ -321,7 +321,7 @@
         /// </summary>
         /// <param name="item">The view model Item.</param>
         /// <param name="detailedValue">The raw game value.</param>
-        [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules", "SP2101:MethodMustNotContainMoreLinesThan",
+        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2101:MethodMustNotContainMoreLinesThan",
   Justification = "Reviewed. Suppression is OK here.")]
         private void MapResourceGameValueByPattern(SoccerGameDetailItem item, GameDetail detailedValue)
         {
@@ -512,7 +512,7 @@
         /// </summary>
         /// <returns>The goal detail information.</returns>
         [SuppressMessage(
-"StyleCop.CSharp.Nexcel.NexcelCustomRules",
+"StyleCop.CSharp.StylecopPlus.Rules",
 "SP2101:MethodMustNotContainMoreLinesThan",
 Justification = "Reviewed. Suppression is OK here.")]
         private SoccerDetailInfo GetGoalInfo()

@@ -147,7 +147,7 @@
         /// <param name="index">The index of home or away array.</param>
         /// <param name="isHome">True if you want to get value of home set.</param>
         /// <returns>The string value.</returns>
-        [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules", "SP2101:MethodMustNotContainMoreLinesThan",
+        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2101:MethodMustNotContainMoreLinesThan",
 Justification = "Reviewed. Suppression is OK here.")]
         public override string GetHomeAwaySet(int index, bool isHome)
         {
@@ -338,7 +338,7 @@ Justification = "Reviewed. Suppression is OK here.")]
         /// </summary>
         /// <param name="setIndex">The set index.</param>
         /// <returns>The set value.</returns>
-        [SuppressMessage("StyleCop.CSharp.Nexcel.NexcelCustomRules", "SP2101:MethodMustNotContainMoreLinesThan",
+        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2101:MethodMustNotContainMoreLinesThan",
     Justification = "Reviewed. Suppression is OK here.")]
         private SetValue CreateSetAndGameValue(string setIndex)
         {

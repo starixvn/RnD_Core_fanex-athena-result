@@ -7,6 +7,7 @@
     using System.IO;
     using System.Linq;
     using System.Text;
+    using System.Text.RegularExpressions;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.Extension;
@@ -162,7 +163,7 @@
         {
             get
             {
-                return string.IsNullOrEmpty(this.SPORTBOOK.GoalRecord) ? string.Empty : this.SPORTBOOK.GoalRecord.Replace(";", string.Empty);
+                return string.IsNullOrEmpty(this.SPORTBOOK.GoalRecord) ? string.Empty : Regex.Replace(this.SPORTBOOK.GoalRecord.ToUpper(), "[^HA]", string.Empty);
             }
         }
 
@@ -266,10 +267,18 @@
 
                     foreach (GameDetail detailedItem in detailedGameRecords)
                     {
-                        this._detailedItemModels.Add(MapDetailedGameValue(group.Key, detailedItem));
+                        if (detailedItem.ResourceId != GameResourceID.GoalSequence || IsShowGoalSequence(detailedItem.SettlementStatusID))
+                        {
+                            this._detailedItemModels.Add(MapDetailedGameValue(group.Key, detailedItem));
+                        }
                     }
                 }
             }
+        }
+
+        private bool IsShowGoalSequence(int settlementStatusID)
+        {
+            return settlementStatusID == EventStatusID.CompletedSettlementStatusID && !string.IsNullOrEmpty(GoalRecord);
         }
 
         /// <summary>
@@ -334,6 +343,10 @@
 
                 case GameResourceID.FirstGoalMethod:
                     item.HomeValue = item.AwayValue = GetFirstGoalMethodResult(detailedValue.HomeValue);
+                    break;
+
+                case GameResourceID.GoalSequence:
+                    item.HomeValue = item.AwayValue = FormatGoalSequence(GoalRecord);
                     break;
                 /*Group: Goal Time*/
                 case GameResourceID.FirstGoalTime10Min:
@@ -535,6 +548,11 @@
             }
 
             return string.Empty;
+        }
+
+        private string FormatGoalSequence(string goalRecord)
+        {
+            return string.Join(".", goalRecord.ToArray());
         }
 
         /// <summary>

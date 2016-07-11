@@ -498,4 +498,7 @@
   <data name="Shot" xml:space="preserve">
     <value>Shot</value>
   </data>
+  <data name="RS08" xml:space="preserve">
+    <value>Goal Sequence</value>
+  </data>
 </root>

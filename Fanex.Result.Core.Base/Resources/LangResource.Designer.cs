@@ -790,6 +790,15 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Goal Sequence.
+        /// </summary>
+        public static string RS08 {
+            get {
+                return ResourceManager.GetString("RS08", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Penalty Shootout Yes/No.
         /// </summary>
         public static string RS135 {

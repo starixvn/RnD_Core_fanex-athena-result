@@ -1,15 +1,14 @@
-﻿@{
-    var viewModel = (Fanex.Result.Core.Base.ViewModels.RazorBinderModel)Model;
-
-   
-    var colspan = viewModel.VisibleMatchCodeIDColumn ? 6 : 5;
-    var popupCss = viewModel.IsPopUp || viewModel.IsDetail ? "popup" : string.Empty;
-    
-}
+﻿@using Fanex.Result.Core.Base.Resources;
 @using Fanex.Result.Core.Base.ViewModels;
 @using Fanex.Result.Core.Sportsbook.ViewModels;
-@using System.Collections;
-@using Fanex.Result.Core.Base.Resources;
+
+@{
+    var viewModel = (RazorBinderModel)Model;
+
+    var colspan = viewModel.VisibleMatchCodeIDColumn ? 6 : 5;
+    var popupCss = viewModel.IsPopUp || viewModel.IsDetail ? "popup" : string.Empty;
+
+}
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
@@ -17,7 +16,7 @@
             <thead>
                 @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
                 {
-                    var item = ((GroupData)viewModel.Data[0]).Data[0];
+                    var item = viewModel.Data[0].Data[0];
                     <tr class="row-title">
                         <th class="cl-title" colspan="@colspan">
                             <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
@@ -27,25 +26,13 @@
                 <tr class="header">
                     @if (viewModel.VisibleMatchCodeIDColumn)
                     {
-                        <th class="cl-m-code">
-                            @LangResource.MatchCode/@LangResource.ID
-                        </th>
+                        <th class="cl-m-code">@LangResource.MatchCode/@LangResource.ID</th>
                     }
-                    <th class="cl-ko-time">
-                        @LangResource.KickOffTime
-                    </th>
-                    <th class="cl-match">
-                        @Raw(LangResource.Match)
-                    </th>
-                    <th class="cl-ht-score">
-                        @Raw(LangResource.HTScore)
-                    </th>
-                    <th class="cl-f-score">
-                        @LangResource.FinalScore
-                    </th>
-                    <th class="cl-status">
-                        @LangResource.Status
-                    </th>
+                    <th class="cl-ko-time">@LangResource.KickOffTime</th>
+                    <th class="cl-match">@LangResource.Match</th>
+                    <th class="cl-ht-score">@LangResource.HTScore</th>
+                    <th class="cl-f-score">@LangResource.FinalScore</th>
+                    <th class="cl-status">@LangResource.Status</th>
                 </tr>
             </thead>
         </table>
@@ -62,7 +49,7 @@
         <thead>
             @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
             {
-                var item = ((GroupData)viewModel.Data[0]).Data[0];
+                var item = viewModel.Data[0].Data[0];
                 <tr class="row-title">
                     <th class="cl-title" colspan="@colspan">
                         <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
@@ -72,25 +59,13 @@
             <tr class="header">
                 @if (viewModel.VisibleMatchCodeIDColumn)
                 {
-                    <th class="cl-m-code">
-                        @LangResource.MatchCode/@LangResource.ID
-                    </th>
+                    <th class="cl-m-code">@LangResource.MatchCode/@LangResource.ID</th>
                 }
-                <th class="cl-ko-time">
-                    @LangResource.KickOffTime
-                </th>
-                <th class="cl-match">
-                    @Raw(LangResource.Match)
-                </th>
-                <th class="cl-ht-score">
-                    @Raw(LangResource.HTScore)
-                </th>
-                <th class="cl-f-score">
-                    @LangResource.FinalScore
-                </th>
-                <th class="cl-status">
-                    @LangResource.Status
-                </th>
+                <th class="cl-ko-time">@LangResource.KickOffTime</th>
+                <th class="cl-match">@LangResource.Match</th>
+                <th class="cl-ht-score">@LangResource.HTScore</th>
+                <th class="cl-f-score">@LangResource.FinalScore</th>
+                <th class="cl-status">@LangResource.Status</th>
             </tr>
         </thead>
     }
@@ -98,115 +73,87 @@
         @if (viewModel.Data.Count > 0)
         {
             var index = 0;
-            foreach (var itemObj in viewModel.Data)
+            foreach (var group in viewModel.Data)
             {
-                var group = (GroupData)itemObj;
-
                 if (!viewModel.IsPopUp)
                 {
 
-            <tr class="data">
-                <td colspan="@colspan" class="cl-league">
-                    @group.Data[0].LeagueName
-                </td>
-            </tr>
+                    <tr class="data">
+                        <td colspan="@colspan" class="cl-league">@group.Data[0].LeagueName</td>
+                    </tr>
 
                 }
-                foreach (var temp in group.Data)
+                foreach (SoccerViewModel item in group.Data)
                 {
-                    var item = (SoccerViewModel)temp;
                     index++;
-            <tr class="data @item.Color(index, "even", "odd")">
-                @if (viewModel.VisibleMatchCodeIDColumn)
-                {
-                    <td class="cl-m-code">
-                        <div class="m-code">
-                            @item.MatchCode
-                        </div>
-                    </td>
-                }
-                <td class="cl-ko-time" rowspan="2">
-                    @Raw(item.KickOffTime)
-                </td>
-                <td class="cl-match home @item.HomeWin">
-                    @Raw(item.HomeTeam) &nbsp;
-                    @if (item.IsShowFGHome)
-                    {
-                        <div class="first-goal">
-                            &nbsp;</div>
-                    }
-                    @if (item.IsShowLGHome)
-                    {
-                        <div class="last-goal">
-                            &nbsp;</div>
-                    }
-                    @if (item.IsShowedFirstHalfFGHome)
-                    {
-                        <div class="first-half-first-goal">
-                            &nbsp;</div>
-                    }
-                    @if (item.IsShowedFirstHalfLGHome)
-                    {
-                        <div class="first-half-last-goal">
-                            &nbsp;</div>
-                    }
-                </td>
-                <td class="cl-ht-score">
-                    @item.HTHomeScore
-                </td>
-                <td class="cl-f-score">
-                    @item.FinalHomeScore
-                </td>
-                <td rowspan="2" class="cl-status @item.EventStatusBackground">
-                    <div>
-                        @item.EventStatus
-                    </div>
-                    @if (item.VisibleDetailedLink && !viewModel.IsPopUp)
-                    {
-                        <div>
-                            <span class="detail-link" data-match-id="@item.MatchId" data-league-id="@item.LeagueId" data-home-id="@item.HomeId" data-away-id="@item.AwayId">
-                                @LangResource.Details </span>
-                        </div>
-                    }
-                </td>
-            </tr>
-            <tr class="data @item.Color(index, "even", "odd")">
-                @if (viewModel.VisibleMatchCodeIDColumn)
-                {
-                    <td class="cl-m-code">
-                        @item.MatchId
-                    </td>
-                }
-                <td class="cl-match away @item.AwayWin">
-                    @Raw(item.AwayTeam) &nbsp;
-                    @if (item.IsShowFGAway)
-                    {
-                        <div class="first-goal">
-                            &nbsp;</div>
-                    }
-                    @if (item.IsShowLGAway)
-                    {
-                        <div class="last-goal">
-                            &nbsp;</div>
-                    }
-                    @if (item.IsShowedFirstHalfFGAway)
-                    {
-                        <div class="first-half-first-goal">
-                            &nbsp;</div>
-                    }
-                    @if (item.IsShowedFirstHalfLGAway)
-                    {
-                        <div class="first-half-last-goal">
-                            &nbsp;</div>
-                    }
-                </td>
-                <td class="cl-ht-score">
-                    @item.HTAwayScore
-                </td>
-                <td class="cl-f-score">
-                    @item.FinalAwayScore
-                </td>
-            </tr>
+                    <tr class="data @item.Color(index, "even", "odd")">
+                        @if (viewModel.VisibleMatchCodeIDColumn)
+                        {
+                            <td class="cl-m-code">
+                                <div class="m-code">@item.MatchCode</div>
+                            </td>
+                        }
+                        <td class="cl-ko-time" rowspan="2">@Raw(item.KickOffTime)</td>
+                        <td class="cl-match home @item.HomeWin">
+                            @Raw(item.HomeTeam) &nbsp;
+                            @if (item.IsShowFGHome)
+                            {
+                                <div class="first-goal">&nbsp;</div>
+                            }
+                            @if (item.IsShowLGHome)
+                            {
+                                <div class="last-goal">&nbsp;</div>
+                            }
+                            @if (item.IsShowedFirstHalfFGHome)
+                            {
+                                <div class="first-half-first-goal">&nbsp;</div>
+                            }
+                            @if (item.IsShowedFirstHalfLGHome)
+                            {
+                                <div class="first-half-last-goal">&nbsp;</div>
+                            }
+                        </td>
+                        <td class="cl-ht-score">@item.HTHomeScore</td>
+                        <td class="cl-f-score">@item.FinalHomeScore</td>
+                        <td rowspan="2" class="cl-status @item.EventStatusBackground">
+                            <div>@item.EventStatus</div>
+                            @if (item.VisibleDetailedLink && !viewModel.IsPopUp)
+                            {
+                                <div>
+                                    <span class="detail-link" data-match-id="@item.MatchId" data-league-id="@item.LeagueId" data-home-id="@item.HomeId" data-away-id="@item.AwayId">
+                                        @LangResource.Details
+                                    </span>
+                                </div>
+                            }
+                        </td>
+                    </tr>
+                    <tr class="data @item.Color(index, "even", "odd")">
+                        @if (viewModel.VisibleMatchCodeIDColumn)
+                        {
+                            <td class="cl-m-code">@item.MatchId</td>
+                        }
+                        <td class="cl-match away @item.AwayWin">
+                            @Raw(item.AwayTeam) &nbsp;
+                            @if (item.IsShowFGAway)
+                            {
+                                <div class="first-goal">&nbsp;</div>
+                            }
+                            @if (item.IsShowLGAway)
+                            {
+                                <div class="last-goal">&nbsp;</div>
+                            }
+                            @if (item.IsShowedFirstHalfFGAway)
+                            {
+                                <div class="first-half-first-goal">&nbsp;</div>
+                            }
+                            @if (item.IsShowedFirstHalfLGAway)
+                            {
+                                <div class="first-half-last-goal">&nbsp;</div>
+                            }
+                        </td>
+                        <td class="cl-ht-score">@item.HTAwayScore</td>
+                        <td class="cl-f-score">@item.FinalAwayScore</td>
+                    </tr>
 
                 }
             }
@@ -215,9 +162,7 @@
         {
             <!--NoInfo-->
             <tr class="row-noinfo">
-                <td colspan="@colspan">
-                    @LangResource.NoInfo
-                </td>
+                <td colspan="@colspan">@LangResource.NoInfo</td>
             </tr>
             <!--/NoInfo-->
         }
@@ -229,61 +174,49 @@
 }
 @if (viewModel.VisibleDetailResult)
 {
-    var mainItem = ((GroupData)viewModel.Data[0]).Data[0] as SoccerViewModel;
+    var mainItem = viewModel.Data[0].Data[0] as SoccerViewModel;
     var gameResult = mainItem.DetailedResult;
-    if (mainItem.VisisibleGoalRecord)
+    if (mainItem.VisibleGoalRecord)
     {
         var homeScore = 0;
         var awayScore = 0;
-    
-    <div class="goal-record">
-    <table>
-        <thead>
-            <tr class="header">
-                <th class="cl-goal" colspan="2">
-                    @LangResource.GoalRecord
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var goal in mainItem.GoalRecord)
-            {
-                var goalLower = char.ToLower(goal);
-                homeScore += 'h' == goalLower ? 1 : 0;
-                awayScore += 'a' == goalLower ? 1 : 0;
-                <tr class="data">
-                    <td class="cl-goal">
-                        @homeScore - @awayScore
-                    </td>
-                    <td class="cl-goal">
-                        @(Equals('h', goalLower) ? LangResource.Home : LangResource.Away)
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>
-      </div>
+
+        <div class="goal-record">
+            <table>
+                <thead>
+                    <tr class="header">
+                        <th class="cl-goal" colspan="2">@LangResource.GoalRecord</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var goal in mainItem.GoalRecord)
+                    {
+                        var goalLower = char.ToLower(goal);
+                        homeScore += 'h' == goalLower ? 1 : 0;
+                        awayScore += 'a' == goalLower ? 1 : 0;
+                        <tr class="data">
+                            <td class="cl-goal">@homeScore - @awayScore</td>
+                            <td class="cl-goal">@(Equals('h', goalLower) ? LangResource.Home : LangResource.Away)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
     }
     if (!string.IsNullOrEmpty(gameResult))
     {
-    <br />
-    <table class="fn-rs popup">
-        <thead>
-            <tr class="header">
-                <th class="cl-match">
-                    @LangResource.MoreResults
-                </th>
-                <th class="cl-result home">
-                    @mainItem.HomeTeam
-                </th>
-                <th class="cl-result away">
-                    @mainItem.AwayTeam
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-            @Raw(gameResult)
-        </tbody>
-    </table> 
+        <br />
+        <table class="fn-rs popup">
+            <thead>
+                <tr class="header">
+                    <th class="cl-match">@LangResource.MoreResults</th>
+                    <th class="cl-result home">@mainItem.HomeTeam</th>
+                    <th class="cl-result away">@mainItem.AwayTeam</th>
+                </tr>
+            </thead>
+            <tbody>
+                @Raw(gameResult)
+            </tbody>
+        </table>
     }
 }

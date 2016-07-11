@@ -1,23 +1,16 @@
-﻿@{
-    var itemViewModel = (Fanex.Result.Core.Sportsbook.ViewModels.SoccerInfo.SoccerDetailViewModel)Model;
+﻿@using Fanex.Result.Core.Sportsbook.ViewModels.SoccerInfo;
+
+@{
+    var itemViewModel = (SoccerDetailViewModel)Model;
 
 }
-@using Fanex.Result.Core.Sportsbook.ViewModels.SoccerInfo;
-@using Fanex.Result.Core.Sportsbook.ViewModels;
-@using System.Collections;
 <tr class="data">
-    <td colspan="3" class="cl-league sub">
-        @itemViewModel.Name
-    </td>
+    <td colspan="3" class="cl-league sub">@itemViewModel.Name</td>
 </tr>
 @foreach (var item in itemViewModel.DetailItems)
 {
     <tr class="data">
-        <td class="cl-match">
-            @item.ResourceName
-        </td>
-        <td class="cl-result home" colspan="2">
-            @item.HomeValue
-        </td>
+        <td class="cl-match">@item.ResourceName</td>
+        <td class="cl-result home" colspan="2">@item.HomeValue</td>
     </tr>
 }

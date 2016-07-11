@@ -2,11 +2,11 @@
 {
     using System;
     using System.Globalization;
-    using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.DataDomain;
-    using Fanex.Result.Core.Base.Resources;
-    using Fanex.Result.Core.Base.Utilities;
-    using Fanex.Result.Core.Base.ViewModels;
+    using Base;
+    using Base.DataDomain;
+    using Base.Resources;
+    using Base.Utilities;
+    using Base.ViewModels;
     using RemotingRef;
 
     public class SportsbookBaseViewModel : BaseViewModel, IResultViewModel
@@ -20,7 +20,7 @@
         private bool _visibleDetailedLink = false;
 
         private bool _highlightWinnerTeam = false;
-        private bool _visisibleGoalRecord = false;
+        private bool _visibleGoalRecord = false;
 
         public SportsbookBaseViewModel(DTO.Sportsbook sportbook, ResultSetting setting)
             : base(setting)
@@ -30,7 +30,7 @@
             this.Sport = setting.SportType;
             this._visibleDetailedLink = setting.VisibleDetailedLink;
             this._highlightWinnerTeam = setting.HighlightWinnerTeam;
-            this._visisibleGoalRecord = setting.VisibleGoalRecord;
+            this._visibleGoalRecord = setting.VisibleGoalRecord;
         }
 
         public string[] HomeSet
@@ -89,11 +89,11 @@
             get { return true; }
         }
 
-        public virtual bool VisisibleGoalRecord
+        public virtual bool VisibleGoalRecord
         {
             get
             {
-                return this._visisibleGoalRecord;
+                return this._visibleGoalRecord;
             }
         }
 

@@ -8,18 +8,18 @@
     using System.Linq;
     using System.Text;
     using System.Text.RegularExpressions;
-    using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.DataDomain;
-    using Fanex.Result.Core.Base.Extension;
-    using Fanex.Result.Core.Base.Resources;
-    using Fanex.Result.Core.Base.ViewModels;
-    using Fanex.Result.Core.Sportsbook.DataDomain;
-    using Fanex.Result.Core.Sportsbook.DTO;
-    using Fanex.Result.Core.Sportsbook.Models;
-    using Fanex.Result.Core.Sportsbook.Utilities;
-    using Fanex.Result.Core.Sportsbook.ViewModels.SoccerInfo;
+    using Base;
+    using Base.DataDomain;
+    using Base.Extension;
+    using Base.Resources;
+    using Base.ViewModels;
+    using DataDomain;
+    using DTO;
+    using Models;
     using RazorEngine;
     using RazorEngine.Templating;
+    using SoccerInfo;
+    using Utilities;
 
     public sealed class SoccerViewModel : SportsbookBaseViewModel, IResultViewModel
     {
@@ -49,7 +49,7 @@
         {
             get
             {
-                return base.VisibleDetailedLink && (HasValidGameData || this.VisisibleGoalRecord);
+                return base.VisibleDetailedLink && (HasValidGameData || this.VisibleGoalRecord);
             }
         }
 
@@ -167,11 +167,11 @@
             }
         }
 
-        public override bool VisisibleGoalRecord
+        public override bool VisibleGoalRecord
         {
             get
             {
-                return base.VisisibleGoalRecord && !string.IsNullOrEmpty(this.GoalRecord);
+                return base.VisibleGoalRecord && !string.IsNullOrEmpty(this.GoalRecord);
             }
         }
 
@@ -179,14 +179,14 @@
         {
             get
             {
-                if (this._detailedItemModels == null)
+                if (_detailedItemModels == null)
                 {
-                    this.GetDetailedResult();
+                    _detailedItemModels = GetDetailedResult();
                 }
 
                 var temp = new StringBuilder();
                 var templateOperator = Template.Instance;
-                var detailedReulstByGroup = this._detailedItemModels.GroupBy(i => i.GroupCode).ToList();
+                var detailedReulstByGroup = _detailedItemModels.GroupBy(i => i.GroupCode).ToList();
                 foreach (var item in detailedReulstByGroup)
                 {
                     var templateName = TemplateNameSpace + item.Key;
@@ -221,7 +221,7 @@
                 if (!_hasValidGameData.HasValue)
                 {
                     _hasValidGameData = this.SPORTBOOK.GameDetails.Any(i => !string.IsNullOrEmpty(i.ResourceId)
-                 && ValidateResourceId(i.ResourceId));
+                 && ValidateBetRadarResourceId(i.ResourceId));
                 }
 
                 return _hasValidGameData.Value;
@@ -233,18 +233,9 @@
         /// </summary>
         /// <param name="resourceId">The resource ID.</param>
         /// <returns>True if it's ID is valid.</returns>
-        private static bool ValidateResourceId(string resourceId)
+        private static bool ValidateBetRadarResourceId(string resourceId)
         {
-            var validResources = GameResources.BetRada.Values;
-            foreach (var pattern in validResources)
-            {
-                if (ValidateResourceIdByPattern(pattern, resourceId))
-                {
-                    return true;
-                }
-            }
-
-            return false;
+            return GameResources.BetRadar.Values.Any(pattern => ValidateResourceIdByPattern(pattern, resourceId));
         }
 
         private static bool ValidateResourceIdByPattern(List<string> patterns, string resourceId)
@@ -255,25 +246,27 @@
         /// <summary>
         /// Get detailed game results.
         /// </summary>
-        private void GetDetailedResult()
+        private IList<SoccerGameDetailItem> GetDetailedResult()
         {
-            this._detailedItemModels = new SafeList<SoccerGameDetailItem>();
-            foreach (var group in GameResources.BetRada)
+            var detailedItemModels = new SafeList<SoccerGameDetailItem>();
+            foreach (var group in GameResources.BetRadar)
             {
                 foreach (var game in group.Value)
                 {
                     var detailedGameRecords = this.SPORTBOOK.GameDetails
-                   .Where(i => SportsbookHelper.IsValidResourceId(game, i.ResourceId)).ToSafeList<GameDetail>();
+                        .Where(i => SportsbookHelper.IsValidResourceId(game, i.ResourceId)).ToSafeList<GameDetail>();
 
                     foreach (GameDetail detailedItem in detailedGameRecords)
                     {
                         if (detailedItem.ResourceId != GameResourceID.GoalSequence || IsShowGoalSequence(detailedItem.SettlementStatusID))
                         {
-                            this._detailedItemModels.Add(MapDetailedGameValue(group.Key, detailedItem));
+                            detailedItemModels.Add(MapDetailedGameValue(group.Key, detailedItem));
                         }
                     }
                 }
             }
+
+            return detailedItemModels;
         }
 
         private bool IsShowGoalSequence(int settlementStatusID)
@@ -331,7 +324,7 @@
         /// <param name="item">The view model Item.</param>
         /// <param name="detailedValue">The raw game value.</param>
         [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2101:MethodMustNotContainMoreLinesThan",
-  Justification = "Reviewed. Suppression is OK here.")]
+            Justification = "Reviewed. Suppression is OK here.")]
         private void MapResourceGameValueByPattern(SoccerGameDetailItem item, GameDetail detailedValue)
         {
             switch (item.ResourceID)
@@ -420,7 +413,6 @@
                    || SportsbookHelper.IsValidResourceId(GameResourceID.ExtraTimeNextGoal, item.ResourceID))
                     {
                         /*Group :Goal Record*/
-
                         item.HomeValue = item.AwayValue = GetResourceGameValueByPattern1X2(detailedValue.HomeValue, LangResource.None);
                     }
 
@@ -559,10 +551,9 @@
         /// Get goal information.
         /// </summary>
         /// <returns>The goal detail information.</returns>
-        [SuppressMessage(
-"StyleCop.CSharp.StylecopPlus.Rules",
-"SP2101:MethodMustNotContainMoreLinesThan",
-Justification = "Reviewed. Suppression is OK here.")]
+        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules",
+            "SP2101:MethodMustNotContainMoreLinesThan",
+            Justification = "Reviewed. Suppression is OK here.")]
         private SoccerDetailInfo GetGoalInfo()
         {
             if (this._goalInfo == null)

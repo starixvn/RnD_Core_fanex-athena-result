@@ -41,7 +41,7 @@
                 return ConfigurationManager.AppSettings["Fanex.Result.Core.3rdLiveCasinoTplPath"];
             }
         }
-      
+
         public string Render(string transID, string languageCode = "en-US")
         {
             if (string.IsNullOrWhiteSpace(transID) || transID.Contains(" "))
@@ -56,6 +56,8 @@
                 throw new AllBetCasinoException(InvalidConfigErrorMessage);
             }
 
+            tplPath = CreateRelativePath(tplPath);
+
             try
             {
                 ResultPop resultContext = new ResultPop(HttpContext.Current, conn, tplPath);
@@ -66,6 +68,13 @@
             {
                 throw new AllBetCasinoException(exception.Message, exception.InnerException);
             }
+        }
+
+        private string CreateRelativePath(string path)
+        {
+            path = HttpRuntime.AppDomainAppVirtualPath + path;
+
+            return path.Replace("//", "/");
         }
     }
 }

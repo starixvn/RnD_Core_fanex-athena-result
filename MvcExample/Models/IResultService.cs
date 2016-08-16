@@ -16,6 +16,7 @@ namespace MvcExample.Models
     using Fanex.Result.Core.Sportsbook.DTO;
     using MvcExample.Models.Criteria;
     using MvcExample.Models.DTO;
+
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
@@ -53,6 +54,8 @@ namespace MvcExample.Models
 
         IEnumerable<AGCasino> GetAGCasinoPopUpResult(GetAGCasinoPopUpResultCriteria criteria);
 
+        string GetAllBetTransDesc(int betType);
+
         #endregion PopUp
 
         #region Parlay
@@ -70,6 +73,7 @@ namespace MvcExample.Models
         #region Result3rd
 
         IEnumerable<MetricGaming> Get3rdResult(GetMatchResultDetail3rdSelCriteria criteria);
+
         #endregion Result3rd
     }
 }

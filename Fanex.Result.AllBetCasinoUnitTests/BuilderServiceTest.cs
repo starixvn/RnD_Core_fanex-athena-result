@@ -8,50 +8,59 @@ namespace Fanex.Result.AllBetCasino.Tests
     public class BuilderServiceTest
     {
         private BuilderService _targetBuilder;
+
         [SetUp]
         public void Setup()
         {
             _targetBuilder = Substitute.For<BuilderService>();
-            _targetBuilder.GetConnectionString.Returns<string>(string.Empty);
             _targetBuilder.GetTemplatePath.Returns<string>(string.Empty);
         }
 
         [TestCase(null)]
         [TestCase("")]
-        [TestCase(" as 1243 sdf ")]
-        [TestCase("43543645654 ")]
-        public void Render_WhenInvalidTransId_ThrowAllBetCasinoException(string transId)
+        [TestCase("  ")]
+        public void Render_WhenInvalidTransDesc_ThrowAllBetCasinoException(string transDesc)
         {
-            /// Arrange
-            var expectedExceptionMessage = "AllBetCasino Result API Exception. Exception: The TransId is invalid!";
-            /// Assert
+            // Arrange
+            var betCheck = string.Empty;
+            var betType = "2401";
+            var expectedExceptionMessage = "AllBetCasino Result API Exception. Exception: tranDesc is invalid!";
+
+            // Assert
             Assert.That(
-                () => _targetBuilder.Render(transId),
+                () => _targetBuilder.Render(transDesc, betCheck, betType),
+                Throws.Exception.TypeOf<AllBetCasinoException>().With.Property("Message").EqualTo(expectedExceptionMessage));
+        }
+
+        [TestCase(null)]
+        [TestCase("")]
+        [TestCase("  ")]
+        public void Render_WhenInvalidBetType_ThrowAllBetCasinoException(string betType)
+        {
+            // Arrange
+            var transDesc = "transDesc";
+            var betCheck = string.Empty;
+            var expectedExceptionMessage = "AllBetCasino Result API Exception. Exception: betType is invalid!";
+
+            // Assert
+            Assert.That(
+                () => _targetBuilder.Render(transDesc, betCheck, betType),
                 Throws.Exception.TypeOf<AllBetCasinoException>().With.Property("Message").EqualTo(expectedExceptionMessage));
         }
 
         [Test]
-        public void Render_WhenInvalidConfig_ThrowAllBetCasinoException()
+        public void Render_WhenInvalidImagePathConfig_ThrowAllBetCasinoException()
         {
             /// Arrange
-            var transId = "123456789";
-            var expectedMessage = "Not found AllBetCasino Configuration";
+            var transDesc = "transDesc";
+            var betCheck = string.Empty;
+            var betType = "2401";
+            var expectedMessage = "AllBetCasino Result API Exception. Exception: not found AllBetCasino image path configuration!";
+
             /// Assert
             Assert.That(
-                () => _targetBuilder.Render(transId),
+                () => _targetBuilder.Render(transDesc, betCheck, betType),
                 Throws.Exception.TypeOf<AllBetCasinoException>().With.Property("Message").Contains(expectedMessage));
-        }
-
-        [Test]
-        public void Render_WhenValidConfigAndInputValue_Return3rdException()
-        {
-            /// Arrange
-            var transId = "12345";
-            _targetBuilder.GetConnectionString.Returns("A connection string");
-            _targetBuilder.GetTemplatePath.Returns("A template path");
-
-            /// Assert
-            Assert.Throws<AllBetCasinoException>(() => _targetBuilder.Render(transId));
         }
     }
 }

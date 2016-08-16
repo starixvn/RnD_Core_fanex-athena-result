@@ -21,6 +21,7 @@ namespace MvcExample.Models
     using Fanex.Result.Core.Sportsbook.DTO;
     using MvcExample.Models.Criteria;
     using MvcExample.Models.DTO;
+
     /// <summary>
     /// The result service.
     /// </summary>
@@ -463,6 +464,24 @@ namespace MvcExample.Models
                 Result = "round=AGQ*tableCode=va21*game=SHB*type=41*val=*winResult=42;44;54;55;61;73;85*result2="
             });
             return result;
+        }
+
+        public string GetAllBetTransDesc(int betType)
+        {
+            switch (betType)
+            {
+                case 2403:
+                    return "choice=4001*comms=101*site=spondemo*tableCode=B001*state=0*result=20*results=B;8:P;5*winResult=4001";
+
+                case 2404:
+                    return "choice=3001*comms=101*site=spondemo*tableCode=B001*state=0*result=1;2;3;6;5*results=B;8:P;5*winResult=3001";
+
+                case 2405:
+                    return "choice=2001*comms=101*site=spondemo*tableCode=B001*state=0*result=D;C2:T;D3*results=D;2:T;3*winResult=2001";
+
+                default:
+                    return "choice=1001*comms=101*site=spondemo*tableCode=B001*state=0*result=B;S6;H2:P;D10;D5*results=B;8:P;5*winResult=1001";
+            }
         }
 
         #region Utilites

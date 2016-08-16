@@ -6,13 +6,14 @@
     using System.Threading;
     using System.Web.Mvc;
     using Fanex.Result.Core;
+    using Fanex.Result.Core.AllBetCasino;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.MicroGaming;
     using Fanex.Result.Core.MicroGaming.DTO;
     using MvcExample.Models;
     using MvcExample.Models.Criteria;
     using MvcExample.Models.MetaModel;
-    using Fanex.Result.Core.AllBetCasino;
+
     /// <summary>
     /// POPUP result page.
     /// </summary>
@@ -164,9 +165,13 @@
                     }
 
                     break;
+
                 case SportType.AllBetCasino:
                     var allbetResultService = new BuilderService();
-                    return allbetResultService.Render(metalModel.RefNo.ToString(), metalModel.LanguageCode);
+                    var transDesc = _resultService.GetAllBetTransDesc(metalModel.Bettype);
+                    var betCheck = "123456";
+
+                    return allbetResultService.Render(transDesc, betCheck, metalModel.Bettype.ToString(), metalModel.LanguageCode);
 
                 case SportType.MicroGamingLC:
                     return ParserService.Instance.Parser(new MicroGaming

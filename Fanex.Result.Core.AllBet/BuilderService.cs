@@ -8,9 +8,11 @@
 
     public class BuilderService : IBuilderService
     {
-        private const string InvalidTransIdErrorMessage = "The TransId is invalid!";
+        private const string InvalidTransDescErrorMessage = "tranDesc is invalid!";
 
-        private const string InvalidConfigErrorMessage = "Not found AllBetCasino Configuration";
+        private const string InvalidBetTypeErrorMessage = "betType is invalid!";
+
+        private const string InvalidImagePathErrorMessage = "not found AllBetCasino image path configuration!";
 
         private const string DefaultLanguageCode = "en";
 
@@ -26,14 +28,6 @@
             { "vi-VN", "vn" }
         };
 
-        public virtual string GetConnectionString
-        {
-            get
-            {
-                return ConfigurationManager.ConnectionStrings["Fanex.Result.Core.3rdLiveCasino"].ConnectionString;
-            }
-        }
-
         public virtual string GetTemplatePath
         {
             get
@@ -42,27 +36,32 @@
             }
         }
 
-        public string Render(string transID, string languageCode = "en-US")
+        public string Render(string transDesc, string betCheck, string betType, string languageCode = "en-US")
         {
-            if (string.IsNullOrWhiteSpace(transID) || transID.Contains(" "))
+            if (string.IsNullOrWhiteSpace(transDesc))
             {
-                throw new AllBetCasinoException(InvalidTransIdErrorMessage);
+                throw new AllBetCasinoException(InvalidTransDescErrorMessage);
             }
 
-            var conn = GetConnectionString;
-            var tplPath = GetTemplatePath;
-            if (string.IsNullOrEmpty(conn) || string.IsNullOrEmpty(tplPath))
+            if (string.IsNullOrWhiteSpace(betType))
             {
-                throw new AllBetCasinoException(InvalidConfigErrorMessage);
+                throw new AllBetCasinoException(InvalidBetTypeErrorMessage);
+            }
+
+            var tplPath = GetTemplatePath;
+            if (string.IsNullOrWhiteSpace(tplPath))
+            {
+                throw new AllBetCasinoException(InvalidImagePathErrorMessage);
             }
 
             tplPath = CreateRelativePath(tplPath);
 
             try
             {
-                ResultPop resultContext = new ResultPop(HttpContext.Current, conn, tplPath);
+                ResultPop resultContext = new ResultPop(HttpContext.Current, null, tplPath);
                 var langCode = supportedLanguage.ContainsKey(languageCode) ? supportedLanguage[languageCode] : DefaultLanguageCode;
-                return resultContext.genResultPopHtmlbyID(transID, languageCode);
+
+                return resultContext.genResultPopHtml(transDesc, betCheck, langCode, betType);
             }
             catch (Exception exception)
             {

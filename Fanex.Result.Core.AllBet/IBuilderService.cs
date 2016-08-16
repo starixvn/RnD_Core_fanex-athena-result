@@ -2,6 +2,6 @@
 {
     public interface IBuilderService
     {
-        string Render(string transID, string languageCode = "en-US");
+        string Render(string transDesc, string betCheck, string betType, string languageCode = "en-US");
     }
 }

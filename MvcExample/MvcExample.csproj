@@ -542,7 +542,7 @@
     <Content Include="Content\Core\site.less" />
     <Content Include="Content\Core\variables.less" />
     <Content Include="ClassDiagram1.cd" />
-    <None Include="Content\Fanex.Result\fanex.result.less" />
+    <Content Include="Content\Fanex.Result\fanex.result.less" />
     <None Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <None Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <None Include="Content\fonts\glyphicons-halflings-regular.woff" />

@@ -29,6 +29,8 @@ namespace Fanex.Result.Core.Base.DataDomain
 
         public const string RefundFT = "Refund FT";
 
+        public const string RefundHT = "Refund HT";
+
         public const string Refund = "Refund";
 
         public const string Void = "Void";

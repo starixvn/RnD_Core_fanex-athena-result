@@ -7,16 +7,11 @@
     using Base.Resources;
     using Base.Utilities;
     using Base.ViewModels;
+    using DTO;
     using RemotingRef;
 
     public class SportsbookBaseViewModel : BaseViewModel, IResultViewModel
     {
-        private string[] _homeSet;
-
-        private string[] _awaySet;
-
-        private DTO.Sportsbook _sportbook;
-
         private bool _visibleDetailedLink = false;
 
         private bool _highlightWinnerTeam = false;
@@ -33,17 +28,9 @@
             this._visibleGoalRecord = setting.VisibleGoalRecord;
         }
 
-        public string[] HomeSet
-        {
-            get { return this._homeSet; }
-            set { this._homeSet = value; }
-        }
+        public string[] HomeSet { get; set; }
 
-        public string[] AwaySet
-        {
-            get { return this._awaySet; }
-            set { this._awaySet = value; }
-        }
+        public string[] AwaySet { get; set; }
 
         #region common properties
 
@@ -142,7 +129,7 @@
         {
             get
             {
-                return this._sportbook.IsPending;
+                return this.SPORTBOOK.IsPending;
             }
         }
 
@@ -162,11 +149,7 @@
             }
         }
 
-        protected DTO.Sportsbook SPORTBOOK
-        {
-            get { return this._sportbook; }
-            set { this._sportbook = value; }
-        }
+        protected Sportsbook SPORTBOOK { get; set; }
 
         protected bool HasResult
         {

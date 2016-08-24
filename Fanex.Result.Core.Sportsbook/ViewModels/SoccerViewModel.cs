@@ -129,34 +129,22 @@
 
         public string HTHomeScore
         {
-            get
-            {
-                return this.SPORTBOOK.HtHomeScore.HasValue ? this.SPORTBOOK.HtHomeScore.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
-            }
+            get { return CalculateScore(SPORTBOOK.HtHomeScore, false); }
         }
 
         public string FinalHomeScore
         {
-            get
-            {
-                return this.SPORTBOOK.FinalHomeScore.HasValue ? this.SPORTBOOK.FinalHomeScore.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
-            }
+            get { return CalculateScore(SPORTBOOK.FinalHomeScore, true); }
         }
 
         public string HTAwayScore
         {
-            get
-            {
-                return this.SPORTBOOK.HtAwayScore.HasValue ? this.SPORTBOOK.HtAwayScore.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
-            }
+            get { return CalculateScore(SPORTBOOK.HtAwayScore, false); }
         }
 
         public string FinalAwayScore
         {
-            get
-            {
-                return this.SPORTBOOK.FinalAwayScore.HasValue ? this.SPORTBOOK.FinalAwayScore.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
-            }
+            get { return CalculateScore(SPORTBOOK.FinalAwayScore, true); }
         }
 
         public string GoalRecord
@@ -228,17 +216,30 @@
             }
         }
 
+        private string CalculateScore(int? score, bool isFinalScore)
+        {
+            var refundType = isFinalScore ? ConstantValue.RefundFT : ConstantValue.RefundHT;
+
+            if (SPORTBOOK.EventStatus.Equals(ConstantValue.Refund, StringComparison.OrdinalIgnoreCase)
+                || SPORTBOOK.EventStatus.Equals(refundType, StringComparison.OrdinalIgnoreCase))
+            {
+                return LangResource.Refund;
+            }
+
+            return score.HasValue ? score.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
+        }
+
         /// <summary>
         /// Validate resource ID.
         /// </summary>
         /// <param name="resourceId">The resource ID.</param>
         /// <returns>True if it's ID is valid.</returns>
-        private static bool ValidateBetRadarResourceId(string resourceId)
+        private bool ValidateBetRadarResourceId(string resourceId)
         {
             return GameResources.BetRadar.Values.Any(pattern => ValidateResourceIdByPattern(pattern, resourceId));
         }
 
-        private static bool ValidateResourceIdByPattern(List<string> patterns, string resourceId)
+        private bool ValidateResourceIdByPattern(List<string> patterns, string resourceId)
         {
             return patterns.Any(i => SportsbookHelper.IsValidResourceId(i, resourceId));
         }
@@ -309,9 +310,6 @@
                 case EventStatusID.RefundFTSettlementStatusID:
                     item.HomeValue = item.AwayValue = LangResource.Refundft;
 
-                    break;
-
-                default:
                     break;
             }
 

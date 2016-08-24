@@ -5,35 +5,17 @@
 
     public sealed class Sportsbook
     {
-        private string _betStatus = string.Empty;
-        private string _goalRecord = string.Empty;
-        private string _matchCode = string.Empty;
-        private string _refNo = string.Empty;
-        private string _color = string.Empty;
-        private string _eventStatus = string.Empty;
         private List<GameDetail> _gameDetails = new List<GameDetail>();
 
-        public string BetStatus
-        {
-            get { return this._betStatus; }
-            set { this._betStatus = value; }
-        }
+        public string BetStatus { get; set; } = string.Empty;
 
         public int LeagueId { get; set; }
 
         public int MatchId { get; set; }
 
-        public string Color
-        {
-            get { return this._color; }
-            set { this._color = value; }
-        }
+        public string Color { get; set; } = string.Empty;
 
-        public string MatchCode
-        {
-            get { return this._matchCode; }
-            set { this._matchCode = value; }
-        }
+        public string MatchCode { get; set; } = string.Empty;
 
         public DateTime EventDate { get; set; }
 
@@ -51,21 +33,13 @@
 
         public int? FinalAwayScore { get; set; }
 
-        public string EventStatus
-        {
-            get { return this._eventStatus; }
-            set { this._eventStatus = value; }
-        }
+        public string EventStatus { get; set; } = string.Empty;
 
         public bool IsPending { get; set; }
 
         public bool IsNeutral { get; set; }
 
-        public string GoalRecord
-        {
-            get { return this._goalRecord; }
-            set { this._goalRecord = value; }
-        }
+        public string GoalRecord { get; set; } = string.Empty;
 
         public bool Calculate { get; set; }
 
@@ -75,11 +49,7 @@
         /// Gets or sets RefNo.It's used for popUp Result.
         /// </summary>
         /// <value>Get from RefNo column.</value>
-        public string RefNo
-        {
-            get { return this._refNo; }
-            set { this._refNo = value; }
-        }
+        public string RefNo { get; set; } = string.Empty;
 
         /// <summary>
         /// Gets or sets game detail values.
@@ -107,11 +77,7 @@
         /// Used for tennis in parlay result.
         /// </summary>
         /// <value>The bet type ID list.</value>
-        public int Bettype
-        {
-            get;
-            set;
-        }
+        public int Bettype { get; set; }
 
         /// <summary>
         /// Gets or sets bet id.
@@ -119,10 +85,6 @@
         /// Example:80212 (Set:02 , Game:12).
         /// </summary>
         /// <value>The bet ID list.</value>
-        public string BetID
-        {
-            get;
-            set;
-        }
+        public string BetID { get; set; }
     }
 }

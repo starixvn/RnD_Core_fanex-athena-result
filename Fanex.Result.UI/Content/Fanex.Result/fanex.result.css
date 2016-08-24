@@ -193,7 +193,7 @@ table.fn-rs .cl-totalset {
 }
 table.fn-rs .cl-ht-score,
 table.fn-rs .cl-f-score {
-  width: 38px;
+  width: 100px;
 }
 table.fn-rs .cl-status {
   text-transform: capitalize;

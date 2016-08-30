@@ -372,6 +372,9 @@
     <Content Include="Content\Fanex.Result\Allbet\template\public\game_result\Sicbo\ScoreBoard_d5.png" />
     <Content Include="Content\Fanex.Result\Allbet\template\public\game_result\Sicbo\ScoreBoard_d6.png" />
     <Content Include="Content\Fanex.Result\fanex.result.css" />
+    <Content Include="Content\Fanex.Result\fanex.result.min.css">
+      <DependentUpon>fanex.result.css</DependentUpon>
+    </Content>
     <Content Include="Content\Fanex.Result\images\goal-icon.png" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\jquery-ui\base\accordion.css" />
@@ -542,7 +545,7 @@
     <Content Include="Content\Core\site.less" />
     <Content Include="Content\Core\variables.less" />
     <Content Include="ClassDiagram1.cd" />
-    <Content Include="Content\Fanex.Result\fanex.result.less" />
+    <None Include="Content\Fanex.Result\fanex.result.less" />
     <None Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <None Include="Content\fonts\glyphicons-halflings-regular.ttf" />
     <None Include="Content\fonts\glyphicons-halflings-regular.woff" />
@@ -598,7 +601,7 @@
       <Name>Fanex.Result.Core.AllBetCasino</Name>
     </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj">
-      <Project>{8673F024-7726-4C30-8464-5A8357F79BF0}</Project>
+      <Project>{8673f024-7726-4c30-8464-5a8357f79bf0}</Project>
       <Name>Fanex.Result.Core.Base</Name>
     </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.CockFighting\Fanex.Result.Core.CockFighting.csproj">
@@ -630,7 +633,7 @@
       <Name>Fanex.Result.Core.Racing</Name>
     </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.Sportsbook\Fanex.Result.Core.Sportsbook.csproj">
-      <Project>{0469C900-5E5B-4D2C-8DB3-7EAEA991095B}</Project>
+      <Project>{0469c900-5e5b-4d2c-8db3-7eaea991095b}</Project>
       <Name>Fanex.Result.Core.Sportsbook</Name>
     </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.Voidbridge\Fanex.Result.Core.Voidbridge.csproj">
@@ -638,7 +641,7 @@
       <Name>Fanex.Result.Core.Voidbridge</Name>
     </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core\Fanex.Result.Core.csproj">
-      <Project>{73AAEA31-C52D-47D2-BC47-087A06794F55}</Project>
+      <Project>{73aaea31-c52d-47d2-bc47-087a06794f55}</Project>
       <Name>Fanex.Result.Core</Name>
     </ProjectReference>
   </ItemGroup>

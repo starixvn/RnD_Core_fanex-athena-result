@@ -1,16 +1,19 @@
 ﻿@using Fanex.Result.Core.Sportsbook.ViewModels.SoccerInfo;
-
 @{
     var itemViewModel = (SoccerDetailViewModel)Model;
-
 }
-<tr class="data">
-    <td colspan="3" class="cl-league sub">@itemViewModel.Name</td>
+<tr class="data cl-group-name">
+    <td></td>
+    <td colspan="2">@itemViewModel.Name</td>
 </tr>
 @foreach (var item in itemViewModel.DetailItems)
 {
     <tr class="data">
-        <td class="cl-match">@item.ResourceName</td>
-        <td class="cl-result home" colspan="2">@item.HomeValue</td>
+        <td class="cl-match">
+            @item.ResourceName
+        </td>
+        <td class="cl-result home" colspan="2">
+            @item.HomeValue
+        </td>
     </tr>
 }

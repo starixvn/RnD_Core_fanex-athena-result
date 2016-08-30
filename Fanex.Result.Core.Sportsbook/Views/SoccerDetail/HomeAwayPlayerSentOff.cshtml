@@ -1,22 +1,19 @@
-﻿@{
-    var itemViewModel = (Fanex.Result.Core.Sportsbook.ViewModels.SoccerInfo.SoccerDetailViewModel)Model;
-
-   
+﻿@using Fanex.Result.Core.Sportsbook.ViewModels.SoccerInfo;
+@using Fanex.Result.Core.Sportsbook.DataDomain;
+@using Fanex.Result.Core.Base.DataDomain;
+@{
+    var itemViewModel = (SoccerDetailViewModel)Model;
 }
-@using Fanex.Result.Core.Sportsbook.ViewModels.SoccerInfo;
-@using Fanex.Result.Core.Sportsbook.ViewModels;
-@using System.Collections;
-<tr class="data">
-    <td colspan="3" class="cl-league sub">
-        @itemViewModel.Name
-    </td>
+<tr class="data cl-group-name">
+    <td></td>
+    <td colspan="2">@itemViewModel.Name</td>
 </tr>
 <!--Merge row-->
 @{
-    Fanex.Result.Core.Sportsbook.ViewModels.SoccerInfo.SoccerGameDetailItem homePlayerSentOff1H = null;
-    Fanex.Result.Core.Sportsbook.ViewModels.SoccerInfo.SoccerGameDetailItem awayPlayerSentOff1H = null;
-    Fanex.Result.Core.Sportsbook.ViewModels.SoccerInfo.SoccerGameDetailItem homePlayerSentOff = null;
-    Fanex.Result.Core.Sportsbook.ViewModels.SoccerInfo.SoccerGameDetailItem awayPlayerSentOff = null;
+    SoccerGameDetailItem homePlayerSentOff1H = null;
+    SoccerGameDetailItem awayPlayerSentOff1H = null;
+    SoccerGameDetailItem homePlayerSentOff = null;
+    SoccerGameDetailItem awayPlayerSentOff = null;
     var firstHalfResource = string.Empty;
     var fullTimeResource = string.Empty;
 }
@@ -24,19 +21,19 @@
 {
     switch (item.ResourceID)
     {
-        case Fanex.Result.Core.Sportsbook.DataDomain.GameResourceID.HomePlayserSentOff:
+        case GameResourceID.HomePlayserSentOff:
             fullTimeResource = item.ResourceName;
             homePlayerSentOff = item;
             break;
-        case Fanex.Result.Core.Sportsbook.DataDomain.GameResourceID.AwayPlayserSentOff:
+        case GameResourceID.AwayPlayserSentOff:
             fullTimeResource = item.ResourceName;
             awayPlayerSentOff = item;
             break;
-        case Fanex.Result.Core.Sportsbook.DataDomain.GameResourceID.HomePlayserSentOff1H:
+        case GameResourceID.HomePlayserSentOff1H:
             firstHalfResource = item.ResourceName;
             homePlayerSentOff1H = item;
             break;
-        case Fanex.Result.Core.Sportsbook.DataDomain.GameResourceID.AwayPlayserSentOff1H:
+        case GameResourceID.AwayPlayserSentOff1H:
             firstHalfResource = item.ResourceName;
             awayPlayerSentOff1H = item;
             break;
@@ -52,7 +49,7 @@
         <td class="cl-result home">
             @if (homePlayerSentOff1H == null || string.IsNullOrEmpty(homePlayerSentOff1H.HomeValue))
             {
-                @Fanex.Result.Core.Base.DataDomain.ConstantValue.Hyphen
+                @ConstantValue.Hyphen
             }
             else
             {
@@ -62,7 +59,7 @@
         <td class="cl-result away">
             @if (awayPlayerSentOff1H == null || string.IsNullOrEmpty(awayPlayerSentOff1H.HomeValue))
             {
-                 @Fanex.Result.Core.Base.DataDomain.ConstantValue.Hyphen
+                 @ConstantValue.Hyphen
             }
             else
             {
@@ -80,7 +77,7 @@
         <td class="cl-result home">
             @if (homePlayerSentOff == null || string.IsNullOrEmpty(homePlayerSentOff.HomeValue))
             {
-                @Fanex.Result.Core.Base.DataDomain.ConstantValue.Hyphen
+                @ConstantValue.Hyphen
             }
             else
             {
@@ -90,7 +87,7 @@
         <td class="cl-result away">
             @if (awayPlayerSentOff == null || string.IsNullOrEmpty(awayPlayerSentOff.HomeValue))
             {
-                @Fanex.Result.Core.Base.DataDomain.ConstantValue.Hyphen
+                @ConstantValue.Hyphen
             }
             else
             {

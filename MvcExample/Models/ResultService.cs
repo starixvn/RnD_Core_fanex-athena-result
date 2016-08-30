@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="ResultService.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace MvcExample.Models
+﻿namespace MvcExample.Models
 {
     using System;
     using System.Collections.Generic;
@@ -22,9 +16,6 @@ namespace MvcExample.Models
     using MvcExample.Models.Criteria;
     using MvcExample.Models.DTO;
 
-    /// <summary>
-    /// The result service.
-    /// </summary>
     public class ResultService : IResultService
     {
         public IEnumerable<Sport> GetSports(GetSportByDateCriteria criteria)
@@ -148,7 +139,6 @@ namespace MvcExample.Models
         /// <returns>The SPORTBOOK data.</returns>
         public IEnumerable<Sportsbook> GetSportbookResult(GetSportbookResultCriteria criteria)
         {
-            criteria.sporttype = 0;
             var results = new List<Sportsbook>();
             var gameDetails = new List<GameDetail>();
             using (var db = new ObjectDb(criteria.GetSettingKey()))
@@ -520,7 +510,7 @@ namespace MvcExample.Models
                 EventDate = DateTime.Parse(reader["eventdate"].ToString()),
                 IsNeutral = bool.Parse(reader["IsNeutral"].ToString()),
                 IsPending = bool.Parse(reader["IsPending"].ToString()),
-                KickOffTime = reader["kickofftime"].ToString() == ""? DateTime.Now: DateTime.Parse(reader["kickofftime"].ToString()),
+                KickOffTime = reader["kickofftime"].ToString() == "" ? DateTime.Now : DateTime.Parse(reader["kickofftime"].ToString()),
                 MatchCode = reader["matchcode"].ToString(),
                 GoalRecord = reader["goalrecord"].ToString(),
                 IsHTCal = Convert.ToBoolean(reader["IsHTCal"]),

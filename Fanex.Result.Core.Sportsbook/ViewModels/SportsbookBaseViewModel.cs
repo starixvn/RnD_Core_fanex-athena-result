@@ -17,7 +17,7 @@
         private bool _highlightWinnerTeam = false;
         private bool _visibleGoalRecord = false;
 
-        public SportsbookBaseViewModel(DTO.Sportsbook sportbook, ResultSetting setting)
+        public SportsbookBaseViewModel(Sportsbook sportbook, ResultSetting setting)
             : base(setting)
         {
             this.SPORTBOOK = sportbook;

@@ -6,7 +6,7 @@
     using System.Web;
     using LiveCasinoResult;
 
-    public class BuilderService : IBuilderService
+    public class AllbetResultBuilder : IAllbetResultBuilder
     {
         private const string InvalidTransDescErrorMessage = "tranDesc is invalid!";
 
@@ -32,7 +32,7 @@
         {
             get
             {
-                return ConfigurationManager.AppSettings["Fanex.Result.Core.3rdLiveCasinoTplPath"];
+                return ConfigurationManager.AppSettings["AllbetResultImagePath"];
             }
         }
 

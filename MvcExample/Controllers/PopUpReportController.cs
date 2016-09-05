@@ -167,7 +167,7 @@
                     break;
 
                 case SportType.AllBetCasino:
-                    var allbetResultService = new BuilderService();
+                    var allbetResultService = new AllbetResultBuilder();
                     var transDesc = _resultService.GetAllBetTransDesc(metalModel.Bettype);
                     var betCheck = "123456";
 

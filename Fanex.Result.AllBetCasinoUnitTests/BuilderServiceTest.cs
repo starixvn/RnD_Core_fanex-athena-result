@@ -7,12 +7,12 @@ namespace Fanex.Result.AllBetCasino.Tests
     [TestFixture]
     public class BuilderServiceTest
     {
-        private BuilderService _targetBuilder;
+        private AllbetResultBuilder _targetBuilder;
 
         [SetUp]
         public void Setup()
         {
-            _targetBuilder = Substitute.For<BuilderService>();
+            _targetBuilder = Substitute.For<AllbetResultBuilder>();
             _targetBuilder.GetTemplatePath.Returns<string>(string.Empty);
         }
 

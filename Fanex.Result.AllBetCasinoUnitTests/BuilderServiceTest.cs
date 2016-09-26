@@ -22,13 +22,13 @@ namespace Fanex.Result.AllBetCasino.Tests
         public void Render_WhenInvalidTransDesc_ThrowAllBetCasinoException(string transDesc)
         {
             // Arrange
-            var betCheck = string.Empty;
+            var matchCode = string.Empty;
             var betType = "2401";
             var expectedExceptionMessage = "AllBetCasino Result API Exception. Exception: tranDesc is invalid!";
 
             // Assert
             Assert.That(
-                () => _targetBuilder.Render(transDesc, betCheck, betType),
+                () => _targetBuilder.Render(transDesc, matchCode, betType),
                 Throws.Exception.TypeOf<AllBetCasinoException>().With.Property("Message").EqualTo(expectedExceptionMessage));
         }
 
@@ -39,12 +39,12 @@ namespace Fanex.Result.AllBetCasino.Tests
         {
             // Arrange
             var transDesc = "transDesc";
-            var betCheck = string.Empty;
+            var matchCode = string.Empty;
             var expectedExceptionMessage = "AllBetCasino Result API Exception. Exception: betType is invalid!";
 
             // Assert
             Assert.That(
-                () => _targetBuilder.Render(transDesc, betCheck, betType),
+                () => _targetBuilder.Render(transDesc, matchCode, betType),
                 Throws.Exception.TypeOf<AllBetCasinoException>().With.Property("Message").EqualTo(expectedExceptionMessage));
         }
 
@@ -53,13 +53,13 @@ namespace Fanex.Result.AllBetCasino.Tests
         {
             /// Arrange
             var transDesc = "transDesc";
-            var betCheck = string.Empty;
+            var matchCode = string.Empty;
             var betType = "2401";
             var expectedMessage = "AllBetCasino Result API Exception. Exception: not found AllBetCasino image path configuration!";
 
             /// Assert
             Assert.That(
-                () => _targetBuilder.Render(transDesc, betCheck, betType),
+                () => _targetBuilder.Render(transDesc, matchCode, betType),
                 Throws.Exception.TypeOf<AllBetCasinoException>().With.Property("Message").Contains(expectedMessage));
         }
     }

@@ -169,9 +169,9 @@
                 case SportType.AllBetCasino:
                     var allbetResultService = new AllbetResultBuilder();
                     var transDesc = _resultService.GetAllBetTransDesc(metalModel.Bettype);
-                    var betCheck = "123456";
+                    var matchCode = "123456";
 
-                    return allbetResultService.Render(transDesc, betCheck, metalModel.Bettype.ToString(), metalModel.LanguageCode);
+                    return allbetResultService.Render(transDesc, matchCode, metalModel.Bettype.ToString(), metalModel.LanguageCode);
 
                 case SportType.MicroGamingLC:
                     return ParserService.Instance.Parser(new MicroGaming

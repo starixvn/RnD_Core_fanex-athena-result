@@ -36,7 +36,7 @@
             }
         }
 
-        public string Render(string transDesc, string betCheck, string betType, string languageCode = "en-US")
+        public string Render(string transDesc, string matchCode, string betType, string languageCode = "en-US")
         {
             if (string.IsNullOrWhiteSpace(transDesc))
             {
@@ -61,7 +61,7 @@
                 ResultPop resultContext = new ResultPop(HttpContext.Current, null, tplPath);
                 var langCode = supportedLanguage.ContainsKey(languageCode) ? supportedLanguage[languageCode] : DefaultLanguageCode;
 
-                return resultContext.genResultPopHtml(transDesc, betCheck, langCode, betType);
+                return resultContext.genResultPopHtml(transDesc, matchCode, langCode, betType);
             }
             catch (Exception exception)
             {

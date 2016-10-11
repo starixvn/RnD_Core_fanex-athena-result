@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{9CF3C046-BF76-4A72-AF58-7D9A98B527F7}"
 	ProjectSection(SolutionItems) = preProject
@@ -68,6 +68,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.LiveCasino.Tests", "Fanex.Result.Core.LiveCasino.Tests\Fanex.Result.Core.LiveCasino.Tests.csproj", "{7130AF26-A411-46B5-8A5B-6C52119D4BB1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.GoldDeluxe.Tests", "Fanex.Result.Core.GoldDeluxe.Tests\Fanex.Result.Core.GoldDeluxe.Tests.csproj", "{B7E1ABCF-0E52-4BD8-813C-68EEE351DE58}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External Products", "External Products", "{719A3454-5B80-4651-9DA5-3E1E0854BFA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCasinoResult", "LiveCasinoResult\LiveCasinoResult.csproj", "{E8D9E9B2-5DD6-4612-98A8-24320F21A95A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -171,6 +175,10 @@ Global
 		{B7E1ABCF-0E52-4BD8-813C-68EEE351DE58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7E1ABCF-0E52-4BD8-813C-68EEE351DE58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7E1ABCF-0E52-4BD8-813C-68EEE351DE58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8D9E9B2-5DD6-4612-98A8-24320F21A95A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8D9E9B2-5DD6-4612-98A8-24320F21A95A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8D9E9B2-5DD6-4612-98A8-24320F21A95A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8D9E9B2-5DD6-4612-98A8-24320F21A95A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -196,6 +204,7 @@ Global
 		{F20A6D32-94E0-4486-8C66-320F3EF970D2} = {CCA318B4-A6C4-4767-B6A5-2348BACBA831}
 		{7130AF26-A411-46B5-8A5B-6C52119D4BB1} = {CCA318B4-A6C4-4767-B6A5-2348BACBA831}
 		{B7E1ABCF-0E52-4BD8-813C-68EEE351DE58} = {CCA318B4-A6C4-4767-B6A5-2348BACBA831}
+		{E8D9E9B2-5DD6-4612-98A8-24320F21A95A} = {719A3454-5B80-4651-9DA5-3E1E0854BFA5}
 	EndGlobalSection
 	GlobalSection(JSLint) = preSolution
 		SolutionConfigurationLocation = JSLintOptions.xml

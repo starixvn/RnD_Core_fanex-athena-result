@@ -46,37 +46,9 @@
     <Compile Include="ResultEngine.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Fanex.Result.Core.AGCasino\Fanex.Result.Core.AGCasino.csproj">
-      <Project>{0A57E89B-3C07-498A-A704-E893C2C3F7E9}</Project>
-      <Name>Fanex.Result.Core.AGCasino</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj">
-      <Project>{8673F024-7726-4C30-8464-5A8357F79BF0}</Project>
+      <Project>{8673f024-7726-4c30-8464-5a8357f79bf0}</Project>
       <Name>Fanex.Result.Core.Base</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Fanex.Result.Core.GoldDeLuxe\Fanex.Result.Core.GoldDeluxe.csproj">
-      <Project>{DBD59404-19D9-422C-83F1-8F20E02545ED}</Project>
-      <Name>Fanex.Result.Core.GoldDeluxe</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Fanex.Result.Core.LiveCasino\Fanex.Result.Core.LiveCasino.csproj">
-      <Project>{C67A0F1F-9F62-4E75-A982-0894FDD79008}</Project>
-      <Name>Fanex.Result.Core.LiveCasino</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Fanex.Result.Core.MetricGaming\Fanex.Result.Core.MetricGaming.csproj">
-      <Project>{76CD2383-849A-4291-AD55-378F6C26836C}</Project>
-      <Name>Fanex.Result.Core.MetricGaming</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Fanex.Result.Core.NumberGame\Fanex.Result.Core.NumberGame.csproj">
-      <Project>{CEBAE710-7919-4FC6-8978-862A3096972C}</Project>
-      <Name>Fanex.Result.Core.NumberGame</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Fanex.Result.Core.Racing\Fanex.Result.Core.Racing.csproj">
-      <Project>{4869ED23-CD0C-4472-BCE6-54A9E170ED6E}</Project>
-      <Name>Fanex.Result.Core.Racing</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Fanex.Result.Core.Sportsbook\Fanex.Result.Core.Sportsbook.csproj">
-      <Project>{0469C900-5E5B-4D2C-8DB3-7EAEA991095B}</Project>
-      <Name>Fanex.Result.Core.Sportsbook</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

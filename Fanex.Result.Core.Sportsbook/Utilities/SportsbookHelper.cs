@@ -6,12 +6,14 @@
 
 namespace Fanex.Result.Core.Sportsbook.Utilities
 {
+    using System;
     using System.Linq;
     using System.Text;
     using System.Text.RegularExpressions;
     using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Sportsbook.DataDomain;
+    using RemotingRef;
 
     /// <summary>
     /// TODO: Update summary.
@@ -20,6 +22,7 @@ namespace Fanex.Result.Core.Sportsbook.Utilities
     {
         private const string ResourceIDSuffix = "RS";
         private static Regex setXGameYRegex = new Regex("^80[1-5]{1}\\d{2}$");
+
         private static Regex[] soccerRangeResourceIDRegex = new Regex[5]
         {
             new Regex(GameResourceID.NextGoalTime),
@@ -118,6 +121,41 @@ namespace Fanex.Result.Core.Sportsbook.Utilities
             }
 
             return result;
+        }
+
+        public static string GetFastMarketsResourceLang(string keyName, string languageCode)
+        {
+            var resourceId = GameResources.FastMarkets[keyName];
+            var betType = resourceId.Substring(0, resourceId.Length - 2);
+
+            return RefData.GetBetTypeName(betType, languageCode);
+        }
+
+        public static string CreateFastMarketInterval(string resourceId, string startMinute)
+        {
+            var interval = string.Empty;
+            var endMinute = string.Empty;
+
+            if (Helper.IsIntegerNumber(startMinute))
+            {
+                switch (resourceId)
+                {
+                    case GameResourceID.NextOneMinutes:
+                    case GameResourceID.FirstOneMinutes:
+                        endMinute = startMinute = Convert.ToInt32(startMinute).ToString("D2");
+                        interval = $"{startMinute}:00-{endMinute}:59";
+                        break;
+
+                    case GameResourceID.NextFiveMinutes:
+                    case GameResourceID.FirstFiveMinutes:
+                        endMinute = (Convert.ToInt32(startMinute) + 4).ToString("D2");
+                        startMinute = Convert.ToInt32(startMinute).ToString("D2");
+                        interval = $"{startMinute}:00-{endMinute}:59";
+                        break;
+                }
+            }
+
+            return interval;
         }
     }
 }

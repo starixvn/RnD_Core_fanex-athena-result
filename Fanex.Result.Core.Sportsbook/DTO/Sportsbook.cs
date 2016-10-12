@@ -84,9 +84,9 @@
         public int Bettype { get; set; }
 
         /// <summary>
-        /// Gets or sets bet id.
-        /// Used for tennis in parlay result.
-        /// Example:80212 (Set:02 , Game:12).
+        /// Gets or sets betId.
+        /// Used for tennis in parlay result. Example:80212 (Set:02 , Game:12).
+        /// Used for soccer in Fast Markets (Interval): handicap1 from bettrans
         /// </summary>
         /// <value>The bet ID list.</value>
         public string BetID { get; set; }

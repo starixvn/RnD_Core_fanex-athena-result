@@ -11,7 +11,6 @@ namespace Fanex.Result.Core.Sportsbook.Models
     using Fanex.Result.Core.Base.Extension;
     using Fanex.Result.Core.Base.Models;
     using Fanex.Result.Core.Base.ViewModels;
-    using Fanex.Result.Core.Models;
     using Fanex.Result.Core.Sportsbook.ExcelModels;
 
     /// <summary>

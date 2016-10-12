@@ -32,6 +32,14 @@
             }
         };
 
+        private static IDictionary<string, string> _fastMarkets = new Dictionary<string, string>
+        {
+            { "NextOneMinutes", GameResourceID.NextOneMinutes },
+            { "NextFiveMinutes", GameResourceID.NextFiveMinutes },
+            { "FirstOneMinutes", GameResourceID.FirstOneMinutes },
+            { "FirstFiveMinutes", GameResourceID.FirstFiveMinutes }
+        };
+
         private static int[] _possibleMuayThaiScore = { 0, 1, 5 };
 
         public static IDictionary<string, List<string>> BetRadar
@@ -39,6 +47,14 @@
             get
             {
                 return _betRadar;
+            }
+        }
+
+        public static IDictionary<string, string> FastMarkets
+        {
+            get
+            {
+                return _fastMarkets;
             }
         }
 

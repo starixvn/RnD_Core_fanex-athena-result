@@ -157,5 +157,13 @@ namespace Fanex.Result.Core.Sportsbook.DataDomain
         public const string ExtraTimeYesNo = "173";
 
         public const string FirstGoalMethod = "424";
+
+        public const string NextOneMinutes = "22101";
+
+        public const string NextFiveMinutes = "22201";
+
+        public const string FirstOneMinutes = "22301";
+
+        public const string FirstFiveMinutes = "22401";
     }
 }

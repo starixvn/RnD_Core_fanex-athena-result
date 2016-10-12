@@ -1,5 +1,7 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.Tests.Utilities
 {
+    using System.Collections.Generic;
+    using NSubstitute;
     using NUnit.Framework;
     using Sportsbook.Utilities;
 
@@ -179,6 +181,64 @@
 
             // Assert
             Assert.AreEqual(expectedResource, resource);
+        }
+
+        [TestCase("")]
+        [TestCase("2210")]
+        [TestCase("FirstOne")]
+        public void GetFastMarketsResourceLang_FromKeyNameIsNotInFastMarkets_ReturnsKeyNotFoundException(string keyName)
+        {
+            // Arrange
+            var languageCode = "en";
+
+            // Act
+            TestDelegate testDelegate = () => SportsbookHelper.GetFastMarketsResourceLang(keyName, languageCode);
+
+            // Assert
+            Assert.Throws<KeyNotFoundException>(testDelegate);
+        }
+
+        [TestCase("abc")]
+        [TestCase("&df")]
+        [TestCase("")]
+        public void CreateIntervalForFastMarket_FromStartTimeIsNotInteger_ReturnsEmpty(string startTime)
+        {
+            // Act
+            var interval = SportsbookHelper.CreateFastMarketInterval(Arg.Any<string>(), startTime);
+
+            // Assert
+            Assert.IsEmpty(interval);
+        }
+
+        [TestCase("22102")]
+        [TestCase("25102")]
+        [TestCase("")]
+        public void CreateIntervalForFastMarket_FromStartTimeIsIntegerAndResourceIdIsNotInFastMarkets_ReturnsEmpty(string resourceId)
+        {
+            // Arrange
+            var startTime = 12.ToString();
+
+            // Act
+            var interval = SportsbookHelper.CreateFastMarketInterval(resourceId, startTime);
+
+            // Assert
+            Assert.IsEmpty(interval);
+        }
+
+        [TestCase("22101", "10", "10:00-10:59")]
+        [TestCase("22201", "10", "10:00-14:59")]
+        [TestCase("22301", "10", "10:00-10:59")]
+        [TestCase("22401", "10", "10:00-14:59")]
+        public void CreateIntervalForFastMarket_StartTimeIsIntegerAndResourceIdIsInFastMarkets_ReturnsExpectedInterval(
+            string resourceId,
+            string startTime,
+            string expectedInterval)
+        {
+            // Act
+            var interval = SportsbookHelper.CreateFastMarketInterval(resourceId, startTime);
+
+            // Assert
+            Assert.AreEqual(expectedInterval, interval);
         }
     }
 }

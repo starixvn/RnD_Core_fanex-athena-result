@@ -202,17 +202,18 @@
                     }
 
                     var data = _resultService.GetSportbookPopupResult(
-               new GetSportbookPopupResultCriteria
-               {
-                   LicenseeID = licenseeId,
-                   MatchID = metalModel.MatchId,
-                   UserID = userId,
-                   BetId = metalModel.BetId,
-                   Bettype = metalModel.Bettype
-               });
+                        new GetSportbookPopupResultCriteria
+                        {
+                            LicenseeID = licenseeId,
+                            MatchID = metalModel.MatchId,
+                            UserID = userId,
+                            BetId = metalModel.BetId,
+                            Bettype = metalModel.Bettype
+                        });
 
                     if (data != null)
                     {
+                        data.ToList().ForEach(x => x.BetID = metalModel.BetId.ToString());
                         return ResultEngine.HtmlParser(data.ToList(), setting);
                     }
 

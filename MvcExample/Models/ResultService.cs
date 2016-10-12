@@ -649,8 +649,8 @@
                 ResourceId = reader["ResourceId"].ToString(),
                 HomeValue = reader["HomeValue"].ToString(),
                 AwayValue = reader["AwayValue"].ToString(),
-                ResultStatusID = int.Parse(reader["ResultStatusID"].ToString()),
-                SettlementStatusID = int.Parse(reader["SettlementStatusID"].ToString()),
+                ResultStatusID = Convert.IsDBNull(reader["ResultStatusID"]) ? 0 : int.Parse(reader["ResultStatusID"].ToString()),
+                SettlementStatusID = Convert.IsDBNull(reader["SettlementStatusID"]) ? 0 : int.Parse(reader["SettlementStatusID"].ToString()),
                 OtherInfo = reader["OtherInfo"].ToString()
             };
         }

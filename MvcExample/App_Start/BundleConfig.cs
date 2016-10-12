@@ -20,10 +20,10 @@ namespace MvcExample
             BundleResolver.Current = new CustomBundleResolver();
 
             var css = new Bundle("~/bundles/coreCss")
-            .Include("~/Content/jquery-ui/base/all.css")
-            .Include("~/Content/bootstrap/bootstrap.less")
-           .Include("~/Content/Core/site.less")
-              .Include("~/Content/Fanex.Result/fanex.result.css");
+                .Include("~/Content/jquery-ui/base/all.css")
+                .Include("~/Content/bootstrap/bootstrap.less")
+                .Include("~/Content/Core/site.less")
+                .Include("~/Content/Fanex.Result/fanex.result.css");
 
             css.Builder = nullBuilder;
             css.Transforms.Add(cssTransformer);
@@ -36,12 +36,11 @@ namespace MvcExample
                 "~/Scripts/jquery-ui-1.11.1.js",
                 "~/Scripts/bootstrap.js",
                 "~/Scripts/Core/site.js",
-               "~/Scripts/crel.js",
-                  "~/Scripts/json.human.js",
+                "~/Scripts/crel.js",
+                "~/Scripts/json.human.js",
                 "~/Scripts/Page/normal-report.js",
-               "~/Scripts/Page/outright-report.js",
-               "~/Scripts/Page/popup-report.js"
-                );
+                "~/Scripts/Page/outright-report.js",
+                "~/Scripts/Page/popup-report.js");
 
             coreJs.Builder = nullBuilder;
             coreJs.Transforms.Add(jsTransformer);

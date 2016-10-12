@@ -14,8 +14,8 @@
     using Fanex.Result.Core.NumberGame.DTO;
     using Fanex.Result.Core.Racing.DTO;
     using Fanex.Result.Core.Sportsbook.DTO;
-    using MvcExample.Models;
-    using MvcExample.Models.Criteria;
+    using Models;
+    using Models.Criteria;
 
     /// <summary>
     /// Normal result page.
@@ -61,7 +61,7 @@
                 VisibleMatchCodeIDColumn = showMatchCode,
                 VisibleDetailedLink = true,
                 VisibleFreeHeader = true,
-                HighlightWinnerTeam = true,
+                HighlightWinnerTeam = true
             };
             var htmlResult = string.Empty;
             switch (sportType)
@@ -111,10 +111,10 @@
 
                 case SportType.GoldDeluxe:
                     var dataGd = _resultService.GetGoldDeluxePopUpResult(new GetGolDeluxePopUpResultCriteria
-                   {
-                       TransID = 7396592187,
-                       Bettype = 1701
-                   });
+                    {
+                        TransID = 7396592187,
+                        Bettype = 1701
+                    });
 
                     htmlResult = ResultEngine.HtmlParser(dataGd.ToList(), resultSetting);
                     break;
@@ -156,7 +156,7 @@
                         SportType = (SportType)sportId,
                         VisibleMatchCodeIDColumn = showMatchCode,
                         LanguageCode = languageCode,
-                        HighlightWinnerTeam = true,
+                        HighlightWinnerTeam = true
                     });
             }
 
@@ -237,10 +237,10 @@
 
                 case SportType.GoldDeluxe:
                     var dataGd = _resultService.GetGoldDeluxePopUpResult(new GetGolDeluxePopUpResultCriteria
-                   {
-                       TransID = 7201376080,
-                       Bettype = 1701
-                   });
+                    {
+                        TransID = 7201376080,
+                        Bettype = 1701
+                    });
 
                     excelResult = ResultEngine.ExcelParser<GoldDeluxe>(dataGd.ToList(), resultSetting);
                     break;

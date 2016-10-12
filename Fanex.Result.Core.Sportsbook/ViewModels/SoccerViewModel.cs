@@ -15,15 +15,19 @@
     using Base.ViewModels;
     using DataDomain;
     using DTO;
+    using Exceptions;
     using Models;
     using RazorEngine;
     using RazorEngine.Templating;
+    using RemotingRef;
     using SoccerInfo;
     using Utilities;
 
     public sealed class SoccerViewModel : SportsbookBaseViewModel, IResultViewModel
     {
         private const string TemplateNameSpace = "SoccerDetail.";
+        private const string FastMarketsTemplate = "FastMarkets";
+        private const string FastMarketsResource = "FastMarket221Yes";
         private SoccerDetailInfo _goalInfo;
         private bool? _hasValidGameData;
         private IList<SoccerGameDetailItem> _detailedItemModels = null;
@@ -182,7 +186,7 @@
             {
                 if (_detailedItemModels == null)
                 {
-                    _detailedItemModels = GetDetailedResult();
+                    GetDetailedResult();
                 }
 
                 var temp = new StringBuilder();
@@ -190,7 +194,12 @@
                 var detailedReulstByGroup = _detailedItemModels.GroupBy(i => i.GroupCode).ToList();
                 foreach (var item in detailedReulstByGroup)
                 {
-                    var templateName = TemplateNameSpace + item.Key;
+                    var isFastMarkets = GameResources.FastMarkets.Any(x => x.Key == item.Key);
+
+                    var templateName = isFastMarkets
+                                            ? TemplateNameSpace + FastMarketsTemplate
+                                            : TemplateNameSpace + item.Key;
+
                     var templateByGroup = templateOperator.GetRazorTemplate(templateName);
                     if (!string.IsNullOrEmpty(templateByGroup))
                     {
@@ -222,7 +231,7 @@
                 if (!_hasValidGameData.HasValue)
                 {
                     _hasValidGameData = this.SPORTBOOK.GameDetails.Any(i => !string.IsNullOrEmpty(i.ResourceId)
-                 && ValidateBetRadarResourceId(i.ResourceId));
+                 && ValidateResourceId(i.ResourceId));
                 }
 
                 return _hasValidGameData.Value;
@@ -264,9 +273,19 @@
         /// </summary>
         /// <param name="resourceId">The resource ID.</param>
         /// <returns>True if it's ID is valid.</returns>
+        private bool ValidateResourceId(string resourceId)
+        {
+            return ValidateBetRadarResourceId(resourceId) || ValidateFastMarketsResourceId(resourceId);
+        }
+
         private bool ValidateBetRadarResourceId(string resourceId)
         {
             return GameResources.BetRadar.Values.Any(pattern => ValidateResourceIdByPattern(pattern, resourceId));
+        }
+
+        private bool ValidateFastMarketsResourceId(string resourceId)
+        {
+            return GameResources.FastMarkets.Any(x => x.Value == resourceId);
         }
 
         private bool ValidateResourceIdByPattern(List<string> patterns, string resourceId)
@@ -277,27 +296,47 @@
         /// <summary>
         /// Get detailed game results.
         /// </summary>
-        private IList<SoccerGameDetailItem> GetDetailedResult()
+        private void GetDetailedResult()
         {
-            var detailedItemModels = new SafeList<SoccerGameDetailItem>();
+            _detailedItemModels = new SafeList<SoccerGameDetailItem>();
+
+            GetBetRadarDetailedResult();
+
+            GetFastMarketsDetailedResult();
+        }
+
+        private void GetBetRadarDetailedResult()
+        {
             foreach (var group in GameResources.BetRadar)
             {
                 foreach (var game in group.Value)
                 {
-                    var detailedGameRecords = this.SPORTBOOK.GameDetails
+                    var detailedGameRecords = SPORTBOOK.GameDetails
                         .Where(i => SportsbookHelper.IsValidResourceId(game, i.ResourceId)).ToSafeList<GameDetail>();
 
                     foreach (GameDetail detailedItem in detailedGameRecords)
                     {
                         if (detailedItem.ResourceId != GameResourceID.GoalSequence || IsShowGoalSequence(detailedItem.SettlementStatusID))
                         {
-                            detailedItemModels.Add(MapDetailedGameValue(group.Key, detailedItem));
+                            _detailedItemModels.Add(MapBetRadarDetailedGameValue(group.Key, detailedItem));
                         }
                     }
                 }
             }
+        }
 
-            return detailedItemModels;
+        private void GetFastMarketsDetailedResult()
+        {
+            foreach (var group in GameResources.FastMarkets)
+            {
+                var gameDetails = SPORTBOOK.GameDetails
+                       .Where(i => SportsbookHelper.IsValidResourceId(group.Value, i.ResourceId)).ToSafeList<GameDetail>();
+
+                foreach (GameDetail detailedItem in gameDetails)
+                {
+                    _detailedItemModels.Add(MapFastMarketsDetailedGameValue(group.Key, detailedItem));
+                }
+            }
         }
 
         private bool IsShowGoalSequence(int settlementStatusID)
@@ -311,39 +350,69 @@
         /// <param name="groupCode">Group game code.</param>
         /// <param name="detailedItem">The raw detailed value.</param>
         /// <returns>The detail view model.</returns>
-        private SoccerGameDetailItem MapDetailedGameValue(string groupCode, GameDetail detailedItem)
+        private SoccerGameDetailItem MapBetRadarDetailedGameValue(string groupCode, GameDetail detailedItem)
         {
             var item = new SoccerGameDetailItem
             {
                 GroupCode = groupCode,
                 ResourceID = detailedItem.ResourceId,
                 GroupName = SportsbookHelper.GetResourceLang(groupCode),
-                ResourceName = SportsbookHelper.GetResourceLang(detailedItem.ResourceId),
+                ResourceName = SportsbookHelper.GetResourceLang(detailedItem.ResourceId)
             };
 
-            switch (detailedItem.SettlementStatusID)
+            return MapMoreDetailedGameValue(item, detailedItem);
+        }
+
+        private SoccerGameDetailItem MapFastMarketsDetailedGameValue(string groupCode, GameDetail detailedItem)
+        {
+            var isValidInterval = !string.IsNullOrEmpty(SPORTBOOK.BetID);
+            if (isValidInterval)
+            {
+                var interval = Convert.ToInt32(SPORTBOOK.BetID);
+                isValidInterval = 0 <= interval && interval <= 90;
+            }
+
+            if (!isValidInterval)
+            {
+                throw new SportsbookException("Interval for Fast Markets is invalid (Empty or not in range 0 - 89!");
+            }
+
+            var item = new SoccerGameDetailItem
+            {
+                GroupCode = groupCode,
+                ResourceID = detailedItem.ResourceId,
+                GroupName = SportsbookHelper.GetFastMarketsResourceLang(groupCode, GetSupportedLanguage),
+                ResourceName = SportsbookHelper.CreateFastMarketInterval(detailedItem.ResourceId, SPORTBOOK.BetID)
+            };
+
+            return MapMoreDetailedGameValue(item, detailedItem);
+        }
+
+        private SoccerGameDetailItem MapMoreDetailedGameValue(SoccerGameDetailItem soccerItem, GameDetail gameDetail)
+        {
+            switch (gameDetail.SettlementStatusID)
             {
                 case EventStatusID.CompletedSettlementStatusID:
                 case EventStatusID.RunningSettlementStatusID:
-                    MapResourceGameValueByPattern(item, detailedItem);
+                    MapResourceGameValueByPattern(soccerItem, gameDetail);
                     break;
 
                 case EventStatusID.RefundStettlementStatusID:
-                    item.HomeValue = item.AwayValue = LangResource.Refund;
+                    soccerItem.HomeValue = soccerItem.AwayValue = LangResource.Refund;
                     break;
 
                 case EventStatusID.RefundHTSettlementStatusID:
-                    item.HomeValue = item.AwayValue = LangResource.Refundht;
+                    soccerItem.HomeValue = soccerItem.AwayValue = LangResource.Refundht;
 
                     break;
 
                 case EventStatusID.RefundFTSettlementStatusID:
-                    item.HomeValue = item.AwayValue = LangResource.Refundft;
+                    soccerItem.HomeValue = soccerItem.AwayValue = LangResource.Refundft;
 
                     break;
             }
 
-            return item;
+            return soccerItem;
         }
 
         /// <summary>
@@ -425,6 +494,14 @@
                     item.HomeValue = item.AwayValue = GetResourceGameValueByPattern175(detailedValue.HomeValue);
                     break;
 
+                /* Group: Fast Markets */
+                case GameResourceID.NextOneMinutes:
+                case GameResourceID.NextFiveMinutes:
+                case GameResourceID.FirstOneMinutes:
+                case GameResourceID.FirstFiveMinutes:
+                    item.HomeValue = item.AwayValue = GetSpecificSituation(detailedValue, Convert.ToInt32(SPORTBOOK.BetID));
+                    break;
+
                 default:
                     if (SportsbookHelper.IsValidResourceId(GameResourceID.NextGoalTime, item.ResourceID))
                     {
@@ -502,6 +579,39 @@
             }
 
             return ConstantValue.Hyphen;
+        }
+
+        private string GetSpecificSituation(GameDetail detailedItem, int startMinute)
+        {
+            byte[] results;
+            byte result;
+            const int ByteLeng = 8;
+            IList<string> situations = new List<string>();
+            int resourceId;
+            string situation;
+
+            if (startMinute < 45)
+            {
+                results = System.Text.Encoding.Default.GetBytes(detailedItem.HomeValue);
+            }
+            else
+            {
+                results = System.Text.Encoding.Default.GetBytes(detailedItem.AwayValue);
+            }
+
+            result = results[startMinute % 45];
+
+            for (var bit = 0; bit < ByteLeng; bit++)
+            {
+                resourceId = result & (1 << bit);
+                if (resourceId != 0)
+                {
+                    situation = RefData.GetResourceDataByRefIdAndResourceId(FastMarketsResource, resourceId.ToString(), GetSupportedLanguage, string.Empty);
+                    situations.Add(situation);
+                }
+            }
+
+            return string.Join(", ", situations);
         }
 
         private string GetTextValueOfYesNoChoice(string choice)

@@ -1,14 +1,5 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="SoccerGameDetailItem.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Sportsbook.ViewModels.SoccerInfo
+﻿namespace Fanex.Result.Core.Sportsbook.ViewModels.SoccerInfo
 {
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public class SoccerGameDetailItem
     {
         public string GroupCode { get; set; }

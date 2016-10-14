@@ -43,9 +43,7 @@
 @if (homePlayerSentOff1H != null || awayPlayerSentOff1H != null)
 {
     <tr class="data">
-        <td class="cl-match">
-            @firstHalfResource
-        </td>
+        <td class="cl-match">@firstHalfResource</td>
         <td class="cl-result home">
             @if (homePlayerSentOff1H == null || string.IsNullOrEmpty(homePlayerSentOff1H.HomeValue))
             {
@@ -71,9 +69,7 @@
 @if (homePlayerSentOff != null || awayPlayerSentOff != null)
 {
     <tr class="data">
-        <td class="cl-match">
-            @fullTimeResource
-        </td>
+        <td class="cl-match">@fullTimeResource</td>
         <td class="cl-result home">
             @if (homePlayerSentOff == null || string.IsNullOrEmpty(homePlayerSentOff.HomeValue))
             {

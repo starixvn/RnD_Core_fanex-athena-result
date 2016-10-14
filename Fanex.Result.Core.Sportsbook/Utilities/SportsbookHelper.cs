@@ -1,23 +1,14 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="SportsbookHelper.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Sportsbook.Utilities
+﻿namespace Fanex.Result.Core.Sportsbook.Utilities
 {
     using System;
     using System.Linq;
     using System.Text;
     using System.Text.RegularExpressions;
-    using Fanex.Result.Core.Base.Resources;
-    using Fanex.Result.Core.Base.Utilities;
-    using Fanex.Result.Core.Sportsbook.DataDomain;
+    using Base.Resources;
+    using Base.Utilities;
+    using DataDomain;
     using RemotingRef;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     internal static class SportsbookHelper
     {
         private const string ResourceIDSuffix = "RS";

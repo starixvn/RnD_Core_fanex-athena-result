@@ -62,74 +62,47 @@
 
         public override bool VisibleGameDetail
         {
-            get
-            {
-                return HasValidGameData;
-            }
+            get { return HasValidGameData; }
         }
 
         public bool IsShowFGHome
         {
-            get
-            {
-                return GetGoalInfo().VisibleFGHome;
-            }
+            get { return GetGoalInfo().VisibleFGHome; }
         }
 
         public bool IsShowFGAway
         {
-            get
-            {
-                return GetGoalInfo().VisibleFGAway;
-            }
+            get { return GetGoalInfo().VisibleFGAway; }
         }
 
         public bool IsShowLGHome
         {
-            get
-            {
-                return GetGoalInfo().VisibleLGHome;
-            }
+            get { return GetGoalInfo().VisibleLGHome; }
         }
 
         public bool IsShowLGAway
         {
-            get
-            {
-                return GetGoalInfo().VisibleLGAway;
-            }
+            get { return GetGoalInfo().VisibleLGAway; }
         }
 
         public bool IsShowedFirstHalfFGHome
         {
-            get
-            {
-                return GetGoalInfo().Visible1stFGHome;
-            }
+            get { return GetGoalInfo().Visible1stFGHome; }
         }
 
         public bool IsShowedFirstHalfFGAway
         {
-            get
-            {
-                return GetGoalInfo().Visible1stFGAway;
-            }
+            get { return GetGoalInfo().Visible1stFGAway; }
         }
 
         public bool IsShowedFirstHalfLGHome
         {
-            get
-            {
-                return GetGoalInfo().Visible1stLGHome;
-            }
+            get { return GetGoalInfo().Visible1stLGHome; }
         }
 
         public bool IsShowedFirstHalfLGAway
         {
-            get
-            {
-                return GetGoalInfo().Visible1stLGAway;
-            }
+            get { return GetGoalInfo().Visible1stLGAway; }
         }
 
         public string HTHomeScore

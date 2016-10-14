@@ -1,14 +1,5 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="SoccerDetailInfo.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Sportsbook.ViewModels.SoccerInfo
+﻿namespace Fanex.Result.Core.Sportsbook.ViewModels.SoccerInfo
 {
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     internal class SoccerDetailInfo
     {
         public bool VisibleFGHome { get; set; }

@@ -59,25 +59,25 @@
             var eventStatus = exportRow.EventStatus;
 
             AssignStringData(
-                            rowHome,
-                             ColumnMatchCode,
-                             exportRow.MatchCode,
-                            Helper.ToRtfString(exportRow.KickOffTime),
-                           Helper.ToRtfString(CreateHomeTeamValue(exportRow)),
-                            exportRow.HTHomeScore,
-                            exportRow.FinalHomeScore,
-                             eventStatus);
+                rowHome,
+                ColumnMatchCode,
+                exportRow.MatchCode,
+                Helper.ToRtfString(exportRow.KickOffTime),
+                Helper.ToRtfString(CreateHomeTeamValue(exportRow)),
+                exportRow.HTHomeScore,
+                exportRow.FinalHomeScore,
+                eventStatus);
             currentRow++;
 
             AssignStringData(
-                        rowAway,
-                             ColumnMatchCode,
-                             exportRow.MatchId,
-                               Helper.ToRtfString(exportRow.KickOffTime),
-                           Helper.ToRtfString(CreateAwayTeamValue(exportRow)),
-                            exportRow.HTAwayScore,
-                            exportRow.FinalAwayScore,
-                             eventStatus);
+                rowAway,
+                ColumnMatchCode,
+                exportRow.MatchId,
+                Helper.ToRtfString(exportRow.KickOffTime),
+                Helper.ToRtfString(CreateAwayTeamValue(exportRow)),
+                exportRow.HTAwayScore,
+                exportRow.FinalAwayScore,
+                eventStatus);
             currentRow++;
         }
 

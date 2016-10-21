@@ -5,6 +5,7 @@
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using System.Text;
     using Fanex.Data;
     using Fanex.Result.Core.AGCasino.DTO;
     using Fanex.Result.Core.GoldDeluxe.DTO;
@@ -273,6 +274,41 @@
                 }
             }
 
+            var gameDetail = new GameDetail
+            {
+                ResourceId = criteria.Bettype + "01",
+                MatchId = criteria.MatchID,
+                SettlementStatusID = 4
+            };
+
+            switch (criteria.Bettype)
+            {
+                case 221:
+                    gameDetail.HomeValue = gameDetail.AwayValue = CreateResultForFastMarkets(1, 2, 4, 8, 16, 32, 6, 10, 12, 14, 18, 20, 22, 24, 26, 28, 30, 34, 36, 38, 40, 42, 44, 46, 48, 40, 52, 56, 58, 60, 62);
+                    gameDetails.Add(gameDetail);
+                    break;
+
+                case 222:
+                    gameDetail.HomeValue = gameDetail.AwayValue = CreateResultForFastMarkets(1, 2, 4, 128, 6, 130, 132, 134);
+                    gameDetails.Add(gameDetail);
+                    break;
+
+                case 223:
+                    gameDetail.HomeValue = gameDetail.AwayValue = CreateResultForFastMarkets(1, 2, 4, 8, 16, 32);
+                    gameDetails.Add(gameDetail);
+                    break;
+
+                case 224:
+                    gameDetail.HomeValue = gameDetail.AwayValue = CreateResultForFastMarkets(1, 2, 4, 64, 128);
+                    gameDetails.Add(gameDetail);
+                    break;
+
+                case 225:
+                    gameDetail.HomeValue = gameDetail.AwayValue = CreateResultForFastMarkets(1, 156);
+                    gameDetails.Add(gameDetail);
+                    break;
+            }
+
             if (gameDetails.Count > 0)
             {
                 foreach (var result in results)
@@ -282,6 +318,20 @@
             }
 
             return results;
+        }
+
+        private string CreateResultForFastMarkets(params byte[] values)
+        {
+            const int MaxMinute = 45;
+            var asciiValues = string.Join(string.Empty, values.Select(x => Encoding.Default.GetString(new byte[] { x })));
+            var result = string.Empty;
+
+            for (var i = 0; i <= MaxMinute / values.Length; i++)
+            {
+                result += asciiValues;
+            }
+
+            return result.Left(MaxMinute);
         }
 
         #endregion PopUp

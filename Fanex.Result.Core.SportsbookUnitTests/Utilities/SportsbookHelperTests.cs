@@ -1,6 +1,6 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.Tests.Utilities
 {
-    using System.Collections.Generic;
+    using Exceptions;
     using NSubstitute;
     using NUnit.Framework;
     using Sportsbook.Utilities;
@@ -143,6 +143,33 @@
             Assert.IsFalse(result);
         }
 
+        [TestCase("22101")]
+        [TestCase("22201")]
+        [TestCase("22301")]
+        [TestCase("22401")]
+        [TestCase("22501")]
+        public void IsFastMarketsResourceId_FromFastMarketsResourceId_ReturnsTrue(string resourceId)
+        {
+            // Act
+            var result = SportsbookHelper.IsFastMarketsResourceId(resourceId);
+
+            // Assert
+            Assert.IsTrue(result);
+        }
+
+        [Test]
+        public void IsFastMarketsResourceId_FromInvalidFastMarketsResourceId_ReturnsFalse()
+        {
+            // Arrange
+            var resourceId = "22102";
+
+            // Act
+            var result = SportsbookHelper.IsFastMarketsResourceId(resourceId);
+
+            // Assert
+            Assert.IsFalse(result);
+        }
+
         [Test]
         public void GetResourceLang_FromEmptyKeyName_ReturnsEmpty()
         {
@@ -186,56 +213,66 @@
         [TestCase("")]
         [TestCase("2210")]
         [TestCase("FirstOne")]
-        public void GetFastMarketsResourceLang_FromKeyNameIsNotInFastMarkets_ReturnsKeyNotFoundException(string keyName)
+        public void GetFastMarketsResourceLang_FromResourceIsNotFastMarkets_ReturnsEmpty(string resourceId)
         {
-            // Arrange
-            var languageCode = "en";
-
             // Act
-            TestDelegate testDelegate = () => SportsbookHelper.GetFastMarketsResourceLang(keyName, languageCode);
+            var resource = SportsbookHelper.GetFastMarketsResourceLang(resourceId, Arg.Any<string>());
 
             // Assert
-            Assert.Throws<KeyNotFoundException>(testDelegate);
+            Assert.IsEmpty(resource);
         }
 
         [TestCase("abc")]
         [TestCase("&df")]
         [TestCase("")]
-        public void CreateIntervalForFastMarket_FromStartTimeIsNotInteger_ReturnsEmpty(string startTime)
+        public void CreateFastMarketsTimeRange_FromStartTimeIsNotInteger_ThrowsException(string startTime)
         {
             // Act
-            var interval = SportsbookHelper.CreateFastMarketInterval(Arg.Any<string>(), startTime);
+            TestDelegate testDelegate = () => SportsbookHelper.CreateFastMarketsTimeRange(Arg.Any<string>(), startTime);
 
             // Assert
-            Assert.IsEmpty(interval);
+            Assert.Throws<SportsbookException>(testDelegate);
+        }
+
+        [TestCase("-10")]
+        [TestCase("90")]
+        [TestCase("100")]
+        public void CreateFastMarketsTimeRange_FromStartTimeIsOutRangeMatchTime_ThrowsException(string startTime)
+        {
+            // Act
+            TestDelegate testDelegate = () => SportsbookHelper.CreateFastMarketsTimeRange(Arg.Any<string>(), startTime);
+
+            // Assert
+            Assert.Throws<SportsbookException>(testDelegate);
         }
 
         [TestCase("22102")]
         [TestCase("25102")]
         [TestCase("")]
-        public void CreateIntervalForFastMarket_FromStartTimeIsIntegerAndResourceIdIsNotInFastMarkets_ReturnsEmpty(string resourceId)
+        public void CreateFastMarketsTimeRange_FromStartTimeIsInRangeMatchTimeAndResourceIdIsNotFastMarkets_ReturnsEmpty(string resourceId)
         {
             // Arrange
             var startTime = 12.ToString();
 
             // Act
-            var interval = SportsbookHelper.CreateFastMarketInterval(resourceId, startTime);
+            var interval = SportsbookHelper.CreateFastMarketsTimeRange(resourceId, startTime);
 
             // Assert
             Assert.IsEmpty(interval);
         }
 
-        [TestCase("22101", "10", "10:00-10:59")]
-        [TestCase("22201", "10", "10:00-14:59")]
-        [TestCase("22301", "10", "10:00-10:59")]
-        [TestCase("22401", "10", "10:00-14:59")]
-        public void CreateIntervalForFastMarket_StartTimeIsIntegerAndResourceIdIsInFastMarkets_ReturnsExpectedInterval(
+        [TestCase("22101", "0", "00:00-00:59")]
+        [TestCase("22201", "9", "09:00-13:59")]
+        [TestCase("22301", "45", "45:00-45:59")]
+        [TestCase("22401", "70", "70:00-74:59")]
+        [TestCase("22501", "89", "89:00-89:59")]
+        public void CreateFastMarketsTimeRange_StartTimeIsInRangeMatchTimeAndResourceIdIsFastMarkets_ReturnsExpectedInterval(
             string resourceId,
             string startTime,
             string expectedInterval)
         {
             // Act
-            var interval = SportsbookHelper.CreateFastMarketInterval(resourceId, startTime);
+            var interval = SportsbookHelper.CreateFastMarketsTimeRange(resourceId, startTime);
 
             // Assert
             Assert.AreEqual(expectedInterval, interval);

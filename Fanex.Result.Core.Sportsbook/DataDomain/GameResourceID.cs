@@ -69,5 +69,7 @@
         public const string FirstOneMinutes = "22301";
 
         public const string FirstFiveMinutes = "22401";
+
+        public const string NextOneMinuteSetPiece = "22501";
     }
 }

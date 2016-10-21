@@ -7,6 +7,7 @@
     using Base.Resources;
     using Base.Utilities;
     using DataDomain;
+    using Exceptions;
     using RemotingRef;
 
     internal static class SportsbookHelper
@@ -69,6 +70,11 @@
             return pattern == resourceId;
         }
 
+        public static bool IsFastMarketsResourceId(string resourceId)
+        {
+            return GameResources.FastMarkets.Contains(resourceId);
+        }
+
         /// <summary>
         /// Get language text by key.
         /// </summary>
@@ -114,39 +120,41 @@
             return result;
         }
 
-        public static string GetFastMarketsResourceLang(string keyName, string languageCode)
+        public static string GetFastMarketsResourceLang(string resourceId, string languageCode)
         {
-            var resourceId = GameResources.FastMarkets[keyName];
+            if (!IsFastMarketsResourceId(resourceId))
+            {
+                return string.Empty;
+            }
+
             var betType = resourceId.Substring(0, resourceId.Length - 2);
 
             return RefData.GetBetTypeName(betType, languageCode);
         }
 
-        public static string CreateFastMarketInterval(string resourceId, string startMinute)
+        public static string CreateFastMarketsTimeRange(string resourceId, string startMinute)
         {
-            var interval = string.Empty;
-            var endMinute = string.Empty;
+            int start = 0;
 
-            if (Helper.IsIntegerNumber(startMinute))
+            var isValidStartTime = !string.IsNullOrEmpty(startMinute) && Helper.IsIntegerNumber(startMinute);
+            if (isValidStartTime)
             {
-                switch (resourceId)
-                {
-                    case GameResourceID.NextOneMinutes:
-                    case GameResourceID.FirstOneMinutes:
-                        endMinute = startMinute = Convert.ToInt32(startMinute).ToString("D2");
-                        interval = $"{startMinute}:00-{endMinute}:59";
-                        break;
-
-                    case GameResourceID.NextFiveMinutes:
-                    case GameResourceID.FirstFiveMinutes:
-                        endMinute = (Convert.ToInt32(startMinute) + 4).ToString("D2");
-                        startMinute = Convert.ToInt32(startMinute).ToString("D2");
-                        interval = $"{startMinute}:00-{endMinute}:59";
-                        break;
-                }
+                start = Convert.ToInt32(startMinute);
+                isValidStartTime = 0 <= start && start <= 89;
             }
 
-            return interval;
+            if (!isValidStartTime)
+            {
+                throw new SportsbookException("Start time for Fast Markets must be integer from 0 to 89!");
+            }
+
+            var end = resourceId == GameResourceID.NextFiveMinutes || resourceId == GameResourceID.FirstFiveMinutes
+                ? start + 4
+                : start;
+
+            return IsFastMarketsResourceId(resourceId)
+                ? $"{Helper.FormatTwoDigit(start)}:00-{Helper.FormatTwoDigit(end)}:59"
+                : string.Empty;
         }
     }
 }

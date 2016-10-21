@@ -32,38 +32,30 @@
             }
         };
 
-        private static IDictionary<string, string> _fastMarkets = new Dictionary<string, string>
+        private static IList<string> _fastMarkets = new List<string>
         {
-            { "NextOneMinutes", GameResourceID.NextOneMinutes },
-            { "NextFiveMinutes", GameResourceID.NextFiveMinutes },
-            { "FirstOneMinutes", GameResourceID.FirstOneMinutes },
-            { "FirstFiveMinutes", GameResourceID.FirstFiveMinutes }
+            GameResourceID.NextOneMinutes,
+            GameResourceID.NextFiveMinutes,
+            GameResourceID.FirstOneMinutes,
+            GameResourceID.FirstFiveMinutes,
+            GameResourceID.NextOneMinuteSetPiece
         };
 
         private static int[] _possibleMuayThaiScore = { 0, 1, 5 };
 
         public static IDictionary<string, List<string>> BetRadar
         {
-            get
-            {
-                return _betRadar;
-            }
+            get { return _betRadar; }
         }
 
-        public static IDictionary<string, string> FastMarkets
+        public static IList<string> FastMarkets
         {
-            get
-            {
-                return _fastMarkets;
-            }
+            get { return _fastMarkets; }
         }
 
         public static int[] PossibleMuayThaiScore
         {
-            get
-            {
-                return _possibleMuayThaiScore;
-            }
+            get { return _possibleMuayThaiScore; }
         }
     }
 }

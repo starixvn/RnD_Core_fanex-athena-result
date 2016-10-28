@@ -501,4 +501,7 @@
   <data name="RS08" xml:space="preserve">
     <value>Goal Sequence</value>
   </data>
+  <data name="LiveScore" xml:space="preserve">
+    <value>Live Score</value>
+  </data>
 </root>

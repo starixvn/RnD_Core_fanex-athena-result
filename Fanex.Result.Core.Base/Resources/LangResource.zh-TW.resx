@@ -291,4 +291,7 @@
   <data name="MoreResults" xml:space="preserve">
     <value>更多赛果</value>
   </data>
+  <data name="LiveScore" xml:space="preserve">
+    <value>即 時 比 分</value>
+  </data>
 </root>

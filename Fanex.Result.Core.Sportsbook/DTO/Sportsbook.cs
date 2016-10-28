@@ -33,6 +33,10 @@
 
         public int? FinalAwayScore { get; set; }
 
+        public int? LiveHomeScore { get; set; }
+
+        public int? LiveAwayScore { get; set; }
+
         public string EventStatus { get; set; } = string.Empty;
 
         public bool IsPending { get; set; }

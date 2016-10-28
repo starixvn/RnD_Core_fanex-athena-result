@@ -257,6 +257,16 @@
                         var item = BindSportbook(reader);
                         item.Bettype = criteria.Bettype;
                         item.BetID = criteria.BetId.ToString();
+                        if (item.Bettype == 3 && !item.FinalHomeScore.HasValue)
+                        {
+                            item.LiveHomeScore = item.HtHomeScore.HasValue ? item.HtHomeScore : 0;
+                            item.LiveAwayScore = item.HtAwayScore.HasValue ? item.HtAwayScore + 1 : 0;
+                        }
+                        if (item.Bettype == 8 && !item.HtHomeScore.HasValue)
+                        {
+                            item.LiveHomeScore = 0;
+                            item.LiveAwayScore = 1;
+                        }
                         results.Add(item);
                     }
 
@@ -507,6 +517,14 @@
                     reader["hthomescore"] != DBNull.Value
                         ? int.Parse(reader["hthomescore"].ToString())
                         : new int?(),
+                //LiveHomeScore =
+                //    reader["livehomescore"] != DBNull.Value
+                //        ? int.Parse(reader["livehomescore"].ToString())
+                //        : new int?(),
+                //LiveAwayScore =
+                //    reader["liveawayscore"] != DBNull.Value
+                //        ? int.Parse(reader["liveawayscore"].ToString())
+                //        : new int?(),
                 EventDate = DateTime.Parse(reader["eventdate"].ToString()),
                 IsNeutral = bool.Parse(reader["IsNeutral"].ToString()),
                 IsPending = bool.Parse(reader["IsPending"].ToString()),

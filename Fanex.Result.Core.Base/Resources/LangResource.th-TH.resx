@@ -282,4 +282,7 @@
   <data name="MoreResults" xml:space="preserve">
     <value>ผลการแข่งขัน เพิ่มเติม</value>
   </data>
+  <data name="LiveScore" xml:space="preserve">
+    <value>ผลบอลสด</value>
+  </data>
 </root>

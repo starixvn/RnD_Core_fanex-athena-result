@@ -520,6 +520,15 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Live Score.
+        /// </summary>
+        public static string LiveScore {
+            get {
+                return ResourceManager.GetString("LiveScore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lose.
         /// </summary>
         public static string Lose {

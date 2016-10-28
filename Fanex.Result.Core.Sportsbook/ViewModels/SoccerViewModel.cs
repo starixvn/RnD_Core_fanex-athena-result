@@ -31,6 +31,7 @@
         public SoccerViewModel(Sportsbook soccer, ResultSetting setting)
             : base(soccer, setting)
         {
+            IsShowLiveScore = DetermineShowingLiveScore(setting.IsPopUp);
         }
 
         #region Settlement Site
@@ -147,6 +148,18 @@
             get { return CalculateScore(SPORTBOOK.FinalAwayScore, true); }
         }
 
+        public string LiveHomeScore
+        {
+            get { return SPORTBOOK.LiveHomeScore.HasValue ? SPORTBOOK.LiveHomeScore.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen; }
+        }
+
+        public string LiveAwayScore
+        {
+            get { return SPORTBOOK.LiveAwayScore.HasValue ? SPORTBOOK.LiveAwayScore.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen; }
+        }
+
+        public bool IsShowLiveScore { get; } = false;
+
         public string GoalRecord
         {
             get
@@ -214,6 +227,23 @@
 
                 return _hasValidGameData.Value;
             }
+        }
+
+        private bool DetermineShowingLiveScore(bool isPopUp)
+        {
+            if (isPopUp)
+            {
+                switch (SPORTBOOK.Bettype)
+                {
+                    case 3:
+                        return SPORTBOOK.FinalHomeScore.HasValue ? false : true;
+
+                    case 8:
+                        return SPORTBOOK.HtHomeScore.HasValue ? false : true;
+                }
+            }
+
+            return false;
         }
 
         private string CalculateScore(int? score, bool isFinalScore)

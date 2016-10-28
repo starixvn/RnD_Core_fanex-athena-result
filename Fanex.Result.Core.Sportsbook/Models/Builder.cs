@@ -50,10 +50,7 @@
                 new GroupData
                 {
                     LeagueId = viewModelData.LeagueId,
-                    Data = new SafeList<IResultViewModel>
-                    {
-                        viewModelData
-                    }
+                    Data = new SafeList<IResultViewModel> { viewModelData }
                 }
             };
 

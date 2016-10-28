@@ -12,20 +12,15 @@
 
     public class SportsbookBaseViewModel : BaseViewModel, IResultViewModel
     {
-        private bool _visibleDetailedLink = false;
-
-        private bool _highlightWinnerTeam = false;
-        private bool _visibleGoalRecord = false;
-
         public SportsbookBaseViewModel(Sportsbook sportbook, ResultSetting setting)
             : base(setting)
         {
             this.SPORTBOOK = sportbook;
             this.LanguageCode = setting.LanguageCode;
             this.Sport = setting.SportType;
-            this._visibleDetailedLink = setting.VisibleDetailedLink;
-            this._highlightWinnerTeam = setting.HighlightWinnerTeam;
-            this._visibleGoalRecord = setting.VisibleGoalRecord;
+            VisibleDetailedLink = setting.VisibleDetailedLink;
+            HighlightWinnerTeam = setting.HighlightWinnerTeam;
+            VisibleGoalRecord = setting.VisibleGoalRecord;
         }
 
         public string[] HomeSet { get; set; }
@@ -34,10 +29,7 @@
 
         #region common properties
 
-        public virtual bool VisibleDetailedLink
-        {
-            get { return this._visibleDetailedLink; }
-        }
+        public virtual bool VisibleDetailedLink { get; } = false;
 
         public override string KickOffTime
         {
@@ -49,7 +41,10 @@
 
         public override int LeagueId
         {
-            get { return this.SPORTBOOK.LeagueId; }
+            get
+            {
+                return SPORTBOOK.LeagueId;
+            }
         }
 
         public override string LeagueName
@@ -76,13 +71,7 @@
             get { return true; }
         }
 
-        public virtual bool VisibleGoalRecord
-        {
-            get
-            {
-                return this._visibleGoalRecord;
-            }
-        }
+        public virtual bool VisibleGoalRecord { get; } = false;
 
         public new virtual bool VisibleGameDetail
         {
@@ -163,10 +152,7 @@
 
         #region Utilities
 
-        protected bool HighlightWinnerTeam
-        {
-            get { return this._highlightWinnerTeam; }
-        }
+        protected bool HighlightWinnerTeam { get; } = false;
 
         protected string GetCoreInfoFromBetStatus
         {
@@ -196,7 +182,7 @@
 
         protected virtual string GetWonTeam(bool isHome)
         {
-            if (this._highlightWinnerTeam && this.SPORTBOOK.FinalHomeScore.HasValue && this.SPORTBOOK.FinalAwayScore.HasValue)
+            if (HighlightWinnerTeam && this.SPORTBOOK.FinalHomeScore.HasValue && this.SPORTBOOK.FinalAwayScore.HasValue)
             {
                 var temp = this.SPORTBOOK.FinalHomeScore.Value - this.SPORTBOOK.FinalAwayScore.Value;
 
@@ -226,6 +212,11 @@
         private string GetSportbookAwayTeam(int awayId)
         {
             return RefData.GetTeamName(awayId.ToString(CultureInfo.InvariantCulture), this.GetSupportedLanguage, string.Empty);
+        }
+
+        protected virtual string GetScore(int? score)
+        {
+            return score.HasValue ? score.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
         }
 
         #endregion Utilities

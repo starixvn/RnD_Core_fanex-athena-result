@@ -5,16 +5,16 @@
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
     using System.Linq;
-    using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.DataDomain;
-    using Fanex.Result.Core.Base.Extension;
-    using Fanex.Result.Core.Base.Resources;
-    using Fanex.Result.Core.Base.Utilities;
-    using Fanex.Result.Core.Base.ViewModels;
-    using Fanex.Result.Core.Sportsbook.DataDomain;
-    using Fanex.Result.Core.Sportsbook.DTO;
-    using Fanex.Result.Core.Sportsbook.Utilities;
-    using Fanex.Result.Core.Sportsbook.ViewModels.TennisDetail;
+    using Base;
+    using Base.DataDomain;
+    using Base.Extension;
+    using Base.Resources;
+    using Base.Utilities;
+    using Base.ViewModels;
+    using DataDomain;
+    using DTO;
+    using TennisDetail;
+    using Utilities;
 
     public class TennisViewModel : SportsbookBaseViewModel, IResultViewModel
     {
@@ -24,7 +24,7 @@
         private string _totalSetHome;
         private string _totalSetAway;
 
-        public TennisViewModel(DTO.Sportsbook sportbook, ResultSetting setting)
+        public TennisViewModel(Sportsbook sportbook, ResultSetting setting)
             : base(sportbook, setting)
         {
         }

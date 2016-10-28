@@ -2,22 +2,19 @@
 {
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.ExcelModels;
-    using Fanex.Result.Core.Base.Extension;
-    using Fanex.Result.Core.Base.Resources;
-    using Fanex.Result.Core.Base.Utilities;
-    using Fanex.Result.Core.Base.ViewModels;
-    using Fanex.Result.Core.Sportsbook.ViewModels;
+    using Base;
+    using Base.ExcelModels;
+    using Base.Extension;
+    using Base.Resources;
+    using Base.Utilities;
+    using Base.ViewModels;
     using NPOI.SS.UserModel;
+    using ViewModels;
 
     internal sealed class HockeyExcel : ExcelBase, IExcelModel
     {
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
-        public HockeyExcel(
-            string templatePath,
-            ResultSetting setting,
-            IList<IResultViewModel> data)
+        public HockeyExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
             : base(templatePath, setting, data)
         {
             this.ColumnTemplateCount = 9;
@@ -25,10 +22,6 @@
             this.RowContentTemplate = 3;
         }
 
-        /// <summary>
-        /// Assign value to header section.
-        /// </summary>
-        /// <param name="sheet">The current sheet.</param>
         protected override void AssignHeader(ISheet sheet)
         {
             var colidx = 0;
@@ -47,12 +40,6 @@
 
         #region Assign Cell Data
 
-        /// <summary>
-        /// Set data for match.
-        /// </summary>
-        /// <param name="sheet">The current sheet.</param>
-        /// <param name="data">The view model.</param>
-        /// <param name="currentRow">The current row.</param>
         protected override void SetDataForMatch(ISheet sheet, IResultViewModel data, ref int currentRow)
         {
             var exportRow = (HockeyViewModel)data;
@@ -64,30 +51,31 @@
             MergeResultCells(sheet, currentRow, currentRow + 1, ColumnKickOffTime, this.ColumnStatus);
 
             AssignStringData(
-                            rowHome,
-                             ColumnMatchCode,
-                             exportRow.MatchCode,
-                             Helper.ToRtfString(exportRow.KickOffTime),
-                             Helper.ToRtfString(exportRow.HomeTeam),
-                             exportRow.GetHomeAwaySet(0, true),
-                             exportRow.GetHomeAwaySet(1, true),
-                             exportRow.GetHomeAwaySet(2, true),
-                             exportRow.OTHome,
-                             exportRow.FinalHomeScore,
-                            exportRow.EventStatus);
+                rowHome,
+                ColumnMatchCode,
+                exportRow.MatchCode,
+                Helper.ToRtfString(exportRow.KickOffTime),
+                Helper.ToRtfString(exportRow.HomeTeam),
+                exportRow.GetHomeAwaySet(0, true),
+                exportRow.GetHomeAwaySet(1, true),
+                exportRow.GetHomeAwaySet(2, true),
+                exportRow.OTHome,
+                exportRow.FinalHomeScore,
+                exportRow.EventStatus);
             currentRow++;
+
             AssignStringData(
-                    rowAway,
-                             ColumnMatchCode,
-                             exportRow.MatchId,
-                             Helper.ToRtfString(exportRow.KickOffTime),
-                             Helper.ToRtfString(exportRow.AwayTeam),
-                             exportRow.GetHomeAwaySet(0, false),
-                             exportRow.GetHomeAwaySet(1, false),
-                             exportRow.GetHomeAwaySet(2, false),
-                             exportRow.OTAway,
-                             exportRow.FinalAwayScore,
-                            exportRow.EventStatus);
+                rowAway,
+                ColumnMatchCode,
+                exportRow.MatchId,
+                Helper.ToRtfString(exportRow.KickOffTime),
+                Helper.ToRtfString(exportRow.AwayTeam),
+                exportRow.GetHomeAwaySet(0, false),
+                exportRow.GetHomeAwaySet(1, false),
+                exportRow.GetHomeAwaySet(2, false),
+                exportRow.OTAway,
+                exportRow.FinalAwayScore,
+                exportRow.EventStatus);
             currentRow++;
         }
 

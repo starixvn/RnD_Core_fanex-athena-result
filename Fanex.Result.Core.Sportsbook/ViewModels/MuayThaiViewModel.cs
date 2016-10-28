@@ -1,17 +1,17 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.ViewModels
 {
     using System.Linq;
-    using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.DataDomain;
-    using Fanex.Result.Core.Base.Resources;
-    using Fanex.Result.Core.Base.ViewModels;
-    using Fanex.Result.Core.Sportsbook.DataDomain;
+    using Base;
+    using Base.Resources;
+    using Base.ViewModels;
+    using DataDomain;
+    using DTO;
 
     public sealed class MuayThaiViewModel : SportsbookBaseViewModel, IResultViewModel
     {
         private int _isValidScore = -1;
 
-        public MuayThaiViewModel(DTO.Sportsbook sportbook, ResultSetting setting)
+        public MuayThaiViewModel(Sportsbook sportbook, ResultSetting setting)
             : base(sportbook, setting)
         {
         }
@@ -41,7 +41,7 @@
                     return GetFinalScore(this.SPORTBOOK.FinalAwayScore.Value - this.SPORTBOOK.FinalHomeScore.Value);
                 }
 
-                return this.SPORTBOOK.FinalAwayScore.HasValue ? this.SPORTBOOK.FinalAwayScore.Value.ToString() : ConstantValue.Hyphen;
+                return GetScore(SPORTBOOK.FinalAwayScore);
             }
         }
 
@@ -54,7 +54,7 @@
                     return GetFinalScore(this.SPORTBOOK.FinalHomeScore.Value - this.SPORTBOOK.FinalAwayScore.Value);
                 }
 
-                return this.SPORTBOOK.FinalHomeScore.HasValue ? this.SPORTBOOK.FinalHomeScore.Value.ToString() : ConstantValue.Hyphen;
+                return GetScore(SPORTBOOK.FinalHomeScore);
             }
         }
 

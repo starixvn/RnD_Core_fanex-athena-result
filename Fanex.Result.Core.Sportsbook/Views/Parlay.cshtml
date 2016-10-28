@@ -1,15 +1,13 @@
-﻿@{
-    var viewModel = (Fanex.Result.Core.Base.ViewModels.RazorBinderModel)Model;
-
-}
+﻿@using Fanex.Result.Core.Base;
 @using Fanex.Result.Core.Base.ViewModels;
 @using Fanex.Result.Core.Sportsbook.ViewModels;
-@using System.Collections.Generic;
-@using Fanex.Result.Core.Base.Extension;
+@{
+    var viewModel = (RazorBinderModel)Model;
+}
 @if (viewModel != null && viewModel.Data.Count > 0)
 {
     <table class="fn-rs-popup parlay">
-        @foreach(var group in viewModel.Data)
+        @foreach (var group in viewModel.Data)
         {
             var firstItem = group.Data[0];
             <tr>
@@ -18,79 +16,76 @@
                     <span class="bl-league-name">@firstItem.LeagueName</span>
                 </td>
             </tr>
+
             foreach (ParlayViewModel item in group.Data)
             {
-            <tr>
-                <td>
-                    @{
-                        var sportType = (Fanex.Result.Core.Base.SportType)item.SportId;
+                <tr>
+                    <td>
+                        @{
+                            var sportType = (SportType)item.SportId;
 
-                        var bindModel = new Fanex.Result.Core.Base.ViewModels.RazorBinderModel
+                            var bindModel = new RazorBinderModel
+                            {
+                                IsPopUp = true,
+                                VisibleMatchCodeIDColumn = viewModel.VisibleMatchCodeIDColumn,
+                                SportType = sportType
+                            };
+                        }
+                        <!--Only render Match result-->
+                        @if (item.MatchItemView.Count > 0)
                         {
-                   
-                            IsPopUp = true,
-                            VisibleMatchCodeIDColumn = viewModel.VisibleMatchCodeIDColumn,
-                            SportType = sportType
-                          
-                        };
-                    }
-                    <!--Only render Match result-->
-                    @if (item.MatchItemView.Count() > 0)
-                    {
-                        bindModel.Data.Add(new GroupData{LeagueId = group.LeagueId,
-                        Data = item.MatchItemView});
-                        @Raw(item.Render(bindModel))
-                        <br />
-                    }
-                    <!--Render both match and detail game-->
-                    @foreach (var bothMatchAndGame in item.BothMatchAndDetailItemView)
-                    {
-                      
-                        var bothMatchAnddetailBindModel = new Fanex.Result.Core.Base.ViewModels.RazorBinderModel
+                            bindModel.Data.Add(new GroupData
+                            {
+                                LeagueId = group.LeagueId,
+                                Data = item.MatchItemView
+                            });
+                            @Raw(item.Render(bindModel))
+                            <br />
+                        }
+                        <!--Render both match and detail game-->
+                        @foreach (var bothMatchAndGame in item.BothMatchAndDetailItemView)
                         {
-                          
-                            IsPopUp = true,
-                            VisibleMatchCodeIDColumn = viewModel.VisibleMatchCodeIDColumn,
-                            SportType = sportType,
-                            IsDetail = true
-                           
-                        };
-                       var bothMatchAnddetailItem =new GroupData
-                                    {
-                                        LeagueId=group.LeagueId,
-                                      
-                                    };
-                                    bothMatchAnddetailItem.Data.Add(bothMatchAndGame);
-                      bothMatchAnddetailBindModel.Data.Add( bothMatchAnddetailItem ); 
-                        @Raw(item.Render(bothMatchAnddetailBindModel))
-                        <br />
-                    }
-                    @foreach (var gameItemView in item.GameDetailItemView)
-                    {
-                        
-                        var detailBindModel = new Fanex.Result.Core.Base.ViewModels.RazorBinderModel
-                        {
-                            
-                            IsPopUp = true,
-                            VisibleMatchCodeIDColumn = viewModel.VisibleMatchCodeIDColumn,
-                            SportType = sportType
-                            
+                            var bothMatchAnddetailBindModel = new RazorBinderModel
+                            {
 
-                        };
-                        var detailGameItem= new GroupData
-                                    {
-                                        LeagueId=group.LeagueId,
-                                        
-                                    };
-                                detailGameItem.Data.Add(gameItemView);
-                        detailBindModel.Data.Add( detailGameItem); 
-                     
-                        @Raw(item.Render(detailBindModel))
-                        <br />
+                                IsPopUp = true,
+                                VisibleMatchCodeIDColumn = viewModel.VisibleMatchCodeIDColumn,
+                                SportType = sportType,
+                                IsDetail = true
+                            };
 
-                    }
-                </td>
-            </tr>
+                            var bothMatchAnddetailItem = new GroupData
+                            {
+                                LeagueId = group.LeagueId,
+                            };
+
+                            bothMatchAnddetailItem.Data.Add(bothMatchAndGame);
+                            bothMatchAnddetailBindModel.Data.Add(bothMatchAnddetailItem);
+                            @Raw(item.Render(bothMatchAnddetailBindModel))
+                            <br />
+                        }
+                        @foreach (var gameItemView in item.GameDetailItemView)
+                        {
+                            var detailBindModel = new RazorBinderModel
+                            {
+                                IsPopUp = true,
+                                VisibleMatchCodeIDColumn = viewModel.VisibleMatchCodeIDColumn,
+                                SportType = sportType
+                            };
+
+                            var detailGameItem = new GroupData
+                            {
+                                LeagueId = group.LeagueId,
+                            };
+
+                            detailGameItem.Data.Add(gameItemView);
+                            detailBindModel.Data.Add(detailGameItem);
+
+                            @Raw(item.Render(detailBindModel))
+                            <br />
+                        }
+                    </td>
+                </tr>
             }
         }
     </table>

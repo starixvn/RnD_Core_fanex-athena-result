@@ -2,14 +2,14 @@
 {
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
-    using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.ExcelModels;
-    using Fanex.Result.Core.Base.Extension;
-    using Fanex.Result.Core.Base.Resources;
-    using Fanex.Result.Core.Base.Utilities;
-    using Fanex.Result.Core.Base.ViewModels;
-    using Fanex.Result.Core.Sportsbook.ViewModels;
+    using Base;
+    using Base.ExcelModels;
+    using Base.Extension;
+    using Base.Resources;
+    using Base.Utilities;
+    using Base.ViewModels;
     using NPOI.SS.UserModel;
+    using ViewModels;
 
     internal class VSTennisExcel : ExcelBase, IExcelModel
     {
@@ -36,12 +36,6 @@
 
         #region Assign Cell Data
 
-        /// <summary>
-        /// Set data for match.
-        /// </summary>
-        /// <param name="sheet">The current sheet.</param>
-        /// <param name="data">The view model.</param>
-        /// <param name="currentRow">The current row.</param>
         protected override void SetDataForMatch(ISheet sheet, IResultViewModel data, ref int currentRow)
         {
             var exportRow = (VSTennisViewModel)data;
@@ -52,22 +46,22 @@
             MergeResultCells(sheet, currentRow, currentRow + 1, ColumnKickOffTime, this.ColumnStatus);
 
             AssignStringData(
-                            rowHome,
-                             ColumnMatchCode,
-                             exportRow.MatchCode,
-                            Helper.ToRtfString(exportRow.KickOffTime),
-                           Helper.ToRtfString(exportRow.HomeTeam),
-                            exportRow.HomePoint,
-                             exportRow.EventStatus);
+                rowHome,
+                ColumnMatchCode,
+                exportRow.MatchCode,
+                Helper.ToRtfString(exportRow.KickOffTime),
+                Helper.ToRtfString(exportRow.HomeTeam),
+                exportRow.HomePoint,
+                exportRow.EventStatus);
             currentRow++;
             AssignStringData(
-                        rowAway,
-                             ColumnMatchCode,
-                             exportRow.MatchId,
-                               Helper.ToRtfString(exportRow.KickOffTime),
-                           Helper.ToRtfString(exportRow.AwayTeam),
-                            exportRow.AwayPoint,
-                             exportRow.EventStatus);
+                rowAway,
+                ColumnMatchCode,
+                exportRow.MatchId,
+                Helper.ToRtfString(exportRow.KickOffTime),
+                Helper.ToRtfString(exportRow.AwayTeam),
+                exportRow.AwayPoint,
+                exportRow.EventStatus);
             currentRow++;
         }
 

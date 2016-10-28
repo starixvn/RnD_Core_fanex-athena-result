@@ -41,8 +41,6 @@
             GameResourceID.NextOneMinuteSetPiece
         };
 
-        private static int[] _possibleMuayThaiScore = { 0, 1, 5 };
-
         public static IDictionary<string, List<string>> BetRadar
         {
             get { return _betRadar; }
@@ -53,9 +51,6 @@
             get { return _fastMarkets; }
         }
 
-        public static int[] PossibleMuayThaiScore
-        {
-            get { return _possibleMuayThaiScore; }
-        }
+        public static int[] PossibleMuayThaiScore { get; } = new int[] { 0, 1, 5 };
     }
 }

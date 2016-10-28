@@ -1,14 +1,14 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.ExcelModels
 {
     using System.Collections.Generic;
-    using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.ExcelModels;
-    using Fanex.Result.Core.Base.Extension;
-    using Fanex.Result.Core.Base.Resources;
-    using Fanex.Result.Core.Base.Utilities;
-    using Fanex.Result.Core.Base.ViewModels;
-    using Fanex.Result.Core.Sportsbook.ViewModels;
+    using Base;
+    using Base.ExcelModels;
+    using Base.Extension;
+    using Base.Resources;
+    using Base.Utilities;
+    using Base.ViewModels;
     using NPOI.SS.UserModel;
+    using ViewModels;
 
     internal sealed class OutrightExcel : ExcelBase, IExcelModel
     {
@@ -51,23 +51,17 @@
             SetTextRowValue(sheet, RowNoInfo, RowLeagueTemplate, ColumnTemplateCount, LangResource.NoInfo);
         }
 
-        /// <summary>
-        /// Set data for match.
-        /// </summary>
-        /// <param name="sheet">The current sheet.</param>
-        /// <param name="data">The view model.</param>
-        /// <param name="currentRow">The current row.</param>
         protected override void SetDataForMatch(ISheet sheet, IResultViewModel data, ref int currentRow)
         {
             var exportRow = (OutrightViewModel)data;
             var row = sheet.CopyRow(TemplateSheet, RowContentTemplate, currentRow);
 
             AssignStringData(
-                            row,
-                             ColumnTime,
-                            Helper.ToRtfString(exportRow.KickOffTime),
-                             exportRow.Team,
-                             exportRow.EventStatus);
+                row,
+                ColumnTime,
+                Helper.ToRtfString(exportRow.KickOffTime),
+                exportRow.Team,
+                exportRow.EventStatus);
             currentRow++;
         }
 

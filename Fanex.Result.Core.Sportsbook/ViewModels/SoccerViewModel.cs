@@ -222,7 +222,7 @@
                 return LangResource.Refund;
             }
 
-            return score.HasValue ? score.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
+            return GetScore(score);
         }
 
         /// <summary>

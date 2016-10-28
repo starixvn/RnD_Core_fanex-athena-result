@@ -1,10 +1,10 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.ViewModels
 {
     using System.Globalization;
-    using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.Utilities;
-    using Fanex.Result.Core.Base.ViewModels;
-    using Fanex.Result.Core.Sportsbook.DTO;
+    using Base;
+    using Base.Utilities;
+    using Base.ViewModels;
+    using DTO;
     using RemotingRef;
 
     public sealed class OutrightViewModel : BaseViewModel, IResultViewModel

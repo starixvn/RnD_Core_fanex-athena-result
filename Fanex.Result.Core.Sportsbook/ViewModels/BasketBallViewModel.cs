@@ -1,14 +1,14 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.ViewModels
 {
     using System;
-    using System.Globalization;
-    using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.DataDomain;
-    using Fanex.Result.Core.Base.ViewModels;
+    using Base;
+    using Base.DataDomain;
+    using Base.ViewModels;
+    using DTO;
 
     public sealed class BasketBallViewModel : SportsbookBaseViewModel, IResultViewModel
     {
-        public BasketBallViewModel(DTO.Sportsbook sportbook, ResultSetting setting)
+        public BasketBallViewModel(Sportsbook sportbook, ResultSetting setting)
             : base(sportbook, setting)
         {
         }
@@ -35,7 +35,7 @@
         {
             get
             {
-                return this.SPORTBOOK.HtHomeScore.HasValue ? this.SPORTBOOK.HtHomeScore.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
+                return GetScore(SPORTBOOK.HtHomeScore);
             }
         }
 
@@ -43,7 +43,7 @@
         {
             get
             {
-                return this.SPORTBOOK.HtAwayScore.HasValue ? this.SPORTBOOK.HtAwayScore.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
+                return GetScore(SPORTBOOK.HtAwayScore);
             }
         }
 
@@ -51,7 +51,7 @@
         {
             get
             {
-                return this.SPORTBOOK.FinalHomeScore.HasValue ? this.SPORTBOOK.FinalHomeScore.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
+                return GetScore(SPORTBOOK.FinalHomeScore);
             }
         }
 
@@ -59,7 +59,7 @@
         {
             get
             {
-                return this.SPORTBOOK.FinalAwayScore.HasValue ? this.SPORTBOOK.FinalAwayScore.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
+                return GetScore(SPORTBOOK.FinalAwayScore);
             }
         }
 

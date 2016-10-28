@@ -1,13 +1,14 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.ViewModels
 {
     using System.Globalization;
-    using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.DataDomain;
-    using Fanex.Result.Core.Base.ViewModels;
+    using Base;
+    using Base.DataDomain;
+    using Base.ViewModels;
+    using DTO;
 
     public sealed class BilliardViewModel : SportsbookBaseViewModel, IResultViewModel
     {
-        public BilliardViewModel(DTO.Sportsbook sportbook, ResultSetting setting)
+        public BilliardViewModel(Sportsbook sportbook, ResultSetting setting)
             : base(sportbook, setting)
         {
         }
@@ -16,9 +17,7 @@
         {
             get
             {
-                return this.SPORTBOOK.FinalAwayScore.HasValue
-                    ? this.SPORTBOOK.FinalAwayScore.Value.ToString(CultureInfo.InvariantCulture)
-                    : ConstantValue.Hyphen;
+                return GetScore(SPORTBOOK.FinalAwayScore);
             }
         }
 
@@ -26,9 +25,7 @@
         {
             get
             {
-                return this.SPORTBOOK.FinalHomeScore.HasValue ?
-                    this.SPORTBOOK.FinalHomeScore.Value.ToString(CultureInfo.InvariantCulture)
-                    : ConstantValue.Hyphen;
+                return GetScore(SPORTBOOK.FinalHomeScore);
             }
         }
     }

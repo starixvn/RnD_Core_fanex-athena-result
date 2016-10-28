@@ -2,16 +2,17 @@
 {
     using System;
     using System.Globalization;
-    using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.DataDomain;
-    using Fanex.Result.Core.Base.ViewModels;
+    using Base;
+    using Base.DataDomain;
+    using Base.ViewModels;
+    using DTO;
 
     public sealed class BadmintonViewModel : SportsbookBaseViewModel, IResultViewModel
     {
         private int _totalPointHome;
         private int _totalPointAway;
 
-        public BadmintonViewModel(DTO.Sportsbook sportbook, ResultSetting setting)
+        public BadmintonViewModel(Sportsbook sportbook, ResultSetting setting)
             : base(sportbook, setting)
         {
         }
@@ -36,7 +37,7 @@
         {
             get
             {
-                return this.SPORTBOOK.FinalHomeScore.HasValue ? this.SPORTBOOK.FinalHomeScore.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
+                return GetScore(SPORTBOOK.FinalHomeScore);
             }
         }
 
@@ -44,7 +45,7 @@
         {
             get
             {
-                return this.SPORTBOOK.FinalAwayScore.HasValue ? this.SPORTBOOK.FinalAwayScore.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
+                return GetScore(SPORTBOOK.FinalAwayScore);
             }
         }
 

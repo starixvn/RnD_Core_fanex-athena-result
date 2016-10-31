@@ -3,10 +3,10 @@
     using System;
     using System.Collections.Generic;
     using System.Globalization;
-    using Fanex.Result.Core.Base.DataDomain;
-    using Fanex.Result.Core.Base.Resources;
-    using Fanex.Result.Core.Base.Utilities;
+    using DataDomain;
     using RemotingRef;
+    using Resources;
+    using Utilities;
 
     public abstract class BaseViewModel
     {
@@ -22,23 +22,13 @@
             { "vi-VN", "vn" }
         };
 
-        private string _dateTimeFormat = "{0:MM/dd/yyyy<br/>hh:mm:ss tt}";
-
-        private string _languageCode = ConstantValue.EnglishLanguageCode;
-
-        private SportType _sportType = SportType.Soccer;
-
         protected BaseViewModel(ResultSetting setting)
         {
             this.DateTimeFormat = setting.DateTimeFormat;
             this.VisibleInternalEventStatus = setting.VisibleInternalEventStatus;
         }
 
-        public string DateTimeFormat
-        {
-            get { return this._dateTimeFormat; }
-            set { _dateTimeFormat = value; }
-        }
+        public string DateTimeFormat { get; set; } = "{0:MM/dd/yyyy<br/>hh:mm:ss tt}";
 
         public bool VisibleInternalEventStatus { get; private set; }
 
@@ -116,21 +106,13 @@
         {
             get
             {
-                return this.GetSportNameByLanguage((int)this._sportType);
+                return this.GetSportNameByLanguage((int)Sport);
             }
         }
 
-        protected string LanguageCode
-        {
-            get { return _languageCode; }
-            set { _languageCode = value; }
-        }
+        protected string LanguageCode { get; set; } = ConstantValue.EnglishLanguageCode;
 
-        protected SportType Sport
-        {
-            get { return _sportType; }
-            set { _sportType = value; }
-        }
+        protected SportType Sport { get; set; } = SportType.Soccer;
 
         public virtual string Color(int index, string bg, string oddbg)
         {
@@ -139,18 +121,12 @@
 
         protected virtual string GetLeagueNameByLanguage(int leagueId)
         {
-            return RefData.GetLeagueName(
-                leagueId.ToString(CultureInfo.InvariantCulture),
-                this.GetSupportedLanguage,
-                string.Empty);
+            return RefData.GetLeagueName(leagueId.ToString(CultureInfo.InvariantCulture), GetSupportedLanguage, string.Empty);
         }
 
         protected virtual string GetSportNameByLanguage(int sportType)
         {
-            return RefData.GetSportName(
-                sportType.ToString(CultureInfo.InvariantCulture),
-                this.GetSupportedLanguage,
-                string.Empty);
+            return RefData.GetSportName(sportType.ToString(CultureInfo.InvariantCulture), GetSupportedLanguage, string.Empty);
         }
 
         protected virtual string GetFormatedKickOffTime(DateTime kickOffTime)

@@ -1,18 +1,7 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="ResultSetting.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Base
+﻿namespace Fanex.Result.Core.Base
 {
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public class ResultSetting
     {
-        private string _dateTimeFormat = "{0:MM/dd/yyyy<br/>hh:mm:ss tt}";
-
         public string LanguageCode { get; set; }
 
         public bool IsPopUp { get; set; }
@@ -48,11 +37,7 @@ namespace Fanex.Result.Core.Base
         /// Default is {0:MM/DD/YYYY<BR/>HH:MM:SS TT}.
         /// </summary>
         /// <value>The Date Time Format.</value>
-        public string DateTimeFormat
-        {
-            get { return _dateTimeFormat; }
-            set { _dateTimeFormat = value; }
-        }
+        public string DateTimeFormat { get; set; } = "{0:MM/dd/yyyy<br/>hh:mm:ss tt}";
 
         public bool VisibleFreeHeader { get; set; }
 

@@ -9,24 +9,16 @@ namespace Fanex.Result.Core.Base.Models
     using System;
     using System.IO;
     using System.Runtime.Caching;
-    using Fanex.Result.Core.Base.Exception;
+    using Exception;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public abstract class BaseTemplate
     {
-        protected const string VIEWDOMAINPATTERN = "Fanex.Result.Core.{0}.Views.{1}.cshtml";
+        protected const string ViewDomainPattern = "Fanex.Result.Core.{0}.Views.{1}.cshtml";
 
-        private const string CACHEPATTERN = "Fanex.Result.Core.{0}.Views.{1}";
+        private const string CachePattern = "Fanex.Result.Core.{0}.Views.{1}";
 
         protected abstract string GetProductName { get; }
 
-        /// <summary>
-        /// Get razor template.
-        /// </summary>
-        /// <param name="templateName">The template name.</param>
-        /// <returns>The html string.</returns>
         public virtual string GetRazorTemplate(string templateName)
         {
             if (string.IsNullOrEmpty(templateName) || string.IsNullOrWhiteSpace(templateName))
@@ -35,7 +27,7 @@ namespace Fanex.Result.Core.Base.Models
             }
 
             var cache = MemoryCache.Default;
-            var templateCacheName = string.Format(CACHEPATTERN, GetProductName, templateName);
+            var templateCacheName = string.Format(CachePattern, GetProductName, templateName);
             var item = cache[templateCacheName] as string;
 
             if (string.IsNullOrEmpty(item))
@@ -55,7 +47,7 @@ namespace Fanex.Result.Core.Base.Models
             {
                 var assembly = this.GetType().Assembly;
                 using (var stream = assembly
-                 .GetManifestResourceStream(string.Format(VIEWDOMAINPATTERN, GetProductName, templateName)))
+                 .GetManifestResourceStream(string.Format(ViewDomainPattern, GetProductName, templateName)))
                 {
                     if (stream == null)
                     {

@@ -95,7 +95,7 @@
             {
                 return base.VisibleDetailedLink
                     && this.SPORTBOOK.GameDetails.Any(i => !string.IsNullOrEmpty(i.ResourceId)
-                 && i.ResourceId.Trim().Length == ConstantValue.SETXGAMEYRESOURCEIDLENGTH);
+                 && i.ResourceId.Trim().Length == ConstantValue.SetXGameYResourceIdLength);
             }
         }
 
@@ -356,23 +356,23 @@ Justification = "Reviewed. Suppression is OK here.")]
                 Games = new List<GameValue>(),
             };
 
-            var numofGame = int.Parse(gameDetails.LastOrDefault().ResourceId) - (setIndexId * 100);
+            var numOfGame = int.Parse(gameDetails.LastOrDefault().ResourceId) - (setIndexId * 100);
 
-            if (numofGame > ConstantValue.NUMBERGAMEOFTENNISSET)
+            if (numOfGame > ConstantValue.NumberGameOfTennisSet)
             {
-                var modeValue = numofGame % ConstantValue.NUMBERGAMEOFTENNISSET;
+                var modeValue = numOfGame % ConstantValue.NumberGameOfTennisSet;
 
                 if (modeValue > 0)
                 {
-                    numofGame += ConstantValue.NUMBERGAMEOFTENNISSET - modeValue;
+                    numOfGame += ConstantValue.NumberGameOfTennisSet - modeValue;
                 }
             }
-            else if (numofGame < ConstantValue.NUMBERGAMEOFTENNISSET)
+            else if (numOfGame < ConstantValue.NumberGameOfTennisSet)
             {
-                numofGame += ConstantValue.NUMBERGAMEOFTENNISSET - numofGame;
+                numOfGame += ConstantValue.NumberGameOfTennisSet - numOfGame;
             }
 
-            for (var j = 1; j <= numofGame; j++)
+            for (var j = 1; j <= numOfGame; j++)
             {
                 var resourceId = setIndex + j.ToString("D2");
                 var game = gameDetails.SingleOrDefault(i => i.ResourceId == resourceId);

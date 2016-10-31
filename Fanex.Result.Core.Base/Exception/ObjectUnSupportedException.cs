@@ -1,16 +1,17 @@
 ﻿namespace Fanex.Result.Core.Base.Exception
 {
     using System;
+    using System.Runtime.Serialization;
 
     [Serializable]
-    public class ObjectUnSupportedException : System.Exception
+    public class ObjectUnSupportedException : Exception
     {
         public ObjectUnSupportedException(string message)
             : base(message)
         {
         }
 
-        public override void GetObjectData(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
+        public override void GetObjectData(SerializationInfo info, StreamingContext context)
         {
             base.GetObjectData(info, context);
         }

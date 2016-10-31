@@ -4,7 +4,7 @@
     using System.Runtime.Serialization;
 
     [Serializable]
-    public class ResultCoreException : System.Exception
+    public class ResultCoreException : Exception
     {
         public ResultCoreException()
         {

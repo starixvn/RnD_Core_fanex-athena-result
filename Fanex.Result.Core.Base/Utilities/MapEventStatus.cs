@@ -16,10 +16,9 @@
         /// <param name="isPending">Is pending.</param>
         /// <param name="visibleInternalEventStatus">Show internal status.</param>
         /// <returns>The status string.</returns>
-        [System.Diagnostics.CodeAnalysis.SuppressMessage(
-    "Microsoft.StyleCop.CSharp.NamingRules",
-    "SA1305:FieldNamesMustNotUseHungarianNotation",
-    Justification = "Using Win32 naming for consistency.")]
+        [SuppressMessage("Microsoft.StyleCop.CSharp.NamingRules",
+            "SA1305:FieldNamesMustNotUseHungarianNotation",
+            Justification = "Using Win32 naming for consistency.")]
         [SuppressMessage("Microsoft.Globalization", "CA1308:NormalizeStringsToUppercase", Justification = "Reviewed.")]
         public static string MapEventStatusString(string eventstatus, bool isPending, bool visibleInternalEventStatus)
         {

@@ -4,11 +4,11 @@
     using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
-    using Fanex.Result.Core.Base.Extension;
-    using Fanex.Result.Core.Base.Resources;
-    using Fanex.Result.Core.Base.ViewModels;
+    using Extension;
     using NPOI.HSSF.UserModel;
     using NPOI.SS.UserModel;
+    using Resources;
+    using ViewModels;
 
     public abstract class ExcelBase
     {
@@ -28,9 +28,6 @@
         protected const int ColumnMatchCode = 0;
         protected const int ColumnRace = 0;
         protected const int ColumnKickOffTime = 1;
-        private int _rowContentTemplate = 3;
-
-        private int _columnStatus = 4;
 
         #endregion Fields
 
@@ -62,17 +59,9 @@
 
         protected string ReportTitle { get; set; }
 
-        protected int ColumnStatus
-        {
-            get { return this._columnStatus; }
-            set { this._columnStatus = value; }
-        }
+        protected int ColumnStatus { get; set; } = 4;
 
-        protected int RowContentTemplate
-        {
-            get { return this._rowContentTemplate; }
-            set { this._rowContentTemplate = value; }
-        }
+        protected int RowContentTemplate { get; set; } = 3;
 
         protected int ColumnTemplateCount { get; set; }
 
@@ -190,9 +179,6 @@
 
         #region Template
 
-        /// <summary>
-        /// Load template.
-        /// </summary>
         protected virtual void LoadTemplate()
         {
             FileStream stream = null;

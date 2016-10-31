@@ -7,18 +7,18 @@
     using System.Reflection;
     using System.Runtime.Caching;
     using System.Web.Compilation;
-    using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.DataDomain;
-    using Fanex.Result.Core.Base.Exception;
-    using Fanex.Result.Core.Base.Extension;
-    using Fanex.Result.Core.Base.Models;
-    using Fanex.Result.Core.Base.Utilities;
+    using Base;
+    using Base.DataDomain;
+    using Base.Exception;
+    using Base.Extension;
+    using Base.Models;
+    using Base.Utilities;
 
     public static class ResultEngine
     {
-        private const string PLUGINPATTERN = "Fanex.Result.Core.{0}";
-        private const string BUILDERNAMESPACEPATTERN = "Fanex.Result.Core.{0}.Models.Builder";
-        private const string CACHEKEY = "Fanex.Result.Core.Plugin.CacheKey";
+        private const string PluginPattern = "Fanex.Result.Core.{0}";
+        private const string BuilderNamespacePattern = "Fanex.Result.Core.{0}.Models.Builder";
+        private const string CacheKey = "Fanex.Result.Core.Plugin.CacheKey";
 
         /// <summary>
         /// Render detail result by sport.
@@ -117,9 +117,7 @@
 
             var builder = GetBuilder(dtoName);
 
-            return
-                Helper.RemoveWhiteSpace(
-                builder.HtmlBuilder(dataList, setting));
+            return Helper.RemoveWhiteSpace(builder.HtmlBuilder(dataList, setting));
         }
 
         private static string HtmlParlayParser<T>(IList<T> dataList, ResultSetting setting, string dtoName)
@@ -130,15 +128,13 @@
             }
 
             var builder = GetBuilder(DTOType.SPORTSBOOK);
-            return Helper.RemoveWhiteSpace(
-                builder.PopUpParalyBuilder<T>(dataList, setting));
+            return Helper.RemoveWhiteSpace(builder.PopUpParalyBuilder<T>(dataList, setting));
         }
 
         private static string HtmlOutrightParser<T>(IList<T> dataList, ResultSetting setting, string dtoName)
         {
             var builder = CreateOutrightBuilder(dtoName);
-            return Helper.RemoveWhiteSpace(
-                builder.OutrightHtmlBuilder<T>(dataList, setting));
+            return Helper.RemoveWhiteSpace(builder.OutrightHtmlBuilder<T>(dataList, setting));
         }
 
         private static IBuilder CreateOutrightBuilder(string dtoName)
@@ -154,8 +150,7 @@
         private static MemoryStream ExcelOutrightParser<T>(IList<T> dataList, ResultSetting setting, string dtoName)
         {
             var builder = CreateOutrightBuilder(dtoName);
-            return
-                builder.OutrightExcelBuilder<T>(dataList, setting);
+            return builder.OutrightExcelBuilder<T>(dataList, setting);
         }
 
         /// <summary>
@@ -182,7 +177,7 @@
 
             if (string.IsNullOrEmpty(setting.ExcelTemplatePath))
             {
-                setting.ExcelTemplatePath = System.AppDomain.CurrentDomain.BaseDirectory + CoreResourceConfig.EXCELTEMPLATEPATH;
+                setting.ExcelTemplatePath = AppDomain.CurrentDomain.BaseDirectory + CoreResourceConfig.EXCELTEMPLATEPATH;
             }
         }
 
@@ -190,7 +185,7 @@
         {
             try
             {
-                var pluginName = string.Format(PLUGINPATTERN, productType);
+                var pluginName = string.Format(PluginPattern, productType);
 
                 var plugins = GetResultPlugins();
 
@@ -202,7 +197,7 @@
                     throw new ObjectUnSupportedException(productType);
                 }
 
-                var builderName = string.Format(BUILDERNAMESPACEPATTERN, productType);
+                var builderName = string.Format(BuilderNamespacePattern, productType);
 
                 var typeBuilder = plugin.GetType(builderName);
 
@@ -223,7 +218,7 @@
         {
             ObjectCache cache = MemoryCache.Default;
 
-            var assemblies = (List<Assembly>)cache[CACHEKEY];
+            var assemblies = (List<Assembly>)cache[CacheKey];
 
             if (assemblies == null || !assemblies.Any())
             {
@@ -241,7 +236,7 @@
 
                 assemblies = assemblies.Where(x => x.FullName.StartsWith("Fanex.Result.Core", StringComparison.InvariantCulture)).ToList();
 
-                cache.Set(CACHEKEY, assemblies, policy);
+                cache.Set(CacheKey, assemblies, policy);
             }
 
             return assemblies;

@@ -1,16 +1,5 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="CoreResourceConfig.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Base.DataDomain
+﻿namespace Fanex.Result.Core.Base.DataDomain
 {
-    using System.Diagnostics.CodeAnalysis;
-
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public static class CoreResourceConfig
     {
         public const string EXCELTEMPLATEPATH = "App_Data/Fanex.Result/";

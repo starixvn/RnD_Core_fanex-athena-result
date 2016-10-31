@@ -1,25 +1,11 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="ConstantValue.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Base.DataDomain
+﻿namespace Fanex.Result.Core.Base.DataDomain
 {
-    using System.Diagnostics.CodeAnalysis;
-
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public static class ConstantValue
     {
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", Justification = "Reviewed.")]
-        public const int NUMBERGAMEOFTENNISSET = 13;
+        public const int NumberGameOfTennisSet = 13;
 
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", Justification = "Reviewed.")]
-        public const int SETXGAMEYRESOURCEIDLENGTH = 4;
+        public const int SetXGameYResourceIdLength = 4;
 
-        [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", Justification = "Reviewed.")]
         public const string EnglishLanguageCode = "en-US";
 
         public const string BackgroundPending = "cl-bg-pending";

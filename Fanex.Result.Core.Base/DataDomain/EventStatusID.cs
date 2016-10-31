@@ -1,20 +1,11 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="EventStatusID.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Base.DataDomain
+﻿namespace Fanex.Result.Core.Base.DataDomain
 {
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public static class EventStatusID
     {
-        public const int CompletedSettlementStatusID = 4;
+        public const int RunningSettlementStatusID = 0;
         public const int RefundStettlementStatusID = 1;
         public const int RefundHTSettlementStatusID = 2;
         public const int RefundFTSettlementStatusID = 3;
-        public const int RunningSettlementStatusID = 0;
+        public const int CompletedSettlementStatusID = 4;
     }
 }

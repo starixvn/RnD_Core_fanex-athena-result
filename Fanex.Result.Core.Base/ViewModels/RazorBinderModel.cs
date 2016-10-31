@@ -2,17 +2,11 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using Fanex.Result.Core.Base.Extension;
+    using Extension;
 
     public class RazorBinderModel
     {
-        private IList<GroupData> _data = new SafeList<GroupData>();
-
-        public IList<GroupData> Data
-        {
-            get { return _data; }
-            set { _data = value; }
-        }
+        public IList<GroupData> Data { get; set; } = new SafeList<GroupData>();
 
         public bool IsPopUp { get; set; }
 

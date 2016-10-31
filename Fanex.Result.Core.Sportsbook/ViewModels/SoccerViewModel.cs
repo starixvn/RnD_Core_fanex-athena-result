@@ -31,7 +31,7 @@
         public SoccerViewModel(Sportsbook soccer, ResultSetting setting)
             : base(soccer, setting)
         {
-            IsShowLiveScore = DetermineShowingLiveScore(setting.IsPopUp);
+            IsShowLiveScore = DetermineShowingLiveScore(setting.IsParlayPopUp, setting.IsPopUp);
         }
 
         #region Settlement Site
@@ -229,9 +229,9 @@
             }
         }
 
-        private bool DetermineShowingLiveScore(bool isPopUp)
+        private bool DetermineShowingLiveScore(bool isParlayPopup, bool isPopUp)
         {
-            if (isPopUp)
+            if (!isParlayPopup && isPopUp)
             {
                 switch (SPORTBOOK.Bettype)
                 {

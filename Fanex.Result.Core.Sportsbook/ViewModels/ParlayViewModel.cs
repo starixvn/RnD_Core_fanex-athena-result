@@ -32,6 +32,7 @@
             this._sportSetting = new ResultSetting
             {
                 IsPopUp = true,
+                IsParlayPopUp = true,
                 LanguageCode = this.LanguageCode,
                 SportType = (SportType)this._parlay.SportId,
                 DateTimeFormat = this.DateTimeFormat,

@@ -255,18 +255,11 @@
                     while (reader.Read())
                     {
                         var item = BindSportbook(reader);
+                        item.LiveHomeScore = reader["livehomescore"] != DBNull.Value ? int.Parse(reader["livehomescore"].ToString()) : new int?();
+                        item.LiveAwayScore = reader["liveawayscore"] != DBNull.Value ? int.Parse(reader["liveawayscore"].ToString()) : new int?();
+
                         item.Bettype = criteria.Bettype;
                         item.BetID = criteria.BetId.ToString();
-                        if (item.Bettype == 3 && !item.FinalHomeScore.HasValue)
-                        {
-                            item.LiveHomeScore = item.HtHomeScore.HasValue ? item.HtHomeScore : 0;
-                            item.LiveAwayScore = item.HtAwayScore.HasValue ? item.HtAwayScore + 1 : 0;
-                        }
-                        if (item.Bettype == 8 && !item.HtHomeScore.HasValue)
-                        {
-                            item.LiveHomeScore = 0;
-                            item.LiveAwayScore = 1;
-                        }
                         results.Add(item);
                     }
 

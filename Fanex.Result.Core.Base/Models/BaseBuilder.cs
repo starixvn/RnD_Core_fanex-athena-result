@@ -76,7 +76,7 @@
                 VisibleMatchCodeIDColumn = setting.VisibleMatchCodeIDColumn,
                 VisibleDetailedLink = setting.VisibleDetailedLink,
                 VisibleFreeHeader = setting.VisibleFreeHeader && !isPopUp,
-                IsDetail = isDetail,
+                IsDetail = isDetail
             };
 
             model.Data = groupData;

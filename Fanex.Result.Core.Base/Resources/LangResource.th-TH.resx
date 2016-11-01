@@ -222,6 +222,9 @@
   <data name="FinalScore" xml:space="preserve">
     <value>ประตูสุดท้าย</value>
   </data>
+  <data name="HTScore" xml:space="preserve">
+    <value>ผลการแข่งขันครึ่งแรก</value>
+  </data>
   <data name="LastBall" xml:space="preserve">
     <value>บอลสุดท้าย</value>
   </data>

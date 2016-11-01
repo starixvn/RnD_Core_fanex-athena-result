@@ -207,4 +207,7 @@
   <data name="MoreResults" xml:space="preserve">
     <value>Xem thêm kết quả</value>
   </data>
+  <data name="LiveScore" xml:space="preserve">
+    <value>Tỷ số hiện tại</value>
+  </data>
 </root>

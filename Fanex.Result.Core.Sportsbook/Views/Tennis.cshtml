@@ -271,7 +271,7 @@
                 <th class="cl-match">
                     @LangResource.Set&nbsp;@(i + 1)&nbsp;@LangResource.GameResult
                 </th>
-                @for (var k = 1; k <= ConstantValue.NUMBERGAMEOFTENNISSET; k++)
+                @for (var k = 1; k <= ConstantValue.NumberGameOfTennisSet; k++)
                 {
                     <th class="cl-s">
                         @k
@@ -284,18 +284,18 @@
 
                 var maxGameId = setValue.Games.Count;
                 var subRowspan = 1;
-                if (maxGameId > ConstantValue.NUMBERGAMEOFTENNISSET)
+                if (maxGameId > ConstantValue.NumberGameOfTennisSet)
                 {
-                    subRowspan = (maxGameId / ConstantValue.NUMBERGAMEOFTENNISSET) * 2;
+                    subRowspan = (maxGameId / ConstantValue.NumberGameOfTennisSet) * 2;
                     subRowspan += (subRowspan / 2) - 1;
                 }
-                var lastGameId = ConstantValue.NUMBERGAMEOFTENNISSET;
+                var lastGameId = ConstantValue.NumberGameOfTennisSet;
                 var startGameId = 0;
 
-                for (var t = 0; t < maxGameId; t += ConstantValue.NUMBERGAMEOFTENNISSET)
+                for (var t = 0; t < maxGameId; t += ConstantValue.NumberGameOfTennisSet)
                 {
 
-                    if (t >= ConstantValue.NUMBERGAMEOFTENNISSET)
+                    if (t >= ConstantValue.NumberGameOfTennisSet)
                     {
                         startGameId = lastGameId;
                         lastGameId += 13;
@@ -309,7 +309,7 @@
                 </tr>
                     }
                 <tr class="data odd">
-                    @if (maxGameId == ConstantValue.NUMBERGAMEOFTENNISSET)
+                    @if (maxGameId == ConstantValue.NumberGameOfTennisSet)
                     {
                         <td class="cl-match home">
                             @Raw(item.HomeTeam)
@@ -335,7 +335,7 @@
                 </tr>
 
                 <tr class="data odd">
-                    @if (maxGameId == ConstantValue.NUMBERGAMEOFTENNISSET)
+                    @if (maxGameId == ConstantValue.NumberGameOfTennisSet)
                     {
                         <td class="cl-match away">
                             @Raw(item.AwayTeam)
@@ -373,7 +373,7 @@
                 <th class="cl-match">
                     @LangResource.GameResult
                 </th>
-                @for (var k = 1; k <= ConstantValue.NUMBERGAMEOFTENNISSET; k++)
+                @for (var k = 1; k <= ConstantValue.NumberGameOfTennisSet; k++)
                 {
                     <th class="cl-s">
                         @k

@@ -24,28 +24,23 @@
             }
             catch (Exception e)
             {
-                return e.ToString();
+                return e.Message;
             }
         }
 
-        public JObject GlobalGamingResult(string custId, string gameId, string language)
+        public JObject GlobalGamingResult(GlobalGamingDTO globalGamingData)
         {
             var error = 0;
             var content = string.Empty;
             try
             {
                 var globalGamingApi = new GlobalGamingResultApi();
-                content = globalGamingApi.GetResultUrl(new GlobalGamingDTO
-                {
-                    CustId = custId,
-                    GameId = gameId,
-                    Language = language
-                });
+                content = globalGamingApi.GetResultUrl(globalGamingData);
             }
             catch (Exception e)
             {
                 error = 1;
-                content = e.ToString();
+                content = e.Message;
             }
 
             return JObject.Parse(JsonConvert.SerializeObject(new { Error = error, Url = content }));

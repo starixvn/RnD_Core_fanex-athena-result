@@ -3,56 +3,50 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@using Fanex.Result.Core.Voidbridge;
 @{
-    var voidbridgeApi = new VoidbridgeApiImp();
-    var voidbridgeData = new List<string> {
-        "12345",
-        "23456"
-    };
-
-    var gamePlayId = "1000";
+    var custId = "1000";
 }
+<div style="width: 1000px">
+    <form role="form" action="/" class="form-inline filter-form bet-setting">
+        <label for="Language">Language</label>
+        <select id="language" class="width-100">
+            <option value="en-US">en-US</option>
+            <option value="ko-KR">ko-KR</option>
+            <option value="zh-TW">zh-TW</option>
+            <option value="zh-CN">zh-CN</option>
+        </select>
+    </form>
 
-<form role="form" action="/" class="form-inline filter-form bet-setting">
-    <label for="Language">Language</label>
-    <select id="language" class="width-100">
-        <option value="en-US">en-US</option>
-        <option value="ko-KR">ko-KR</option>
-        <option value="zh-TW">zh-TW</option>
-        <option value="zh-CN">zh-CN</option>
-    </select>
-</form>
-
-<table class="fn-rs">
-    <tr class="header">
-        <th style="width: 200px; text-align: center">Cust Id</th>
-        <th style="width: 200px; text-align: center">Game Id</th>
-        <th>Detail link</th>
-    </tr>
-    <tr class="data-header">
-        <th class="cl-league" colspan="3">Voidbridge</th>
-    </tr>
-    @foreach (var custId in voidbridgeData)
-    {
-        <tr class="data">
-            <td>@custId</td>
-            <td>@gamePlayId</td>
-            <td><button onClick="showVoidbridgeResult('@custId', '@gamePlayId')">Detail</button></td>
+    <table class="fn-rs">
+        <tr class="header">
+            <th style="width: 200px; text-align: center">Cust Id</th>
+            <th style="width: 200px; text-align: center">Game Id</th>
+            <th>Detail link</th>
         </tr>
-    }
-    <tr class="data-header">
-        <th class="cl-league" colspan="3">Global Gaming</th>
-    </tr>
-    @foreach (var custId in voidbridgeData)
-    {
-        <tr class="data">
-            <td>@custId</td>
-            <td>@gamePlayId</td>
-            <td><button onClick="showGlobalGamingResult('@custId', '@gamePlayId')">Detail</button></td>
+        <tr class="data-header">
+            <th class="cl-league" colspan="3">Voidbridge</th>
         </tr>
-    }
-</table>
+        @for (var gamePlayId = 1000; gamePlayId < 1002; gamePlayId++)
+        {
+            <tr class="data">
+                <td>@custId</td>
+                <td>@gamePlayId</td>
+                <td><button onClick="showVoidbridgeResult('@custId', '@gamePlayId')">Detail</button></td>
+            </tr>
+        }
+        <tr class="data-header">
+            <th class="cl-league" colspan="3">Global Gaming</th>
+        </tr>
+        @for (var gameId = 1010; gameId < 1012; gameId++)
+        {
+            <tr class="data">
+                <td>@custId</td>
+                <td>@gameId</td>
+                <td><button onClick="showGlobalGamingResult('@custId', '@gameId')">Detail</button></td>
+            </tr>
+        }
+    </table>
+</div>
 <script src="~/Scripts/Page/voidbridge-result.js"></script>
 <script>
     var showVoidbridgeResult = function (custId, gamePlayId) {

@@ -81,6 +81,11 @@
 
         #region Export Excel Methods
 
+        /// <summary>
+        /// Clear the template from header row.
+        /// </summary>
+        /// <param name="sheet">Current sheet.</param>
+        /// <param name="startRowIndex">Index of row.</param>
         protected static void ClearTemplate(ISheet sheet, int startRowIndex)
         {
             var lastRowNum = sheet.LastRowNum;
@@ -231,6 +236,13 @@
             }
         }
 
+        /// <summary>
+        /// Assign array decimal to row.
+        /// </summary>
+        /// <param name="row">Row in sheet export excel.</param>
+        /// <param name="cellIndex">Position cell will insert.</param>
+        /// <param name="decimalValues">Array decimal values.</param>
+        /// <returns>Cell position after insert.</returns>
         protected virtual int AssignDecimalData(IRow row, int cellIndex, params decimal[] decimalValues)
         {
             for (int i = 0, j = decimalValues.Length; i < j && cellIndex < row.Cells.Count; i++)
@@ -242,6 +254,13 @@
             return cellIndex;
         }
 
+        /// <summary>
+        /// Assign array string to row.
+        /// </summary>
+        /// <param name="row">Row in sheet export excel.</param>
+        /// <param name="cellIndex">Position cell will insert.</param>
+        /// <param name="values">Array string values.</param>
+        /// <returns>Cell position after insert.</returns>
         protected virtual int AssignStringData(IRow row, int cellIndex, params string[] values)
         {
             foreach (var t in values)

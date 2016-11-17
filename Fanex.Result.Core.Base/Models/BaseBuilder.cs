@@ -49,6 +49,15 @@
             }
         }
 
+        /// <summary>
+        /// Creates the model.
+        /// </summary>
+        /// <param name="groupData">The data list.</param>
+        /// <param name="setting">The result setting.</param>
+        /// <param name="isDetail">If true, all detailed games will be rendered.</param>
+        /// <returns>
+        /// Returns RAZOR model.
+        /// </returns>
         protected virtual RazorBinderModel CreateModel(IList<GroupData> groupData, ResultSetting setting, bool isDetail = false)
         {
             var isPopUp = setting.IsParlayPopUp || setting.IsPopUp;

@@ -9,6 +9,9 @@
 
     #endregion Using
 
+    /// <summary>
+    /// Row index, column index, cell index are based by zero
+    /// </summary>
     public static class HSSFSheetExtension
     {
         public static IRow CopyRow(this ISheet sheet, ISheet sourceSheet, int sourceRowIndex, int destRowIndex)

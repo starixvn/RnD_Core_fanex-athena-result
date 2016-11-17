@@ -26,17 +26,30 @@
 
 <table class="fn-rs">
     <tr class="header">
-        <th style="width: 300px; text-align: left">Info</th>
-        <th>Result</th>
+        <th style="width: 200px; text-align: center">Cust Id</th>
+        <th style="width: 200px; text-align: center">Game Id</th>
+        <th>Detail link</th>
     </tr>
     <tr class="data-header">
-        <th class="cl-league" colspan="2">Voidbridge</th>
+        <th class="cl-league" colspan="3">Voidbridge</th>
     </tr>
     @foreach (var custId in voidbridgeData)
     {
         <tr class="data">
-            <td>CustId: @custId; GamePlayId: @gamePlayId</td>
+            <td>@custId</td>
+            <td>@gamePlayId</td>
             <td><button onClick="showVoidbridgeResult('@custId', '@gamePlayId')">Detail</button></td>
+        </tr>
+    }
+    <tr class="data-header">
+        <th class="cl-league" colspan="3">Global Gaming</th>
+    </tr>
+    @foreach (var custId in voidbridgeData)
+    {
+        <tr class="data">
+            <td>@custId</td>
+            <td>@gamePlayId</td>
+            <td><button onClick="showGlobalGamingResult('@custId', '@gamePlayId')">Detail</button></td>
         </tr>
     }
 </table>
@@ -46,5 +59,23 @@
         $.get('./VoidbridgeResult?custid=' + custId + '&gamePlayId=' + gamePlayId + '&language=' + $('#language').val(), function (result) {
             openVoidbridgeResult(result);
         });
+    }
+
+    var showGlobalGamingResult = function (custId, gameId) {
+        $.get('./GlobalGamingResult?custid=' + custId + '&gameId=' + gameId + '&language=' + $('#language').val(), function (result) {
+            openResultPopUp(JSON.parse(result), "Error in showing Global Gaming Result");
+        });
+    }
+
+    var openResultPopUp = function (result, failedMessage) {
+        'use strict';
+        if (result.Error == 0 && result.Url !== '') {
+            window.open(result.Url,
+                '_blank',
+                'left=50,top=50,width=950,height=650' +
+                'toolbar=1,resizable=1,scrollbars,status=1');
+        } else {
+            alert(failedMessage + '\n' + result.Url);
+        }
     }
 </script>

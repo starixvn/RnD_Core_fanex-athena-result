@@ -60,6 +60,7 @@
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.30506.0\lib\net40\System.Web.Razor.dll</HintPath>
       <Private>True</Private>
@@ -71,6 +72,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DebugMode.cs" />
+    <Compile Include="Models\Base3rdResultApi.cs" />
     <Compile Include="DataDomain\ConstantValue.cs" />
     <Compile Include="DataDomain\CoreResourceConfig.cs" />
     <Compile Include="DataDomain\DTOType.cs" />

@@ -200,6 +200,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controllers\DocsController.cs" />
+    <Compile Include="Controllers\GlobalGamingInternalController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NormalReportController.cs" />
     <Compile Include="Controllers\OutRightReportController.cs" />
@@ -228,6 +229,8 @@
     <Compile Include="Models\Criteria\GetGolDeluxePopUpResultCriteria.cs" />
     <Compile Include="Models\Criteria\GetAGCasinoPopUpResultCriteria.cs" />
     <Compile Include="Models\Criteria\GetAllBetCasinoPopUpResultCriteria.cs" />
+    <Compile Include="Models\GlobalGaming\GlobalGamingResponse.cs" />
+    <Compile Include="Models\GlobalGaming\GlobalGamingRequest.cs" />
     <Compile Include="Models\IResultService.cs" />
     <Compile Include="Models\MetaModel\ResultPopupMetalModel.cs" />
     <Compile Include="Models\Voidbridge\Request.cs" />
@@ -607,6 +610,10 @@
     <ProjectReference Include="..\Fanex.Result.Core.CockFighting\Fanex.Result.Core.CockFighting.csproj">
       <Project>{29f23cc1-8d52-4e0b-84c9-6f463bc0a80c}</Project>
       <Name>Fanex.Result.Core.CockFighting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fanex.Result.Core.GlobalGaming\Fanex.Result.Core.GlobalGaming.csproj">
+      <Project>{24011d8b-9445-4377-8b70-e7d4049f372f}</Project>
+      <Name>Fanex.Result.Core.GlobalGaming</Name>
     </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.GoldDeLuxe\Fanex.Result.Core.GoldDeluxe.csproj">
       <Project>{DBD59404-19D9-422C-83F1-8F20E02545ED}</Project>

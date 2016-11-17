@@ -3,9 +3,6 @@
     using System.Collections.Generic;
     using System.IO;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public interface IBuilder
     {
         MemoryStream ExcelBuilder<T>(IList<T> dataList, ResultSetting setting);

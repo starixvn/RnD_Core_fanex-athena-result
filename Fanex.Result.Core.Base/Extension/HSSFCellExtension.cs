@@ -1,32 +1,15 @@
-﻿// <history>
-//  <change who="jacob.phan" date="2012.5.8">Created</change>
-// </history>
-
-namespace Fanex.Result.Core.Base.Extension
+﻿namespace Fanex.Result.Core.Base.Extension
 {
     using System;
     using NPOI.SS.UserModel;
 
-    /// <summary>
-    /// HSSFCellExtensions class contains extension method for HSSFCell.
-    /// </summary>
     public static class HSSFCellExtension
     {
-        /// <summary>
-        /// Assign decimal value to cell.
-        /// </summary>
-        /// <param name="cell">Target cell.</param>
-        /// <param name="value">The value to be set.</param>
         public static void SetCellValue(this ICell cell, decimal value)
         {
             cell.SetCellValue(Convert.ToDouble(value));
         }
 
-        /// <summary>
-        /// Assign object value to cell.
-        /// </summary>
-        /// <param name="cell">Target cell.</param>
-        /// <param name="value">The value to be set.</param>
         public static void SetCellValue(this ICell cell, object value)
         {
             var valueType = value.GetType();
@@ -74,23 +57,11 @@ namespace Fanex.Result.Core.Base.Extension
             }
         }
 
-        /// <summary>
-        /// Assign INT value to cell.
-        /// </summary>
-        /// <param name="cell">Target cell.</param>
-        /// <param name="value">The value to be set.</param>
         public static void SetCellValue(this ICell cell, long value)
         {
             cell.SetCellValue(Convert.ToDouble(value));
         }
 
-        /// <summary>
-        /// Set cell with default style.
-        /// Assign cell with default value.
-        /// </summary>
-        /// <param name="cell">Main cell object.</param>
-        /// <param name="value">Default value.</param>
-        /// <param name="defaultStyle">Default style.</param>
         public static void SetEmptyCell(this ICell cell, object value, ICellStyle defaultStyle)
         {
             switch (value.GetType().Name)

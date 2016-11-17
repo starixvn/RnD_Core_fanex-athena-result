@@ -28,10 +28,6 @@
             get { return Current; }
         }
 
-        /// <summary>
-        /// And exiting lock on Dispose().
-        /// This will be called when foreach loop finishes.
-        /// </summary>
         public void Dispose()
         {
             Monitor.Exit(_lock);

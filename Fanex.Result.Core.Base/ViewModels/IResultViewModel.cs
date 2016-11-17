@@ -1,14 +1,5 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="IResultViewModel.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Base.ViewModels
+﻿namespace Fanex.Result.Core.Base.ViewModels
 {
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public interface IResultViewModel
     {
         int LeagueId { get; }

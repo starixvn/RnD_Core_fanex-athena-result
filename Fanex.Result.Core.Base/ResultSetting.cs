@@ -15,11 +15,9 @@
         public SportType SportType { get; set; }
 
         /// <summary>
-        /// Gets or sets Excel source path.
-        /// Default path ="APP_DATA/FANEX.RESUST"
-        /// Must be physical path .
+        /// Excel source path.
+        /// Default physical path ="APP_DATA/FANEX.RESUST"
         /// </summary>
-        /// <value>String value.</value>
         public string ExcelTemplatePath { get; set; }
 
         public bool HighlightWinnerTeam { get; set; }
@@ -32,11 +30,6 @@
 
         public bool VisibleGoalRecord { get; set; }
 
-        /// <summary>
-        /// Gets or sets Kick Of Time format.
-        /// Default is {0:MM/DD/YYYY<BR/>HH:MM:SS TT}.
-        /// </summary>
-        /// <value>The Date Time Format.</value>
         public string DateTimeFormat { get; set; } = "{0:MM/dd/yyyy<br/>hh:mm:ss tt}";
 
         public bool VisibleFreeHeader { get; set; }

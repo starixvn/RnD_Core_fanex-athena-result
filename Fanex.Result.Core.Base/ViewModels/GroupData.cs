@@ -1,17 +1,8 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="GroupData.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Base.ViewModels
+﻿namespace Fanex.Result.Core.Base.ViewModels
 {
     using System.Collections.Generic;
-    using Fanex.Result.Core.Base.Extension;
+    using Extension;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public class GroupData
     {
         private IList<IResultViewModel> _data = new SafeList<IResultViewModel>();

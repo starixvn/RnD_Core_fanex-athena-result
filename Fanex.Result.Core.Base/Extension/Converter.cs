@@ -1,27 +1,11 @@
-﻿// --------------------------------------------------------------------------
-// <history>
-// <change who="anders.le" date="2012.2.22">Created</change>
-// <change who="anders.le" date="2012.2.22">Add more param with default value</change>
-// <change who="Anders.Le" date="2012.8.22">Fix bug convert to decimal</change>
-// </history>
-
-namespace Fanex.Result.Core.Base.Extension
+﻿namespace Fanex.Result.Core.Base.Extension
 {
     using System;
     using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary>
-    /// Convert to specific type.
-    /// </summary>
     internal static class Converter
     {
-        /// <summary>
-        /// If object type in T is null or DBNull.Value, return default(T).
-        /// </summary>
-        /// <typeparam name="T">Type of converted value.</typeparam>
-        /// <param name="item">The original item value.</param>
-        /// <returns>T or default(T).</returns>
         [DebuggerStepThrough]
         public static T To<T>(object item)
         {
@@ -33,13 +17,6 @@ namespace Fanex.Result.Core.Base.Extension
             return default(T);
         }
 
-        /// <summary>
-        /// Convert object to BOOL.
-        /// If object is null or DBNull.Value then return default Value.
-        /// </summary>
-        /// <param name="item">The original item value.</param>
-        /// <param name="defaultValue">If set to <c>true</c> [default value].</param>
-        /// <returns>The BOOL value.</returns>
         [DebuggerStepThrough]
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         public static bool ToBool(object item, bool defaultValue = false)
@@ -55,11 +32,6 @@ namespace Fanex.Result.Core.Base.Extension
             return b ? result : defaultValue;
         }
 
-        /// <summary>
-        /// Toes the byte array.
-        /// </summary>
-        /// <param name="item">The original item value.</param>
-        /// <returns>The array byte.</returns>
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         [DebuggerStepThrough]
         public static byte[] ToByteArray(object item)

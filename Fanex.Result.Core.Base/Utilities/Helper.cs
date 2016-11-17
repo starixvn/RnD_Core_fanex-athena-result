@@ -3,7 +3,7 @@
     using System;
     using System.Globalization;
     using System.Text.RegularExpressions;
-    using Fanex.Result.Core.Base.DataDomain;
+    using DataDomain;
 
     public static class Helper
     {

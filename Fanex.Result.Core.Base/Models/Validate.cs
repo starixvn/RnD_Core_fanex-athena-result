@@ -1,12 +1,11 @@
 ﻿namespace Fanex.Result.Core.Base.Models
 {
     using System;
-    using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.DataDomain;
+    using Base;
+    using DataDomain;
 
     public sealed class Validate : IValidate
     {
-        /*singleton*/
         private static readonly Lazy<IValidate> LazyValidationService = new Lazy<IValidate>(() => new Validate());
 
         private Validate()
@@ -21,12 +20,6 @@
             }
         }
 
-        /// <summary>
-        /// Validate DTO and sport type.
-        /// </summary>
-        /// <param name="dtoName">The DTO name.</param>
-        /// <param name="sportType">The sport type.</param>
-        /// <returns>True if DTO name match with sport type.</returns>
         public bool ValidateNormal(string dtoName, SportType sportType)
         {
             return !string.IsNullOrEmpty(dtoName) &&

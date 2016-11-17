@@ -11,25 +11,18 @@
     using RazorEngine.Templating;
     using ViewModels;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public class BaseBuilder
     {
         protected virtual RazorBinderModel GenerateViewModelData<T>(IList<T> dataList, ResultSetting setting, ViewModelFactory viewModelFactory)
         {
-            var groupData = dataList.Select(i => viewModelFactory.GetViewModel(i, setting))
-                .GroupBy(i => i.LeagueId).Select(i => new GroupData { LeagueId = i.Key, Data = i.ToSafeList() }).ToSafeList();
+            var groupData = dataList
+                .Select(i => viewModelFactory.GetViewModel(i, setting))
+                .GroupBy(i => i.LeagueId)
+                .Select(i => new GroupData { LeagueId = i.Key, Data = i.ToSafeList() })
+                .ToSafeList();
             return CreateModel(groupData, setting);
         }
 
-        /// <summary>
-        /// Render html result.
-        /// </summary>
-        /// <param name="templateInstance">The template instance.</param>
-        /// <param name="templateName">The template name.</param>
-        /// <param name="model">The binder model.</param>
-        /// <returns>The HTML result.</returns>
         protected virtual string HtmlRender(ITemplate templateInstance, string templateName, RazorBinderModel model)
         {
             try
@@ -56,15 +49,6 @@
             }
         }
 
-        /// <summary>
-        /// Creates the model.
-        /// </summary>
-        /// <param name="groupData">The data list.</param>
-        /// <param name="setting">The result setting.</param>
-        /// <param name="isDetail">If true,all detailed game will be rendered.</param>
-        /// <returns>
-        /// Returns RAZOR model.
-        /// </returns>
         protected virtual RazorBinderModel CreateModel(IList<GroupData> groupData, ResultSetting setting, bool isDetail = false)
         {
             var isPopUp = setting.IsParlayPopUp || setting.IsPopUp;

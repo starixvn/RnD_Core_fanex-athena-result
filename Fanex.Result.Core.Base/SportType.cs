@@ -1,17 +1,8 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="SportType.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.Base
+﻿namespace Fanex.Result.Core.Base
 {
     using System.Diagnostics.CodeAnalysis;
-    using Fanex.Result.Core.Base.Extension;
+    using Extension;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1602:EnumerationItemsMustBeDocumented", Justification = "Reviewed.")]
     [SuppressMessage("Microsoft.Design", "CA1008:EnumsShouldHaveZeroValue", Justification = "Reviewed.")]
     public enum SportType : int
@@ -241,6 +232,7 @@ namespace Fanex.Result.Core.Base
 
         [StringValue("MicroGamingRNG")]
         MicroGamingRNG = 205,
+
         [StringValue("AllBetCasino")]
         AllBetCasino = 211,
 

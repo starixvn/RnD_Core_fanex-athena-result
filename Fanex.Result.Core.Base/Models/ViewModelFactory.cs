@@ -1,9 +1,9 @@
 ﻿namespace Fanex.Result.Core.Models
 {
     using System.Collections.Generic;
-    using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.ExcelModels;
-    using Fanex.Result.Core.Base.ViewModels;
+    using Base;
+    using Base.ExcelModels;
+    using Base.ViewModels;
 
     public abstract class ViewModelFactory
     {

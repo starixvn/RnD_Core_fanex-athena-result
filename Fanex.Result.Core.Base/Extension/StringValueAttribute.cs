@@ -3,9 +3,6 @@
     using System;
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     [SuppressMessage("Microsoft.Design", "CA1019:DefineAccessorsForAttributeArguments", Justification = "Reviewed!")]
     [SuppressMessage("Microsoft.Design", "CA1018:MarkAttributesWithAttributeUsage", Justification = "Reviewed!")]
     public sealed class StringValueAttribute : Attribute

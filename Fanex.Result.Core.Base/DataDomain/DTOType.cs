@@ -2,9 +2,6 @@
 {
     using System.Diagnostics.CodeAnalysis;
 
-    /// <summary>
-    /// Data domain class.
-    /// </summary>
     public static class DTOType
     {
         [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", Justification = "Reviewed.")]

@@ -2,23 +2,13 @@
 {
     using System;
     using System.Diagnostics.CodeAnalysis;
-    using Fanex.Result.Core.Base.DataDomain;
-    using Fanex.Result.Core.Base.Resources;
+    using DataDomain;
+    using Resources;
 
     public static class MapEventStatus
     {
         private static readonly string InternalStatus = "internal";
 
-        /// <summary>
-        /// Render status.
-        /// </summary>
-        /// <param name="eventstatus">The event status.</param>
-        /// <param name="isPending">Is pending.</param>
-        /// <param name="visibleInternalEventStatus">Show internal status.</param>
-        /// <returns>The status string.</returns>
-        [SuppressMessage("Microsoft.StyleCop.CSharp.NamingRules",
-            "SA1305:FieldNamesMustNotUseHungarianNotation",
-            Justification = "Using Win32 naming for consistency.")]
         [SuppressMessage("Microsoft.Globalization", "CA1308:NormalizeStringsToUppercase", Justification = "Reviewed.")]
         public static string MapEventStatusString(string eventstatus, bool isPending, bool visibleInternalEventStatus)
         {
@@ -36,11 +26,6 @@
             return LangResource.Pending;
         }
 
-        /// <summary>
-        /// Get status from resource language.
-        /// </summary>
-        /// <param name="key">The status key.</param>
-        /// <returns>The status string.</returns>
         public static string GetLogResource(string key)
         {
             if (string.IsNullOrEmpty(key))

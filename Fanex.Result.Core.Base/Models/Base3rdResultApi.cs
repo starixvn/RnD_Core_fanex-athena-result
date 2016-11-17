@@ -48,20 +48,19 @@
         protected string SerializeJsonObject<T>(T request)
         {
             var ser = new DataContractJsonSerializer(typeof(T));
-            MemoryStream stream = new MemoryStream();
+            var stream = new MemoryStream();
+            var streamReader = new StreamReader(stream);
 
             ser.WriteObject(stream, request);
-
             stream.Position = 0;
-            var streamReader = new StreamReader(stream);
 
             return streamReader.ReadToEnd();
         }
 
         protected T DeserializeJsonObject<T>(string jsonData)
         {
-            MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(jsonData));
-            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(T));
+            var ser = new DataContractJsonSerializer(typeof(T));
+            var stream = new MemoryStream(Encoding.UTF8.GetBytes(jsonData));
 
             return (T)ser.ReadObject(stream);
         }

@@ -28,6 +28,7 @@
         private const string FastMarketsTemplate = "FastMarkets";
         private const string FastMarketsResource = "FastMarket221Yes";
         private SoccerDetailInfo _goalInfo;
+        private bool? _hasValidGameData;
         private IList<SoccerGameDetailItem> _detailedItemModels = null;
 
         public SoccerViewModel(Sportsbook soccer, ResultSetting setting)
@@ -155,16 +156,18 @@
         {
             get
             {
-                var detailedItemModels = GetDetailedResult();
+                if (_detailedItemModels == null)
+                {
+                    GetDetailedResult();
+                }
 
                 var temp = new StringBuilder();
-                var detailedReulstByGroup = detailedItemModels.GroupBy(i => i.GroupCode).ToList();
+                var detailedReulstByGroup = _detailedItemModels.GroupBy(i => i.GroupCode).ToList();
                 foreach (var item in detailedReulstByGroup)
                 {
-                    var isFastMarkets = SportsbookHelper.IsFastMarketsResourceId(item.Key);
-                    var templateName = isFastMarkets
-                                            ? TemplateNameSpace + FastMarketsTemplate
-                                            : TemplateNameSpace + item.Key;
+                    var templateName = SportsbookHelper.IsFastMarketsResourceId(item.Key)
+                        ? TemplateNameSpace + FastMarketsTemplate
+                        : TemplateNameSpace + item.Key;
 
                     var templateByGroup = Template.Instance.GetRazorTemplate(templateName);
                     if (!string.IsNullOrEmpty(templateByGroup))
@@ -192,7 +195,16 @@
 
         private bool HasValidGameData
         {
-            get { return GetDetailedResult().Count != 0; }
+            get
+            {
+                if (!_hasValidGameData.HasValue)
+                {
+                    _hasValidGameData = SPORTBOOK.GameDetails.Any(i => !string.IsNullOrEmpty(i.ResourceId)
+                    && (ValidateBetRadarResourceId(i.ResourceId) || SportsbookHelper.IsFastMarketsResourceId(i.ResourceId)));
+                }
+
+                return _hasValidGameData.Value;
+            }
         }
 
         private bool DetermineShowingLiveScore(bool isParlayPopup, bool isPopUp)
@@ -225,19 +237,24 @@
             return GetScore(score);
         }
 
+        private bool ValidateBetRadarResourceId(string resourceId)
+        {
+            return GameResources.BetRadar.Values.Any(pattern => ValidateResourceIdByPattern(pattern, resourceId));
+        }
+
+        private bool ValidateResourceIdByPattern(List<string> patterns, string resourceId)
+        {
+            return patterns.Any(i => SportsbookHelper.IsValidResourceId(i, resourceId));
+        }
+
         /// <summary>
         /// Get detailed game results.
         /// </summary>
-        private IList<SoccerGameDetailItem> GetDetailedResult()
+        private void GetDetailedResult()
         {
-            if (_detailedItemModels == null)
-            {
-                _detailedItemModels = new SafeList<SoccerGameDetailItem>();
-                GetBetRadarDetailedResult();
-                GetFastMarketsDetailedResult();
-            }
-
-            return _detailedItemModels;
+            _detailedItemModels = new SafeList<SoccerGameDetailItem>();
+            GetBetRadarDetailedResult();
+            GetFastMarketsDetailedResult();
         }
 
         private void GetBetRadarDetailedResult()

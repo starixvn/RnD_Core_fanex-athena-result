@@ -87,13 +87,14 @@ var popupReport = (function () {
             var criteria = {
                 WinLossDate: $.datepicker.formatDate('mm/dd/yy', $("#date").datepicker('getDate')),
                 SportType: $("#sport").val(),
-                IsOutRight: $("#IsOutRight").is(":checkbox"),
+                IsOutRight: $("#IsOutRight").is(":checked"),
                 RefNo: $("#refno").val(),
                 RaceNo: $("#raceno").val(),
                 Bettype: $("#bettype").val(),
                 MatchId: $("#matchid").val(),
                 languageCode: $("#language").val(),
-                Betid: $("#betid").val()
+                Betid: $("#betid").val(),
+                IncludeTestData: $("#IncludeTestData").is(":checked")
             };
             genData(criteria);
         });

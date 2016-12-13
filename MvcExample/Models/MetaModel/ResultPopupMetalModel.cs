@@ -10,11 +10,7 @@
     public class ResultPopupMetaModel
     {
         [Required]
-        public int MatchId
-        {
-            get;
-            set;
-        }
+        public int MatchId { get; set; }
 
         [Required]
         public int Bettype { get; set; }
@@ -33,5 +29,7 @@
         public string LanguageCode { get; set; }
 
         public int BetId { get; set; }
+
+        public bool IncludeTestData { get; set; }
     }
 }

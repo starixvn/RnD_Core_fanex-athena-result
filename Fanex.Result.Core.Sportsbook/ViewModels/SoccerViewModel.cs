@@ -27,9 +27,10 @@
         private const string TemplateNameSpace = "SoccerDetail.";
         private const string FastMarketsTemplate = "FastMarkets";
         private const string FastMarketsResource = "FastMarket221Yes";
+        private const string FastMarketsSetPieceResource = "FastMarket225Yes";
         private SoccerDetailInfo _goalInfo;
         private bool? _hasValidGameData;
-        private IList<SoccerGameDetailItem> _detailedItemModels = null;
+        private IList<SoccerGameDetailItem> _detailedItemModels;
 
         public SoccerViewModel(Sportsbook soccer, ResultSetting setting)
             : base(soccer, setting)
@@ -134,7 +135,7 @@
             get { return SPORTBOOK.LiveAwayScore.HasValue ? SPORTBOOK.LiveAwayScore.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen; }
         }
 
-        public bool IsShowLiveScore { get; } = false;
+        public bool IsShowLiveScore { get; }
 
         public string GoalRecord
         {
@@ -264,7 +265,7 @@
                 foreach (var game in group.Value)
                 {
                     var detailedGameRecords = SPORTBOOK.GameDetails
-                        .Where(i => SportsbookHelper.IsValidResourceId(game, i.ResourceId)).ToSafeList<GameDetail>();
+                        .Where(i => SportsbookHelper.IsValidResourceId(game, i.ResourceId)).ToSafeList();
 
                     foreach (GameDetail detailedItem in detailedGameRecords)
                     {
@@ -525,26 +526,8 @@
             var result = results[startMinute % 45];
 
             return detailedItem.ResourceId == GameResourceID.NextOneMinuteSetPiece
-                ? GetNextOneMinuteSetPieceSituation(result)
-                : GetOtherFastMarketsSituation(result);
-        }
-
-        private string GetNextOneMinuteSetPieceSituation(byte result)
-        {
-            const int Next1MinuteSetPieceNo = 1;
-            const int Next1MinuteSetPieceYes = 156;
-
-            switch (result)
-            {
-                case Next1MinuteSetPieceNo:
-                    return LangResource.No;
-
-                case Next1MinuteSetPieceYes:
-                    return LangResource.Yes;
-
-                default:
-                    return string.Empty;
-            }
+                 ? RefData.GetResourceDataByRefIdAndResourceId(FastMarketsSetPieceResource, result.ToString(), GetSupportedLanguage, string.Empty)
+                 : GetOtherFastMarketsSituation(result);
         }
 
         private string GetOtherFastMarketsSituation(byte result)

@@ -6,10 +6,8 @@ namespace MvcExample.Models.Criteria
 {
     public class GetSportbookPopupResultCriteria : CriteriaBase
     {
-        [SpParam(Ignored = true)]
         public int LicenseeID { get; set; }
 
-        [SpParam(Ignored = true)]
         public int UserID { get; set; }
 
         public int MatchID { get; set; }

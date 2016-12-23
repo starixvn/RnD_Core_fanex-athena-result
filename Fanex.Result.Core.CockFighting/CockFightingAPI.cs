@@ -1,22 +1,14 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="CockFightingAPI.cs" company="Microsoft">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.CockFighting
+﻿namespace Fanex.Result.Core.CockFighting
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Net;
     using System.Net.Cache;
     using System.Text.RegularExpressions;
     using System.Web.Configuration;
-    using Fanex.Result.Core.CockFighting.Exceptions;
+    using Exceptions;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public sealed class CockFightingAPI : ICockFightingAPI
     {
         private readonly Config _config;
@@ -52,7 +44,7 @@ namespace Fanex.Result.Core.CockFighting
 
                 using (var client = new WebClient())
                 {
-                    client.CachePolicy = new System.Net.Cache.RequestCachePolicy(System.Net.Cache.RequestCacheLevel.BypassCache);
+                    client.CachePolicy = new RequestCachePolicy(RequestCacheLevel.BypassCache);
                     client.UseDefaultCredentials = true;
                     var result = client.DownloadString(new Uri(authorizedAPI));
                     if (!IsValidResultToken(result))
@@ -69,6 +61,7 @@ namespace Fanex.Result.Core.CockFighting
             }
         }
 
+        [SuppressMessage("Microsoft.Usage", "CA2202:Do not dispose objects multiple times", Justification = "Reviewed.")]
         public string ExtendToken(string customerId)
         {
             ValidateConfig();

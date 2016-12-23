@@ -7,6 +7,7 @@ using System.Web;
 using RemotingRef;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics.CodeAnalysis;
 
 namespace LiveCasinoResult
 {
@@ -44,6 +45,7 @@ namespace LiveCasinoResult
             return genResultPopHtml(sDesc, GameId3rd, slang, bettype);
         }
 
+        [SuppressMessage("Microsoft.Usage", "CA2200:RethrowToPreserveStackDetails", Justification = "Reviewed.")]
         public string genResultPopHtml(string TransDesc, string GameId3rd, string slang, string bettype)
         {
             try
@@ -269,6 +271,7 @@ namespace LiveCasinoResult
 
         private SqlDataAdapter gAdapter;
         private SqlConnection gDBconn;
+        [SuppressMessage("Microsoft.Usage", "CA2200:RethrowToPreserveStackDetails", Justification = "Reviewed.")]
         private DataTable ExecSPbyParamsWithDataTable(string nSPname, params SqlParameter[] nInParameters)
         {
             SqlCommand cmd = new SqlCommand();

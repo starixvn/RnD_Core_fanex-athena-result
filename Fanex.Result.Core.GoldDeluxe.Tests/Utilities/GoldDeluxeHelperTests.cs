@@ -27,7 +27,7 @@
             var routletResult = GoldDeluxeHelper.GetRoutletResult(result);
 
             // Assert
-            var expectedRoutletTemplate = $"<span class=\"red\">{result}</span>";
+            var expectedRoutletTemplate = "<span class=\"red\">" + result + "</span>";
             Assert.AreEqual(expectedRoutletTemplate, routletResult);
         }
 
@@ -39,7 +39,7 @@
             var routletResult = GoldDeluxeHelper.GetRoutletResult(result);
 
             // Assert
-            var expectedRoutletTemplate = $"<span class=\"black\">{result}</span>";
+            var expectedRoutletTemplate = "<span class=\"black\">" + result + "</span>";
             Assert.AreEqual(expectedRoutletTemplate, routletResult);
         }
     }

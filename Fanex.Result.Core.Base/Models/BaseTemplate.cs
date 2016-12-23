@@ -48,10 +48,9 @@
                         throw new ArgumentNullException(string.Format("The {0} was not found", templateName));
                     }
 
-                    using (var reader = new StreamReader(stream))
-                    {
-                        return reader.ReadToEnd();
-                    }
+                    var reader = new StreamReader(stream);
+
+                    return reader.ReadToEnd();
                 }
             }
             catch (Exception exception)

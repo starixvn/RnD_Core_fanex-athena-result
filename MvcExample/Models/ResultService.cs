@@ -484,7 +484,7 @@
         /// </summary>
         /// <param name="reader">The IDATAREADER.</param>
         /// <returns>The SPORTBOOK DTO.</returns>
-        private static Sportsbook BindSportbook(System.Data.IDataReader reader)
+        private static Sportsbook BindSportbook(IDataReader reader)
         {
             var item = new Sportsbook
             {
@@ -540,7 +540,7 @@
         /// </summary>
         /// <param name="reader">The IDATAREADER.</param>
         /// <returns>The live casino DTO.</returns>
-        private static LiveCasino BindLiveCasino(System.Data.IDataReader reader)
+        private static LiveCasino BindLiveCasino(IDataReader reader)
         {
             return new LiveCasino
             {
@@ -566,7 +566,7 @@
         /// </summary>
         /// <param name="reader">The IDATAREADER.</param>
         /// <returns>The Racing DTO.</returns>
-        private static Racing BindRacing(System.Data.IDataReader reader)
+        private static Racing BindRacing(IDataReader reader)
         {
             return new Racing
             {

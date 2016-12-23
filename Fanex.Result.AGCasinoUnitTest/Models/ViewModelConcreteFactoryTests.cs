@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using Core.AGCasino.DTO;
     using Core.AGCasino.Models;
     using Core.Base;
@@ -13,10 +14,7 @@
     {
         private ResultSetting _resultSetting;
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage(
-            "Microsoft.StyleCop.CSharp.NamingRules",
-            "SA1305:FieldNamesMustNotUseHungarianNotation",
-            Justification = "Reviewed.")]
+        [SuppressMessage("Microsoft.StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
         private AGCasino _aGCasino;
 
         [SetUp]

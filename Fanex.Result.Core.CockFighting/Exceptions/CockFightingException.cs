@@ -7,11 +7,13 @@
 namespace Fanex.Result.Core.CockFighting.Exceptions
 {
     using System;
+    using System.Diagnostics.CodeAnalysis;
     using System.Runtime.Serialization;
 
     /// <summary>
     /// TODO: Update summary.
     /// </summary>
+    [SuppressMessage("Microsoft.Usage", "CA2237:MarkISerializableTypesWithSerializable", Justification = "Reviewed.")]
     public class CockFightingException : Exception
     {
         public CockFightingException()

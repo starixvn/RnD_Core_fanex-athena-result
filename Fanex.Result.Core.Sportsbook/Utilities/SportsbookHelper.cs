@@ -140,7 +140,7 @@
             if (isValidStartTime)
             {
                 start = Convert.ToInt32(startMinute);
-                isValidStartTime = 0 <= start && start <= 89;
+                isValidStartTime = start >= 0 && start <= 89;
             }
 
             if (!isValidStartTime)

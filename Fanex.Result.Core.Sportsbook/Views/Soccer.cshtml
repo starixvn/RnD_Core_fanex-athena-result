@@ -30,7 +30,7 @@
             <th class="cl-match">@LangResource.Match</th>
             <th class="cl-ht-score">@LangResource.HTScore</th>
             <th class="cl-f-score">@LangResource.FinalScore</th>
-            @if (firstMatch.IsShowLiveScore)
+            @if (firstMatch != null && firstMatch.IsShowLiveScore)
             {
                 <th class="cl-f-score">@LangResource.LiveScore</th>
             }

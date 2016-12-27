@@ -126,7 +126,8 @@
                         FromDate = date,
                         sporttype = (byte)sportId,
                         isShowAll = true,
-                        LeagueID = leagueId
+                        LeagueID = leagueId,
+                        MoveBetsDay = _resultService.GetBalanceUpDay().MoveBetsDay
                     });
                     htmlResult = ResultEngine.HtmlParser(dataSb.ToList(), resultSetting);
                     break;
@@ -251,7 +252,8 @@
                         FromDate = date,
                         sporttype = (byte)sportId,
                         isShowAll = true,
-                        LeagueID = leagueId
+                        LeagueID = leagueId,
+                        MoveBetsDay = _resultService.GetBalanceUpDay().MoveBetsDay
                     });
 
                     excelResult = ResultEngine.ExcelParser<Sportsbook>(dataSb.ToList(), resultSetting);
@@ -265,12 +267,16 @@
         [HttpGet]
         public ActionResult GetSports(GetSportByDateCriteria criteria)
         {
+            var moveBetsDay = _resultService.GetBalanceUpDay().MoveBetsDay;
+            criteria.MoveBetsDay = moveBetsDay;
+
             return Json(_resultService.GetSports(criteria), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
         public ActionResult GetLeagues(GetLeaguesBySportCriteria criteria)
         {
+            criteria.MoveBetsDay = _resultService.GetBalanceUpDay().MoveBetsDay;
             return Json(_resultService.GetLeagues(criteria), JsonRequestBehavior.AllowGet);
         }
     }

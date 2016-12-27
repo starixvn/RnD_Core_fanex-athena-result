@@ -18,6 +18,8 @@ namespace MvcExample.Models.Criteria
         [SuppressMessage("Microsoft.Naming", "CA1709:IdentifiersShouldBeCasedCorrectly", Justification = "Reviewed")]
         public bool isShowAll { get; set; }
 
+        public DateTime MoveBetsDay { get; set; }
+
         public override string GetSettingKey()
         {
             return "Lrf_Result_MatchSelByLeague";

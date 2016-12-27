@@ -5,6 +5,7 @@
     using System.Data;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
+    using Fanex.Common.Extensions;
     using Fanex.Data;
     using Fanex.Result.Core.AGCasino.DTO;
     using Fanex.Result.Core.GoldDeluxe.DTO;
@@ -62,6 +63,26 @@
                     }
 
                     return result;
+                }
+            }
+        }
+
+        public BalanceUp GetBalanceUpDay()
+        {
+            const string UspName = "Lrf_SelBalanceUpDay";
+
+            using (var db = new ObjectDb(UspName))
+            {
+                var balanceUp = new BalanceUp();
+                using (var reader = db.ExecuteReader())
+                {
+                    if (reader.Read())
+                    {
+                        balanceUp.BalanceUpDay = reader.ToDateTime("balanceupday");
+                        balanceUp.MoveBetsDay = reader.ToDateTime("movebetsday");
+                    }
+
+                    return balanceUp;
                 }
             }
         }

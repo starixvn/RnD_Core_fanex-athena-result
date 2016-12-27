@@ -11,6 +11,8 @@ namespace MvcExample.Models.Criteria
 
         public int LicenseeID { get; set; }
 
+        public DateTime MoveBetsDay { get; set; }
+
         public override string GetSettingKey()
         {
             return "Lrf_Result_SportSelByDate";

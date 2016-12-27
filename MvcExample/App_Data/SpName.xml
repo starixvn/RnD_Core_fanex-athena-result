@@ -22,6 +22,7 @@
       <Mapping ObjectProperty="HomeId" DataField="homeid" />
       <Mapping ObjectProperty="AwayId" DataField="awayid" />
     </Setting>
+    <Setting Key="Lrf_SelBalanceUpDay" SpName="Lrf_SelBalanceUpDay" DbName="DBEXT.bodb02.bodbLicenseeNet" />
 
     <Setting Key="Lrf_Result_MatchSelByLeague" SpName="Lrf_Result_MatchSelByLeague" DbName="DBEXT.bodb02.bodbLicenseeNet">
     </Setting>

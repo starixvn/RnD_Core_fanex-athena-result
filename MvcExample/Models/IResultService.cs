@@ -38,6 +38,8 @@ namespace MvcExample.Models
 
         Sportsbook GetGameDetail(GetGameDetailCriteria criteria);
 
+        BalanceUp GetBalanceUpDay();
+
         #endregion normal-report
 
         #region PopUp

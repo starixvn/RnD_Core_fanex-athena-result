@@ -1,7 +1,6 @@
 ﻿namespace Fanex.Result.Core.Base.Models
 {
     using System;
-    using System.Collections.Generic;
     using System.IO;
     using System.Net;
     using System.Runtime.Serialization.Json;
@@ -9,22 +8,10 @@
 
     public abstract class Base3rdResultApi
     {
-        private static readonly Dictionary<string, string> SupportedLanguage = new Dictionary<string, string>
-        {
-            { "en-US", "en" },
-            { "zh-CN", "cs" },
-            { "zh-Hans", "zhcn" },
-            { "th-TH", "th" },
-            { "vi-VN", "vn" },
-            { "id-ID", "id" }
-        };
-
         public Base3rdResultApi()
         {
             TimeStamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         }
-
-        protected const string DefaultLanguage = "en-US";
 
         protected string TimeStamp { get; set; }
 
@@ -76,13 +63,6 @@
             }
 
             return result;
-        }
-
-        protected string GetLanguageCode(string language)
-        {
-            return string.IsNullOrEmpty(language) || !SupportedLanguage.ContainsKey(language)
-                                    ? SupportedLanguage[DefaultLanguage]
-                                    : SupportedLanguage[language];
         }
     }
 }

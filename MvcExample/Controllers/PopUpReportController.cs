@@ -204,6 +204,9 @@ namespace MvcExample.Controllers
                         return ResultEngine.HtmlParser(metricGamingData.ToList(), setting);
                     }
 
+                    //Change bet type 225 to 221 for showing 221 result
+                    metalModel.Bettype = metalModel.Bettype == 225 ? 221 : metalModel.Bettype;
+
                     var data = _resultService.GetSportbookPopupResult(new GetSportbookPopupResultCriteria
                     {
                         LicenseeID = licenseeId,
@@ -212,12 +215,13 @@ namespace MvcExample.Controllers
                         BetId = metalModel.BetId,
                         Bettype = metalModel.Bettype
                     });
+               
 
                     if (metalModel.IncludeTestData && metalModel.Bettype >= 221 && metalModel.Bettype <= 225)
                     {
                         var gameDetail = new GameDetail
                         {
-                            ResourceId = metalModel.Bettype + "01",
+                            ResourceId = metalModel.Bettype == 225 ? "22101" : metalModel.Bettype + "01",
                             MatchId = metalModel.MatchId,
                             SettlementStatusID = 4
                         };

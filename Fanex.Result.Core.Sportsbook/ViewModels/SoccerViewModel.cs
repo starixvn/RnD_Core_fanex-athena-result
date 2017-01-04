@@ -26,8 +26,6 @@
     {
         private const string TemplateNameSpace = "SoccerDetail.";
         private const string FastMarketsTemplate = "FastMarkets";
-        private const string FastMarketsResource = "FastMarket221Yes";
-        private const string FastMarketsSetPieceResource = "FastMarket225Yes";
         private SoccerDetailInfo _goalInfo;
         private bool? _hasValidGameData;
         private IList<SoccerGameDetailItem> _detailedItemModels;
@@ -401,8 +399,8 @@
                 case GameResourceID.PlayerSentOff:
                 case GameResourceID.PlayserSentOff1H:
                     item.HomeValue = item.AwayValue = GetTextValueOfYesNoChoice(detailedValue.HomeValue);
-
                     break;
+
                 /*Group :Home/Away Player sent Off*/
                 case GameResourceID.HomePlayserSentOff:
                 case GameResourceID.HomePlayserSentOff1H:
@@ -413,6 +411,7 @@
                 case GameResourceID.AwayPlayserSentOff1H:
                     item.AwayValue = item.HomeValue = GetTextValueOfYesNoChoice(detailedValue.AwayValue);
                     break;
+
                 /*Group: Special*/
                 case GameResourceID.ExtraTimeYesNo:
                 case GameResourceID.ExtraTimeAndGoal:
@@ -435,7 +434,7 @@
                 case GameResourceID.FirstOneMinutes:
                 case GameResourceID.FirstFiveMinutes:
                 case GameResourceID.NextOneMinuteSetPiece:
-                    item.HomeValue = item.AwayValue = GetSpecificSituation(detailedValue, Convert.ToInt32(SPORTBOOK.BetID));
+                    item.HomeValue = item.AwayValue = GetFastMarketSituation(detailedValue, Convert.ToInt32(SPORTBOOK.BetID));
                     break;
 
                 default:
@@ -517,37 +516,16 @@
             return ConstantValue.Hyphen;
         }
 
-        private string GetSpecificSituation(GameDetail detailedItem, int startMinute)
+        private string GetFastMarketSituation(GameDetail detailedItem, int startMinute)
         {
             var results = startMinute < 45
                 ? System.Text.Encoding.Default.GetBytes(detailedItem.HomeValue)
                 : System.Text.Encoding.Default.GetBytes(detailedItem.AwayValue);
 
             var result = results[startMinute % 45];
+            var situation = RefData.GetFastMarketsResult(result.ToString(), GetSupportedLanguage);
 
-            return detailedItem.ResourceId == GameResourceID.NextOneMinuteSetPiece
-                 ? RefData.GetResourceDataByRefIdAndResourceId(FastMarketsSetPieceResource, result.ToString(), GetSupportedLanguage, string.Empty)
-                 : GetOtherFastMarketsSituation(result);
-        }
-
-        private string GetOtherFastMarketsSituation(byte result)
-        {
-            const int ByteLeng = 8;
-            int resourceId;
-            string situation;
-            IList<string> situations = new List<string>();
-
-            for (var bit = 0; bit < ByteLeng; bit++)
-            {
-                resourceId = result & (1 << bit);
-                if (resourceId != 0)
-                {
-                    situation = RefData.GetResourceDataByRefIdAndResourceId(FastMarketsResource, resourceId.ToString(), GetSupportedLanguage, string.Empty);
-                    situations.Add(situation);
-                }
-            }
-
-            return string.Join(", ", situations);
+            return situation;
         }
 
         private string GetTextValueOfYesNoChoice(string choice)

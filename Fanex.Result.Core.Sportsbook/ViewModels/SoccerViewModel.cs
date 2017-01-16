@@ -233,6 +233,12 @@
                 return LangResource.Refund;
             }
 
+            if (SPORTBOOK.EventStatus.Equals(ConstantValue.Abandoned1H, StringComparison.OrdinalIgnoreCase) &&
+                isFinalScore)
+            {
+                return ConstantValue.Hyphen;
+            }
+
             return GetScore(score);
         }
 
@@ -384,6 +390,7 @@
                 /*Group :Corner*/
                 case GameResourceID.FirstHalfCorners:
                 case GameResourceID.FinalCorners:
+                    //// TODO
                     item.HomeValue = string.IsNullOrEmpty(detailedValue.HomeValue) ? ConstantValue.Hyphen : detailedValue.HomeValue;
                     item.AwayValue = string.IsNullOrEmpty(detailedValue.AwayValue) ? ConstantValue.Hyphen : detailedValue.AwayValue;
                     break;

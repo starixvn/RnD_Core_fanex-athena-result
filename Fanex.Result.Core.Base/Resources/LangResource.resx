@@ -504,4 +504,10 @@
   <data name="LiveScore" xml:space="preserve">
     <value>Live Score</value>
   </data>
+  <data name="Abandoned1h" xml:space="preserve">
+    <value>Abandoned 1H</value>
+  </data>
+  <data name="Abandoned2h" xml:space="preserve">
+    <value>Abandoned 2H</value>
+  </data>
 </root>

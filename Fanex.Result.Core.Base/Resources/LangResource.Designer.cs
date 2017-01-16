@@ -61,6 +61,24 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Abandoned 1H.
+        /// </summary>
+        public static string Abandoned1h {
+            get {
+                return ResourceManager.GetString("Abandoned1h", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Abandoned 2H.
+        /// </summary>
+        public static string Abandoned2h {
+            get {
+                return ResourceManager.GetString("Abandoned2h", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Away.
         /// </summary>
         public static string Away {

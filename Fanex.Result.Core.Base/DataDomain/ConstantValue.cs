@@ -29,5 +29,9 @@
         public const string Yes = "Y";
 
         public const string RefIDSuperLive = "SuperLive";
+
+        public const string Abandoned1H = "Abandoned 1H";
+
+        public const string Abandoned2H = "Abandoned 2H";
     }
 }

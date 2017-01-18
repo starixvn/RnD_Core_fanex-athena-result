@@ -441,7 +441,10 @@
                 case GameResourceID.FirstOneMinutes:
                 case GameResourceID.FirstFiveMinutes:
                 case GameResourceID.NextOneMinuteSetPiece:
-                    item.HomeValue = item.AwayValue = GetFastMarketSituation(detailedValue, Convert.ToInt32(SPORTBOOK.BetID));
+                    item.HomeValue = item.AwayValue = GetFastMarketSituation(
+                        detailedValue,
+                        Convert.ToInt32(SPORTBOOK.BetID),
+                        SPORTBOOK.Bettype);
                     break;
 
                 default:
@@ -523,14 +526,16 @@
             return ConstantValue.Hyphen;
         }
 
-        private string GetFastMarketSituation(GameDetail detailedItem, int startMinute)
+        private string GetFastMarketSituation(GameDetail detailedItem, int startMinute, int bettype)
         {
             var results = startMinute < 45
                 ? System.Text.Encoding.Default.GetBytes(detailedItem.HomeValue)
                 : System.Text.Encoding.Default.GetBytes(detailedItem.AwayValue);
 
             var result = results[startMinute % 45];
-            var situation = RefData.GetFastMarketsResult(result.ToString(), GetSupportedLanguage);
+            var situation = bettype == 225 ?
+                RefData.GetFastMarkets225Result(result.ToString(), GetSupportedLanguage) :
+                RefData.GetFastMarketsResult(result.ToString(), GetSupportedLanguage);
 
             return situation;
         }

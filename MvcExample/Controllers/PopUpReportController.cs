@@ -205,8 +205,6 @@ namespace MvcExample.Controllers
                     }
 
                     //Change bet type 225 to 221 for showing 221 result
-                    metalModel.Bettype = metalModel.Bettype == 225 ? 221 : metalModel.Bettype;
-
                     var data = _resultService.GetSportbookPopupResult(new GetSportbookPopupResultCriteria
                     {
                         LicenseeID = licenseeId,

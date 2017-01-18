@@ -288,4 +288,10 @@
   <data name="LiveScore" xml:space="preserve">
     <value>ผลบอลสด</value>
   </data>
+  <data name="Abandoned1h" xml:space="preserve">
+    <value>ยกเลิกการแข่งขันครึ่งแรก</value>
+  </data>
+  <data name="Abandoned2h" xml:space="preserve">
+    <value>ยกเลิกการแข่งขันครึ่งหลัง</value>
+  </data>
 </root>

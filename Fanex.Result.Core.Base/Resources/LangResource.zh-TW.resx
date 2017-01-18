@@ -294,4 +294,10 @@
   <data name="LiveScore" xml:space="preserve">
     <value>即 時 比 分</value>
   </data>
+  <data name="Abandoned1h" xml:space="preserve">
+    <value>在上半场中止</value>
+  </data>
+  <data name="Abandoned2h" xml:space="preserve">
+    <value>在下半场中止</value>
+  </data>
 </root>

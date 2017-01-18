@@ -147,6 +147,8 @@
         [HttpGet]
         public string GenHtmlGameDetail(int matchId, int sportId, string languageCode, bool showMatchCode)
         {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(languageCode);
+
             var detailedData = _resultService.GetGameDetail(new GetGameDetailCriteria { MatchId = matchId });
             if (detailedData != null && detailedData.MatchId > 0)
             {
@@ -180,6 +182,8 @@
         [HttpGet]
         public ActionResult GenExcel(DateTime date, short sportId, int leagueId, string languageCode, bool showMatchCode)
         {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(languageCode);
+
             var sportType = (SportType)sportId;
             var resultSetting = new ResultSetting
             {

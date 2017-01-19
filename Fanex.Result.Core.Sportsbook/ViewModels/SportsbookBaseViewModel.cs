@@ -31,122 +31,46 @@
 
         public virtual bool VisibleDetailedLink { get; } = false;
 
-        public override string KickOffTime
-        {
-            get
-            {
-                return this.GetFormatedKickOffTime(this.SPORTBOOK.KickOffTime);
-            }
-        }
+        public override string KickOffTime => GetFormatedKickOffTime(SPORTBOOK.KickOffTime);
 
-        public override int LeagueId
-        {
-            get
-            {
-                return SPORTBOOK.LeagueId;
-            }
-        }
+        public override int LeagueId => SPORTBOOK.LeagueId;
 
-        public override string LeagueName
-        {
-            get
-            {
-                return this.GetLeagueNameByLanguage(this.SPORTBOOK.LeagueId);
-            }
-        }
+        public override string LeagueName => GetLeagueNameByLanguage(SPORTBOOK.LeagueId);
 
         public override string EventStatus
-        {
-            get
-            {
-                return MapEventStatus.MapEventStatusString(
-                    this.SPORTBOOK.EventStatus,
-                    this.SPORTBOOK.IsPending,
-                    this.VisibleInternalEventStatus);
-            }
-        }
+            => MapEventStatus.MapEventStatusString(
+                    SPORTBOOK.EventStatus,
+                    SPORTBOOK.IsPending,
+                    VisibleInternalEventStatus);
 
-        public new virtual bool VisibleMatchResult
-        {
-            get { return true; }
-        }
+        public new virtual bool VisibleMatchResult => true;
 
         public virtual bool VisibleGoalRecord { get; } = false;
 
-        public new virtual bool VisibleGameDetail
-        {
-            get { return false; }
-        }
+        public new virtual bool VisibleGameDetail => false;
 
         #region onlyForSettlementSite
 
-        public string MatchCode
-        {
-            get
-            {
-                return this.SPORTBOOK.MatchCode;
-            }
-        }
+        public string MatchCode => SPORTBOOK.MatchCode;
 
-        public string MatchId
-        {
-            get
-            {
-                return this.SPORTBOOK.MatchId.ToString(CultureInfo.InvariantCulture);
-            }
-        }
+        public string MatchId => SPORTBOOK.MatchId.ToString(CultureInfo.InvariantCulture);
 
         #endregion onlyForSettlementSite
 
-        public string HomeTeam
-        {
-            get
-            {
-                return this.GetSportbookHomeTeam(this.SPORTBOOK.HomeId, this.SPORTBOOK.IsNeutral);
-            }
-        }
+        public string HomeTeam => GetSportbookHomeTeam(SPORTBOOK.HomeId, SPORTBOOK.IsNeutral);
 
-        public string AwayTeam
-        {
-            get
-            {
-                return this.GetSportbookAwayTeam(this.SPORTBOOK.AwayId);
-            }
-        }
+        public string AwayTeam => GetSportbookAwayTeam(SPORTBOOK.AwayId);
 
-        public override bool IsPending
-        {
-            get
-            {
-                return this.SPORTBOOK.IsPending;
-            }
-        }
+        public override bool IsPending => SPORTBOOK.IsPending;
 
-        public virtual string HomeWin
-        {
-            get
-            {
-                return GetWonTeam(true);
-            }
-        }
+        public virtual string HomeWin => GetWonTeam(true);
 
-        public virtual string AwayWin
-        {
-            get
-            {
-                return GetWonTeam(false);
-            }
-        }
+        public virtual string AwayWin => GetWonTeam(false);
 
         protected Sportsbook SPORTBOOK { get; set; }
 
         protected bool HasResult
-        {
-            get
-            {
-                return !string.IsNullOrEmpty(this.SPORTBOOK.BetStatus) && this.SPORTBOOK.BetStatus.IndexOf(",", StringComparison.Ordinal) >= 0;
-            }
-        }
+            => !string.IsNullOrEmpty(SPORTBOOK.BetStatus) && SPORTBOOK.BetStatus.IndexOf(",", StringComparison.Ordinal) >= 0;
 
         #endregion common properties
 
@@ -158,33 +82,30 @@
         {
             get
             {
-                if (!string.IsNullOrEmpty(this.SPORTBOOK.BetStatus))
+                if (!string.IsNullOrEmpty(SPORTBOOK.BetStatus))
                 {
-                    var refundIndex = this.SPORTBOOK.BetStatus.IndexOf(";", StringComparison.Ordinal);
+                    var refundIndex = SPORTBOOK.BetStatus.IndexOf(";", StringComparison.Ordinal);
                     if (refundIndex >= 0)
                     {
                         var startCoreIndex = refundIndex + 1;
-                        if (this.SPORTBOOK.BetStatus.Length > startCoreIndex)
+                        if (SPORTBOOK.BetStatus.Length > startCoreIndex)
                         {
-                            return this.SPORTBOOK.BetStatus.Substring(startCoreIndex);
+                            return SPORTBOOK.BetStatus.Substring(startCoreIndex);
                         }
                     }
                 }
 
-                return this.SPORTBOOK.BetStatus != null ? this.SPORTBOOK.BetStatus.Trim() : string.Empty;
+                return SPORTBOOK.BetStatus != null ? SPORTBOOK.BetStatus.Trim() : string.Empty;
             }
         }
 
-        public virtual string GetHomeAwaySet(int index, bool isHome)
-        {
-            return ConstantValue.Hyphen;
-        }
+        public virtual string GetHomeAwaySet(int index, bool isHome) => ConstantValue.Hyphen;
 
         protected virtual string GetWonTeam(bool isHome)
         {
-            if (HighlightWinnerTeam && this.SPORTBOOK.FinalHomeScore.HasValue && this.SPORTBOOK.FinalAwayScore.HasValue)
+            if (HighlightWinnerTeam && SPORTBOOK.FinalHomeScore.HasValue && SPORTBOOK.FinalAwayScore.HasValue)
             {
-                var temp = this.SPORTBOOK.FinalHomeScore.Value - this.SPORTBOOK.FinalAwayScore.Value;
+                var temp = SPORTBOOK.FinalHomeScore.Value - SPORTBOOK.FinalAwayScore.Value;
 
                 return (isHome && temp > 0) || (!isHome && temp < 0) ? ConstantValue.WinFormat : string.Empty;
             }
@@ -199,10 +120,10 @@
         /// <param name="isNeutral">Is neutral.</param>
         /// <returns>The home team.</returns>
         private string GetSportbookHomeTeam(int homeId, bool isNeutral)
-        {
-            return RefData.GetTeamName(homeId.ToString(CultureInfo.InvariantCulture), this.GetSupportedLanguage, string.Empty)
-                + (isNeutral ? LangResource.IsNeutral : string.Empty);
-        }
+            => RefData.GetTeamName(
+                homeId.ToString(CultureInfo.InvariantCulture),
+                GetSupportedLanguage,
+                string.Empty) + (isNeutral ? LangResource.IsNeutral : string.Empty);
 
         /// <summary>
         /// Get sport-book away team.
@@ -210,14 +131,10 @@
         /// <param name="awayId">The away id.</param>
         /// <returns>The away team.</returns>
         private string GetSportbookAwayTeam(int awayId)
-        {
-            return RefData.GetTeamName(awayId.ToString(CultureInfo.InvariantCulture), this.GetSupportedLanguage, string.Empty);
-        }
+            => RefData.GetTeamName(awayId.ToString(CultureInfo.InvariantCulture), GetSupportedLanguage, string.Empty);
 
         protected virtual string GetScore(int? score)
-        {
-            return score.HasValue ? score.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
-        }
+            => score.HasValue ? score.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
 
         #endregion Utilities
     }

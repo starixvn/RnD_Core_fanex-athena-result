@@ -38,118 +38,49 @@
 
         #region Settlement Site
 
-        public int HomeId
-        {
-            get { return this.SPORTBOOK.HomeId; }
-        }
+        public int HomeId => SPORTBOOK.HomeId;
 
-        public int AwayId
-        {
-            get { return this.SPORTBOOK.AwayId; }
-        }
+        public int AwayId => SPORTBOOK.AwayId;
 
-        public override bool VisibleDetailedLink
-        {
-            get
-            {
-                return base.VisibleDetailedLink && (HasValidGameData || this.VisibleGoalRecord);
-            }
-        }
+        public override bool VisibleDetailedLink => base.VisibleDetailedLink && (HasValidGameData || VisibleGoalRecord);
 
         #endregion Settlement Site
 
-        public override bool VisibleGameDetail
-        {
-            get { return HasValidGameData; }
-        }
+        public override bool VisibleGameDetail => HasValidGameData;
 
-        public bool IsShowFGHome
-        {
-            get { return GetGoalInfo().VisibleFGHome; }
-        }
+        public bool IsShowFGHome => GetGoalInfo().VisibleFGHome;
 
-        public bool IsShowFGAway
-        {
-            get { return GetGoalInfo().VisibleFGAway; }
-        }
+        public bool IsShowFGAway => GetGoalInfo().VisibleFGAway;
 
-        public bool IsShowLGHome
-        {
-            get { return GetGoalInfo().VisibleLGHome; }
-        }
+        public bool IsShowLGHome => GetGoalInfo().VisibleLGHome;
 
-        public bool IsShowLGAway
-        {
-            get { return GetGoalInfo().VisibleLGAway; }
-        }
+        public bool IsShowLGAway => GetGoalInfo().VisibleLGAway;
 
-        public bool IsShowedFirstHalfFGHome
-        {
-            get { return GetGoalInfo().Visible1stFGHome; }
-        }
+        public bool IsShowedFirstHalfFGHome => GetGoalInfo().Visible1stFGHome;
 
-        public bool IsShowedFirstHalfFGAway
-        {
-            get { return GetGoalInfo().Visible1stFGAway; }
-        }
+        public bool IsShowedFirstHalfFGAway => GetGoalInfo().Visible1stFGAway;
 
-        public bool IsShowedFirstHalfLGHome
-        {
-            get { return GetGoalInfo().Visible1stLGHome; }
-        }
+        public bool IsShowedFirstHalfLGHome => GetGoalInfo().Visible1stLGHome;
 
-        public bool IsShowedFirstHalfLGAway
-        {
-            get { return GetGoalInfo().Visible1stLGAway; }
-        }
+        public bool IsShowedFirstHalfLGAway => GetGoalInfo().Visible1stLGAway;
 
-        public string HTHomeScore
-        {
-            get { return CalculateScore(SPORTBOOK.HtHomeScore, false); }
-        }
+        public string HTHomeScore => CalculateScore(SPORTBOOK.HtHomeScore, false);
 
-        public string FinalHomeScore
-        {
-            get { return CalculateScore(SPORTBOOK.FinalHomeScore, true); }
-        }
+        public string FinalHomeScore => CalculateScore(SPORTBOOK.FinalHomeScore, true);
 
-        public string HTAwayScore
-        {
-            get { return CalculateScore(SPORTBOOK.HtAwayScore, false); }
-        }
+        public string HTAwayScore => CalculateScore(SPORTBOOK.FinalAwayScore, true);
 
-        public string FinalAwayScore
-        {
-            get { return CalculateScore(SPORTBOOK.FinalAwayScore, true); }
-        }
+        public string FinalAwayScore => CalculateScore(SPORTBOOK.FinalAwayScore, true);
 
-        public string LiveHomeScore
-        {
-            get { return SPORTBOOK.LiveHomeScore.HasValue ? SPORTBOOK.LiveHomeScore.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen; }
-        }
+        public string LiveHomeScore => SPORTBOOK.LiveHomeScore.HasValue ? SPORTBOOK.LiveHomeScore.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
 
-        public string LiveAwayScore
-        {
-            get { return SPORTBOOK.LiveAwayScore.HasValue ? SPORTBOOK.LiveAwayScore.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen; }
-        }
+        public string LiveAwayScore => SPORTBOOK.LiveAwayScore.HasValue ? SPORTBOOK.LiveAwayScore.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
 
         public bool IsShowLiveScore { get; }
 
-        public string GoalRecord
-        {
-            get
-            {
-                return string.IsNullOrEmpty(this.SPORTBOOK.GoalRecord) ? string.Empty : Regex.Replace(this.SPORTBOOK.GoalRecord.ToUpper(), "[^HA]", string.Empty);
-            }
-        }
+        public string GoalRecord => string.IsNullOrEmpty(SPORTBOOK.GoalRecord) ? string.Empty : Regex.Replace(SPORTBOOK.GoalRecord.ToUpper(), "[^HA]", string.Empty);
 
-        public override bool VisibleGoalRecord
-        {
-            get
-            {
-                return base.VisibleGoalRecord && !string.IsNullOrEmpty(this.GoalRecord);
-            }
-        }
+        public override bool VisibleGoalRecord => base.VisibleGoalRecord && !string.IsNullOrEmpty(GoalRecord);
 
         public string DetailedResult
         {
@@ -243,14 +174,10 @@
         }
 
         private bool ValidateBetRadarResourceId(string resourceId)
-        {
-            return GameResources.BetRadar.Values.Any(pattern => ValidateResourceIdByPattern(pattern, resourceId));
-        }
+            => GameResources.BetRadar.Values.Any(pattern => ValidateResourceIdByPattern(pattern, resourceId));
 
         private bool ValidateResourceIdByPattern(List<string> patterns, string resourceId)
-        {
-            return patterns.Any(i => SportsbookHelper.IsValidResourceId(i, resourceId));
-        }
+            => patterns.Any(i => SportsbookHelper.IsValidResourceId(i, resourceId));
 
         /// <summary>
         /// Get detailed game results.
@@ -291,9 +218,7 @@
         }
 
         private bool IsShowGoalSequence(int settlementStatusID)
-        {
-            return settlementStatusID == EventStatusID.CompletedSettlementStatusID && !string.IsNullOrEmpty(GoalRecord);
-        }
+            => settlementStatusID == EventStatusID.CompletedSettlementStatusID && !string.IsNullOrEmpty(GoalRecord);
 
         /// <summary>
         /// Map game values.

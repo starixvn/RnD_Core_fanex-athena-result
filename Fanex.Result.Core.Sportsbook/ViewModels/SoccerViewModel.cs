@@ -255,7 +255,7 @@
             {
                 GroupCode = detailedItem.ResourceId,
                 ResourceID = detailedItem.ResourceId,
-                GroupName = SportsbookHelper.GetFastMarketsResourceLang(detailedItem.ResourceId, GetSupportedLanguage),
+                GroupName = RefData.GetBetTypeName(SPORTBOOK.Bettype.ToString(), GetSupportedLanguage),
                 ResourceName = SportsbookHelper.CreateFastMarketsTimeRange(detailedItem.ResourceId, SPORTBOOK.BetID)
             };
 

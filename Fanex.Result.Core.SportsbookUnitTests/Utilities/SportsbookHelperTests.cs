@@ -210,18 +210,6 @@
             Assert.AreEqual(expectedResource, resource);
         }
 
-        [TestCase("")]
-        [TestCase("2210")]
-        [TestCase("FirstOne")]
-        public void GetFastMarketsResourceLang_FromResourceIsNotFastMarkets_ReturnsEmpty(string resourceId)
-        {
-            // Act
-            var resource = SportsbookHelper.GetFastMarketsResourceLang(resourceId, Arg.Any<string>());
-
-            // Assert
-            Assert.IsEmpty(resource);
-        }
-
         [TestCase("abc")]
         [TestCase("&df")]
         [TestCase("")]

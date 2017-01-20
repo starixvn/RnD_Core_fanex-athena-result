@@ -120,18 +120,6 @@
             return result;
         }
 
-        public static string GetFastMarketsResourceLang(string resourceId, string languageCode)
-        {
-            if (!IsFastMarketsResourceId(resourceId))
-            {
-                return string.Empty;
-            }
-
-            var betType = resourceId.Substring(0, resourceId.Length - 2);
-
-            return RefData.GetBetTypeName(betType, languageCode);
-        }
-
         public static string CreateFastMarketsTimeRange(string resourceId, string startMinute)
         {
             int start = 0;

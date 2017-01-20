@@ -42,7 +42,8 @@
 
         public int AwayId => SPORTBOOK.AwayId;
 
-        public override bool VisibleDetailedLink => base.VisibleDetailedLink && (HasValidGameData || VisibleGoalRecord);
+        public override bool VisibleDetailedLink
+            => base.VisibleDetailedLink && (HasValidGameData || VisibleGoalRecord);
 
         #endregion Settlement Site
 
@@ -68,17 +69,26 @@
 
         public string FinalHomeScore => CalculateScore(SPORTBOOK.FinalHomeScore, true);
 
-        public string HTAwayScore => CalculateScore(SPORTBOOK.FinalAwayScore, true);
+        public string HTAwayScore => CalculateScore(SPORTBOOK.HtAwayScore, false);
 
         public string FinalAwayScore => CalculateScore(SPORTBOOK.FinalAwayScore, true);
 
-        public string LiveHomeScore => SPORTBOOK.LiveHomeScore.HasValue ? SPORTBOOK.LiveHomeScore.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
+        public string LiveHomeScore
+            => SPORTBOOK.LiveHomeScore.HasValue ?
+            SPORTBOOK.LiveHomeScore.Value.ToString(CultureInfo.InvariantCulture) :
+            ConstantValue.Hyphen;
 
-        public string LiveAwayScore => SPORTBOOK.LiveAwayScore.HasValue ? SPORTBOOK.LiveAwayScore.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
+        public string LiveAwayScore
+            => SPORTBOOK.LiveAwayScore.HasValue ?
+            SPORTBOOK.LiveAwayScore.Value.ToString(CultureInfo.InvariantCulture) :
+            ConstantValue.Hyphen;
 
         public bool IsShowLiveScore { get; }
 
-        public string GoalRecord => string.IsNullOrEmpty(SPORTBOOK.GoalRecord) ? string.Empty : Regex.Replace(SPORTBOOK.GoalRecord.ToUpper(), "[^HA]", string.Empty);
+        public string GoalRecord
+            => string.IsNullOrEmpty(SPORTBOOK.GoalRecord) ?
+            string.Empty :
+            Regex.Replace(SPORTBOOK.GoalRecord.ToUpper(), "[^HA]", string.Empty);
 
         public override bool VisibleGoalRecord => base.VisibleGoalRecord && !string.IsNullOrEmpty(GoalRecord);
 

@@ -1,6 +1,7 @@
 ﻿namespace Fanex.Result.Core.GlobalGaming
 {
     using System;
+    using System.Collections.Generic;
     using Base;
     using Base.Models;
     using DTO;
@@ -9,6 +10,20 @@
 
     public class GlobalGamingResultApi : Base3rdResultApi
     {
+        private static readonly Dictionary<string, string> SupportedLanguage = new Dictionary<string, string>
+        {
+            { "en-US", "en" },
+            { "zh-TW", "ch" },
+            { "zh-CN", "cs" },
+            { "zh-Hans", "zhcn" },
+            { "ja-JP", "jp" },
+            { "th-TH", "th" },
+            { "ko-KR", "ko" },
+            { "vi-VN", "vn" }
+        };
+
+        private static readonly string DefaultLanguage = "en-US";
+
         private GlobalGamingConfigs _configs;
 
         public GlobalGamingResultApi()
@@ -94,6 +109,13 @@
             };
 
             return call;
+        }
+
+        private string GetLanguageCode(string language)
+        {
+            return string.IsNullOrEmpty(language) || !SupportedLanguage.ContainsKey(language)
+                                    ? SupportedLanguage[DefaultLanguage]
+                                    : SupportedLanguage[language];
         }
 
         private void ValidateResponse(Response response, Request request)

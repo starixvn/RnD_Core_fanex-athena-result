@@ -268,6 +268,8 @@
             {
                 case EventStatusID.CompletedSettlementStatusID:
                 case EventStatusID.RunningSettlementStatusID:
+                case EventStatusID.Abandoned1HSettlementStatusID:
+                case EventStatusID.Abandoned2HSettlementStatusID:
                     MapResourceGameValueByPattern(soccerItem, gameDetail);
                     break;
 
@@ -325,18 +327,32 @@
                 /*Group :Corner*/
                 case GameResourceID.FirstHalfCorners:
                 case GameResourceID.FinalCorners:
-                    //// TODO
                     item.HomeValue = string.IsNullOrEmpty(detailedValue.HomeValue) ? ConstantValue.Hyphen : detailedValue.HomeValue;
                     item.AwayValue = string.IsNullOrEmpty(detailedValue.AwayValue) ? ConstantValue.Hyphen : detailedValue.AwayValue;
                     break;
                 /*Group :First/Last Corner*/
                 case GameResourceID.First1HCorner:
-                case GameResourceID.Last1HCorner:
                 case GameResourceID.FirstCorner:
-                case GameResourceID.LastCorner:
                     item.HomeValue = item.AwayValue =
-                    GetResourceGameValueByPattern1X2(detailedValue.HomeValue, LangResource.None);
+                        GetResourceGameValueByPattern1X2(detailedValue.HomeValue, LangResource.None);
                     break;
+
+                case GameResourceID.Last1HCorner:
+                case GameResourceID.LastCorner:
+                    if (detailedValue.SettlementStatusID == EventStatusID.Abandoned1HSettlementStatusID ||
+                        (detailedValue.SettlementStatusID == EventStatusID.Abandoned2HSettlementStatusID &&
+                        item.ResourceID == GameResourceID.LastCorner))
+                    {
+                        item.HomeValue = item.AwayValue = LangResource.Refund;
+                    }
+                    else
+                    {
+                        item.HomeValue = item.AwayValue =
+                            GetResourceGameValueByPattern1X2(detailedValue.HomeValue, LangResource.None);
+                    }
+
+                    break;
+
                 /*Group :Player sent Off*/
                 case GameResourceID.PlayerSentOff:
                 case GameResourceID.PlayserSentOff1H:

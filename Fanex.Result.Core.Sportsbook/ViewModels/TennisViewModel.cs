@@ -35,7 +35,7 @@
             {
                 var matchResultInfo = this.SPORTBOOK.GameDetails
                     .SingleOrDefault(i => i.ResourceId.Equals(TennisBetID.TotalSet, System.StringComparison.OrdinalIgnoreCase));
-                if (matchResultInfo != null && matchResultInfo.SettlementStatusID == EventStatusID.RefundStettlementStatusID)
+                if (matchResultInfo != null && matchResultInfo.SettlementStatusID == EventStatusID.RefundSettlementStatusID)
                 {
                     return LangResource.Refund;
                 }
@@ -188,7 +188,7 @@ Justification = "Reviewed. Suppression is OK here.")]
 
                                     break;
 
-                                case EventStatusID.RefundStettlementStatusID:
+                                case EventStatusID.RefundSettlementStatusID:
                                     this.HomeSet[i] = LangResource.Refund;
                                     this.AwaySet[i] = LangResource.Refund;
                                     break;
@@ -278,7 +278,7 @@ Justification = "Reviewed. Suppression is OK here.")]
                             this._totalSetAway = set.AwayValue;
                             break;
 
-                        case EventStatusID.RefundStettlementStatusID:
+                        case EventStatusID.RefundSettlementStatusID:
                             this._totalSetHome = this._totalSetAway = LangResource.Refund;
                             break;
 
@@ -417,7 +417,7 @@ Justification = "Reviewed. Suppression is OK here.")]
                         item.AwayValue = game.AwayValue;
                         break;
 
-                    case EventStatusID.RefundStettlementStatusID:
+                    case EventStatusID.RefundSettlementStatusID:
                         item.HomeValue = item.AwayValue = LangResource.Refund;
                         break;
 

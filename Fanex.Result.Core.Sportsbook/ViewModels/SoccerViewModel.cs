@@ -102,8 +102,8 @@
                 }
 
                 var temp = new StringBuilder();
-                var detailedReulstByGroup = _detailedItemModels.GroupBy(i => i.GroupCode).ToList();
-                foreach (var item in detailedReulstByGroup)
+                var detailedResultsByGroup = _detailedItemModels.GroupBy(i => i.GroupCode).ToList();
+                foreach (var item in detailedResultsByGroup)
                 {
                     var templateName = SportsbookHelper.IsFastMarketsResourceId(item.Key)
                         ? TemplateNameSpace + FastMarketsTemplate
@@ -210,9 +210,12 @@
 
                     foreach (GameDetail detailedItem in detailedGameRecords)
                     {
-                        if (detailedItem.ResourceId != GameResourceID.GoalSequence || IsShowGoalSequence(detailedItem.SettlementStatusID))
+                        var detailedItemModel = MapBetRadarDetailedGameValue(group.Key, detailedItem);
+
+                        if (detailedItemModel.ResourceID == GameResourceID.GoalSequence &&
+                            !string.IsNullOrEmpty(detailedItemModel.HomeValue))
                         {
-                            _detailedItemModels.Add(MapBetRadarDetailedGameValue(group.Key, detailedItem));
+                            _detailedItemModels.Add(detailedItemModel);
                         }
                     }
                 }
@@ -226,9 +229,6 @@
 
             _detailedItemModels = _detailedItemModels.Concat(detailItemModels).ToSafeList();
         }
-
-        private bool IsShowGoalSequence(int settlementStatusID)
-            => settlementStatusID == EventStatusID.CompletedSettlementStatusID && !string.IsNullOrEmpty(GoalRecord);
 
         /// <summary>
         /// Map game values.
@@ -273,7 +273,7 @@
                     MapResourceGameValueByPattern(soccerItem, gameDetail);
                     break;
 
-                case EventStatusID.RefundStettlementStatusID:
+                case EventStatusID.RefundSettlementStatusID:
                     soccerItem.HomeValue = soccerItem.AwayValue = LangResource.Refund;
                     break;
 
@@ -312,8 +312,16 @@
                     break;
 
                 case GameResourceID.GoalSequence:
-                    item.HomeValue = item.AwayValue = string.Join(".", GoalRecord.ToArray());
+                    item.HomeValue = item.AwayValue = string.Empty;
+
+                    if (IsShowGoalSequence(detailedValue.SettlementStatusID))
+                    {
+                        var goalSequence = GetGoalSequenceFromGameDetails();
+                        item.HomeValue = item.AwayValue = string.Join(".", goalSequence.ToArray());
+                    }
+
                     break;
+
                 /*Group: Goal Time*/
                 case GameResourceID.FirstGoalTime10Min:
                 case GameResourceID.FirstGoalTime15Min:
@@ -347,8 +355,7 @@
                     }
                     else
                     {
-                        item.HomeValue = item.AwayValue =
-                            GetResourceGameValueByPattern1X2(detailedValue.HomeValue, LangResource.None);
+                        item.HomeValue = item.AwayValue = GetResourceGameValueByPattern1X2(detailedValue.HomeValue, LangResource.None);
                     }
 
                     break;
@@ -420,6 +427,12 @@
                     break;
             }
         }
+
+        private bool IsShowGoalSequence(int settlementStatusID)
+            => (settlementStatusID == EventStatusID.CompletedSettlementStatusID ||
+                settlementStatusID == EventStatusID.Abandoned1HSettlementStatusID ||
+                settlementStatusID == EventStatusID.Abandoned2HSettlementStatusID) &&
+                !string.IsNullOrEmpty(GetGoalSequenceFromGameDetails());
 
         /// <summary>
         /// Get game value by pattern goal time.
@@ -621,6 +634,15 @@
             }
 
             return this._goalInfo;
+        }
+
+        private string GetGoalSequenceFromGameDetails()
+        {
+            var goalSequence = SPORTBOOK.GameDetails.FirstOrDefault(d => d.ResourceId == GameResourceID.GoalSequence).HomeValue;
+
+            return string.IsNullOrEmpty(goalSequence) ?
+                string.Empty :
+                Regex.Replace(goalSequence.ToUpper(), "[^HA]", string.Empty);
         }
 
         #endregion Utilities

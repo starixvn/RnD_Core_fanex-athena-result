@@ -134,7 +134,7 @@
                     ResourceId = (index + 1).ToString("D2"),
                     HomeValue = "10",
                     AwayValue = "12",
-                    SettlementStatusID = EventStatusID.RefundStettlementStatusID
+                    SettlementStatusID = EventStatusID.RefundSettlementStatusID
                 }
             };
 

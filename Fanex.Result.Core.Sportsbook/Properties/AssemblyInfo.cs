@@ -34,6 +34,6 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.6.11")]
-[assembly: AssemblyFileVersion("1.0.6.11")]
+[assembly: AssemblyVersion("1.0.6.12")]
+[assembly: AssemblyFileVersion("1.0.6.12")]
 [assembly: InternalsVisibleTo("Fanex.Result.Core.Sportsbook.Tests")]

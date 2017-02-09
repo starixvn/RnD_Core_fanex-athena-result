@@ -212,8 +212,9 @@
                     {
                         var detailedItemModel = MapBetRadarDetailedGameValue(group.Key, detailedItem);
 
-                        if (detailedItemModel.ResourceID == GameResourceID.GoalSequence &&
-                            !string.IsNullOrEmpty(detailedItemModel.HomeValue))
+                        if (detailedItemModel.ResourceID != GameResourceID.GoalSequence ||
+                            (detailedItemModel.ResourceID == GameResourceID.GoalSequence &&
+                            !string.IsNullOrEmpty(detailedItemModel.HomeValue)))
                         {
                             _detailedItemModels.Add(detailedItemModel);
                         }

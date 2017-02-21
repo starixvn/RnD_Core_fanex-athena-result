@@ -333,12 +333,14 @@
                     item.HomeValue = item.AwayValue = string.IsNullOrEmpty(detailedValue.OtherInfo) ?
                         ConstantValue.Hyphen : detailedValue.OtherInfo;
                     break;
+
                 /*Group :Corner*/
                 case GameResourceID.FirstHalfCorners:
                 case GameResourceID.FinalCorners:
                     item.HomeValue = string.IsNullOrEmpty(detailedValue.HomeValue) ? ConstantValue.Hyphen : detailedValue.HomeValue;
                     item.AwayValue = string.IsNullOrEmpty(detailedValue.AwayValue) ? ConstantValue.Hyphen : detailedValue.AwayValue;
                     break;
+
                 /*Group :First/Last Corner*/
                 case GameResourceID.First1HCorner:
                 case GameResourceID.FirstCorner:

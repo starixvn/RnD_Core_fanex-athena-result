@@ -57,6 +57,7 @@
     <Compile Include="ViewModels\HockeyViewModelTests.cs" />
     <Compile Include="ViewModels\BasketBallViewModelTests.cs" />
     <Compile Include="ViewModels\ParlayViewModelTests.cs" />
+    <Compile Include="ViewModels\SoccerDetail\ResultDetailTests.cs" />
     <Compile Include="ViewModels\SportsbookBaseViewModelTests.cs" />
     <Compile Include="ViewModels\TennisViewModelTests.cs" />
   </ItemGroup>

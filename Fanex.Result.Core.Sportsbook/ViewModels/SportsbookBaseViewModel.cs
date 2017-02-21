@@ -21,6 +21,7 @@
             VisibleDetailedLink = setting.VisibleDetailedLink;
             HighlightWinnerTeam = setting.HighlightWinnerTeam;
             VisibleGoalRecord = setting.VisibleGoalRecord;
+            Setting = setting;
         }
 
         public string[] HomeSet { get; set; }
@@ -68,6 +69,8 @@
         public virtual string AwayWin => GetWonTeam(false);
 
         protected Sportsbook SPORTBOOK { get; set; }
+
+        protected ResultSetting Setting { get; }
 
         protected bool HasResult
             => !string.IsNullOrEmpty(SPORTBOOK.BetStatus) && SPORTBOOK.BetStatus.IndexOf(",", StringComparison.Ordinal) >= 0;

@@ -110,6 +110,8 @@
     <Compile Include="SportType.cs" />
     <Compile Include="Utilities\Helper.cs" />
     <Compile Include="Utilities\MapEventStatus.cs" />
+    <Compile Include="Utilities\RefDataHelper.cs" />
+    <Compile Include="Utilities\IRefDataHelper.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\GroupData.cs" />
     <Compile Include="ViewModels\IResultViewModel.cs" />

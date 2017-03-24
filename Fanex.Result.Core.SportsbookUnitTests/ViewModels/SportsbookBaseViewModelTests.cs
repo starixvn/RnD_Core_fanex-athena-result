@@ -23,12 +23,12 @@
 
             _sportsbookBaseViewModel = new SportsbookBaseViewModel(sportsbookDTO, resultSetting);
         }
-       
+
         [Test]
         public void GetHomeAwaySet_Always_ReturnsHyphen()
         {
             // Act
-            var homeAwaySet = _sportsbookBaseViewModel.GetHomeAwaySet(Arg.Any<int>(), Arg.Any<bool>());
+            var homeAwaySet = _sportsbookBaseViewModel.GetHomeAwaySet(0, false);
 
             // Assert
             Assert.AreEqual("-", homeAwaySet);

@@ -9,7 +9,7 @@
     using DTO;
     using Utilities;
 
-    public class BaseResultDetail<T> : BaseViewModel where T : IGameDetailItem, new()
+    public class BaseResultDetail<T> : BaseViewModel, IResultDetail<T> where T : IGameDetailItem, new()
     {
         public BaseResultDetail(
             Sportsbook sportsbook,

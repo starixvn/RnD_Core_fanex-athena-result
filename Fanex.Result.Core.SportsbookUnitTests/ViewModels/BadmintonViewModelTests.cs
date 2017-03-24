@@ -13,11 +13,11 @@
         public void GetHomeAwaySet_FromIndexIsGreaterThan4_ReturnsHyphen()
         {
             // Arrange
-            var viewModel = new BadmintonViewModel(Arg.Any<Sportsbook>(), new ResultSetting());
+            var viewModel = new BadmintonViewModel(new Sportsbook(), new ResultSetting());
             var index = 7;
 
             // Act
-            var homeAwaySet = viewModel.GetHomeAwaySet(index, Arg.Any<bool>());
+            var homeAwaySet = viewModel.GetHomeAwaySet(index, false);
 
             // Assert
             Assert.AreEqual("-", homeAwaySet);
@@ -34,7 +34,7 @@
             var viewModel = new BadmintonViewModel(sportsbookDto, new ResultSetting());
 
             // Act
-            var homeAwaySet = viewModel.GetHomeAwaySet(index, Arg.Any<bool>());
+            var homeAwaySet = viewModel.GetHomeAwaySet(index, false);
 
             // Assert
             Assert.AreEqual("-", homeAwaySet);
@@ -50,7 +50,7 @@
             var viewModel = new BadmintonViewModel(sportsbookDto, new ResultSetting());
 
             // Act
-            var homeAwaySet = viewModel.GetHomeAwaySet(index, Arg.Any<bool>());
+            var homeAwaySet = viewModel.GetHomeAwaySet(index, false);
 
             // Assert
             Assert.AreEqual("-", homeAwaySet);
@@ -65,7 +65,7 @@
             var viewModel = new BadmintonViewModel(sportsbookDto, new ResultSetting());
 
             // Act
-            var homeAwaySet = viewModel.GetHomeAwaySet(index, Arg.Any<bool>());
+            var homeAwaySet = viewModel.GetHomeAwaySet(index, false);
 
             // Assert
             Assert.AreEqual("-", homeAwaySet);

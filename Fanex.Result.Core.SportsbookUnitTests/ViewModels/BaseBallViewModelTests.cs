@@ -13,10 +13,10 @@
         public void GetHomeAwaySet_FromIndexIsGreaterThan9_ReturnsHyphen()
         {
             // Arrange
-            var viewModel = new BaseBallViewModel(Arg.Any<Sportsbook>(), new ResultSetting());
+            var viewModel = new BaseBallViewModel(new Sportsbook(), new ResultSetting());
 
             // Act
-            var homeAwaySet = viewModel.GetHomeAwaySet(10, Arg.Any<bool>());
+            var homeAwaySet = viewModel.GetHomeAwaySet(10, false);
 
             // Assert
             Assert.AreEqual("-", homeAwaySet);
@@ -33,7 +33,7 @@
             var index = 9;
 
             // Act
-            var homeAwaySet = viewModel.GetHomeAwaySet(index, Arg.Any<bool>());
+            var homeAwaySet = viewModel.GetHomeAwaySet(index, false);
 
             // Assert
             Assert.AreEqual("-1", homeAwaySet);
@@ -50,7 +50,7 @@
             var viewModel = new BaseBallViewModel(sportsbookDto, new ResultSetting());
 
             // Act
-            var homeAwaySet = viewModel.GetHomeAwaySet(index, Arg.Any<bool>());
+            var homeAwaySet = viewModel.GetHomeAwaySet(index, false);
 
             // Assert
             Assert.AreEqual("-", homeAwaySet);
@@ -66,7 +66,7 @@
             var viewModel = new BaseBallViewModel(sportsbookDto, new ResultSetting());
 
             // Act
-            var homeAwaySet = viewModel.GetHomeAwaySet(index, Arg.Any<bool>());
+            var homeAwaySet = viewModel.GetHomeAwaySet(index, false);
 
             // Assert
             Assert.AreEqual("-1", homeAwaySet);
@@ -82,7 +82,7 @@
             var viewModel = new BaseBallViewModel(sportsbookDto, new ResultSetting());
 
             // Act
-            var homeAwaySet = viewModel.GetHomeAwaySet(index, Arg.Any<bool>());
+            var homeAwaySet = viewModel.GetHomeAwaySet(index, false);
 
             // Assert
             Assert.AreEqual("-", homeAwaySet);

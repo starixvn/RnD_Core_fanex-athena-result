@@ -33,38 +33,17 @@
         public bool VisibleInternalEventStatus { get; private set; }
 
         public string GetSupportedLanguage
-        {
-            get
-            {
-                return _supportedLanguage.ContainsKey(this.LanguageCode) ? _supportedLanguage[this.LanguageCode] : _supportedLanguage[ConstantValue.EnglishLanguageCode];
-            }
-        }
+            => _supportedLanguage.ContainsKey(LanguageCode) ?
+            _supportedLanguage[LanguageCode] :
+            _supportedLanguage[ConstantValue.EnglishLanguageCode];
 
-        public virtual string EventStatus
-        {
-            get
-            {
-                return string.Empty;
-            }
-        }
+        public virtual string EventStatus => string.Empty;
 
-        public virtual bool IsPending
-        {
-            get
-            {
-                return false;
-            }
-        }
+        public virtual bool IsPending => false;
 
-        public bool VisibleMatchResult
-        {
-            get { return true; }
-        }
+        public bool VisibleMatchResult => true;
 
-        public bool VisibleGameDetail
-        {
-            get { return false; }
-        }
+        public bool VisibleGameDetail => false;
 
         public virtual string EventStatusBackground
         {
@@ -81,43 +60,20 @@
             }
         }
 
-        public virtual string KickOffTime
-        {
-            get
-            {
-                return string.Empty;
-            }
-        }
+        public virtual string KickOffTime => string.Empty;
 
-        public virtual int LeagueId
-        {
-            get { return 0; }
-        }
+        public virtual int LeagueId => 0;
 
-        public virtual string LeagueName
-        {
-            get
-            {
-                return GetLeagueNameByLanguage(this.LeagueId);
-            }
-        }
+        public virtual string LeagueName => GetLeagueNameByLanguage(this.LeagueId);
 
-        public virtual string SportName
-        {
-            get
-            {
-                return this.GetSportNameByLanguage((int)Sport);
-            }
-        }
+        public virtual string SportName => GetSportNameByLanguage((int)Sport);
 
         protected string LanguageCode { get; set; } = ConstantValue.EnglishLanguageCode;
 
         protected SportType Sport { get; set; } = SportType.Soccer;
 
         public virtual string Color(int index, string bg, string oddbg)
-        {
-            return index % 2 == 0 ? bg : oddbg;
-        }
+            => index % 2 == 0 ? bg : oddbg;
 
         protected virtual string GetLeagueNameByLanguage(int leagueId)
         {

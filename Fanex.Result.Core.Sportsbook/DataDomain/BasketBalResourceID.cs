@@ -1,8 +1,6 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.DataDomain
 {
-    using System.Collections.Generic;
-
-    internal static class BasketBalResourceID
+    public static class BasketBallResourceID
     {
         public const string FullTime = "00";
         public const string FirstHalf = "01";

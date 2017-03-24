@@ -216,7 +216,7 @@
         public void CreateFastMarketsTimeRange_FromStartTimeIsNotInteger_ThrowsException(string startTime)
         {
             // Act
-            TestDelegate testDelegate = () => SportsbookHelper.CreateFastMarketsTimeRange(Arg.Any<string>(), startTime);
+            TestDelegate testDelegate = () => SportsbookHelper.CreateFastMarketsTimeRange(string.Empty, startTime);
 
             // Assert
             Assert.Throws<SportsbookException>(testDelegate);
@@ -228,7 +228,7 @@
         public void CreateFastMarketsTimeRange_FromStartTimeIsOutRangeMatchTime_ThrowsException(string startTime)
         {
             // Act
-            TestDelegate testDelegate = () => SportsbookHelper.CreateFastMarketsTimeRange(Arg.Any<string>(), startTime);
+            TestDelegate testDelegate = () => SportsbookHelper.CreateFastMarketsTimeRange(string.Empty, startTime);
 
             // Assert
             Assert.Throws<SportsbookException>(testDelegate);

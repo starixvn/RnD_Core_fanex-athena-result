@@ -132,11 +132,6 @@
                         MoveBetsDay = _resultService.GetBalanceUpDay().MoveBetsDay
                     });
 
-                    if (sportId == Convert.ToInt16(SportType.BasketBall))
-                    {
-                        dataSb.ForEach(s => s.GameDetails = s.GameDetails.Concat(BasketBallGameDetails).ToList());
-                    }
-
                     htmlResult = ResultEngine.HtmlParser(dataSb.ToList(), resultSetting);
                     break;
             }
@@ -158,8 +153,6 @@
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(languageCode);
 
             var detailedData = _resultService.GetGameDetail(new GetGameDetailCriteria { MatchId = matchId });
-
-            detailedData.GameDetails = detailedData.GameDetails.Concat(BasketBallGameDetails).ToList();
 
             if (detailedData != null && detailedData.MatchId > 0)
             {
@@ -270,11 +263,6 @@
                         LeagueID = leagueId,
                         MoveBetsDay = _resultService.GetBalanceUpDay().MoveBetsDay
                     });
-
-                    if (sportId == Convert.ToInt16(SportType.BasketBall))
-                    {
-                        dataSb.ForEach(s => s.GameDetails = s.GameDetails.Concat(BasketBallGameDetails).ToList());
-                    }
 
                     excelResult = ResultEngine.ExcelParser<Sportsbook>(dataSb.ToList(), resultSetting);
 

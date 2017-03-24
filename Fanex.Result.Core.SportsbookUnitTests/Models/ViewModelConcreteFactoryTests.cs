@@ -1,12 +1,10 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.Tests.Models
 {
-    using System;
     using System.Collections.Generic;
     using Base;
     using Base.Exception;
-    using NSubstitute;
+    using DTO;
     using NUnit.Framework;
-    using Sportsbook.DTO;
     using Sportsbook.Models;
 
     [TestFixture]
@@ -30,7 +28,7 @@
             _resultSetting.SportType = (SportType)(-1);
 
             // Act
-            _testDelegate = () => ViewModelConcreteFactory.Instance.GetViewModel(Arg.Any<object>(), _resultSetting);
+            _testDelegate = () => ViewModelConcreteFactory.Instance.GetViewModel(new object(), _resultSetting);
 
             // Assert
             Assert.Throws<ObjectNullException>(_testDelegate);
@@ -43,7 +41,7 @@
             _resultSetting.SportType = SportType.HorseRacing;
 
             // Act
-            _testDelegate = () => ViewModelConcreteFactory.Instance.GetViewModel(Arg.Any<object>(), _resultSetting);
+            _testDelegate = () => ViewModelConcreteFactory.Instance.GetViewModel(new object(), _resultSetting);
 
             // Assert
             Assert.Throws<ObjectNullException>(_testDelegate);

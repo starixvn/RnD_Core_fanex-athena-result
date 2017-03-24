@@ -35,13 +35,7 @@
             }
         }
 
-        public bool VisibleDetailResult
-        {
-            get
-            {
-                return this.IsDetail || CheckVisibleDetailResult;
-            }
-        }
+        public bool VisibleDetailResult => IsDetail || CheckVisibleDetailResult;
 
         private bool CheckVisibleDetailResult
         {

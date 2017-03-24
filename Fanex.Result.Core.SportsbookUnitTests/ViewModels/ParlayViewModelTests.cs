@@ -24,7 +24,7 @@
             var viewModel = new ParlayViewModel(parlay, resultSetting);
 
             // Act
-            var result = viewModel.Render(Arg.Any<RazorBinderModel>());
+            var result = viewModel.Render(new RazorBinderModel());
 
             // Assert
             Assert.IsEmpty(result);
@@ -39,7 +39,7 @@
             var viewModel = new ParlayViewModel(parlay, resultSetting);
 
             // Act
-            TestDelegate testDelegate = () => viewModel.Render(Arg.Any<RazorBinderModel>());
+            TestDelegate testDelegate = () => viewModel.Render(new RazorBinderModel());
 
             // Assert
             Assert.Throws<ResultCoreException>(testDelegate);

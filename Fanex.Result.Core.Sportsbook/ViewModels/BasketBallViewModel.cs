@@ -6,17 +6,22 @@
     using Base.DataDomain;
     using Base.Extension;
     using Base.ViewModels;
+    using BaseDetail;
     using BasketBallDetail;
     using DataDomain;
     using DTO;
 
     public sealed class BasketBallViewModel : SportsbookBaseViewModel, IResultViewModel
     {
+        private readonly IResultDetail<BasketBallGameDetailItem> _resultDetail;
+
         public BasketBallViewModel(
             Sportsbook sportbook,
-            ResultSetting setting)
+            ResultSetting setting,
+            IResultDetail<BasketBallGameDetailItem> resultDetail = null)
             : base(sportbook, setting)
         {
+            _resultDetail = resultDetail ?? new BasketBallResultDetail(sportbook, setting, null, null);
         }
 
         public string OTHome => GetOvertimeSet(true);
@@ -35,13 +40,12 @@
 
         public override bool VisibleGameDetail => HasGameDetailData();
 
-        public SafeList<BasketBallGameDetailItem> ResultDetailItems
-           => new BasketBallResultDetail(SPORTBOOK, Setting, null, null).GetDetailItems();
+        public SafeList<BasketBallGameDetailItem> ResultDetailItems => _resultDetail.GetDetailItems();
 
         public SafeList<BasketBallGameDetailItem> MoreResultDetailItems
             => ResultDetailItems
-                .Where(item => BasketBalResourceID.MoreResultResourceIDs.Contains(item.ResourceID))
-                .OrderBy(item => BasketBalResourceID.MoreResultResourceIDs.ToList().FindIndex(id => id == item.ResourceID))
+                .Where(item => BasketBallResourceID.MoreResultResourceIDs.Contains(item.ResourceID))
+                .OrderBy(item => BasketBallResourceID.MoreResultResourceIDs.ToList().FindIndex(id => id == item.ResourceID))
                 .ToSafeList();
 
         public override string GetHomeAwaySet(int index, bool isHome)
@@ -58,16 +62,16 @@
 
         private string GetOvertimeSet(bool isHome)
         {
-            var result = GetResultFromGameDetails(BasketBalResourceID.OverTime, isHome);
+            var result = GetResultFromGameDetails(BasketBallResourceID.OverTime, isHome);
 
-            result = string.IsNullOrEmpty(result) ? GetResultFromBetStatus(4, true) : result;
+            result = string.IsNullOrEmpty(result) ? GetResultFromBetStatus(4, isHome) : result;
 
             return Convert.ToInt32(result) > 0 ? result : ConstantValue.Hyphen;
         }
 
         private string GetTotalScore(bool isHome, bool isFinal)
         {
-            var resourceId = isFinal ? BasketBalResourceID.FullTime : BasketBalResourceID.FirstHalf;
+            var resourceId = isFinal ? BasketBallResourceID.FullTime : BasketBallResourceID.FirstHalf;
             var result = GetResultFromGameDetails(resourceId, isHome);
 
             if (!string.IsNullOrEmpty(result))
@@ -88,29 +92,27 @@
 
         private string GetResultFromBetStatus(int index, bool isHome)
         {
-            if (this.HomeSet == null || this.AwaySet == null)
+            if (HomeSet == null || AwaySet == null)
             {
-                this.HomeSet = new[] { ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Zero };
-                this.AwaySet = new[] { ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Zero };
+                HomeSet = new[] { ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Zero };
+                AwaySet = new[] { ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Zero };
 
-                if (this.SPORTBOOK.EventStatus != ConstantValue.RefundFT && this.HasResult)
+                if (SPORTBOOK.EventStatus != ConstantValue.RefundFT && HasResult)
                 {
-                    string[] betStatusList = this.GetCoreInfoFromBetStatus.Split(',');
+                    string[] betStatusList = GetCoreInfoFromBetStatus.Split(',');
+
                     for (int j = 0; j < betStatusList.Length && j < 5; j++)
                     {
                         var values = betStatusList[j].Trim().Split('-');
-                        this.HomeSet[j] = values[0].Trim();
-                        this.AwaySet[j] = values[1].Trim();
+                        HomeSet[j] = values[0].Trim();
+                        AwaySet[j] = values[1].Trim();
                     }
                 }
             }
 
-            return isHome ? this.HomeSet[index] : this.AwaySet[index];
+            return isHome ? HomeSet[index] : AwaySet[index];
         }
 
-        private bool HasGameDetailData()
-            => ResultDetailItems.Any(item =>
-                BasketBalResourceID.MoreResultResourceIDs.Contains(item.ResourceID) &&
-                !string.IsNullOrEmpty(item.ResourceID));
+        private bool HasGameDetailData() => MoreResultDetailItems.Any();
     }
 }

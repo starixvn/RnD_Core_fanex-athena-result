@@ -48,6 +48,11 @@
                 throw new ObjectNullException(dtoName);
             }
 
+            if (SportsUseBasketBallViewModel(setting.SportType))
+            {
+                return (IResultViewModel)Activator.CreateInstance(viewModel, obj, setting, null);
+            }
+
             return (IResultViewModel)Activator.CreateInstance(viewModel, obj, setting);
         }
 
@@ -82,5 +87,11 @@
 
             return (IExcelModel)Activator.CreateInstance(excelViewModel, realTemplatePath, setting, dataMaped);
         }
+
+        private bool SportsUseBasketBallViewModel(SportType sportType)
+            => sportType == SportType.BasketBall ||
+                sportType == SportType.NetBall ||
+                sportType == SportType.FootBall ||
+                sportType == SportType.Rugby;
     }
 }

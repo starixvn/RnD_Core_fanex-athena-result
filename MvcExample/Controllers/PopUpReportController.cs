@@ -218,10 +218,11 @@ namespace MvcExample.Controllers
                     if (sportType == SportType.BasketBall)
                     {
                         var resourceId  = metalModel.BetId.ToString().Length > 2 ? metalModel.BetId.ToString().Remove(0, 1) : string.Empty;
-                        var fakeData = NormalReportController.BasketBallGameDetails
-                        .Where(item => item.ResourceId.Contains(metalModel.Bettype.ToString()) && 
-                        item.ResourceId.Contains(resourceId));
-                        data.ForEach(s => s.GameDetails = s.GameDetails.Concat(fakeData).ToList());
+
+                        foreach (var sportsbook in data)
+                        {
+                            sportsbook.GameDetails = sportsbook.GameDetails.Where(d => d.ResourceId.Contains(metalModel.Bettype.ToString()) && d.ResourceId.Contains(resourceId)).ToList();
+                        }
                     }
 
                     if (metalModel.IncludeTestData && metalModel.Bettype >= 221 && metalModel.Bettype <= 225)

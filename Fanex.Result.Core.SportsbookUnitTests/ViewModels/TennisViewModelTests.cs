@@ -16,11 +16,11 @@
         public void GetHomeAwaySet_FromIndexIsGreaterThan4_ReturnsHyphen()
         {
             // Arrange
-            var viewModel = new TennisViewModel(Arg.Any<Sportsbook>(), new ResultSetting());
+            var viewModel = new TennisViewModel(new Sportsbook(), new ResultSetting());
             var index = 7;
 
             // Act
-            var homeAwaySet = viewModel.GetHomeAwaySet(index, Arg.Any<bool>());
+            var homeAwaySet = viewModel.GetHomeAwaySet(index, false);
 
             // Assert
             Assert.AreEqual("-", homeAwaySet);
@@ -38,7 +38,7 @@
             var viewModel = new TennisViewModel(sportsbook, new ResultSetting());
 
             // Act
-            var homeAwaySet = viewModel.GetHomeAwaySet(5, Arg.Any<bool>());
+            var homeAwaySet = viewModel.GetHomeAwaySet(5, false);
 
             // Assert
             Assert.AreEqual("-", homeAwaySet);
@@ -56,7 +56,7 @@
             var viewModel = new TennisViewModel(sportsbook, new ResultSetting());
 
             // Act
-            var homeAwaySet = viewModel.GetHomeAwaySet(5, Arg.Any<bool>());
+            var homeAwaySet = viewModel.GetHomeAwaySet(5, false);
 
             // Assert
             Assert.AreEqual("-", homeAwaySet);
@@ -143,7 +143,7 @@
             var viewModel = new TennisViewModel(sportsbook, new ResultSetting());
 
             // Act
-            var homeAwaySet = viewModel.GetHomeAwaySet(index, Arg.Any<bool>());
+            var homeAwaySet = viewModel.GetHomeAwaySet(index, false);
 
             // Assert
             Assert.AreEqual("Refund", homeAwaySet);
@@ -170,7 +170,7 @@
             var viewModel = new TennisViewModel(sportsbook, new ResultSetting());
 
             // Act
-            var homeAwaySet = viewModel.GetHomeAwaySet(index, Arg.Any<bool>());
+            var homeAwaySet = viewModel.GetHomeAwaySet(index, false);
 
             // Assert
             Assert.AreEqual("Refund HT", homeAwaySet);
@@ -197,7 +197,7 @@
             var viewModel = new TennisViewModel(sportsbook, new ResultSetting());
 
             // Act
-            var homeAwaySet = viewModel.GetHomeAwaySet(index, Arg.Any<bool>());
+            var homeAwaySet = viewModel.GetHomeAwaySet(index, false);
 
             // Assert
             Assert.AreEqual("Refund FT", homeAwaySet);
@@ -224,7 +224,7 @@
             var viewModel = new TennisViewModel(sportsbook, new ResultSetting());
 
             // Act
-            var homeAwaySet = viewModel.GetHomeAwaySet(index, Arg.Any<bool>());
+            var homeAwaySet = viewModel.GetHomeAwaySet(index, false);
 
             // Assert
             Assert.AreEqual("-", homeAwaySet);
@@ -234,13 +234,13 @@
         public void VisibleSet_FromBetIDIsNotInteger_ThrowsException()
         {
             // Arrange
-            var viewModel = new TennisViewModel(Arg.Any<Sportsbook>(), new ResultSetting());
+            var viewModel = new TennisViewModel(new Sportsbook(), new ResultSetting());
 
             // Act
-            TestDelegate testDelegate = () => viewModel.VisibleSet(Arg.Any<int>());
+            TestDelegate testDelegate = () => viewModel.VisibleSet(0);
 
             // Assert
-            Assert.Throws<NullReferenceException>(testDelegate);
+            Assert.Throws<ArgumentNullException>(testDelegate);
         }
 
         [TestCase(-1)]

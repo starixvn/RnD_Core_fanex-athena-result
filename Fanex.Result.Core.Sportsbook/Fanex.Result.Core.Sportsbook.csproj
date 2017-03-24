@@ -95,6 +95,7 @@
     <Compile Include="ViewModels\BadmintonViewModel.cs" />
     <Compile Include="ViewModels\BaseBallViewModel.cs" />
     <Compile Include="ViewModels\BaseDetail\GameDetailItem.cs" />
+    <Compile Include="ViewModels\BaseDetail\IResultDetail.cs" />
     <Compile Include="ViewModels\BasketBallDetail\BasketBallDetailViewModel.cs" />
     <Compile Include="ViewModels\BasketBallViewModel.cs" />
     <Compile Include="ViewModels\BilliardViewModel.cs" />

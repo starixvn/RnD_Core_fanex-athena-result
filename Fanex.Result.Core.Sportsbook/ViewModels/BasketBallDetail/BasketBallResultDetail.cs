@@ -23,7 +23,7 @@
         {
             var item = base.CreateGameDetailItem(detailItem);
 
-            if (BasketBalResourceID.MoreResultResourceIDs.Contains(detailItem.ResourceId))
+            if (BasketBallResourceID.MoreResultResourceIDs.Contains(detailItem.ResourceId))
             {
                 var betTypeId = detailItem?.ResourceId?.Substring(0, 3);
                 var resourceId = detailItem?.ResourceId?.Remove(0, 3);
@@ -38,7 +38,7 @@
         {
             base.MapGameValueByPattern(item, detailItem);
 
-            if (BasketBalResourceID.MoreResultResourceIDs.Contains(detailItem.ResourceId))
+            if (BasketBallResourceID.MoreResultResourceIDs.Contains(detailItem.ResourceId))
             {
                 var isHomeTeam = detailItem?.HomeValue?.ToLowerInvariant() == "h";
                 var isNone = detailItem?.HomeValue?.ToLowerInvariant() == "n";

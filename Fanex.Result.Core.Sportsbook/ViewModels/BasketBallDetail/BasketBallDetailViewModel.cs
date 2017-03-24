@@ -1,14 +1,14 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.ViewModels.BasketBallDetail
 {
-    using System.Collections.Generic;
+    using Base.Extension;
 
     public class BasketBallDetailViewModel
     {
-        public BasketBallDetailViewModel(IList<BasketBallGameDetailItem> detailItems)
+        public BasketBallDetailViewModel(SafeList<BasketBallGameDetailItem> detailItems)
         {
             DetailItems = detailItems;
         }
 
-        public IList<BasketBallGameDetailItem> DetailItems { get; }
+        public SafeList<BasketBallGameDetailItem> DetailItems { get; }
     }
 }

@@ -1,12 +1,14 @@
 ﻿namespace MvcExample.Controllers
 {
     using System;
+    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
     using System.IO;
     using System.Linq;
     using System.Threading;
     using System.Web.Mvc;
+    using Fanex.Common.Extensions;
     using Fanex.Result.Core;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.GoldDeluxe.DTO;
@@ -129,6 +131,12 @@
                         LeagueID = leagueId,
                         MoveBetsDay = _resultService.GetBalanceUpDay().MoveBetsDay
                     });
+
+                    if (sportId == Convert.ToInt16(SportType.BasketBall))
+                    {
+                        dataSb.ForEach(s => s.GameDetails = s.GameDetails.Concat(BasketBallGameDetails).ToList());
+                    }
+
                     htmlResult = ResultEngine.HtmlParser(dataSb.ToList(), resultSetting);
                     break;
             }
@@ -150,6 +158,9 @@
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(languageCode);
 
             var detailedData = _resultService.GetGameDetail(new GetGameDetailCriteria { MatchId = matchId });
+
+            detailedData.GameDetails = detailedData.GameDetails.Concat(BasketBallGameDetails).ToList();
+
             if (detailedData != null && detailedData.MatchId > 0)
             {
                 return ResultEngine.HtmlGameDetailParser(
@@ -260,6 +271,11 @@
                         MoveBetsDay = _resultService.GetBalanceUpDay().MoveBetsDay
                     });
 
+                    if (sportId == Convert.ToInt16(SportType.BasketBall))
+                    {
+                        dataSb.ForEach(s => s.GameDetails = s.GameDetails.Concat(BasketBallGameDetails).ToList());
+                    }
+
                     excelResult = ResultEngine.ExcelParser<Sportsbook>(dataSb.ToList(), resultSetting);
 
                     break;
@@ -283,5 +299,194 @@
             criteria.MoveBetsDay = _resultService.GetBalanceUpDay().MoveBetsDay;
             return Json(_resultService.GetLeagues(criteria), JsonRequestBehavior.AllowGet);
         }
+
+        public static readonly List<GameDetail> BasketBallGameDetails = new List<GameDetail>
+            {
+               new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "Q1",
+                    HomeValue = "10",
+                    AwayValue = "8",
+                },
+               new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "Q2",
+                    HomeValue = "12",
+                    AwayValue = "19",
+                },
+               new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "Q3",
+                    HomeValue = "15",
+                    AwayValue = "20",
+                    SettlementStatusID = 1
+                },
+               new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "Q4",
+                    HomeValue = "17",
+                    AwayValue = "8",
+                    SettlementStatusID = 1
+                },
+               new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "OT",
+                    HomeValue = "5",
+                    AwayValue = "3",
+                },
+
+               new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "604",
+                    HomeValue = "h",
+                    AwayValue = "",
+                    SettlementStatusID = 1
+                },
+
+               new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "605",
+                    HomeValue = "a",
+                    AwayValue = "",
+                },
+               new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "60620",
+                    HomeValue = "h",
+                    AwayValue = "",
+                },
+               new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "60625",
+                    HomeValue = "h",
+                    AwayValue = "",
+                },
+               new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "60630",
+                    HomeValue = "h",
+                    AwayValue = "",
+                },
+               new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "60720",
+                    HomeValue = "h",
+                    AwayValue = "",
+                },
+               new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "60725",
+                    HomeValue = "h",
+                    AwayValue = "",
+                },
+               new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "60730",
+                    HomeValue = "h",
+                    AwayValue = "",
+                },
+                new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "6130110",
+                    HomeValue = "h",
+                    AwayValue = "",
+                },
+                new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "6130115",
+                    HomeValue = "h",
+                    AwayValue = "",
+                },
+                new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "6130120",
+                    HomeValue = "h",
+                    AwayValue = "",
+                },
+                new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "6130410",
+                    HomeValue = "h",
+                    AwayValue = "",
+                },
+                new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "6130415",
+                    HomeValue = "h",
+                    AwayValue = "",
+                },
+                new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "6130420",
+                    HomeValue = "h",
+                    AwayValue = "",
+                },
+                new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "61701",
+                    HomeValue = "h",
+                    AwayValue = "",
+                },
+                new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "61702",
+                    HomeValue = "n",
+                    AwayValue = "",
+                },
+                new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "61703",
+                    HomeValue = "a",
+                    AwayValue = "",
+                },
+                 new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "6130310",
+                    HomeValue = "h",
+                    AwayValue = "",
+                },
+                 new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "6130315",
+                    HomeValue = "h",
+                    AwayValue = "",
+                },
+                 new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "6130320",
+                    HomeValue = "h",
+                    AwayValue = "",
+                },
+                 new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "6130210",
+                    HomeValue = "h",
+                    AwayValue = "",
+                },
+                 new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "6130215",
+                    HomeValue = "h",
+                    AwayValue = "",
+                },
+                 new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "6130220",
+                    HomeValue = "h",
+                    AwayValue = "",
+                },
+                 new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "00",
+                    HomeValue = "59",
+                    AwayValue = "58",
+                },
+                 new GameDetail {
+                    MatchId = 22056655,
+                    ResourceId = "01",
+                    HomeValue = "22",
+                    AwayValue = "27",
+                },
+            };
     }
 }

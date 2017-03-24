@@ -60,7 +60,7 @@
                 exportRow.GetHomeAwaySet(1, true),
                 exportRow.GetHomeAwaySet(2, true),
                 exportRow.GetHomeAwaySet(3, true),
-                exportRow.QTHome,
+                exportRow.OTHome,
                 exportRow.HTHomeScore,
                 exportRow.FinalHomeScore,
                 exportRow.EventStatus);
@@ -76,7 +76,7 @@
                 exportRow.GetHomeAwaySet(1, false),
                 exportRow.GetHomeAwaySet(2, false),
                 exportRow.GetHomeAwaySet(3, false),
-                exportRow.QTAway,
+                exportRow.OTAway,
                 exportRow.HTAwayScore,
                 exportRow.FinalAwayScore,
                 exportRow.EventStatus);

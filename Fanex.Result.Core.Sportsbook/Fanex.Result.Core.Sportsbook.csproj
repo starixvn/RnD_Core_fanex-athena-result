@@ -62,6 +62,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataDomain\BasketBalResourceID.cs" />
     <Compile Include="DataDomain\BetTypeID.cs" />
     <Compile Include="DataDomain\GameResourceID.cs" />
     <Compile Include="DataDomain\GameResources.cs" />
@@ -93,17 +94,22 @@
     <Compile Include="Utilities\SportsbookRefDataHelper.cs" />
     <Compile Include="ViewModels\BadmintonViewModel.cs" />
     <Compile Include="ViewModels\BaseBallViewModel.cs" />
+    <Compile Include="ViewModels\BaseDetail\GameDetailItem.cs" />
+    <Compile Include="ViewModels\BasketBallDetail\BasketBallDetailViewModel.cs" />
     <Compile Include="ViewModels\BasketBallViewModel.cs" />
     <Compile Include="ViewModels\BilliardViewModel.cs" />
+    <Compile Include="ViewModels\BasketBallDetail\BasketBallGameDetailItem.cs" />
+    <Compile Include="ViewModels\BaseDetail\IGameDetailItem.cs" />
     <Compile Include="ViewModels\MuayThaiViewModel.cs" />
     <Compile Include="ViewModels\HockeyViewModel.cs" />
     <Compile Include="ViewModels\OtherViewModel.cs" />
     <Compile Include="ViewModels\OutrightViewModel.cs" />
     <Compile Include="ViewModels\ParlayViewModel.cs" />
-    <Compile Include="ViewModels\SoccerDetail\ResultDetail.cs" />
-    <Compile Include="ViewModels\SoccerInfo\SoccerDetailInfo.cs" />
-    <Compile Include="ViewModels\SoccerInfo\SoccerDetailViewModel.cs" />
-    <Compile Include="ViewModels\SoccerInfo\SoccerGameDetailItem.cs" />
+    <Compile Include="ViewModels\BaseDetail\BaseResultDetail.cs" />
+    <Compile Include="ViewModels\BasketBallDetail\BasketBallResultDetail.cs" />
+    <Compile Include="ViewModels\SoccerDetail\SoccerDetailInfo.cs" />
+    <Compile Include="ViewModels\SoccerDetail\SoccerDetailViewModel.cs" />
+    <Compile Include="ViewModels\SoccerDetail\SoccerGameDetailItem.cs" />
     <Compile Include="ViewModels\SoccerViewModel.cs" />
     <Compile Include="ViewModels\SportsbookBaseViewModel.cs" />
     <Compile Include="ViewModels\TennisDetail\GameValue.cs" />

@@ -7,6 +7,7 @@ namespace MvcExample.Controllers
     using System.Text;
     using System.Threading;
     using System.Web.Mvc;
+    using Fanex.Common.Extensions;
     using Fanex.Result.Core;
     using Fanex.Result.Core.AllBetCasino;
     using Fanex.Result.Core.Base;
@@ -213,7 +214,15 @@ namespace MvcExample.Controllers
                         BetId = metalModel.BetId,
                         Bettype = metalModel.Bettype
                     });
-               
+
+                    if (sportType == SportType.BasketBall)
+                    {
+                        var resourceId  = metalModel.BetId.ToString().Length > 2 ? metalModel.BetId.ToString().Remove(0, 1) : string.Empty;
+                        var fakeData = NormalReportController.BasketBallGameDetails
+                        .Where(item => item.ResourceId.Contains(metalModel.Bettype.ToString()) && 
+                        item.ResourceId.Contains(resourceId));
+                        data.ForEach(s => s.GameDetails = s.GameDetails.Concat(fakeData).ToList());
+                    }
 
                     if (metalModel.IncludeTestData && metalModel.Bettype >= 221 && metalModel.Bettype <= 225)
                     {

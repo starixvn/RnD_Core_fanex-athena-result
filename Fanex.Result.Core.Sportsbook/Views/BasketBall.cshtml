@@ -1,6 +1,8 @@
 ﻿@using Fanex.Result.Core.Base.ViewModels;
 @using Fanex.Result.Core.Sportsbook.ViewModels;
 @using Fanex.Result.Core.Base.Resources;
+@using Fanex.Result.Core.Sportsbook.ViewModels.BasketBallDetail;
+
 @{
     var viewModel = (RazorBinderModel)Model;
     var colspan = viewModel.VisibleMatchCodeIDColumn ? 11 : 10;
@@ -84,10 +86,20 @@
                         {
                             <td class="cl-s">@item.GetHomeAwaySet(s, true)</td>
                         }
-                        <td class="cl-s">@item.QTHome</td>
+                        <td class="cl-s">@item.OTHome</td>
                         <td class="cl-ht-score">@item.HTHomeScore</td>
                         <td class="cl-f-score">@item.FinalHomeScore</td>
-                        <td rowspan="2" class="cl-status @item.EventStatusBackground">@item.EventStatus</td>
+                        <td rowspan="2" class="cl-status @item.EventStatusBackground">
+                            @item.EventStatus
+                            @if (item.VisibleDetailedLink && !viewModel.IsPopUp)
+                            {
+                                <div>
+                                    <span class="detail-link" data-match-id="@item.MatchId" data-league-id="@item.LeagueId">
+                                        @LangResource.Details
+                                    </span>
+                                </div>
+                            }
+                        </td>
                     </tr>
                     <tr class="data @item.Color(index, "even", "odd")">
                         @if (viewModel.VisibleMatchCodeIDColumn)
@@ -99,7 +111,7 @@
                         {
                             <td class="cl-s">@item.GetHomeAwaySet(s, false)</td>
                         }
-                        <td class="cl-s">@item.QTAway</td>
+                        <td class="cl-s">@item.OTAway</td>
                         <td class="cl-ht-score">@item.HTAwayScore</td>
                         <td class="cl-f-score">@item.FinalAwayScore</td>
                     </tr>
@@ -119,4 +131,28 @@
 @if (viewModel.VisibleFreeHeader)
 {
     @Raw("</div>")
+}
+
+@if (viewModel.VisibleDetailResult)
+{
+    var mainItem = viewModel.Data[0].Data[0] as BasketBallViewModel;
+    <br />
+    <table class="fn-rs popup">
+        <thead>
+            <tr class="header">
+                <th class="cl-match">@LangResource.BetType</th>
+                <th class="cl-result home">@LangResource.Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (BasketBallGameDetailItem item in mainItem.MoreResultDetailItems)
+            {
+                <tr>
+                    <td>@item.ResourceName</td>
+                    <td>@item.HomeValue</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
 }

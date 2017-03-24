@@ -11,7 +11,7 @@
 
     public class BaseResultDetail<T> : BaseViewModel where T : IGameDetailItem, new()
     {
-        protected BaseResultDetail(
+        public BaseResultDetail(
             Sportsbook sportsbook,
             ResultSetting setting,
             ISportsbookRefDataHelper refDataHelper = null,
@@ -28,11 +28,11 @@
 
         protected ISportsbookHelperWraper SportsBooksHelper { get; }
 
-        protected string HomeTeam
+        public string HomeTeam
             => RefDataHelper.GetTeamName(Sportsbook.HomeId, GetSupportedLanguage, string.Empty) +
                 (Sportsbook.IsNeutral ? LangResource.IsNeutral : string.Empty);
 
-        protected string AwayTeam
+        public string AwayTeam
             => RefDataHelper.GetTeamName(Sportsbook.AwayId, GetSupportedLanguage, string.Empty);
 
         public virtual SafeList<T> GetDetailItems()
@@ -62,16 +62,19 @@
                     break;
 
                 case EventStatusID.RefundSettlementStatusID:
-                    item.HomeValue = item.AwayValue = LangResource.Refund;
+                    item.HomeValue = LangResource.Refund;
+                    item.AwayValue = LangResource.Refund;
                     break;
 
                 case EventStatusID.RefundHTSettlementStatusID:
-                    item.HomeValue = item.AwayValue = LangResource.Refundht;
+                    item.HomeValue = LangResource.Refundht;
+                    item.AwayValue = LangResource.Refundht;
 
                     break;
 
                 case EventStatusID.RefundFTSettlementStatusID:
-                    item.HomeValue = item.AwayValue = LangResource.Refundft;
+                    item.HomeValue = LangResource.Refundft;
+                    item.AwayValue = LangResource.Refundft;
 
                     break;
             }

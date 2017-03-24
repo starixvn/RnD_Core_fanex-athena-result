@@ -145,7 +145,7 @@ var normalReport = (function () {
                 },
                 success: function (data) {
                     detailPopUp.html(data);
-                    detailPopUp.dialog({ width: "750px" });
+                    detailPopUp.dialog({ width: "60%" });
                     invokeLoadingMsg(false);
                 },
                 error: function () {

@@ -64,9 +64,14 @@
         {
             var result = GetResultFromGameDetails(BasketBallResourceID.OverTime, isHome);
 
-            result = string.IsNullOrEmpty(result) ? GetResultFromBetStatus(4, isHome) : result;
+            if (!string.IsNullOrEmpty(result))
+            {
+                return result;
+            }
 
-            return Convert.ToInt32(result) > 0 ? result : ConstantValue.Hyphen;
+            result = GetResultFromBetStatus(4, isHome);
+
+            return (result.All(char.IsDigit) && Convert.ToInt32(result) > 0) ? result : ConstantValue.Hyphen;
         }
 
         private string GetTotalScore(bool isHome, bool isFinal)

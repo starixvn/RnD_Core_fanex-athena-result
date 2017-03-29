@@ -179,23 +179,80 @@
             Assert.AreEqual(expectedHomeAwaySet, homeAwaySet);
         }
 
-        [Test]
-        public void OTHome_HasResultDetailData_ReturnExpectedValue()
+        [TestCase("10")]
+        [TestCase("Refund")]
+        [TestCase("RefundHT")]
+        [TestCase("RefundFT")]
+        public void GetHomeAwaySet_HasResultDetailData_ReturnExpectedValue(string expectedValue)
         {
             // Arrange
-            var detailItem = new BasketBallGameDetailItem { ResourceID = "OT", HomeValue = "10" };
+            var detailItem = new BasketBallGameDetailItem { ResourceID = "Q1", HomeValue = expectedValue };
             _resultDetail.GetDetailItems().Returns(new SafeList<BasketBallGameDetailItem> { detailItem });
             var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
 
             // Act
-            var expectedValue = viewModel.OTHome;
+            var actualValue = viewModel.GetHomeAwaySet(0, true);
 
             // Assert
-            Assert.AreEqual(expectedValue, "10");
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestCase(0, true)]
+        [TestCase(1, false)]
+        [TestCase(2, true)]
+        [TestCase(3, false)]
+        public void GetHomeAwaySet_HasNoResultDetailData_BetStatusIsRefund_ShowHyphen(int setIndex, bool isHome)
+        {
+            // Arrange
+            _sportsbook.BetStatus = "Refund;";
+            _resultDetail.GetDetailItems().Returns(new SafeList<BasketBallGameDetailItem> { });
+            var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
+
+            // Act
+            var actualValue = viewModel.GetHomeAwaySet(setIndex, isHome);
+
+            // Assert
+            Assert.AreEqual("-", actualValue);
+        }
+
+        [TestCase(0, true)]
+        [TestCase(1, false)]
+        [TestCase(2, true)]
+        [TestCase(3, false)]
+        public void GetHomeAwaySet_HasNoResultDetailData_BetStatusHasValue_ShowValue(int setIndex, bool isHome)
+        {
+            // Arrange
+            _sportsbook.BetStatus = ";0-0,0-0,0-0,0-0,10-3";
+            _resultDetail.GetDetailItems().Returns(new SafeList<BasketBallGameDetailItem> { });
+            var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
+
+            // Act
+            var actualValue = viewModel.GetHomeAwaySet(setIndex, isHome);
+
+            // Assert
+            Assert.AreEqual("0", actualValue);
+        }
+
+        [TestCase("10")]
+        [TestCase("Refund")]
+        [TestCase("RefundHT")]
+        [TestCase("RefundFT")]
+        public void OTHome_HasResultDetailData_ReturnExpectedValue(string expectedValue)
+        {
+            // Arrange
+            var detailItem = new BasketBallGameDetailItem { ResourceID = "OT", HomeValue = expectedValue };
+            _resultDetail.GetDetailItems().Returns(new SafeList<BasketBallGameDetailItem> { detailItem });
+            var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
+
+            // Act
+            var actualValue = viewModel.OTHome;
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
         }
 
         [Test]
-        public void OTHome_NoResultDetailData_GetFromBetStatus()
+        public void OTHome_NoResultDetailData_ValueIsGreaterThanZero_ShowValue()
         {
             // Arrange
             _sportsbook.BetStatus = ";1-2,3-1,2-3,1-2,10-3";
@@ -203,29 +260,47 @@
             var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
 
             // Act
-            var expectedValue = viewModel.OTHome;
+            var actualValue = viewModel.OTHome;
 
             // Assert
-            Assert.AreEqual(expectedValue, "10");
+            Assert.AreEqual("10", actualValue);
         }
 
         [Test]
-        public void OTAway_HasResultDetailData_ReturnExpectedValue()
+        public void OTHome_NoResultDetailData_ValueIsEqualZero_ShowHyphen()
         {
             // Arrange
-            var detailItem = new BasketBallGameDetailItem { ResourceID = "OT", AwayValue = "10" };
+            _sportsbook.BetStatus = ";1-2,3-1,2-3,1-2,0-0";
+            _resultDetail.GetDetailItems().Returns(new SafeList<BasketBallGameDetailItem>());
+            var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
+
+            // Act
+            var actualValue = viewModel.OTHome;
+
+            // Assert
+            Assert.AreEqual("-", actualValue);
+        }
+
+        [TestCase("10")]
+        [TestCase("Refund")]
+        [TestCase("RefundHT")]
+        [TestCase("RefundFT")]
+        public void OTAway_HasResultDetailData_ReturnExpectedValue(string expectedValue)
+        {
+            // Arrange
+            var detailItem = new BasketBallGameDetailItem { ResourceID = "OT", AwayValue = expectedValue };
             _resultDetail.GetDetailItems().Returns(new SafeList<BasketBallGameDetailItem> { detailItem });
             var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
 
             // Act
-            var expectedValue = viewModel.OTAway;
+            var actualValue = viewModel.OTAway;
 
             // Assert
-            Assert.AreEqual(expectedValue, "10");
+            Assert.AreEqual(actualValue, expectedValue);
         }
 
         [Test]
-        public void OTAway_NoResultDetailData_GetFromBetStatus()
+        public void OTAway_NoResultDetailData_ValueIsGreaterThanZero_ShowValue()
         {
             // Arrange
             _sportsbook.BetStatus = ";1-2,3-1,2-3,1-2,10-3";
@@ -233,29 +308,47 @@
             var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
 
             // Act
-            var expectedValue = viewModel.OTAway;
+            var actualValue = viewModel.OTAway;
 
             // Assert
-            Assert.AreEqual(expectedValue, "3");
+            Assert.AreEqual("3", actualValue);
         }
 
         [Test]
-        public void HTHomeScore_HasResultDetailData_ReturnExpectedValue()
+        public void OTAway_NoResultDetailData_ValueIsEqualZero_ShowHyphen()
         {
             // Arrange
-            var detailItem = new BasketBallGameDetailItem { ResourceID = "01", HomeValue = "10" };
+            _sportsbook.BetStatus = ";1-2,3-1,2-3,1-2,10-0";
+            _resultDetail.GetDetailItems().Returns(new SafeList<BasketBallGameDetailItem>());
+            var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
+
+            // Act
+            var actualValue = viewModel.OTAway;
+
+            // Assert
+            Assert.AreEqual("-", actualValue);
+        }
+
+        [TestCase("10")]
+        [TestCase("Refund")]
+        [TestCase("RefundHT")]
+        [TestCase("RefundFT")]
+        public void HTHomeScore_HasResultDetailData_ReturnExpectedValue(string expectedValue)
+        {
+            // Arrange
+            var detailItem = new BasketBallGameDetailItem { ResourceID = "01", HomeValue = expectedValue };
             _resultDetail.GetDetailItems().Returns(new SafeList<BasketBallGameDetailItem> { detailItem });
             var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
 
             // Act
-            var expectedValue = viewModel.HTHomeScore;
+            var actualValue = viewModel.HTHomeScore;
 
             // Assert
-            Assert.AreEqual(expectedValue, "10");
+            Assert.AreEqual(expectedValue, actualValue);
         }
 
         [Test]
-        public void HTHomeScore_NoResultDetailData_GetFromSportsbookDTO()
+        public void HTHomeScore_NoResultDetailData_HtHomeScoreHasValue_ShowValue()
         {
             // Arrange
             _sportsbook.HtHomeScore = 10;
@@ -263,29 +356,47 @@
             var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
 
             // Act
-            var expectedValue = viewModel.HTHomeScore;
+            var actualValue = viewModel.HTHomeScore;
 
             // Assert
-            Assert.AreEqual(expectedValue, "10");
+            Assert.AreEqual("10", actualValue);
         }
 
         [Test]
-        public void HTAwayScore_HasResultDetailData_ReturnExpectedValue()
+        public void HTHomeScore_NoResultDetailData_HtHomeScoreHasNoValue_ShowHyphen()
         {
             // Arrange
-            var detailItem = new BasketBallGameDetailItem { ResourceID = "01", AwayValue = "10" };
+            _sportsbook.HtHomeScore = null;
+            _resultDetail.GetDetailItems().Returns(new SafeList<BasketBallGameDetailItem>());
+            var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
+
+            // Act
+            var actualValue = viewModel.HTHomeScore;
+
+            // Assert
+            Assert.AreEqual("-", actualValue);
+        }
+
+        [TestCase("10")]
+        [TestCase("Refund")]
+        [TestCase("RefundHT")]
+        [TestCase("RefundFT")]
+        public void HTAwayScore_HasResultDetailData_ReturnExpectedValue(string expectedValue)
+        {
+            // Arrange
+            var detailItem = new BasketBallGameDetailItem { ResourceID = "01", AwayValue = expectedValue };
             _resultDetail.GetDetailItems().Returns(new SafeList<BasketBallGameDetailItem> { detailItem });
             var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
 
             // Act
-            var expectedValue = viewModel.HTAwayScore;
+            var actualValue = viewModel.HTAwayScore;
 
             // Assert
-            Assert.AreEqual(expectedValue, "10");
+            Assert.AreEqual(expectedValue, actualValue);
         }
 
         [Test]
-        public void HTAwayScore_NoResultDetailData_GetFromSportsbookDTO()
+        public void HTAwayScore_NoResultDetailData_HtAwayScoreHasValue_ShowValue()
         {
             // Arrange
             _sportsbook.HtAwayScore = 10;
@@ -293,29 +404,47 @@
             var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
 
             // Act
-            var expectedValue = viewModel.HTAwayScore;
+            var actualValue = viewModel.HTAwayScore;
 
             // Assert
-            Assert.AreEqual(expectedValue, "10");
+            Assert.AreEqual("10", actualValue);
         }
 
         [Test]
-        public void FinalHomeScore_HasResultDetailData_ReturnExpectedValue()
+        public void HTAwayScore_NoResultDetailData_HtAwayScoreHasNoValue_ShowHyphen()
         {
             // Arrange
-            var detailItem = new BasketBallGameDetailItem { ResourceID = "00", HomeValue = "10" };
+            _sportsbook.HtAwayScore = null;
+            _resultDetail.GetDetailItems().Returns(new SafeList<BasketBallGameDetailItem>());
+            var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
+
+            // Act
+            var actualValue = viewModel.HTAwayScore;
+
+            // Assert
+            Assert.AreEqual("-", actualValue);
+        }
+
+        [TestCase("10")]
+        [TestCase("Refund")]
+        [TestCase("RefundHT")]
+        [TestCase("RefundFT")]
+        public void FinalHomeScore_HasResultDetailData_ReturnExpectedValue(string expectedValue)
+        {
+            // Arrange
+            var detailItem = new BasketBallGameDetailItem { ResourceID = "00", HomeValue = expectedValue };
             _resultDetail.GetDetailItems().Returns(new SafeList<BasketBallGameDetailItem> { detailItem });
             var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
 
             // Act
-            var expectedValue = viewModel.FinalHomeScore;
+            var actualValue = viewModel.FinalHomeScore;
 
             // Assert
-            Assert.AreEqual(expectedValue, "10");
+            Assert.AreEqual(expectedValue, actualValue);
         }
 
         [Test]
-        public void FinalHomeScore_NoResultDetailData_GetFromSportsbookDTO()
+        public void FinalHomeScore_NoResultDetailData_FinalHomeScoreHasValue_ShowValue()
         {
             // Arrange
             _sportsbook.FinalHomeScore = 10;
@@ -323,29 +452,47 @@
             var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
 
             // Act
-            var expectedValue = viewModel.FinalHomeScore;
+            var actualValue = viewModel.FinalHomeScore;
 
             // Assert
-            Assert.AreEqual(expectedValue, "10");
+            Assert.AreEqual("10", actualValue);
         }
 
         [Test]
-        public void FinalAwayScore_HasResultDetailData_ReturnExpectedValue()
+        public void FinalHomeScore_NoResultDetailData_FinalHomeScoreHasNoValue_ShowHyphen()
         {
             // Arrange
-            var detailItem = new BasketBallGameDetailItem { ResourceID = "00", AwayValue = "10" };
+            _sportsbook.FinalHomeScore = null;
+            _resultDetail.GetDetailItems().Returns(new SafeList<BasketBallGameDetailItem>());
+            var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
+
+            // Act
+            var actualValue = viewModel.FinalHomeScore;
+
+            // Assert
+            Assert.AreEqual("-", actualValue);
+        }
+
+        [TestCase("10")]
+        [TestCase("Refund")]
+        [TestCase("RefundHT")]
+        [TestCase("RefundFT")]
+        public void FinalAwayScore_HasResultDetailData_ReturnExpectedValue(string expectedValue)
+        {
+            // Arrange
+            var detailItem = new BasketBallGameDetailItem { ResourceID = "00", AwayValue = expectedValue };
             _resultDetail.GetDetailItems().Returns(new SafeList<BasketBallGameDetailItem> { detailItem });
             var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
 
             // Act
-            var expectedValue = viewModel.FinalAwayScore;
+            var actualValue = viewModel.FinalAwayScore;
 
             // Assert
-            Assert.AreEqual(expectedValue, "10");
+            Assert.AreEqual(expectedValue, actualValue);
         }
 
         [Test]
-        public void FinalAwayScore_NoResultDetailData_GetFromSportsbookDTO()
+        public void FinalAwayScore_NoResultDetailData_FinalAwayScoreHasValue_ShowValue()
         {
             // Arrange
             _sportsbook.FinalAwayScore = 10;
@@ -353,10 +500,25 @@
             var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
 
             // Act
-            var expectedValue = viewModel.FinalAwayScore;
+            var actualValue = viewModel.FinalAwayScore;
 
             // Assert
-            Assert.AreEqual(expectedValue, "10");
+            Assert.AreEqual("10", actualValue);
+        }
+
+        [Test]
+        public void FinalAwayScore_NoResultDetailData_FinalAwayScoreHasNoValue_ShowHyphen()
+        {
+            // Arrange
+            _sportsbook.FinalAwayScore = null;
+            _resultDetail.GetDetailItems().Returns(new SafeList<BasketBallGameDetailItem>());
+            var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
+
+            // Act
+            var actualValue = viewModel.FinalAwayScore;
+
+            // Assert
+            Assert.AreEqual("-", actualValue);
         }
 
         [Test, TestCaseSource("MoreResultResourceIdsTestCase")]

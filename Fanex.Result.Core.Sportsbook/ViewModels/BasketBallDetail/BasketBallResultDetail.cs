@@ -2,6 +2,7 @@
 {
     using System.Linq;
     using Base;
+    using Base.DataDomain;
     using Base.Resources;
     using BaseDetail;
     using DataDomain;
@@ -34,19 +35,37 @@
             return MapGameValueByStatusId(item, detailItem);
         }
 
+        protected override BasketBallGameDetailItem MapGameValueByStatusId(BasketBallGameDetailItem item, GameDetail detailItem)
+        {
+            item = base.MapGameValueByStatusId(item, detailItem);
+
+            if (detailItem.SettlementStatusID == EventStatusID.RunningSettlementStatusID)
+            {
+                item.HomeValue = ConstantValue.Hyphen;
+                item.AwayValue = ConstantValue.Hyphen;
+            }
+
+            return item;
+        }
+
         protected override void MapGameValueByPattern(BasketBallGameDetailItem item, GameDetail detailItem)
         {
             base.MapGameValueByPattern(item, detailItem);
 
             if (BasketBallResourceID.MoreResultResourceIDs.Contains(detailItem.ResourceId))
             {
-                var isHomeTeam = detailItem?.HomeValue?.ToLowerInvariant() == "h";
-                var isNone = detailItem?.HomeValue?.ToLowerInvariant() == "n";
-
-                var result = isHomeTeam ? HomeTeam : AwayTeam;
-
-                item.HomeValue = isNone ? LangResource.None : result;
+                MapGameValueForMoreResult(item, detailItem);
             }
+        }
+
+        private void MapGameValueForMoreResult(BasketBallGameDetailItem item, GameDetail detailItem)
+        {
+            var isHomeTeam = detailItem?.HomeValue?.ToLowerInvariant() == "h";
+            var isNone = detailItem?.HomeValue?.ToLowerInvariant() == "n";
+
+            var result = isHomeTeam ? HomeTeam : AwayTeam;
+
+            item.HomeValue = isNone ? LangResource.None : result;
         }
     }
 }

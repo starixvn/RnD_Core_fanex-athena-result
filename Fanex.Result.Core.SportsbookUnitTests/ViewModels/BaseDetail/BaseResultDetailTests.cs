@@ -101,27 +101,10 @@
         }
 
         [Test]
-        public void HomeTeam_WhenIsNeutral_ShowNeutralText()
+        public void HomeTeam_Always_ShowHomeTeamName()
         {
             // Arrange
             _sportsBook.HomeId = 1;
-            _sportsBook.IsNeutral = true;
-            _setting.LanguageCode = ConstantValue.EnglishLanguageCode;
-            _refDataHelper.GetTeamName(_sportsBook.HomeId, "en", string.Empty).Returns("Home Team");
-
-            // Act
-            var resultDetail = new BaseResultDetail<GameDetailItem>(_sportsBook, _setting, _refDataHelper, _sportsBookHelper);
-
-            // Assert
-            Assert.AreEqual("Home Team(N)", resultDetail.HomeTeam);
-        }
-
-        [Test]
-        public void HomeTeam_WhenIsNotNeutral_ShowHomeTeamOnly()
-        {
-            // Arrange
-            _sportsBook.HomeId = 1;
-            _sportsBook.IsNeutral = false;
             _setting.LanguageCode = ConstantValue.EnglishLanguageCode;
             _refDataHelper.GetTeamName(_sportsBook.HomeId, "en", string.Empty).Returns("Home Team");
 

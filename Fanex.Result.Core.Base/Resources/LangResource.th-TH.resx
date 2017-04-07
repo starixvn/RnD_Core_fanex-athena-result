@@ -294,4 +294,7 @@
   <data name="Abandoned2h" xml:space="preserve">
     <value>ยกเลิกการแข่งขันครึ่งหลัง</value>
   </data>
+  <data name="BetType" xml:space="preserve">
+    <value>ประเภทการเดิมพัน</value>
+  </data>
 </root>

@@ -300,4 +300,7 @@
   <data name="Abandoned2h" xml:space="preserve">
     <value>在下半场中止</value>
   </data>
+  <data name="BetType" xml:space="preserve">
+    <value>投注类别</value>
+  </data>
 </root>

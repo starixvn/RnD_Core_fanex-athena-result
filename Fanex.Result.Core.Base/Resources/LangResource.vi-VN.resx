@@ -216,4 +216,7 @@
   <data name="Abandoned2h" xml:space="preserve">
     <value>Huỷ vào hiệp 2</value>
   </data>
+  <data name="BetType" xml:space="preserve">
+    <value>Loại cược</value>
+  </data>
 </root>

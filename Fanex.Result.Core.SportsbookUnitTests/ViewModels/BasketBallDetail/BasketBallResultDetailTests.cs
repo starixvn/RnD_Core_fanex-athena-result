@@ -39,6 +39,11 @@
             "61703"
         };
 
+        private static readonly string[] MainResultResourceIdsTestCase =
+        {
+            "00", "01", "02", "Q1", "Q2", "Q3", "Q4", "OT"
+        };
+
         private ISportsbookRefDataHelper _refDataHelper;
         private ISportsbookHelperWraper _sportsBookHelper;
         private Sportsbook _sportsBook;
@@ -87,7 +92,7 @@
         public void MapGameValueByPattern_IsMoreResultResourceId_IsHomeTeam_ShowHomeTeam(string resourceId)
         {
             // Arrange
-            _sportsBook.GameDetails.Add(new GameDetail { ResourceId = resourceId, HomeValue = "h" });
+            _sportsBook.GameDetails.Add(new GameDetail { ResourceId = resourceId, HomeValue = "h", SettlementStatusID = 4 });
             _sportsBook.HomeId = 1;
             _sportsBook.AwayId = 2;
             _refDataHelper.GetTeamName(_sportsBook.HomeId, "en", string.Empty).Returns("Home Team");
@@ -104,7 +109,7 @@
         public void MapGameValueByPattern_IsMoreResultResourceId_IsAwayTeam_ShowAwayTeam(string resourceId)
         {
             // Arrange
-            _sportsBook.GameDetails.Add(new GameDetail { ResourceId = resourceId, HomeValue = "a" });
+            _sportsBook.GameDetails.Add(new GameDetail { ResourceId = resourceId, HomeValue = "a", SettlementStatusID = 4 });
             _sportsBook.HomeId = 1;
             _sportsBook.AwayId = 2;
             _refDataHelper.GetTeamName(_sportsBook.HomeId, "en", string.Empty).Returns("Home Team");
@@ -121,7 +126,7 @@
         public void MapGameValueByPattern_IsMoreResultResourceId_IsNone_ShowNone(string resourceId)
         {
             // Arrange
-            _sportsBook.GameDetails.Add(new GameDetail { ResourceId = resourceId, HomeValue = "n" });
+            _sportsBook.GameDetails.Add(new GameDetail { ResourceId = resourceId, HomeValue = "n", SettlementStatusID = 4 });
             _sportsBook.HomeId = 1;
             _sportsBook.AwayId = 2;
             _refDataHelper.GetTeamName(_sportsBook.HomeId, "en", string.Empty).Returns("Home Team");
@@ -132,6 +137,80 @@
 
             // Assert
             Assert.AreEqual("None", resultDetail.GetDetailItems().First().HomeValue);
+        }
+
+        [Test, TestCaseSource("MainResultResourceIdsTestCase")]
+        public void MapGameValueByPattern_IsMainResultResourceId_HasCompletedSettlementStatusID_ShowValue(string resourceId)
+        {
+            // Arrange
+            _sportsBook.GameDetails.Add(new GameDetail { ResourceId = resourceId, HomeValue = "14", AwayValue = "15", SettlementStatusID = 4 });
+
+            // Act
+            var resultDetail = new BasketBallResultDetail(_sportsBook, _setting, _refDataHelper, _sportsBookHelper);
+
+            // Assert
+            var detailItem = resultDetail.GetDetailItems().First();
+            Assert.IsTrue(detailItem.HomeValue == "14" && detailItem.AwayValue == "15");
+        }
+
+        [Test, TestCaseSource("MainResultResourceIdsTestCase")]
+        public void MapGameValueByPattern_IsMainResultResourceId_HasRunningSettlementStatusID_ShowHyphen(string resourceId)
+        {
+            // Arrange
+            _sportsBook.GameDetails.Add(new GameDetail { ResourceId = resourceId, SettlementStatusID = EventStatusID.RunningSettlementStatusID });
+            _sportsBook.BetStatus = ";0-0,0-0,0-0,0-0,0-0";
+
+            // Act
+            var resultDetail = new BasketBallResultDetail(_sportsBook, _setting, _refDataHelper, _sportsBookHelper);
+
+            // Assert
+            var detailItem = resultDetail.GetDetailItems().First();
+            Assert.IsTrue(detailItem.HomeValue == "-" && detailItem.AwayValue == "-");
+        }
+
+        [Test, TestCaseSource("MainResultResourceIdsTestCase")]
+        public void MapGameValueByPattern_IsMainResultResourceId_HasRefundSettlementStatusID_ShowValue(string resourceId)
+        {
+            // Arrange
+            var expectedResultValue = "Refund";
+            _sportsBook.GameDetails.Add(new GameDetail { ResourceId = resourceId, SettlementStatusID = EventStatusID.RefundSettlementStatusID });
+
+            // Act
+            var resultDetail = new BasketBallResultDetail(_sportsBook, _setting, _refDataHelper, _sportsBookHelper);
+
+            // Assert
+            var detailItem = resultDetail.GetDetailItems().First();
+            Assert.IsTrue(detailItem.HomeValue == expectedResultValue && detailItem.AwayValue == expectedResultValue);
+        }
+
+        [Test, TestCaseSource("MainResultResourceIdsTestCase")]
+        public void MapGameValueByPattern_IsMainResultResourceId_HasRefundHTSettlementStatusID_ShowValue(string resourceId)
+        {
+            // Arrange
+            var expectedResultValue = "Refund HT";
+            _sportsBook.GameDetails.Add(new GameDetail { ResourceId = resourceId, SettlementStatusID = EventStatusID.RefundHTSettlementStatusID });
+
+            // Act
+            var resultDetail = new BasketBallResultDetail(_sportsBook, _setting, _refDataHelper, _sportsBookHelper);
+
+            // Assert
+            var detailItem = resultDetail.GetDetailItems().First();
+            Assert.IsTrue(detailItem.HomeValue == expectedResultValue && detailItem.AwayValue == expectedResultValue);
+        }
+
+        [Test, TestCaseSource("MainResultResourceIdsTestCase")]
+        public void MapGameValueByPattern_IsMainResultResourceId_HasRefundFTSettlementStatusID_ShowValue(string resourceId)
+        {
+            // Arrange
+            var expectedResultValue = "Refund FT";
+            _sportsBook.GameDetails.Add(new GameDetail { ResourceId = resourceId, SettlementStatusID = EventStatusID.RefundFTSettlementStatusID });
+
+            // Act
+            var resultDetail = new BasketBallResultDetail(_sportsBook, _setting, _refDataHelper, _sportsBookHelper);
+
+            // Assert
+            var detailItem = resultDetail.GetDetailItems().First();
+            Assert.IsTrue(detailItem.HomeValue == expectedResultValue && detailItem.AwayValue == expectedResultValue);
         }
     }
 }

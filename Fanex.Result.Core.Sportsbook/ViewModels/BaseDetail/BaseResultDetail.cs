@@ -17,6 +17,7 @@
             ISportsbookRefDataHelper refDataHelper = null,
             ISportsbookHelperWraper sportsBookHelper = null) : base(setting)
         {
+            LanguageCode = setting.LanguageCode;
             Sportsbook = sportsbook;
             RefDataHelper = refDataHelper ?? new SportsbookRefDataHelper();
             SportsBooksHelper = sportsBookHelper ?? new SportsbookHelperWraper();
@@ -29,8 +30,7 @@
         protected ISportsbookHelperWraper SportsBooksHelper { get; }
 
         public string HomeTeam
-            => RefDataHelper.GetTeamName(Sportsbook.HomeId, GetSupportedLanguage, string.Empty) +
-                (Sportsbook.IsNeutral ? LangResource.IsNeutral : string.Empty);
+            => RefDataHelper.GetTeamName(Sportsbook.HomeId, GetSupportedLanguage, string.Empty);
 
         public string AwayTeam
             => RefDataHelper.GetTeamName(Sportsbook.AwayId, GetSupportedLanguage, string.Empty);

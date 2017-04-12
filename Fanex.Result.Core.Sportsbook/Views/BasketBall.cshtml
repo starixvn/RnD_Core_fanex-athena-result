@@ -148,8 +148,10 @@
             @foreach (BasketBallGameDetailItem item in mainItem.MoreResultDetailItems)
             {
                 <tr>
-                    <td>@item.ResourceName</td>
-                    <td>@item.HomeValue</td>
+                    <td class="cl-match">@item.ResourceName</td>
+                    <td class="cl-result @(item.IsHome ? "home" : item.IsAway ? "away": string.Empty)">
+                        @item.HomeValue
+                    </td>
                 </tr>
             }
         </tbody>

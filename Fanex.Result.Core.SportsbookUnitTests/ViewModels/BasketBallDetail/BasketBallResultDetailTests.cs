@@ -106,6 +106,23 @@
         }
 
         [Test, TestCaseSource("MoreResultResourceIdsTestCase")]
+        public void MapGameValueByPattern_IsMoreResultResourceId_IsHomeTeam_DetailIsHomeIsTrue(string resourceId)
+        {
+            // Arrange
+            _sportsBook.GameDetails.Add(new GameDetail { ResourceId = resourceId, HomeValue = "h", SettlementStatusID = 4 });
+            _sportsBook.HomeId = 1;
+            _sportsBook.AwayId = 2;
+            _refDataHelper.GetTeamName(_sportsBook.HomeId, "en", string.Empty).Returns("Home Team");
+            _refDataHelper.GetTeamName(_sportsBook.AwayId, "en", string.Empty).Returns("Away Team");
+
+            // Act
+            var resultDetail = new BasketBallResultDetail(_sportsBook, _setting, _refDataHelper, _sportsBookHelper);
+
+            // Assert
+            Assert.IsTrue(resultDetail.GetDetailItems().First().IsHome);
+        }
+
+        [Test, TestCaseSource("MoreResultResourceIdsTestCase")]
         public void MapGameValueByPattern_IsMoreResultResourceId_IsAwayTeam_ShowAwayTeam(string resourceId)
         {
             // Arrange
@@ -123,6 +140,23 @@
         }
 
         [Test, TestCaseSource("MoreResultResourceIdsTestCase")]
+        public void MapGameValueByPattern_IsMoreResultResourceId_IsAwayTeam_DetailsIsAwayIsTrue(string resourceId)
+        {
+            // Arrange
+            _sportsBook.GameDetails.Add(new GameDetail { ResourceId = resourceId, HomeValue = "a", SettlementStatusID = 4 });
+            _sportsBook.HomeId = 1;
+            _sportsBook.AwayId = 2;
+            _refDataHelper.GetTeamName(_sportsBook.HomeId, "en", string.Empty).Returns("Home Team");
+            _refDataHelper.GetTeamName(_sportsBook.AwayId, "en", string.Empty).Returns("Away Team");
+
+            // Act
+            var resultDetail = new BasketBallResultDetail(_sportsBook, _setting, _refDataHelper, _sportsBookHelper);
+
+            // Assert
+            Assert.IsTrue(resultDetail.GetDetailItems().First().IsAway);
+        }
+
+        [Test, TestCaseSource("MoreResultResourceIdsTestCase")]
         public void MapGameValueByPattern_IsMoreResultResourceId_IsNone_ShowNone(string resourceId)
         {
             // Arrange
@@ -137,6 +171,24 @@
 
             // Assert
             Assert.AreEqual("None", resultDetail.GetDetailItems().First().HomeValue);
+        }
+
+        [Test, TestCaseSource("MoreResultResourceIdsTestCase")]
+        public void MapGameValueByPattern_IsMoreResultResourceId_IsNone_DetailsIsHomeAndIsAwayIsFalse(string resourceId)
+        {
+            // Arrange
+            _sportsBook.GameDetails.Add(new GameDetail { ResourceId = resourceId, HomeValue = "n", SettlementStatusID = 4 });
+            _sportsBook.HomeId = 1;
+            _sportsBook.AwayId = 2;
+            _refDataHelper.GetTeamName(_sportsBook.HomeId, "en", string.Empty).Returns("Home Team");
+            _refDataHelper.GetTeamName(_sportsBook.AwayId, "en", string.Empty).Returns("Away Team");
+
+            // Act
+            var resultDetail = new BasketBallResultDetail(_sportsBook, _setting, _refDataHelper, _sportsBookHelper);
+
+            // Assert
+            var detailItem = resultDetail.GetDetailItems().First();
+            Assert.IsTrue(!detailItem.IsHome && !detailItem.IsAway);
         }
 
         [Test, TestCaseSource("MainResultResourceIdsTestCase")]

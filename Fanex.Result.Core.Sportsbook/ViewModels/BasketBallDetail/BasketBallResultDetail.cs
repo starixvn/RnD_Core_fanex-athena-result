@@ -65,6 +65,8 @@
 
             var result = isHomeTeam ? HomeTeam : AwayTeam;
 
+            item.IsHome = isNone ? false : isHomeTeam;
+            item.IsAway = isNone ? false : !isHomeTeam;
             item.HomeValue = isNone ? LangResource.None : result;
         }
     }

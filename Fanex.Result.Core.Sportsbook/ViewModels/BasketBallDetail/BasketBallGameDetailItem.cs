@@ -4,5 +4,8 @@
 
     public class BasketBallGameDetailItem : GameDetailItem
     {
+        public bool IsHome { get; set; }
+
+        public bool IsAway { get; set; }
     }
 }

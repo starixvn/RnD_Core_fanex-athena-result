@@ -35,5 +35,7 @@
         public bool VisibleFreeHeader { get; set; }
 
         public bool VisibleInternalEventStatus { get; set; }
+
+        public bool EnableCheckScoreCalculated { get; set; }
     }
 }

@@ -63,7 +63,8 @@
                 VisibleMatchCodeIDColumn = showMatchCode,
                 VisibleDetailedLink = true,
                 VisibleFreeHeader = true,
-                HighlightWinnerTeam = true
+                HighlightWinnerTeam = true,
+                EnableCheckScoreCalculated = true
             };
             var htmlResult = string.Empty;
             switch (sportType)
@@ -163,7 +164,8 @@
                         SportType = (SportType)sportId,
                         VisibleMatchCodeIDColumn = showMatchCode,
                         LanguageCode = languageCode,
-                        HighlightWinnerTeam = true
+                        HighlightWinnerTeam = true,
+                        EnableCheckScoreCalculated = true
                     });
             }
 
@@ -196,7 +198,8 @@
                 ExcelTitle = "Result report",
                 ExcelTemplatePath = Server.MapPath(@"~/App_Data/Fanex.Result/"),
                 VisibleMatchCodeIDColumn = showMatchCode,
-                HighlightWinnerTeam = true
+                HighlightWinnerTeam = true,
+                EnableCheckScoreCalculated = true
             };
 
             MemoryStream excelResult = null;

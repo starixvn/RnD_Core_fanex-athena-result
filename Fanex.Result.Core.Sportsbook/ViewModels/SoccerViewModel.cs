@@ -92,6 +92,12 @@
 
         public override bool VisibleGoalRecord => base.VisibleGoalRecord && !string.IsNullOrEmpty(GoalRecord);
 
+        private bool EventStatusIsRefundFT => SPORTBOOK.EventStatus.Equals(ConstantValue.RefundFT, StringComparison.OrdinalIgnoreCase);
+
+        private bool EventStatusIsAbandoned
+            => SPORTBOOK.EventStatus.Equals(ConstantValue.Abandoned1H, StringComparison.OrdinalIgnoreCase)
+                || SPORTBOOK.EventStatus.Equals(ConstantValue.Abandoned2H, StringComparison.OrdinalIgnoreCase);
+
         public string DetailedResult
         {
             get
@@ -176,6 +182,11 @@
 
             if (SPORTBOOK.EventStatus.Equals(ConstantValue.Abandoned1H, StringComparison.OrdinalIgnoreCase) &&
                 isFinalScore)
+            {
+                return ConstantValue.Hyphen;
+            }
+
+            if (ScoreIsNotCalculated(isFinalScore))
             {
                 return ConstantValue.Hyphen;
             }
@@ -646,6 +657,24 @@
             return string.IsNullOrEmpty(goalSequence) ?
                 string.Empty :
                 Regex.Replace(goalSequence.ToUpper(), "[^HA]", string.Empty);
+        }
+
+        private bool ScoreIsNotCalculated(bool isFinalScore)
+        {
+            if (Setting.EnableCheckScoreCalculated && !EventStatusIsAbandoned)
+            {
+                if (!isFinalScore && !SPORTBOOK.IsHTCal && !EventStatusIsRefundFT)
+                {
+                    return true;
+                }
+
+                if (isFinalScore && !SPORTBOOK.Calculate)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         #endregion Utilities

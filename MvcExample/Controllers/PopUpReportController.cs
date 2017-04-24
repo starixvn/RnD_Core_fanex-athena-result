@@ -63,6 +63,7 @@ namespace MvcExample.Controllers
                 VisibleMatchCodeIDColumn = false,
                 VisibleFreeHeader = true,
                 VisibleDetailedLink = true,
+                EnableCheckScoreCalculated = true
             };
             if (setting.IsParlayPopUp)
             {

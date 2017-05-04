@@ -41,6 +41,7 @@
         public const string Quarter1WhichTeamToScoreTheLastBasket = "61701";
         public const string Quarter2WhichTeamToScoreTheLastBasket = "61702";
         public const string Quarter3WhichTeamToScoreTheLastBasket = "61703";
+        public const string Quarter4WhichTeamToScoreTheLastBasket = "61704";
 
         public static readonly string[] MoreResultResourceIDs =
         {
@@ -62,6 +63,7 @@
             Quarter4RaceTo10Points,
             Quarter4RaceTo15Points,
             Quarter4RaceTo20Points,
+            Quarter4WhichTeamToScoreTheLastBasket,
             SecondHalfRaceTo20Points,
             SecondHalfRaceTo25Points,
             SecondHalfRaceTo30Points,

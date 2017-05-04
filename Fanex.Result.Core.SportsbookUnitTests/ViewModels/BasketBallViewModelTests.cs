@@ -1,6 +1,5 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.Tests.ViewModels
 {
-    using System.Collections.Generic;
     using System.Linq;
     using Base;
     using Base.Extension;
@@ -38,7 +37,8 @@
             "6130420",
             "61701",
             "61702",
-            "61703"
+            "61703",
+            "61704"
         };
 
         public static readonly string[] OrderedMoreResultResourceIdsTestCase =
@@ -61,6 +61,7 @@
             "6130410",
             "6130415",
             "6130420",
+            "61704",
             "60720",
             "60725",
             "60730",
@@ -531,10 +532,10 @@
             var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
 
             // Act
-            var expectedValue = viewModel.VisibleDetailedLink;
+            var actualValue = viewModel.VisibleDetailedLink;
 
             // Assert
-            Assert.IsTrue(expectedValue);
+            Assert.IsTrue(actualValue);
         }
 
         [Test, TestCaseSource("MoreResultResourceIdsTestCase")]
@@ -547,10 +548,10 @@
             var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
 
             // Act
-            var expectedValue = viewModel.VisibleDetailedLink;
+            var actualValue = viewModel.VisibleDetailedLink;
 
             // Assert
-            Assert.IsFalse(expectedValue);
+            Assert.IsFalse(actualValue);
         }
 
         [Test]
@@ -563,10 +564,10 @@
             var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
 
             // Act
-            var expectedValue = viewModel.VisibleDetailedLink;
+            var actualValue = viewModel.VisibleDetailedLink;
 
             // Assert
-            Assert.IsFalse(expectedValue);
+            Assert.IsFalse(actualValue);
         }
 
         [Test, TestCaseSource("MoreResultResourceIdsTestCase")]
@@ -578,10 +579,10 @@
             var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
 
             // Act
-            var expectedValue = viewModel.VisibleGameDetail;
+            var actualValue = viewModel.VisibleGameDetail;
 
             // Assert
-            Assert.IsTrue(expectedValue);
+            Assert.IsTrue(actualValue);
         }
 
         [Test]
@@ -594,10 +595,10 @@
             var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
 
             // Act
-            var expectedValue = viewModel.ResultDetailItems;
+            var actualValue = viewModel.ResultDetailItems;
 
             // Assert
-            Assert.AreEqual(expectedValue, detailItems);
+            Assert.AreEqual(actualValue, detailItems);
         }
 
         [Test]
@@ -608,6 +609,7 @@
             {
                 new BasketBallGameDetailItem { ResourceID = "6130415", HomeValue = "Home Team" },
                 new BasketBallGameDetailItem { ResourceID = "604", HomeValue = "Home Team" },
+                new BasketBallGameDetailItem { ResourceID = "61704", HomeValue = "Home Team" },
                 new BasketBallGameDetailItem { ResourceID = "6130115", HomeValue = "Home Team" }
             };
             detailItems = detailItems.OrderBy(item => OrderedMoreResultResourceIdsTestCase.ToList().FindIndex(id => id == item.ResourceID)).ToSafeList();
@@ -615,10 +617,10 @@
             var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
 
             // Act
-            var expectedValue = viewModel.MoreResultDetailItems;
+            var actualValue = viewModel.MoreResultDetailItems;
 
             // Assert
-            Assert.AreEqual(expectedValue, detailItems);
+            Assert.AreEqual(actualValue, detailItems);
         }
     }
 }

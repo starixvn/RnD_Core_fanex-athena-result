@@ -36,7 +36,8 @@
             "6130420",
             "61701",
             "61702",
-            "61703"
+            "61703",
+            "61704"
         };
 
         private static readonly string[] MainResultResourceIdsTestCase =

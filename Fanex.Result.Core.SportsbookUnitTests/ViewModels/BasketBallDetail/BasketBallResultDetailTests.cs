@@ -193,6 +193,27 @@
         }
 
         [Test, TestCaseSource("MainResultResourceIdsTestCase")]
+        public void MapGameValueByPattern_ValueIsNullOrEmpty_ShowHyphen(string resourceId)
+        {
+            // Arrange
+            _sportsBook.GameDetails.Add(
+                new GameDetail
+                {
+                    ResourceId = resourceId,
+                    SettlementStatusID = EventStatusID.CompletedSettlementStatusID,
+                    HomeValue = null,
+                    AwayValue = string.Empty
+                });
+
+            // Act
+            var resultDetail = new BasketBallResultDetail(_sportsBook, _setting, _refDataHelper, _sportsBookHelper);
+
+            // Assert
+            var detailItem = resultDetail.GetDetailItems().First();
+            Assert.IsTrue(detailItem.HomeValue == "-" && detailItem.AwayValue == "-");
+        }
+
+        [Test, TestCaseSource("MainResultResourceIdsTestCase")]
         public void MapGameValueByPattern_IsMainResultResourceId_HasCompletedSettlementStatusID_ShowValue(string resourceId)
         {
             // Arrange

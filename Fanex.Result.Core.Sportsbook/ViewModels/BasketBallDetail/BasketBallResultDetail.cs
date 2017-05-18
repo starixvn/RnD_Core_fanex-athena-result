@@ -39,6 +39,9 @@
         {
             item = base.MapGameValueByStatusId(item, detailItem);
 
+            item.HomeValue = string.IsNullOrEmpty(item.HomeValue) ? "-" : item.HomeValue;
+            item.AwayValue = string.IsNullOrEmpty(item.AwayValue) ? "-" : item.AwayValue;
+
             if (detailItem.SettlementStatusID == EventStatusID.RunningSettlementStatusID)
             {
                 item.HomeValue = ConstantValue.Hyphen;

@@ -13,15 +13,19 @@
 
     public sealed class BasketBallViewModel : SportsbookBaseViewModel, IResultViewModel
     {
-        private readonly IResultDetail<BasketBallGameDetailItem> _resultDetail;
-
         public BasketBallViewModel(
             Sportsbook sportbook,
             ResultSetting setting,
             IResultDetail<BasketBallGameDetailItem> resultDetail = null)
             : base(sportbook, setting)
         {
-            _resultDetail = resultDetail ?? new BasketBallResultDetail(sportbook, setting, null, null);
+            ResultDetailItems = (resultDetail ?? new BasketBallResultDetail(sportbook, setting, null, null))
+                .GetDetailItems();
+
+            MoreResultDetailItems = ResultDetailItems
+                .Where(item => BasketBallResourceID.MoreResultResourceIDs.Contains(item.ResourceID))
+                .OrderBy(item => BasketBallResourceID.MoreResultResourceIDs.ToList().FindIndex(id => id == item.ResourceID))
+                .ToSafeList();
         }
 
         public string OTHome => GetOvertimeSet(true);
@@ -40,13 +44,9 @@
 
         public override bool VisibleGameDetail => HasGameDetailData();
 
-        public SafeList<BasketBallGameDetailItem> ResultDetailItems => _resultDetail.GetDetailItems();
+        public SafeList<BasketBallGameDetailItem> ResultDetailItems { get; }
 
-        public SafeList<BasketBallGameDetailItem> MoreResultDetailItems
-            => ResultDetailItems
-                .Where(item => BasketBallResourceID.MoreResultResourceIDs.Contains(item.ResourceID))
-                .OrderBy(item => BasketBallResourceID.MoreResultResourceIDs.ToList().FindIndex(id => id == item.ResourceID))
-                .ToSafeList();
+        public SafeList<BasketBallGameDetailItem> MoreResultDetailItems { get; }
 
         public override string GetHomeAwaySet(int index, bool isHome)
         {

@@ -69,13 +69,11 @@
                 case EventStatusID.RefundHTSettlementStatusID:
                     item.HomeValue = LangResource.Refundht;
                     item.AwayValue = LangResource.Refundht;
-
                     break;
 
                 case EventStatusID.RefundFTSettlementStatusID:
                     item.HomeValue = LangResource.Refundft;
                     item.AwayValue = LangResource.Refundft;
-
                     break;
             }
 

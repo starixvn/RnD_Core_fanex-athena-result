@@ -1,0 +1,102 @@
+﻿@using Fanex.Result.Core.Lucky3.ViewModels;
+@using Fanex.Result.Core.Base.ViewModels;
+@using System.Collections;
+@using Fanex.Result.Core.Base.Resources;
+@{
+    var viewModel = (Fanex.Result.Core.Base.ViewModels.RazorBinderModel)Model;
+}
+
+<table class="fn-rs lucky3">
+    <thead>
+        <tr class="header">
+            <th class="cl-ko-time">
+                @LangResource.KickOffTime
+            </th>
+            <th class="cl-match">
+                @Raw(LangResource.Match)
+            </th>
+            <th class="cl-result">
+                Drawn Number
+            </th>
+            <th class="cl-1stprize">
+                1st Prize
+            </th>
+            <th class="cl-2ndprize">
+                2nd Prize
+            </th>
+            <th class="cl-3rdprize">
+                3rd Prize
+            </th>
+            <th class="cl-status">
+                @LangResource.Status
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (viewModel.Data.Count > 0)
+        {
+            var index = 0;
+
+            foreach (var group in viewModel.Data)
+            {
+
+                if (!viewModel.IsPopUp)
+                {
+
+                    <tr class="data">
+                        <td colspan="7" class="cl-league">
+                            @group.Data[0].LeagueName
+                        </td>
+                    </tr>
+                }
+                foreach (Lucky3ViewModel item in group.Data)
+                {
+                    index++;
+                    <tr class="data @item.Color(index, "even", "odd")">
+                        <td class="cl-ko-time">
+                            @Raw(item.KickOffTime)
+                        </td>
+                        <td class="cl-match">
+                            @item.Match
+                        </td>
+                        <td class="cl-result">
+                            @if (item.EventStatusIsRefund)
+                        {
+                                <div>N/A</div>
+                            }
+                            else
+                            {
+                                for (var i = 0; i < 3; i++)
+                                {
+                                    var ballNumber = item.GetBall(i);
+                                    <div class="lottoBall @item.GetBallColor(ballNumber)">@ballNumber</div>
+
+                                }
+                            }
+                        </td>
+                        <td class="cl-warrior">
+                            @item.FirstPrize
+                        </td>
+                        <td class="cl-lblOEFT">
+                            @item.SecondPrize
+                        </td>
+                        <td class="cl-lbl1stball">
+                            <span class="ball">@item.ThirdPrize</span>
+                        </td>
+                        <td class="cl-status @item.EventStatusBackground">
+                            @item.EventStatus
+                        </td>
+                    </tr>
+                }
+            }
+        }
+        else
+        {
+        <!--NoInfo-->
+            <tr class="row-noinfo">
+                <td colspan="7">@LangResource.NoInfo</td>
+            </tr>
+        <!--/ NoInfo-->
+        }
+    </tbody>
+</table>

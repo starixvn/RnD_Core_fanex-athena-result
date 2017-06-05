@@ -5,7 +5,7 @@
 
     [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1602:EnumerationItemsMustBeDocumented", Justification = "Reviewed.")]
     [SuppressMessage("Microsoft.Design", "CA1008:EnumsShouldHaveZeroValue", Justification = "Reviewed.")]
-    public enum SportType : int
+    public enum SportType
     {
         [StringValue("Soccer")]
         Soccer = 1,
@@ -246,6 +246,9 @@
         AGCasino = 250,
 
         [StringValue("GoldDeluxe")]
-        GoldDeluxe = 255
+        GoldDeluxe = 255,
+
+        [StringValue("Lucky3")]
+        Lucky3 = 160
     }
 }

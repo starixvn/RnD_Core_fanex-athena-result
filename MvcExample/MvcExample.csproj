@@ -270,6 +270,7 @@
     <Content Include="Content\Core\img\icon-calendar.png" />
     <Content Include="Content\Core\img\icon-question.png" />
     <Content Include="Content\Core\img\loading.gif" />
+    <Content Include="Content\Core\img\lotto_ball.png" />
     <Content Include="Content\Core\img\sprites.png" />
     <Content Include="Content\Core\img\user.png" />
     <Content Include="Content\Fanex.Result\Allbet\css\button.css" />
@@ -620,6 +621,10 @@
     <ProjectReference Include="..\Fanex.Result.Core.LiveCasino\Fanex.Result.Core.LiveCasino.csproj">
       <Project>{C67A0F1F-9F62-4E75-A982-0894FDD79008}</Project>
       <Name>Fanex.Result.Core.LiveCasino</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fanex.Result.Core.Lucky3\Fanex.Result.Core.Lucky3.csproj">
+      <Project>{5b12d69c-7bf6-4e40-ae62-3853db3d118d}</Project>
+      <Name>Fanex.Result.Core.Lucky3</Name>
     </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.MetricGaming\Fanex.Result.Core.MetricGaming.csproj">
       <Project>{76CD2383-849A-4291-AD55-378F6C26836C}</Project>

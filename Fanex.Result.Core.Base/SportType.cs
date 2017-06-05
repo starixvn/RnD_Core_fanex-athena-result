@@ -203,6 +203,12 @@
         [StringValue("Other")]
         Others = 1000,
 
+        [StringValue("Other")]
+        VirtualSoccerLeague = 190,
+
+        [StringValue("Other")]
+        VirtualSoccerNation = 191,
+
         #endregion Other
 
         #region VirtualSport

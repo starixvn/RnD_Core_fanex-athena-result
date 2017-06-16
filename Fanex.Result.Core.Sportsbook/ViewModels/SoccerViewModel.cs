@@ -26,7 +26,12 @@
     {
         private const string TemplateNameSpace = "SoccerDetail.";
         private const string FastMarketsTemplate = "FastMarkets";
+        private const string PenaltyHandicapCode = "(h)";
+        private const string PenaltyOverUnderCode = "(o)";
+        private const string PenaltyHandicapName = "(HDP)";
+        private const string PenaltyOverUnderName = "(O/U)";
         private SoccerDetailInfo _goalInfo;
+
         private bool? _hasValidGameData;
         private IList<SoccerGameDetailItem> _detailedItemModels;
 
@@ -34,9 +39,13 @@
             : base(soccer, setting)
         {
             IsShowLiveScore = DetermineShowingLiveScore(setting.IsParlayPopUp, setting.IsPopUp);
+            PenaltyMatchDetail = ExistMatchCode(PenaltyHandicapCode) ? PenaltyHandicapName :
+                ExistMatchCode(PenaltyOverUnderCode) ? PenaltyOverUnderName : string.Empty;
         }
 
-        #region Settlement Site
+        public bool IsShowLiveScore { get; }
+
+        public string PenaltyMatchDetail { get; }
 
         public int HomeId => SPORTBOOK.HomeId;
 
@@ -44,8 +53,6 @@
 
         public override bool VisibleDetailedLink
             => base.VisibleDetailedLink && (HasValidGameData || VisibleGoalRecord);
-
-        #endregion Settlement Site
 
         public override bool VisibleGameDetail => HasValidGameData;
 
@@ -83,20 +90,12 @@
             SPORTBOOK.LiveAwayScore.Value.ToString(CultureInfo.InvariantCulture) :
             ConstantValue.Hyphen;
 
-        public bool IsShowLiveScore { get; }
-
         public string GoalRecord
             => string.IsNullOrEmpty(SPORTBOOK.GoalRecord) ?
             string.Empty :
             Regex.Replace(SPORTBOOK.GoalRecord.ToUpper(), "[^HA]", string.Empty);
 
         public override bool VisibleGoalRecord => base.VisibleGoalRecord && !string.IsNullOrEmpty(GoalRecord);
-
-        private bool EventStatusIsRefundFT => SPORTBOOK.EventStatus.Equals(ConstantValue.RefundFT, StringComparison.OrdinalIgnoreCase);
-
-        private bool EventStatusIsAbandoned
-            => SPORTBOOK.EventStatus.Equals(ConstantValue.Abandoned1H, StringComparison.OrdinalIgnoreCase)
-                || SPORTBOOK.EventStatus.Equals(ConstantValue.Abandoned2H, StringComparison.OrdinalIgnoreCase);
 
         public string DetailedResult
         {
@@ -138,6 +137,12 @@
         }
 
         #region Utilities
+
+        private bool EventStatusIsRefundFT => SPORTBOOK.EventStatus.Equals(ConstantValue.RefundFT, StringComparison.OrdinalIgnoreCase);
+
+        private bool EventStatusIsAbandoned
+            => SPORTBOOK.EventStatus.Equals(ConstantValue.Abandoned1H, StringComparison.OrdinalIgnoreCase)
+                || SPORTBOOK.EventStatus.Equals(ConstantValue.Abandoned2H, StringComparison.OrdinalIgnoreCase);
 
         private bool HasValidGameData
         {
@@ -542,11 +547,11 @@
                 {
                     case "1":
                     case "H":
-                        return this.HomeTeam;
+                        return HomeTeam;
 
                     case "2":
                     case "A":
-                        return this.AwayTeam;
+                        return AwayTeam;
 
                     case "X":
                     case "N":
@@ -676,6 +681,9 @@
 
             return false;
         }
+
+        private bool ExistMatchCode(string matchCode)
+            => SPORTBOOK.MatchCode.Replace(" ", string.Empty).ToLowerInvariant().Contains(matchCode);
 
         #endregion Utilities
     }

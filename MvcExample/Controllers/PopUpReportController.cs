@@ -26,6 +26,7 @@ namespace MvcExample.Controllers
         private const int MixParlayBettype = 9;
         private const int SystemParlayBettype = 29;
         private const int MetricGaming801 = 801;
+        private const int MixParlayVirtualSport = 2799;
         private readonly IResultService _resultService = new ResultService();
 
         [HttpGet]
@@ -56,7 +57,9 @@ namespace MvcExample.Controllers
             {
                 SportType = sportType,
                 IsOutright = metalModel.IsOutRight.HasValue && metalModel.IsOutRight.Value > 0,
-                IsParlayPopUp = metalModel.Bettype == MixParlayBettype || metalModel.Bettype == SystemParlayBettype,
+                IsParlayPopUp = metalModel.Bettype == MixParlayBettype || 
+                    metalModel.Bettype == SystemParlayBettype || 
+                    metalModel.Bettype == MixParlayVirtualSport,
                 IsPopUp = true,
                 VisiblePopUpTitle = true,
                 LanguageCode = metalModel.LanguageCode,

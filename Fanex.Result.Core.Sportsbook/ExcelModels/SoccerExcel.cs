@@ -110,6 +110,8 @@
                 awayTeam += " (" + string.Join(",", realAwayFG) + ")";
             }
 
+            awayTeam += " " + exportRow.PenaltyMatchDetail;
+
             return awayTeam;
         }
 
@@ -147,6 +149,8 @@
             {
                 homeTeam += " (" + string.Join(",", realHomeFG) + ")";
             }
+
+            homeTeam += " " + exportRow.PenaltyMatchDetail;
 
             return homeTeam;
         }

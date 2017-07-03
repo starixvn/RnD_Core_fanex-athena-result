@@ -17,37 +17,13 @@
         {
         }
 
-        public string TotalPointHome
-        {
-            get
-            {
-                return CreateTotalPointValue(true);
-            }
-        }
+        public string TotalPointHome => CreateTotalPointValue(true);
 
-        public string TotalPointAway
-        {
-            get
-            {
-                return CreateTotalPointValue(false);
-            }
-        }
+        public string TotalPointAway => CreateTotalPointValue(false);
 
-        public string TotalSetHome
-        {
-            get
-            {
-                return GetScore(SPORTBOOK.FinalHomeScore);
-            }
-        }
+        public string TotalSetHome => GetScore(SPORTBOOK.FinalHomeScore);
 
-        public string TotalSetAWay
-        {
-            get
-            {
-                return GetScore(SPORTBOOK.FinalAwayScore);
-            }
-        }
+        public string TotalSetAWay => GetScore(SPORTBOOK.FinalAwayScore);
 
         /// <summary>
         /// Get home and away set.
@@ -63,29 +39,39 @@
                 return ConstantValue.Hyphen;
             }
 
-            if (this.HomeSet == null || this.AwaySet == null)
+            if (HomeSet == null || AwaySet == null)
             {
-                this._totalPointAway = 0;
-                this._totalPointHome = 0;
-                this.HomeSet = new[] { ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen };
-                this.AwaySet = new[] { ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen };
-                if (this.HasResult)
-                {
-                    string[] betStatusList = this.GetCoreInfoFromBetStatus.Split(',');
-                    for (int j = 0; j < betStatusList.Length && j < 5; j++)
-                    {
-                        var values = betStatusList[j].Trim().Split('-');
+                _totalPointAway = 0;
+                _totalPointHome = 0;
+                HomeSet = new[] { ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen };
+                AwaySet = new[] { ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen };
 
-                        this.HomeSet[j] = values[0].Trim();
-                        this.AwaySet[j] = values[1].Trim();
-
-                        this._totalPointAway += Convert.ToInt32(this.AwaySet[j]);
-                        this._totalPointHome += Convert.ToInt32(this.HomeSet[j]);
-                    }
-                }
+                GenerateHomeAwaySetValueFromBetStatus(5);
             }
 
             return isHome ? HomeSet[index] : AwaySet[index];
+        }
+
+        protected override void GenerateHomeAwaySetValueFromBetStatus(int maxSetNumber)
+        {
+            if (HasResult)
+            {
+                string[] betStatusList = GetScoreInfoFromBetStatus.Split(',');
+
+                for (int j = 0; j < betStatusList.Length && j < 5; j++)
+                {
+                    var values = betStatusList[j].Trim().Split('-');
+
+                    if (values.Length > 1)
+                    {
+                        HomeSet[j] = string.IsNullOrEmpty(values[0].Trim()) ? "0" : values[0].Trim();
+                        AwaySet[j] = string.IsNullOrEmpty(values[1].Trim()) ? "0" : values[1].Trim();
+
+                        _totalPointAway += Convert.ToInt32(AwaySet[j]);
+                        _totalPointHome += Convert.ToInt32(HomeSet[j]);
+                    }
+                }
+            }
         }
 
         /// <summary>
@@ -95,15 +81,17 @@
         /// <returns>The total point value.</returns>
         private string CreateTotalPointValue(bool isHome)
         {
-            if (this.HomeSet == null || this.AwaySet == null)
+            if (HomeSet == null || AwaySet == null)
             {
-                this.GetHomeAwaySet(0, true);
+                GetHomeAwaySet(0, true);
             }
 
-            var totalPoint = this._totalPointHome + this._totalPointAway;
+            var totalPoint = _totalPointHome + _totalPointAway;
+
             if (totalPoint > 0)
             {
-                return isHome ? this._totalPointHome.ToString(CultureInfo.InvariantCulture) : this._totalPointAway.ToString(CultureInfo.InvariantCulture);
+                return isHome ? _totalPointHome.ToString(CultureInfo.InvariantCulture)
+                    : _totalPointAway.ToString(CultureInfo.InvariantCulture);
             }
 
             return ConstantValue.Hyphen;

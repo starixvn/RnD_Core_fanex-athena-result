@@ -18,7 +18,7 @@
         {
             get
             {
-                var temp = Convert.ToInt32(this.GetHomeAwaySet(9, false));
+                var temp = Convert.ToInt32(GetHomeAwaySet(9, false));
                 return temp >= 0 ? temp.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
             }
         }
@@ -27,42 +27,18 @@
         {
             get
             {
-                var temp = Convert.ToInt32(this.GetHomeAwaySet(9, true));
+                var temp = Convert.ToInt32(GetHomeAwaySet(9, true));
                 return temp >= 0 ? temp.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
             }
         }
 
-        public string HTAwayScore
-        {
-            get
-            {
-                return GetScore(SPORTBOOK.HtAwayScore);
-            }
-        }
+        public string HTAwayScore => GetScore(SPORTBOOK.HtAwayScore);
 
-        public string HTHomeScore
-        {
-            get
-            {
-                return GetScore(SPORTBOOK.HtHomeScore);
-            }
-        }
+        public string HTHomeScore => GetScore(SPORTBOOK.HtHomeScore);
 
-        public string FinalAwayScore
-        {
-            get
-            {
-                return GetScore(SPORTBOOK.FinalAwayScore);
-            }
-        }
+        public string FinalAwayScore => GetScore(SPORTBOOK.FinalAwayScore);
 
-        public string FinalHomeScore
-        {
-            get
-            {
-                return GetScore(SPORTBOOK.FinalHomeScore);
-            }
-        }
+        public string FinalHomeScore => GetScore(SPORTBOOK.FinalHomeScore);
 
         /// <summary>
         /// Get home and away set.
@@ -78,31 +54,23 @@
                 return ConstantValue.Hyphen;
             }
 
-            if (this.HomeSet == null || this.AwaySet == null)
+            if (HomeSet == null || AwaySet == null)
             {
-                this.HomeSet = new string[10];
-                this.AwaySet = new string[10];
+                HomeSet = new string[10];
+                AwaySet = new string[10];
+
                 for (int j = 0; j < 9; j++)
                 {
-                    this.HomeSet[j] = ConstantValue.Hyphen;
-                    this.AwaySet[j] = ConstantValue.Hyphen;
+                    HomeSet[j] = ConstantValue.Hyphen;
+                    AwaySet[j] = ConstantValue.Hyphen;
                 }
 
-                this.HomeSet[9] = this.AwaySet[9] = "-1";
+                HomeSet[9] = AwaySet[9] = "-1";
 
-                if (this.HasResult)
-                {
-                    string[] betStatusList = this.GetCoreInfoFromBetStatus.Split(',');
-                    for (int j = 0; j < betStatusList.Length && j < 10; j++)
-                    {
-                        var values = betStatusList[j].Trim().Split('-');
-                        this.HomeSet[j] = values[0].Trim();
-                        this.AwaySet[j] = values[1].Trim();
-                    }
-                }
+                GenerateHomeAwaySetValueFromBetStatus(10);
             }
 
-            return isHome ? this.HomeSet[index] : this.AwaySet[index];
+            return isHome ? HomeSet[index] : AwaySet[index];
         }
     }
 }

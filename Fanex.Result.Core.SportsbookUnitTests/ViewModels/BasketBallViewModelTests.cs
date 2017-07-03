@@ -162,6 +162,9 @@
 
         [TestCase(2, ";1-2,3-1,2-3", true, "2")]
         [TestCase(2, ";1-2,3-1,2-3,1-2,3-3", false, "3")]
+        [TestCase(2, ";1-2,3-1,2-3,1-2,", false, "3")]
+        [TestCase(2, ";1-2,3-1,2-3,1-2,-", false, "3")]
+        [TestCase(2, ";1-2,3-1,2-3,1-2,0", false, "3")]
         [TestCase(0, ";1-2,3-1,2-3,1-2,3-3", false, "2")]
         public void GetHomeAwaySet_FromIndexLessThan5AndBetStatusSets_ReturnsExpectedHomeAwaySet(
             int index,

@@ -31,21 +31,9 @@
             }
         }
 
-        public string FinalHomeScore
-        {
-            get
-            {
-                return GetScore(SPORTBOOK.FinalHomeScore);
-            }
-        }
+        public string FinalHomeScore => GetScore(SPORTBOOK.FinalHomeScore);
 
-        public string FinalAwayScore
-        {
-            get
-            {
-                return GetScore(SPORTBOOK.FinalAwayScore);
-            }
-        }
+        public string FinalAwayScore => GetScore(SPORTBOOK.FinalAwayScore);
 
         /// <summary>
         /// Get home and away set.
@@ -61,20 +49,12 @@
                 return ConstantValue.Hyphen;
             }
 
-            if (this.AwaySet == null || this.HomeSet == null)
+            if (AwaySet == null || HomeSet == null)
             {
                 HomeSet = new[] { ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Zero };
                 AwaySet = new[] { ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Zero };
-                if (this.HasResult)
-                {
-                    string[] betStatusList = this.GetCoreInfoFromBetStatus.Split(',');
-                    for (int j = 0; j < betStatusList.Length && j < 4; j++)
-                    {
-                        var values = betStatusList[j].Trim().Split('-');
-                        HomeSet[j] = values[0].Trim();
-                        AwaySet[j] = values[1].Trim();
-                    }
-                }
+
+                GenerateHomeAwaySetValueFromBetStatus(4);
             }
 
             return isHome ? HomeSet[index] : AwaySet[index];

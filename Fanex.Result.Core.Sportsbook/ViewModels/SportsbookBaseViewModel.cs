@@ -81,16 +81,18 @@
 
         protected bool HighlightWinnerTeam { get; } = false;
 
-        protected string GetCoreInfoFromBetStatus
+        protected string GetScoreInfoFromBetStatus
         {
             get
             {
                 if (!string.IsNullOrEmpty(SPORTBOOK.BetStatus))
                 {
                     var refundIndex = SPORTBOOK.BetStatus.IndexOf(";", StringComparison.Ordinal);
+
                     if (refundIndex >= 0)
                     {
                         var startCoreIndex = refundIndex + 1;
+
                         if (SPORTBOOK.BetStatus.Length > startCoreIndex)
                         {
                             return SPORTBOOK.BetStatus.Substring(startCoreIndex);
@@ -138,6 +140,25 @@
 
         protected virtual string GetScore(int? score)
             => score.HasValue ? score.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
+
+        protected virtual void GenerateHomeAwaySetValueFromBetStatus(int maxSetNumber)
+        {
+            if (HasResult)
+            {
+                string[] betStatusList = GetScoreInfoFromBetStatus.Split(',');
+
+                for (int j = 0; j < betStatusList.Length && j < maxSetNumber; j++)
+                {
+                    var values = betStatusList[j].Trim().Split('-');
+
+                    if (values.Length > 1)
+                    {
+                        HomeSet[j] = string.IsNullOrEmpty(values[0].Trim()) ? ConstantValue.Hyphen : values[0].Trim();
+                        AwaySet[j] = string.IsNullOrEmpty(values[1].Trim()) ? ConstantValue.Hyphen : values[1].Trim();
+                    }
+                }
+            }
+        }
 
         #endregion Utilities
     }

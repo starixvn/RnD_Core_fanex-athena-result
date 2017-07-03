@@ -102,16 +102,9 @@
                 HomeSet = new[] { ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Zero };
                 AwaySet = new[] { ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Zero };
 
-                if (SPORTBOOK.EventStatus != ConstantValue.RefundFT && HasResult)
+                if (SPORTBOOK.EventStatus != ConstantValue.RefundFT)
                 {
-                    string[] betStatusList = GetCoreInfoFromBetStatus.Split(',');
-
-                    for (int j = 0; j < betStatusList.Length && j < 5; j++)
-                    {
-                        var values = betStatusList[j].Trim().Split('-');
-                        HomeSet[j] = values[0].Trim();
-                        AwaySet[j] = values[1].Trim();
-                    }
+                    GenerateHomeAwaySetValueFromBetStatus(5);
                 }
             }
 

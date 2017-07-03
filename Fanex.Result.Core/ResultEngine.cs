@@ -114,7 +114,7 @@
 
             if (!Validate.Instance.ValidateNormal(dtoName, setting.SportType))
             {
-                throw new ObjectUnSupportedException(string.Format(CoreResourceConfig.SPORTTYPEARGUEMENTMES, dtoName));
+                setting.SportType = SportType.Soccer;
             }
 
             var builder = GetBuilder(dtoName);

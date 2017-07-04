@@ -1,6 +1,8 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.ViewModels
 {
     using System;
+    using System.Globalization;
+    using System.Linq;
     using Base;
     using Base.DataDomain;
     using Base.ViewModels;
@@ -13,23 +15,9 @@
         {
         }
 
-        public string OTHome
-        {
-            get
-            {
-                var temp = this.GetHomeAwaySet(3, true);
-                return Convert.ToInt32(temp) > 0 ? temp : ConstantValue.Hyphen;
-            }
-        }
+        public string OTHome => GetOverTimeScore(true);
 
-        public string OTAway
-        {
-            get
-            {
-                var temp = this.GetHomeAwaySet(3, false);
-                return Convert.ToInt32(temp) > 0 ? temp : ConstantValue.Hyphen;
-            }
-        }
+        public string OTAway => GetOverTimeScore(false);
 
         public string FinalHomeScore => GetScore(SPORTBOOK.FinalHomeScore);
 
@@ -58,6 +46,20 @@
             }
 
             return isHome ? HomeSet[index] : AwaySet[index];
+        }
+
+        private string GetOverTimeScore(bool isHome)
+        {
+            var scoreText = GetHomeAwaySet(3, isHome);
+
+            if (!string.IsNullOrEmpty(scoreText) && scoreText.All(char.IsDigit))
+            {
+                var score = Convert.ToInt32(scoreText);
+
+                return score > 0 ? score.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
+            }
+
+            return ConstantValue.Hyphen;
         }
     }
 }

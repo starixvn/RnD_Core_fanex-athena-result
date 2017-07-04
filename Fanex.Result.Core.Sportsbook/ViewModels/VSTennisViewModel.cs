@@ -11,20 +11,8 @@
         {
         }
 
-        public string HomePoint
-        {
-            get
-            {
-                return GetScore(SPORTBOOK.FinalHomeScore);
-            }
-        }
+        public string HomePoint => GetScore(SPORTBOOK.FinalHomeScore);
 
-        public string AwayPoint
-        {
-            get
-            {
-                return GetScore(SPORTBOOK.FinalAwayScore);
-            }
-        }
+        public string AwayPoint => GetScore(SPORTBOOK.FinalAwayScore);
     }
 }

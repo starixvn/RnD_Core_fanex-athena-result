@@ -110,5 +110,99 @@
             // Assert
             Assert.AreEqual(expectedHomeAwaySet, homeAwaySet);
         }
+
+        [TestCase("2", "2")]
+        [TestCase("0", "0")]
+        [TestCase("-2", "-")]
+        [TestCase("", "-")]
+        public void EIAway_ForEachCase_ShowExpectedValue(string eiawayValue, string expectedValue)
+        {
+            // Arrange
+            var sportsbookDto = new Sportsbook { BetStatus = ";1-2,3-1,2-3,1-2,3-3,3-1,2-3,1-2,3-3,2-" + eiawayValue };
+            var viewModel = new BaseBallViewModel(sportsbookDto, new ResultSetting());
+
+            // Act
+            var actualValue = viewModel.EIAway;
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestCase("2", "2")]
+        [TestCase("0", "0")]
+        [TestCase("-2", "-")]
+        [TestCase("", "-")]
+        public void EIHome_ForEachCase_ShowExpectedValue(string eihomeValue, string expectedValue)
+        {
+            // Arrange
+            var sportsbookDto = new Sportsbook { BetStatus = ";1-2,3-1,2-3,1-2,3-3,3-1,2-3,1-2,3-3," + eihomeValue + "-2" };
+            var viewModel = new BaseBallViewModel(sportsbookDto, new ResultSetting());
+
+            // Act
+            var actualValue = viewModel.EIHome;
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestCase(1, "1")]
+        [TestCase(null, "-")]
+        public void HTHomeScore_ScoreHasValue_ShowScore(int? scoreValue, string expectedScoreValue)
+        {
+            // Arrange
+            var sportsbookDto = new Sportsbook { HtHomeScore = scoreValue };
+            var viewModel = new BaseBallViewModel(sportsbookDto, new ResultSetting());
+
+            // Act
+            var actualHTHomeScore = viewModel.HTHomeScore;
+
+            // Assert
+            Assert.AreEqual(expectedScoreValue, actualHTHomeScore);
+        }
+
+        [TestCase(1, "1")]
+        [TestCase(null, "-")]
+        public void HTAwayScore_ScoreHasValue_ShowScore(int? scoreValue, string expectedScoreValue)
+        {
+            // Arrange
+            var sportsbookDto = new Sportsbook { HtAwayScore = scoreValue };
+            var viewModel = new BaseBallViewModel(sportsbookDto, new ResultSetting());
+
+            // Act
+            var actualHTAwayScore = viewModel.HTAwayScore;
+
+            // Assert
+            Assert.AreEqual(expectedScoreValue, actualHTAwayScore);
+        }
+
+        [TestCase(1, "1")]
+        [TestCase(null, "-")]
+        public void FinalHomeScore_ScoreHasValue_ShowScore(int? scoreValue, string expectedScoreValue)
+        {
+            // Arrange
+            var sportsbookDto = new Sportsbook { FinalHomeScore = scoreValue };
+            var viewModel = new BaseBallViewModel(sportsbookDto, new ResultSetting());
+
+            // Act
+            var actualFinalHomeScore = viewModel.FinalHomeScore;
+
+            // Assert
+            Assert.AreEqual(expectedScoreValue, actualFinalHomeScore);
+        }
+
+        [TestCase(1, "1")]
+        [TestCase(null, "-")]
+        public void FinalAwayScore_ScoreHasValue_ShowScore(int? scoreValue, string expectedScoreValue)
+        {
+            // Arrange
+            var sportsbookDto = new Sportsbook { FinalAwayScore = scoreValue };
+            var viewModel = new BaseBallViewModel(sportsbookDto, new ResultSetting());
+
+            // Act
+            var actualFinalAwayScore = viewModel.FinalAwayScore;
+
+            // Assert
+            Assert.AreEqual(expectedScoreValue, actualFinalAwayScore);
+        }
     }
 }

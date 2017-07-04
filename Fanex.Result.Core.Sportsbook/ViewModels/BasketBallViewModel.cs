@@ -71,7 +71,8 @@
 
             result = GetResultFromBetStatus(4, isHome);
 
-            return (result.All(char.IsDigit) && Convert.ToInt32(result) > 0) ? result : ConstantValue.Hyphen;
+            return (!string.IsNullOrEmpty(result) && result.All(char.IsDigit) && Convert.ToInt32(result) > 0)
+                ? result : ConstantValue.Hyphen;
         }
 
         private string GetTotalScore(bool isHome, bool isFinal)

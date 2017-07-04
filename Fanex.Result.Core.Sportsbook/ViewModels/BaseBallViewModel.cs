@@ -2,6 +2,7 @@
 {
     using System;
     using System.Globalization;
+    using System.Linq;
     using Base;
     using Base.DataDomain;
     using Base.ViewModels;
@@ -14,23 +15,9 @@
         {
         }
 
-        public string EIAway
-        {
-            get
-            {
-                var temp = Convert.ToInt32(GetHomeAwaySet(9, false));
-                return temp >= 0 ? temp.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
-            }
-        }
+        public string EIAway => GetOverTimeScore(false);
 
-        public string EIHome
-        {
-            get
-            {
-                var temp = Convert.ToInt32(GetHomeAwaySet(9, true));
-                return temp >= 0 ? temp.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
-            }
-        }
+        public string EIHome => GetOverTimeScore(true);
 
         public string HTAwayScore => GetScore(SPORTBOOK.HtAwayScore);
 
@@ -71,6 +58,20 @@
             }
 
             return isHome ? HomeSet[index] : AwaySet[index];
+        }
+
+        private string GetOverTimeScore(bool isHome)
+        {
+            var scoreText = GetHomeAwaySet(9, isHome);
+
+            if (!string.IsNullOrEmpty(scoreText) && scoreText.All(char.IsDigit))
+            {
+                var score = Convert.ToInt32(scoreText);
+
+                return score >= 0 ? score.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
+            }
+
+            return ConstantValue.Hyphen;
         }
     }
 }

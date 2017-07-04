@@ -53,6 +53,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\SportsbookHelperTests.cs" />
     <Compile Include="ViewModels\BadmintonViewModelTests.cs" />
+    <Compile Include="ViewModels\OtherViewModelTests.cs" />
+    <Compile Include="ViewModels\VSTennisViewModelTests.cs" />
+    <Compile Include="ViewModels\BilliardViewModelTests.cs" />
     <Compile Include="ViewModels\BaseBallViewModelTests.cs" />
     <Compile Include="ViewModels\BaseDetail\BaseResultDetailTests.cs" />
     <Compile Include="ViewModels\BasketBallDetail\BasketBallDetailViewModelTests.cs" />

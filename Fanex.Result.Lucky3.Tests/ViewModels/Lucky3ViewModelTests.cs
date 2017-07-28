@@ -8,7 +8,6 @@
     using Resources;
     using System.Collections.Generic;
     using Base.Utilities;
-    using NSubstitute;
     using Data;
 
     [TestFixture]
@@ -97,6 +96,20 @@
         }
 
         [Test]
+        public void ThirdBall_WhenHaveNoData_ReturnZero()
+        {
+            // Arrange
+            resultData.Ball = new List<int> { 1, 2 };
+            var viewModel = new Lucky3ViewModel(resultData, resultSetting, refDataHelper);
+
+            // Act
+            var actualValue = viewModel.ThirdBall;
+
+            // Assert
+            Assert.AreEqual(0, actualValue);
+        }
+
+        [Test]
         public void FirstBallColor_Always_ReturnFirstBallColor()
         {
             // Arrange
@@ -138,12 +151,14 @@
             Assert.AreEqual("red", actualValue);
         }
 
-        [Test]
-        public void FirstPrize_EventStatusIsRefund_ReturnHyphen()
+        [TestCase("Refund")]
+        [TestCase("Refund HT")]
+        [TestCase("Refund FT")]
+        public void FirstPrize_EventStatusIsRefund_ReturnHyphen(string eventStatus)
         {
             // Arrange
             resultData.LiveHomeScore = 1;
-            resultData.EventStatus = "refund";
+            resultData.EventStatus = eventStatus;
             var viewModel = new Lucky3ViewModel(resultData, resultSetting, refDataHelper);
 
             // Act

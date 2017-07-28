@@ -79,7 +79,7 @@ namespace Fanex.Result.Core.Lucky3.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Lucky3 Game No.
+        ///   Looks up a localized string similar to Lucky 3 Game No.
         /// </summary>
         public static string Lucky3GameNo {
             get {

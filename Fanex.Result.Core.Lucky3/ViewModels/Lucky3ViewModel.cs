@@ -48,7 +48,10 @@
 
         public override string EventStatus => MapEventStatus.MapEventStatusString(resultData.EventStatus, resultData.IsPending, VisibleInternalEventStatus);
 
-        public bool EventStatusIsRefund => resultData.EventStatus.Equals(ConstantValue.Refund, StringComparison.OrdinalIgnoreCase);
+        public bool EventStatusIsRefund
+            => resultData.EventStatus.Equals(ConstantValue.Refund, StringComparison.OrdinalIgnoreCase) ||
+                resultData.EventStatus.Equals(ConstantValue.RefundFT, StringComparison.OrdinalIgnoreCase) ||
+                resultData.EventStatus.Equals(ConstantValue.RefundHT, StringComparison.OrdinalIgnoreCase);
 
         public string MatchCode => resultData.MatchCode;
 
@@ -56,10 +59,11 @@
 
         public override string LeagueName => GetLeagueNameByLanguage(resultData.LeagueId);
 
-        private string GetBallColor(int index)
-            => Constant.Lucky3RedBalls.Contains(index) ? RedBallColor : BlueBallColor;
+        private static string GetBallColor(int ballNumber)
+             => Constant.Lucky3RedBalls.Contains(ballNumber) ? RedBallColor : BlueBallColor;
 
         private int GetBall(int index)
-           => resultData.Ball.Count > 0 ? resultData.Ball[index] : 0;
+           => (resultData.Ball.Count > 0 && index < resultData.Ball.Count) ?
+                resultData.Ball[index] : 0;
     }
 }

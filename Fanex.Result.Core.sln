@@ -85,6 +85,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Data", "Fanex.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Lucky3.Tests", "Fanex.Result.Lucky3.Tests\Fanex.Result.Core.Lucky3.Tests.csproj", "{ABC335A1-4EBB-4CC7-B452-A30B28D42B3C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{5F080FDD-C189-4D47-BC05-9E8F0183EDBA}"
+	ProjectSection(SolutionItems) = preProject
+		SonarQube\Result.CoreCSharp.ruleset = SonarQube\Result.CoreCSharp.ruleset
+		SonarQube\SolutionBinding.sqconfig = SonarQube\SolutionBinding.sqconfig
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

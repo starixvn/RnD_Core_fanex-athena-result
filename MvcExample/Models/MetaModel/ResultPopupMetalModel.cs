@@ -31,5 +31,7 @@
         public int BetId { get; set; }
 
         public bool IncludeTestData { get; set; }
+
+        public bool GetDataFromExcel { get; set; }
     }
 }

@@ -17,5 +17,10 @@
         {
             return RefData.GetTeamName(homeId.ToString(CultureInfo.InvariantCulture), lang, defaultValue);
         }
+
+        public string GetLeagueNameByLanguage(int leagueId, string lang, string defaultValue)
+        {
+            return RefData.GetLeagueName(leagueId.ToString(CultureInfo.InvariantCulture), lang, defaultValue);
+        }
     }
 }

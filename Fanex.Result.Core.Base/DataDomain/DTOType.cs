@@ -17,5 +17,6 @@
         public const string METRICGAMING = "MetricGaming";
         public const string AGCASINO = "AGCasino";
         public const string ALLBETCASINO = "AllBetCasino";
+        public const string LUCKY3 = "Lucky3";
     }
 }

@@ -1,18 +1,23 @@
 ﻿namespace Fanex.Result.Core.Lucky3.ViewModels
 {
     using System;
+    using System.Globalization;
     using System.Linq;
-    using Base.ViewModels;
     using Base;
-    using Base.Utilities;
     using Base.DataDomain;
+    using Base.Utilities;
+    using Base.ViewModels;
     using DataDomain;
+    using Resources;
 
     public sealed class Lucky3ViewModel : BaseViewModel, IResultViewModel
     {
+        private const string RedBallColor = "red";
+        private const string BlueBallColor = "blue";
         private readonly DTO.Lucky3 resultData;
 
-        public Lucky3ViewModel(DTO.Lucky3 resultData, ResultSetting setting) : base(setting)
+        public Lucky3ViewModel(DTO.Lucky3 resultData, ResultSetting setting, IRefDataHelper refDataHelper)
+            : base(setting, refDataHelper)
         {
             this.resultData = resultData;
             LanguageCode = setting.LanguageCode;
@@ -21,28 +26,40 @@
 
         public override string KickOffTime => GetFormatedKickOffTime(resultData.KickOffTime);
 
-        public string Match => $"Lucky 3 Game No {resultData.MatchCode}";
+        public string Match => $"{Lucky3Resources.Lucky3GameNo} {resultData.MatchCode}";
 
         public int FirstBall => GetBall(0);
 
+        public string FirstBallColor => GetBallColor(FirstBall);
+
         public int SecondBall => GetBall(1);
+
+        public string SecondBallColor => GetBallColor(SecondBall);
 
         public int ThirdBall => GetBall(2);
 
-        public string GetBallColor(int index)
-            => Constant.RedBalls.Contains(index) ? "red" : "blue";
+        public string ThirdBallColor => GetBallColor(ThirdBall);
 
-        public string FirstPrize => EventStatusIsRefund ? "N/A" : resultData.LiveHomeScore.ToString();
+        public string FirstPrize => EventStatusIsRefund ? ConstantValue.Hyphen : resultData.LiveHomeScore.ToString();
 
-        public string SecondPrize => EventStatusIsRefund ? "N/A" : resultData.LiveAwayScore.ToString();
+        public string SecondPrize => EventStatusIsRefund ? ConstantValue.Hyphen : resultData.LiveAwayScore.ToString();
 
-        public string ThirdPrize => EventStatusIsRefund ? "N/A" : resultData.FinalHomeScore.ToString();
+        public string ThirdPrize => EventStatusIsRefund ? ConstantValue.Hyphen : resultData.FinalHomeScore.ToString();
 
         public override string EventStatus => MapEventStatus.MapEventStatusString(resultData.EventStatus, resultData.IsPending, VisibleInternalEventStatus);
 
         public bool EventStatusIsRefund => resultData.EventStatus.Equals(ConstantValue.Refund, StringComparison.OrdinalIgnoreCase);
 
-        public int GetBall(int index)
+        public string MatchCode => resultData.MatchCode;
+
+        public string MatchId => resultData.MatchId.ToString(CultureInfo.InvariantCulture);
+
+        public override string LeagueName => GetLeagueNameByLanguage(resultData.LeagueId);
+
+        private string GetBallColor(int index)
+            => Constant.Lucky3RedBalls.Contains(index) ? RedBallColor : BlueBallColor;
+
+        private int GetBall(int index)
            => resultData.Ball.Count > 0 ? resultData.Ball[index] : 0;
     }
 }

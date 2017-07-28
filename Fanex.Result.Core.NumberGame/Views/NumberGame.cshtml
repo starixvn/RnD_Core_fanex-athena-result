@@ -13,50 +13,50 @@
 {
     <div class="fn-rs-content-header">
         <table class="fn-rs number-game @popupCss">
-         <thead>
-        @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
-        {
-            var item = ((GroupData)viewModel.Data[0]).Data[0];
+            <thead>
+                @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+                {
+                    var item = ((GroupData)viewModel.Data[0]).Data[0];
 
-            <tr class="row-title">
-                <th class="cl-title" colspan="@colspan">
-                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
-                </th>
-            </tr>
-        }
-        <tr class="header">
-            @if (viewModel.VisibleMatchCodeIDColumn)
-            {
-                <th class="cl-m-code">
-                    @LangResource.MatchCode/@LangResource.ID
-                </th>
-            }
-            <th class="cl-ko-time">
-                @LangResource.KickOffTime
-            </th>
-            <th class="cl-match">
-                @Raw(LangResource.Match)
-            </th>
-            <th class="cl-result">
-                @Raw(LangResource.Result)
-            </th>
-            <th class="cl-warrior">
-                @Raw(LangResource.Warrior)
-            </th>
-            <th class="cl-lblOEFT">
-                @Raw(LangResource.LblOEFT)
-            </th>
-            <th class="cl-lbl1stball">
-                @Raw(LangResource.Lbl1stBall)
-            </th>
-            <th class="cl-lastball">
-                @LangResource.LastBall
-            </th>
-            <th class="cl-status">
-                @LangResource.Status
-            </th>
-        </tr>
-    </thead>
+                    <tr class="row-title">
+                        <th class="cl-title" colspan="@colspan">
+                            <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                        </th>
+                    </tr>
+                }
+                <tr class="header">
+                    @if (viewModel.VisibleMatchCodeIDColumn)
+                    {
+                        <th class="cl-m-code">
+                            @LangResource.MatchCode/@LangResource.ID
+                        </th>
+                    }
+                    <th class="cl-ko-time">
+                        @LangResource.KickOffTime
+                    </th>
+                    <th class="cl-match">
+                        @Raw(LangResource.Match)
+                    </th>
+                    <th class="cl-result">
+                        @Raw(LangResource.Result)
+                    </th>
+                    <th class="cl-warrior">
+                        @Raw(LangResource.Warrior)
+                    </th>
+                    <th class="cl-lblOEFT">
+                        @Raw(LangResource.LblOEFT)
+                    </th>
+                    <th class="cl-lbl1stball">
+                        @Raw(LangResource.Lbl1stBall)
+                    </th>
+                    <th class="cl-lastball">
+                        @LangResource.LastBall
+                    </th>
+                    <th class="cl-status">
+                        @LangResource.Status
+                    </th>
+                </tr>
+            </thead>
         </table>
     </div>
 }
@@ -66,69 +66,69 @@
 
 }
 <table class="fn-rs  number-game @popupCss">
-  @if (!viewModel.VisibleFreeHeader)
-  {
-    <thead>
-        @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
-        {
-            var item = ((GroupData)viewModel.Data[0]).Data[0];
+    @if (!viewModel.VisibleFreeHeader)
+    {
+        <thead>
+            @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+            {
+                var item = ((GroupData)viewModel.Data[0]).Data[0];
 
-            <tr class="row-title">
-                <th class="cl-title" colspan="@colspan">
-                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                <tr class="row-title">
+                    <th class="cl-title" colspan="@colspan">
+                        <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                    </th>
+                </tr>
+            }
+            <tr class="header">
+                @if (viewModel.VisibleMatchCodeIDColumn)
+                {
+                    <th class="cl-m-code">
+                        @LangResource.MatchCode/@LangResource.ID
+                    </th>
+                }
+                <th class="cl-ko-time">
+                    @LangResource.KickOffTime
+                </th>
+                <th class="cl-match">
+                    @Raw(LangResource.Match)
+                </th>
+                <th class="cl-result">
+                    @Raw(LangResource.Result)
+                </th>
+                <th class="cl-warrior">
+                    @Raw(LangResource.Warrior)
+                </th>
+                <th class="cl-lblOEFT">
+                    @Raw(LangResource.LblOEFT)
+                </th>
+                <th class="cl-lbl1stball">
+                    @Raw(LangResource.Lbl1stBall)
+                </th>
+                <th class="cl-lastball">
+                    @LangResource.LastBall
+                </th>
+                <th class="cl-status">
+                    @LangResource.Status
                 </th>
             </tr>
-        }
-        <tr class="header">
-            @if (viewModel.VisibleMatchCodeIDColumn)
-            {
-                <th class="cl-m-code">
-                    @LangResource.MatchCode/@LangResource.ID
-                </th>
-            }
-            <th class="cl-ko-time">
-                @LangResource.KickOffTime
-            </th>
-            <th class="cl-match">
-                @Raw(LangResource.Match)
-            </th>
-            <th class="cl-result">
-                @Raw(LangResource.Result)
-            </th>
-            <th class="cl-warrior">
-                @Raw(LangResource.Warrior)
-            </th>
-            <th class="cl-lblOEFT">
-                @Raw(LangResource.LblOEFT)
-            </th>
-            <th class="cl-lbl1stball">
-                @Raw(LangResource.Lbl1stBall)
-            </th>
-            <th class="cl-lastball">
-                @LangResource.LastBall
-            </th>
-            <th class="cl-status">
-                @LangResource.Status
-            </th>
-        </tr>
-    </thead>
-  }
+        </thead>
+    }
     <tbody>
         @if (viewModel.Data.Count > 0)
         {
             var index = 0;
-               foreach (var itemObj in viewModel.Data)
+            foreach (var itemObj in viewModel.Data)
             {
                 var group = (GroupData)itemObj;
 
                 if (!viewModel.IsPopUp)
                 {
 
-            <tr class="data">
-                <td colspan="@colspan" class="cl-league">
-                    @group.Data[0].LeagueName
-                </td>
-            </tr>
+                    <tr class="data">
+                        <td colspan="@colspan" class="cl-league">
+                            @group.Data[0].LeagueName
+                        </td>
+                    </tr>
 
                 }
                 foreach (var temp in group.Data)
@@ -136,48 +136,48 @@
                     var item = (NumberGameViewModel)temp;
                     index++;
 
-            <tr class="data @item.Color(index, "even", "odd")">
-                @if (viewModel.VisibleMatchCodeIDColumn)
-                {
-                    <td class="cl-m-code">
-                        <div class="m-code">
-                            @item.MatchCode
-                        </div>
-                        <div class="m-id">
-                            @item.MatchId
-                        </div>
-                    </td>
-                }
-                <td class="cl-ko-time">
-                    @Raw(item.KickOffTime)
-                </td>
-                <td class="cl-match">
-                    @LangResource.NumberGameNo&nbsp;@item.GameNo
-                </td>
-                <td class="cl-result">
-                    @foreach (var ball in item.Result)
-                    {
-                        <span class="ball">@ball</span>
-                    }
-                </td>
-                <td class="cl-warrior">
-                    @item.Warrior
-                </td>
-                <td class="cl-lblOEFT">
-                    @item.OEFT
-                </td>
-                <td class="cl-lbl1stball">
-                    <span class="ball">@item.FirstBall</span>
-                </td>
-                <td class="cl-lastball">
-                    <span class="ball">@item.LastBall</span>
-                </td>
-                <td class="cl-status @item.EventStatusBackground">
-                    @item.EventStatus
-                </td>
-            </tr>
+                    <tr class="data @item.Color(index, "even", "odd")">
+                        @if (viewModel.VisibleMatchCodeIDColumn)
+                        {
+                            <td class="cl-m-code">
+                                <div class="m-code">
+                                    @item.MatchCode
+                                </div>
+                                <div class="m-id">
+                                    @item.MatchId
+                                </div>
+                            </td>
+                        }
+                        <td class="cl-ko-time">
+                            @Raw(item.KickOffTime)
+                        </td>
+                        <td class="cl-match">
+                            @LangResource.NumberGameNo&nbsp;@item.GameNo
+                        </td>
+                        <td class="cl-result">
+                            @foreach (var ball in item.Result)
+                            {
+                                <span class="ball">@ball</span>
+                            }
+                        </td>
+                        <td class="cl-warrior">
+                            @item.Warrior
+                        </td>
+                        <td class="cl-lblOEFT">
+                            @item.OEFT
+                        </td>
+                        <td class="cl-lbl1stball">
+                            <span class="ball">@item.FirstBall</span>
+                        </td>
+                        <td class="cl-lastball">
+                            <span class="ball">@item.LastBall</span>
+                        </td>
+                        <td class="cl-status @item.EventStatusBackground">
+                            @item.EventStatus
+                        </td>
+                    </tr>
 
-            }
+                }
             }
         }
         else

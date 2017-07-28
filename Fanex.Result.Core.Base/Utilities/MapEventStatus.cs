@@ -13,6 +13,7 @@
         public static string MapEventStatusString(string eventstatus, bool isPending, bool visibleInternalEventStatus)
         {
             var isInternalMatch = InternalStatus.Equals(eventstatus, StringComparison.OrdinalIgnoreCase);
+
             if (isInternalMatch && visibleInternalEventStatus)
             {
                 return LangResource.Internal;

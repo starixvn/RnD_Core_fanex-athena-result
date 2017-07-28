@@ -70,6 +70,9 @@
                 case SportType.AllBetCasino:
                     return dtoName == DTOType.ALLBETCASINO;
 
+                case SportType.Lucky3:
+                    return dtoName == DTOType.LUCKY3;
+
                 default:
                     return dtoName == DTOType.SPORTSBOOK || dtoName == DTOType.METRICGAMING;
             }

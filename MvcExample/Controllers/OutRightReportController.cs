@@ -9,18 +9,19 @@
     using Fanex.Result.Core;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Sportsbook.DTO;
-    using MvcExample.Models;
+    using Models.Criteria;
+    using Models.ResultServices;
 
     /// <summary>
     /// OutRight result page.
     /// </summary>
     public class OutRightReportController : Controller
     {
-        private readonly IResultService _resultService;
+        private readonly IResultService<Outright> resultService;
 
         public OutRightReportController()
         {
-            _resultService = new ResultService();
+            resultService = new OutRightResultService();
         }
 
         public ActionResult Index()
@@ -40,7 +41,7 @@
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(languageCode);
 
             string htmlResult = string.Empty;
-            var outRightData = _resultService.GetOutRightResult(new Models.Criteria.GetOutRightResult
+            var outRightData = resultService.GetResult(new GetOutRightResult
             {
                 FromDate = date,
                 isShowAll = true,
@@ -68,7 +69,7 @@
         public ActionResult GenExcel(DateTime date, string languageCode)
         {
             MemoryStream excelResult = null;
-            var outRightData = _resultService.GetOutRightResult(new Models.Criteria.GetOutRightResult
+            var outRightData = resultService.GetResult(new GetOutRightResult
             {
                 FromDate = date,
                 isShowAll = true,

@@ -1,7 +1,6 @@
 ﻿namespace MvcExample.Controllers
 {
     using System;
-    using System.Diagnostics.CodeAnalysis;
     using System.Globalization;
     using System.IO;
     using System.Linq;
@@ -9,25 +8,16 @@
     using System.Web.Mvc;
     using Fanex.Result.Core;
     using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.GoldDeluxe.DTO;
-    using Fanex.Result.Core.LiveCasino.DTO;
-    using Fanex.Result.Core.NumberGame.DTO;
-    using Fanex.Result.Core.Racing.DTO;
-    using Fanex.Result.Core.Sportsbook.DTO;
-    using Models;
     using Models.Criteria;
+    using Models.ResultData;
+    using Models.ResultServices;
 
     /// <summary>
     /// Normal result page.
     /// </summary>
     public class NormalReportController : Controller
     {
-        private readonly IResultService _resultService;
-
-        public NormalReportController()
-        {
-            _resultService = new ResultService();
-        }
+        private const string ExcelTemplatePath = @"~/App_Data/Fanex.Result/";
 
         [HttpGet]
         public ActionResult Index()
@@ -44,15 +34,10 @@
         /// <param name="languageCode">The language code.</param>
         /// <param name="showMatchCode">Visible match code column.</param>
         /// <returns>The html table result.</returns>
-        [SuppressMessage(
-          "StyleCop.CSharp.StylecopPlus.Rules",
-          "SP2101:MethodMustNotContainMoreLinesThan",
-          Justification = "Reviewed. Suppression is OK here.")]
         [HttpPost]
-        public string GenHtml(DateTime date, short sportId, int leagueId, string languageCode, bool showMatchCode)
+        public string GenHtml(DateTime date, short sportId, int leagueId, string languageCode, bool showMatchCode, bool getDataFromExcel)
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(languageCode);
-
             var sportType = (SportType)sportId;
             var resultSetting = new ResultSetting
             {
@@ -65,6 +50,7 @@
                 EnableCheckScoreCalculated = true
             };
             var htmlResult = string.Empty;
+
             switch (sportType)
             {
                 case SportType.HorseRacing:
@@ -75,66 +61,34 @@
                 case SportType.VirtualMotorRacing:
                 case SportType.VirtualSpeedway:
                 case SportType.VirtualCycling:
-                    var dataRc = _resultService.GetRacingResult(new GetRacingResultCriteria
-                    {
-                        Sporttype = sportId,
-                        FromDate = date,
-                        isShowAll = true,
-                        LeagueID = leagueId
-                    });
-
-                    htmlResult = ResultEngine.HtmlParser<Racing>(dataRc.ToList(), resultSetting);
-
+                    htmlResult = ResultEngine.HtmlParser(
+                        new RacingResultData().GetNormalResult(sportId, date, leagueId).ToList(), resultSetting);
                     break;
 
                 case SportType.LiveCasino:
-                    var dataLC = _resultService.GetLiveCasinoResult(new GetLiveCasinoResultCriteria
-                    {
-                        FromDate = date,
-                        sporttype = (byte)sportId,
-                        isShowAll = true,
-                        LeagueID = leagueId
-                    });
-
-                    htmlResult = ResultEngine.HtmlParser(dataLC.ToList(), resultSetting);
+                    htmlResult = ResultEngine.HtmlParser(
+                        new LiveCasinoResultData().GetNormalResult(sportId, date, leagueId).ToList(), resultSetting);
                     break;
 
                 case SportType.NumberGame:
-                    var dataNg = _resultService.GetNumberGameResult(new GetNumberGameResultCriteria
-                    {
-                        FromDate = date,
-                        LeagueID = leagueId,
-                        ToDate = date
-                    });
-
-                    htmlResult = ResultEngine.HtmlParser(dataNg.ToList(), resultSetting);
-                    break;
-
-                case SportType.GoldDeluxe:
-                    var dataGd = _resultService.GetGoldDeluxePopUpResult(new GetGolDeluxePopUpResultCriteria
-                    {
-                        TransID = 7396592187,
-                        Bettype = 1701
-                    });
-
-                    htmlResult = ResultEngine.HtmlParser(dataGd.ToList(), resultSetting);
+                    htmlResult = ResultEngine.HtmlParser(
+                        new NumberGameResultData().GetNormalResult(date, leagueId).ToList(), resultSetting);
                     break;
 
                 case SportType.Lucky3:
-                // Todo
+                    resultSetting.VisibleMatchCodeIDColumn = false;
+                    htmlResult = ResultEngine.HtmlParser(
+                        new Lucky3ResultData().GetNormalResult(date, leagueId, getDataFromExcel).ToList(), resultSetting);
+                    break;
+
+                case SportType.GoldDeluxe:
+                    htmlResult = ResultEngine.HtmlParser(
+                        new GoldDeluxeResultData().GetNormalResult().ToList(), resultSetting);
+                    break;
 
                 default:
-
-                    var dataSb = _resultService.GetSportbookResult(new GetSportbookResultCriteria
-                    {
-                        FromDate = date,
-                        sporttype = (byte)sportId,
-                        isShowAll = true,
-                        LeagueID = leagueId,
-                        MoveBetsDay = _resultService.GetBalanceUpDay().MoveBetsDay
-                    });
-
-                    htmlResult = ResultEngine.HtmlParser(dataSb.ToList(), resultSetting);
+                    htmlResult = ResultEngine.HtmlParser(
+                        new SportsbookResultData().GetNormalResult(date, sportId, leagueId, getDataFromExcel).ToList(), resultSetting);
                     break;
             }
 
@@ -154,7 +108,7 @@
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(languageCode);
 
-            var detailedData = _resultService.GetGameDetail(new GetGameDetailCriteria { MatchId = matchId });
+            var detailedData = new SportsbookResultService().GetGameDetail(new GetGameDetailCriteria { MatchId = matchId });
 
             if (detailedData != null && detailedData.MatchId > 0)
             {
@@ -182,12 +136,8 @@
         /// <param name="languageCode">The language code.</param>
         /// <param name="showMatchCode">Visible match code column.</param>
         /// <returns>The Excel file.</returns>
-        [SuppressMessage(
-          "StyleCop.CSharp.StylecopPlus.Rules",
-          "SP2101:MethodMustNotContainMoreLinesThan",
-          Justification = "Reviewed. Suppression is OK here.")]
         [HttpGet]
-        public ActionResult GenExcel(DateTime date, short sportId, int leagueId, string languageCode, bool showMatchCode)
+        public ActionResult GenExcel(DateTime date, short sportId, int leagueId, string languageCode, bool showMatchCode, bool getDataFromExcel)
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(languageCode);
 
@@ -197,7 +147,7 @@
                 SportType = sportType,
                 LanguageCode = languageCode,
                 ExcelTitle = "Result report",
-                ExcelTemplatePath = Server.MapPath(@"~/App_Data/Fanex.Result/"),
+                ExcelTemplatePath = Server.MapPath(ExcelTemplatePath),
                 VisibleMatchCodeIDColumn = showMatchCode,
                 HighlightWinnerTeam = true,
                 EnableCheckScoreCalculated = true
@@ -215,61 +165,35 @@
                 case SportType.VirtualMotorRacing:
                 case SportType.VirtualSpeedway:
                 case SportType.VirtualCycling:
-                    var dataRc = _resultService.GetRacingResult(new GetRacingResultCriteria
-                    {
-                        Sporttype = sportId,
-                        FromDate = date,
-                        isShowAll = true,
-                        LeagueID = leagueId
-                    });
-                    excelResult = ResultEngine.ExcelParser<Racing>(dataRc.ToList(), resultSetting);
+                    excelResult = ResultEngine.ExcelParser(
+                        new RacingResultData().GetNormalResult(sportId, date, leagueId).ToList(), resultSetting);
                     break;
 
                 case SportType.LiveCasino:
-                    var dataLC = _resultService.GetLiveCasinoResult(new GetLiveCasinoResultCriteria
-                    {
-                        FromDate = date,
-                        sporttype = (byte)sportId,
-                        isShowAll = true,
-                        LeagueID = leagueId
-                    });
-                    excelResult = ResultEngine.ExcelParser<LiveCasino>(dataLC.ToList(), resultSetting);
+                    excelResult = ResultEngine.ExcelParser(
+                        new LiveCasinoResultData().GetNormalResult(sportId, date, leagueId).ToList(), resultSetting);
 
                     break;
 
                 case SportType.NumberGame:
-                    var dataNg = _resultService.GetNumberGameResult(new GetNumberGameResultCriteria
-                    {
-                        FromDate = date,
-                        LeagueID = leagueId,
-                        ToDate = date
-                    });
-                    excelResult = ResultEngine.ExcelParser<NumberGame>(dataNg.ToList(), resultSetting);
+                    excelResult = ResultEngine.ExcelParser(
+                        new NumberGameResultData().GetNormalResult(date, leagueId).ToList(), resultSetting);
+                    break;
 
+                case SportType.Lucky3:
+                    resultSetting.VisibleMatchCodeIDColumn = false;
+                    excelResult = ResultEngine.ExcelParser(
+                        new Lucky3ResultData().GetNormalResult(date, leagueId, getDataFromExcel).ToList(), resultSetting);
                     break;
 
                 case SportType.GoldDeluxe:
-                    var dataGd = _resultService.GetGoldDeluxePopUpResult(new GetGolDeluxePopUpResultCriteria
-                    {
-                        TransID = 7201376080,
-                        Bettype = 1701
-                    });
-
-                    excelResult = ResultEngine.ExcelParser<GoldDeluxe>(dataGd.ToList(), resultSetting);
+                    excelResult = ResultEngine.ExcelParser(
+                        new GoldDeluxeResultData().GetNormalResult().ToList(), resultSetting);
                     break;
 
                 default:
-                    var dataSb = _resultService.GetSportbookResult(new GetSportbookResultCriteria
-                    {
-                        FromDate = date,
-                        sporttype = (byte)sportId,
-                        isShowAll = true,
-                        LeagueID = leagueId,
-                        MoveBetsDay = _resultService.GetBalanceUpDay().MoveBetsDay
-                    });
-
-                    excelResult = ResultEngine.ExcelParser<Sportsbook>(dataSb.ToList(), resultSetting);
-
+                    excelResult = ResultEngine.ExcelParser(
+                        new SportsbookResultData().GetNormalResult(date, sportId, leagueId, getDataFromExcel).ToList(), resultSetting);
                     break;
             }
 
@@ -277,19 +201,37 @@
         }
 
         [HttpGet]
-        public ActionResult GetSports(GetSportByDateCriteria criteria)
+        public ActionResult GetSports(GetSportByDateCriteria criteria, bool getDataFromExcel)
         {
-            var moveBetsDay = _resultService.GetBalanceUpDay().MoveBetsDay;
+            var moveBetsDay = new BaseResultService().GetBalanceUpDay().MoveBetsDay;
             criteria.MoveBetsDay = moveBetsDay;
+            var resultService = new SportsResultService();
 
-            return Json(_resultService.GetSports(criteria), JsonRequestBehavior.AllowGet);
+            if (getDataFromExcel)
+            {
+                return Json(resultService.GetResultFromExcel(string.Empty), JsonRequestBehavior.AllowGet);
+            }
+
+            return Json(resultService.GetResult(criteria), JsonRequestBehavior.AllowGet);
         }
 
         [HttpGet]
         public ActionResult GetLeagues(GetLeaguesBySportCriteria criteria)
         {
-            criteria.MoveBetsDay = _resultService.GetBalanceUpDay().MoveBetsDay;
-            return Json(_resultService.GetLeagues(criteria), JsonRequestBehavior.AllowGet);
+            criteria.MoveBetsDay = new BaseResultService().GetBalanceUpDay().MoveBetsDay;
+
+            return Json(new LeaguesResultService().GetResult(criteria), JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        public ActionResult ExportExcelDataFile(short sportId)
+        {
+            var sportName = (SportType)sportId;
+
+            return File(
+                Server.MapPath(string.Format(Constant.ExcelFilePath, sportName)),
+                "application/vnd.ms-excel",
+                (SportType)sportId + "Data.xls");
         }
     }
 }

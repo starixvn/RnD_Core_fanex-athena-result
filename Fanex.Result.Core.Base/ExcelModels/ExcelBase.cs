@@ -20,7 +20,6 @@
 
         protected const string FormatDate = "MM/dd/yyyy";
 
-        protected const int RowLeagueTemplate = 2;
         protected const int BoldTemplateRow = 3;
         protected const int NoneBoldTemplateRow = 4;
         protected const int RowNoInfoTemplate = 5;
@@ -41,29 +40,31 @@
             this.NumofRow = data.Count;
         }
 
-        protected int NumofRow { get; set; }
+        protected internal int NumofRow { get; set; }
 
-        protected IList<IResultViewModel> ViewModelData { get; set; }
+        protected internal IList<IResultViewModel> ViewModelData { get; set; }
 
-        protected ResultSetting Setting { get; set; }
+        protected internal ResultSetting Setting { get; set; }
 
-        protected IWorkbook Workbook { get; set; }
+        protected internal IWorkbook Workbook { get; set; }
 
-        protected ISheet TemplateSheet { get; set; }
+        protected internal ISheet TemplateSheet { get; set; }
 
-        protected ICellStyle DefaultStyle { get; set; }
+        protected internal ICellStyle DefaultStyle { get; set; }
 
-        protected IList<int> ColumnTemplateIndexList { get; set; }
+        protected internal IList<int> ColumnTemplateIndexList { get; set; }
 
-        protected string TemplatePath { get; set; }
+        protected internal string TemplatePath { get; set; }
 
-        protected string ReportTitle { get; set; }
+        protected internal string ReportTitle { get; set; }
 
-        protected int ColumnStatus { get; set; } = 4;
+        protected internal int ColumnStatus { get; set; } = 4;
 
-        protected int RowContentTemplate { get; set; } = 3;
+        protected internal int RowContentTemplate { get; set; } = 3;
 
-        protected int ColumnTemplateCount { get; set; }
+        protected internal int ColumnTemplateCount { get; set; }
+
+        protected internal int RowLeagueTemplate { get; set; } = 2;
 
         #region Export
 
@@ -89,6 +90,7 @@
         protected static void ClearTemplate(ISheet sheet, int startRowIndex)
         {
             var lastRowNum = sheet.LastRowNum;
+
             for (var i = startRowIndex; i <= lastRowNum; i++)
             {
                 sheet.DeleteRow(i);
@@ -136,6 +138,7 @@
             var currentRow = RowLeagueTemplate;
             var currentLeagueId = 0;
             var groupData = this.ViewModelData.GroupBy(i => i.LeagueId).ToList();
+
             foreach (var item in groupData)
             {
                 var firstItem = item.FirstOrDefault();
@@ -204,7 +207,7 @@
             if (currentLeagueId == 0 || currentLeagueId != leagueId)
             {
                 currentLeagueId = leagueId;
-                SetTextRowValue(sheet, 2, currentRow, ColumnTemplateCount, leagueName.ToUpper());
+                SetTextRowValue(sheet, RowLeagueTemplate, currentRow, ColumnTemplateCount, leagueName.ToUpper());
                 currentRow++;
             }
         }

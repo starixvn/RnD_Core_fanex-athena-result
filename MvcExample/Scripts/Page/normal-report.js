@@ -6,24 +6,26 @@ var normalReport = (function () {
     "use strict";
     var me = {};
     /*private variable*/
-    var renderSport = function (licenseeid, date) {
+    var renderSport = function (licenseeid, date, getDataFromExcel) {
         invokeLoadingMsg(true);
 
-        $.getJSON(window.rootUrl + "normalreport/GetSports?EventDate=" + date + "&licenseeid=" + licenseeid, function (data) {
-            var options = "";
-            if (data !== undefined && data !== null && data.length > 0) {
-                for (var i = 0; i < data.length; i++) {
-                    options += "<option value=\"" + data[i].Id + "\">" + data[i].Name + "</option>";
+        $.getJSON(
+            window.rootUrl + "normalreport/GetSports?EventDate=" + date + "&licenseeid=" + licenseeid + "&getDataFromExcel=" + getDataFromExcel,
+            function (data) {
+                var options = "";
+                if (data !== undefined && data !== null && data.length > 0) {
+                    for (var i = 0; i < data.length; i++) {
+                        options += "<option value=\"" + data[i].Id + "\">" + data[i].Name + "</option>";
+                    }
+                    var firstSport = data[0].Id;
+                    if (firstSport !== undefined && firstSport !== null && firstSport > 0) {
+                        renderLeague(data[0].Id, date);
+                    }
                 }
-                var firstSport = data[0].Id;
-                if (firstSport !== undefined && firstSport !== null && firstSport > 0) {
-                    renderLeague(data[0].Id, date);
-                }
-            }
-            options += "<option value=\"255\">GoldDeluxe</option>";
-            $("#sport").html(options);
-            invokeLoadingMsg(false);
-        });
+                options += "<option value=\"255\">GoldDeluxe</option>";
+                $("#sport").html(options);
+                invokeLoadingMsg(false);
+            });
     };
     var renderLeague = function (sportId, date) {
         invokeLoadingMsg(true);
@@ -56,9 +58,10 @@ var normalReport = (function () {
         {
             dateFormat: "mm/dd/yy",
             onSelect: function (dateText) {
-                renderSport(1, dateText);
+                renderSport(1, dateText, $("#get-data-from-excel").is(":checked"));
             }
-        });
+        }).datepicker("setDate", new Date());
+
         $("#sport").change(function () {
             var sportId = $(this).val();
             renderLeague(sportId, $.datepicker.formatDate('mm/dd/yy', $("#date").datepicker('getDate')));
@@ -69,7 +72,8 @@ var normalReport = (function () {
                 sportId: $("#sport").val(),
                 leagueId: $("#league").val(),
                 languageCode: $("#language").val(),
-                showmatchcode: $("#showmatchcode").is(":checked")
+                showmatchcode: $("#showmatchcode").is(":checked"),
+                getDataFromExcel: $("#get-data-from-excel").is(":checked")
             };
             $.ajax({
                 url: window.rootUrl + "normalreport/GenHtml",
@@ -98,6 +102,8 @@ var normalReport = (function () {
             url += "&leagueId=" + $("#league").val();
             url += "&languageCode=" + $("#language").val();
             url += "&showmatchcode=" + $("#showmatchcode").is(":checked");
+            url += "&getDataFromExcel=" + $("#get-data-from-excel").is(":checked");
+
             window.open(url, "_blank");
         });
         $("#gen-json").click(function () {
@@ -153,6 +159,18 @@ var normalReport = (function () {
                     alert("Error requesting page");
                 }
             });
+        });
+
+        $('#get-data-from-excel').change(function () {
+            var getDataFromExcel = $("#get-data-from-excel").is(":checked");
+
+            if (getDataFromExcel) {
+                renderSport(1, "07/23/2017", getDataFromExcel);
+            }
+        });
+        $("#export-excel-file").click(function () {
+            var sportId = $("#sport").val()
+            window.open(window.rootUrl + "normalreport/ExportExcelDataFile?sportId=" + sportId, "_blank");
         });
     };
     me.setup = function () {

@@ -3,12 +3,9 @@
     using System;
     using System.Collections.Generic;
     using System.IO;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Base.Models;
-    using Base.Extension;
     using Base;
+    using Base.Extension;
+    using Base.Models;
 
     public class Builder : BaseBuilder, IBuilder
     {

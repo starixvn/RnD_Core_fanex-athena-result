@@ -201,7 +201,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controllers\DocsController.cs" />
     <Compile Include="Controllers\GlobalGamingInternalController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\NormalReportController.cs" />
     <Compile Include="Controllers\OutRightReportController.cs" />
     <Compile Include="Controllers\PopUpReportController.cs" />
@@ -232,13 +231,34 @@
     <Compile Include="Models\Criteria\GetAllBetCasinoPopUpResultCriteria.cs" />
     <Compile Include="Models\GlobalGaming\GlobalGamingResponse.cs" />
     <Compile Include="Models\GlobalGaming\GlobalGamingRequest.cs" />
-    <Compile Include="Models\IResultService.cs" />
     <Compile Include="Models\MetaModel\ResultPopupMetalModel.cs" />
+    <Compile Include="Models\ResultData\MicroGamingResultData.cs" />
+    <Compile Include="Models\ResultData\AllbetResultData.cs" />
+    <Compile Include="Models\ResultData\Constant.cs" />
+    <Compile Include="Models\ResultData\AGCasinoResultData.cs" />
+    <Compile Include="Models\ResultData\GoldDeluxeResultData.cs" />
+    <Compile Include="Models\ResultData\MetricGamingResultData.cs" />
+    <Compile Include="Models\ResultData\SportsbookResultData.cs" />
+    <Compile Include="Models\ResultData\NumberGameResultData.cs" />
+    <Compile Include="Models\ResultData\LiveCasinoResultData.cs" />
+    <Compile Include="Models\ResultData\RacingResultData.cs" />
+    <Compile Include="Models\ResultData\Lucky3ResultData.cs" />
+    <Compile Include="Models\ResultServices\BaseResultService.cs" />
+    <Compile Include="Models\ResultServices\CasinoResultService.cs" />
+    <Compile Include="Models\ResultServices\MetricGamingResultService.cs" />
+    <Compile Include="Models\ResultServices\IResultService.cs" />
+    <Compile Include="Models\ResultServices\Lucky3ResultService.cs" />
+    <Compile Include="Models\ResultServices\GoldDeluxeResultService.cs" />
+    <Compile Include="Models\ResultServices\ParlayResultService.cs" />
+    <Compile Include="Models\ResultServices\OutRightResultService.cs" />
+    <Compile Include="Models\ResultServices\SportsbookResultService.cs" />
+    <Compile Include="Models\ResultServices\NumberGameResultService.cs" />
+    <Compile Include="Models\ResultServices\LiveCasinoResultService.cs" />
+    <Compile Include="Models\ResultServices\RacingResultService.cs" />
+    <Compile Include="Models\ResultServices\LeaguesResultService.cs" />
+    <Compile Include="Models\ResultServices\SportsResultService.cs" />
     <Compile Include="Models\Voidbridge\Request.cs" />
     <Compile Include="Models\Voidbridge\Response.cs" />
-    <Compile Include="Models\ResultService.cs">
-      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -472,6 +492,9 @@
     <Content Include="App_Data\Fanex.Result\VSTennis.xls" />
     <Content Include="App_Data\Fanex.Result\GoldDeluxe.xls" />
     <Content Include="App_Data\Fanex.Result\MuayThai.xls" />
+    <Content Include="App_Data\Result_Data\Soccer.xls" />
+    <Content Include="App_Data\Result_Data\Lucky3.xls" />
+    <Content Include="App_Data\Fanex.Result\Lucky3.xls" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -550,6 +573,10 @@
     <Content Include="Content\Core\site.less" />
     <Content Include="Content\Core\variables.less" />
     <Content Include="ClassDiagram1.cd" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
     <None Include="Content\Fanex.Result\fanex.result.less" />
     <None Include="Content\fonts\glyphicons-halflings-regular.eot" />
     <None Include="Content\fonts\glyphicons-halflings-regular.ttf" />
@@ -653,6 +680,10 @@
     <ProjectReference Include="..\Fanex.Result.Core\Fanex.Result.Core.csproj">
       <Project>{73aaea31-c52d-47d2-bc47-087a06794f55}</Project>
       <Name>Fanex.Result.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fanex.Result.Data\Fanex.Result.Data.csproj">
+      <Project>{15e2d2ec-e10d-4900-984f-b818011620da}</Project>
+      <Name>Fanex.Result.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

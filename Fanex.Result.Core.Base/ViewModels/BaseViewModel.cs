@@ -28,8 +28,8 @@
 
         protected BaseViewModel(ResultSetting setting, IRefDataHelper refDataHelper)
         {
-            this.DateTimeFormat = setting.DateTimeFormat;
-            this.VisibleInternalEventStatus = setting.VisibleInternalEventStatus;
+            DateTimeFormat = setting.DateTimeFormat;
+            VisibleInternalEventStatus = setting.VisibleInternalEventStatus;
             RefDataHelper = refDataHelper ?? new RefDataHelper();
         }
 
@@ -51,6 +51,8 @@
         public bool VisibleMatchResult => true;
 
         public bool VisibleGameDetail => false;
+
+        public IRefDataHelper RefDataHelper { get; private set; }
 
         public virtual string EventStatusBackground
         {
@@ -84,7 +86,7 @@
 
         protected virtual string GetLeagueNameByLanguage(int leagueId)
         {
-            return RefData.GetLeagueName(leagueId.ToString(CultureInfo.InvariantCulture), GetSupportedLanguage, string.Empty);
+            return RefDataHelper.GetLeagueNameByLanguage(leagueId, GetSupportedLanguage, string.Empty);
         }
 
         protected virtual string GetSportNameByLanguage(int sportType)

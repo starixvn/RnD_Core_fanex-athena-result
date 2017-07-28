@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Fanex.Result.Core.Lucky3</RootNamespace>
     <AssemblyName>Fanex.Result.Core.Lucky3</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -50,6 +51,11 @@
   <ItemGroup>
     <Compile Include="DataDomain\Constant.cs" />
     <Compile Include="DTO\Lucky3.cs" />
+    <Compile Include="Resources\Lucky3Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Lucky3Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\Lucky3ExcelViewModel.cs" />
     <Compile Include="Models\Builder.cs" />
     <Compile Include="Models\Template.cs" />
@@ -65,7 +71,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EmbeddedResource Include="Resources\Lucky3Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Lucky3Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Lucky3.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

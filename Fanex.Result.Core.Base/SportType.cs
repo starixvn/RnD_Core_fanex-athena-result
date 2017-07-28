@@ -123,6 +123,9 @@
 
         #endregion Racing
 
+        [StringValue("Lucky3")]
+        Lucky3 = 160,
+
         [StringValue("NumberGame")]
         NumberGame = 161,
 
@@ -247,8 +250,5 @@
 
         [StringValue("GoldDeluxe")]
         GoldDeluxe = 255,
-
-        [StringValue("Lucky3")]
-        Lucky3 = 160
     }
 }

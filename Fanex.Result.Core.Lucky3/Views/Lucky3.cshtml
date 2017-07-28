@@ -1,50 +1,41 @@
 ﻿@using Fanex.Result.Core.Lucky3.ViewModels;
 @using Fanex.Result.Core.Base.ViewModels;
-@using System.Collections;
 @using Fanex.Result.Core.Base.Resources;
+@using Fanex.Result.Core.Lucky3.Resources;
 @{
-    var viewModel = (Fanex.Result.Core.Base.ViewModels.RazorBinderModel)Model;
+    var viewModel = Model as RazorBinderModel;
+    var colSpan = viewModel.VisibleMatchCodeIDColumn ? 8 : 7;
+    var popupStyleClass = viewModel.IsPopUp ? "popup" : string.Empty;
 }
 
-<table class="fn-rs lucky3">
-    <thead>
-        <tr class="header">
-            <th class="cl-ko-time">
-                @LangResource.KickOffTime
-            </th>
-            <th class="cl-match">
-                @Raw(LangResource.Match)
-            </th>
-            <th class="cl-result">
-                Drawn Number
-            </th>
-            <th class="cl-1stprize">
-                1st Prize
-            </th>
-            <th class="cl-2ndprize">
-                2nd Prize
-            </th>
-            <th class="cl-3rdprize">
-                3rd Prize
-            </th>
-            <th class="cl-status">
-                @LangResource.Status
-            </th>
-        </tr>
-    </thead>
+@if (viewModel.VisibleFreeHeader)
+{
+    <div class="fn-rs-content-header">
+        <table class="fn-rs lucky3 @popupStyleClass">
+            @RenderTableHeader(viewModel, colSpan)
+        </table>
+    </div>
+        @Raw("<div class=\"fn-rs-content-scroll\">")
+}
+
+<table class="fn-rs lucky3 @popupStyleClass">
+    @if (!viewModel.VisibleFreeHeader)
+    {
+        @RenderTableHeader(viewModel, colSpan)
+    }
     <tbody>
         @if (viewModel.Data.Count > 0)
-        {
-            var index = 0;
-
-            foreach (var group in viewModel.Data)
             {
+                var index = 0;
 
-                if (!viewModel.IsPopUp)
+                foreach (var group in viewModel.Data)
                 {
 
+                    if (!viewModel.IsPopUp)
+                    {
+
                     <tr class="data">
-                        <td colspan="7" class="cl-league">
+                        <td colspan="@colSpan" class="cl-league">
                             @group.Data[0].LeagueName
                         </td>
                     </tr>
@@ -53,6 +44,17 @@
                 {
                     index++;
                     <tr class="data @item.Color(index, "even", "odd")">
+                        @if (viewModel.VisibleMatchCodeIDColumn)
+                        {
+                            <td class="cl-m-code">
+                                <div class="m-code">
+                                    @item.MatchCode
+                                </div>
+                                <div class="m-id">
+                                    @item.MatchId
+                                </div>
+                            </td>
+                        }
                         <td class="cl-ko-time">
                             @Raw(item.KickOffTime)
                         </td>
@@ -61,27 +63,25 @@
                         </td>
                         <td class="cl-result">
                             @if (item.EventStatusIsRefund)
-                        {
-                                <div>N/A</div>
+                            {
+                                <div>-</div>
                             }
                             else
                             {
-                                for (var i = 0; i < 3; i++)
-                                {
-                                    var ballNumber = item.GetBall(i);
-                                    <div class="lottoBall @item.GetBallColor(ballNumber)">@ballNumber</div>
-
-                                }
+                                <div class="lottoBall @item.FirstBallColor">@item.FirstBall</div>
+                                    <div class="lottoBall @item.SecondBallColor">@item.SecondBall</div>
+                                    <div class="lottoBall @item.ThirdBallColor">@item.ThirdBall</div>
                             }
                         </td>
-                        <td class="cl-warrior">
+
+                        <td class="cl-prize">
                             @item.FirstPrize
                         </td>
-                        <td class="cl-lblOEFT">
+                        <td class="cl-prize">
                             @item.SecondPrize
                         </td>
-                        <td class="cl-lbl1stball">
-                            <span class="ball">@item.ThirdPrize</span>
+                        <td class="cl-prize">
+                            @item.ThirdPrize
                         </td>
                         <td class="cl-status @item.EventStatusBackground">
                             @item.EventStatus
@@ -100,3 +100,58 @@
         }
     </tbody>
 </table>
+
+@if (viewModel.VisibleFreeHeader)
+{
+    @Raw("</div>")
+}
+
+@helper RenderTableHeader(RazorBinderModel viewModel, int colSpan)
+{
+    <thead>
+        @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+        {
+            var item = viewModel.Data[0].Data[0];
+
+            <tr class="row-title">
+                <th class="cl-title" colspan="@colSpan">
+                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                </th>
+            </tr>
+        }
+        <tr class="header">
+            @if (viewModel.VisibleMatchCodeIDColumn)
+            {
+                <th class="cl-m-code">
+                    @LangResource.MatchCode/@LangResource.ID
+                </th>
+            }
+            <th class="cl-ko-time" rowspan="2">
+                @LangResource.KickOffTime
+            </th>
+            <th class="cl-match" rowspan="2">
+                @Raw(LangResource.Match)
+            </th>
+            <th class="cl-result" rowspan="2">
+                @Raw(Lucky3Resources.DrawNumber)
+            </th>
+            <th colspan="3">
+                @Raw(Lucky3Resources.NumberOfHits)
+            </th>
+            <th class="cl-status" rowspan="2">
+                @LangResource.Status
+            </th>
+        </tr>
+        <tr class="header">
+            <th class="cl-prize">
+                @Raw(Lucky3Resources.FirstPrize)
+            </th>
+            <th class="cl-prize">
+                @Raw(Lucky3Resources.SecondPrize)
+            </th>
+            <th class="cl-prize">
+                @Raw(Lucky3Resources.ThirdPrize)
+            </th>
+        </tr>
+    </thead>
+}

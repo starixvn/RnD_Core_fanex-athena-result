@@ -81,6 +81,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{
 		SonarQube\SolutionBinding.sqconfig = SonarQube\SolutionBinding.sqconfig
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Data", "Fanex.Result.Data\Fanex.Result.Data.csproj", "{15E2D2EC-E10D-4900-984F-B818011620DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Lucky3.Tests", "Fanex.Result.Lucky3.Tests\Fanex.Result.Core.Lucky3.Tests.csproj", "{ABC335A1-4EBB-4CC7-B452-A30B28D42B3C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -195,6 +199,14 @@ Global
 		{5B12D69C-7BF6-4E40-AE62-3853DB3D118D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B12D69C-7BF6-4E40-AE62-3853DB3D118D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5B12D69C-7BF6-4E40-AE62-3853DB3D118D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15E2D2EC-E10D-4900-984F-B818011620DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15E2D2EC-E10D-4900-984F-B818011620DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15E2D2EC-E10D-4900-984F-B818011620DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15E2D2EC-E10D-4900-984F-B818011620DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABC335A1-4EBB-4CC7-B452-A30B28D42B3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ABC335A1-4EBB-4CC7-B452-A30B28D42B3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ABC335A1-4EBB-4CC7-B452-A30B28D42B3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ABC335A1-4EBB-4CC7-B452-A30B28D42B3C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -223,6 +235,7 @@ Global
 		{E8D9E9B2-5DD6-4612-98A8-24320F21A95A} = {719A3454-5B80-4651-9DA5-3E1E0854BFA5}
 		{24011D8B-9445-4377-8B70-E7D4049F372F} = {35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}
 		{5B12D69C-7BF6-4E40-AE62-3853DB3D118D} = {35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}
+		{ABC335A1-4EBB-4CC7-B452-A30B28D42B3C} = {CCA318B4-A6C4-4767-B6A5-2348BACBA831}
 	EndGlobalSection
 	GlobalSection(JSLint) = preSolution
 		SolutionConfigurationLocation = JSLintOptions.xml

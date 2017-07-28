@@ -5,23 +5,22 @@ var popupReport = (function () {
     "use strict";
     var me = {};
     /*private variable*/
-    var renderSport = function (licenseeid, date) {
+    var renderSport = function (licenseeid, date, getDataFromExcel) {
         invokeLoadingMsg(true);
 
-        $.getJSON(window.rootUrl + "normalreport/GetSports?EventDate=" + date + "&licenseeid=" + licenseeid, function (data) {
-            var options = "";
-            if (data !== undefined && data !== null && data.length > 0) {
-                for (var i = 0; i < data.length; i++) {
-                    options += "<option value=\"" + data[i].Id + "\">" + data[i].Name + "</option>";
+        $.getJSON(
+            window.rootUrl + "normalreport/GetSports?EventDate=" + date + "&licenseeid=" + licenseeid + "&getDataFromExcel=" + getDataFromExcel,
+            function (data) {
+                var options = "";
+                if (data !== undefined && data !== null && data.length > 0) {
+                    for (var i = 0; i < data.length; i++) {
+                        options += "<option value=\"" + data[i].Id + "\">" + data[i].Name + "</option>";
+                    }
                 }
-            }
-            options += "<option value=\"255\">GoldDeluxe</option>";
-            options += "<option value=\"203\">MicroGaming</option>";
-            options += "<option value=\"250\">AG Casino</option>";
-            options += "<option value=\"211\">Allbet Casino</option>";
-            $("#sport").html(options);
-            invokeLoadingMsg(false);
-        });
+                options += "<option value=\"255\">GoldDeluxe</option>";
+                $("#sport").html(options);
+                invokeLoadingMsg(false);
+            });
     };
 
     var invokeLoadingMsg = function (visible) {
@@ -81,7 +80,7 @@ var popupReport = (function () {
             onSelect: function (dateText) {
                 renderSport(1, dateText);
             }
-        });
+        }).datepicker("setDate", new Date());;
 
         $("#gen-html").click(function () {
             var criteria = {
@@ -97,6 +96,18 @@ var popupReport = (function () {
                 IncludeTestData: $("#IncludeTestData").is(":checked")
             };
             genData(criteria);
+        });
+
+        $('#get-data-from-excel').change(function () {
+            var getDataFromExcel = $("#get-data-from-excel").is(":checked");
+
+            if (getDataFromExcel) {
+                renderSport(1, "07/23/2017", getDataFromExcel);
+            }
+        });
+        $("#export-excel-file").click(function () {
+            var sportId = $("#sport").val()
+            window.open(window.rootUrl + "normalreport/ExportExcelDataFile?sportId=" + sportId, "_blank");
         });
     };
     var genData = function (criteria) {
@@ -120,6 +131,7 @@ var popupReport = (function () {
             }
         });
     };
+
     me.setup = function () {
         initEvent();
     };

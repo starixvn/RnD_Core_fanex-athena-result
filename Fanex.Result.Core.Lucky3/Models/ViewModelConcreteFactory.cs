@@ -3,15 +3,16 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using Core.Models;
     using Base;
     using Base.ExcelModels;
-    using Base.ViewModels;
     using Base.Exception;
     using Base.Extension;
+    using Base.Utilities;
+    using Base.ViewModels;
+    using Core.Models;
     using ViewModels;
 
-    internal sealed class ViewModelConcreteFactory : ViewModelFactory
+    public sealed class ViewModelConcreteFactory : ViewModelFactory
     {
         private static readonly Lazy<ViewModelFactory> LazyViewModelService = new Lazy<ViewModelFactory>(() => new ViewModelConcreteFactory());
 
@@ -21,7 +22,7 @@
         {
             CheckSportTypeIsValid((int)setting.SportType);
 
-            return new Lucky3ViewModel(resultData as DTO.Lucky3, setting);
+            return new Lucky3ViewModel(resultData as DTO.Lucky3, setting, new RefDataHelper());
         }
 
         public override IExcelModel GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting)

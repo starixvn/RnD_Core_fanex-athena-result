@@ -53,7 +53,6 @@
             if (valueType == typeof(string))
             {
                 cell.SetCellValue(Converter.To<string>(value));
-                return;
             }
         }
 
@@ -64,18 +63,16 @@
 
         public static void SetEmptyCell(this ICell cell, object value, ICellStyle defaultStyle)
         {
-            switch (value.GetType().Name)
+            if (value.GetType().Name == "String")
             {
-                case "String":
-                    cell.SetCellValue((string)value);
-                    break;
-
-                case "Decimal":
+                cell.SetCellValue((string)value);
+            }
+            else
+            {
+                if (value.GetType().Name == "Decimal")
+                {
                     cell.SetCellValue((decimal)value);
-                    break;
-
-                default:
-                    break;
+                }
             }
 
             cell.CellStyle = defaultStyle;

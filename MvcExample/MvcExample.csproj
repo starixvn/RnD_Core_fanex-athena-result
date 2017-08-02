@@ -209,6 +209,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Models\BalanceUp.cs" />
     <Compile Include="Models\Criteria\GetGameDetailCriteria.cs" />
     <Compile Include="Models\Criteria\GetMatchResultDetail3rdSelCriteria.cs" />

@@ -1,0 +1,14 @@
+﻿// This file is used by Code Analysis to maintain SuppressMessage
+// attributes that are applied to this project.
+// Project-level suppressions either have no target or are given
+// a specific target and scoped to a namespace, type, member, etc.
+
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Sonar Code Smell", "S1541:Methods and properties should not be too complex", Justification = "<Pending>", Scope = "member", Target = "~M:MvcExample.Controllers.NormalReportController.GenHtml(System.DateTime,System.Int16,System.Int32,System.String,System.Boolean,System.Boolean)~System.String")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Sonar Code Smell", "S103:Lines should not be too long", Justification = "<Pending>")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Sonar Code Smell", "S1541:Methods and properties should not be too complex", Justification = "<Pending>", Scope = "member", Target = "~M:MvcExample.Controllers.PopUpReportController.GenNormalPopUp(MvcExample.Models.MetaModel.ResultPopupMetaModel,Fanex.Result.Core.Base.SportType,System.Int32,System.Int32,Fanex.Result.Core.Base.ResultSetting)~System.String")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Sonar Code Smell", "S1541:Methods and properties should not be too complex", Justification = "<Pending>", Scope = "member", Target = "~M:MvcExample.Controllers.NormalReportController.GenExcel(System.DateTime,System.Int16,System.Int32,System.String,System.Boolean,System.Boolean)~System.Web.Mvc.ActionResult")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Sonar Code Smell", "S2325:Methods and properties that don't access instance data should be static", Justification = "<Pending>", Scope = "member", Target = "~M:MvcExample.Controllers.ThirdPartyReportController.VoidbridgeResult(System.String,System.String,System.String)~System.String")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Sonar Code Smell", "S3996:URI properties should not be strings", Justification = "<Pending>", Scope = "member", Target = "~P:MvcExample.Models.GlobalGaming.Call.BackUrl")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Sonar Code Smell", "S3996:URI properties should not be strings", Justification = "<Pending>", Scope = "member", Target = "~P:MvcExample.Models.GlobalGaming.Result.ResultUrl")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Sonar Code Smell", "S2325:Methods and properties that don't access instance data should be static", Justification = "<Pending>", Scope = "member", Target = "~M:MvcExample.Models.ResultData.AllbetResultData.GetPopupResult(System.Int32,System.String)~System.String")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Sonar Code Smell", "S3996:URI properties should not be strings", Justification = "<Pending>", Scope = "member", Target = "~P:MvcExample.Models.Voidbridge.Result.Url")]

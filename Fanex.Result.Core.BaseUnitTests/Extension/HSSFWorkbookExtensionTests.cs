@@ -14,7 +14,7 @@
         [SetUp]
         public void SetUp()
         {
-            var templatePath = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "../../Data/Soccer.xls";
+            var templatePath = AppDomain.CurrentDomain.BaseDirectory + "/../../Data/Soccer.xls";
             var stream = new FileStream(templatePath, FileMode.Open, FileAccess.Read);
             _workbook = new HSSFWorkbook(stream);
         }

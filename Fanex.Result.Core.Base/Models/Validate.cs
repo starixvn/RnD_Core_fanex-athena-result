@@ -8,10 +8,6 @@
     {
         private static readonly Lazy<IValidate> LazyValidationService = new Lazy<IValidate>(() => new Validate());
 
-        private Validate()
-        {
-        }
-
         public static IValidate Instance
         {
             get

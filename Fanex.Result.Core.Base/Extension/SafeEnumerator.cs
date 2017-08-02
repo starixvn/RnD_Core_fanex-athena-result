@@ -30,7 +30,7 @@
 
         public void Dispose()
         {
-            Monitor.Exit(_lock);
+            Dispose(true);
         }
 
         public bool MoveNext()
@@ -41,6 +41,14 @@
         public void Reset()
         {
             _inner.Reset();
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                Monitor.Exit(_lock);
+            }
         }
     }
 }

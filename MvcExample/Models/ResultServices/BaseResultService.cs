@@ -3,9 +3,9 @@
     using Fanex.Common.Extensions;
     using Fanex.Data;
 
-    public class BaseResultService
+    public static class BaseResultService
     {
-        public BalanceUp GetBalanceUpDay()
+        public static BalanceUp GetBalanceUpDay()
         {
             const string UspName = "Lrf_SelBalanceUpDay";
 

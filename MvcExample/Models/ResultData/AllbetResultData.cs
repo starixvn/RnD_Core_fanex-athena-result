@@ -8,7 +8,7 @@
         public string GetPopupResult(int betType, string languageCode)
         {
             var allbetResultService = new AllbetResultBuilder();
-            var transDesc = new CasinoResultService().GetAllBetTransDesc(betType);
+            var transDesc = CasinoResultService.GetAllBetTransDesc(betType);
             var matchCode = "123456";
 
             return allbetResultService.Render(transDesc, matchCode, betType.ToString(), languageCode);

@@ -11,7 +11,7 @@
         private const string Login = "Login";
         private const string Password = "LoginSecret";
 
-        private static Dictionary<int, string> ErrorDescriptions = new Dictionary<int, string>()
+        private static Dictionary<int, string> ErrorDescriptions = new Dictionary<int, string>
         {
             {0, "Success" },
             {1, "Login failed" },
@@ -38,11 +38,6 @@
             };
 
             return JObject.Parse(JsonConvert.SerializeObject(response));
-        }
-
-        public string Get()
-        {
-            return "Success";
         }
     }
 }

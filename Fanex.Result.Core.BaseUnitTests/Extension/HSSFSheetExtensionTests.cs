@@ -18,7 +18,7 @@
         [SetUp]
         public void SetUp()
         {
-            var templatePath = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "../../Data/Soccer.xls";
+            var templatePath = AppDomain.CurrentDomain.BaseDirectory + "/../../Data/Soccer.xls";
             var stream = new FileStream(templatePath, FileMode.Open, FileAccess.Read);
             _workbook = new HSSFWorkbook(stream);
             _sheet = _workbook.GetSheetAt(0);
@@ -162,6 +162,41 @@
             Assert.IsNotNull(newRow);
         }
 
+        [Test]
+        public void CopyRow_SourceRowIsNull_ReturnRowIsNull()
+        {
+            // Arrange
+            var newSheet = _workbook.CreateSheet("NewSheet");
+            var sourceRowIndex = 10;
+            var destRowIndex = 3;
+            var cellIndexList = new List<int> { 0, 1 };
+
+            // Act
+            var newRow = newSheet.CopyRow(_sheet, sourceRowIndex, destRowIndex, cellIndexList, Arg.Any<ICellStyle>());
+
+            // Assert
+            Assert.IsNull(newRow);
+        }
+
+        [Test]
+        public void CopyRow_CellIsNotInIndexList_SetEmptyValueAndDefaultStyle()
+        {
+            // Arrange
+            var newSheet = _workbook.CloneSheet(0);
+            var sourceRowIndex = 3;
+            var destRowIndex = 4;
+            var cellIndexList = new List<int> { 0, 1 };
+            var defaultCellStyle = new HSSFCellStyle(1, null, _workbook);
+
+            // Act
+            var newRow = newSheet.CopyRow(_sheet, sourceRowIndex, destRowIndex, cellIndexList, defaultCellStyle);
+
+            // Assert
+            Assert.True(
+                newRow.Cells[2].StringCellValue == string.Empty &&
+                newRow.Cells[2].CellStyle.Index == 1);
+        }
+
         [TestCase(1, 2)]
         [TestCase(2, 2)]
         public void InsertCopy_FromRowNumLessThanOrEqualSourceRowNum_ReturnsNewRowHasFirstCellValueEqualFirstCellValueOfSourceRow(
@@ -175,15 +210,13 @@
             Assert.AreEqual(sourceRow.GetCell(0).StringCellValue, newRow.GetCell(0).StringCellValue);
         }
 
-        [TestCase(2, 1)]
         [TestCase(3, 1)]
-        [Ignore("Failed!")]
         public void InsertCopy_FromRowNumGreaterThanSourceRowNum_ReturnsNewRowHasFirstCellValueEqualFirstCellValueOfSourceRow(
             int rowNum, int rowSourceNum)
         {
             // Act
             var newRow = _sheet.InsertCopy(rowNum, rowSourceNum);
-            var sourceRow = _sheet.GetRow(rowSourceNum);
+            var sourceRow = _sheet.GetRow(rowSourceNum + 1);
 
             // Assert
             Assert.AreEqual(sourceRow.GetCell(0).StringCellValue, newRow.GetCell(0).StringCellValue);
@@ -317,6 +350,20 @@
 
             // Assert
             Assert.AreEqual(sourceCell.RichStringCellValue.ToString(), destCell.RichStringCellValue.ToString());
+        }
+
+        [Test]
+        public void CopyCell_FromSourceCellTypeIsBoolean_ReturnsDestCellHasBooleanValueEqualToSourceCellBooleanValue()
+        {
+            // Arrange
+            var sourceCell = _sheet.GetCell(5, 2);
+            var destCell = _sheet.GetCell(7, 0);
+
+            // Act
+            _sheet.CopyCell(sourceCell, destCell);
+
+            // Assert
+            Assert.AreEqual(sourceCell.BooleanCellValue.ToString(), destCell.BooleanCellValue.ToString());
         }
 
         [TestCase(1, 1)]

@@ -44,7 +44,7 @@
             {
                 var data = MapResultData(row);
 
-                if (data != null)
+                if (!Equals(data, default(T)))
                 {
                     resultData.Add(data);
                 }
@@ -70,8 +70,8 @@
             return ret.Replace("\n", " ");
         }
 
-        protected bool ConvertStringToBoolean(string value)
-           => string.IsNullOrEmpty(value) || value == "0" ? false : true;
+        protected static bool ConvertStringToBoolean(string value)
+           => !string.IsNullOrEmpty(value) && value != "0";
 
         private void LoadWorkbook()
         {

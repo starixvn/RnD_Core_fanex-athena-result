@@ -48,7 +48,7 @@
             return result;
         }
 
-        public string GetAllBetTransDesc(int betType)
+        public static string GetAllBetTransDesc(int betType)
         {
             switch (betType)
             {

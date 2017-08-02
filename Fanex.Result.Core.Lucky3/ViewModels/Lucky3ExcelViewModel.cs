@@ -39,7 +39,9 @@
 
         protected override void SetDataForMatch(ISheet sheet, IResultViewModel data, ref int currentRow)
         {
+#pragma warning disable S3215 // "interface" instances should not be cast to concrete types
             var lucky3Data = data as Lucky3ViewModel;
+#pragma warning restore S3215 // "interface" instances should not be cast to concrete types
             var row = sheet.CopyRow(TemplateSheet, RowContentTemplate, currentRow);
 
             AssignStringData(

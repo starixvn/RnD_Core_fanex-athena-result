@@ -75,7 +75,7 @@
             }
             else
             {
-                return GenNormalPopUp(metalModel, sportType, licenseeId, userId, setting);
+                return PopUpReportController.GenNormalPopUp(metalModel, sportType, licenseeId, userId, setting);
             }
 
             return string.Empty;
@@ -90,7 +90,7 @@
         /// <param name="userId">The user ID.</param>
         /// <param name="setting">The result setting.</param>
         /// <returns>The html result.</returns>
-        private string GenNormalPopUp(ResultPopupMetaModel metalModel, SportType sportType, int licenseeId, int userId, ResultSetting setting)
+        private static string GenNormalPopUp(ResultPopupMetaModel metalModel, SportType sportType, int licenseeId, int userId, ResultSetting setting)
         {
             switch (sportType)
             {

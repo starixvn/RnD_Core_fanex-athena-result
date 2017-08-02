@@ -120,5 +120,71 @@
             // Assert
             Assert.AreEqual(0, convertedItem);
         }
+
+        [Test]
+        public void ToBool_ValueIsNull_ReturnDefaultValue()
+        {
+            // Act
+            var actualValue = Converter.ToBool(null, false);
+
+            // Assert
+            Assert.False(actualValue);
+        }
+
+        [Test]
+        public void ToBool_ValueIsDBNull_ReturnFalse()
+        {
+            // Act
+            var actualValue = Converter.ToBool(DBNull.Value, true);
+
+            // Assert
+            Assert.True(actualValue);
+        }
+
+        [Test]
+        public void ToBool_ValueIsNotNullAndWrongFormat_ReturnDefaultValue()
+        {
+            // Act
+            var actualValue = Converter.ToBool(1, false);
+
+            // Assert
+            Assert.False(actualValue);
+        }
+
+        [Test]
+        public void ToBool_ValueIsNotNullAndRightFormat_ReturnValue()
+        {
+            // Act
+            var actualValue = Converter.ToBool(true, false);
+
+            // Assert
+            Assert.True(actualValue);
+        }
+
+        [Test]
+        public void ToByteArray_CorrectFormat_ReturnByteArray()
+        {
+            // Arrange
+            var item = new byte[] { 1, 2 };
+
+            // Act
+            var actualValue = Converter.ToByteArray(item);
+
+            // Assert
+            Assert.AreEqual(item, actualValue);
+        }
+
+        [Test]
+        public void ToByteArray_WrongFormat_ReturnByteArray()
+        {
+            // Arrange
+            var item = new int[] { 1, 2 };
+
+            // Act
+            TestDelegate testDelegate = () => Converter.ToByteArray(item);
+
+            // Assert
+            Assert.Throws<InvalidCastException>(testDelegate);
+        }
     }
 }

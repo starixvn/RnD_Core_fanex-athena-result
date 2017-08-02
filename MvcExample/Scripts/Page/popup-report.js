@@ -78,7 +78,7 @@ var popupReport = (function () {
         {
             dateFormat: "mm/dd/yy",
             onSelect: function (dateText) {
-                renderSport(1, dateText);
+                renderSport(1, dateText, $("#get-data-from-excel").is(":checked"));
             }
         }).datepicker("setDate", new Date());;
 

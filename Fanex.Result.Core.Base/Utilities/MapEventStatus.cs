@@ -1,15 +1,13 @@
 ﻿namespace Fanex.Result.Core.Base.Utilities
 {
     using System;
-    using System.Diagnostics.CodeAnalysis;
     using DataDomain;
     using Resources;
 
     public static class MapEventStatus
     {
-        private static readonly string InternalStatus = "internal";
+        private const string InternalStatus = "internal";
 
-        [SuppressMessage("Microsoft.Globalization", "CA1308:NormalizeStringsToUppercase", Justification = "Reviewed.")]
         public static string MapEventStatusString(string eventstatus, bool isPending, bool visibleInternalEventStatus)
         {
             var isInternalMatch = InternalStatus.Equals(eventstatus, StringComparison.OrdinalIgnoreCase);
@@ -50,8 +48,9 @@
                 return string.Empty;
             }
 
-            char[] a = s.ToLower().ToCharArray();
+            char[] a = s.ToLowerInvariant().ToCharArray();
             a[0] = char.ToUpper(a[0]);
+
             return new string(a);
         }
     }

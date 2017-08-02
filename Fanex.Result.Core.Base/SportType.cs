@@ -1,10 +1,7 @@
 ﻿namespace Fanex.Result.Core.Base
 {
-    using System.Diagnostics.CodeAnalysis;
     using Extension;
 
-    [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1602:EnumerationItemsMustBeDocumented", Justification = "Reviewed.")]
-    [SuppressMessage("Microsoft.Design", "CA1008:EnumsShouldHaveZeroValue", Justification = "Reviewed.")]
     public enum SportType
     {
         [StringValue("Soccer")]

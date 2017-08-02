@@ -18,7 +18,7 @@
         [SetUp]
         public void SetUp()
         {
-            var templatePath = AppDomain.CurrentDomain.SetupInformation.ApplicationBase + "../../Data/Soccer.xls";
+            var templatePath = AppDomain.CurrentDomain.BaseDirectory + "/../../Data/Soccer.xls";
             var stream = new FileStream(templatePath, FileMode.Open, FileAccess.Read);
             _workbook = new HSSFWorkbook(stream);
             _sheet = _workbook.GetSheetAt(0);
@@ -124,6 +124,26 @@
 
             // Assert
             Assert.AreEqual(value, _cell.NumericCellValue);
+        }
+
+        [Test]
+        public void SetCellValue_FromBoolValue_CellBoolValueEqualToValue()
+        {
+            // Act
+            _cell.SetCellValue((object)false);
+
+            // Assert
+            Assert.AreEqual(false, _cell.BooleanCellValue);
+        }
+
+        [Test]
+        public void SetCellValue_FromDateValue_CellDateValueEqualToValue()
+        {
+            // Act
+            _cell.SetCellValue((object)DateTime.Today);
+
+            // Assert
+            Assert.AreEqual(DateTime.Today, _cell.DateCellValue);
         }
 
         [Test]

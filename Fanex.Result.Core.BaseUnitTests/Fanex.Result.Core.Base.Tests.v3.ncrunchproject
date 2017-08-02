@@ -2,27 +2,6 @@
   <Settings>
     <IgnoredTests>
       <FixtureTestSelector>
-        <FixtureName>Fanex.Result.Core.Base.Tests.Extension.ConverterTests</FixtureName>
-      </FixtureTestSelector>
-      <FixtureTestSelector>
-        <FixtureName>Fanex.Result.Core.Base.Tests.Extension.ExtensionTests</FixtureName>
-      </FixtureTestSelector>
-      <FixtureTestSelector>
-        <FixtureName>Fanex.Result.Core.Base.Tests.Extension.HSSFCellExtensionTests</FixtureName>
-      </FixtureTestSelector>
-      <FixtureTestSelector>
-        <FixtureName>Fanex.Result.Core.Base.Tests.Extension.HSSFSheetExtensionTests</FixtureName>
-      </FixtureTestSelector>
-      <FixtureTestSelector>
-        <FixtureName>Fanex.Result.Core.Base.Tests.Extension.HSSFWorkbookExtensionTests</FixtureName>
-      </FixtureTestSelector>
-      <FixtureTestSelector>
-        <FixtureName>Fanex.Result.Core.Base.Tests.Extension.SafeEnumerableTests</FixtureName>
-      </FixtureTestSelector>
-      <FixtureTestSelector>
-        <FixtureName>Fanex.Result.Core.Base.Tests.Extension.SafeEnumeratorTests</FixtureName>
-      </FixtureTestSelector>
-      <FixtureTestSelector>
         <FixtureName>Fanex.Result.Core.Base.Tests.Extension.SafeListTests</FixtureName>
       </FixtureTestSelector>
       <FixtureTestSelector>

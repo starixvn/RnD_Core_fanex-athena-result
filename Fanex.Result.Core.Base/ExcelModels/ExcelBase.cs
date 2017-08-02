@@ -15,11 +15,9 @@
         #region Fields
 
         public const int RowTitleTemplate = 0;
-
         public const int RowHeaderTemplate = 1;
 
         protected const string FormatDate = "MM/dd/yyyy";
-
         protected const int BoldTemplateRow = 3;
         protected const int NoneBoldTemplateRow = 4;
         protected const int RowNoInfoTemplate = 5;
@@ -32,12 +30,12 @@
 
         protected ExcelBase(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
         {
-            this.TemplatePath = templatePath;
+            TemplatePath = templatePath;
 
-            this.ReportTitle = setting.ExcelTitle;
-            this.Setting = setting;
-            this.ViewModelData = data;
-            this.NumofRow = data.Count;
+            ReportTitle = setting.ExcelTitle;
+            Setting = setting;
+            ViewModelData = data;
+            NumofRow = data.Count;
         }
 
         protected internal int NumofRow { get; set; }
@@ -70,11 +68,12 @@
 
         public MemoryStream Export()
         {
-            this.LoadTemplate();
-            this.AssignData();
-            this.RemoveTemplate();
+            LoadTemplate();
+            AssignData();
+            RemoveTemplate();
             var excelStream = new MemoryStream();
-            this.Workbook.Write(excelStream);
+            Workbook.Write(excelStream);
+
             return excelStream;
         }
 
@@ -108,22 +107,22 @@
 
         protected virtual void AssignData()
         {
-            var sheet = this.Workbook.CloneSheet("Template", "Data");
-            this.ColumnTemplateIndexList = this.GetColumnTemplateIndex();
-            this.AssignHeader(sheet);
-            this.AssignTitle(sheet);
+            var sheet = Workbook.CloneSheet("Template", "Data");
+            ColumnTemplateIndexList = GetColumnTemplateIndex();
+            AssignHeader(sheet);
+            AssignTitle(sheet);
 
             if (NumofRow == 0)
             {
-                this.AssignNoInfoRow(sheet);
+                AssignNoInfoRow(sheet);
             }
             else
             {
-                this.AssignSheetData(sheet);
+                AssignSheetData(sheet);
             }
 
             // Hide unnecessary column
-            this.ProcessUI(sheet);
+            ProcessUI(sheet);
         }
 
         protected abstract void AssignHeader(ISheet sheet);
@@ -137,7 +136,7 @@
         {
             var currentRow = RowLeagueTemplate;
             var currentLeagueId = 0;
-            var groupData = this.ViewModelData.GroupBy(i => i.LeagueId).ToList();
+            var groupData = ViewModelData.GroupBy(i => i.LeagueId).ToList();
 
             foreach (var item in groupData)
             {
@@ -172,12 +171,12 @@
             FileStream stream = null;
             try
             {
-                stream = new FileStream(this.TemplatePath, FileMode.Open, FileAccess.Read);
-                this.Workbook = new HSSFWorkbook(stream);
-                this.TemplateSheet = this.Workbook.GetSheet("Template");
-                this.DefaultStyle = this.Workbook.CreateCellStyle();
-                this.DefaultStyle.ShrinkToFit = true;
-                this.DefaultStyle.WrapText = true;
+                stream = new FileStream(TemplatePath, FileMode.Open, FileAccess.Read);
+                Workbook = new HSSFWorkbook(stream);
+                TemplateSheet = Workbook.GetSheet("Template");
+                DefaultStyle = Workbook.CreateCellStyle();
+                DefaultStyle.ShrinkToFit = true;
+                DefaultStyle.WrapText = true;
             }
             finally
             {
@@ -190,7 +189,7 @@
 
         protected virtual void RemoveTemplate()
         {
-            this.Workbook.RemoveSheet("Template");
+            Workbook.RemoveSheet("Template");
         }
 
         #endregion Template
@@ -207,7 +206,7 @@
             if (currentLeagueId == 0 || currentLeagueId != leagueId)
             {
                 currentLeagueId = leagueId;
-                SetTextRowValue(sheet, RowLeagueTemplate, currentRow, ColumnTemplateCount, leagueName.ToUpper());
+                SetTextRowValue(sheet, RowLeagueTemplate, currentRow, ColumnTemplateCount, leagueName.ToUpperInvariant());
                 currentRow++;
             }
         }
@@ -248,7 +247,7 @@
         /// <returns>Cell position after insert.</returns>
         protected virtual int AssignDecimalData(IRow row, int cellIndex, params decimal[] decimalValues)
         {
-            for (int i = 0, j = decimalValues.Length; i < j && cellIndex < row.Cells.Count; i++)
+            for (int i = 0; i < decimalValues.Length && cellIndex < row.Cells.Count; i++)
             {
                 row.Cells[cellIndex].SetCellValue(decimalValues[i]);
                 cellIndex++;
@@ -269,7 +268,6 @@
             foreach (var t in values)
             {
                 row.Cells[cellIndex].SetCellValue(t);
-                checked
                 {
                     cellIndex++;
                 }

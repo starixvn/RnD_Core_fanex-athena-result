@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Lucky3ResultExcelReader.cs" />
     <Compile Include="SportsbookResultExcelReader.cs" />
     <Compile Include="ResultExcelReader.cs" />

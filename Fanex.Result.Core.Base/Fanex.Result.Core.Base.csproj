@@ -75,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DebugMode.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Models\Base3rdResultApi.cs" />
     <Compile Include="DataDomain\ConstantValue.cs" />
     <Compile Include="DataDomain\CoreResourceConfig.cs" />

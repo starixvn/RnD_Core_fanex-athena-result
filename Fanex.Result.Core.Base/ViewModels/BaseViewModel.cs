@@ -33,7 +33,7 @@
             RefDataHelper = refDataHelper ?? new RefDataHelper();
         }
 
-        public string DateTimeFormat { get; set; } = "{0:MM/dd/yyyy<br/>hh:mm:ss tt}";
+        public string DateTimeFormat { get; set; }
 
         public bool VisibleInternalEventStatus { get; private set; }
 
@@ -48,32 +48,22 @@
 
         public virtual bool IsPending => false;
 
-        public bool VisibleMatchResult => true;
+        public virtual bool VisibleMatchResult => true;
 
-        public bool VisibleGameDetail => false;
+        public virtual bool VisibleGameDetail => false;
 
         public IRefDataHelper RefDataHelper { get; private set; }
 
         public virtual string EventStatusBackground
-        {
-            get
-            {
-                if (this.EventStatus.Equals(LangResource.PostPoned, StringComparison.OrdinalIgnoreCase))
-                {
-                    return ConstantValue.BackgroundPosponed;
-                }
-                else
-                {
-                    return this.IsPending ? ConstantValue.BackgroundPending : string.Empty;
-                }
-            }
-        }
+            => EventStatus.Equals(LangResource.PostPoned, StringComparison.OrdinalIgnoreCase) ?
+                    ConstantValue.BackgroundPosponed :
+                        IsPending ? ConstantValue.BackgroundPending : string.Empty;
 
         public virtual string KickOffTime => string.Empty;
 
         public virtual int LeagueId => 0;
 
-        public virtual string LeagueName => GetLeagueNameByLanguage(this.LeagueId);
+        public virtual string LeagueName => GetLeagueNameByLanguage(LeagueId);
 
         public virtual string SportName => GetSportNameByLanguage((int)Sport);
 

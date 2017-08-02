@@ -201,9 +201,9 @@
         }
 
         [HttpGet]
-        public ActionResult GetSports(GetSportByDateCriteria criteria, bool getDataFromExcel)
+        public ActionResult GetSports(GetSportByDateCriteria criteria, bool getDataFromExcel = false)
         {
-            var moveBetsDay = new BaseResultService().GetBalanceUpDay().MoveBetsDay;
+            var moveBetsDay = BaseResultService.GetBalanceUpDay().MoveBetsDay;
             criteria.MoveBetsDay = moveBetsDay;
             var resultService = new SportsResultService();
 
@@ -218,7 +218,7 @@
         [HttpGet]
         public ActionResult GetLeagues(GetLeaguesBySportCriteria criteria)
         {
-            criteria.MoveBetsDay = new BaseResultService().GetBalanceUpDay().MoveBetsDay;
+            criteria.MoveBetsDay = BaseResultService.GetBalanceUpDay().MoveBetsDay;
 
             return Json(new LeaguesResultService().GetResult(criteria), JsonRequestBehavior.AllowGet);
         }

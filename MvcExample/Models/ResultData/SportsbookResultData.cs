@@ -32,7 +32,7 @@
                 sporttype = (byte)sportId,
                 isShowAll = true,
                 LeagueID = leagueId,
-                MoveBetsDay = new BaseResultService().GetBalanceUpDay().MoveBetsDay
+                MoveBetsDay = BaseResultService.GetBalanceUpDay().MoveBetsDay
             });
         }
 

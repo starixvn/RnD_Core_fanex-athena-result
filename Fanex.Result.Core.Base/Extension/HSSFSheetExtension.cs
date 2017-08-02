@@ -58,18 +58,21 @@
             }
 
             var sourceRow = sourceSheet.GetRow(sourceRowIndex);
+
             if (sourceRow == null)
             {
                 return null;
             }
 
             var newRow = sheet.GetRow(destRowIndex);
+
             if (newRow == null)
             {
                 newRow = sheet.CreateRow(destRowIndex);
             }
 
             var startIndex = 0;
+
             foreach (var cellIndex in cellIndexList)
             {
                 var oldCell = sourceRow.GetCell(cellIndex);
@@ -92,18 +95,21 @@
             }
 
             var sourceRow = sourceSheet.GetRow(sourceRowIndex);
+
             if (sourceRow == null)
             {
                 return null;
             }
 
             var newRow = sheet.GetRow(destRowIndex);
+
             if (newRow == null)
             {
                 newRow = sheet.CreateRow(destRowIndex);
             }
 
             var startIndex = 0;
+
             foreach (var cellIndex in cellIndexList)
             {
                 var oldCell = sourceRow.GetCell(cellIndex);
@@ -166,6 +172,7 @@
             switch (sourceCell.CellType)
             {
                 case CellType.Blank:
+                case CellType.Unknown:
                     destCell.SetCellValue(sourceCell.StringCellValue);
                     break;
 
@@ -185,12 +192,11 @@
                     destCell.SetCellValue(sourceCell.RichStringCellValue);
                     break;
 
-                case CellType.Unknown:
-                    destCell.SetCellValue(sourceCell.StringCellValue);
-                    break;
+                default:
+                    return destCell;
             }
 
-            return (ICell)destCell;
+            return destCell;
         }
 
         public static ICell GetCell(this ISheet sheet, int rowIndex, int colIndex)

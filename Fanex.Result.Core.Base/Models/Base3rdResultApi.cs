@@ -8,7 +8,7 @@
 
     public abstract class Base3rdResultApi
     {
-        public Base3rdResultApi()
+        protected Base3rdResultApi()
         {
             TimeStamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
         }
@@ -21,7 +21,7 @@
 
         public abstract string GetResultUrl<T>(T data);
 
-        protected string GenerateSeqCode(string custId, string gameId, string siteId)
+        protected virtual string GenerateSeqCode(string custId, string gameId, string siteId)
         {
             var random = new Random();
 
@@ -32,7 +32,7 @@
             return $"{timestampWithRandom}-{hashedPreInfo}";
         }
 
-        protected string SerializeJsonObject<T>(T request)
+        protected virtual string SerializeJsonObject<T>(T request)
         {
             var ser = new DataContractJsonSerializer(typeof(T));
             var stream = new MemoryStream();
@@ -44,7 +44,7 @@
             return streamReader.ReadToEnd();
         }
 
-        protected T DeserializeJsonObject<T>(string jsonData)
+        protected virtual T DeserializeJsonObject<T>(string jsonData)
         {
             var ser = new DataContractJsonSerializer(typeof(T));
             var stream = new MemoryStream(Encoding.UTF8.GetBytes(jsonData));
@@ -52,7 +52,7 @@
             return (T)ser.ReadObject(stream);
         }
 
-        protected string SendPostRequest(string url, string jsonData)
+        protected virtual string SendPostRequest(string url, string jsonData)
         {
             var result = string.Empty;
 

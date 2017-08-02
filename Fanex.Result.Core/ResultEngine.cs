@@ -49,9 +49,12 @@
             {
                 setting.LanguageCode = CoreResourceConfig.ENGLISHLANGCODE;
             }
-            else if (!Validate.Instance.ValidateResource(setting.LanguageCode))
+            else
             {
-                throw new ObjectUnSupportedException(string.Format(CoreResourceConfig.LANGUAGEARGUEMENTMES, setting.LanguageCode));
+                if (!Validate.Instance.ValidateResource(setting.LanguageCode))
+                {
+                    throw new ObjectUnSupportedException(string.Format(CoreResourceConfig.LANGUAGEARGUEMENTMES, setting.LanguageCode));
+                }
             }
 
             var builder = GetBuilder(DTOType.SPORTSBOOK);
@@ -172,9 +175,12 @@
             {
                 setting.LanguageCode = CoreResourceConfig.ENGLISHLANGCODE;
             }
-            else if (!Validate.Instance.ValidateResource(setting.LanguageCode))
+            else
             {
-                throw new ObjectUnSupportedException(string.Format(CoreResourceConfig.LANGUAGEARGUEMENTMES, setting.LanguageCode));
+                if (!Validate.Instance.ValidateResource(setting.LanguageCode))
+                {
+                    throw new ObjectUnSupportedException(string.Format(CoreResourceConfig.LANGUAGEARGUEMENTMES, setting.LanguageCode));
+                }
             }
 
             if (string.IsNullOrEmpty(setting.ExcelTemplatePath))
@@ -191,8 +197,7 @@
 
                 var plugins = GetResultPlugins();
 
-                var plugin = plugins.Where(i => i.FullName.IndexOf(pluginName, StringComparison.OrdinalIgnoreCase) > -1)
-                    .FirstOrDefault();
+                var plugin = plugins.FirstOrDefault(i => i.FullName.IndexOf(pluginName, StringComparison.OrdinalIgnoreCase) > -1);
 
                 if (plugin == null)
                 {
@@ -230,7 +235,7 @@
                 }
                 catch
                 {
-                    assemblies = AppDomain.CurrentDomain.GetAssemblies().Where(i => i.IsDynamic == false).ToList();
+                    assemblies = AppDomain.CurrentDomain.GetAssemblies().Where(i => !i.IsDynamic).ToList();
                 }
 
                 CacheItemPolicy policy = new CacheItemPolicy();

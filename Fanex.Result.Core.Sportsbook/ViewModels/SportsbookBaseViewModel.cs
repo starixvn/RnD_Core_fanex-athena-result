@@ -9,15 +9,19 @@
     using Base.ViewModels;
     using DTO;
     using RemotingRef;
+    using Utilities;
 
     public class SportsbookBaseViewModel : BaseViewModel, IResultViewModel
     {
-        public SportsbookBaseViewModel(Sportsbook sportbook, ResultSetting setting)
-            : base(setting)
+        public SportsbookBaseViewModel(
+            Sportsbook sportbook,
+            ResultSetting setting,
+            ISportsbookRefDataHelper refDataHelper = null)
+            : base(setting, refDataHelper)
         {
-            this.SPORTBOOK = sportbook;
-            this.LanguageCode = setting.LanguageCode;
-            this.Sport = setting.SportType;
+            SPORTBOOK = sportbook;
+            LanguageCode = setting.LanguageCode;
+            Sport = setting.SportType;
             VisibleDetailedLink = setting.VisibleDetailedLink;
             HighlightWinnerTeam = setting.HighlightWinnerTeam;
             VisibleGoalRecord = setting.VisibleGoalRecord;
@@ -58,7 +62,7 @@
 
         #endregion onlyForSettlementSite
 
-        public string HomeTeam => GetSportbookHomeTeam(SPORTBOOK.HomeId, SPORTBOOK.IsNeutral);
+        public virtual string HomeTeam => GetSportbookHomeTeam(SPORTBOOK.HomeId, SPORTBOOK.IsNeutral);
 
         public string AwayTeam => GetSportbookAwayTeam(SPORTBOOK.AwayId);
 
@@ -124,18 +128,16 @@
         /// <param name="homeId">The home id.</param>
         /// <param name="isNeutral">Is neutral.</param>
         /// <returns>The home team.</returns>
-        private string GetSportbookHomeTeam(int homeId, bool isNeutral)
-            => RefData.GetTeamName(
-                homeId.ToString(CultureInfo.InvariantCulture),
-                GetSupportedLanguage,
-                string.Empty) + (isNeutral ? LangResource.IsNeutral : string.Empty);
+        protected string GetSportbookHomeTeam(int homeId, bool isNeutral)
+            => RefDataHelper.GetTeamName(homeId, GetSupportedLanguage, string.Empty)
+                + (isNeutral ? LangResource.IsNeutral : string.Empty);
 
         /// <summary>
         /// Get sport-book away team.
         /// </summary>
         /// <param name="awayId">The away id.</param>
         /// <returns>The away team.</returns>
-        private string GetSportbookAwayTeam(int awayId)
+        protected string GetSportbookAwayTeam(int awayId)
             => RefData.GetTeamName(awayId.ToString(CultureInfo.InvariantCulture), GetSupportedLanguage, string.Empty);
 
         protected virtual string GetScore(int? score)

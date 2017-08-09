@@ -19,21 +19,21 @@
         {
             LanguageCode = setting.LanguageCode;
             Sportsbook = sportsbook;
-            RefDataHelper = refDataHelper ?? new SportsbookRefDataHelper();
+            SportsbookRefDataHelper = refDataHelper ?? new SportsbookRefDataHelper();
             SportsBooksHelper = sportsBookHelper ?? new SportsbookHelperWraper();
         }
 
         protected Sportsbook Sportsbook { get; }
 
-        protected ISportsbookRefDataHelper RefDataHelper { get; }
+        protected ISportsbookRefDataHelper SportsbookRefDataHelper { get; }
 
         protected ISportsbookHelperWraper SportsBooksHelper { get; }
 
         public string HomeTeam
-            => RefDataHelper.GetTeamName(Sportsbook.HomeId, GetSupportedLanguage, string.Empty);
+            => SportsbookRefDataHelper.GetTeamName(Sportsbook.HomeId, GetSupportedLanguage, string.Empty);
 
         public string AwayTeam
-            => RefDataHelper.GetTeamName(Sportsbook.AwayId, GetSupportedLanguage, string.Empty);
+            => SportsbookRefDataHelper.GetTeamName(Sportsbook.AwayId, GetSupportedLanguage, string.Empty);
 
         public virtual SafeList<T> GetDetailItems()
         {

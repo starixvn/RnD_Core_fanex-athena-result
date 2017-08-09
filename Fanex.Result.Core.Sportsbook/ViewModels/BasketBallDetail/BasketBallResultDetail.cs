@@ -29,7 +29,7 @@
                 var betTypeId = detailItem?.ResourceId?.Substring(0, 3);
                 var resourceId = detailItem?.ResourceId?.Remove(0, 3);
 
-                item.ResourceName = RefDataHelper.GetBetTypeNameById(betTypeId, GetSupportedLanguage, resourceId);
+                item.ResourceName = SportsbookRefDataHelper.GetBetTypeNameById(betTypeId, GetSupportedLanguage, resourceId);
             }
 
             return MapGameValueByStatusId(item, detailItem);

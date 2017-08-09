@@ -2,7 +2,9 @@
 {
     using Base;
     using DTO;
+    using NSubstitute;
     using NUnit.Framework;
+    using Sportsbook.Utilities;
     using Sportsbook.ViewModels;
 
     [TestFixture]
@@ -66,6 +68,25 @@
 
             // Assert
             Assert.AreEqual(expectedScoreValue, actualFinalAwayScore);
+        }
+
+        [TestCase(18, "{2} 23, {0} 6666", "")]
+        [TestCase(190, "{2} 23, {0} 6666", " (Match Day 23, Season 6666)")]
+        [TestCase(191, "{5} 23, {10} 6666", " (Match Day 1 Groups E&F 23, Match Day 3 Groups C&D 6666)")]
+        public void MatchInfo_IfSportTypeIsVirtualSports_AddMatchInfo(int sportType, string matchCode, string expectedMatchInfo)
+        {
+            // Arrange
+            var sportsbookDto = new Sportsbook { HomeId = 1, MatchCode = matchCode };
+            var resultSetting = new ResultSetting { SportType = (SportType)sportType, LanguageCode = "en-US" };
+            var refDataHelper = Substitute.For<ISportsbookRefDataHelper>();
+            refDataHelper.GetTeamName(Arg.Any<int>(), Arg.Any<string>(), Arg.Any<string>()).Returns("Home Team Name");
+            var viewModel = new OtherViewModel(sportsbookDto, resultSetting, refDataHelper);
+
+            // Act
+            var actualHomeTeam = viewModel.MatchInfo;
+
+            // Assert
+            Assert.AreEqual(expectedMatchInfo, actualHomeTeam);
         }
     }
 }

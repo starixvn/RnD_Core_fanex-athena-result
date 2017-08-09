@@ -53,6 +53,11 @@
                 return (IResultViewModel)Activator.CreateInstance(viewModel, obj, setting, null);
             }
 
+            if (viewModel == typeof(OtherViewModel))
+            {
+                return (IResultViewModel)Activator.CreateInstance(viewModel, obj, setting, null);
+            }
+
             return (IResultViewModel)Activator.CreateInstance(viewModel, obj, setting);
         }
 

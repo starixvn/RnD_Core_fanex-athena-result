@@ -50,7 +50,7 @@
                 ColumnMatchCode,
                 exportRow.MatchCode,
                 Helper.ToRtfString(exportRow.KickOffTime),
-                Helper.ToRtfString(exportRow.HomeTeam),
+                Helper.ToRtfString(exportRow.HomeTeam) + exportRow.MatchInfo,
                 exportRow.HTHomeScore,
                 exportRow.FinalHomeScore,
                 exportRow.EventStatus);

@@ -53,6 +53,7 @@
         [TestCase(32, "BasketBallViewModel")]
         [TestCase(44, "MuayThaiViewModel")]
         [TestCase(186, "VSTennisViewModel")]
+        [TestCase(190, "OtherViewModel")]
         public void GetViewModel_FromSportTypeIsSportsbook_ReturnsExpectedViewModelType(int sportType, string expectedViewModelType)
         {
             // Arrange

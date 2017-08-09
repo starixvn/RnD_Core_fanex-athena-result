@@ -74,7 +74,10 @@
                             </td>
                         }
                         <td class="cl-ko-time" rowspan="2">@Raw(item.KickOffTime)</td>
-                        <td class="cl-match home @item.HomeWin">@Raw(item.HomeTeam)</td>
+                        <td class="cl-match home @item.HomeWin">
+                            @Raw(item.HomeTeam)&nbsp;
+                            <span style="color:#000; font-weight:normal">@Raw(item.MatchInfo)</span>
+                        </td>
                         <td class="cl-ht-score">@item.HTHomeScore</td>
                         <td class="cl-f-score">@item.FinalHomeScore</td>
                         <td rowspan="2" class="cl-status @item.EventStatusBackground">@item.EventStatus</td>

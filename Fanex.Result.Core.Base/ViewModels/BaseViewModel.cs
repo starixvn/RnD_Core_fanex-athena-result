@@ -22,15 +22,18 @@
             { "vi-VN", "vn" }
         };
 
-        protected BaseViewModel(ResultSetting setting)
+        protected BaseViewModel(ResultSetting setting, IRefDataHelper refDataHelper = null)
         {
             this.DateTimeFormat = setting.DateTimeFormat;
             this.VisibleInternalEventStatus = setting.VisibleInternalEventStatus;
+            RefDataHelper = refDataHelper ?? new RefDataHelper();
         }
 
         public string DateTimeFormat { get; set; } = "{0:MM/dd/yyyy<br/>hh:mm:ss tt}";
 
         public bool VisibleInternalEventStatus { get; private set; }
+
+        public IRefDataHelper RefDataHelper { get; }
 
         public string GetSupportedLanguage
             => _supportedLanguage.ContainsKey(LanguageCode) ?

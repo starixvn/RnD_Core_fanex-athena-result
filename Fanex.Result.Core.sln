@@ -75,6 +75,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCasinoResult", "LiveCas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.GlobalGaming", "Fanex.Result.Core.GlobalGaming\Fanex.Result.Core.GlobalGaming.csproj", "{24011D8B-9445-4377-8B70-E7D4049F372F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{8BA10E20-6612-4CCB-A759-5E18D6726760}"
+	ProjectSection(SolutionItems) = preProject
+		SonarQube\Result.CoreCSharp.ruleset = SonarQube\Result.CoreCSharp.ruleset
+		SonarQube\SolutionBinding.sqconfig = SonarQube\SolutionBinding.sqconfig
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

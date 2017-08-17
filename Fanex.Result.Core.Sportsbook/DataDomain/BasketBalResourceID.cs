@@ -17,10 +17,12 @@
         public const string FirstHalfRaceTo20Points = "60620";
         public const string FirstHalfRaceTo25Points = "60625";
         public const string FirstHalfRaceTo30Points = "60630";
+        public const string FirstHalfRaceToXXPoints = "606[0-9][0-9]";
 
         public const string SecondHalfRaceTo20Points = "60720";
         public const string SecondHalfRaceTo25Points = "60725";
         public const string SecondHalfRaceTo30Points = "60730";
+        public const string SecondHalfRaceToXXPoints = "607[0-9][0-9]";
 
         public const string Quarter1RaceTo10Points = "6130110";
         public const string Quarter1RaceTo15Points = "6130115";
@@ -43,7 +45,13 @@
         public const string Quarter3WhichTeamToScoreTheLastBasket = "61703";
         public const string Quarter4WhichTeamToScoreTheLastBasket = "61704";
 
-        public static readonly string[] MoreResultResourceIDs =
+        internal static readonly string[] MoreResultResourceIDRegex =
+        {
+            FirstHalfRaceToXXPoints,
+            SecondHalfRaceToXXPoints,
+        };
+
+        internal static readonly string[] MoreResultResourceIDs =
         {
             Quarter1RaceTo10Points,
             Quarter1RaceTo15Points,
@@ -53,9 +61,7 @@
             Quarter2RaceTo15Points,
             Quarter2RaceTo20Points,
             Quarter2WhichTeamToScoreTheLastBasket,
-            FirstHalfRaceTo20Points,
-            FirstHalfRaceTo25Points,
-            FirstHalfRaceTo30Points,
+            FirstHalfRaceToXXPoints,
             Quarter3RaceTo10Points,
             Quarter3RaceTo15Points,
             Quarter3RaceTo20Points,
@@ -64,14 +70,12 @@
             Quarter4RaceTo15Points,
             Quarter4RaceTo20Points,
             Quarter4WhichTeamToScoreTheLastBasket,
-            SecondHalfRaceTo20Points,
-            SecondHalfRaceTo25Points,
-            SecondHalfRaceTo30Points,
+            SecondHalfRaceToXXPoints,
             FTWhichTimeToScoreTheFirstBasket,
             FTWhichTimeToScoreTheLastBasket
         };
 
-        public static readonly string[] MainResultResourceIDs =
+        internal static readonly string[] MainResultResourceIDs =
         {
             FullTime, FirstHalf, SecondHalf, Quarter1, Quarter2, Quarter3, Quarter4, OverTime
         };

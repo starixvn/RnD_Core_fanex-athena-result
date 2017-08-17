@@ -75,6 +75,11 @@
                     item.HomeValue = LangResource.Refundft;
                     item.AwayValue = LangResource.Refundft;
                     break;
+
+                default:
+                    item.HomeValue = ConstantValue.Hyphen;
+                    item.AwayValue = ConstantValue.Hyphen;
+                    break;
             }
 
             return item;

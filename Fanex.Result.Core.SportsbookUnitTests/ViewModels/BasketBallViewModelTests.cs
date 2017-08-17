@@ -1,9 +1,11 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.Tests.ViewModels
 {
     using System.Linq;
+    using System.Text.RegularExpressions;
     using Base;
     using Base.Extension;
     using DTO;
+    using KellermanSoftware.CompareNetObjects;
     using NSubstitute;
     using NUnit.Framework;
     using Sportsbook.ViewModels;
@@ -51,9 +53,7 @@
             "6130215",
             "6130220",
             "61702",
-            "60620",
-            "60625",
-            "60630",
+            "606[0-9][0-9]",
             "6130310",
             "6130315",
             "6130320",
@@ -62,9 +62,7 @@
             "6130415",
             "6130420",
             "61704",
-            "60720",
-            "60725",
-            "60730",
+            "607[0-9][0-9]",
             "604",
             "605"
         };
@@ -612,18 +610,35 @@
             {
                 new BasketBallGameDetailItem { ResourceID = "6130415", HomeValue = "Home Team" },
                 new BasketBallGameDetailItem { ResourceID = "604", HomeValue = "Home Team" },
+                new BasketBallGameDetailItem { ResourceID = "60735", HomeValue = "Home Team" },
+                new BasketBallGameDetailItem { ResourceID = "60720", HomeValue = "Home Team" },
                 new BasketBallGameDetailItem { ResourceID = "61704", HomeValue = "Home Team" },
+                new BasketBallGameDetailItem { ResourceID = "60635", HomeValue = "Home Team" },
+                new BasketBallGameDetailItem { ResourceID = "60620", HomeValue = "Home Team" },
                 new BasketBallGameDetailItem { ResourceID = "6130115", HomeValue = "Home Team" }
             };
-            detailItems = detailItems.OrderBy(item => OrderedMoreResultResourceIdsTestCase.ToList().FindIndex(id => id == item.ResourceID)).ToSafeList();
+
             _resultDetail.GetDetailItems().Returns(detailItems);
             var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
+            var compareLogic = new CompareLogic();
 
             // Act
             var actualValue = viewModel.MoreResultDetailItems;
 
             // Assert
-            Assert.AreEqual(actualValue, detailItems);
+
+            var expectedValue = new SafeList<BasketBallGameDetailItem>
+            {
+                new BasketBallGameDetailItem { ResourceID = "6130115", HomeValue = "Home Team" },
+                new BasketBallGameDetailItem { ResourceID = "60620", HomeValue = "Home Team" },
+                new BasketBallGameDetailItem { ResourceID = "60635", HomeValue = "Home Team" },
+                new BasketBallGameDetailItem { ResourceID = "6130415", HomeValue = "Home Team" },
+                new BasketBallGameDetailItem { ResourceID = "61704", HomeValue = "Home Team" },
+                new BasketBallGameDetailItem { ResourceID = "60720", HomeValue = "Home Team" },
+                new BasketBallGameDetailItem { ResourceID = "60735", HomeValue = "Home Team" },
+                new BasketBallGameDetailItem { ResourceID = "604", HomeValue = "Home Team" },
+            };
+            Assert.True(compareLogic.Compare(actualValue, expectedValue).AreEqual);
         }
     }
 }

@@ -2,6 +2,7 @@
 {
     using System;
     using System.Linq;
+    using System.Text.RegularExpressions;
     using Base;
     using Base.DataDomain;
     using Base.Extension;
@@ -22,10 +23,16 @@
             ResultDetailItems = (resultDetail ?? new BasketBallResultDetail(sportbook, setting, null, null))
                 .GetDetailItems();
 
-            MoreResultDetailItems = ResultDetailItems
-                .Where(item => BasketBallResourceID.MoreResultResourceIDs.Contains(item.ResourceID))
-                .OrderBy(item => BasketBallResourceID.MoreResultResourceIDs.ToList().FindIndex(id => id == item.ResourceID))
-                .ToSafeList();
+            var moreResultDetailItem = ResultDetailItems
+                .Where(item => BasketBallResourceID.MoreResultResourceIDs.Contains(item.ResourceID));
+
+            var moreResultDetailItemWithRegex = ResultDetailItems
+                .Where(item => BasketBallResourceID.MoreResultResourceIDRegex.Any(id => Regex.IsMatch(item.ResourceID, id)))
+                .OrderBy(item => item.ResourceID);
+
+            MoreResultDetailItems = moreResultDetailItem.Concat(moreResultDetailItemWithRegex)
+                .OrderBy(item => BasketBallResourceID.MoreResultResourceIDs.ToList()
+                .FindIndex(id => id == item.ResourceID || Regex.IsMatch(item.ResourceID, id))).ToSafeList();
         }
 
         public string OTHome => GetOvertimeSet(true);

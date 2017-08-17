@@ -225,7 +225,8 @@ namespace MvcExample.Controllers
 
                         foreach (var sportsbook in data)
                         {
-                            sportsbook.GameDetails = sportsbook.GameDetails.Where(d => d.ResourceId.Contains(metalModel.Bettype.ToString()) && d.ResourceId.Contains(resourceId)).ToList();
+                            sportsbook.GameDetails = sportsbook.GameDetails
+                                .Where(d => d.ResourceId.Contains(metalModel.Bettype.ToString()) && d.ResourceId.Contains(resourceId)).ToList();
                         }
                     }
 

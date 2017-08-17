@@ -45,6 +45,7 @@
         [TestCase(EventStatusID.RefundSettlementStatusID, "Refund")]
         [TestCase(EventStatusID.RefundFTSettlementStatusID, "Refund FT")]
         [TestCase(EventStatusID.RefundHTSettlementStatusID, "Refund HT")]
+        [TestCase(EventStatusID.Abandoned1HSettlementStatusID, "-")]
         public void MapGameValueByStatusId_RefundSettlementStatusID_SetRefundTextInHomeAndAwayValue(int settlementStatusId, string expectedResultValue)
         {
             // Arrange

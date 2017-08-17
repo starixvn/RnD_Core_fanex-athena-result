@@ -1,6 +1,7 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.ViewModels.BasketBallDetail
 {
     using System.Linq;
+    using System.Text.RegularExpressions;
     using Base;
     using Base.DataDomain;
     using Base.Resources;
@@ -24,7 +25,8 @@
         {
             var item = base.CreateGameDetailItem(detailItem);
 
-            if (BasketBallResourceID.MoreResultResourceIDs.Contains(detailItem.ResourceId))
+            if (BasketBallResourceID.MoreResultResourceIDs.Contains(detailItem.ResourceId) ||
+                BasketBallResourceID.MoreResultResourceIDRegex.Any(id => Regex.IsMatch(item.ResourceID, id)))
             {
                 var betTypeId = detailItem?.ResourceId?.Substring(0, 3);
                 var resourceId = detailItem?.ResourceId?.Remove(0, 3);
@@ -37,25 +39,26 @@
 
         protected override BasketBallGameDetailItem MapGameValueByStatusId(BasketBallGameDetailItem item, GameDetail detailItem)
         {
-            item = base.MapGameValueByStatusId(item, detailItem);
+            var newItem = base.MapGameValueByStatusId(item, detailItem);
 
-            item.HomeValue = string.IsNullOrEmpty(item.HomeValue) ? "-" : item.HomeValue;
-            item.AwayValue = string.IsNullOrEmpty(item.AwayValue) ? "-" : item.AwayValue;
+            newItem.HomeValue = string.IsNullOrEmpty(newItem.HomeValue) ? "-" : newItem.HomeValue;
+            newItem.AwayValue = string.IsNullOrEmpty(newItem.AwayValue) ? "-" : newItem.AwayValue;
 
             if (detailItem.SettlementStatusID == EventStatusID.RunningSettlementStatusID)
             {
-                item.HomeValue = ConstantValue.Hyphen;
-                item.AwayValue = ConstantValue.Hyphen;
+                newItem.HomeValue = ConstantValue.Hyphen;
+                newItem.AwayValue = ConstantValue.Hyphen;
             }
 
-            return item;
+            return newItem;
         }
 
         protected override void MapGameValueByPattern(BasketBallGameDetailItem item, GameDetail detailItem)
         {
             base.MapGameValueByPattern(item, detailItem);
 
-            if (BasketBallResourceID.MoreResultResourceIDs.Contains(detailItem.ResourceId))
+            if (BasketBallResourceID.MoreResultResourceIDs.Contains(detailItem.ResourceId) ||
+                BasketBallResourceID.MoreResultResourceIDRegex.Any(id => Regex.IsMatch(item.ResourceID, id)))
             {
                 MapGameValueForMoreResult(item, detailItem);
             }
@@ -68,8 +71,8 @@
 
             var result = isHomeTeam ? HomeTeam : AwayTeam;
 
-            item.IsHome = isNone ? false : isHomeTeam;
-            item.IsAway = isNone ? false : !isHomeTeam;
+            item.IsHome = !isNone && isHomeTeam;
+            item.IsAway = !isNone && !isHomeTeam;
             item.HomeValue = isNone ? LangResource.None : result;
         }
     }

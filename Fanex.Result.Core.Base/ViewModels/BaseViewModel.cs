@@ -52,8 +52,6 @@
 
         public virtual bool VisibleGameDetail => false;
 
-        public IRefDataHelper RefDataHelper { get; private set; }
-
         public virtual string EventStatusBackground
             => EventStatus.Equals(LangResource.PostPoned, StringComparison.OrdinalIgnoreCase) ?
                     ConstantValue.BackgroundPosponed :

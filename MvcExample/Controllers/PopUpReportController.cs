@@ -49,8 +49,8 @@
             {
                 SportType = sportType,
                 IsOutright = metalModel.IsOutRight.HasValue && metalModel.IsOutRight.Value > 0,
-                IsParlayPopUp = metalModel.Bettype == MixParlayBettype || 
-                    metalModel.Bettype == SystemParlayBettype || 
+                IsParlayPopUp = metalModel.Bettype == MixParlayBettype ||
+                    metalModel.Bettype == SystemParlayBettype ||
                     metalModel.Bettype == MixParlayVirtualSport,
                 IsPopUp = true,
                 VisiblePopUpTitle = true,
@@ -140,8 +140,6 @@
                     {
                         return ResultEngine.HtmlParser(
                             new MetricGamingResultData().GetPopupResult(metalModel.BetId).ToList(), setting);
-                            sportsbook.GameDetails = sportsbook.GameDetails
-                                .Where(d => d.ResourceId.Contains(metalModel.Bettype.ToString()) && d.ResourceId.Contains(resourceId)).ToList();
                     }
 
                     var data = new SportsbookResultData().GetPopupResult(sportType, licenseeId, userId, metalModel);

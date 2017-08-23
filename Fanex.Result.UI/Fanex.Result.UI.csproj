@@ -105,8 +105,8 @@
     </None>
     <None Include="Content\Fanex.Result\fanex.result.less" />
     <None Include="Fanex.Result.UI.licenseheader" />
-    <Content Include="packages.config" />
     <Content Include="Fanex.Result.UI.ruleset" />
+    <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\SonarAnalyzer.CSharp.6.3.0.2862\analyzers\Google.Protobuf.dll" />

@@ -22,7 +22,11 @@
             { "vi-VN", "vn" }
         };
 
-        protected BaseViewModel(ResultSetting setting, IRefDataHelper refDataHelper = null)
+        protected BaseViewModel(ResultSetting setting) : this(setting, null)
+        {
+        }
+
+        protected BaseViewModel(ResultSetting setting, IRefDataHelper refDataHelper)
         {
             this.DateTimeFormat = setting.DateTimeFormat;
             this.VisibleInternalEventStatus = setting.VisibleInternalEventStatus;

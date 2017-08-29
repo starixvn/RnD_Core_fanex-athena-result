@@ -81,10 +81,17 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+    <EmbeddedResource Include="Resources\Lucky3Resources.ja-JP.resx" />
+    <EmbeddedResource Include="Resources\Lucky3Resources.ko-KR.resx" />
     <EmbeddedResource Include="Resources\Lucky3Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lucky3Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Lucky3Resources.th-TH.resx" />
+    <EmbeddedResource Include="Resources\Lucky3Resources.vi-VN.resx" />
+    <EmbeddedResource Include="Resources\Lucky3Resources.zh-CN.resx" />
+    <EmbeddedResource Include="Resources\Lucky3Resources.zh-Hans.resx" />
+    <EmbeddedResource Include="Resources\Lucky3Resources.zh-TW.resx" />
     <EmbeddedResource Include="Views\Lucky3.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

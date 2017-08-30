@@ -302,5 +302,19 @@
             // Assert
             Assert.AreEqual("league name", actualValue);
         }
+
+        [Test]
+        public void LeagueId_Always_ReturnLeagueId()
+        {
+            // Arrange
+            resultData.LeagueId = 11;
+            var viewModel = new Lucky3ViewModel(resultData, resultSetting, refDataHelper);
+
+            // Act
+            var actualValue = viewModel.LeagueId;
+
+            // Assert
+            Assert.AreEqual(11, actualValue);
+        }
     }
 }

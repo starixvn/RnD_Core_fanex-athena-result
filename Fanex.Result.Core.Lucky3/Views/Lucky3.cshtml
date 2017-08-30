@@ -25,14 +25,14 @@
     }
     <tbody>
         @if (viewModel.Data.Count > 0)
+        {
+            var index = 0;
+
+            foreach (var group in viewModel.Data)
             {
-                var index = 0;
 
-                foreach (var group in viewModel.Data)
+                if (!viewModel.IsPopUp)
                 {
-
-                    if (!viewModel.IsPopUp)
-                    {
 
                     <tr class="data">
                         <td colspan="@colSpan" class="cl-league">
@@ -63,7 +63,7 @@
                         </td>
                         <td class="cl-result">
                             @if (item.EventStatusIsRefund)
-                            {
+                        {
                                 <div>-</div>
                             }
                             else

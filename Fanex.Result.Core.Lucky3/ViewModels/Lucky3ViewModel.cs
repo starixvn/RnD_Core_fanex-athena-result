@@ -26,6 +26,8 @@
 
         public override string KickOffTime => GetFormatedKickOffTime(resultData.KickOffTime);
 
+        public override int LeagueId => resultData.LeagueId;
+
         public string Match => $"{Lucky3Resources.Lucky3GameNo} {resultData.MatchCode}";
 
         public int FirstBall => GetBall(0);

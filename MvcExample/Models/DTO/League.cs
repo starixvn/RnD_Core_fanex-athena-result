@@ -13,6 +13,6 @@ namespace MvcExample
 
         public DateTime? EventDate { get; set; }
 
-        public byte? SportId { get; set; }
+        public short? SportId { get; set; }
     }
 }

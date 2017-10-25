@@ -113,9 +113,11 @@
 
         public IEnumerable<Sportsbook> GetResultFromExcel(string filePath)
         {
-            return SportsbookResultExcelReader
+            var sportBooks = SportsbookResultExcelReader
                 .CreateInstance(filePath)
                 .GetResultData();
+
+            return sportBooks;
         }
 
         protected Sportsbook BindData(IDataReader reader)

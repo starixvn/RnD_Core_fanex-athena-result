@@ -32,6 +32,11 @@
             }
         };
 
+        private static IDictionary<string, List<string>> _newBetRadar = new Dictionary<string, List<string>>
+        {
+            { "GoalTime", new List<string> { GameResourceID.TimeOfFirstGoal } },
+        };
+
         private static IList<string> _fastMarkets = new List<string>
         {
             GameResourceID.NextOneMinutes,
@@ -41,16 +46,12 @@
             GameResourceID.NextOneMinuteSetPiece
         };
 
-        public static IDictionary<string, List<string>> BetRadar
-        {
-            get { return _betRadar; }
-        }
+        public static IDictionary<string, List<string>> BetRadar => _betRadar;
 
-        public static IList<string> FastMarkets
-        {
-            get { return _fastMarkets; }
-        }
+        public static IDictionary<string, List<string>> NewBetRadar => _newBetRadar;
 
-        public static int[] PossibleMuayThaiScore { get; } = new int[] { 0, 1, 5 };
+        public static IList<string> FastMarkets => _fastMarkets;
+
+        public static int[] PossibleMuayThaiScore { get; } = new[] { 0, 1, 5 };
     }
 }

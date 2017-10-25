@@ -117,6 +117,7 @@
     <Compile Include="ViewModels\SoccerDetail\SoccerDetailInfo.cs" />
     <Compile Include="ViewModels\SoccerDetail\SoccerDetailViewModel.cs" />
     <Compile Include="ViewModels\SoccerDetail\SoccerGameDetailItem.cs" />
+    <Compile Include="ViewModels\SoccerDetail\SoccerResultDetail.cs" />
     <Compile Include="ViewModels\SoccerViewModel.cs" />
     <Compile Include="ViewModels\SportsbookBaseViewModel.cs" />
     <Compile Include="ViewModels\TennisDetail\GameValue.cs" />

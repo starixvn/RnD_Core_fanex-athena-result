@@ -496,6 +496,7 @@
     <Content Include="App_Data\Result_Data\Soccer.xls" />
     <Content Include="App_Data\Result_Data\Lucky3.xls" />
     <Content Include="App_Data\Fanex.Result\Lucky3.xls" />
+    <Content Include="App_Data\Result_Data\SoccerDetail.xls" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>

@@ -30,6 +30,8 @@
 
         public const string NextGoal1H = "^180\\d{2}$";
 
+        public const string TimeOfFirstGoal = "455";
+
         public const string FirstGoalTime10Min = "192";
 
         public const string FirstGoalTime15Min = "193";

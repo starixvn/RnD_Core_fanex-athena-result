@@ -513,4 +513,7 @@
   <data name="BetType" xml:space="preserve">
     <value>Bet Type</value>
   </data>
+  <data name="RS455" xml:space="preserve">
+    <value>Time Of First Goal</value>
+  </data>
 </root>

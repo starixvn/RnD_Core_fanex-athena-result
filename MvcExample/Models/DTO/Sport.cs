@@ -10,7 +10,7 @@ namespace MvcExample.Models.DTO
     /// </summary>
     public class Sport
     {
-        public byte? Id { get; set; }
+        public short Id { get; set; }
 
         public string Name { get; set; }
     }

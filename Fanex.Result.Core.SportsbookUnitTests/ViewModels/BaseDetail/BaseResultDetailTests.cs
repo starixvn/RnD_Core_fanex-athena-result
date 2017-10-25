@@ -1,4 +1,4 @@
-﻿namespace Fanex.Result.Core.Sportsbook.Tests.ViewModels.SoccerDetail
+﻿namespace Fanex.Result.Core.Sportsbook.Tests.ViewModels.BaseDetail
 {
     using System.Linq;
     using Base;

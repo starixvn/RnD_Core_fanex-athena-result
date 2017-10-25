@@ -1,6 +1,8 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.ViewModels.SoccerInfo
 {
-    public class SoccerGameDetailItem
+    using Fanex.Result.Core.Sportsbook.ViewModels.BaseDetail;
+
+    public class SoccerGameDetailItem : IGameDetailItem
     {
         public string GroupCode { get; set; }
 

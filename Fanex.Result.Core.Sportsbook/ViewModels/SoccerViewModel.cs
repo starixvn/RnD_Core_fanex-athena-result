@@ -13,12 +13,14 @@
     using Base.Extension;
     using Base.Resources;
     using Base.ViewModels;
+    using BaseDetail;
     using DataDomain;
     using DTO;
     using Models;
     using RazorEngine;
     using RazorEngine.Templating;
     using RemotingRef;
+    using SoccerDetail;
     using SoccerInfo;
     using Utilities;
 
@@ -34,13 +36,20 @@
 
         private bool? _hasValidGameData;
         private IList<SoccerGameDetailItem> _detailedItemModels;
+        private readonly IResultDetail<SoccerGameDetailItem> _resultDetail;
 
         public SoccerViewModel(Sportsbook soccer, ResultSetting setting)
+            : this(soccer, setting, null)
+        {
+        }
+
+        public SoccerViewModel(Sportsbook soccer, ResultSetting setting, IResultDetail<SoccerGameDetailItem> resultDetail)
             : base(soccer, setting)
         {
             IsShowLiveScore = DetermineShowingLiveScore(setting.IsParlayPopUp, setting.IsPopUp);
             PenaltyMatchDetail = ExistMatchCode(PenaltyHandicapCode) ? PenaltyHandicapName :
                 ExistMatchCode(PenaltyOverUnderCode) ? PenaltyOverUnderName : string.Empty;
+            _resultDetail = resultDetail ?? new SoccerResultDetail(soccer, setting);
         }
 
         public bool IsShowLiveScore { get; }
@@ -200,7 +209,8 @@
         }
 
         private bool ValidateBetRadarResourceId(string resourceId)
-            => GameResources.BetRadar.Values.Any(pattern => ValidateResourceIdByPattern(pattern, resourceId));
+            => GameResources.NewBetRadar.Values.Any(pattern => ValidateResourceIdByPattern(pattern, resourceId)) ||
+               GameResources.BetRadar.Values.Any(pattern => ValidateResourceIdByPattern(pattern, resourceId));
 
         private bool ValidateResourceIdByPattern(List<string> patterns, string resourceId)
             => patterns.Any(i => SportsbookHelper.IsValidResourceId(i, resourceId));
@@ -210,7 +220,7 @@
         /// </summary>
         private void GetDetailedResult()
         {
-            _detailedItemModels = new SafeList<SoccerGameDetailItem>();
+            _detailedItemModels = _resultDetail.GetDetailItems();
             GetBetRadarDetailedResult();
             GetFastMarketsDetailedResult();
         }

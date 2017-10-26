@@ -93,7 +93,8 @@ var popupReport = (function () {
                 MatchId: $("#matchid").val(),
                 languageCode: $("#language").val(),
                 Betid: $("#betid").val(),
-                IncludeTestData: $("#IncludeTestData").is(":checked")
+                IncludeTestData: $("#IncludeTestData").is(":checked"),
+                GetDataFromExcel: $("#get-data-from-excel").is(":checked")
             };
             genData(criteria);
         });

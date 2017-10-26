@@ -104,11 +104,16 @@
         /// <param name="showMatchCode">If true, show match code column.</param>
         /// <returns>The html result.</returns>
         [HttpGet]
-        public string GenHtmlGameDetail(int matchId, int sportId, string languageCode, bool showMatchCode)
+        public string GenHtmlGameDetail(int matchId, int sportId, string languageCode, bool showMatchCode, bool getDataFromExcel)
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(languageCode);
 
             var detailedData = new SportsbookResultService().GetGameDetail(new GetGameDetailCriteria { MatchId = matchId });
+
+            if (getDataFromExcel)
+            {
+                detailedData = new SportsbookResultData().GetResultFromExcel((SportType)sportId).First();
+            }
 
             if (detailedData != null && detailedData.MatchId > 0)
             {

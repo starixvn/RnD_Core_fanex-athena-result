@@ -226,6 +226,9 @@
             _detailedItemModels = _resultDetail.GetDetailItems();
             GetBetRadarDetailedResult();
             GetFastMarketsDetailedResult();
+
+            _detailedItemModels = _detailedItemModels
+                .OrderBy(item => GameResources.BetRadar.Keys.ToList().FindIndex(k => k == item.GroupCode)).ToList();
         }
 
         private void GetBetRadarDetailedResult()

@@ -34,7 +34,15 @@
 
         private static IDictionary<string, List<string>> _newBetRadar = new Dictionary<string, List<string>>
         {
+            { "Goals", new List<string>() },
+            { "GoalRecord", new List<string>()},
             { "GoalTime", new List<string> { GameResourceID.TimeOfFirstGoal } },
+            { "GoalScorer", new List<string>() },
+            { "Corner", new List<string>() },
+            { "FirstLastCorners", new List<string>() },
+            { "PlayerSentOff", new List<string>()},
+            { "HomeAwayPlayerSentOff", new List<string>()},
+            { "Special", new List<string>()}
         };
 
         private static IList<string> _fastMarkets = new List<string>

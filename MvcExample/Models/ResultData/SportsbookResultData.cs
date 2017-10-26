@@ -43,7 +43,9 @@
             if (metaModel.GetDataFromExcel)
             {
                 data = GetResultFromExcel(sportType);
-                data = data.Where(item => item.Bettype == metaModel.Bettype);
+                data = data.Where(item => item.MatchId == metaModel.MatchId);
+                data.FirstOrDefault().GameDetails
+                    = data.FirstOrDefault().GameDetails.Where(d => d.ResourceId.StartsWith(metaModel.Bettype.ToString())).ToList();
             }
             else
             {

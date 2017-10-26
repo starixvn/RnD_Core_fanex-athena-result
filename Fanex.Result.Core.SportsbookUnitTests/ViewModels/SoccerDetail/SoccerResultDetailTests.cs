@@ -10,7 +10,6 @@
     using NUnit.Framework;
     using Sportsbook.Utilities;
     using Sportsbook.ViewModels.SoccerDetail;
-    using Sportsbook.ViewModels.SoccerInfo;
 
     [TestFixture]
     public class SoccerResultDetailTests

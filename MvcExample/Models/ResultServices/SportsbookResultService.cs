@@ -7,6 +7,7 @@
     using Criteria;
     using Fanex.Data;
     using Fanex.Data.Repository;
+    using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Sportsbook.DTO;
     using Fanex.Result.Data;
 
@@ -116,6 +117,13 @@
             var sportBooks = SportsbookResultExcelReader
                 .CreateInstance(filePath)
                 .GetResultData();
+
+            if (filePath.Contains(SportType.Soccer.ToString()))
+            {
+                sportBooks.First().GameDetails = SportsbookDetailResultExcelReader
+                    .CreateInstance(filePath.Replace("Soccer", "SoccerDetail"))
+                    .GetResultData().ToList();
+            }
 
             return sportBooks;
         }

@@ -84,6 +84,7 @@
     <Compile Include="ExcelModels\TennisExcel.cs" />
     <Compile Include="ExcelModels\VSTennisExcel.cs" />
     <Compile Include="Exceptions\SportsbookException.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Models\Builder.cs" />
     <Compile Include="Models\Template.cs" />
     <Compile Include="Models\ViewModelConcreteFactory.cs" />

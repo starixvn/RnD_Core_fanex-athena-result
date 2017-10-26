@@ -19,10 +19,10 @@
     {
         private readonly Parlay _parlay;
         private readonly ResultSetting _sportSetting;
-        private IList<IResultViewModel> _viewModelData = null;
-        private IList<IResultViewModel> _onlyMatchItemViewModel = null;
-        private IList<IResultViewModel> _onlyGameDetailItemViewModel = null;
-        private IList<IResultViewModel> _bothMatchAndGameDetailItemViewModel = null;
+        private IList<IResultViewModel> _viewModelData;
+        private IList<IResultViewModel> _onlyMatchItemViewModel;
+        private IList<IResultViewModel> _onlyGameDetailItemViewModel;
+        private IList<IResultViewModel> _bothMatchAndGameDetailItemViewModel;
 
         public ParlayViewModel(Parlay parlay, ResultSetting setting)
             : base(setting)

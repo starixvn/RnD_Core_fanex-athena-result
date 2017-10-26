@@ -45,7 +45,7 @@
         {
             var viewModelData = ViewModelConcreteFactory.Instance.GetViewModel(data, setting);
 
-            IList<GroupData> groupData = new SafeList<GroupData>()
+            IList<GroupData> groupData = new SafeList<GroupData>
             {
                 new GroupData
                 {

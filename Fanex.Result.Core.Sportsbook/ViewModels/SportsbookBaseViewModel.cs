@@ -34,7 +34,7 @@
 
         #region common properties
 
-        public virtual bool VisibleDetailedLink { get; } = false;
+        public virtual bool VisibleDetailedLink { get; }
 
         public override string KickOffTime => GetFormatedKickOffTime(SPORTBOOK.KickOffTime);
 
@@ -50,7 +50,7 @@
 
         public new virtual bool VisibleMatchResult => true;
 
-        public virtual bool VisibleGoalRecord { get; } = false;
+        public virtual bool VisibleGoalRecord { get; }
 
         public new virtual bool VisibleGameDetail => false;
 
@@ -83,7 +83,7 @@
 
         #region Utilities
 
-        protected bool HighlightWinnerTeam { get; } = false;
+        protected bool HighlightWinnerTeam { get; }
 
         protected string GetScoreInfoFromBetStatus
         {
@@ -115,8 +115,10 @@
             if (HighlightWinnerTeam && SPORTBOOK.FinalHomeScore.HasValue && SPORTBOOK.FinalAwayScore.HasValue)
             {
                 var temp = SPORTBOOK.FinalHomeScore.Value - SPORTBOOK.FinalAwayScore.Value;
+                var homeWin = isHome && temp > 0;
+                var awayWin = !isHome && temp < 0;
 
-                return (isHome && temp > 0) || (!isHome && temp < 0) ? ConstantValue.WinFormat : string.Empty;
+                return homeWin || awayWin ? ConstantValue.WinFormat : string.Empty;
             }
 
             return string.Empty;

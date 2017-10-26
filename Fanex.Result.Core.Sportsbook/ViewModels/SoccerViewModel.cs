@@ -102,7 +102,7 @@
         public string GoalRecord
             => string.IsNullOrEmpty(SPORTBOOK.GoalRecord) ?
             string.Empty :
-            Regex.Replace(SPORTBOOK.GoalRecord.ToUpper(), "[^HA]", string.Empty);
+            Regex.Replace(SPORTBOOK.GoalRecord.ToUpperInvariant(), "[^HA]", string.Empty);
 
         public override bool VisibleGoalRecord => base.VisibleGoalRecord && !string.IsNullOrEmpty(GoalRecord);
 
@@ -134,7 +134,7 @@
                         var result = new StringBuilder();
                         using (var writer = new StringWriter(result))
                         {
-                            Engine.Razor.RunCompile(templateByGroup, templateName, writer, typeof(SoccerDetailViewModel), binderModel, null);
+                            Engine.Razor.RunCompile(templateByGroup, templateName, writer, typeof(SoccerDetailViewModel), binderModel);
                         }
 
                         temp.Append(result.ToString());
@@ -174,10 +174,13 @@
                 switch (SPORTBOOK.Bettype)
                 {
                     case 3:
-                        return SPORTBOOK.FinalHomeScore.HasValue ? false : true;
+                        return !SPORTBOOK.FinalHomeScore.HasValue;
 
                     case 8:
-                        return SPORTBOOK.HtHomeScore.HasValue ? false : true;
+                        return !SPORTBOOK.HtHomeScore.HasValue;
+
+                    default:
+                        return false;
                 }
             }
 
@@ -208,11 +211,11 @@
             return GetScore(score);
         }
 
-        private bool ValidateBetRadarResourceId(string resourceId)
+        private static bool ValidateBetRadarResourceId(string resourceId)
             => GameResources.NewBetRadar.Values.Any(pattern => ValidateResourceIdByPattern(pattern, resourceId)) ||
                GameResources.BetRadar.Values.Any(pattern => ValidateResourceIdByPattern(pattern, resourceId));
 
-        private bool ValidateResourceIdByPattern(List<string> patterns, string resourceId)
+        private static bool ValidateResourceIdByPattern(List<string> patterns, string resourceId)
             => patterns.Any(i => SportsbookHelper.IsValidResourceId(i, resourceId));
 
         /// <summary>
@@ -231,20 +234,25 @@
             {
                 foreach (var game in group.Value)
                 {
-                    var detailedGameRecords = SPORTBOOK.GameDetails
-                        .Where(i => SportsbookHelper.IsValidResourceId(game, i.ResourceId)).ToSafeList();
+                    GenerateGameDetailItems(group, game);
+                }
+            }
+        }
 
-                    foreach (GameDetail detailedItem in detailedGameRecords)
-                    {
-                        var detailedItemModel = MapBetRadarDetailedGameValue(group.Key, detailedItem);
+        private void GenerateGameDetailItems(KeyValuePair<string, List<string>> group, string game)
+        {
+            var detailedGameRecords = SPORTBOOK.GameDetails
+                .Where(i => SportsbookHelper.IsValidResourceId(game, i.ResourceId)).ToSafeList();
 
-                        if (detailedItemModel.ResourceID != GameResourceID.GoalSequence ||
-                            (detailedItemModel.ResourceID == GameResourceID.GoalSequence &&
-                            !string.IsNullOrEmpty(detailedItemModel.HomeValue)))
-                        {
-                            _detailedItemModels.Add(detailedItemModel);
-                        }
-                    }
+            foreach (GameDetail detailedItem in detailedGameRecords)
+            {
+                var detailedItemModel = MapBetRadarDetailedGameValue(group.Key, detailedItem);
+
+                if (detailedItemModel.ResourceID != GameResourceID.GoalSequence ||
+                    (detailedItemModel.ResourceID == GameResourceID.GoalSequence &&
+                    !string.IsNullOrEmpty(detailedItemModel.HomeValue)))
+                {
+                    _detailedItemModels.Add(detailedItemModel);
                 }
             }
         }
@@ -306,12 +314,14 @@
 
                 case EventStatusID.RefundHTSettlementStatusID:
                     soccerItem.HomeValue = soccerItem.AwayValue = LangResource.Refundht;
-
                     break;
 
                 case EventStatusID.RefundFTSettlementStatusID:
                     soccerItem.HomeValue = soccerItem.AwayValue = LangResource.Refundft;
+                    break;
 
+                default:
+                    soccerItem.HomeValue = soccerItem.AwayValue = ConstantValue.Hyphen;
                     break;
             }
 
@@ -325,8 +335,13 @@
         /// <param name="detailedValue">The raw game value.</param>
         [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2101:MethodMustNotContainMoreLinesThan",
             Justification = "Reviewed. Suppression is OK here.")]
+#pragma warning disable S1541 // Methods and properties should not be too complex
+#pragma warning disable S3776 // Cognitive Complexity of methods should not be too high
         private void MapResourceGameValueByPattern(SoccerGameDetailItem item, GameDetail detailedValue)
+#pragma warning restore S3776 // Cognitive Complexity of methods should not be too high
+#pragma warning restore S1541 // Methods and properties should not be too complex
         {
+            // TODO: Refactor later
             switch (item.ResourceID)
             {
                 /*Group: Goals.*/
@@ -376,7 +391,10 @@
 
                 case GameResourceID.Last1HCorner:
                 case GameResourceID.LastCorner:
+                    // TODO: Refactor later
+#pragma warning disable S3240 // The simplest possible condition syntax should be used
                     if (detailedValue.SettlementStatusID == EventStatusID.Abandoned1HSettlementStatusID ||
+#pragma warning restore S3240 // The simplest possible condition syntax should be used
                         (detailedValue.SettlementStatusID == EventStatusID.Abandoned2HSettlementStatusID &&
                         item.ResourceID == GameResourceID.LastCorner))
                     {
@@ -445,12 +463,15 @@
                         /*Group :Goal Scorer*/
                         item.HomeValue = item.AwayValue = detailedValue.OtherInfo;
                     }
-                    else if (SportsbookHelper.IsValidResourceId(GameResourceID.NextGoal1H, item.ResourceID)
-                       || SportsbookHelper.IsValidResourceId(GameResourceID.NextGoal3rd, item.ResourceID)
-                   || SportsbookHelper.IsValidResourceId(GameResourceID.ExtraTimeNextGoal, item.ResourceID))
+                    else
                     {
-                        /*Group :Goal Record*/
-                        item.HomeValue = item.AwayValue = GetResourceGameValueByPattern1X2(detailedValue.HomeValue, LangResource.None);
+                        if (SportsbookHelper.IsValidResourceId(GameResourceID.NextGoal1H, item.ResourceID) ||
+                            SportsbookHelper.IsValidResourceId(GameResourceID.NextGoal3rd, item.ResourceID) ||
+                            SportsbookHelper.IsValidResourceId(GameResourceID.ExtraTimeNextGoal, item.ResourceID))
+                        {
+                            /*Group :Goal Record*/
+                            item.HomeValue = item.AwayValue = GetResourceGameValueByPattern1X2(detailedValue.HomeValue, LangResource.None);
+                        }
                     }
 
                     break;
@@ -468,21 +489,15 @@
         /// </summary>
         /// <param name="homeValue">The home value.</param>
         /// <returns>The game value.</returns>
-        private string GetResourceGameValueByPatternGoalTime(string homeValue)
+        private static string GetResourceGameValueByPatternGoalTime(string homeValue)
         {
             if (string.IsNullOrEmpty(homeValue))
             {
                 return ConstantValue.Hyphen;
             }
 
-            if (homeValue.Equals(ConstantValue.None, StringComparison.OrdinalIgnoreCase))
-            {
-                return LangResource.None;
-            }
-            else
-            {
-                return homeValue + " " + LangResource.Min;
-            }
+            return homeValue.Equals(ConstantValue.None, StringComparison.OrdinalIgnoreCase) ?
+                LangResource.None : homeValue + " " + LangResource.Min;
         }
 
         /// <summary>
@@ -494,25 +509,28 @@
         {
             if (!string.IsNullOrEmpty(homeValue))
             {
-                switch (homeValue.ToUpper())
+                switch (homeValue.ToUpperInvariant())
                 {
                     case "HR":
-                        return this.HomeTeam + "/" + LangResource.RegularTime;
+                        return HomeTeam + "/" + LangResource.RegularTime;
 
                     case "HE":
-                        return this.HomeTeam + "/" + LangResource.ExtraTime;
+                        return HomeTeam + "/" + LangResource.ExtraTime;
 
                     case "HP":
-                        return this.HomeTeam + "/" + LangResource.Penalty;
+                        return HomeTeam + "/" + LangResource.Penalty;
 
                     case "AR":
-                        return this.AwayTeam + "/" + LangResource.RegularTime;
+                        return AwayTeam + "/" + LangResource.RegularTime;
 
                     case "AE":
-                        return this.AwayTeam + "/" + LangResource.ExtraTime;
+                        return AwayTeam + "/" + LangResource.ExtraTime;
 
                     case "AP":
-                        return this.AwayTeam + "/" + LangResource.Penalty;
+                        return AwayTeam + "/" + LangResource.Penalty;
+
+                    default:
+                        return ConstantValue.Hyphen;
                 }
             }
 
@@ -533,7 +551,7 @@
             return situation;
         }
 
-        private string GetTextValueOfYesNoChoice(string choice)
+        private static string GetTextValueOfYesNoChoice(string choice)
         {
             if (string.IsNullOrEmpty(choice))
             {
@@ -553,7 +571,7 @@
         {
             if (!string.IsNullOrEmpty(homeValue))
             {
-                switch (homeValue.ToUpper())
+                switch (homeValue.ToUpperInvariant())
                 {
                     case "1":
                     case "H":
@@ -566,15 +584,18 @@
                     case "X":
                     case "N":
                         return noneValue;
+
+                    default:
+                        return ConstantValue.Hyphen;
                 }
             }
 
             return ConstantValue.Hyphen;
         }
 
-        private string GetFirstGoalMethodResult(string homeValue)
+        private static string GetFirstGoalMethodResult(string homeValue)
         {
-            switch (homeValue.ToUpper())
+            switch (homeValue.ToUpperInvariant())
             {
                 case "S":
                     return LangResource.Shot;
@@ -593,9 +614,10 @@
 
                 case "NG":
                     return LangResource.NoGoal;
-            }
 
-            return string.Empty;
+                default:
+                    return string.Empty;
+            }
         }
 
         /// <summary>
@@ -607,62 +629,61 @@
             Justification = "Reviewed. Suppression is OK here.")]
         private SoccerDetailInfo GetGoalInfo()
         {
-            if (this._goalInfo == null)
+            if (_goalInfo == null)
             {
-                this._goalInfo = new SoccerDetailInfo();
+                _goalInfo = new SoccerDetailInfo();
                 const string HomeGoal = "1";
                 const string AwayGoal = "2";
                 const string GoalFirstHalf = "1FL";
                 const string GoalFullTime = "FL";
                 const int FGIndex = 0;
                 const int LGIndex = 1;
-                /*
-                 // Possible formats:
-                 // Refund HT;1FL:1-2;FL:2-0
-                 // 1FL:1-2;FL:2-0
-                 // Refund HT;FL:2-0
-                 // Refund HT;1FL:1-2
-                 // FL:2-0
-                 // Refund HT
-                 // 1FL:1-2
-             */
+
                 var betStatus = this.SPORTBOOK.BetStatus != null ? this.SPORTBOOK.BetStatus.Trim() : string.Empty;
                 if (betStatus.IndexOf(":", StringComparison.Ordinal) > -1)
                 {
-                    string[] tokenInfos = betStatus.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+                    string[] tokenInfos = betStatus.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+
                     foreach (var token in tokenInfos)
                     {
-                        if (token.IndexOf(GoalFirstHalf, StringComparison.Ordinal) > -1)
-                        {
-                            var firstGoalInfo = token.Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
-                            if (firstGoalInfo.Length == 2)
-                            {
-                                var firstGoalToken = firstGoalInfo[1].Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
-                                this._goalInfo.Visible1stFGHome = firstGoalToken[FGIndex] == HomeGoal;
-                                this._goalInfo.Visible1stFGAway = firstGoalToken[FGIndex] == AwayGoal;
-
-                                this._goalInfo.Visible1stLGHome = firstGoalToken[LGIndex] == HomeGoal;
-                                this._goalInfo.Visible1stLGAway = firstGoalToken[LGIndex] == AwayGoal;
-                            }
-                        }
-                        else if (token.IndexOf(GoalFullTime, StringComparison.Ordinal) > -1)
-                        {
-                            var goalInfo = token.Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
-                            if (goalInfo.Length == 2)
-                            {
-                                var goalInfoToken = goalInfo[1].Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
-                                this._goalInfo.VisibleFGHome = goalInfoToken[FGIndex] == HomeGoal;
-                                this._goalInfo.VisibleFGAway = goalInfoToken[FGIndex] == AwayGoal;
-
-                                this._goalInfo.VisibleLGHome = goalInfoToken[LGIndex] == HomeGoal;
-                                this._goalInfo.VisibleLGAway = goalInfoToken[LGIndex] == AwayGoal;
-                            }
-                        }
+                        GenerateGoalInfo(HomeGoal, AwayGoal, GoalFirstHalf, GoalFullTime, FGIndex, LGIndex, token);
                     }
                 }
             }
 
-            return this._goalInfo;
+            return _goalInfo;
+        }
+
+        private void GenerateGoalInfo(string HomeGoal, string AwayGoal, string GoalFirstHalf, string GoalFullTime, int FGIndex, int LGIndex, string token)
+        {
+            if (token.IndexOf(GoalFirstHalf, StringComparison.Ordinal) > -1)
+            {
+                var firstGoalInfo = token.Split(new[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
+                if (firstGoalInfo.Length == 2)
+                {
+                    var firstGoalToken = firstGoalInfo[1].Split(new[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
+                    _goalInfo.Visible1stFGHome = firstGoalToken[FGIndex] == HomeGoal;
+                    _goalInfo.Visible1stFGAway = firstGoalToken[FGIndex] == AwayGoal;
+
+                    _goalInfo.Visible1stLGHome = firstGoalToken[LGIndex] == HomeGoal;
+                    _goalInfo.Visible1stLGAway = firstGoalToken[LGIndex] == AwayGoal;
+                }
+            }
+            else
+            {
+                if (token.IndexOf(GoalFullTime, StringComparison.Ordinal) > -1)
+                {
+                    var goalInfo = token.Split(new[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
+                    if (goalInfo.Length == 2)
+                    {
+                        var goalInfoToken = goalInfo[1].Split(new[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
+                        _goalInfo.VisibleFGHome = goalInfoToken[FGIndex] == HomeGoal;
+                        _goalInfo.VisibleFGAway = goalInfoToken[FGIndex] == AwayGoal;
+                        _goalInfo.VisibleLGHome = goalInfoToken[LGIndex] == HomeGoal;
+                        _goalInfo.VisibleLGAway = goalInfoToken[LGIndex] == AwayGoal;
+                    }
+                }
+            }
         }
 
         private string GetGoalSequenceFromGameDetails()
@@ -671,7 +692,7 @@
 
             return string.IsNullOrEmpty(goalSequence) ?
                 string.Empty :
-                Regex.Replace(goalSequence.ToUpper(), "[^HA]", string.Empty);
+                Regex.Replace(goalSequence.ToUpperInvariant(), "[^HA]", string.Empty);
         }
 
         private bool ScoreIsNotCalculated(bool isFinalScore)

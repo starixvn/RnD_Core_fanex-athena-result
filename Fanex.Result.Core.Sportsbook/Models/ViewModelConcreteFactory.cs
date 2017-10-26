@@ -33,7 +33,7 @@
             }
         }
 
-        public override IResultViewModel GetViewModel<T>(T obj, ResultSetting setting)
+        public override IResultViewModel GetViewModel<T>(T resultData, ResultSetting setting)
         {
             if ((int)setting.SportType <= 0)
             {
@@ -50,25 +50,25 @@
 
             if (SportsUseBasketBallViewModel(setting.SportType))
             {
-                return (IResultViewModel)Activator.CreateInstance(viewModel, obj, setting, null);
+                return (IResultViewModel)Activator.CreateInstance(viewModel, resultData, setting, null);
             }
 
             if (viewModel == typeof(OtherViewModel))
             {
-                return (IResultViewModel)Activator.CreateInstance(viewModel, obj, setting, null);
+                return (IResultViewModel)Activator.CreateInstance(viewModel, resultData, setting, null);
             }
 
-            return (IResultViewModel)Activator.CreateInstance(viewModel, obj, setting);
+            return (IResultViewModel)Activator.CreateInstance(viewModel, resultData, setting);
         }
 
-        public override IResultViewModel GetOutrightViewModel(object obj, ResultSetting setting)
+        public override IResultViewModel GetOutrightViewModel(object resultData, ResultSetting setting)
         {
-            return new OutrightViewModel((Outright)obj, setting);
+            return new OutrightViewModel((Outright)resultData, setting);
         }
 
-        public override IResultViewModel GetParlayViewModel(object obj, ResultSetting setting)
+        public override IResultViewModel GetParlayViewModel(object resultData, ResultSetting setting)
         {
-            return new ParlayViewModel((Parlay)obj, setting);
+            return new ParlayViewModel((Parlay)resultData, setting);
         }
 
         public override IExcelModel GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting)
@@ -93,7 +93,7 @@
             return (IExcelModel)Activator.CreateInstance(excelViewModel, realTemplatePath, setting, dataMaped);
         }
 
-        private bool SportsUseBasketBallViewModel(SportType sportType)
+        private static bool SportsUseBasketBallViewModel(SportType sportType)
             => sportType == SportType.BasketBall ||
                 sportType == SportType.NetBall ||
                 sportType == SportType.FootBall ||

@@ -15,8 +15,7 @@
         private const string ResourceIDSuffix = "RS";
         private static Regex setXGameYRegex = new Regex("^80[1-5]{1}\\d{2}$");
 
-        private static Regex[] soccerRangeResourceIDRegex = new Regex[5]
-        {
+        private static Regex[] soccerRangeResourceIDRegex = new[] {
             new Regex(GameResourceID.NextGoalTime),
             new Regex(GameResourceID.NextGoal3rd),
             new Regex(GameResourceID.GoalScorer),
@@ -24,8 +23,7 @@
             new Regex(GameResourceID.ExtraTimeNextGoal),
         };
 
-        private static Regex[] setXRGameYResourceID = new Regex[5]
-        {
+        private static Regex[] setXRGameYResourceID = new[] {
             new Regex("^01\\d{2}$"),
             new Regex("^02\\d{2}$"),
             new Regex("^03\\d{2}$"),

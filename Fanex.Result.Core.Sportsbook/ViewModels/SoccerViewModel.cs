@@ -212,7 +212,7 @@
         }
 
         private static bool ValidateBetRadarResourceId(string resourceId)
-            => GameResources.NewBetRadar.Values.Any(pattern => ValidateResourceIdByPattern(pattern, resourceId)) ||
+            => GameResources.MoreResultGroup.Values.Any(pattern => ValidateResourceIdByPattern(pattern, resourceId)) ||
                GameResources.BetRadar.Values.Any(pattern => ValidateResourceIdByPattern(pattern, resourceId));
 
         private static bool ValidateResourceIdByPattern(List<string> patterns, string resourceId)

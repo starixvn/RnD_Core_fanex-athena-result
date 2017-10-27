@@ -30,7 +30,7 @@
     </Setting>
     <Setting Key="Lrf_BetList_SelMatchResultParlay" SpName="Lrf_BetList_SelMatchResultParlay_xpre" DbName="DBEXT.bodb02.bodbLicenseeNet">
     </Setting>
-    <Setting Key="Lrf_BetList_SelMatchResult" SpName="Lrf_BetList_SelMatchResult" DbName="DBEXT.bodb02.bodbLicenseeNet">
+    <Setting Key="Lrf_BetList_SelMatchResult" SpName="Lrf_BetList_SelMatchResult_xtest" DbName="DBEXT.bodb02.bodbLicenseeNet">
     </Setting>
     <!--<Setting Key="Lrf_Result_MatchSelByLeague" SpName="Age_Result_MatchSelByLeague" DbName="DBACC.bodb02.BODBDownlineNet">
     </Setting>

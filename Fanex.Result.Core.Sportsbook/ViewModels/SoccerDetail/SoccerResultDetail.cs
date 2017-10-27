@@ -27,7 +27,7 @@
         {
             var detailItems = new SafeList<SoccerGameDetailItem>();
 
-            foreach (var group in GameResources.NewBetRadar)
+            foreach (var group in GameResources.MoreResultGroup)
             {
                 foreach (var game in group.Value)
                 {

@@ -32,7 +32,7 @@
             }
         };
 
-        private static IDictionary<string, List<string>> _newBetRadar = new Dictionary<string, List<string>>
+        private static IDictionary<string, List<string>> _moreResultGroup = new Dictionary<string, List<string>>
         {
             { "Goals", new List<string>() },
             { "GoalRecord", new List<string>()},
@@ -56,7 +56,7 @@
 
         public static IDictionary<string, List<string>> BetRadar => _betRadar;
 
-        public static IDictionary<string, List<string>> NewBetRadar => _newBetRadar;
+        public static IDictionary<string, List<string>> MoreResultGroup => _moreResultGroup;
 
         public static IList<string> FastMarkets => _fastMarkets;
 

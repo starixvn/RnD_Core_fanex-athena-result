@@ -19,7 +19,6 @@
     using Models;
     using RazorEngine;
     using RazorEngine.Templating;
-    using RemotingRef;
     using SoccerDetail;
     using SoccerInfo;
     using Utilities;
@@ -39,15 +38,20 @@
         private readonly IResultDetail<SoccerGameDetailItem> _resultDetail;
 
         public SoccerViewModel(Sportsbook soccer, ResultSetting setting)
-            : this(soccer, setting, null)
+            : this(soccer, setting, null, null)
         {
         }
 
-        public SoccerViewModel(Sportsbook soccer, ResultSetting setting, IResultDetail<SoccerGameDetailItem> resultDetail)
-            : base(soccer, setting)
+        public SoccerViewModel(
+            Sportsbook soccer,
+            ResultSetting setting,
+            IResultDetail<SoccerGameDetailItem> resultDetail,
+            ISportsbookRefDataHelper refDataHelper)
+            : base(soccer, setting, refDataHelper)
         {
             IsShowLiveScore = DetermineShowingLiveScore(setting.IsParlayPopUp, setting.IsPopUp);
-            PenaltyMatchDetail = ExistMatchCode(PenaltyHandicapCode) ? PenaltyHandicapName :
+            PenaltyMatchDetail = ExistMatchCode(PenaltyHandicapCode) ?
+                PenaltyHandicapName :
                 ExistMatchCode(PenaltyOverUnderCode) ? PenaltyOverUnderName : string.Empty;
             _resultDetail = resultDetail ?? new SoccerResultDetail(soccer, setting);
         }
@@ -117,6 +121,7 @@
 
                 var temp = new StringBuilder();
                 var detailedResultsByGroup = _detailedItemModels.GroupBy(i => i.GroupCode).ToList();
+
                 foreach (var item in detailedResultsByGroup)
                 {
                     var templateName = SportsbookHelper.IsFastMarketsResourceId(item.Key)
@@ -124,6 +129,7 @@
                         : TemplateNameSpace + item.Key;
 
                     var templateByGroup = Template.Instance.GetRazorTemplate(templateName);
+
                     if (!string.IsNullOrEmpty(templateByGroup))
                     {
                         var binderModel = new SoccerDetailViewModel
@@ -132,6 +138,7 @@
                             DetailItems = item.ToSafeList()
                         };
                         var result = new StringBuilder();
+
                         using (var writer = new StringWriter(result))
                         {
                             Engine.Razor.RunCompile(templateByGroup, templateName, writer, typeof(SoccerDetailViewModel), binderModel);
@@ -293,7 +300,7 @@
             {
                 GroupCode = detailedItem.ResourceId,
                 ResourceID = detailedItem.ResourceId,
-                GroupName = RefData.GetBetTypeName(SPORTBOOK.Bettype.ToString(), GetSupportedLanguage),
+                GroupName = SportsbookRefDataHelper.GetBetTypeNameById(SPORTBOOK.Bettype.ToString(), GetSupportedLanguage),
                 ResourceName = SportsbookHelper.CreateFastMarketsTimeRange(detailedItem.ResourceId, SPORTBOOK.BetID)
             };
 
@@ -394,7 +401,6 @@
 
                 case GameResourceID.Last1HCorner:
                 case GameResourceID.LastCorner:
-                    // TODO: Refactor later
 #pragma warning disable S3240 // The simplest possible condition syntax should be used
                     if (detailedValue.SettlementStatusID == EventStatusID.Abandoned1HSettlementStatusID ||
 #pragma warning restore S3240 // The simplest possible condition syntax should be used
@@ -417,13 +423,13 @@
                     break;
 
                 /*Group :Home/Away Player sent Off*/
-                case GameResourceID.HomePlayserSentOff:
-                case GameResourceID.HomePlayserSentOff1H:
+                case GameResourceID.HomePlayerSentOff:
+                case GameResourceID.HomePlayerSentOff1H:
                     item.HomeValue = item.AwayValue = GetTextValueOfYesNoChoice(detailedValue.HomeValue);
                     break;
 
-                case GameResourceID.AwayPlayserSentOff:
-                case GameResourceID.AwayPlayserSentOff1H:
+                case GameResourceID.AwayPlayerSentOff:
+                case GameResourceID.AwayPlayerSentOff1H:
                     item.AwayValue = item.HomeValue = GetTextValueOfYesNoChoice(detailedValue.AwayValue);
                     break;
 
@@ -548,8 +554,8 @@
 
             var result = results[startMinute % 45];
             var situation = bettype == 225 ?
-                RefData.GetFastMarkets225Result(result.ToString(), GetSupportedLanguage) :
-                RefData.GetFastMarketsResult(result.ToString(), GetSupportedLanguage);
+                SportsbookRefDataHelper.GetFastMarket225Result(result.ToString(), GetSupportedLanguage) :
+                SportsbookRefDataHelper.GetFastMarketResult(result.ToString(), GetSupportedLanguage);
 
             return situation;
         }
@@ -642,7 +648,8 @@
                 const int FGIndex = 0;
                 const int LGIndex = 1;
 
-                var betStatus = this.SPORTBOOK.BetStatus != null ? this.SPORTBOOK.BetStatus.Trim() : string.Empty;
+                var betStatus = SPORTBOOK.BetStatus != null ? SPORTBOOK.BetStatus.Trim() : string.Empty;
+
                 if (betStatus.IndexOf(":", StringComparison.Ordinal) > -1)
                 {
                     string[] tokenInfos = betStatus.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
@@ -657,33 +664,40 @@
             return _goalInfo;
         }
 
-        private void GenerateGoalInfo(string HomeGoal, string AwayGoal, string GoalFirstHalf, string GoalFullTime, int FGIndex, int LGIndex, string token)
+        private void GenerateGoalInfo(
+            string homeGoal,
+            string awayGoal,
+            string goalFirstHalf,
+            string goalFullTime,
+            int firstGoalIndex,
+            int lastGoalIndex,
+            string token)
         {
-            if (token.IndexOf(GoalFirstHalf, StringComparison.Ordinal) > -1)
+            if (token.IndexOf(goalFirstHalf, StringComparison.Ordinal) > -1)
             {
                 var firstGoalInfo = token.Split(new[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
                 if (firstGoalInfo.Length == 2)
                 {
                     var firstGoalToken = firstGoalInfo[1].Split(new[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
-                    _goalInfo.Visible1stFGHome = firstGoalToken[FGIndex] == HomeGoal;
-                    _goalInfo.Visible1stFGAway = firstGoalToken[FGIndex] == AwayGoal;
+                    _goalInfo.Visible1stFGHome = firstGoalToken[firstGoalIndex] == homeGoal;
+                    _goalInfo.Visible1stFGAway = firstGoalToken[firstGoalIndex] == awayGoal;
 
-                    _goalInfo.Visible1stLGHome = firstGoalToken[LGIndex] == HomeGoal;
-                    _goalInfo.Visible1stLGAway = firstGoalToken[LGIndex] == AwayGoal;
+                    _goalInfo.Visible1stLGHome = firstGoalToken[lastGoalIndex] == homeGoal;
+                    _goalInfo.Visible1stLGAway = firstGoalToken[lastGoalIndex] == awayGoal;
                 }
             }
             else
             {
-                if (token.IndexOf(GoalFullTime, StringComparison.Ordinal) > -1)
+                if (token.IndexOf(goalFullTime, StringComparison.Ordinal) > -1)
                 {
                     var goalInfo = token.Split(new[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
                     if (goalInfo.Length == 2)
                     {
                         var goalInfoToken = goalInfo[1].Split(new[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
-                        _goalInfo.VisibleFGHome = goalInfoToken[FGIndex] == HomeGoal;
-                        _goalInfo.VisibleFGAway = goalInfoToken[FGIndex] == AwayGoal;
-                        _goalInfo.VisibleLGHome = goalInfoToken[LGIndex] == HomeGoal;
-                        _goalInfo.VisibleLGAway = goalInfoToken[LGIndex] == AwayGoal;
+                        _goalInfo.VisibleFGHome = goalInfoToken[firstGoalIndex] == homeGoal;
+                        _goalInfo.VisibleFGAway = goalInfoToken[firstGoalIndex] == awayGoal;
+                        _goalInfo.VisibleLGHome = goalInfoToken[lastGoalIndex] == homeGoal;
+                        _goalInfo.VisibleLGAway = goalInfoToken[lastGoalIndex] == awayGoal;
                     }
                 }
             }

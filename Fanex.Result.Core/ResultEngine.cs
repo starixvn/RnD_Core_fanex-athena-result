@@ -70,7 +70,7 @@
         /// <returns>The memory stream.</returns>
         public static MemoryStream ExcelParser<T>(IList<T> dataList, ResultSetting setting)
         {
-            ReCheckSetting<T>(dataList, setting);
+            ReCheckSetting(dataList, setting);
 
             var dtoName = typeof(T).Name;
 
@@ -133,13 +133,13 @@
             }
 
             var builder = GetBuilder(DTOType.SPORTSBOOK);
-            return Helper.RemoveWhiteSpace(builder.PopUpParalyBuilder<T>(dataList, setting));
+            return Helper.RemoveWhiteSpace(builder.PopUpParalyBuilder(dataList, setting));
         }
 
         private static string HtmlOutrightParser<T>(IList<T> dataList, ResultSetting setting, string dtoName)
         {
             var builder = CreateOutrightBuilder(dtoName);
-            return Helper.RemoveWhiteSpace(builder.OutrightHtmlBuilder<T>(dataList, setting));
+            return Helper.RemoveWhiteSpace(builder.OutrightHtmlBuilder(dataList, setting));
         }
 
         private static IBuilder CreateOutrightBuilder(string dtoName)

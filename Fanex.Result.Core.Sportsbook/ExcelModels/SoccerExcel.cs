@@ -23,9 +23,9 @@
         public SoccerExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
             : base(templatePath, setting, data)
         {
-            this.ColumnTemplateCount = 6;
-            this.ColumnStatus = 5;
-            this.RowContentTemplate = 3;
+            ColumnTemplateCount = 6;
+            ColumnStatus = 5;
+            RowContentTemplate = 3;
         }
 
         protected override void AssignHeader(ISheet sheet)
@@ -44,12 +44,14 @@
 
         protected override void SetDataForMatch(ISheet sheet, IResultViewModel data, ref int currentRow)
         {
+#pragma warning disable S3215 // "interface" instances should not be cast to concrete types
             var exportRow = (SoccerViewModel)data;
-            var rowHome = sheet.CopyRow(TemplateSheet, this.GetRowTeamWin(exportRow.HomeWin), currentRow);
+#pragma warning restore S3215 // "interface" instances should not be cast to concrete types
 
-            var rowAway = sheet.CopyRow(TemplateSheet, this.GetRowTeamWin(exportRow.AwayWin), currentRow + 1);
+            var rowHome = sheet.CopyRow(TemplateSheet, GetRowTeamWin(exportRow.HomeWin), currentRow);
+            var rowAway = sheet.CopyRow(TemplateSheet, GetRowTeamWin(exportRow.AwayWin), currentRow + 1);
 
-            MergeResultCells(sheet, currentRow, currentRow + 1, ColumnKickOffTime, this.ColumnStatus);
+            MergeResultCells(sheet, currentRow, currentRow + 1, ColumnKickOffTime, ColumnStatus);
             var eventStatus = exportRow.EventStatus;
 
             AssignStringData(

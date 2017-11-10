@@ -32,7 +32,7 @@
         public static IRefDataHelper CreateRefDataHelper()
         {
             var refDataHelper = Substitute.For<IRefDataHelper>();
-            refDataHelper.GetLeagueNameByLanguage(11, Arg.Any<string>(), Arg.Any<string>()).Returns("league name");
+            refDataHelper.GetLeagueName(11, Arg.Any<string>(), Arg.Any<string>()).Returns("league name");
 
             return refDataHelper;
         }

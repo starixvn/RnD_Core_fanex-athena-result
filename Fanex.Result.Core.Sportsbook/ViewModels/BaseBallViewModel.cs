@@ -7,11 +7,17 @@
     using Base.DataDomain;
     using Base.ViewModels;
     using DTO;
+    using Utilities;
 
     public sealed class BaseBallViewModel : SportsbookBaseViewModel, IResultViewModel
     {
         public BaseBallViewModel(Sportsbook sportbook, ResultSetting setting)
-            : base(sportbook, setting)
+            : this(sportbook, setting, null)
+        {
+        }
+
+        public BaseBallViewModel(Sportsbook sportbook, ResultSetting setting, ISportsbookRefDataHelper refDataHelper)
+           : base(sportbook, setting, refDataHelper)
         {
         }
 

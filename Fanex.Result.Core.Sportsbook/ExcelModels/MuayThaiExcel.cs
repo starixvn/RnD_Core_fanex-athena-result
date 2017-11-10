@@ -17,9 +17,9 @@
         public MuayThaiExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
             : base(templatePath, setting, data)
         {
-            this.ColumnTemplateCount = 5;
-            this.ColumnStatus = 4;
-            this.RowContentTemplate = 3;
+            ColumnTemplateCount = 5;
+            ColumnStatus = 4;
+            RowContentTemplate = 3;
         }
 
         protected override void AssignHeader(ISheet sheet)
@@ -37,14 +37,17 @@
 
         protected override void SetDataForMatch(ISheet sheet, IResultViewModel data, ref int currentRow)
         {
+#pragma warning disable S3215 // "interface" instances should not be cast to concrete types
             var exportRow = (MuayThaiViewModel)data;
-            var rowHome = sheet.CopyRow(TemplateSheet, this.GetRowTeamWin(exportRow.HomeWin), currentRow);
+#pragma warning restore S3215 // "interface" instances should not be cast to concrete types
 
-            var rowAway = sheet.CopyRow(TemplateSheet, this.GetRowTeamWin(exportRow.AwayWin), currentRow + 1);
+            var rowHome = sheet.CopyRow(TemplateSheet, GetRowTeamWin(exportRow.HomeWin), currentRow);
+            var rowAway = sheet.CopyRow(TemplateSheet, GetRowTeamWin(exportRow.AwayWin), currentRow + 1);
 
-            MergeResultCells(sheet, currentRow, currentRow + 1, ColumnKickOffTime, this.ColumnStatus);
+            MergeResultCells(sheet, currentRow, currentRow + 1, ColumnKickOffTime, ColumnStatus);
 
             var eventStatus = exportRow.EventStatus;
+
             if (!string.IsNullOrEmpty(exportRow.KOInRound))
             {
                 eventStatus += "\n " + exportRow.KOInRound;

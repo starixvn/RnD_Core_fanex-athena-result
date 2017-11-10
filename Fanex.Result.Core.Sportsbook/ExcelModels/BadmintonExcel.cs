@@ -18,18 +18,13 @@
         public BadmintonExcel(string physicalTemplatePath, ResultSetting setting, IList<IResultViewModel> data)
             : base(physicalTemplatePath, setting, data)
         {
-            this.ColumnTemplateCount = 11;
-            this.ColumnStatus = 10;
-            this.RowContentTemplate = 3;
+            ColumnTemplateCount = 11;
+            ColumnStatus = 10;
+            RowContentTemplate = 3;
         }
 
         protected override void AssignHeader(ISheet sheet)
         {
-            if (sheet == null)
-            {
-                throw new ArgumentNullException("sheet");
-            }
-
             var colidx = 0;
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
             row.Cells[colidx++].SetCellValue(LangResource.MatchCode + "/" + LangResource.ID);
@@ -49,7 +44,9 @@
 
         protected override void SetDataForMatch(ISheet sheet, IResultViewModel data, ref int currentRow)
         {
+#pragma warning disable S3215 // "interface" instances should not be cast to concrete types
             var exportRow = (BadmintonViewModel)data;
+#pragma warning restore S3215 // "interface" instances should not be cast to concrete types
 
             var rowHome = sheet.CopyRow(TemplateSheet, this.GetRowTeamWin(exportRow.HomeWin), currentRow);
 

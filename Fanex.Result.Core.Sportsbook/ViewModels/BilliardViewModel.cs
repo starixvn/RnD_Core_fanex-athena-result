@@ -3,11 +3,17 @@
     using Base;
     using Base.ViewModels;
     using DTO;
+    using Utilities;
 
     public sealed class BilliardViewModel : SportsbookBaseViewModel, IResultViewModel
     {
         public BilliardViewModel(Sportsbook sportbook, ResultSetting setting)
-            : base(sportbook, setting)
+            : this(sportbook, setting, null)
+        {
+        }
+
+        public BilliardViewModel(Sportsbook sportbook, ResultSetting setting, ISportsbookRefDataHelper refDataHelper)
+            : base(sportbook, setting, refDataHelper)
         {
         }
 

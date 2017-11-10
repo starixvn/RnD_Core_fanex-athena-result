@@ -25,56 +25,27 @@
         private string _totalSetAway;
 
         public TennisViewModel(Sportsbook sportbook, ResultSetting setting)
-            : base(sportbook, setting)
+            : this(sportbook, setting, null)
+        {
+        }
+
+        public TennisViewModel(Sportsbook sportbook, ResultSetting setting, ISportsbookRefDataHelper refDataHelper)
+           : base(sportbook, setting, refDataHelper)
         {
         }
 
         public override string EventStatus
-        {
-            get
-            {
-                var matchResultInfo = SPORTBOOK.GameDetails
-                    .SingleOrDefault(i => i.ResourceId.Equals(TennisBetID.TotalSet, System.StringComparison.OrdinalIgnoreCase));
-                if (matchResultInfo != null && matchResultInfo.SettlementStatusID == EventStatusID.RefundSettlementStatusID)
-                {
-                    return LangResource.Refund;
-                }
+            => SPORTBOOK.GameDetails
+                .SingleOrDefault(i => i.ResourceId.Equals(TennisBetID.TotalSet, StringComparison.OrdinalIgnoreCase))?
+                .SettlementStatusID == EventStatusID.RefundSettlementStatusID ? LangResource.Refund : base.EventStatus;
 
-                return base.EventStatus;
-            }
-        }
+        public string TotalGameHome => GetTotalGameValue(true);
 
-        public string TotalGameHome
-        {
-            get
-            {
-                return GetTotalGameValue(true);
-            }
-        }
+        public string TotalGameAway => GetTotalGameValue(false);
 
-        public string TotalGameAway
-        {
-            get
-            {
-                return GetTotalGameValue(false);
-            }
-        }
+        public string TotalSetHome => GetTotalSetValue(true);
 
-        public string TotalSetHome
-        {
-            get
-            {
-                return GetTotalSetValue(true);
-            }
-        }
-
-        public string TotalSetAWay
-        {
-            get
-            {
-                return GetTotalSetValue(false);
-            }
-        }
+        public string TotalSetAWay => GetTotalSetValue(false);
 
         public SetValue[] SetDetail
         {
@@ -90,55 +61,24 @@
         }
 
         public override bool VisibleDetailedLink
-        {
-            get
-            {
-                return base.VisibleDetailedLink
-                    && SPORTBOOK.GameDetails.Any(i => !string.IsNullOrEmpty(i.ResourceId)
-                 && i.ResourceId.Trim().Length == ConstantValue.SetXGameYResourceIdLength);
-            }
-        }
+            => base.VisibleDetailedLink &&
+            SPORTBOOK.GameDetails.Any(i => !string.IsNullOrEmpty(i.ResourceId) &&
+            i.ResourceId.Trim().Length == ConstantValue.SetXGameYResourceIdLength);
 
-        public override bool VisibleMatchResult
-        {
-            get { return SPORTBOOK.Bettype != BetTypeID.SetXGameYWinner; }
-        }
+        public override bool VisibleMatchResult => SPORTBOOK.Bettype != BetTypeID.SetXGameYWinner;
 
         public override bool VisibleGameDetail
-        {
-            get
-            {
-                return SPORTBOOK.Bettype == BetTypeID.SetXGameYWinner && SportsbookHelper.IsSetXGameYBetID(SPORTBOOK.BetID);
-            }
-        }
+            => SPORTBOOK.Bettype == BetTypeID.SetXGameYWinner && SportsbookHelper.IsSetXGameYBetID(SPORTBOOK.BetID);
 
-        private SetValue Set1
-        {
-            get
-            {
-                return CreateSetAndGameValue("01");
-            }
-        }
+        private SetValue Set1 => CreateSetAndGameValue("01");
 
-        private SetValue Set2
-        {
-            get { return CreateSetAndGameValue("02"); }
-        }
+        private SetValue Set2 => CreateSetAndGameValue("02");
 
-        private SetValue Set3
-        {
-            get { return CreateSetAndGameValue("03"); }
-        }
+        private SetValue Set3 => CreateSetAndGameValue("03");
 
-        private SetValue Set4
-        {
-            get { return CreateSetAndGameValue("04"); }
-        }
+        private SetValue Set4 => CreateSetAndGameValue("04");
 
-        private SetValue Set5
-        {
-            get { return CreateSetAndGameValue("05"); }
-        }
+        private SetValue Set5 => CreateSetAndGameValue("05");
 
         /// <summary>
         /// Get home and away set.
@@ -147,8 +87,6 @@
         /// <param name="index">The index of home or away array.</param>
         /// <param name="isHome">True if you want to get value of home set.</param>
         /// <returns>The string value.</returns>
-        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2101:MethodMustNotContainMoreLinesThan",
-Justification = "Reviewed. Suppression is OK here.")]
         public override string GetHomeAwaySet(int index, bool isHome)
         {
             if (index > 4)
@@ -165,63 +103,11 @@ Justification = "Reviewed. Suppression is OK here.")]
 
                 if (SPORTBOOK.GameDetails.Count > 0)
                 {
-                    for (var i = 0; i < 5; i++)
-                    {
-                        GenerateHomeAwaySet(i);
-                    }
+                    GenerateHomeAwaySet();
                 }
             }
 
             return isHome ? HomeSet[index] : AwaySet[index];
-        }
-
-        private void GenerateHomeAwaySet(int i)
-        {
-            var setIndex = (i + 1).ToString("D2");
-            var set = SPORTBOOK.GameDetails.FirstOrDefault(a => a.ResourceId == setIndex);
-
-            if (set != null)
-            {
-                switch (set.SettlementStatusID)
-                {
-                    case EventStatusID.CompletedSettlementStatusID:
-                    case EventStatusID.RunningSettlementStatusID:
-                        HomeSet[i] = set.HomeValue;
-                        AwaySet[i] = set.AwayValue;
-
-                        if (Helper.IsIntegerNumber(set.HomeValue))
-                        {
-                            _totalGameHome += int.Parse(set.HomeValue);
-                        }
-
-                        if (Helper.IsIntegerNumber(set.AwayValue))
-                        {
-                            _totalGameAway += int.Parse(set.AwayValue);
-                        }
-
-                        break;
-
-                    case EventStatusID.RefundSettlementStatusID:
-                        HomeSet[i] = LangResource.Refund;
-                        AwaySet[i] = LangResource.Refund;
-                        break;
-
-                    case EventStatusID.RefundHTSettlementStatusID:
-                        HomeSet[i] = LangResource.Refundht;
-                        AwaySet[i] = LangResource.Refundht;
-                        break;
-
-                    case EventStatusID.RefundFTSettlementStatusID:
-                        HomeSet[i] = LangResource.Refundft;
-                        AwaySet[i] = LangResource.Refundft;
-                        break;
-
-                    default:
-                        HomeSet[i] = ConstantValue.Hyphen;
-                        AwaySet[i] = ConstantValue.Hyphen;
-                        break;
-                }
-            }
         }
 
         /// <summary>
@@ -255,7 +141,7 @@ Justification = "Reviewed. Suppression is OK here.")]
             }
         }
 
-        protected override string GetWonTeam(bool isHome)
+        protected internal override string GetWonTeam(bool isHome)
         {
             if (HighlightWinnerTeam && Helper.IsIntegerNumber(TotalSetHome) && Helper.IsIntegerNumber(TotalSetAWay))
             {
@@ -324,6 +210,7 @@ Justification = "Reviewed. Suppression is OK here.")]
         private string GetTotalGameValue(bool isHome)
         {
             var set = SPORTBOOK.GameDetails.FirstOrDefault(i => i.ResourceId == GameResourceID.FinalScore);
+
             if (set == null || set.SettlementStatusID != EventStatusID.CompletedSettlementStatusID)
             {
                 return GetTotalSetValue(isHome);
@@ -336,17 +223,12 @@ Justification = "Reviewed. Suppression is OK here.")]
 
             var totalGameValue = _totalGameHome + _totalGameAway;
 
-            // TODO: Refactor later
-#pragma warning disable S3240 // The simplest possible condition syntax should be used
-            if (isHome)
-#pragma warning restore S3240 // The simplest possible condition syntax should be used
+            if (totalGameValue > 0)
             {
-                return totalGameValue > 0 ? _totalGameHome.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
+                return (isHome ? _totalGameHome : _totalGameAway).ToString(CultureInfo.InvariantCulture);
             }
-            else
-            {
-                return totalGameValue > 0 ? _totalGameAway.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;
-            }
+
+            return ConstantValue.Hyphen;
         }
 
         /// <summary>
@@ -354,13 +236,12 @@ Justification = "Reviewed. Suppression is OK here.")]
         /// </summary>
         /// <param name="setIndex">The set index.</param>
         /// <returns>The set value.</returns>
-        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2101:MethodMustNotContainMoreLinesThan",
-    Justification = "Reviewed. Suppression is OK here.")]
         private SetValue CreateSetAndGameValue(string setIndex)
         {
             var setIndexId = int.Parse(setIndex);
             var gameDetails = SPORTBOOK.GameDetails.Where(i => SportsbookHelper.IsTennisGameResourceID(setIndexId, i.ResourceId))
                 .OrderBy(i => i.ResourceId).ToSafeList();
+
             if (gameDetails.Count == 0)
             {
                 return null;
@@ -372,6 +253,20 @@ Justification = "Reviewed. Suppression is OK here.")]
                 Games = new List<GameValue>(),
             };
 
+            int numOfGame = GenerateNumberOfGames(setIndexId, gameDetails);
+
+            for (var j = 1; j <= numOfGame; j++)
+            {
+                var resourceId = setIndex + j.ToString("D2");
+                var game = gameDetails.SingleOrDefault(i => i.ResourceId == resourceId);
+                result.Games.Add(CreateGameValue(j, game));
+            }
+
+            return result;
+        }
+
+        private static int GenerateNumberOfGames(int setIndexId, SafeList<GameDetail> gameDetails)
+        {
             var numOfGame = int.Parse(gameDetails.LastOrDefault().ResourceId) - (setIndexId * 100);
 
             if (numOfGame > ConstantValue.NumberGameOfTennisSet)
@@ -391,20 +286,7 @@ Justification = "Reviewed. Suppression is OK here.")]
                 }
             }
 
-            for (var j = 1; j <= numOfGame; j++)
-            {
-                var resourceId = setIndex + j.ToString("D2");
-                var game = gameDetails.SingleOrDefault(i => i.ResourceId == resourceId);
-
-                result.Games.Add(game != null ? CreateGameValue(j, game) : new GameValue
-                {
-                    GameId = j,
-                    HomeValue = ConstantValue.Hyphen,
-                    AwayValue = ConstantValue.Hyphen
-                });
-            }
-
-            return result;
+            return numOfGame;
         }
 
         /// <summary>
@@ -453,6 +335,63 @@ Justification = "Reviewed. Suppression is OK here.")]
             }
 
             return item;
+        }
+
+        private void GenerateHomeAwaySet()
+        {
+            for (var i = 0; i < 5; i++)
+            {
+                var setIndex = (i + 1).ToString("D2");
+                var set = SPORTBOOK.GameDetails.FirstOrDefault(a => a.ResourceId == setIndex);
+
+                if (set != null)
+                {
+                    switch (set.SettlementStatusID)
+                    {
+                        case EventStatusID.CompletedSettlementStatusID:
+                        case EventStatusID.RunningSettlementStatusID:
+                            SetHomeAwaySet(i, set);
+
+                            break;
+
+                        case EventStatusID.RefundSettlementStatusID:
+                            HomeSet[i] = LangResource.Refund;
+                            AwaySet[i] = LangResource.Refund;
+                            break;
+
+                        case EventStatusID.RefundHTSettlementStatusID:
+                            HomeSet[i] = LangResource.Refundht;
+                            AwaySet[i] = LangResource.Refundht;
+                            break;
+
+                        case EventStatusID.RefundFTSettlementStatusID:
+                            HomeSet[i] = LangResource.Refundft;
+                            AwaySet[i] = LangResource.Refundft;
+                            break;
+
+                        default:
+                            HomeSet[i] = ConstantValue.Hyphen;
+                            AwaySet[i] = ConstantValue.Hyphen;
+                            break;
+                    }
+                }
+            }
+        }
+
+        private void SetHomeAwaySet(int i, GameDetail set)
+        {
+            HomeSet[i] = set.HomeValue;
+            AwaySet[i] = set.AwayValue;
+
+            if (Helper.IsIntegerNumber(set.HomeValue))
+            {
+                _totalGameHome += int.Parse(set.HomeValue);
+            }
+
+            if (Helper.IsIntegerNumber(set.AwayValue))
+            {
+                _totalGameAway += int.Parse(set.AwayValue);
+            }
         }
     }
 }

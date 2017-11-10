@@ -37,7 +37,10 @@
             return !string.IsNullOrWhiteSpace(languageCode);
         }
 
+#pragma warning disable S1541 // Methods and properties should not be too complex
+
         private static bool IsValidDTO(string dtoName, SportType sportType)
+#pragma warning restore S1541 // Methods and properties should not be too complex
         {
             switch (sportType)
             {

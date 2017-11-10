@@ -81,7 +81,7 @@
             var dtoName = setting.SportType.StringMe();
 
             var realTemplatePath = setting.ExcelTemplatePath + dtoName + ".xls";
-            var dataMaped = dataList.Select(i => this.GetViewModel(i, setting)).ToSafeList();
+            var dataMaped = dataList.Select(i => GetViewModel(i, setting)).ToSafeList();
 
             var excelViewModel = Type.GetType(EXCELNAMESPACE + dtoName + EXCELEXTNAME);
 

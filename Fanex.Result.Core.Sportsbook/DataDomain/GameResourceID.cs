@@ -48,13 +48,13 @@
 
         public const string PlayserSentOff1H = "211";
 
-        public const string HomePlayserSentOff = "212";
+        public const string HomePlayerSentOff = "212";
 
-        public const string HomePlayserSentOff1H = "213";
+        public const string HomePlayerSentOff1H = "213";
 
-        public const string AwayPlayserSentOff = "214";
+        public const string AwayPlayerSentOff = "214";
 
-        public const string AwayPlayserSentOff1H = "215";
+        public const string AwayPlayerSentOff1H = "215";
 
         public const string GoalScorer = "^216\\d{2}$";
 

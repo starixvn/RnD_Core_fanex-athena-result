@@ -151,7 +151,6 @@
         {
             if (sourceCell == null)
             {
-                destCell = null;
                 return null;
             }
 

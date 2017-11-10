@@ -1,23 +1,21 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.Exceptions
 {
     using System;
+    using System.Runtime.Serialization;
 
     [Serializable]
-#pragma warning disable S3925 // "ISerializable" should be implemented correctly
     public class SportsbookException : Exception
-#pragma warning restore S3925 // "ISerializable" should be implemented correctly
     {
         public SportsbookException(string message)
             : base(message)
         {
         }
 
-        public override string Message
+        protected SportsbookException(SerializationInfo serializationInfo, StreamingContext steamContext)
+            : base(serializationInfo, steamContext)
         {
-            get
-            {
-                return $"Sportsbook Result Exception. Exception: {base.Message}";
-            }
         }
+
+        public override string Message => $"Sportsbook Result Exception. Exception: {base.Message}";
     }
 }

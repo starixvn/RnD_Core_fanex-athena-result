@@ -35,6 +35,10 @@
       <HintPath>..\packages\CompareNETObjects.3.09.0.0\lib\net46\KellermanSoftware.Compare-NET-Objects.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="NPOI, Version=2.0.6.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.0.6\lib\net40\NPOI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="NSubstitute, Version=2.0.2.0, Culture=neutral, PublicKeyToken=92dd2e9066daa5ca, processorArchitecture=MSIL">
       <HintPath>..\packages\NSubstitute.2.0.2\lib\net45\NSubstitute.dll</HintPath>
       <Private>True</Private>
@@ -53,12 +57,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTOTest\SportsbookTests.cs" />
+    <Compile Include="DTOTest\GameDetailTests.cs" />
+    <Compile Include="ExcelModels\SoccerExcelTests.cs" />
+    <Compile Include="ExcelModels\OtherExcelTests.cs" />
+    <Compile Include="ExcelModels\VSTennisExcelTests.cs" />
+    <Compile Include="ExcelModels\TennisExcelTests.cs" />
+    <Compile Include="ExcelModels\MuayThaiExcelTests.cs" />
+    <Compile Include="ExcelModels\HockeyExcelTests.cs" />
+    <Compile Include="ExcelModels\BasketballExcelTests.cs" />
+    <Compile Include="ExcelModels\BaseBallExcelTests.cs" />
+    <Compile Include="ExcelModels\BilliardExcelTests.cs" />
+    <Compile Include="ExcelModels\BadmintonExcelTests.cs" />
+    <Compile Include="ExcelModels\OutRightExcelTests.cs" />
+    <Compile Include="Exceptions\SportsbookExceptionTests.cs" />
+    <Compile Include="Models\BuilderTests.cs" />
     <Compile Include="Models\ViewModelConcreteFactoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestUtils\DataUtils.cs" />
+    <Compile Include="TestUtils\TemplateFileUtils.cs" />
     <Compile Include="Utilities\SportsbookHelperTests.cs" />
     <Compile Include="ViewModels\BadmintonViewModelTests.cs" />
+    <Compile Include="ViewModels\MuayThaiViewModelTests.cs" />
     <Compile Include="ViewModels\OtherViewModelTests.cs" />
+    <Compile Include="ViewModels\SoccerDetail\SoccerDetailItemTests.cs" />
     <Compile Include="ViewModels\SoccerDetail\SoccerResultDetailTests.cs" />
+    <Compile Include="ViewModels\OutrightViewModelTests.cs" />
+    <Compile Include="ViewModels\SoccerViewModelTests.cs" />
     <Compile Include="ViewModels\VSTennisViewModelTests.cs" />
     <Compile Include="ViewModels\BilliardViewModelTests.cs" />
     <Compile Include="ViewModels\BaseBallViewModelTests.cs" />
@@ -73,6 +98,25 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="TestTemplate\excel\Outright.xls" />
+    <Content Include="TestTemplate\excel\Badminton.xls" />
+    <Content Include="TestTemplate\excel\BaseBall.xls" />
+    <Content Include="TestTemplate\excel\Basketball.xls" />
+    <Content Include="TestTemplate\excel\Billiard.xls" />
+    <Content Include="TestTemplate\excel\GoldDeluxe.xls" />
+    <Content Include="TestTemplate\excel\Hockey.xls" />
+    <Content Include="TestTemplate\excel\HorseRacing.xls" />
+    <Content Include="TestTemplate\excel\LiveCasino.xls" />
+    <Content Include="TestTemplate\excel\Lucky3.xls" />
+    <Content Include="TestTemplate\excel\MuayThai.xls" />
+    <Content Include="TestTemplate\excel\NumberGame.xls" />
+    <Content Include="TestTemplate\excel\Other.xls" />
+    <Content Include="TestTemplate\excel\Racing.xls" />
+    <Content Include="TestTemplate\excel\Soccer.xls" />
+    <Content Include="TestTemplate\excel\Tennis.xls" />
+    <Content Include="TestTemplate\excel\VSHRacing.xls" />
+    <Content Include="TestTemplate\excel\VSSpeedWay.xls" />
+    <Content Include="TestTemplate\excel\VSTennis.xls" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj">
@@ -89,7 +133,30 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AppReadme\Compare-NET-Objects-Help.txt" />
+    <Content Include="TestTemplate\html\Parlay.html" />
+    <Content Include="TestTemplate\html\Outright.html" />
+    <Content Include="TestTemplate\html\SoccerDetail.html" />
+    <Content Include="TestTemplate\html\SoccerDetail_FastMarkets225.html" />
+    <Content Include="TestTemplate\html\SoccerDetail_HomeAwayPlayerSentOff.html" />
+    <Content Include="TestTemplate\html\SoccerDetail_ExtraTime.html" />
+    <Content Include="TestTemplate\html\SoccerDetail_GoalScorer.html" />
+    <Content Include="TestTemplate\html\SoccerDetail_NextGoal.html" />
+    <Content Include="TestTemplate\html\SoccerDetail_NextGoalTime.html" />
+    <Content Include="TestTemplate\html\SoccerDetail_MatchDecidedMethod.html" />
+    <Content Include="TestTemplate\html\SoccerDetail_FastMarkets.html" />
+    <Content Include="TestTemplate\html\SoccerDetail_WhoAdvancesToNextRound.html" />
+    <Content Include="TestTemplate\html\SoccerDetail_PlayerSentOff.html" />
+    <Content Include="TestTemplate\html\SoccerDetail_LastCorner.html" />
+    <Content Include="TestTemplate\html\SoccerDetail_FirstGoalScorer.html" />
+    <Content Include="TestTemplate\html\SoccerDetail_FirstGoalTime.html" />
+    <Content Include="TestTemplate\html\SoccerDetail_FirstGoalMethod.html" />
+    <Content Include="TestTemplate\html\SoccerDetail_FirstCorner.html" />
+    <Content Include="TestTemplate\html\SoccerDetail_FirstHalfAndFinalCorner.html" />
+    <Content Include="TestTemplate\html\SoccerDetail_FirstTenMinutes1X2.html" />
+    <Content Include="TestTemplate\html\SoccerDetail_GoalSequence.html" />
+    <Content Include="TestTemplate\html\Soccer.html" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

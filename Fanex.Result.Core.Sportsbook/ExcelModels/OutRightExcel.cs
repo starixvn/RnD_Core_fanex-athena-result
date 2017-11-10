@@ -10,7 +10,7 @@
     using NPOI.SS.UserModel;
     using ViewModels;
 
-    internal sealed class OutrightExcel : ExcelBase, IExcelModel
+    public sealed class OutrightExcel : ExcelBase, IExcelModel
     {
         #region Fields
 
@@ -24,9 +24,9 @@
         public OutrightExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
             : base(templatePath, setting, data)
         {
-            this.ColumnTemplateCount = 3;
-            this.ColumnStatus = 4;
-            this.RowContentTemplate = 3;
+            ColumnTemplateCount = 3;
+            ColumnStatus = 4;
+            RowContentTemplate = 3;
         }
 
         protected override void AssignHeader(ISheet sheet)
@@ -35,13 +35,6 @@
             row.Cells[ColumnTime].SetCellValue(LangResource.Time);
             row.Cells[ColumnTeam].SetCellValue(LangResource.Team);
             row.Cells[ColumnResults].SetCellValue(LangResource.Results);
-        }
-
-        protected override void ProcessUI(ISheet sheet)
-        {
-            /*
-            * Void processing UI
-            */
         }
 
         #region Assign Cell Data
@@ -53,7 +46,9 @@
 
         protected override void SetDataForMatch(ISheet sheet, IResultViewModel data, ref int currentRow)
         {
+#pragma warning disable S3215 // "interface" instances should not be cast to concrete types
             var exportRow = (OutrightViewModel)data;
+#pragma warning restore S3215 // "interface" instances should not be cast to concrete types
             var row = sheet.CopyRow(TemplateSheet, RowContentTemplate, currentRow);
 
             AssignStringData(

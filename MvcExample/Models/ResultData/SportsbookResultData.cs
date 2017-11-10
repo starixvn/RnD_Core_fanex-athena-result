@@ -36,7 +36,7 @@
             });
         }
 
-        private IDictionary<int, string> BetTypeResourceMappper = new Dictionary<int, string>
+        private readonly IDictionary<int, string> BetTypeResourceMappper = new Dictionary<int, string>
         {
             {22, "160" },
             {160, "160" },

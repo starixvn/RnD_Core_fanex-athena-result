@@ -11,6 +11,7 @@
     using BasketBallDetail;
     using DataDomain;
     using DTO;
+    using Utilities;
 
     public sealed class BasketBallViewModel : SportsbookBaseViewModel, IResultViewModel
     {
@@ -18,7 +19,16 @@
             Sportsbook sportbook,
             ResultSetting setting,
             IResultDetail<BasketBallGameDetailItem> resultDetail = null)
-            : base(sportbook, setting)
+            : this(sportbook, setting, resultDetail, null)
+        {
+        }
+
+        public BasketBallViewModel(
+          Sportsbook sportbook,
+          ResultSetting setting,
+          IResultDetail<BasketBallGameDetailItem> resultDetail,
+          ISportsbookRefDataHelper refDataHelper)
+            : base(sportbook, setting, refDataHelper)
         {
             ResultDetailItems = (resultDetail ?? new BasketBallResultDetail(sportbook, setting, null, null))
                 .GetDetailItems();

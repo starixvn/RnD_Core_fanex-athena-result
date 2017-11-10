@@ -1,5 +1,6 @@
 ﻿namespace Fanex.Result.Core.Base.Utilities
 {
+    using System;
     using System.Globalization;
     using DataDomain;
     using RemotingRef;
@@ -9,18 +10,18 @@
         protected string LanguageCode { get; set; } = ConstantValue.EnglishLanguageCode;
 
         public string GetBetTypeNameById(string betTypeId, string lang, string resourceId)
-        {
-            return RefData.GetBetTypeName(betTypeId, lang, string.Empty, resourceId);
-        }
+            => RefData.GetBetTypeName(betTypeId, lang, string.Empty, resourceId);
 
-        public string GetTeamName(int homeId, string lang, string defaultValue)
-        {
-            return RefData.GetTeamName(homeId.ToString(CultureInfo.InvariantCulture), lang, defaultValue);
-        }
+        public string GetTeamName(int teamId, string lang, string defaultValue)
+            => RefData.GetTeamName(teamId.ToString(CultureInfo.InvariantCulture), lang, defaultValue);
 
-        public string GetLeagueNameByLanguage(int leagueId, string lang, string defaultValue)
-        {
-            return RefData.GetLeagueName(leagueId.ToString(CultureInfo.InvariantCulture), lang, defaultValue);
-        }
+        public string GetLeagueName(int leagueId, string lang, string defaultValue)
+            => RefData.GetLeagueName(leagueId.ToString(CultureInfo.InvariantCulture), lang, defaultValue);
+
+        public string GetSportName(int sportType, string lang, string defaultValue)
+            => RefData.GetSportName(sportType.ToString(CultureInfo.InvariantCulture), lang, defaultValue);
+
+        public string GetBetTypeNameById(string betTypeId, string lang)
+            => RefData.GetBetTypeName(betTypeId, lang);
     }
 }

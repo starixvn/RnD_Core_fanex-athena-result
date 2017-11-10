@@ -8,7 +8,6 @@
     using Base.Utilities;
     using Base.ViewModels;
     using DTO;
-    using RemotingRef;
     using Utilities;
 
     public class SportsbookBaseViewModel : BaseViewModel, IResultViewModel
@@ -26,6 +25,7 @@
             HighlightWinnerTeam = setting.HighlightWinnerTeam;
             VisibleGoalRecord = setting.VisibleGoalRecord;
             Setting = setting;
+            SportsbookRefDataHelper = refDataHelper ?? new SportsbookRefDataHelper();
         }
 
         public string[] HomeSet { get; set; }
@@ -85,6 +85,8 @@
 
         protected bool HighlightWinnerTeam { get; }
 
+        public ISportsbookRefDataHelper SportsbookRefDataHelper { get; set; }
+
         protected string GetScoreInfoFromBetStatus
         {
             get
@@ -110,13 +112,13 @@
 
         public virtual string GetHomeAwaySet(int index, bool isHome) => ConstantValue.Hyphen;
 
-        protected virtual string GetWonTeam(bool isHome)
+        protected internal virtual string GetWonTeam(bool isHome)
         {
             if (HighlightWinnerTeam && SPORTBOOK.FinalHomeScore.HasValue && SPORTBOOK.FinalAwayScore.HasValue)
             {
-                var temp = SPORTBOOK.FinalHomeScore.Value - SPORTBOOK.FinalAwayScore.Value;
-                var homeWin = isHome && temp > 0;
-                var awayWin = !isHome && temp < 0;
+                var score = SPORTBOOK.FinalHomeScore.Value - SPORTBOOK.FinalAwayScore.Value;
+                var homeWin = isHome && score > 0;
+                var awayWin = !isHome && score < 0;
 
                 return homeWin || awayWin ? ConstantValue.WinFormat : string.Empty;
             }
@@ -140,7 +142,7 @@
         /// <param name="awayId">The away id.</param>
         /// <returns>The away team.</returns>
         protected string GetSportbookAwayTeam(int awayId)
-            => RefData.GetTeamName(awayId.ToString(CultureInfo.InvariantCulture), GetSupportedLanguage, string.Empty);
+            => RefDataHelper.GetTeamName(awayId, GetSupportedLanguage, string.Empty);
 
         protected virtual string GetScore(int? score)
             => score.HasValue ? score.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;

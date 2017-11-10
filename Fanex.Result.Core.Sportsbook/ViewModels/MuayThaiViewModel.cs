@@ -6,13 +6,19 @@
     using Base.ViewModels;
     using DataDomain;
     using DTO;
+    using Utilities;
 
     public sealed class MuayThaiViewModel : SportsbookBaseViewModel, IResultViewModel
     {
         private int _isValidScore = -1;
 
         public MuayThaiViewModel(Sportsbook sportbook, ResultSetting setting)
-            : base(sportbook, setting)
+            : this(sportbook, setting, null)
+        {
+        }
+
+        public MuayThaiViewModel(Sportsbook sportbook, ResultSetting setting, ISportsbookRefDataHelper refDataHelper)
+           : base(sportbook, setting, refDataHelper)
         {
         }
 
@@ -31,30 +37,14 @@
         }
 
         public string FinalAwayScore
-        {
-            get
-            {
-                if (IsValidScore)
-                {
-                    return GetFinalScore(SPORTBOOK.FinalAwayScore.Value - SPORTBOOK.FinalHomeScore.Value);
-                }
-
-                return GetScore(SPORTBOOK.FinalAwayScore);
-            }
-        }
+             => IsValidScore ?
+            GetFinalScore(SPORTBOOK.FinalAwayScore.Value - SPORTBOOK.FinalHomeScore.Value) :
+            GetScore(SPORTBOOK.FinalAwayScore);
 
         public string FinalHomeScore
-        {
-            get
-            {
-                if (this.IsValidScore)
-                {
-                    return GetFinalScore(SPORTBOOK.FinalHomeScore.Value - SPORTBOOK.FinalAwayScore.Value);
-                }
-
-                return GetScore(SPORTBOOK.FinalHomeScore);
-            }
-        }
+           => IsValidScore ?
+            GetFinalScore(SPORTBOOK.FinalHomeScore.Value - SPORTBOOK.FinalAwayScore.Value) :
+            GetScore(SPORTBOOK.FinalHomeScore);
 
         public string KOInRound
         {
@@ -70,7 +60,7 @@
                     if (SPORTBOOK.FinalHomeScore.Value != SPORTBOOK.FinalAwayScore.Value
                         && !string.IsNullOrEmpty(SPORTBOOK.BetStatus))
                     {
-                        return string.Format(LangResource.KOInRound, this.SPORTBOOK.BetStatus.Replace(";", string.Empty));
+                        return string.Format(LangResource.KOInRound, SPORTBOOK.BetStatus.Replace(";", string.Empty));
                     }
                 }
 
@@ -78,26 +68,15 @@
             }
         }
 
-        protected override string GetWonTeam(bool isHome)
-        {
-            if (IsValidScore)
-            {
-                return base.GetWonTeam(isHome);
-            }
-
-            return string.Empty;
-        }
+        protected internal override string GetWonTeam(bool isHome)
+            => IsValidScore ? base.GetWonTeam(isHome) : string.Empty;
 
         private static string GetFinalScore(int keyScore)
-        {
-            return keyScore == 0 ? LangResource.Draw : (keyScore > 0 ? LangResource.Won : LangResource.Lose);
-        }
+            => keyScore == 0 ? LangResource.Draw : (keyScore > 0 ? LangResource.Won : LangResource.Lose);
 
         private bool ScoreHasMuayThaiValue()
-        {
-            return SPORTBOOK.FinalHomeScore.HasValue && SPORTBOOK.FinalAwayScore.HasValue &&
+            => SPORTBOOK.FinalHomeScore.HasValue && SPORTBOOK.FinalAwayScore.HasValue &&
                 GameResources.PossibleMuayThaiScore.Contains(SPORTBOOK.FinalHomeScore.Value) &&
                 GameResources.PossibleMuayThaiScore.Contains(SPORTBOOK.FinalAwayScore.Value);
-        }
     }
 }

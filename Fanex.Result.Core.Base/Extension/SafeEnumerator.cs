@@ -1,5 +1,6 @@
 ﻿namespace Fanex.Result.Core.Base.Extension
 {
+    using System;
     using System.Collections;
     using System.Collections.Generic;
     using System.Threading;
@@ -31,6 +32,7 @@
         public void Dispose()
         {
             Dispose(true);
+            GC.SuppressFinalize(this);
         }
 
         public bool MoveNext()

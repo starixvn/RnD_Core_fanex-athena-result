@@ -6,6 +6,7 @@
     using Base.DataDomain;
     using Base.ViewModels;
     using DTO;
+    using Utilities;
 
     public sealed class BadmintonViewModel : SportsbookBaseViewModel, IResultViewModel
     {
@@ -13,7 +14,12 @@
         private int _totalPointAway;
 
         public BadmintonViewModel(Sportsbook sportbook, ResultSetting setting)
-            : base(sportbook, setting)
+            : this(sportbook, setting, null)
+        {
+        }
+
+        public BadmintonViewModel(Sportsbook sportbook, ResultSetting setting, ISportsbookRefDataHelper refDataHelper)
+           : base(sportbook, setting, refDataHelper)
         {
         }
 

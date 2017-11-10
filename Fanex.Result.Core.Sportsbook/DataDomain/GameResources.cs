@@ -15,10 +15,10 @@
             { "PlayerSentOff", new List<string> { GameResourceID.PlayserSentOff1H, GameResourceID.PlayerSentOff } },
             { "HomeAwayPlayerSentOff", new List<string>
                 {
-                    GameResourceID.AwayPlayserSentOff1H,
-                    GameResourceID.HomePlayserSentOff1H,
-                    GameResourceID.HomePlayserSentOff,
-                    GameResourceID.AwayPlayserSentOff
+                    GameResourceID.AwayPlayerSentOff1H,
+                    GameResourceID.HomePlayerSentOff1H,
+                    GameResourceID.HomePlayerSentOff,
+                    GameResourceID.AwayPlayerSentOff
                 }
             },
             { "Special", new List<string>

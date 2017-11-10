@@ -1,7 +1,6 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.ExcelModels
 {
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
     using Base;
     using Base.ExcelModels;
     using Base.Extension;
@@ -13,21 +12,20 @@
 
     internal sealed class BilliardExcel : ExcelBase, IExcelModel
     {
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         public BilliardExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
             : base(templatePath, setting, data)
         {
-            this.ColumnTemplateCount = 5;
-            this.ColumnStatus = 4;
-            this.RowContentTemplate = 3;
+            ColumnTemplateCount = 5;
+            ColumnStatus = 4;
+            RowContentTemplate = 3;
         }
 
         protected override void AssignHeader(ISheet sheet)
         {
             var colidx = 0;
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
-            row.Cells[colidx++].SetCellValue(LangResource.MatchCode + "/" + LangResource.ID);
 
+            row.Cells[colidx++].SetCellValue(LangResource.MatchCode + "/" + LangResource.ID);
             row.Cells[colidx++].SetCellValue(LangResource.KickOffTime);
             row.Cells[colidx++].SetCellValue(LangResource.Match);
             row.Cells[colidx++].SetCellValue(LangResource.FinalScore);
@@ -38,10 +36,13 @@
 
         protected override void SetDataForMatch(ISheet sheet, IResultViewModel data, ref int currentRow)
         {
+#pragma warning disable S3215 // "interface" instances should not be cast to concrete types
             var exportRow = (BilliardViewModel)data;
-            var rowHome = sheet.CopyRow(TemplateSheet, this.GetRowTeamWin(exportRow.HomeWin), currentRow);
+#pragma warning restore S3215 // "interface" instances should not be cast to concrete types
 
-            var rowAway = sheet.CopyRow(TemplateSheet, this.GetRowTeamWin(exportRow.AwayWin), currentRow + 1);
+            var rowHome = sheet.CopyRow(TemplateSheet, GetRowTeamWin(exportRow.HomeWin), currentRow);
+
+            var rowAway = sheet.CopyRow(TemplateSheet, GetRowTeamWin(exportRow.AwayWin), currentRow + 1);
 
             MergeResultCells(sheet, currentRow, currentRow + 1, ColumnKickOffTime, this.ColumnStatus);
 

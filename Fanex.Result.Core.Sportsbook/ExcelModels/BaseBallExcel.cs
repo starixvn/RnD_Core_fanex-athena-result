@@ -15,13 +15,12 @@
     {
         private const int ColumnHTScore = 13;
 
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         public BaseBallExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
             : base(templatePath, setting, data)
         {
-            this.ColumnTemplateCount = 16;
-            this.ColumnStatus = 15;
-            this.RowContentTemplate = 3;
+            ColumnTemplateCount = 16;
+            ColumnStatus = 15;
+            RowContentTemplate = 3;
         }
 
         protected override void AssignHeader(ISheet sheet)
@@ -42,7 +41,9 @@
 
         protected override void SetDataForMatch(ISheet sheet, IResultViewModel data, ref int currentRow)
         {
+#pragma warning disable S3215 // "interface" instances should not be cast to concrete types
             var exportRow = (BaseBallViewModel)data;
+#pragma warning restore S3215 // "interface" instances should not be cast to concrete types
 
             var rowHome = sheet.CopyRow(TemplateSheet, this.GetRowTeamWin(exportRow.HomeWin), currentRow);
 

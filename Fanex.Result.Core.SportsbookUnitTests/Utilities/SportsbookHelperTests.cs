@@ -3,6 +3,7 @@
     using Exceptions;
     using NSubstitute;
     using NUnit.Framework;
+    using Sportsbook.Exceptions;
     using Sportsbook.Utilities;
 
     [TestFixture]

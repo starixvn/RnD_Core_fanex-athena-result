@@ -56,6 +56,7 @@
             Assert.AreEqual("-", homeAwaySet);
         }
 
+        [Test]
         public void GetHomeAwaySet_FromIndexIsLessThan5AndThanBetStatusSetsIsEqualOrLessThanIndex_ReturnsHyphen()
         {
             // Arrange

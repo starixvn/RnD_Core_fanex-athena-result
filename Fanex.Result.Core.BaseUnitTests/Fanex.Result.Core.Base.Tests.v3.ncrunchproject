@@ -1,12 +1,3 @@
 ﻿<ProjectConfiguration>
-  <Settings>
-    <IgnoredTests>
-      <FixtureTestSelector>
-        <FixtureName>Fanex.Result.Core.Base.Tests.Extension.SafeListTests</FixtureName>
-      </FixtureTestSelector>
-      <FixtureTestSelector>
-        <FixtureName>Fanex.Result.Core.Base.Tests.Extension.StringValueAttributeTests</FixtureName>
-      </FixtureTestSelector>
-    </IgnoredTests>
-  </Settings>
+  <Settings />
 </ProjectConfiguration>

@@ -53,6 +53,10 @@
     <WarningLevel>4</WarningLevel>
     <CodeAnalysisRuleSet>Fanex.Result.UI.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <!-- Exclude the project from analysis -->
+    <SonarQubeExclude>true</SonarQubeExclude>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />

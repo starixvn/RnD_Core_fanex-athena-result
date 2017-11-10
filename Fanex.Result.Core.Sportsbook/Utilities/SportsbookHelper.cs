@@ -121,8 +121,8 @@
         public static string CreateFastMarketsTimeRange(string resourceId, string startMinute)
         {
             int start = 0;
-
             var isValidStartTime = !string.IsNullOrEmpty(startMinute) && Helper.IsIntegerNumber(startMinute);
+
             if (isValidStartTime)
             {
                 start = Convert.ToInt32(startMinute);

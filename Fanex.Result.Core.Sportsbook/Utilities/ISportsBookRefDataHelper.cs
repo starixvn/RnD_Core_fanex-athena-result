@@ -5,5 +5,7 @@
     public interface ISportsbookRefDataHelper : IRefDataHelper
     {
         string GetFastMarketResult(string resultId, string lang);
+
+        string GetFastMarket225Result(string resultId, string lang);
     }
 }

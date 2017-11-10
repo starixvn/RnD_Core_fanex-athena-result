@@ -2,16 +2,16 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Linq;
     using System.Text;
-    using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.Exception;
-    using Fanex.Result.Core.Base.Extension;
-    using Fanex.Result.Core.Base.ViewModels;
-    using Fanex.Result.Core.Sportsbook.DTO;
-    using Fanex.Result.Core.Sportsbook.Models;
+    using Base;
+    using Base.Exception;
+    using Base.Extension;
+    using Base.Utilities;
+    using Base.ViewModels;
+    using DTO;
+    using Models;
     using RazorEngine;
     using RazorEngine.Templating;
 
@@ -25,54 +25,34 @@
         private IList<IResultViewModel> _bothMatchAndGameDetailItemViewModel;
 
         public ParlayViewModel(Parlay parlay, ResultSetting setting)
-            : base(setting)
+            : this(parlay, setting, null)
         {
-            this._parlay = parlay;
-            this.LanguageCode = setting.LanguageCode;
-            this._sportSetting = new ResultSetting
+        }
+
+        public ParlayViewModel(Parlay parlay, ResultSetting setting, IRefDataHelper refDataHelper)
+            : base(setting, refDataHelper)
+        {
+            _parlay = parlay;
+            LanguageCode = setting.LanguageCode;
+            _sportSetting = new ResultSetting
             {
                 IsPopUp = true,
                 IsParlayPopUp = true,
-                LanguageCode = this.LanguageCode,
-                SportType = (SportType)this._parlay.SportId,
-                DateTimeFormat = this.DateTimeFormat,
+                LanguageCode = LanguageCode,
+                SportType = (SportType)_parlay.SportId,
+                DateTimeFormat = DateTimeFormat,
                 HighlightWinnerTeam = setting.HighlightWinnerTeam,
                 VisibleMatchCodeIDColumn = setting.VisibleMatchCodeIDColumn
             };
         }
 
-        [SuppressMessage("Microsoft.Naming", "CA1721:PropertyNamesShouldNotMatchGetMethods", Justification = "Reviewed")]
-        public override string SportName
-        {
-            get
-            {
-                return this.GetSportNameByLanguage(this._parlay.SportId);
-            }
-        }
+        public override string SportName => GetSportNameByLanguage(_parlay.SportId);
 
-        public override string LeagueName
-        {
-            get
-            {
-                return this.GetLeagueNameByLanguage(this._parlay.LeagueId);
-            }
-        }
+        public override string LeagueName => GetLeagueNameByLanguage(_parlay.LeagueId);
 
-        public override int LeagueId
-        {
-            get
-            {
-                return this._parlay.LeagueId;
-            }
-        }
+        public override int LeagueId => _parlay.LeagueId;
 
-        public int SportId
-        {
-            get
-            {
-                return this._parlay.SportId;
-            }
-        }
+        public int SportId => _parlay.SportId;
 
         public IList<IResultViewModel> MatchItemView
         {
@@ -122,7 +102,7 @@
         {
             try
             {
-                if (this._parlay.SportId == 0)
+                if (_parlay.SportId == 0)
                 {
                     return string.Empty;
                 }

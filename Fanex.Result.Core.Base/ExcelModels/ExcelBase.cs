@@ -151,8 +151,10 @@
             }
         }
 
-        [SuppressMessage("Microsoft.Design", "CA1045:DoNotPassTypesByReference", Justification = "Reviewed!")]
+#pragma warning disable S3874 // "out" and "ref" parameters should not be used
+
         protected virtual void SetDataForMatch(ISheet sheet, IResultViewModel data, ref int currentRow)
+#pragma warning restore S3874 // "out" and "ref" parameters should not be used
         {
         }
 
@@ -200,8 +202,10 @@
             sheet.MergeCells(currentRow, colSpanStatus, rowSpan, colSpanStatus);
         }
 
-        [SuppressMessage("Microsoft.Design", "CA1045:DoNotPassTypesByReference", Justification = "Reviewed.")]
+#pragma warning disable S3874 // "out" and "ref" parameters should not be used
+
         protected virtual void SetLeague(ISheet sheet, int leagueId, string leagueName, ref int currentLeagueId, ref int currentRow)
+#pragma warning restore S3874 // "out" and "ref" parameters should not be used
         {
             if (currentLeagueId == 0 || currentLeagueId != leagueId)
             {
@@ -231,8 +235,7 @@
             checked
             {
                 var destColumn = columnCount - 1;
-
-                var row = sheet.CopyRow(this.TemplateSheet, sourceRowIndex, destRowIndex);
+                var row = sheet.CopyRow(TemplateSheet, sourceRowIndex, destRowIndex);
                 sheet.MergeCells(destRowIndex, 0, destRowIndex, destColumn);
                 row.Cells[0].SetCellValue(value);
             }

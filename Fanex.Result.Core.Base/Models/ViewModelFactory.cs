@@ -5,7 +5,10 @@
     using Base.ExcelModels;
     using Base.ViewModels;
 
+#pragma warning disable S1694 // An abstract class should have both abstract and concrete methods
+
     public abstract class ViewModelFactory
+#pragma warning restore S1694 // An abstract class should have both abstract and concrete methods
     {
         public abstract IResultViewModel GetViewModel<T>(T resultData, ResultSetting setting);
 

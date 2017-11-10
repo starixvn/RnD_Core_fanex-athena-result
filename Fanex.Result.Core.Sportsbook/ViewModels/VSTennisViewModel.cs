@@ -3,11 +3,17 @@
     using Base;
     using Base.ViewModels;
     using DTO;
+    using Utilities;
 
     public class VSTennisViewModel : SportsbookBaseViewModel, IResultViewModel
     {
         public VSTennisViewModel(Sportsbook sportbook, ResultSetting setting)
-            : base(sportbook, setting)
+            : this(sportbook, setting, null)
+        {
+        }
+
+        public VSTennisViewModel(Sportsbook sportbook, ResultSetting setting, ISportsbookRefDataHelper refDataHelper)
+           : base(sportbook, setting, refDataHelper)
         {
         }
 

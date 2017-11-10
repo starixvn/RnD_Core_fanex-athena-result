@@ -1,74 +1,39 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.ViewModels
 {
-    using System.Globalization;
     using Base;
     using Base.Utilities;
     using Base.ViewModels;
     using DTO;
-    using RemotingRef;
+    using Utilities;
 
     public sealed class OutrightViewModel : BaseViewModel, IResultViewModel
     {
         private readonly Outright _outRight;
 
         public OutrightViewModel(Outright outRight, ResultSetting setting)
-            : base(setting)
+            : this(outRight, setting, null)
         {
-            this._outRight = outRight;
-            this.LanguageCode = setting.LanguageCode;
         }
 
-        public int SportId
+        public OutrightViewModel(Outright outRight, ResultSetting setting, ISportsbookRefDataHelper refDataHelper)
+            : base(setting, refDataHelper)
         {
-            get { return this._outRight.SportType; }
+            _outRight = outRight;
+            LanguageCode = setting.LanguageCode;
         }
 
-        public override int LeagueId
-        {
-            get
-            {
-                return this._outRight.LeagueId;
-            }
-        }
+        public int SportId => _outRight.SportType;
 
-        public override string LeagueName
-        {
-            get
-            {
-                return this.GetLeagueNameByLanguage(this._outRight.LeagueId);
-            }
-        }
+        public override int LeagueId => _outRight.LeagueId;
 
-        public override string SportName
-        {
-            get
-            {
-                return this.GetSportNameByLanguage(this._outRight.SportType);
-            }
-        }
+        public override string LeagueName => GetLeagueNameByLanguage(_outRight.LeagueId);
 
-        public string Team
-        {
-            get
-            {
-                return RefData.GetTeamName(this._outRight.TeamId.ToString(CultureInfo.InvariantCulture), this.GetSupportedLanguage, string.Empty);
-            }
-        }
+        public override string SportName => GetSportNameByLanguage(_outRight.SportType);
 
-        public override string EventStatus
-        {
-            get
-            {
-                return MapEventStatus.GetLogResource(this._outRight.Status);
-            }
-        }
+        public string Team => RefDataHelper.GetTeamName(_outRight.TeamId, GetSupportedLanguage, string.Empty);
 
-        public override string KickOffTime
-        {
-            get
-            {
-                return Helper.FullDateFormat(this._outRight.EventDate, this.DateTimeFormat);
-            }
-        }
+        public override string EventStatus => MapEventStatus.GetLogResource(_outRight.Status);
+
+        public override string KickOffTime => Helper.FullDateFormat(_outRight.EventDate, DateTimeFormat);
     }
 }

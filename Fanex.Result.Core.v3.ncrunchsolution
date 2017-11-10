@@ -1,6 +1,10 @@
 ﻿<SolutionConfiguration>
   <Settings>
-    <AllowParallelTestExecution>False</AllowParallelTestExecution>
+    <AllowParallelTestExecution>True</AllowParallelTestExecution>
+    <MetricsExclusionList>
+      <Value>MvcExample\MvcExample.csproj</Value>
+      <Value>Fanex.Result.Data\Fanex.Result.Data.csproj</Value>
+    </MetricsExclusionList>
     <SolutionConfigured>True</SolutionConfigured>
   </Settings>
 </SolutionConfiguration>

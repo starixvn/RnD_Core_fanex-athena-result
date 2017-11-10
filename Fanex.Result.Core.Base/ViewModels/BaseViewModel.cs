@@ -2,13 +2,14 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Globalization;
     using DataDomain;
-    using RemotingRef;
     using Resources;
     using Utilities;
 
+#pragma warning disable S1694 // An abstract class should have both abstract and concrete methods
+
     public abstract class BaseViewModel
+#pragma warning restore S1694 // An abstract class should have both abstract and concrete methods
     {
         private static Dictionary<string, string> _supportedLanguage = new Dictionary<string, string>
         {
@@ -73,18 +74,12 @@
             => index % 2 == 0 ? bg : oddbg;
 
         protected virtual string GetLeagueNameByLanguage(int leagueId)
-        {
-            return RefDataHelper.GetLeagueNameByLanguage(leagueId, GetSupportedLanguage, string.Empty);
-        }
+            => RefDataHelper.GetLeagueName(leagueId, GetSupportedLanguage, string.Empty);
 
         protected virtual string GetSportNameByLanguage(int sportType)
-        {
-            return RefData.GetSportName(sportType.ToString(CultureInfo.InvariantCulture), GetSupportedLanguage, string.Empty);
-        }
+            => RefDataHelper.GetSportName(sportType, GetSupportedLanguage, string.Empty);
 
         protected virtual string GetFormatedKickOffTime(DateTime kickOffTime)
-        {
-            return Helper.FullDateFormat(kickOffTime, this.DateTimeFormat);
-        }
+            => Helper.FullDateFormat(kickOffTime, DateTimeFormat);
     }
 }

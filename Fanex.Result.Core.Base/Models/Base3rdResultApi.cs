@@ -19,7 +19,11 @@
 
         protected string Seq { get; set; }
 
+#pragma warning disable S3995 // URI return values should not be strings
+
         public abstract string GetResultUrl<T>(T data);
+
+#pragma warning restore S3995 // URI return values should not be strings
 
         protected virtual string GenerateSeqCode(string custId, string gameId, string siteId)
         {
@@ -52,7 +56,10 @@
             return (T)ser.ReadObject(stream);
         }
 
+#pragma warning disable S3994 // URI Parameters should not be strings
+
         protected virtual string SendPostRequest(string url, string jsonData)
+#pragma warning restore S3994 // URI Parameters should not be strings
         {
             var result = string.Empty;
 

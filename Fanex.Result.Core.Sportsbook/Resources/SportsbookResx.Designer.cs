@@ -70,6 +70,15 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to FT.
+        /// </summary>
+        public static string FT {
+            get {
+                return ResourceManager.GetString("FT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Match Day.
         /// </summary>
         public static string MatchDay {

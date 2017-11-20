@@ -9,6 +9,7 @@
     using BaseDetail;
     using DataDomain;
     using DTO;
+    using Resources;
     using SoccerInfo;
     using Utilities;
 
@@ -53,7 +54,9 @@
                     var firstTimeValue = result.Substring(0, result.IndexOf('-'));
                     var secondTimeValue = result.Replace(firstTimeValue + "-", string.Empty);
                     var firstTimeText = Convert.ToInt32(firstTimeValue) - 1 + (firstTimeValue.Length == 1 ? "0" : string.Empty) + ":01";
-                    var secondTimeText = secondTimeValue + (secondTimeValue.Length == 1 ? "0" : string.Empty) + ":00";
+                    var secondTimeText = secondTimeValue != "90" ?
+                        (secondTimeValue + (secondTimeValue.Length == 1 ? "0" : string.Empty) + ":00") :
+                        SportsbookResx.FT;
 
                     item.HomeValue = $"{firstTimeText}-{secondTimeText}";
                 }

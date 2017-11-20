@@ -66,6 +66,7 @@
 
         [TestCase("11-20", "10:01-20:00")]
         [TestCase("1-10", "00:01-10:00")]
+        [TestCase("81-90", "80:01-FT")]
         [TestCase("NG", "No Goal")]
         public void MapGameValueByPattern_WhenResourceIdIs455_ReturnExpectedHomeValue(string homeValue, string expectedHomeValue)
         {

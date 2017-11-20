@@ -171,4 +171,7 @@
   <data name="Semifinal2" xml:space="preserve">
     <value>Semifinal Part 2</value>
   </data>
+  <data name="FT" xml:space="preserve">
+    <value>FT</value>
+  </data>
 </root>

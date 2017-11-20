@@ -25,17 +25,11 @@
         {
         }
 
-        public static ViewModelFactory Instance
-        {
-            get
-            {
-                return LazyViewModelService.Value;
-            }
-        }
+        public static ViewModelFactory Instance => LazyViewModelService.Value;
 
         public override IResultViewModel GetViewModel<T>(T resultData, ResultSetting setting)
         {
-            if ((int)setting.SportType <= 0)
+            if (setting.SportType <= 0)
             {
                 throw new ObjectNullException("Sport Type");
             }
@@ -73,7 +67,7 @@
 
         public override IExcelModel GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting)
         {
-            if ((int)setting.SportType <= 0)
+            if (setting.SportType <= 0)
             {
                 throw new ObjectNullException("Sport Type");
             }

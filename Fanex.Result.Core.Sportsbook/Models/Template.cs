@@ -7,17 +7,8 @@
     {
         private static readonly Lazy<ITemplate> LazyTemplateService = new Lazy<ITemplate>(() => new Template());
 
-        public static ITemplate Instance
-        {
-            get
-            {
-                return LazyTemplateService.Value;
-            }
-        }
+        public static ITemplate Instance => LazyTemplateService.Value;
 
-        protected override string GetProductName
-        {
-            get { return "Sportsbook"; }
-        }
+        protected override string GetProductName => "Sportsbook";
     }
 }

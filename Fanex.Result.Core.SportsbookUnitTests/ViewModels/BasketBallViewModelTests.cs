@@ -1,7 +1,5 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.Tests.ViewModels
 {
-    using System.Linq;
-    using System.Text.RegularExpressions;
     using Base;
     using Base.Extension;
     using DTO;

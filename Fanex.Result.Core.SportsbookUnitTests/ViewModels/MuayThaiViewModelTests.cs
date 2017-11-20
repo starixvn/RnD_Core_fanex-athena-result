@@ -1,10 +1,5 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.Tests.ViewModels
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using Base;
     using NUnit.Framework;
     using Sportsbook.ViewModels;

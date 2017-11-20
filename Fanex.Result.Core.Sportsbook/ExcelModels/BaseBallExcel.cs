@@ -1,7 +1,6 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.ExcelModels
 {
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
     using Base;
     using Base.ExcelModels;
     using Base.Extension;
@@ -45,9 +44,9 @@
             var exportRow = (BaseBallViewModel)data;
 #pragma warning restore S3215 // "interface" instances should not be cast to concrete types
 
-            var rowHome = sheet.CopyRow(TemplateSheet, this.GetRowTeamWin(exportRow.HomeWin), currentRow);
+            var rowHome = sheet.CopyRow(TemplateSheet, GetRowTeamWin(exportRow.HomeWin), currentRow);
 
-            var rowAway = sheet.CopyRow(TemplateSheet, this.GetRowTeamWin(exportRow.AwayWin), currentRow + 1);
+            var rowAway = sheet.CopyRow(TemplateSheet, GetRowTeamWin(exportRow.AwayWin), currentRow + 1);
 
             MergeResultCells(sheet, currentRow, currentRow + 1, ColumnKickOffTime, ColumnStatus);
             AssignStringData(

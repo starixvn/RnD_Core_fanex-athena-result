@@ -1,7 +1,6 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.ExcelModels
 {
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
     using Base;
     using Base.ExcelModels;
     using Base.Extension;
@@ -13,7 +12,6 @@
 
     internal sealed class HockeyExcel : ExcelBase, IExcelModel
     {
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         public HockeyExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
             : base(templatePath, setting, data)
         {

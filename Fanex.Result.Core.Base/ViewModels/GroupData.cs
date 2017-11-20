@@ -13,14 +13,14 @@
         {
             get
             {
-                return this._data;
+                return _data;
             }
 
             set
             {
                 if (value != null)
                 {
-                    this._data = value;
+                    _data = value;
                 }
             }
         }

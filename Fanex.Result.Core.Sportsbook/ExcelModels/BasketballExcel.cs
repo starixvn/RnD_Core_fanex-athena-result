@@ -1,7 +1,6 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.ExcelModels
 {
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
     using Base;
     using Base.ExcelModels;
     using Base.Extension;

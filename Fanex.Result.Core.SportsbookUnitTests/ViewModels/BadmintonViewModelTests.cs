@@ -2,7 +2,6 @@
 {
     using Base;
     using DTO;
-    using NSubstitute;
     using NUnit.Framework;
     using Sportsbook.ViewModels;
 

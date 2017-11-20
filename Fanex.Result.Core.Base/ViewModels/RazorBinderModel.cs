@@ -26,9 +26,9 @@
         {
             get
             {
-                if (!this.IsDetail && this.IsPopUp && this.Data.Count == 1)
+                if (!IsDetail && IsPopUp && Data.Count == 1)
                 {
-                    return this.Data[0].Data.Any(i => i.VisibleMatchResult);
+                    return Data[0].Data.Any(i => i.VisibleMatchResult);
                 }
 
                 return true;
@@ -41,9 +41,9 @@
         {
             get
             {
-                if (this.IsPopUp && this.Data.Count == 1)
+                if (IsPopUp && Data.Count == 1)
                 {
-                    return this.Data[0].Data.Any(i => i.VisibleGameDetail);
+                    return Data[0].Data.Any(i => i.VisibleGameDetail);
                 }
 
                 return false;

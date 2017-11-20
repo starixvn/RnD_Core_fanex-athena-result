@@ -223,7 +223,7 @@
 
         protected virtual int GetRowTeamWin(string winFormatted)
         {
-            return this.Setting.HighlightWinnerTeam && !string.IsNullOrWhiteSpace(winFormatted) ? BoldTemplateRow : NoneBoldTemplateRow;
+            return Setting.HighlightWinnerTeam && !string.IsNullOrWhiteSpace(winFormatted) ? BoldTemplateRow : NoneBoldTemplateRow;
         }
 
         #endregion Export Excel Methods

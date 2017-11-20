@@ -39,7 +39,7 @@
         {
             try
             {
-                var assembly = this.GetType().Assembly;
+                var assembly = GetType().Assembly;
                 using (var stream = assembly
                  .GetManifestResourceStream(string.Format(ViewDomainPattern, GetProductName, templateName)))
                 {

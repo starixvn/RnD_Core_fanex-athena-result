@@ -1,7 +1,5 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.Tests.Utilities
 {
-    using Exceptions;
-    using NSubstitute;
     using NUnit.Framework;
     using Sportsbook.Exceptions;
     using Sportsbook.Utilities;

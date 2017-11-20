@@ -1,15 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
-using Fanex.Result.Core.Base.Exception;
-using Fanex.Result.Core.Base.ViewModels;
-using NUnit.Framework;
-
-namespace Fanex.Result.Core.Base.Tests.Exception
+﻿namespace Fanex.Result.Core.Base.Tests.Exception
 {
+    using Base.Exception;
+    using NUnit.Framework;
+
     [TestFixture]
     internal class ResultCoreExceptionTests
     {

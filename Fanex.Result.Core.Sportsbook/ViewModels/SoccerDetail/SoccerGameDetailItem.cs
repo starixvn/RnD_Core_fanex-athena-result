@@ -1,6 +1,6 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.ViewModels.SoccerInfo
 {
-    using Fanex.Result.Core.Sportsbook.ViewModels.BaseDetail;
+    using BaseDetail;
 
     public class SoccerGameDetailItem : IGameDetailItem
     {

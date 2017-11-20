@@ -64,9 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Fanex.Result.Core.Voidbridge.ruleset" />
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\SonarAnalyzer.CSharp.6.3.0.2862\analyzers\Google.Protobuf.dll" />

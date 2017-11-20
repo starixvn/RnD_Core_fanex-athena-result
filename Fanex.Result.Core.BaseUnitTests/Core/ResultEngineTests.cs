@@ -4,8 +4,8 @@
     using Base.Exception;
     using NUnit.Framework;
     using Result.Core;
+    using TestUtils;
     using Sportsbook.DTO;
-    using Sportsbook.Tests.TestUtils;
 
     [TestFixture]
     public class ResultEngineTests

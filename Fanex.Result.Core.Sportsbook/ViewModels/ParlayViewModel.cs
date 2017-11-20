@@ -107,7 +107,7 @@
                     return string.Empty;
                 }
 
-                var sportType = (SportType)this._parlay.SportId;
+                var sportType = (SportType)_parlay.SportId;
                 var sportName = sportType.StringMe();
                 var templateContent = Template.Instance.GetRazorTemplate(sportName);
 
@@ -144,7 +144,7 @@
         {
             if (_viewModelData == null)
             {
-                _viewModelData = this._parlay.Sportbook.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(
+                _viewModelData = _parlay.Sportbook.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(
                     i, _sportSetting)).ToSafeList();
             }
 

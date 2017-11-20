@@ -12,6 +12,9 @@
         public string GetBetTypeNameById(string betTypeId, string lang, string resourceId)
             => RefData.GetBetTypeName(betTypeId, lang, string.Empty, resourceId);
 
+        public string GetTeamName(string teamId, string lang, string defaultValue)
+         => RefData.GetTeamName(teamId, lang, defaultValue);
+
         public string GetTeamName(int teamId, string lang, string defaultValue)
             => RefData.GetTeamName(teamId.ToString(CultureInfo.InvariantCulture), lang, defaultValue);
 
@@ -23,5 +26,8 @@
 
         public string GetBetTypeNameById(string betTypeId, string lang)
             => RefData.GetBetTypeName(betTypeId, lang);
+
+        public string GetResourceDataByRefIdAndResourceId(string refId, string resourceId, string lang, string defaultValue)
+            => RefData.GetResourceDataByRefIdAndResourceId(refId, resourceId, lang, defaultValue);
     }
 }

@@ -14,14 +14,14 @@
         {
             get
             {
-                return this._sportsBook;
+                return _sportsBook;
             }
 
             set
             {
                 if (value != null)
                 {
-                    this._sportsBook = value;
+                    _sportsBook = value;
                 }
             }
         }

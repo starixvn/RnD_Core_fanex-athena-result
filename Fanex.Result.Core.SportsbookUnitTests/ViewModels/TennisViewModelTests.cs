@@ -2,13 +2,11 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
     using Base;
     using Base.DataDomain;
     using DataDomain;
     using DTO;
     using KellermanSoftware.CompareNetObjects;
-    using NSubstitute;
     using NUnit.Framework;
     using Sportsbook.ViewModels;
     using Sportsbook.ViewModels.TennisDetail;

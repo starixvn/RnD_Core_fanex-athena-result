@@ -64,14 +64,14 @@
         {
             get
             {
-                return this._gameDetails;
+                return _gameDetails;
             }
 
             set
             {
                 if (value != null)
                 {
-                    this._gameDetails = value;
+                    _gameDetails = value;
                 }
             }
         }

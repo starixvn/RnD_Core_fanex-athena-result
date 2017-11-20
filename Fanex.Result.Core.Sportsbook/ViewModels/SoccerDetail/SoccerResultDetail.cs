@@ -16,7 +16,7 @@
     public class SoccerResultDetail : BaseResultDetail<SoccerGameDetailItem>
     {
         public SoccerResultDetail(
-            DTO.Sportsbook sportsbook,
+            Sportsbook sportsbook,
             ResultSetting setting,
             ISportsbookRefDataHelper refDataHelper = null,
             ISportsbookHelperWraper sportsBookHelper = null)

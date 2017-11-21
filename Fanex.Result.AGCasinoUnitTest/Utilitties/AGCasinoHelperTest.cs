@@ -1,17 +1,8 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="AGCasinoHelperTest.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.AGCasino.Tests.Utilitties
+﻿namespace Fanex.Result.AGCasino.Tests.Utilitties
 {
-    using Fanex.Result.Core.AGCasino.Utilities;
+    using Core.AGCasino.Utilities;
     using NUnit.Framework;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     [TestFixture]
     public class AGCasinoHelperTest
     {

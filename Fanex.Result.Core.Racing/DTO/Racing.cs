@@ -6,11 +6,11 @@
     {
         public Racing()
         {
-            this.EngineNo = string.Empty;
-            this.EngineId = string.Empty;
-            this.Favourite = string.Empty;
-            this.SCROfMatch = string.Empty;
-            this.TFOfMatch = string.Empty;
+            EngineNo = string.Empty;
+            EngineId = string.Empty;
+            Favourite = string.Empty;
+            SCROfMatch = string.Empty;
+            TFOfMatch = string.Empty;
         }
 
         public DateTime KickOffTime { get; set; }

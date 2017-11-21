@@ -1,15 +1,6 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="Config.cs" company="Microsoft">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.CockFighting
+﻿namespace Fanex.Result.Core.CockFighting
 {
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
-    internal sealed class Config
+    public sealed class Config
     {
         /// <summary>
         /// Gets or sets the site ID.
@@ -20,11 +11,11 @@ namespace Fanex.Result.Core.CockFighting
         public string SiteId { get; set; }
 
         public string Vendor { get; set; }
-     
+
         public string VendorKey { get; set; }
-       
+
         public string AuthorizedAPI { get; set; }
-       
+
         public string ExtendedAPI { get; set; }
     }
 }

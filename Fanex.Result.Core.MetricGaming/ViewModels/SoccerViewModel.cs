@@ -1,111 +1,52 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="SoccerViewModel.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.MetricGaming.ViewModels
+﻿namespace Fanex.Result.Core.MetricGaming.ViewModels
 {
     using System;
     using System.Collections.Generic;
     using System.Globalization;
-    using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.DataDomain;
-    using Fanex.Result.Core.Base.ViewModels;
-    using RemotingRef;
+    using Base;
+    using Base.DataDomain;
+    using Base.Utilities;
+    using Base.ViewModels;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public class SoccerViewModel : BaseViewModel, IResultViewModel
     {
         private readonly DTO.MetricGaming _metricGaming;
         private string _eventName;
-        private IList<string> _eventResult = null;
+        private IList<string> _eventResult;
 
         public SoccerViewModel(DTO.MetricGaming metricGaming, ResultSetting setting)
-            : base(setting)
+            : this(metricGaming, setting, null)
         {
-            this._metricGaming = metricGaming;
-            this.LanguageCode = setting.LanguageCode;
-            this.Sport = setting.SportType;
         }
 
-        public override int LeagueId
+        public SoccerViewModel(DTO.MetricGaming metricGaming, ResultSetting setting, IRefDataHelper refDataHelper)
+           : base(setting, refDataHelper)
         {
-            get
-            {
-                return _metricGaming.LeagueId;
-            }
+            _metricGaming = metricGaming;
+            LanguageCode = setting.LanguageCode;
+            Sport = setting.SportType;
         }
 
-        public string HomeTeam
-        {
-            get
-            {
-                return RefData.GetTeamName(_metricGaming.HomeId, GetSupportedLanguage, string.Empty);
-            }
-        }
+        public override int LeagueId => _metricGaming.LeagueId;
 
-        public string AwatTeam
-        {
-            get
-            {
-                return RefData.GetTeamName(_metricGaming.AwayId, GetSupportedLanguage, string.Empty);
-            }
-        }
+        public string HomeTeam => RefDataHelper.GetTeamName(_metricGaming.HomeId, GetSupportedLanguage, string.Empty);
 
-        public int GameId
-        {
-            get
-            {
-                return this._metricGaming.GameId;
-            }
-        }
+        public string AwayTeam => RefDataHelper.GetTeamName(_metricGaming.AwayId, GetSupportedLanguage, string.Empty);
 
-        public string EventName
-        {
-            get
-            {
-                if (string.IsNullOrEmpty(_eventName))
-                {
-                    var gameName = RefData.GetBetTypeName(this._metricGaming.GameId.ToString(CultureInfo.CurrentCulture), this.GetSupportedLanguage, string.Empty);
-                    this._eventName = gameName + " " + ComposeBetTypeTime(this._metricGaming.BetTypeTime);
-                }
+        public int GameId => _metricGaming.GameId;
 
-                return this._eventName;
-            }
-        }
+        public string EventName => _eventName ?? (_eventName = GetEventName());
 
-        public IList<string> EventResult
-        {
-            get
-            {
-                if (this._eventResult == null)
-                {
-                    GetEventResult();
-                }
-
-                return _eventResult;
-            }
-        }
+        public IList<string> EventResult => _eventResult ?? (_eventResult = GetEventResult());
 
         public bool IsShowNoInfoRow
-        {
-            get
-            {
-                return this.EventResult.Count == 0 || this._metricGaming.SettlementStatusId == 0;
-            }
-        }
+            => EventResult.Count == 0 || _metricGaming.SettlementStatusId == 0;
 
-        private static string[] GetOtherInforList(string otherInfo)
+        private string GetEventName()
         {
-            if (!string.IsNullOrEmpty(otherInfo))
-            {
-                return otherInfo.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-            }
+            var gameName = RefDataHelper.GetBetTypeNameById(_metricGaming.GameId.ToString(CultureInfo.CurrentCulture), GetSupportedLanguage, string.Empty);
 
-            return new string[1] { string.Empty };
+            return $"{gameName} {ComposeBetTypeTime(_metricGaming.BetTypeTime)}";
         }
 
         private string ComposeBetTypeTime(string bettypeTime)
@@ -115,37 +56,47 @@ namespace Fanex.Result.Core.MetricGaming.ViewModels
                 return string.Empty;
             }
 
-            if (bettypeTime.IndexOf(",") > -1)
+            if (bettypeTime.IndexOf(",", StringComparison.InvariantCulture) > -1)
             {
-                var tokens = bettypeTime.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-                return RefData.GetTeamName(tokens[0], this.GetSupportedLanguage, string.Empty) + "," + tokens[1];
+                var tokens = bettypeTime.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+
+                return RefDataHelper.GetTeamName(tokens[0], GetSupportedLanguage, string.Empty) + "," + tokens[1];
             }
 
             return bettypeTime;
         }
 
-        private string GetGameResult(string gameResourceId)
+        private IList<string> GetEventResult()
         {
-            return RefData.GetResourceDataByRefIdAndResourceId(ConstantValue.RefIDSuperLive, gameResourceId, this.GetSupportedLanguage, string.Empty);
-        }
+            var eventResult = new List<string>();
 
-        private void GetEventResult()
-        {
-            this._eventResult = new List<string>();
-
-            if (!string.IsNullOrEmpty(this._metricGaming.GameResult))
+            if (!string.IsNullOrEmpty(_metricGaming.GameResult))
             {
-                var gameResultToken = this._metricGaming.GameResult.Split(new char[] { ',' }, System.StringSplitOptions.RemoveEmptyEntries);
-                string[] otherInforToken = GetOtherInforList(this._metricGaming.OtherInfo);
+                var gameResultToken = _metricGaming.GameResult.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+                var otherInforToken = GetOtherInfoList(_metricGaming.OtherInfo);
 
                 for (var i = 0; i < gameResultToken.Length; i++)
                 {
-                    var resultItem =
-                       GetGameResult(gameResultToken[i]);
+                    var resultItem = GetGameResult(gameResultToken[i]);
                     var timeOfResult = i < otherInforToken.Length ? otherInforToken[i] : string.Empty;
-                    this._eventResult.Add(resultItem + " " + timeOfResult);
+                    eventResult.Add(resultItem + " " + timeOfResult);
                 }
             }
+
+            return eventResult;
+        }
+
+        private string GetGameResult(string gameResourceId)
+            => RefDataHelper.GetResourceDataByRefIdAndResourceId(ConstantValue.RefIDSuperLive, gameResourceId, GetSupportedLanguage, string.Empty);
+
+        private static string[] GetOtherInfoList(string otherInfo)
+        {
+            if (!string.IsNullOrEmpty(otherInfo))
+            {
+                return otherInfo.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            }
+
+            return new[] { string.Empty };
         }
     }
 }

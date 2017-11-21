@@ -1,24 +1,14 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="ViewModelConcreteFactory.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.MetricGaming.Models
+﻿namespace Fanex.Result.Core.MetricGaming.Models
 {
     using System;
     using System.Collections.Generic;
-    using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.DataDomain;
-    using Fanex.Result.Core.Base.ExcelModels;
-    using Fanex.Result.Core.Base.Exception;
-    using Fanex.Result.Core.Base.ViewModels;
-    using Fanex.Result.Core.MetricGaming.ViewModels;
-    using Fanex.Result.Core.Models;
+    using Base;
+    using Base.ExcelModels;
+    using Base.Exception;
+    using Base.ViewModels;
+    using Core.Models;
+    using ViewModels;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     internal sealed class ViewModelConcreteFactory : ViewModelFactory
     {
         private static readonly Lazy<ViewModelFactory> LazyViewModelService = new Lazy<ViewModelFactory>(() => new ViewModelConcreteFactory());
@@ -27,25 +17,19 @@ namespace Fanex.Result.Core.MetricGaming.Models
         {
         }
 
-        public static ViewModelFactory Instance
-        {
-            get
-            {
-                return LazyViewModelService.Value;
-            }
-        }
+        public static ViewModelFactory Instance => LazyViewModelService.Value;
 
-        public override IResultViewModel GetViewModel<T>(T obj, ResultSetting setting)
+        public override IResultViewModel GetViewModel<T>(T resultData, ResultSetting setting)
         {
-            if ((int)setting.SportType <= 0)
+            if (setting.SportType <= 0)
             {
                 throw new ObjectNullException("Sport Type");
             }
 
-            var item = obj as DTO.MetricGaming;
+            var item = resultData as DTO.MetricGaming;
             var viewModel = new SoccerViewModel(item, setting);
 
-            return (IResultViewModel)viewModel;
+            return viewModel;
         }
 
         public override IResultViewModel GetOutrightViewModel(object resultData, ResultSetting setting)

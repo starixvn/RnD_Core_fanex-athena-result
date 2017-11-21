@@ -4,7 +4,7 @@
     using System.Runtime.Serialization;
 
     [Serializable]
-    public class AllBetCasinoException : System.Exception
+    public class AllBetCasinoException : Exception
     {
         public AllBetCasinoException()
         {
@@ -25,13 +25,7 @@
         {
         }
 
-        public override string Message
-        {
-            get
-            {
-                return string.Format("AllBetCasino Result API Exception. Exception: {0}", base.Message);
-            }
-        }
+        public override string Message => string.Format("AllBetCasino Result API Exception. Exception: {0}", base.Message);
 
         public override void GetObjectData(SerializationInfo info, StreamingContext context)
         {

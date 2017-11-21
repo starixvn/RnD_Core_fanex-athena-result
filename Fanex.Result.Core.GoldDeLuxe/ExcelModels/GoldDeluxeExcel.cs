@@ -2,13 +2,13 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.ExcelModels;
-    using Fanex.Result.Core.Base.Extension;
-    using Fanex.Result.Core.Base.Resources;
-    using Fanex.Result.Core.Base.ViewModels;
-    using Fanex.Result.Core.GoldDeluxe.ViewModels;
+    using Base;
+    using Base.ExcelModels;
+    using Base.Extension;
+    using Base.Resources;
+    using Base.ViewModels;
     using NPOI.SS.UserModel;
+    using ViewModels;
 
     internal sealed class GoldDeluxeExcel : ExcelBase, IExcelModel
     {
@@ -18,9 +18,9 @@
             IList<IResultViewModel> data)
             : base(templatePath, setting, data)
         {
-            this.ColumnTemplateCount = 3;
-            this.ColumnStatus = 2;
-            this.RowContentTemplate = 3;
+            ColumnTemplateCount = 3;
+            ColumnStatus = 2;
+            RowContentTemplate = 3;
             base.IsSupportMatchCode = false;
         }
 
@@ -28,28 +28,28 @@
         {
             var colidx = 0;
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
+
             row.Cells[colidx++].SetCellValue(LangResource.GameID);
             row.Cells[colidx++].SetCellValue(LangResource.Result);
-            row.Cells[colidx++].SetCellValue(LangResource.Status);
+            row.Cells[colidx].SetCellValue(LangResource.Status);
         }
 
-        /// <summary>
-        /// Assign value to sheet.
-        /// </summary>
-        /// <param name="sheet">The current sheet.</param>
         protected override void AssignSheetData(ISheet sheet)
         {
             var currentRow = RowLeagueTemplate;
-            var groupData = this.ViewModelData.GroupBy(i => i.LeagueId).ToList();
+            var groupData = ViewModelData.GroupBy(i => i.LeagueId).ToList();
+
             foreach (var item in groupData)
             {
+#pragma warning disable S3215 // "interface" instances should not be cast to concrete types
                 var firstItem = (GoldDeluxeViewModel)item.FirstOrDefault();
+#pragma warning restore S3215 // "interface" instances should not be cast to concrete types
                 var rowLeague = sheet.CopyRow(TemplateSheet, RowLeagueTemplate, currentRow, ColumnTemplateIndexList);
                 rowLeague.Cells[0].SetCellValue(firstItem.SportName + " - " + firstItem.LeagueName);
                 sheet.MergeCells(currentRow, 0, currentRow, 1);
                 currentRow++;
 
-                foreach (GoldDeluxeViewModel exportRow in item.ToList())
+                foreach (var exportRow in item.ToList().OfType<GoldDeluxeViewModel>())
                 {
                     var rowMatch = sheet.CopyRow(TemplateSheet, RowContentTemplate, currentRow, ColumnTemplateIndexList);
 

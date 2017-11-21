@@ -1,6 +1,7 @@
 ﻿namespace Fanex.Result.Core.Voidbridge.Exceptions
 {
     using System;
+    using System.Runtime.Serialization;
 
     [Serializable]
     public class VoidbridgeException : Exception
@@ -10,12 +11,12 @@
         {
         }
 
-        public override string Message
+        protected VoidbridgeException(SerializationInfo serializationInfo, StreamingContext steamContext)
+            : base(serializationInfo, steamContext)
         {
-            get
-            {
-                return $"Voidbridge Result API Exception. Exception: {base.Message}";
-            }
         }
+
+        public override string Message
+            => $"Voidbridge Result API Exception. Exception: {base.Message}";
     }
 }

@@ -8,10 +8,10 @@
     {
         public LiveCasino()
         {
-            this.MatchCode = string.Empty;
-            this.BetStatus = string.Empty;
-            this.EventStatus = string.Empty;
-            this.ShowTime = string.Empty;
+            MatchCode = string.Empty;
+            BetStatus = string.Empty;
+            EventStatus = string.Empty;
+            ShowTime = string.Empty;
         }
 
         public int LeagueId { get; set; }

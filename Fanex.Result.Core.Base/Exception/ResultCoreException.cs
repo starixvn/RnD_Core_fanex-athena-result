@@ -26,13 +26,7 @@
         }
 
         public override string Message
-        {
-            get
-            {
-                return
-                    string.Format("Result.Core Exception. Exception: {0}", base.Message);
-            }
-        }
+            => string.Format("Result.Core Exception. Exception: {0}", base.Message);
 
         public override void GetObjectData(SerializationInfo info, StreamingContext context)
         {

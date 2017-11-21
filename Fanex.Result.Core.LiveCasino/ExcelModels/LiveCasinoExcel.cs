@@ -21,9 +21,9 @@
             IList<IResultViewModel> data)
             : base(templatePath, setting, data)
         {
-            this.ColumnTemplateCount = 6;
-            this.ColumnStatus = 5;
-            this.RowContentTemplate = 3;
+            ColumnTemplateCount = 6;
+            ColumnStatus = 5;
+            RowContentTemplate = 3;
         }
 
         protected override void AssignHeader(ISheet sheet)
@@ -45,20 +45,23 @@
         protected override void AssignSheetData(ISheet sheet)
         {
             var currentRow = RowLeagueTemplate;
-            var groupData = this.ViewModelData.GroupBy(i => i.LeagueId).ToList();
+            var groupData = ViewModelData.GroupBy(i => i.LeagueId).ToList();
             foreach (var item in groupData)
             {
+#pragma warning disable S3215 // "interface" instances should not be cast to concrete types
                 var firstItem = (LiveCasinoViewModel)item.FirstOrDefault();
+#pragma warning restore S3215 // "interface" instances should not be cast to concrete types
                 var rowLeague = sheet.CopyRow(TemplateSheet, RowLeagueTemplate, currentRow, ColumnTemplateIndexList);
                 rowLeague.Cells[0].SetCellValue(firstItem.LeagueName);
                 sheet.MergeCells(currentRow, 0, currentRow, 1);
                 currentRow++;
+
                 if (string.IsNullOrEmpty(firstItem.PlayerAndBanker))
                 {
                     rowLeague.Cells[2].SetCellValue(string.Empty);
                 }
 
-                foreach (LiveCasinoViewModel exportRow in item.ToList())
+                foreach (var exportRow in item.ToList().OfType<LiveCasinoViewModel>())
                 {
                     var rowMatch = sheet.CopyRow(TemplateSheet, RowContentTemplate, currentRow, ColumnTemplateIndexList);
 

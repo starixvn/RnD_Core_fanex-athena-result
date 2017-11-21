@@ -1,17 +1,8 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="Builder.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.MetricGaming.Models
+﻿namespace Fanex.Result.Core.MetricGaming.Models
 {
     using System.Collections.Generic;
-    using Fanex.Result.Core.Base.Models;
+    using Base.Models;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public class Builder : BaseBuilder, IBuilder
     {
         private const string TemplateName = "Soccer3rd";

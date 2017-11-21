@@ -2,26 +2,24 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.ExcelModels;
-    using Fanex.Result.Core.Base.Extension;
-    using Fanex.Result.Core.Base.Resources;
-    using Fanex.Result.Core.Base.Utilities;
-    using Fanex.Result.Core.Base.ViewModels;
-    using Fanex.Result.Core.Racing.ViewModels;
+    using Base;
+    using Base.ExcelModels;
+    using Base.Extension;
+    using Base.Resources;
+    using Base.Utilities;
+    using Base.ViewModels;
     using NPOI.SS.UserModel;
+    using ViewModels;
 
     internal sealed class VSSpeedWayExcel : ExcelBase, IExcelModel
     {
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         public VSSpeedWayExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
             : base(templatePath, setting, data)
         {
-            this.ColumnTemplateCount = 6;
-            this.ColumnStatus = 5;
-            this.RowContentTemplate = 3;
+            ColumnTemplateCount = 6;
+            ColumnStatus = 5;
+            RowContentTemplate = 3;
             this.IsSupportMatchCode = false;
         }
 
@@ -35,19 +33,15 @@
             row.Cells[colidx].SetCellValue(LangResource.Status);
         }
 
-        /// <summary>
-        /// Assign data to sheet.
-        /// </summary>
-        /// <param name="sheet">The current sheet.</param>
         protected override void AssignSheetData(ISheet sheet)
         {
             var currentRow = RowLeagueTemplate;
             var currentLeagueId = 0;
             var endRowSpan = 3;
-            var groupData = this.ViewModelData.GroupBy(i => i.LeagueId).ToList();
+            var groupData = ViewModelData.GroupBy(i => i.LeagueId).ToList();
             foreach (var item in groupData)
             {
-                foreach (VSSpeedWayViewModel exportRow in item.ToList())
+                foreach (var exportRow in item.ToList().OfType<VSSpeedWayViewModel>())
                 {
                     if (exportRow.Place > 4)
                     {
@@ -66,14 +60,6 @@
             sheet.MergeCells(currentRow, colSpanKichOffTime, rowSpan, colSpanKichOffTime);
         }
 
-        /// <summary>
-        /// Set data for match row.
-        /// </summary>
-        /// <param name="sheet">The current sheet.</param>
-        /// <param name="exportRow">The view model.</param>
-        /// <param name="currentLeagueId">The current league id.</param>
-        /// <param name="currentRow">The current row.</param>
-        /// <param name="endRowSpan">The end row span.</param>
         private void SetMatch(ISheet sheet, VSSpeedWayViewModel exportRow, ref int currentLeagueId, ref int currentRow, ref int endRowSpan)
         {
             var cellIndex = 0;
@@ -82,15 +68,18 @@
             var currentRace = DateTime.MinValue;
             SetLeague(sheet, exportRow.LeagueId, exportRow.LeagueName, ref currentLeagueId, ref currentRow);
 
-            if (currentLeagueId == 0 || currentLeagueId != leagueId ||
+            if (currentLeagueId == 0 ||
+                currentLeagueId != leagueId ||
                 currentRace != exportRow.EvenTime)
             {
                 currentRace = exportRow.EvenTime;
 
                 // Calculate row span
                 var rowsTopRace =
-                this.ViewModelData.Where(i => i.LeagueId == leagueId)
+                ViewModelData.Where(i => i.LeagueId == leagueId)
+#pragma warning disable S3215 // "interface" instances should not be cast to concrete types
                 .Select(i => (VSSpeedWayViewModel)i).Count(i => i.EvenTime == currentRace && i.Place < 5);
+#pragma warning restore S3215 // "interface" instances should not be cast to concrete types
 
                 if (currentRow == 3 || endRowSpan < currentRow)
                 {
@@ -100,7 +89,7 @@
             }
 
             var rowHome = sheet.CopyRow(TemplateSheet, RowContentTemplate, currentRow);
-            this.AssignStringData(
+            AssignStringData(
                 rowHome,
                 cellIndex,
                 Helper.ToRtfString(exportRow.KickOffTime),

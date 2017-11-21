@@ -3,117 +3,65 @@
     using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
-    using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.DataDomain;
-    using Fanex.Result.Core.Base.Extension;
-    using Fanex.Result.Core.Base.Resources;
-    using Fanex.Result.Core.Base.Utilities;
-    using Fanex.Result.Core.Base.ViewModels;
+    using Base;
+    using Base.DataDomain;
+    using Base.Extension;
+    using Base.Resources;
+    using Base.Utilities;
+    using Base.ViewModels;
 
     public sealed class NumberGameViewModel : BaseViewModel, IResultViewModel
     {
         private readonly DTO.NumberGame _numberGame;
 
         public NumberGameViewModel(DTO.NumberGame numberGame, ResultSetting setting)
-            : base(setting)
+            : this(numberGame, setting, null)
         {
-            this._numberGame = numberGame;
-            this.LanguageCode = setting.LanguageCode;
-            this.Sport = setting.SportType;
         }
 
-        public override string KickOffTime
+        public NumberGameViewModel(DTO.NumberGame numberGame, ResultSetting setting, IRefDataHelper refDataHelper)
+           : base(setting, refDataHelper)
         {
-            get
-            {
-                return this.GetFormatedKickOffTime(this._numberGame.KickOffTime);
-            }
+            _numberGame = numberGame;
+            LanguageCode = setting.LanguageCode;
+            Sport = setting.SportType;
         }
 
-        public override bool IsPending
-        {
-            get
-            {
-                return this._numberGame.IsPending;
-            }
-        }
+        public override string KickOffTime => GetFormatedKickOffTime(_numberGame.KickOffTime);
 
-        public override int LeagueId
-        {
-            get { return this._numberGame.LeagueId; }
-        }
+        public override bool IsPending => _numberGame.IsPending;
 
-        public override string LeagueName
-        {
-            get
-            {
-                return this.GetLeagueNameByLanguage(this._numberGame.LeagueId);
-            }
-        }
+        public override int LeagueId => _numberGame.LeagueId;
 
-        public string MatchCode
-        {
-            get
-            {
-                return this._numberGame.MatchCode;
-            }
-        }
+        public override string LeagueName => GetLeagueNameByLanguage(_numberGame.LeagueId);
 
-        public string MatchId
-        {
-            get
-            {
-                return this._numberGame.MatchId.ToString(CultureInfo.InvariantCulture);
-            }
-        }
+        public string MatchCode => _numberGame.MatchCode;
 
-        public string GameNo
-        {
-            get { return this._numberGame.MatchCode; }
-        }
+        public string MatchId => _numberGame.MatchId.ToString(CultureInfo.InvariantCulture);
+
+        public string GameNo => _numberGame.MatchCode;
 
         public string FirstBall
-        {
-            get { return this._numberGame.Ball.Count > 0 ? Helper.FormatTwoDigit(this._numberGame.Ball[0]) : ConstantValue.Hyphen; }
-        }
+            => _numberGame.Ball.Count > 0 ? Helper.FormatTwoDigit(_numberGame.Ball[0]) : ConstantValue.Hyphen;
 
         public string LastBall
-        {
-            get { return this._numberGame.Ball.Count > 0 ? Helper.FormatTwoDigit(this._numberGame.Ball[this._numberGame.Ball.Count - 1]) : ConstantValue.Hyphen; }
-        }
+            => _numberGame.Ball.Count > 0 ? Helper.FormatTwoDigit(_numberGame.Ball[_numberGame.Ball.Count - 1]) : ConstantValue.Hyphen;
 
         public string Warrior
-        {
-            get
-            {
-                return this._numberGame.Ball.Count > 2 ? this._numberGame.Ball[1] > this._numberGame.Ball[2]
+            => _numberGame.Ball.Count > 2 ? _numberGame.Ball[1] > _numberGame.Ball[2]
                        ? LangResource.Warrior2ndBall : LangResource.Warrior3rdBall :
-
                        ConstantValue.Hyphen;
-            }
-        }
 
         public string OEFT
-        {
-            get { return this._numberGame.Ball.Sum() % 2 == 1 ? LangResource.Odd : LangResource.Even; }
-        }
+            => (uint)_numberGame.Ball.Sum() % 2 == 1 ? LangResource.Odd : LangResource.Even;
 
         public IList<string> Result
-        {
-            get { return this._numberGame.Ball.Select(i => Helper.FormatTwoDigit(i)).ToSafeList(); }
-        }
+            => _numberGame.Ball.Select(i => Helper.FormatTwoDigit(i)).ToSafeList();
 
         public override string EventStatus
-        {
-            get
-            {
-                return MapEventStatus.MapEventStatusString(this._numberGame.EventStatus, this._numberGame.IsPending, this.VisibleInternalEventStatus);
-            }
-        }
+            => MapEventStatus.MapEventStatusString(_numberGame.EventStatus, _numberGame.IsPending, VisibleInternalEventStatus);
 
         public static string ShowBall(int ball)
-        {
-            return Helper.FormatTwoDigit(ball);
-        }
+            => Helper.FormatTwoDigit(ball);
     }
 }

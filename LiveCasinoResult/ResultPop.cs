@@ -11,7 +11,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace LiveCasinoResult
 {
-    public class ResultPop
+    public class ResultPop: IResultPopup
     {
         private static string _ConnectionString = "";
         private static string _ImgPath = "";

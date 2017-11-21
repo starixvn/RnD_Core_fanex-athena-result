@@ -1,19 +1,9 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="CockFightingException.cs" company="Microsoft">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.CockFighting.Exceptions
+﻿namespace Fanex.Result.Core.CockFighting.Exceptions
 {
     using System;
-    using System.Diagnostics.CodeAnalysis;
     using System.Runtime.Serialization;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
-    [SuppressMessage("Microsoft.Usage", "CA2237:MarkISerializableTypesWithSerializable", Justification = "Reviewed.")]
+    [Serializable]
     public class CockFightingException : Exception
     {
         public CockFightingException()
@@ -36,13 +26,7 @@ namespace Fanex.Result.Core.CockFighting.Exceptions
         }
 
         public override string Message
-        {
-            get
-            {
-                return
-                    string.Format("Cock Fighting Result API Exception. Exception: {0}", base.Message);
-            }
-        }
+            => string.Format("Cock Fighting Result API Exception. Exception: {0}", base.Message);
 
         public override void GetObjectData(SerializationInfo info, StreamingContext context)
         {

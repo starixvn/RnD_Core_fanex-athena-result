@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using Base;
     using Base.Exception;
-    using DTO;
+    using MetricGaming.DTO;
     using MetricGaming.Models;
     using NUnit.Framework;
 

@@ -49,3 +49,4 @@ Fanex.Result.Core.v3.ncrunchsolution
 *.ncrunchproject
 packages
 .vs
+/UpgradeLog2.htm

@@ -1,24 +1,15 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="GoldDeluxeViewModel.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.GoldDeluxe.ViewModels
+﻿namespace Fanex.Result.Core.GoldDeluxe.ViewModels
 {
     using System;
     using System.Globalization;
-    using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.Resources;
-    using Fanex.Result.Core.Base.ViewModels;
-    using Fanex.Result.Core.GoldDeluxe.DataDomain;
-    using Fanex.Result.Core.GoldDeluxe.DTO;
-    using Fanex.Result.Core.GoldDeluxe.Utilities;
-    using RemotingRef;
+    using Base;
+    using Base.Resources;
+    using Base.Utilities;
+    using Base.ViewModels;
+    using DataDomain;
+    using DTO;
+    using Utilities;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public class GoldDeluxeViewModel : BaseViewModel, IResultViewModel
     {
         private readonly GoldDeluxe _goldDeluxe;
@@ -27,31 +18,25 @@ namespace Fanex.Result.Core.GoldDeluxe.ViewModels
         private string _htmlResult;
 
         public GoldDeluxeViewModel(GoldDeluxe goldDeluxe, ResultSetting setting)
-            : base(setting)
+            : this(goldDeluxe, setting, null)
         {
-            this._goldDeluxe = goldDeluxe;
-            this.LanguageCode = setting.LanguageCode;
-            this.Sport = setting.SportType;
+        }
+
+        public GoldDeluxeViewModel(GoldDeluxe goldDeluxe, ResultSetting setting, IRefDataHelper refDataHelper)
+           : base(setting, refDataHelper)
+        {
+            _goldDeluxe = goldDeluxe;
+            LanguageCode = setting.LanguageCode;
+            Sport = setting.SportType;
         }
 
         public override string LeagueName
-        {
-            get
-            {
-                return RefData.GetBetTypeName(
-               this._goldDeluxe.Bettype.ToString(CultureInfo.InvariantCulture),
-               this.GetSupportedLanguage,
-               string.Empty);
-            }
-        }
+            => RefDataHelper.GetBetTypeNameById(
+                   _goldDeluxe.Bettype.ToString(CultureInfo.InvariantCulture),
+                   GetSupportedLanguage,
+                   string.Empty);
 
-        public override string EventStatus
-        {
-            get
-            {
-                return LangResource.Completed;
-            }
-        }
+        public override string EventStatus => LangResource.Completed;
 
         public string GameID
         {
@@ -94,21 +79,22 @@ namespace Fanex.Result.Core.GoldDeluxe.ViewModels
 
         private static string GetGameId(string gameToken)
         {
-            var gameTokens = gameToken.Split(new char[] { '=' }, StringSplitOptions.RemoveEmptyEntries);
+            var gameTokens = gameToken.Split(new[] { '=' }, StringSplitOptions.RemoveEmptyEntries);
             return gameTokens.Length >= 2 ? gameTokens[1] : string.Empty;
         }
 
         private static string GetDetailedGameResult(string gameDetailedTokens)
         {
-            var detailResultToken = gameDetailedTokens.Split(new char[] { '=' }, StringSplitOptions.RemoveEmptyEntries);
+            var detailResultToken = gameDetailedTokens.Split(new[] { '=' }, StringSplitOptions.RemoveEmptyEntries);
             return detailResultToken.Length >= 2 ? detailResultToken[1] : string.Empty;
         }
 
         private void BindingResult()
         {
-            if (!string.IsNullOrEmpty(this._goldDeluxe.Result))
+            if (!string.IsNullOrEmpty(_goldDeluxe.Result))
             {
-                var resultTokens = this._goldDeluxe.Result.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+                var resultTokens = _goldDeluxe.Result.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+
                 if (resultTokens.Length >= 2)
                 {
                     _gameId = GetGameId(resultTokens[0]);
@@ -116,15 +102,15 @@ namespace Fanex.Result.Core.GoldDeluxe.ViewModels
                 }
             }
 
-            if (!string.IsNullOrEmpty(_result))
-            {
-                _htmlResult = this._goldDeluxe.Bettype == GoldDeluxeBettype.Roulette ? GoldDeluxeHelper.GetRoutletResult(_result)
-                   : GoldDeluxeHelper.GetBacaratResult(_result, LangResource.Banker, LangResource.Player);
-            }
-            else
+            if (string.IsNullOrEmpty(_result))
             {
                 _htmlResult = LangResource.NoInfo;
+                return;
             }
+
+            _htmlResult = _goldDeluxe.Bettype == GoldDeluxeBettype.Roulette ?
+                GoldDeluxeHelper.GetRoutletResult(_result) :
+                GoldDeluxeHelper.GetBacaratResult(_result, LangResource.Banker, LangResource.Player);
         }
     }
 }

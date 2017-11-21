@@ -1,14 +1,5 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="AGCasino.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.AGCasino.DTO
+﻿namespace Fanex.Result.Core.AGCasino.DTO
 {
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public class AGCasino
     {
         public int Bettype { get; set; }

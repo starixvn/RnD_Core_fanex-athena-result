@@ -40,3 +40,5 @@ using System.Runtime.InteropServices;
 [assembly: InternalsVisibleTo("Fanex.Result.Core.Lucky3.Tests")]
 [assembly: InternalsVisibleTo("Fanex.Result.Core.Sportsbook.Tests")]
 [assembly: InternalsVisibleTo("Fanex.Result.Core.GoldDeluxe.Tests")]
+[assembly: InternalsVisibleTo("Fanex.Result.Core.Racing.Tests")]
+[assembly: InternalsVisibleTo("Fanex.Result.Core.NumberGame.Tests")]

@@ -71,6 +71,8 @@
     <Compile Include="Models\Template.cs" />
     <Compile Include="Models\ViewModelConcreteFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilities\IRacingRefDataHelper.cs" />
+    <Compile Include="Utilities\RacingRefDataHelper.cs" />
     <Compile Include="ViewModels\RacingViewModel.cs" />
     <Compile Include="ViewModels\VSHRacingViewModel.cs" />
     <Compile Include="ViewModels\VSSpeedWayViewModel.cs" />

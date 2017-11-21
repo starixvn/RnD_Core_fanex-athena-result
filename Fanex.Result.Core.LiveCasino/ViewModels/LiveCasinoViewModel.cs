@@ -3,15 +3,16 @@
     using System;
     using System.Globalization;
     using System.Linq;
-    using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.DataDomain;
-    using Fanex.Result.Core.Base.Utilities;
-    using Fanex.Result.Core.Base.ViewModels;
+    using System.Text;
+    using Base;
+    using Base.DataDomain;
+    using Base.Utilities;
+    using Base.ViewModels;
     using RemotingRef;
 
     public sealed class LiveCasinoViewModel : BaseViewModel, IResultViewModel
     {
-        private readonly int[] _rouletteBettype = new int[2] { 1102, 1104 };
+        private readonly int[] _rouletteBettype = new[] { 1102, 1104 };
 
         private readonly DTO.LiveCasino _liveCasino;
 
@@ -22,16 +23,16 @@
         public LiveCasinoViewModel(DTO.LiveCasino livecasino, ResultSetting setting)
             : base(setting)
         {
-            this._liveCasino = livecasino;
-            this.LanguageCode = setting.LanguageCode;
-            this.Sport = setting.SportType;
+            _liveCasino = livecasino;
+            LanguageCode = setting.LanguageCode;
+            Sport = setting.SportType;
         }
 
         public override int LeagueId
         {
             get
             {
-                return this._liveCasino.LeagueId;
+                return _liveCasino.LeagueId;
             }
         }
 
@@ -39,7 +40,7 @@
         {
             get
             {
-                return this.GetLeagueNameByLanguage(this._liveCasino.LeagueId);
+                return GetLeagueNameByLanguage(_liveCasino.LeagueId);
             }
         }
 
@@ -47,7 +48,7 @@
         {
             get
             {
-                return this.GetFormatedKickOffTime(this._liveCasino.KickOffTime);
+                return GetFormatedKickOffTime(_liveCasino.KickOffTime);
             }
         }
 
@@ -55,7 +56,7 @@
         {
             get
             {
-                return this._liveCasino.IsPending;
+                return _liveCasino.IsPending;
             }
         }
 
@@ -63,7 +64,7 @@
         {
             get
             {
-                if (_rouletteBettype.Contains(this._liveCasino.Bettype))
+                if (_rouletteBettype.Contains(_liveCasino.Bettype))
                 {
                     return string.Empty;
                 }
@@ -76,7 +77,7 @@
         {
             get
             {
-                return this._liveCasino.ShowTime;
+                return _liveCasino.ShowTime;
             }
         }
 
@@ -84,7 +85,7 @@
         {
             get
             {
-                return this._liveCasino.MatchCode;
+                return _liveCasino.MatchCode;
             }
         }
 
@@ -94,10 +95,10 @@
             {
                 if (_finalScore == null)
                 {
-                    this.GetFinalScoreAndResult();
+                    GetFinalScoreAndResult();
                 }
 
-                return this._finalScore;
+                return _finalScore;
             }
         }
 
@@ -107,10 +108,10 @@
             {
                 if (_result == null)
                 {
-                    this.GetFinalScoreAndResult();
+                    GetFinalScoreAndResult();
                 }
 
-                return this._result;
+                return _result;
             }
         }
 
@@ -119,9 +120,9 @@
             get
             {
                 return MapEventStatus.MapEventStatusString(
-                    this._liveCasino.EventStatus,
-                    this._liveCasino.IsPending,
-                   this.VisibleInternalEventStatus);
+                    _liveCasino.EventStatus,
+                    _liveCasino.IsPending,
+                   VisibleInternalEventStatus);
             }
         }
 
@@ -138,28 +139,22 @@
             }
 
             string[] arr = results.Split(',');
-            string str = string.Empty, statusName;
+            string statusName;
+            var stringBuilder = new StringBuilder();
 
             for (int i = 0; i < arr.Length; i++)
             {
-                statusName = RefData.GetRouletteBetItem(arr[i], this.GetSupportedLanguage, string.Empty);
+                statusName = RefData.GetRouletteBetItem(arr[i], GetSupportedLanguage, string.Empty);
 
-                if (i < arr.Length - 1)
-                {
-                    str += string.Format("{0}; ", statusName);
-                }
-                else
-                {
-                    str += statusName;
-                }
+                stringBuilder.Append(i < arr.Length - 1 ? string.Format("{0}; ", statusName) : statusName);
 
                 if ((i + 1) % 3 == 0)
                 {
-                    str += "<br/>";
+                    stringBuilder.Append("<br/>");
                 }
             }
 
-            return str;
+            return stringBuilder.ToString();
         }
 
         /// <summary>
@@ -174,13 +169,13 @@
                 return string.Empty;
             }
 
-            string[] arrResult = results.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+            string[] arrResult = results.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
             if (arrResult.Length == 0)
             {
                 return string.Empty;
             }
 
-            var supportedLanguage = this.GetSupportedLanguage;
+            var supportedLanguage = GetSupportedLanguage;
             var livecasinoResult = string.Join(";", arrResult.Select(i => RefData.GetCasinoBetItem(i, supportedLanguage, string.Empty)));
             if (arrResult.Length < 3)
             {
@@ -195,37 +190,42 @@
         /// </summary>
         private void GetFinalScoreAndResult()
         {
-            if (this.EventStatus.Equals(ConstantValue.Refund, StringComparison.OrdinalIgnoreCase)
-                || this.EventStatus.Equals(ConstantValue.Void, StringComparison.OrdinalIgnoreCase))
+            if (EventStatus.Equals(ConstantValue.Refund, StringComparison.OrdinalIgnoreCase)
+                || EventStatus.Equals(ConstantValue.Void, StringComparison.OrdinalIgnoreCase))
             {
-                this._result = this._finalScore = this.EventStatus;
+                _result = _finalScore = EventStatus;
             }
             else
             {
-                if (_rouletteBettype.Contains(this._liveCasino.Bettype))
+                GenerateResult();
+            }
+        }
+
+        private void GenerateResult()
+        {
+            if (_rouletteBettype.Contains(_liveCasino.Bettype))
+            {
+                if (_liveCasino.FinalHomeScore.HasValue)
                 {
-                    if (this._liveCasino.FinalHomeScore.HasValue)
-                    {
-                        this._finalScore = this._liveCasino.FinalHomeScore.Value.ToString(CultureInfo.InvariantCulture);
-                        this._result = this._liveCasino.FinalHomeScore.Value == 0 ?
-                            ConstantValue.Hyphen : SetResultsRoulette(this._liveCasino.BetStatus);
-                    }
-                    else
-                    {
-                        this._result = this._finalScore = string.Empty;
-                    }
+                    _finalScore = _liveCasino.FinalHomeScore.Value.ToString(CultureInfo.InvariantCulture);
+                    _result = _liveCasino.FinalHomeScore.Value == 0 ?
+                        ConstantValue.Hyphen : SetResultsRoulette(_liveCasino.BetStatus);
                 }
                 else
                 {
-                    this._finalScore = this._liveCasino.FinalHomeScore.HasValue ?
-                       this._liveCasino.FinalHomeScore.Value + " - " +
-
-                       (this._liveCasino.FinalAwayScore.HasValue ? this._liveCasino.FinalAwayScore.ToString() : string.Empty)
-                       :
-                       string.Empty;
-
-                    this._result = SetResults(this._liveCasino.BetStatus);
+                    _result = _finalScore = string.Empty;
                 }
+            }
+            else
+            {
+                _finalScore = _liveCasino.FinalHomeScore.HasValue ?
+                   _liveCasino.FinalHomeScore.Value + " - " +
+
+                   (_liveCasino.FinalAwayScore.HasValue ? _liveCasino.FinalAwayScore.ToString() : string.Empty)
+                   :
+                   string.Empty;
+
+                _result = SetResults(_liveCasino.BetStatus);
             }
         }
     }

@@ -98,6 +98,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.PP", "Fan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.PP.Tests", "Fanex.Result.Core.PP.Tests\Fanex.Result.Core.PP.Tests.csproj", "{60145A0D-B862-490C-B954-449C243811BB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.GlobalGaming.Tests", "Fanex.Result.Core.GlobalGaming.Tests\Fanex.Result.Core.GlobalGaming.Tests.csproj", "{33F7C38E-0814-46D8-80BF-E1401DF29135}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.VoidBridge.Tests", "Fanex.Result.VoidBridge.Tests\Fanex.Result.VoidBridge.Tests.csproj", "{1F27A95D-99AE-4884-99F2-E59C37E1CD7B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.CockFighting.Tests", "Fanex.Result.CockFighting.Tests\Fanex.Result.CockFighting.Tests.csproj", "{9B472221-EF3F-4833-B71F-CD9402C8519F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -232,6 +238,18 @@ Global
 		{60145A0D-B862-490C-B954-449C243811BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60145A0D-B862-490C-B954-449C243811BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60145A0D-B862-490C-B954-449C243811BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33F7C38E-0814-46D8-80BF-E1401DF29135}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33F7C38E-0814-46D8-80BF-E1401DF29135}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33F7C38E-0814-46D8-80BF-E1401DF29135}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33F7C38E-0814-46D8-80BF-E1401DF29135}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F27A95D-99AE-4884-99F2-E59C37E1CD7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F27A95D-99AE-4884-99F2-E59C37E1CD7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F27A95D-99AE-4884-99F2-E59C37E1CD7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F27A95D-99AE-4884-99F2-E59C37E1CD7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B472221-EF3F-4833-B71F-CD9402C8519F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B472221-EF3F-4833-B71F-CD9402C8519F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B472221-EF3F-4833-B71F-CD9402C8519F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B472221-EF3F-4833-B71F-CD9402C8519F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -264,6 +282,9 @@ Global
 		{055D46DB-5556-4A00-902B-CF7C4B8225BA} = {CCA318B4-A6C4-4767-B6A5-2348BACBA831}
 		{05AA0490-7266-489A-9E2D-84C9D2F2FB39} = {35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}
 		{60145A0D-B862-490C-B954-449C243811BB} = {CCA318B4-A6C4-4767-B6A5-2348BACBA831}
+		{33F7C38E-0814-46D8-80BF-E1401DF29135} = {CCA318B4-A6C4-4767-B6A5-2348BACBA831}
+		{1F27A95D-99AE-4884-99F2-E59C37E1CD7B} = {CCA318B4-A6C4-4767-B6A5-2348BACBA831}
+		{9B472221-EF3F-4833-B71F-CD9402C8519F} = {CCA318B4-A6C4-4767-B6A5-2348BACBA831}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4BF11104-7EAE-4BB6-A235-1C10DB35CE8B}

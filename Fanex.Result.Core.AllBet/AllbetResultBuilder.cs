@@ -9,11 +9,8 @@
     public class AllbetResultBuilder : IAllbetResultBuilder
     {
         private const string InvalidTransDescErrorMessage = "tranDesc is invalid!";
-
         private const string InvalidBetTypeErrorMessage = "betType is invalid!";
-
         private const string InvalidImagePathErrorMessage = "not found AllBetCasino image path configuration!";
-
         private const string DefaultLanguageCode = "en";
 
         private static Dictionary<string, string> supportedLanguage = new Dictionary<string, string>
@@ -28,13 +25,18 @@
             { "vi-VN", "vn" }
         };
 
-        public virtual string GetTemplatePath
+        private IResultPopup _resultPopup;
+
+        public AllbetResultBuilder()
         {
-            get
-            {
-                return ConfigurationManager.AppSettings["AllbetResultImagePath"];
-            }
         }
+
+        public AllbetResultBuilder(IResultPopup resultPopup)
+        {
+            _resultPopup = resultPopup;
+        }
+
+        public virtual string GetTemplatePath => ConfigurationManager.AppSettings["AllbetResultImagePath"];
 
         public string Render(string transDesc, string gameId3rd, string betType, string languageCode = "en-US")
         {
@@ -49,6 +51,7 @@
             }
 
             var tplPath = GetTemplatePath;
+
             if (string.IsNullOrWhiteSpace(tplPath))
             {
                 throw new AllBetCasinoException(InvalidImagePathErrorMessage);
@@ -58,10 +61,10 @@
 
             try
             {
-                ResultPop resultContext = new ResultPop(HttpContext.Current, null, tplPath);
+                _resultPopup = _resultPopup ?? new ResultPop(HttpContext.Current, null, tplPath);
                 var langCode = supportedLanguage.ContainsKey(languageCode) ? supportedLanguage[languageCode] : DefaultLanguageCode;
 
-                return resultContext.genResultPopHtml(transDesc, gameId3rd, langCode, betType);
+                return _resultPopup.genResultPopHtml(transDesc, gameId3rd, langCode, betType);
             }
             catch (Exception exception)
             {
@@ -69,11 +72,11 @@
             }
         }
 
-        private string CreateRelativePath(string path)
+        private static string CreateRelativePath(string path)
         {
-            path = HttpRuntime.AppDomainAppVirtualPath + path;
+            var relativePath = HttpRuntime.AppDomainAppVirtualPath + path;
 
-            return path.Replace("//", "/");
+            return relativePath.Replace("//", "/");
         }
     }
 }

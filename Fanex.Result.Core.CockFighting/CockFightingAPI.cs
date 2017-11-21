@@ -1,7 +1,6 @@
 ﻿namespace Fanex.Result.Core.CockFighting
 {
     using System;
-    using System.Diagnostics.CodeAnalysis;
     using System.IO;
     using System.Net;
     using System.Net.Cache;
@@ -15,12 +14,18 @@
 
         public CockFightingAPI()
         {
-            this._config = GetConfig();
+            _config = GetConfig();
+        }
+
+        public CockFightingAPI(Config config)
+        {
+            _config = config;
         }
 
         public string GetResultToken(string customerId, string languageCode = "en")
         {
             ValidateConfig();
+
             if (string.IsNullOrEmpty(customerId))
             {
                 throw new CockFightingException("Invalid customer ID");
@@ -47,6 +52,7 @@
                     client.CachePolicy = new RequestCachePolicy(RequestCacheLevel.BypassCache);
                     client.UseDefaultCredentials = true;
                     var result = client.DownloadString(new Uri(authorizedAPI));
+
                     if (!IsValidResultToken(result))
                     {
                         throw new CockFightingException("Cock Fighting API Exception - The raw message:" + result + "\n Url=" + authorizedAPI);
@@ -61,7 +67,6 @@
             }
         }
 
-        [SuppressMessage("Microsoft.Usage", "CA2202:Do not dispose objects multiple times", Justification = "Reviewed.")]
         public string ExtendToken(string customerId)
         {
             ValidateConfig();
@@ -75,10 +80,10 @@
             {
                 var extendedAPI = string.Format(_config.ExtendedAPI, _config.Vendor, _config.VendorKey, customerId);
 
-                WebRequest request = WebRequest.Create(extendedAPI);
-
+                WebRequest request = WebRequest.Create(new Uri(extendedAPI));
                 request.Credentials = CredentialCache.DefaultCredentials;
                 request.CachePolicy = new HttpRequestCachePolicy(HttpRequestCacheLevel.NoCacheNoStore);
+
                 using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
                 {
                     using (var dataStream = response.GetResponseStream())
@@ -96,15 +101,10 @@
             }
         }
 
-        private static bool IsValidResultToken(string resultToken)
-        {
-            var regex = new Regex(@"(http|https):\/\/[^\/]+\/subCF\/\?action=[^&]*&siteID=[^&]*&lang=[^&]*&date=[^&]*&authorization=[^&]*&timezone=[^&]*");
-            return regex.IsMatch(resultToken);
-        }
-
-        private static Config GetConfig()
+        public static Config GetConfig()
         {
             var setting = WebConfigurationManager.AppSettings;
+
             return new Config
             {
                 AuthorizedAPI = setting["CockFightingAuthorizedAPI"],
@@ -113,6 +113,12 @@
                 Vendor = setting["CockFightingVendor"],
                 VendorKey = setting["CockFightingVendorKey"]
             };
+        }
+
+        private static bool IsValidResultToken(string resultToken)
+        {
+            var regex = new Regex(@"(http|https):\/\/[^\/]+\/subCF\/\?action=[^&]*&siteID=[^&]*&lang=[^&]*&date=[^&]*&authorization=[^&]*&timezone=[^&]*");
+            return regex.IsMatch(resultToken);
         }
 
         private void ValidateConfig()

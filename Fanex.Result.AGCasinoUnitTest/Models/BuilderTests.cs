@@ -4,6 +4,8 @@
     using System.Collections.Generic;
     using Core.AGCasino.DTO;
     using Core.AGCasino.Models;
+    using Core.Base;
+    using Core.TestUtils;
     using NUnit.Framework;
 
     [TestFixture]
@@ -15,6 +17,19 @@
         public void SetUp()
         {
             _builder = new Builder();
+        }
+
+        [Test]
+        public void HtmlBuilder_Always_ReturnNotNullHtml()
+        {
+            // Arrange
+            var resultSetting = new ResultSetting { SportType = SportType.AGCasino };
+
+            // Act
+            var actualHtml = _builder.HtmlBuilder(new List<AGCasino>() { new AGCasino() }, resultSetting);
+
+            // Assert
+            Assert.AreEqual(TemplateFileUtils.GetHtmlContentFromTestTemplate("AGCasino.html"), TemplateFileUtils.RemoveEndLineSymbolHtml(actualHtml));
         }
 
         [Test]

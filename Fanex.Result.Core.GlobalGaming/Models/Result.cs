@@ -15,7 +15,10 @@
         public string GameId { get; set; }
 
         [DataMember]
+#pragma warning disable S3996 // URI properties should not be strings
         public string ResultUrl { get; set; }
+
+#pragma warning restore S3996 // URI properties should not be strings
 
         [DataMember]
         public int ErrorCode { get; set; }

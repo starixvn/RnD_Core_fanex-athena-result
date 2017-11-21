@@ -1,17 +1,8 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="MicroGamingException.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.MicroGaming.Exceptions
+﻿namespace Fanex.Result.Core.MicroGaming.Exceptions
 {
     using System;
     using System.Runtime.Serialization;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     [Serializable]
     public class MicroGamingException : System.Exception
     {
@@ -35,13 +26,7 @@ namespace Fanex.Result.Core.MicroGaming.Exceptions
         }
 
         public override string Message
-        {
-            get
-            {
-                return
-                    string.Format("MicroGaming Result API Exception. Exception: {0}", base.Message);
-            }
-        }
+            => string.Format("MicroGaming Result API Exception. Exception: {0}", base.Message);
 
         public override void GetObjectData(SerializationInfo info, StreamingContext context)
         {

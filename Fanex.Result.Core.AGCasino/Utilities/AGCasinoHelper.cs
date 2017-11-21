@@ -1,21 +1,12 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="AGCasinoHelper.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.AGCasino.Utilities
+﻿namespace Fanex.Result.Core.AGCasino.Utilities
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using System.Text.RegularExpressions;
-    using Fanex.Result.Core.Base.Utilities;
+    using Base.Utilities;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     internal static class AGCasinoHelper
     {
         private const string RoutletResultTemplate = "<span class=\"black\">{0}</span>";
@@ -35,20 +26,20 @@ namespace Fanex.Result.Core.AGCasino.Utilities
         private static readonly Regex NoneNumber = new Regex("[^0-9]");
         private static readonly Regex AGCasinoResultPattern = new Regex("\\*result=([^\\*]+)\\*winResult");
 
-        private static readonly IDictionary<string, string> CardType = new Dictionary<string, string>()
+        private static readonly IDictionary<string, string> CardType = new Dictionary<string, string>
         {
-        { "C", "&clubs;" },
-        { "S", "&spades;" },
-        { "D", "&diams;" },
-        { "H", "&hearts;" }
+            { "C", "&clubs;" },
+            { "S", "&spades;" },
+            { "D", "&diams;" },
+            { "H", "&hearts;" }
         };
 
-        private static readonly IDictionary<string, string> CSSClassByCard = new Dictionary<string, string>()
+        private static readonly IDictionary<string, string> CSSClassByCard = new Dictionary<string, string>
         {
-        { "C", "club" },
-        { "S", "spade" },
-        { "D", "diamond" },
-        { "H", "heart" }
+            { "C", "club" },
+            { "S", "spade" },
+            { "D", "diamond" },
+            { "H", "heart" }
         };
 
         internal static string GetAGCasinoResultToken(string resultData)
@@ -65,11 +56,11 @@ namespace Fanex.Result.Core.AGCasino.Utilities
         {
             var htmlResult = new StringBuilder();
 
-            var resultTokens = result.Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
+            var resultTokens = result.Split(new[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
 
             foreach (var item in resultTokens)
             {
-                var cardTokens = item.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+                var cardTokens = item.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
                 var choiceKey = cardTokens[0].Equals(BankerKey, StringComparison.OrdinalIgnoreCase) ? BankerKey : PlayerKey;
                 var choiceName = cardTokens[0].Equals(BankerKey, StringComparison.OrdinalIgnoreCase) ? bankerText : playerText;
                 var choicePoint = TrimPoint(cardTokens.Skip(1).Sum(x => GetPoint(x)));
@@ -86,12 +77,12 @@ namespace Fanex.Result.Core.AGCasino.Utilities
 
         internal static string GetDragonTigerResult(string gameResult, string daragonName, string tigerName)
         {
-            var resultTokens = gameResult.Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
+            var resultTokens = gameResult.Split(new[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
             var tempResult = new StringBuilder();
 
             foreach (var item in resultTokens)
             {
-                var choiceTokens = item.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+                var choiceTokens = item.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
                 var choiceKey = choiceTokens[0].Equals(DragonKey, StringComparison.OrdinalIgnoreCase) ? DragonKey : TigerKey;
                 var choiceName = choiceTokens[0].Equals(DragonKey, StringComparison.OrdinalIgnoreCase) ? daragonName : tigerName;
                 var cssByChoiceKey = choiceKey == DragonKey ? CSSDragon : CSSTiger;
@@ -113,7 +104,7 @@ namespace Fanex.Result.Core.AGCasino.Utilities
         internal static string GetSicBoResult(string gameResult)
         {
             var tempResult = new StringBuilder();
-            var resultTokens = gameResult.Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+            var resultTokens = gameResult.Split(new[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
 
             foreach (var item in resultTokens)
             {
@@ -122,12 +113,14 @@ namespace Fanex.Result.Core.AGCasino.Utilities
 
             return tempResult.ToString();
         }
+
         #region Bacarat Helper
+
         private static string GetBacaratHtmlResult(string choiceName, string choiceKey, string[] choiceResult, int choicePoint)
         {
             var htmlResult = new StringBuilder("<ul class=\"" + (choiceKey == BankerKey ? CSSBanker : CSSPlayer) + "\">");
             htmlResult.Append(string.Format(BacaratResultTemplate, choiceKey, string.Empty, choiceName + "&nbsp;(" + choicePoint + ")&nbsp;:"));
-            KeyValuePair<string, string> currentCard = new KeyValuePair<string, string>("space", "&nbsp;");
+
             foreach (var item in choiceResult.Skip(1))
             {
                 var cardTokens = item.ToCharArray();
@@ -159,6 +152,7 @@ namespace Fanex.Result.Core.AGCasino.Utilities
             return valueWithoutNoneNumber.Equals(Aces, StringComparison.OrdinalIgnoreCase) ? 1 :
                 Helper.IsIntegerNumber(valueWithoutNoneNumber) && valueWithoutNoneNumber != Card10 ? int.Parse(valueWithoutNoneNumber) : 0;
         }
-        #endregion
+
+        #endregion Bacarat Helper
     }
 }

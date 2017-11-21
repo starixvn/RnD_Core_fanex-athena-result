@@ -7,10 +7,10 @@
     {
         public NumberGame()
         {
-            this.Seg = new List<int>();
-            this.Ball = new List<int>();
-            this.EventStatus = string.Empty;
-            this.MatchCode = string.Empty;
+            Seg = new List<int>();
+            Ball = new List<int>();
+            EventStatus = string.Empty;
+            MatchCode = string.Empty;
         }
 
         public int LeagueId { get; set; }

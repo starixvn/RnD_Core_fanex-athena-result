@@ -1,20 +1,10 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="Builder.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.AGCasino.Models
+﻿namespace Fanex.Result.Core.AGCasino.Models
 {
     using System;
     using System.Collections.Generic;
-    using Fanex.Result.Core.Base.Extension;
-    using Fanex.Result.Core.Base.Models;
-    using Fanex.Result.Core.Models;
+    using Base.Extension;
+    using Base.Models;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public class Builder : BaseBuilder, IBuilder
     {
         public string HtmlBuilder<T>(IList<T> dataList, Base.ResultSetting setting)

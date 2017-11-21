@@ -1,10 +1,4 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="ParserService.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.MicroGaming
+﻿namespace Fanex.Result.Core.MicroGaming
 {
     using System;
     using System.Collections.Generic;
@@ -12,17 +6,12 @@ namespace Fanex.Result.Core.MicroGaming
     using System.IO;
     using System.Net.Http;
     using System.Xml.Serialization;
-    using Fanex.Result.Core.MicroGaming.Exceptions;
-    using Fanex.Result.Core.MicroGaming.ViewModels;
+    using Exceptions;
+    using ViewModels;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     public class ParserService : IParserService
     {
         private const string IFRAMERESULT = "<div class=\"iframe-rs-wrap\"><iframe class=\"iframe-rs\" src=\"{0}\" ></iframe></div>";
-        private const string NORESULT = "<div class=\"no-info-rs\">{0}</div>";
-        /*singleton*/
 
         private static readonly Lazy<IParserService> LazyParserService = new Lazy<IParserService>(() => new ParserService());
 
@@ -30,13 +19,7 @@ namespace Fanex.Result.Core.MicroGaming
         {
         }
 
-        public static IParserService Instance
-        {
-            get
-            {
-                return LazyParserService.Value;
-            }
-        }
+        public static IParserService Instance => LazyParserService.Value;
 
         public string Parser(DTO.MicroGaming param)
         {
@@ -53,7 +36,7 @@ namespace Fanex.Result.Core.MicroGaming
             }
             catch (Exception exception)
             {
-                throw new MicroGaming.Exceptions.MicroGamingException(exception.Message, exception.InnerException);
+                throw new MicroGamingException(exception.Message, exception.InnerException);
             }
         }
 
@@ -80,7 +63,7 @@ namespace Fanex.Result.Core.MicroGaming
             using (var client = new HttpClient())
             {
                 return client
-                    .PostAsync(api, content)
+                    .PostAsync(new Uri(api), content)
                     .Result
                     .Content
                     .ReadAsStringAsync()

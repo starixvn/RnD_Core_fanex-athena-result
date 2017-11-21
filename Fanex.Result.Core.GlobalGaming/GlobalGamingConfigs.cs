@@ -25,7 +25,9 @@
         }
 
         [ConfigurationProperty(__URL, IsRequired = true)]
+#pragma warning disable S3996 // URI properties should not be strings
         public string Url
+#pragma warning restore S3996 // URI properties should not be strings
         {
             get { return this[__URL].ToString(); }
             set { this[__URL] = value; }

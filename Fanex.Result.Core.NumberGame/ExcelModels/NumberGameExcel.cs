@@ -1,16 +1,15 @@
 ﻿namespace Fanex.Result.Core.NumberGame.ExcelModels
 {
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
     using System.Linq;
-    using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.ExcelModels;
-    using Fanex.Result.Core.Base.Extension;
-    using Fanex.Result.Core.Base.Resources;
-    using Fanex.Result.Core.Base.Utilities;
-    using Fanex.Result.Core.Base.ViewModels;
-    using Fanex.Result.Core.NumberGame.ViewModels;
+    using Base;
+    using Base.ExcelModels;
+    using Base.Extension;
+    using Base.Resources;
+    using Base.Utilities;
+    using Base.ViewModels;
     using NPOI.SS.UserModel;
+    using ViewModels;
 
     internal sealed class NumberGameExcel : ExcelBase, IExcelModel
     {
@@ -20,19 +19,14 @@
 
         #endregion Fields
 
-        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode", Justification = "Reviewed.")]
         public NumberGameExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
             : base(templatePath, setting, data)
         {
-            this.ColumnTemplateCount = 9;
-            this.ColumnStatus = 8;
-            this.RowContentTemplate = 3;
+            ColumnTemplateCount = 9;
+            ColumnStatus = 8;
+            RowContentTemplate = 3;
         }
 
-        /// <summary>
-        /// Assign value to header section.
-        /// </summary>
-        /// <param name="sheet">The current sheet.</param>
         protected override void AssignHeader(NPOI.SS.UserModel.ISheet sheet)
         {
             var colidx = 0;
@@ -48,21 +42,20 @@
             row.Cells[colidx].SetCellValue(LangResource.Status);
         }
 
-        /// <summary>
-        /// Assign data to sheet.
-        /// </summary>
-        /// <param name="sheet">The current sheet.</param>
         protected override void AssignSheetData(ISheet sheet)
         {
             var currentRow = RowLeagueTemplate;
             var currentLeagueId = 0;
-            var groupData = this.ViewModelData.GroupBy(i => i.LeagueId).ToList();
+            var groupData = ViewModelData.GroupBy(i => i.LeagueId).ToList();
+
             foreach (var item in groupData)
             {
+#pragma warning disable S3215 // "interface" instances should not be cast to concrete types
                 var firstItem = (NumberGameViewModel)item.FirstOrDefault();
+#pragma warning restore S3215 // "interface" instances should not be cast to concrete types
                 SetLeague(sheet, firstItem.LeagueId, firstItem.LeagueName, ref currentLeagueId, ref currentRow);
 
-                foreach (NumberGameViewModel exportRow in item.ToList())
+                foreach (var exportRow in item.ToList().OfType<NumberGameViewModel>())
                 {
                     var rowMatch = sheet.CopyRow(TemplateSheet, RowContentTemplate, currentRow);
 
@@ -74,17 +67,17 @@
                     }
 
                     AssignStringData(
-                                rowMatch,
-                                    ColumnMatchCode,
-                                    Helper.ToRtfString(exportRow.MatchCode + "<br/>" + exportRow.MatchId),
-                                     Helper.ToRtfString(exportRow.KickOffTime),
-                                      string.Format(Match, LangResource.NumberGameNo, exportRow.GameNo),
-                                      string.Join("-", results),
-                                      exportRow.Warrior,
-                                      exportRow.OEFT,
-                                      exportRow.FirstBall,
-                                      exportRow.LastBall,
-                                       exportRow.EventStatus);
+                        rowMatch,
+                        ColumnMatchCode,
+                        Helper.ToRtfString(exportRow.MatchCode + "<br/>" + exportRow.MatchId),
+                        Helper.ToRtfString(exportRow.KickOffTime),
+                        string.Format(Match, LangResource.NumberGameNo, exportRow.GameNo),
+                        string.Join("-", results),
+                        exportRow.Warrior,
+                        exportRow.OEFT,
+                        exportRow.FirstBall,
+                        exportRow.LastBall,
+                        exportRow.EventStatus);
                     currentRow++;
                 }
             }

@@ -1,9 +1,10 @@
-﻿using Fanex.Result.Core.AllBetCasino;
-using NSubstitute;
-using NUnit.Framework;
-
-namespace Fanex.Result.AllBetCasino.Tests
+﻿namespace Fanex.Result.AllBetCasino.Tests
 {
+    using Core.AllBetCasino;
+    using LiveCasinoResult;
+    using NSubstitute;
+    using NUnit.Framework;
+
     [TestFixture]
     public class BuilderServiceTest
     {
@@ -13,7 +14,7 @@ namespace Fanex.Result.AllBetCasino.Tests
         public void Setup()
         {
             _targetBuilder = Substitute.For<AllbetResultBuilder>();
-            _targetBuilder.GetTemplatePath.Returns<string>(string.Empty);
+            _targetBuilder.GetTemplatePath.Returns(string.Empty);
         }
 
         [TestCase(null)]
@@ -51,16 +52,57 @@ namespace Fanex.Result.AllBetCasino.Tests
         [Test]
         public void Render_WhenInvalidImagePathConfig_ThrowAllBetCasinoException()
         {
-            /// Arrange
+            // Arrange
             var transDesc = "transDesc";
             var matchCode = string.Empty;
             var betType = "2401";
             var expectedMessage = "AllBetCasino Result API Exception. Exception: not found AllBetCasino image path configuration!";
 
-            /// Assert
+            // Assert
             Assert.That(
                 () => _targetBuilder.Render(transDesc, matchCode, betType),
                 Throws.Exception.TypeOf<AllBetCasinoException>().With.Property("Message").Contains(expectedMessage));
+        }
+
+        [Test]
+        public void Render_WhenValidImagePathConfig_ReturnResultHtml()
+        {
+            // Arrange
+            var transDesc = "transDesc";
+            var matchCode = string.Empty;
+            var betType = "2401";
+            var resultPopup = Substitute.For<IResultPopup>();
+            resultPopup.genResultPopHtml(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<string>(), Arg.Any<string>()).Returns("Test");
+            var builder = new AllbetResultBuilder(resultPopup);
+
+            // Assert
+            Assert.AreEqual("Test", builder.Render(transDesc, matchCode, betType));
+        }
+
+        [Test]
+        public void Render_WhenValidImagePathConfig_WhenHasException_ThrowException()
+        {
+            // Arrange
+            var transDesc = "transDesc";
+            var matchCode = string.Empty;
+            var betType = "2401";
+            var builder = new AllbetResultBuilder();
+
+            // Act
+            var testDelegate = new TestDelegate(() => builder.Render(transDesc, matchCode, betType));
+
+            // Assert
+            Assert.Throws<AllBetCasinoException>(testDelegate);
+        }
+
+        [Test]
+        public void GetTemplatePath_Always_GetFromAppSettings()
+        {
+            // Act
+            var builder = new AllbetResultBuilder();
+
+            // Assert
+            Assert.AreEqual("Testpath", builder.GetTemplatePath);
         }
     }
 }

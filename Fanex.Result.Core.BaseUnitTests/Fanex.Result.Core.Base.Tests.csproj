@@ -83,10 +83,6 @@
       <Project>{8673f024-7726-4c30-8464-5a8357f79bf0}</Project>
       <Name>Fanex.Result.Core.Base</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Fanex.Result.Core.SportsbookUnitTests\Fanex.Result.Core.Sportsbook.Tests.csproj">
-      <Project>{978d3d90-0029-43dd-8791-e9d3368c735b}</Project>
-      <Name>Fanex.Result.Core.Sportsbook.Tests</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.Sportsbook\Fanex.Result.Core.Sportsbook.csproj">
       <Project>{0469C900-5E5B-4D2C-8DB3-7EAEA991095B}</Project>
       <Name>Fanex.Result.Core.Sportsbook</Name>

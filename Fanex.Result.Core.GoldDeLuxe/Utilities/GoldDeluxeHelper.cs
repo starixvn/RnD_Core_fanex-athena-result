@@ -1,20 +1,11 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="GoldDeluxeHelper.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.GoldDeluxe.Utilities
+﻿namespace Fanex.Result.Core.GoldDeluxe.Utilities
 {
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using System.Text;
-    using Fanex.Result.Core.Base.Utilities;
+    using Base.Utilities;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     internal static class GoldDeluxeHelper
     {
         private const string RoutletResultTemplate = "<span class=\"{0}\">{1}</span>";
@@ -30,13 +21,13 @@ namespace Fanex.Result.Core.GoldDeluxe.Utilities
         private const string CSSBanker = "banker";
         private const string CSSPlayer = "player";
 
-        private static readonly string[] RoutletRedResult = new string[]
+        private static readonly string[] RoutletRedResult = new[]
         {
             "1", "3", "5", "7", "9", "12", "14", "16", "18",
             "19", "21", "23", "25", "27", "30", "32", "34", "36"
         };
 
-        private static readonly IDictionary<string, string> CardType = new Dictionary<string, string>()
+        private static readonly IDictionary<string, string> CardType = new Dictionary<string, string>
         {
         { "club", "&clubs;" },
         { "spade", "&spades;" },
@@ -90,7 +81,7 @@ namespace Fanex.Result.Core.GoldDeluxe.Utilities
 
         private static void GetBankerAndPlayerResultValue(string result, List<string> bankerResult, List<string> playerResult, ref int bankerPoint, ref int playerPoint)
         {
-            var resultTokens = result.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
+            var resultTokens = result.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
             var totalTokens = resultTokens.Count();
             var bankerIndex = Array.FindIndex(resultTokens, w => w.Equals(BankerKey, StringComparison.OrdinalIgnoreCase));
             var playerIndex = Array.FindIndex(resultTokens, w => w.Equals(PlayerKey, StringComparison.OrdinalIgnoreCase));

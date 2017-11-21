@@ -10,6 +10,8 @@
 
     public class GlobalGamingResultApi : Base3rdResultApi
     {
+        private const string DefaultLanguage = "en-US";
+
         private static readonly Dictionary<string, string> SupportedLanguage = new Dictionary<string, string>
         {
             { "en-US", "en" },
@@ -22,12 +24,9 @@
             { "vi-VN", "vn" }
         };
 
-        private static readonly string DefaultLanguage = "en-US";
-
-        private GlobalGamingConfigs _configs;
+        private readonly GlobalGamingConfigs _configs;
 
         public GlobalGamingResultApi()
-            : base()
         {
             _configs = GlobalGamingConfigs.Configs;
         }
@@ -111,7 +110,7 @@
             return call;
         }
 
-        private string GetLanguageCode(string language)
+        private static string GetLanguageCode(string language)
         {
             return string.IsNullOrEmpty(language) || !SupportedLanguage.ContainsKey(language)
                                     ? SupportedLanguage[DefaultLanguage]

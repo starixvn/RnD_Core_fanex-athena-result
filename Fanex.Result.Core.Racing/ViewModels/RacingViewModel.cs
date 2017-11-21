@@ -1,61 +1,45 @@
 ﻿namespace Fanex.Result.Core.Racing.ViewModels
 {
     using System.Globalization;
-    using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.Base.Resources;
-    using Fanex.Result.Core.Base.Utilities;
-    using Fanex.Result.Core.Base.ViewModels;
-    using RemotingRef;
+    using Base;
+    using Base.Resources;
+    using Base.Utilities;
+    using Base.ViewModels;
+    using Utilities;
 
-    public sealed class RacingViewModel : BaseViewModel, IResultViewModel
+    public class RacingViewModel : BaseViewModel, IResultViewModel
     {
         private readonly DTO.Racing _racing;
 
         public RacingViewModel(DTO.Racing racing, ResultSetting setting)
-            : base(setting)
+            : this(racing, setting, null)
         {
-            this._racing = racing;
-            this.LanguageCode = setting.LanguageCode;
-            this.Sport = setting.SportType;
         }
 
-        public override int LeagueId
+        public RacingViewModel(DTO.Racing racing, ResultSetting setting, IRacingRefDataHelper refDataHelper)
+        : base(setting, refDataHelper)
         {
-            get
-            {
-                return this._racing.LeagueId;
-            }
+            _racing = racing;
+            LanguageCode = setting.LanguageCode;
+            Sport = setting.SportType;
+            RacingRefDataHelper = refDataHelper ?? new RacingRefDataHelper();
         }
 
-        public override string LeagueName
-        {
-            get
-            {
-                return this.GetLeagueNameByLanguage(this._racing.LeagueId);
-            }
-        }
+        public IRacingRefDataHelper RacingRefDataHelper { get; }
 
-        public string RaceName
-        {
-            get
-            {
-                return this._racing.RaceName.ToString(CultureInfo.InvariantCulture);
-            }
-        }
+        public override int LeagueId => _racing.LeagueId;
 
-        public int Place
-        {
-            get
-            {
-                return this._racing.Place;
-            }
-        }
+        public override string LeagueName => GetLeagueNameByLanguage(_racing.LeagueId);
+
+        public string RaceName => _racing.RaceName.ToString(CultureInfo.InvariantCulture);
+
+        public int Place => _racing.Place;
 
         public string Placing
         {
             get
             {
-                switch (this._racing.Place.ToString(CultureInfo.InvariantCulture))
+                switch (_racing.Place.ToString(CultureInfo.InvariantCulture))
                 {
                     case "01":
                     case "1":
@@ -74,81 +58,29 @@
                         return LangResource.Lbl4th;
 
                     default:
-                        return this._racing.Place + LangResource.Noothers;
+                        return _racing.Place + LangResource.Noothers;
                 }
             }
         }
 
-        public string HorseNo
-        {
-            get
-            {
-                return this._racing.EngineNo;
-            }
-        }
+        public string HorseNo => _racing.EngineNo;
 
-        public string Result
-        {
-            get
-            {
-                return RefData.GetHorseTeamName(this._racing.EngineId, this.GetSupportedLanguage, string.Empty);
-            }
-        }
+        public string Result => RacingRefDataHelper.GetHorseTeamName(_racing.EngineId, GetSupportedLanguage, string.Empty);
 
         public string WinOdd
-        {
-            get
-            {
-                return this._racing.WinOdds > 0
-                    ? Helper.DecFormat(this._racing.WinOdds, 2)
-                    : string.Empty;
-            }
-        }
+            => _racing.WinOdds > 0 ? Helper.DecFormat(_racing.WinOdds, 2) : string.Empty;
 
         public string PlaceOdd
-        {
-            get
-            {
-                return
-                    this._racing.PlaceOdds > 0 ? Helper.DecFormat(this._racing.PlaceOdds, 2) : string.Empty;
-            }
-        }
+            => _racing.PlaceOdds > 0 ? Helper.DecFormat(_racing.PlaceOdds, 2) : string.Empty;
 
-        public bool IsSCR
-        {
-            get
-            {
-                return this._racing.IsSCR;
-            }
-        }
+        public bool IsSCR => _racing.IsSCR;
 
-        public bool IsFavor
-        {
-            get
-            {
-                return this._racing.IsFavor;
-            }
-        }
+        public bool IsFavor => _racing.IsFavor;
 
-        public string SCR
-        {
-            get
-            {
-                return this._racing.SCROfMatch;
-            }
-        }
+        public string SCR => _racing.SCROfMatch;
 
-        public string TF
-        {
-            get
-            {
-                return this._racing.TFOfMatch;
-            }
-        }
+        public string TF => _racing.TFOfMatch;
 
-        public int RowCount
-        {
-            get { return this._racing.RowCount; }
-        }
+        public int RowCount => _racing.RowCount;
     }
 }

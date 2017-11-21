@@ -23,8 +23,8 @@
             { "id-ID", "id" }
         };
 
-        private VoidbridgeConfigs _configs;
-        private string _timeStamp;
+        private readonly VoidbridgeConfigs _configs;
+        private readonly string _timeStamp;
         private string _seq;
         private string _siteId;
 
@@ -34,7 +34,10 @@
             _timeStamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff");
         }
 
+#pragma warning disable S3995 // URI return values should not be strings
+
         public string GetBetHistoryUrl(string custId, string gamePlayId, string language = DefaultLanguage, string siteId = null)
+#pragma warning restore S3995 // URI return values should not be strings
         {
             ValidateArguments(custId, gamePlayId, siteId);
             _siteId = siteId ?? _configs.SiteId;
@@ -61,7 +64,7 @@
             return url;
         }
 
-        private bool ValidateArguments(string custId, string gamePlayId, string siteId)
+        private void ValidateArguments(string custId, string gamePlayId, string siteId)
         {
             if (string.IsNullOrEmpty(custId))
             {
@@ -77,8 +80,6 @@
             {
                 throw new VoidbridgeException("siteId argument must have value or SiteId in Web.config file!");
             }
-
-            return true;
         }
 
         private string CreateJsonData(string custId, string gamePlayId, string language)
@@ -139,14 +140,14 @@
             _seq = $"{timestampWithRandom}-{hashedPreInfo}";
         }
 
-        private string SerializeRequest(Request request)
+        private static string SerializeRequest(Request request)
         {
             DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(Request));
 
             return SerializeObject(ser, request);
         }
 
-        private string SerializeObject(DataContractJsonSerializer ser, object request)
+        private static string SerializeObject(DataContractJsonSerializer ser, object request)
         {
             MemoryStream stream = new MemoryStream();
 
@@ -171,7 +172,7 @@
             return result;
         }
 
-        private Response DeserializeResponse(string response)
+        private static Response DeserializeResponse(string response)
         {
             MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(response));
             DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(Response));
@@ -182,8 +183,8 @@
         private bool ValidateResponse(Response responseObject, string request)
         {
             var successStatus = "0";
-            var requestDateTime = new DateTime();
-            var responseDateTime = new DateTime();
+            DateTime requestDateTime;
+            DateTime responseDateTime;
 
             DateTime.TryParse(_timeStamp, out requestDateTime);
             DateTime.TryParse(responseObject.TimeStamp, out responseDateTime);
@@ -212,7 +213,7 @@
             return true;
         }
 
-        private string SerializeResponse(Response response)
+        private static string SerializeResponse(Response response)
         {
             DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(Response));
 

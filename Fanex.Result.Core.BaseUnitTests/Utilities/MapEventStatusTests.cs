@@ -20,6 +20,7 @@
             Assert.AreNotEqual(expectedEventStatus, eventStatus);
         }
 
+        [Test]
         public void MapEventStatusString_FromEventStatusIsInternalVisibleInternalStatusIsFalse_ReturnsNotInternal()
         {
             // Arrange

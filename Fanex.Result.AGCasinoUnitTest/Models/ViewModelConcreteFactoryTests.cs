@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Diagnostics.CodeAnalysis;
     using Core.AGCasino.DTO;
     using Core.AGCasino.Models;
     using Core.Base;
@@ -14,13 +13,12 @@
     {
         private ResultSetting _resultSetting;
 
-        [SuppressMessage("Microsoft.StyleCop.CSharp.NamingRules", "SA1305:FieldNamesMustNotUseHungarianNotation", Justification = "Reviewed.")]
-        private AGCasino _aGCasino;
+        private AGCasino _casino;
 
         [SetUp]
         public void SetUp()
         {
-            _aGCasino = new AGCasino();
+            _casino = new AGCasino();
             _resultSetting = new ResultSetting();
         }
 
@@ -44,7 +42,7 @@
             _resultSetting.SportType = SportType.AGCasino;
 
             // Act
-            var viewModel = ViewModelConcreteFactory.Instance.GetViewModel(_aGCasino, _resultSetting);
+            var viewModel = ViewModelConcreteFactory.Instance.GetViewModel(_casino, _resultSetting);
 
             // Assert
             var expectViewModelTypeName = "AGCasinoViewModel";

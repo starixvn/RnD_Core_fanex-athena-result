@@ -11,14 +11,14 @@
     public class BuilderTests
     {
         private ResultSetting _resultSetting;
-        private IList<DTO.Sportsbook> _dataList;
+        private IList<Sportsbook> _dataList;
 
         [SetUp]
         public void Setup()
         {
             _resultSetting = DataUtils.CreateResultSetting();
             _resultSetting.SportType = SportType.Soccer;
-            _dataList = new List<DTO.Sportsbook>();
+            _dataList = new List<Sportsbook>();
         }
 
         [Test]

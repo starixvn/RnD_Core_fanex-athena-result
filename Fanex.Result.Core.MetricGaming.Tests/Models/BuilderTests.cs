@@ -2,7 +2,9 @@
 {
     using System;
     using System.Collections.Generic;
-    using DTO;
+    using Base;
+    using TestUtils;
+    using MetricGaming.DTO;
     using MetricGaming.Models;
     using NUnit.Framework;
 
@@ -15,6 +17,19 @@
         public void SetUp()
         {
             _builder = new Builder();
+        }
+
+        [Test]
+        public void HtmlBuilder_Always_ReturnNotNullHtml()
+        {
+            // Arrange
+            var resultSetting = new ResultSetting { SportType = SportType.AGCasino };
+
+            // Act
+            var actualHtml = _builder.HtmlBuilder(new List<MetricGaming>(), resultSetting);
+
+            // Assert
+            Assert.AreEqual(TemplateFileUtils.GetHtmlContentFromTestTemplate("MetricGaming.html"), TemplateFileUtils.RemoveEndLineSymbolHtml(actualHtml));
         }
 
         [Test]

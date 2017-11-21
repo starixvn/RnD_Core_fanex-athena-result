@@ -9,7 +9,10 @@
         public string Seq { get; set; }
 
         [DataMember]
+#pragma warning disable S3996 // URI properties should not be strings
         public string Url { get; set; }
+
+#pragma warning restore S3996 // URI properties should not be strings
 
         [DataMember]
         public string ErrorCode { get; set; }

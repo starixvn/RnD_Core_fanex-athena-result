@@ -27,7 +27,7 @@
         public string MatchInfo => (IsVirtualSports(Setting.SportType) ? GetMatchInfo(SPORTBOOK.MatchCode) : string.Empty);
 
         private static bool IsVirtualSports(SportType sportType)
-            => sportType == SportType.VirtualSoccerLeague || sportType == SportType.VirtualSoccerNation;
+            => sportType == SportType.VirtualSoccerLeague || sportType == SportType.VirtualSoccerNation || sportType == SportType.VirtualBasketBall;
 
         private static string GetMatchInfo(string matchCode)
             => " (" + string.Format(

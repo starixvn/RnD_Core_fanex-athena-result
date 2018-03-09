@@ -209,6 +209,9 @@
         [StringValue("Other")]
         VirtualSoccerNation = 191,
 
+        [StringValue("Other")]
+        VirtualBasketBall = 193,
+
         #endregion Other
 
         #region VirtualSport

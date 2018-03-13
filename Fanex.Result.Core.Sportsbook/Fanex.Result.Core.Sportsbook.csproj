@@ -67,6 +67,7 @@
     <Compile Include="DataDomain\GameResourceID.cs" />
     <Compile Include="DataDomain\GameResources.cs" />
     <Compile Include="DataDomain\TennisBetID.cs" />
+    <Compile Include="DataDomain\VSBasketBallResourceID.cs" />
     <Compile Include="DTO\GameDetail.cs" />
     <Compile Include="DTO\Outright.cs" />
     <Compile Include="DTO\Parlay.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="ExcelModels\BilliardExcel.cs" />
     <Compile Include="ExcelModels\MuayThaiExcel.cs" />
     <Compile Include="ExcelModels\HockeyExcel.cs" />
+    <Compile Include="ExcelModels\VSBasketBallExcel.cs" />
     <Compile Include="ExcelModels\OtherExcel.cs" />
     <Compile Include="ExcelModels\OutrightExcel.cs" />
     <Compile Include="ExcelModels\SoccerExcel.cs" />
@@ -124,6 +126,8 @@
     <Compile Include="ViewModels\TennisDetail\GameValue.cs" />
     <Compile Include="ViewModels\TennisDetail\SetValue.cs" />
     <Compile Include="ViewModels\TennisViewModel.cs" />
+    <Compile Include="ViewModels\VSBasketBallDetail\VSBasketBallResultDetail.cs" />
+    <Compile Include="ViewModels\VSBasketBallViewModel.cs" />
     <Compile Include="ViewModels\VSTennisViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -170,12 +174,14 @@
     <EmbeddedResource Include="Views\VSTennis.cshtml" />
     <EmbeddedResource Include="Views\MuayThai.cshtml" />
     <EmbeddedResource Include="Views\SoccerDetail\FastMarkets.cshtml" />
+    <EmbeddedResource Include="Views\VSBasketBall.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\SonarAnalyzer.CSharp.6.3.0.2862\analyzers\Google.Protobuf.dll" />
     <Analyzer Include="..\packages\SonarAnalyzer.CSharp.6.3.0.2862\analyzers\SonarAnalyzer.CSharp.dll" />
     <Analyzer Include="..\packages\SonarAnalyzer.CSharp.6.3.0.2862\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

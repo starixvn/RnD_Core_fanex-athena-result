@@ -64,7 +64,7 @@
             }
         }
 
-        private void MapGameValueForMoreResult(BasketBallGameDetailItem item, GameDetail detailItem)
+        protected void MapGameValueForMoreResult(BasketBallGameDetailItem item, GameDetail detailItem)
         {
             var isHomeTeam = detailItem?.HomeValue?.ToLowerInvariant() == "h";
             var isNone = detailItem?.HomeValue?.ToLowerInvariant() == "n";

@@ -125,6 +125,13 @@
                     .GetResultData().ToList();
             }
 
+            if (filePath.Contains(SportType.VirtualBasketBall.ToString()))
+            {
+                sportBooks.First().GameDetails = SportsbookDetailResultExcelReader
+                    .CreateInstance(filePath.Replace("VirtualBasketBall", "VirtualBasketBallDetail"))
+                    .GetResultData().ToList();
+            }
+
             return sportBooks;
         }
 

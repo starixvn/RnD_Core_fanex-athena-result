@@ -30,7 +30,8 @@
         {
             if (setting.SportType != SportType.Tennis &&
                 setting.SportType != SportType.Soccer &&
-                setting.SportType != SportType.BasketBall)
+                setting.SportType != SportType.BasketBall &&
+                setting.SportType != SportType.VirtualBasketBall)
             {
                 throw new ObjectUnSupportedException(string.Format(CoreResourceConfig.UNSUPPORTSPORTTYPEARGUEMENTMES, setting.SportType.StringMe()));
             }

@@ -209,9 +209,6 @@
         [StringValue("Other")]
         VirtualSoccerNation = 191,
 
-        [StringValue("Other")]
-        VirtualBasketBall = 193,
-
         #endregion Other
 
         #region VirtualSport
@@ -233,6 +230,9 @@
 
         [StringValue("VSTennis")]
         VirtualTennis = 186,
+
+        [StringValue("VSBasketBall")]
+        VirtualBasketBall = 193,
 
         #endregion VirtualSport
 

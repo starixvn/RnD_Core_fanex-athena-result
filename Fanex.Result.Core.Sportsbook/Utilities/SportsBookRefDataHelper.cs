@@ -10,5 +10,8 @@
 
         public string GetFastMarketResult(string resultId, string lang)
             => RefData.GetFastMarketsResult(resultId, lang);
+
+        public string GetBetRadarMatchCodeFormat(string matchCode, string lang)
+            => RefData.GetBetRadarMatchCodeFormat(matchCode, lang);
     }
 }

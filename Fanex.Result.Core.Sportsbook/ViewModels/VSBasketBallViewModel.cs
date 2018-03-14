@@ -30,6 +30,8 @@
             MoreResultDetailItems = ResultDetailItems.Where(item =>
                 item.ResourceID != GameResourceID.FirstHalfScore &&
                 item.ResourceID != GameResourceID.FinalScore).ToSafeList();
+
+            sportbook.MatchCode = SportsbookRefDataHelper.GetBetRadarMatchCodeFormat(sportbook.MatchCode, GetSupportedLanguage);
         }
 
         public SafeList<BasketBallGameDetailItem> ResultDetailItems { get; set; }
@@ -44,7 +46,7 @@
 
         public string FinalHomeScore => ResultDetailItems?.FirstOrDefault(item => item.ResourceID == GameResourceID.FinalScore)?.HomeValue;
 
-        public string MatchInfo => GetMatchInfo(SPORTBOOK.MatchCode);
+        public string MatchInfo => $"({SPORTBOOK.MatchCode})";
 
         public override bool VisibleDetailedLink => base.VisibleDetailedLink && HasValidResultDetail;
 
@@ -58,8 +60,5 @@
             => SPORTBOOK.GameDetails.Any(item =>
                 VSBasketBallResourceID.MoreResultResourceIDs.Contains(item.ResourceId) &&
                 item.SettlementStatusID != EventStatusID.RunningSettlementStatusID);
-
-        private string GetMatchInfo(string matchCode)
-        => $" ({SportsbookRefDataHelper.GetBetRadarMatchCodeFormat(matchCode, GetSupportedLanguage)})";
     }
 }

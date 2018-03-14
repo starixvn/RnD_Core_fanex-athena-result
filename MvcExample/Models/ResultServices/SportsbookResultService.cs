@@ -118,7 +118,7 @@
                 .CreateInstance(filePath)
                 .GetResultData();
 
-            if (filePath.Contains(SportType.Soccer.ToString()))
+            if (filePath.Contains($"{SportType.Soccer.ToString()}.xls"))
             {
                 sportBooks.First().GameDetails = SportsbookDetailResultExcelReader
                     .CreateInstance(filePath.Replace("Soccer", "SoccerDetail"))

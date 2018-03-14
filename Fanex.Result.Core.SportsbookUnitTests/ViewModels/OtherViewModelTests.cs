@@ -10,13 +10,27 @@
     [TestFixture]
     public class OtherViewModelTests
     {
+        private ISportsbookRefDataHelper _refDataHelper;
+        private ResultSetting _resultSetting;
+
+        [SetUp]
+        public void Setup()
+        {
+            _resultSetting = new ResultSetting
+            {
+                LanguageCode = "en-US"
+            };
+            _refDataHelper = Substitute.For<ISportsbookRefDataHelper>();
+            _refDataHelper.GetBetRadarMatchCodeFormat(Arg.Any<string>(), Arg.Any<string>()).Returns("MatchCode");
+        }
+
         [TestCase(1, "1")]
         [TestCase(null, "-")]
         public void HTHomeScore_ScoreHasValue_ShowScore(int? scoreValue, string expectedScoreValue)
         {
             // Arrange
-            var sportsbookDto = new Sportsbook { HtHomeScore = scoreValue };
-            var viewModel = new OtherViewModel(sportsbookDto, new ResultSetting());
+            var sportsbookDto = new Sportsbook { HtHomeScore = scoreValue, MatchCode = "124" };
+            var viewModel = new OtherViewModel(sportsbookDto, _resultSetting, _refDataHelper);
 
             // Act
             var actualHTHomeScore = viewModel.HTHomeScore;
@@ -31,7 +45,7 @@
         {
             // Arrange
             var sportsbookDto = new Sportsbook { HtAwayScore = scoreValue };
-            var viewModel = new OtherViewModel(sportsbookDto, new ResultSetting());
+            var viewModel = new OtherViewModel(sportsbookDto, _resultSetting);
 
             // Act
             var actualHTAwayScore = viewModel.HTAwayScore;
@@ -46,7 +60,7 @@
         {
             // Arrange
             var sportsbookDto = new Sportsbook { FinalHomeScore = scoreValue };
-            var viewModel = new OtherViewModel(sportsbookDto, new ResultSetting());
+            var viewModel = new OtherViewModel(sportsbookDto, _resultSetting);
 
             // Act
             var actualFinalHomeScore = viewModel.FinalHomeScore;
@@ -61,7 +75,7 @@
         {
             // Arrange
             var sportsbookDto = new Sportsbook { FinalAwayScore = scoreValue };
-            var viewModel = new OtherViewModel(sportsbookDto, new ResultSetting());
+            var viewModel = new OtherViewModel(sportsbookDto, _resultSetting);
 
             // Act
             var actualFinalAwayScore = viewModel.FinalAwayScore;
@@ -78,9 +92,10 @@
             // Arrange
             var sportsbookDto = new Sportsbook { HomeId = 1, MatchCode = matchCode };
             var resultSetting = new ResultSetting { SportType = (SportType)sportType, LanguageCode = "en-US" };
-            var refDataHelper = Substitute.For<ISportsbookRefDataHelper>();
-            refDataHelper.GetTeamName(Arg.Any<int>(), Arg.Any<string>(), Arg.Any<string>()).Returns("Home Team Name");
-            var viewModel = new OtherViewModel(sportsbookDto, resultSetting, refDataHelper);
+            _refDataHelper.GetTeamName(Arg.Any<int>(), Arg.Any<string>(), Arg.Any<string>()).Returns("Home Team Name");
+            _refDataHelper.GetBetRadarMatchCodeFormat("{2} 23, {0} 6666", Arg.Any<string>()).Returns("Match Day 23, Season 6666");
+            _refDataHelper.GetBetRadarMatchCodeFormat("{5} 23, {10} 6666", Arg.Any<string>()).Returns("Match Day 1 Groups E&F 23, Match Day 3 Groups C&D 6666");
+            var viewModel = new OtherViewModel(sportsbookDto, resultSetting, _refDataHelper);
 
             // Act
             var actualHomeTeam = viewModel.MatchInfo;

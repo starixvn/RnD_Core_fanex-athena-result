@@ -13,6 +13,7 @@
             ISportsbookRefDataHelper refDataHelper = null)
             : base(sportbook, setting, refDataHelper)
         {
+            sportbook.MatchCode = SportsbookRefDataHelper.GetBetRadarMatchCodeFormat(sportbook.MatchCode, GetSupportedLanguage);
         }
 
         public string HTHomeScore => GetScore(SPORTBOOK.HtHomeScore);
@@ -23,12 +24,11 @@
 
         public string FinalHomeScore => GetScore(SPORTBOOK.FinalHomeScore);
 
-        public string MatchInfo => (IsVirtualSports(Setting.SportType) ? GetMatchInfo(SPORTBOOK.MatchCode) : string.Empty);
+        public string MatchInfo => (IsVirtualSports(Setting.SportType) ? $" ({SPORTBOOK.MatchCode})" : string.Empty);
 
         private static bool IsVirtualSports(SportType sportType)
-            => sportType == SportType.VirtualSoccerLeague || sportType == SportType.VirtualSoccerNation;
-
-        private string GetMatchInfo(string matchCode)
-        => $" ({SportsbookRefDataHelper.GetBetRadarMatchCodeFormat(matchCode, GetSupportedLanguage)})";
+            => sportType == SportType.VirtualSoccerLeague ||
+            sportType == SportType.VirtualSoccerNation ||
+            sportType == SportType.VirtualSoccerWorldCup;
     }
 }

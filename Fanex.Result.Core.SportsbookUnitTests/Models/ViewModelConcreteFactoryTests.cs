@@ -17,7 +17,7 @@
         [SetUp]
         public void SetUp()
         {
-            _resultSetting = new ResultSetting();
+            _resultSetting = new ResultSetting { LanguageCode = "en-US" };
             _sportsbook = new Sportsbook();
         }
 

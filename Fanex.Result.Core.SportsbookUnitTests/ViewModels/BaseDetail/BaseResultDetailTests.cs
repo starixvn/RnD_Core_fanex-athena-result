@@ -49,7 +49,7 @@
         public void MapGameValueByStatusId_RefundSettlementStatusID_SetRefundTextInHomeAndAwayValue(int settlementStatusId, string expectedResultValue)
         {
             // Arrange
-            var detailItem = new GameDetail { SettlementStatusID = settlementStatusId };
+            var detailItem = new GameDetail { SettlementStatusID = settlementStatusId, ResourceId = "Test" };
             _sportsBook.GameDetails.Add(detailItem);
 
             // Act
@@ -69,7 +69,8 @@
             var detailItem = new GameDetail
             {
                 SettlementStatusID = settlementStatusId,
-                HomeValue = "h"
+                HomeValue = "h",
+                ResourceId = "test"
             };
             _sportsBook.GameDetails.Add(detailItem);
 
@@ -89,7 +90,8 @@
             var detailItem = new GameDetail
             {
                 SettlementStatusID = settlementStatusId,
-                AwayValue = "a"
+                AwayValue = "a",
+                ResourceId = "test"
             };
             _sportsBook.GameDetails.Add(detailItem);
 

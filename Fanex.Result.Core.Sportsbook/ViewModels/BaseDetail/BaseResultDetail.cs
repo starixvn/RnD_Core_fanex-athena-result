@@ -37,7 +37,8 @@
 
         public virtual SafeList<T> GetDetailItems()
         {
-            var detailItems = Sportsbook.GameDetails?.Select(item => CreateGameDetailItem(item));
+            var validDetailItems = Sportsbook.GameDetails.Where(item => !string.IsNullOrEmpty(item.ResourceId));
+            var detailItems = validDetailItems?.Select(item => CreateGameDetailItem(item));
 
             return detailItems.ToSafeList();
         }

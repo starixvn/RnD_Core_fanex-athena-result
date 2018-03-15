@@ -92,6 +92,8 @@
     <Compile Include="ViewModels\SoccerDetail\SoccerResultDetailTests.cs" />
     <Compile Include="ViewModels\OutrightViewModelTests.cs" />
     <Compile Include="ViewModels\SoccerViewModelTests.cs" />
+    <Compile Include="ViewModels\VSBasketBallDetail\VSBasketBallResultDetailTests.cs" />
+    <Compile Include="ViewModels\VSBasketBallViewModelTests.cs" />
     <Compile Include="ViewModels\VSTennisViewModelTests.cs" />
     <Compile Include="ViewModels\BilliardViewModelTests.cs" />
     <Compile Include="ViewModels\BaseBallViewModelTests.cs" />

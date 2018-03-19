@@ -1,7 +1,7 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.Tests.ViewModels.SoccerDetail
 {
     using NUnit.Framework;
-    using Sportsbook.ViewModels.SoccerInfo;
+    using Sportsbook.ViewModels.SoccerDetail;
 
     [TestFixture]
     public class SoccerDetailItemTests

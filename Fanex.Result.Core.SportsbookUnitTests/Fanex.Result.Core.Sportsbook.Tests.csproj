@@ -87,6 +87,7 @@
     <Compile Include="ViewModels\BadmintonViewModelTests.cs" />
     <Compile Include="ViewModels\MuayThaiViewModelTests.cs" />
     <Compile Include="ViewModels\OtherViewModelTests.cs" />
+    <Compile Include="ViewModels\SoccerDetail\FastMarketResultDetailTests.cs" />
     <Compile Include="ViewModels\SoccerDetail\SoccerDetailItemTests.cs" />
     <Compile Include="ViewModels\SoccerDetail\SoccerResultDetailTests.cs" />
     <Compile Include="ViewModels\OutrightViewModelTests.cs" />
@@ -147,6 +148,8 @@
     <Content Include="TestTemplate\html\Parlay.html" />
     <Content Include="TestTemplate\html\Outright.html" />
     <Content Include="TestTemplate\html\SoccerDetail.html" />
+    <Content Include="TestTemplate\html\SoccerDetail_FastMarkets221Two.html" />
+    <Content Include="TestTemplate\html\SoccerDetail_FastMarkets222Two.html" />
     <Content Include="TestTemplate\html\SoccerDetail_FastMarkets225.html" />
     <Content Include="TestTemplate\html\SoccerDetail_HomeAwayPlayerSentOff.html" />
     <Content Include="TestTemplate\html\SoccerDetail_ExtraTime.html" />

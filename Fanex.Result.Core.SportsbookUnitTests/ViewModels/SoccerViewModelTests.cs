@@ -4,6 +4,7 @@
     using Base;
     using Base.DataDomain;
     using DTO;
+    using Fanex.Result.Core.Sportsbook.ViewModels.SoccerDetail;
     using NSubstitute;
     using NUnit.Framework;
     using Sportsbook.Utilities;
@@ -808,7 +809,7 @@
             _refDataHelper.GetTeamName(2, "en", string.Empty).Returns("AwayTeam");
 
             // Act
-            var viewModel = new SoccerViewModel(_soccer, _setting, null, _refDataHelper);
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
 
             // Assert
             var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_FirstTenMinutes1X2.html").Replace("{Result}", expectedResult);
@@ -831,7 +832,7 @@
             };
 
             // Act
-            var viewModel = new SoccerViewModel(_soccer, _setting, null, _refDataHelper);
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
 
             // Assert
             var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_FirstGoalMethod.html").Replace("{Result}", expectedResult);
@@ -851,7 +852,7 @@
             };
 
             // Act
-            var viewModel = new SoccerViewModel(_soccer, _setting, null, _refDataHelper);
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
 
             // Assert
             var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_FirstGoalTime.html")
@@ -870,7 +871,7 @@
             };
 
             // Act
-            var viewModel = new SoccerViewModel(_soccer, _setting, null, _refDataHelper);
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
 
             // Assert
             var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_FirstGoalScorer.html")
@@ -890,7 +891,7 @@
             };
 
             // Act
-            var viewModel = new SoccerViewModel(_soccer, _setting, null, _refDataHelper);
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
 
             // Assert
             var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_FirstHalfAndFinalCorner.html")
@@ -922,7 +923,7 @@
             _refDataHelper.GetTeamName(2, "en", string.Empty).Returns("AwayTeam");
 
             // Act
-            var viewModel = new SoccerViewModel(_soccer, _setting, null, _refDataHelper);
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
 
             // Assert
             var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_FirstCorner.html")
@@ -959,7 +960,7 @@
             _refDataHelper.GetTeamName(2, "en", string.Empty).Returns("AwayTeam");
 
             // Act
-            var viewModel = new SoccerViewModel(_soccer, _setting, null, _refDataHelper);
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
 
             // Assert
             var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_LastCorner.html")
@@ -984,7 +985,7 @@
             };
 
             // Act
-            var viewModel = new SoccerViewModel(_soccer, _setting, null, _refDataHelper);
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
 
             // Assert
             var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_PlayerSentOff.html")
@@ -1006,7 +1007,7 @@
             };
 
             // Act
-            var viewModel = new SoccerViewModel(_soccer, _setting, null, _refDataHelper);
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
 
             // Assert
             var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_ExtraTime.html")
@@ -1037,7 +1038,7 @@
             _refDataHelper.GetTeamName(2, "en", string.Empty).Returns("AwayTeam");
 
             // Act
-            var viewModel = new SoccerViewModel(_soccer, _setting, null, _refDataHelper);
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
 
             // Assert
             var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_WhoAdvancesToNextRound.html")
@@ -1067,7 +1068,7 @@
             _refDataHelper.GetTeamName(2, "en", string.Empty).Returns("AwayTeam");
 
             // Act
-            var viewModel = new SoccerViewModel(_soccer, _setting, null, _refDataHelper);
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
 
             // Assert
             var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_MatchDecidedMethod.html")
@@ -1090,12 +1091,44 @@
             _refDataHelper.GetFastMarket225Result(Arg.Any<string>(), "en").Returns("Penalty");
             _refDataHelper.GetFastMarketResult(Arg.Any<string>(), "en").Returns("Penalty");
             _refDataHelper.GetBetTypeNameById(Arg.Any<string>(), "en").Returns("BetType");
+            var fastMarketResultDetail = new FastMarketResultDetail(_soccer, _setting, _refDataHelper, null);
 
             // Act
-            var viewModel = new SoccerViewModel(_soccer, _setting, null, _refDataHelper);
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, fastMarketResultDetail, _refDataHelper);
 
             // Assert
             var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_FastMarkets.html")
+                .Replace("{Time}", expectedResult);
+            Assert.AreEqual(expectedHtml, TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
+        }
+
+        [TestCase("1", " (       0  (", "01:00-01:59")]
+        [TestCase("78", " (       0  (", "78:00-78:59")]
+        public void DetailedResult_ResourceIsFastMarkets1Minute_VersionTwo_ReturnExpectedResult(string betId, string value, string expectedResult)
+        {
+            // Arrange
+            _soccer.GameDetails = new List<GameDetail>
+            {
+                new GameDetail {ResourceId = "22101", HomeValue = value, AwayValue = value, SettlementStatusID = EventStatusID.CompletedSettlementStatusID},
+                new GameDetail {
+                    ResourceId = "221CNT02",
+                    HomeValue = "44444444444444444444444444444444444444444444400000",
+                    AwayValue = "44444444444444444444444444444444444444444444400000",
+                    SettlementStatusID = EventStatusID.CompletedSettlementStatusID
+                },
+            };
+            _soccer.BetID = betId;
+            _soccer.Handicap2 = 2;
+            _setting.LanguageCode = "en-US";
+            _refDataHelper.GetResourceDataByRefIdAndResourceId("FastMarket", "2", "en", Arg.Any<string>()).Returns("Goal");
+            _refDataHelper.GetBetTypeNameById(Arg.Any<string>(), "en").Returns("BetType");
+            var fastMarketResultDetail = new FastMarketResultDetail(_soccer, _setting, _refDataHelper, null);
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, fastMarketResultDetail, _refDataHelper);
+
+            // Assert
+            var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_FastMarkets221Two.html")
                 .Replace("{Time}", expectedResult);
             Assert.AreEqual(expectedHtml, TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
         }
@@ -1115,13 +1148,43 @@
             _refDataHelper.GetFastMarket225Result(Arg.Any<string>(), "en").Returns("Penalty");
             _refDataHelper.GetFastMarketResult(Arg.Any<string>(), "en").Returns("Penalty");
             _refDataHelper.GetBetTypeNameById(Arg.Any<string>(), "en").Returns("BetType");
+            var fastMarketResultDetail = new FastMarketResultDetail(_soccer, _setting, _refDataHelper, null);
 
             // Act
-            var viewModel = new SoccerViewModel(_soccer, _setting, null, _refDataHelper);
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, fastMarketResultDetail, _refDataHelper);
 
             // Assert
             var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_FastMarkets.html")
                 .Replace("{Time}", expectedResult);
+            Assert.AreEqual(expectedHtml, TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
+        }
+
+        [TestCase("1", " (       0  (", "01:00-05:59")]
+        public void DetailedResult_ResourceIsFastMarkets5Minutes_Two_ReturnExpectedResult(string betId, string value, string expectedResult)
+        {
+            // Arrange
+            _soccer.GameDetails = new List<GameDetail>
+            {
+                new GameDetail {ResourceId = "22201", HomeValue = value, AwayValue = value, SettlementStatusID = EventStatusID.CompletedSettlementStatusID},
+                new GameDetail {
+                    ResourceId = "221CNT02",
+                    HomeValue = "44444444444444444444444444444444444444444444400000",
+                    AwayValue = "44444444444444444444444444444444444444444444400000",
+                    SettlementStatusID = EventStatusID.CompletedSettlementStatusID
+                },
+            };
+            _soccer.BetID = betId;
+            _soccer.Handicap2 = 2;
+            _setting.LanguageCode = "en-US";
+            _refDataHelper.GetResourceDataByRefIdAndResourceId("FastMarket", "2", "en", Arg.Any<string>()).Returns("Goal");
+            _refDataHelper.GetBetTypeNameById(Arg.Any<string>(), "en").Returns("BetType");
+            var fastMarketResultDetail = new FastMarketResultDetail(_soccer, _setting, _refDataHelper, null);
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, fastMarketResultDetail, _refDataHelper);
+
+            // Assert
+            var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_FastMarkets222Two.html");
             Assert.AreEqual(expectedHtml, TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
         }
 
@@ -1133,6 +1196,12 @@
             _soccer.GameDetails = new List<GameDetail>
             {
                 new GameDetail {ResourceId = "22501", HomeValue = value, AwayValue = value, SettlementStatusID = EventStatusID.CompletedSettlementStatusID},
+                new GameDetail {
+                    ResourceId = "221CNT02",
+                    HomeValue = "44444444444444444444444444444444444444444444400000",
+                    AwayValue = "44444444444444444444444444444444444444444444400000",
+                    SettlementStatusID = EventStatusID.CompletedSettlementStatusID
+                },
             };
             _soccer.Bettype = 225;
             _soccer.BetID = betId;
@@ -1140,12 +1209,71 @@
             _refDataHelper.GetFastMarket225Result(Arg.Any<string>(), "en").Returns("Penalty225");
             _refDataHelper.GetFastMarketResult(Arg.Any<string>(), "en").Returns("Penalty");
             _refDataHelper.GetBetTypeNameById(Arg.Any<string>(), "en").Returns("BetType");
+            var fastMarketResultDetail = new FastMarketResultDetail(_soccer, _setting, _refDataHelper, null);
 
             // Act
-            var viewModel = new SoccerViewModel(_soccer, _setting, null, _refDataHelper);
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, fastMarketResultDetail, _refDataHelper);
 
             // Assert
             var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_FastMarkets225.html")
+                .Replace("{Time}", expectedResult);
+            Assert.AreEqual(expectedHtml, TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
+        }
+
+        [TestCase("1", " (       0  (", "01:00-01:59")]
+        [TestCase("78", " (       0  (", "78:00-78:59")]
+        public void DetailedResult_ResourceIsFastMarkets226_ReturnExpectedResult(string betId, string value, string expectedResult)
+        {
+            // Arrange
+            _soccer.GameDetails = new List<GameDetail>
+            {
+                new GameDetail {ResourceId = "22601", HomeValue = value, AwayValue = value, SettlementStatusID = EventStatusID.CompletedSettlementStatusID},
+                new GameDetail {ResourceId = "22301", HomeValue = value, AwayValue = value, SettlementStatusID = EventStatusID.CompletedSettlementStatusID},
+                new GameDetail {
+                    ResourceId = "221CNT02",
+                    HomeValue = "44444444444444444444444444444444444444444444400000",
+                    AwayValue = "44444444444444444444444444444444444444444444400000",
+                    SettlementStatusID = EventStatusID.CompletedSettlementStatusID
+                },
+            };
+            _soccer.Bettype = 226;
+            _soccer.BetID = betId;
+            _setting.LanguageCode = "en-US";
+            _refDataHelper.GetFastMarketResult(Arg.Any<string>(), "en").Returns("Penalty");
+            _refDataHelper.GetBetTypeNameById(Arg.Any<string>(), "en").Returns("BetType");
+            var fastMarketResultDetail = new FastMarketResultDetail(_soccer, _setting, _refDataHelper, null);
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, fastMarketResultDetail, _refDataHelper);
+
+            // Assert
+            var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_FastMarkets.html")
+                .Replace("{Time}", expectedResult);
+            Assert.AreEqual(expectedHtml, TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
+        }
+
+        [TestCase("1", " (       0  (", "01:00-05:59")]
+        [TestCase("78", " (       0  (", "78:00-82:59")]
+        public void DetailedResult_ResourceIsFastMarkets227s_ReturnExpectedResult(string betId, string value, string expectedResult)
+        {
+            // Arrange
+            _soccer.GameDetails = new List<GameDetail>
+            {
+                new GameDetail {ResourceId = "22701", HomeValue = value, AwayValue = value, SettlementStatusID = EventStatusID.CompletedSettlementStatusID},
+                new GameDetail {ResourceId = "22401", HomeValue = value, AwayValue = value, SettlementStatusID = EventStatusID.CompletedSettlementStatusID},
+            };
+            _soccer.BetID = betId;
+            _setting.LanguageCode = "en-US";
+            _refDataHelper.GetFastMarket225Result(Arg.Any<string>(), "en").Returns("Penalty");
+            _refDataHelper.GetFastMarketResult(Arg.Any<string>(), "en").Returns("Penalty");
+            _refDataHelper.GetBetTypeNameById(Arg.Any<string>(), "en").Returns("BetType");
+            var fastMarketResultDetail = new FastMarketResultDetail(_soccer, _setting, _refDataHelper, null);
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, fastMarketResultDetail, _refDataHelper);
+
+            // Assert
+            var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_FastMarkets.html")
                 .Replace("{Time}", expectedResult);
             Assert.AreEqual(expectedHtml, TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
         }
@@ -1162,7 +1290,7 @@
             };
 
             // Act
-            var viewModel = new SoccerViewModel(_soccer, _setting, null, _refDataHelper);
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
 
             // Assert
             var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_NextGoalTime.html")
@@ -1180,7 +1308,7 @@
             };
 
             // Act
-            var viewModel = new SoccerViewModel(_soccer, _setting, null, _refDataHelper);
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
 
             // Assert
             var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_GoalScorer.html")
@@ -1213,7 +1341,7 @@
             _refDataHelper.GetTeamName(2, "en", string.Empty).Returns("AwayTeam");
 
             // Act
-            var viewModel = new SoccerViewModel(_soccer, _setting, null, _refDataHelper);
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
 
             // Assert
             var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_NextGoal.html")

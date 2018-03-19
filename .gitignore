@@ -47,3 +47,4 @@ Fanex.Result.Core.v3.ncrunchsolution
 /MvcExample/MvcExample.v3.ncrunchproject
 *.ncrunchproject
 packages
+.vs

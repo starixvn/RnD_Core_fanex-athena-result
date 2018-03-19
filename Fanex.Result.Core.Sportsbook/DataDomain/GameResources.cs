@@ -51,7 +51,9 @@
             GameResourceID.NextFiveMinutes,
             GameResourceID.FirstOneMinutes,
             GameResourceID.FirstFiveMinutes,
-            GameResourceID.NextOneMinuteSetPiece
+            GameResourceID.NextOneMinuteSetPiece,
+            GameResourceID.WhichCombinationFirstOneMinutes,
+            GameResourceID.WhichCombinationFirstFiveMinutes
         };
 
         public static IDictionary<string, List<string>> BetRadar => _betRadar;

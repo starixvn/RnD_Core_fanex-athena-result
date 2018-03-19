@@ -10,7 +10,6 @@
     using DataDomain;
     using DTO;
     using Resources;
-    using SoccerInfo;
     using Utilities;
 
     public class SoccerResultDetail : BaseResultDetail<SoccerGameDetailItem>

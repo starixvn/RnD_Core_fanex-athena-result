@@ -30,6 +30,8 @@
 
         public int BetId { get; set; }
 
+        public int Handicap2 { get; set; }
+
         public bool IncludeTestData { get; set; }
 
         public bool GetDataFromExcel { get; set; }

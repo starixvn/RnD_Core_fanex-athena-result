@@ -1,4 +1,4 @@
-﻿@using Fanex.Result.Core.Sportsbook.ViewModels.SoccerInfo;
+﻿@using Fanex.Result.Core.Sportsbook.ViewModels.SoccerDetail;
 @{
     var itemViewModel = (SoccerDetailViewModel)Model;
 }
@@ -8,8 +8,12 @@
 </tr>
 @foreach (var item in itemViewModel.DetailItems)
 {
-    <tr class="data">
-        <td class="cl-match">@item.ResourceName</td>
-        <td class="cl-result home" colspan="2">@item.HomeValue</td>
-    </tr>
+    for (int i = 0; i < item.TimeRange.Count; i++)
+    {
+        <tr class="data">
+            <td class="cl-match">@item.TimeRange[i]</td>
+            <td class="cl-result home" colspan="2">@item.SituationValue[i]</td>
+        </tr>
+    }
+
 }

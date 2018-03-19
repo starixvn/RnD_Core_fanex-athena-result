@@ -75,12 +75,12 @@ var popupReport = (function () {
             genData(criteria);
         });
         $("#date").datepicker(
-        {
-            dateFormat: "mm/dd/yy",
-            onSelect: function (dateText) {
-                renderSport(1, dateText, $("#get-data-from-excel").is(":checked"));
-            }
-        }).datepicker("setDate", new Date());;
+            {
+                dateFormat: "mm/dd/yy",
+                onSelect: function (dateText) {
+                    renderSport(1, dateText, $("#get-data-from-excel").is(":checked"));
+                }
+            }).datepicker("setDate", new Date());;
 
         $("#gen-html").click(function () {
             var criteria = {
@@ -93,6 +93,7 @@ var popupReport = (function () {
                 MatchId: $("#matchid").val(),
                 languageCode: $("#language").val(),
                 Betid: $("#betid").val(),
+                Handicap2: $("#handicap2").val(),
                 IncludeTestData: $("#IncludeTestData").is(":checked"),
                 GetDataFromExcel: $("#get-data-from-excel").is(":checked")
             };

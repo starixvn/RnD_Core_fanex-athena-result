@@ -36,9 +36,10 @@
         private bool? _hasValidGameData;
         private IList<SoccerGameDetailItem> _detailedItemModels;
         private readonly IResultDetail<SoccerGameDetailItem> _resultDetail;
+        private readonly IResultDetail<SoccerGameDetailItem> _fastMarketResultDetail;
 
         public SoccerViewModel(Sportsbook soccer, ResultSetting setting)
-            : this(soccer, setting, null, null)
+            : this(soccer, setting, null, null, null)
         {
         }
 
@@ -46,6 +47,7 @@
             Sportsbook soccer,
             ResultSetting setting,
             IResultDetail<SoccerGameDetailItem> resultDetail,
+            IResultDetail<SoccerGameDetailItem> fastMarketResultDetail,
             ISportsbookRefDataHelper refDataHelper)
             : base(soccer, setting, refDataHelper)
         {
@@ -54,6 +56,7 @@
                 PenaltyHandicapName :
                 ExistMatchCode(PenaltyOverUnderCode) ? PenaltyOverUnderName : string.Empty;
             _resultDetail = resultDetail ?? new SoccerResultDetail(soccer, setting);
+            _fastMarketResultDetail = fastMarketResultDetail ?? new FastMarketResultDetail(soccer, setting);
         }
 
         public bool IsShowLiveScore { get; }
@@ -232,8 +235,7 @@
         {
             _detailedItemModels = _resultDetail.GetDetailItems();
             GetBetRadarDetailedResult();
-            GetFastMarketsDetailedResult();
-
+            _detailedItemModels = _detailedItemModels.Concat(_fastMarketResultDetail.GetDetailItems()).ToSafeList();
             _detailedItemModels = _detailedItemModels
                 .OrderBy(item => GameResources.BetRadar.Keys.ToList().FindIndex(k => k == item.GroupCode)).ToList();
         }
@@ -267,14 +269,6 @@
             }
         }
 
-        private void GetFastMarketsDetailedResult()
-        {
-            var gameDetails = SPORTBOOK.GameDetails.Where(i => SportsbookHelper.IsFastMarketsResourceId(i.ResourceId));
-            var detailItemModels = gameDetails.Select(x => MapFastMarketsDetailedGameValue(x));
-
-            _detailedItemModels = _detailedItemModels.Concat(detailItemModels).ToSafeList();
-        }
-
         /// <summary>
         /// Map game values.
         /// </summary>
@@ -289,19 +283,6 @@
                 ResourceID = detailedItem.ResourceId,
                 GroupName = SportsbookHelper.GetResourceLang(groupCode),
                 ResourceName = SportsbookHelper.GetResourceLang(detailedItem.ResourceId)
-            };
-
-            return MapMoreDetailedGameValue(item, detailedItem);
-        }
-
-        private SoccerGameDetailItem MapFastMarketsDetailedGameValue(GameDetail detailedItem)
-        {
-            var item = new SoccerGameDetailItem
-            {
-                GroupCode = detailedItem.ResourceId,
-                ResourceID = detailedItem.ResourceId,
-                GroupName = SportsbookRefDataHelper.GetBetTypeNameById(SPORTBOOK.Bettype.ToString(), GetSupportedLanguage),
-                ResourceName = SportsbookHelper.CreateFastMarketsTimeRange(detailedItem.ResourceId, SPORTBOOK.BetID)
             };
 
             return MapMoreDetailedGameValue(item, detailedItem);
@@ -449,18 +430,6 @@
                     item.HomeValue = item.AwayValue = GetResourceGameValueByPattern175(detailedValue.HomeValue);
                     break;
 
-                /* Group: Fast Markets */
-                case GameResourceID.NextOneMinutes:
-                case GameResourceID.NextFiveMinutes:
-                case GameResourceID.FirstOneMinutes:
-                case GameResourceID.FirstFiveMinutes:
-                case GameResourceID.NextOneMinuteSetPiece:
-                    item.HomeValue = item.AwayValue = GetFastMarketSituation(
-                        detailedValue,
-                        Convert.ToInt32(SPORTBOOK.BetID),
-                        SPORTBOOK.Bettype);
-                    break;
-
                 default:
                     if (SportsbookHelper.IsValidResourceId(GameResourceID.NextGoalTime, item.ResourceID))
                     {
@@ -544,20 +513,6 @@
             }
 
             return ConstantValue.Hyphen;
-        }
-
-        private string GetFastMarketSituation(GameDetail detailedItem, int startMinute, int bettype)
-        {
-            var results = startMinute < 45
-                ? System.Text.Encoding.Default.GetBytes(detailedItem.HomeValue)
-                : System.Text.Encoding.Default.GetBytes(detailedItem.AwayValue);
-
-            var result = results[startMinute % 45];
-            var situation = bettype == 225 ?
-                SportsbookRefDataHelper.GetFastMarket225Result(result.ToString(), GetSupportedLanguage) :
-                SportsbookRefDataHelper.GetFastMarketResult(result.ToString(), GetSupportedLanguage);
-
-            return situation;
         }
 
         private static string GetTextValueOfYesNoChoice(string choice)

@@ -36,13 +36,6 @@
             });
         }
 
-        private readonly IDictionary<int, string> BetTypeResourceMappper = new Dictionary<int, string>
-        {
-            {22, "160" },
-            {160, "160" },
-            { 455, "455"}
-        };
-
         public IEnumerable<Sportsbook> GetPopupResult(SportType sportType, int licenseeId, int userId, ResultPopupMetaModel metaModel)
         {
             IEnumerable<Sportsbook> data;
@@ -51,8 +44,6 @@
             {
                 data = GetResultFromExcel(sportType);
                 data = data.Where(item => item.MatchId == metaModel.MatchId);
-                data.FirstOrDefault().GameDetails
-                    = data.FirstOrDefault().GameDetails.Where(d => d.ResourceId.StartsWith(BetTypeResourceMappper[metaModel.Bettype])).ToList();
             }
             else
             {

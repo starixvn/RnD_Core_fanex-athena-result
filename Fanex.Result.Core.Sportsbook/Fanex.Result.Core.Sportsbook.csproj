@@ -115,6 +115,7 @@
     <Compile Include="ViewModels\ParlayViewModel.cs" />
     <Compile Include="ViewModels\BaseDetail\BaseResultDetail.cs" />
     <Compile Include="ViewModels\BasketBallDetail\BasketBallResultDetail.cs" />
+    <Compile Include="ViewModels\SoccerDetail\FastMarketResultDetail.cs" />
     <Compile Include="ViewModels\SoccerDetail\SoccerDetailInfo.cs" />
     <Compile Include="ViewModels\SoccerDetail\SoccerDetailViewModel.cs" />
     <Compile Include="ViewModels\SoccerDetail\SoccerGameDetailItem.cs" />

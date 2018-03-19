@@ -133,7 +133,10 @@
                 throw new SportsbookException("Start time for Fast Markets must be integer from 0 to 89!");
             }
 
-            var end = resourceId == GameResourceID.NextFiveMinutes || resourceId == GameResourceID.FirstFiveMinutes
+            var end =
+                resourceId == GameResourceID.NextFiveMinutes ||
+                resourceId == GameResourceID.FirstFiveMinutes ||
+                resourceId == GameResourceID.WhichCombinationFirstFiveMinutes
                 ? start + 4
                 : start;
 

@@ -90,5 +90,7 @@
         /// </summary>
         /// <value>The bet ID list.</value>
         public string BetID { get; set; }
+
+        public int Handicap2 { get; set; }
     }
 }

@@ -131,7 +131,7 @@
                 HtAwayScore = 10,
                 FinalHomeScore = 11,
                 FinalAwayScore = 12
-            }, _resultSetting, null, _refDataHelper);
+            }, _resultSetting, null, null, _refDataHelper);
 
             _resultData = new List<SoccerViewModel> { soccerViewModel };
             var excelViewModel = new SoccerExcel(TemplateFileUtils.GetExcelTemplatePath("Soccer.xls"), _resultSetting, _resultData.ToList());

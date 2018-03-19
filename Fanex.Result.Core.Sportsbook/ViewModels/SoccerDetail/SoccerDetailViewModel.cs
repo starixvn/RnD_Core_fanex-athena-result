@@ -1,4 +1,4 @@
-﻿namespace Fanex.Result.Core.Sportsbook.ViewModels.SoccerInfo
+﻿namespace Fanex.Result.Core.Sportsbook.ViewModels.SoccerDetail
 {
     using System.Collections.Generic;
 

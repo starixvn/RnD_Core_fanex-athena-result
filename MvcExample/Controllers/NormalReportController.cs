@@ -8,6 +8,7 @@
     using System.Web.Mvc;
     using Fanex.Result.Core;
     using Fanex.Result.Core.Base;
+    using Ionic.Zip;
     using Models.Criteria;
     using Models.ResultData;
     using Models.ResultServices;
@@ -232,11 +233,21 @@
         public ActionResult ExportExcelDataFile(short sportId)
         {
             var sportName = (SportType)sportId;
+            var outputStream = new MemoryStream();
 
-            return File(
-                Server.MapPath(string.Format(Constant.ExcelFilePath, sportName)),
-                "application/vnd.ms-excel",
-                (SportType)sportId + "Data.xls");
+            using (var zip = new ZipFile())
+            {
+                zip.AddFile(Server.MapPath(string.Format(Constant.ExcelFilePath, sportName)), "");
+
+                if (sportName == SportType.Soccer)
+                {
+                    zip.AddFile(Server.MapPath(string.Format(Constant.ExcelFilePath, $"{sportName}detail")), "");
+                }
+                zip.Save(outputStream);
+            }
+
+            outputStream.Position = 0;
+            return File(outputStream, "application/zip", "data.zip");
         }
     }
 }

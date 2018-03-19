@@ -1,5 +1,6 @@
-﻿namespace Fanex.Result.Core.Sportsbook.ViewModels.SoccerInfo
+﻿namespace Fanex.Result.Core.Sportsbook.ViewModels.SoccerDetail
 {
+    using System.Collections.Generic;
     using BaseDetail;
 
     public class SoccerGameDetailItem : IGameDetailItem
@@ -17,5 +18,9 @@
         public string AwayValue { get; set; }
 
         public int OrderNo { get; set; }
+
+        public List<string> TimeRange { get; set; }
+
+        public List<string> SituationValue { get; set; }
     }
 }

@@ -73,5 +73,9 @@
         public const string FirstFiveMinutes = "22401";
 
         public const string NextOneMinuteSetPiece = "22501";
+
+        public const string WhichCombinationFirstOneMinutes = "22601";
+
+        public const string WhichCombinationFirstFiveMinutes = "22701";
     }
 }

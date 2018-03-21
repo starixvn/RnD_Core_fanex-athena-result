@@ -24,22 +24,22 @@
     </Setting>
     <Setting Key="Lrf_SelBalanceUpDay" SpName="Lrf_SelBalanceUpDay" DbName="DBEXT.bodb02.bodbLicenseeNet" />
 
-    <Setting Key="Lrf_Result_MatchSelByLeague" SpName="Lrf_Result_MatchSelByLeague" DbName="DBEXT.bodb02.bodbLicenseeNet">
+    <!--<Setting Key="Lrf_Result_MatchSelByLeague" SpName="Lrf_Result_MatchSelByLeague" DbName="DBEXT.bodb02.bodbLicenseeNet">
     </Setting>
     <Setting Key="Lrf_Result_MatchSelByLeague_Detail" SpName=" Lrf_Result_MatchSelByLeague_Detail" DbName="DBEXT.bodb02.bodbLicenseeNet">
     </Setting>
     <Setting Key="Lrf_BetList_SelMatchResultParlay" SpName="Lrf_BetList_SelMatchResultParlay_xpre" DbName="DBEXT.bodb02.bodbLicenseeNet">
     </Setting>
     <Setting Key="Lrf_BetList_SelMatchResult" SpName="Lrf_BetList_SelMatchResult_xtest" DbName="DBEXT.bodb02.bodbLicenseeNet">
-    </Setting>
-    <!--<Setting Key="Lrf_Result_MatchSelByLeague" SpName="Age_Result_MatchSelByLeague" DbName="DBACC.bodb02.BODBDownlineNet">
-    </Setting>
-    <Setting Key="Lrf_Result_MatchSelByLeague_Detail" SpName="Age_Result_MatchSelResultDetail" DbName="DBACC.bodb02.BODBDownlineNet">
-    </Setting>
-    <Setting Key="Lrf_BetList_SelMatchResultParlay" SpName="Age_BetList_SelMatchResultParlay" DbName="DBACC.bodb02.BODBDownlineNet">
-    </Setting>
-    <Setting Key="Lrf_BetList_SelMatchResult" SpName="Age_BetList_SelMatchResult" DbName="DBACC.bodb02.BODBDownlineNet">
     </Setting>-->
+    <Setting Key="Lrf_Result_MatchSelByLeague" SpName="Age_Result_MatchSelByLeague_xpre" DbName="DBACC.bodb02.BODBDownlineNet">
+    </Setting>
+    <Setting Key="Lrf_Result_MatchSelByLeague_Detail" SpName="Age_Result_MatchSelResultDetail_xpre" DbName="DBACC.bodb02.BODBDownlineNet">
+    </Setting>
+    <Setting Key="Lrf_BetList_SelMatchResultParlay" SpName="Age_BetList_SelMatchResultParlay_xpre" DbName="DBACC.bodb02.BODBDownlineNet">
+    </Setting>
+    <Setting Key="Lrf_BetList_SelMatchResult" SpName="Age_BetList_SelMatchResult_xpre" DbName="DBACC.bodb02.BODBDownlineNet">
+    </Setting>
     <Setting Key="Lrf_Result_RaceSelByMeeting" SpName="Lrf_Result_RaceSelByMeeting" DbName="DBEXT.bodb02.bodbLicenseeNet">
     </Setting>
     <Setting Key="Lrf_Result_MatchSelNumberGameByLeague" SpName="Lrf_Result_MatchSelNumberGameByLeague" DbName="DBEXT.bodb02.bodbLicenseeNet">

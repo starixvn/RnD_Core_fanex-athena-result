@@ -230,7 +230,7 @@
         }
 
         [HttpGet]
-        public ActionResult ExportExcelDataFile(short sportId)
+        public ActionResult ExportExcelDataFile(short sportId = 1)
         {
             var sportName = (SportType)sportId;
             var outputStream = new MemoryStream();

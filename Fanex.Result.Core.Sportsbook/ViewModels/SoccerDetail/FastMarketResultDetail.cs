@@ -49,7 +49,8 @@
 
         protected override void MapGameValueByPattern(SoccerGameDetailItem item, GameDetail detailItem)
         {
-            bool isFastMarketTwo = Sportsbook.GameDetails.Any(gameDetail => gameDetail.ResourceId.StartsWith(SituationDetailResourceId));
+            bool isFastMarketTwo = Sportsbook.Bettype != BetTypeID.NextOneMinuteSetPiece &&
+                Sportsbook.GameDetails.Any(gameDetail => gameDetail.ResourceId.StartsWith(SituationDetailResourceId));
             var startTime = Convert.ToInt32(Sportsbook.BetID);
             var situationId = Sportsbook.Handicap2;
 

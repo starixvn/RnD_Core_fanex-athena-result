@@ -174,6 +174,33 @@
         }
 
         [Test]
+        public void MapGameValueByPattern_225_CreateCorrectValue()
+        {
+            // Arrange
+            _sportsbook.GameDetails = new List<GameDetail> {
+                new GameDetail { ResourceId = GameResourceID.NextOneMinutes, HomeValue = "324234324234" },
+                 new GameDetail {
+                    ResourceId = "221CNT02",
+                    HomeValue = "44444444444444444444444444444444444444444444400000",
+                    AwayValue = "44444444444444444444444444444444444444444444400000",
+                    SettlementStatusID = EventStatusID.CompletedSettlementStatusID
+                },
+            };
+            _sportsbook.Bettype = 225;
+            _sportsbook.BetID = "2";
+            _sportsbook.Handicap2 = 2;
+            _refDataHelper.GetFastMarket225Result(Arg.Any<string>(), "en").Returns("Goal");
+            var soccerResultDetail = new FastMarketResultDetail(_sportsbook, _setting, _refDataHelper, _sportsbookHelper);
+
+            // Act
+            var actualDetailItems = soccerResultDetail.GetDetailItems();
+
+            // Assert
+            Assert.AreEqual("Goal", actualDetailItems.First().SituationValue[0]);
+            Assert.AreEqual("02:00-02:59", actualDetailItems.First().TimeRange[0]);
+        }
+
+        [Test]
         public void MapGameValueByPattern_226_CreateCorrectValue()
         {
             // Arrange

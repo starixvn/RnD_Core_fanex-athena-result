@@ -3,5 +3,6 @@
     public static class BetTypeID
     {
         public const int SetXGameYWinner = 1324;
+        public const int NextOneMinuteSetPiece = 225;
     }
 }

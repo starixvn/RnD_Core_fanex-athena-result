@@ -146,9 +146,14 @@
                     data.ToList().ForEach(x => x.Bettype = metalModel.Bettype);
                     data.ToList().ForEach(x => x.BetID = metalModel.BetId.ToString());
                     data.ToList().ForEach(x => x.Handicap2 = metalModel.Handicap2);
-                    data.ToList()
-                        .ForEach(x => x.GameDetails
-                            = x.GameDetails.Where(d => d.ResourceId.StartsWith(metalModel.Bettype.ToString()) || d.ResourceId.Contains("CNT")).ToList());
+
+                    if (metalModel.GetDataFromExcel)
+                    {
+                        data.ToList()
+                            .ForEach(x => x.GameDetails
+                                = x.GameDetails.Where(d => d.ResourceId.StartsWith(metalModel.Bettype.ToString()) || d.ResourceId.Contains("CNT")).ToList());
+                    }
+
                     return ResultEngine.HtmlParser(data.ToList(), setting);
             }
 

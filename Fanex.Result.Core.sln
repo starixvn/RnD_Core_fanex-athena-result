@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{9CF3C046-BF76-4A72-AF58-7D9A98B527F7}"
 	ProjectSection(SolutionItems) = preProject
@@ -93,6 +93,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.TestUtils", "Fanex.Result.Core.TestUtils\Fanex.Result.Core.TestUtils.csproj", "{055D46DB-5556-4A00-902B-CF7C4B8225BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.PP", "Fanex.Result.Core.PP\Fanex.Result.Core.PP.csproj", "{05AA0490-7266-489A-9E2D-84C9D2F2FB39}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -220,6 +222,10 @@ Global
 		{055D46DB-5556-4A00-902B-CF7C4B8225BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{055D46DB-5556-4A00-902B-CF7C4B8225BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{055D46DB-5556-4A00-902B-CF7C4B8225BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05AA0490-7266-489A-9E2D-84C9D2F2FB39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05AA0490-7266-489A-9E2D-84C9D2F2FB39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05AA0490-7266-489A-9E2D-84C9D2F2FB39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05AA0490-7266-489A-9E2D-84C9D2F2FB39}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -250,6 +256,10 @@ Global
 		{ABC335A1-4EBB-4CC7-B452-A30B28D42B3C} = {CCA318B4-A6C4-4767-B6A5-2348BACBA831}
 		{5B12D69C-7BF6-4E40-AE62-3853DB3D118D} = {35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}
 		{055D46DB-5556-4A00-902B-CF7C4B8225BA} = {CCA318B4-A6C4-4767-B6A5-2348BACBA831}
+		{05AA0490-7266-489A-9E2D-84C9D2F2FB39} = {35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4BF11104-7EAE-4BB6-A235-1C10DB35CE8B}
 	EndGlobalSection
 	GlobalSection(JSLint) = preSolution
 		SolutionConfigurationLocation = JSLintOptions.xml

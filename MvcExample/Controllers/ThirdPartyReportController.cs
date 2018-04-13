@@ -4,6 +4,7 @@
     using System.Web.Mvc;
     using Fanex.Result.Core.GlobalGaming;
     using Fanex.Result.Core.GlobalGaming.DTO;
+    using Fanex.Result.Core.PP;
     using Fanex.Result.Core.Voidbridge;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
@@ -15,6 +16,7 @@
             return View();
         }
 
+        [HttpGet]
         public string VoidbridgeResult(string custId, string gamePlayId, string language)
         {
             try
@@ -28,6 +30,7 @@
             }
         }
 
+        [HttpGet]
         public JObject GlobalGamingResult(GlobalGamingDTO globalGamingData)
         {
             var error = 0;
@@ -44,6 +47,20 @@
             }
 
             return JObject.Parse(JsonConvert.SerializeObject(new { Error = error, Url = content }));
+        }
+
+        [HttpGet]
+        public string PPResult(string custId, string gamePlayId, string language)
+        {
+            try
+            {
+                var ppResult = new PPResult();
+                return ppResult.GetPPResult(custId, gamePlayId, language, "12");
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
         }
     }
 }

@@ -207,11 +207,10 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controllers\DocsController.cs" />
-    <Compile Include="Controllers\GlobalGamingInternalController.cs" />
+    <Compile Include="Controllers\ThirdPartyAPIController.cs" />
     <Compile Include="Controllers\NormalReportController.cs" />
     <Compile Include="Controllers\OutRightReportController.cs" />
     <Compile Include="Controllers\PopUpReportController.cs" />
-    <Compile Include="Controllers\RNGSingleLobbyController.cs" />
     <Compile Include="Controllers\ThirdPartyReportController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -671,6 +670,10 @@
     <ProjectReference Include="..\Fanex.Result.Core.NumberGame\Fanex.Result.Core.NumberGame.csproj">
       <Project>{CEBAE710-7919-4FC6-8978-862A3096972C}</Project>
       <Name>Fanex.Result.Core.NumberGame</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fanex.Result.Core.PP\Fanex.Result.Core.PP.csproj">
+      <Project>{05aa0490-7266-489a-9e2d-84c9d2f2fb39}</Project>
+      <Name>Fanex.Result.Core.PP</Name>
     </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.Racing\Fanex.Result.Core.Racing.csproj">
       <Project>{4869ED23-CD0C-4472-BCE6-54A9E170ED6E}</Project>

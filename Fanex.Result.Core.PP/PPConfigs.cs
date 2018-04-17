@@ -2,7 +2,7 @@
 {
     using System.Configuration;
 
-    internal sealed class PPConfigs : ConfigurationSection
+    public sealed class PPConfigs : ConfigurationSection
     {
         #region const
 

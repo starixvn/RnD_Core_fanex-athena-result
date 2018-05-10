@@ -50,6 +50,9 @@
         [StringValue("Badminton")]
         Squash = 30,
 
+        [StringValue("Badminton")]
+        SepakTakraw = 48,
+
         #endregion Badminton
 
         [StringValue("BaseBall")]
@@ -104,6 +107,21 @@
 
         [StringValue("Billiard")]
         HorseRacingFixedOdd = 154,
+
+        [StringValue("Billiard")]
+        BeachSoccer = 51,
+
+        [StringValue("Billiard")]
+        UpcomingSport52 = 52,
+
+        [StringValue("Billiard")]
+        UpcomingSport53 = 53,
+
+        [StringValue("Billiard")]
+        UpcomingSport54 = 54,
+
+        [StringValue("Billiard")]
+        UpcomingSport55 = 55,
 
         #endregion Billiard
 
@@ -175,6 +193,15 @@
 
         [StringValue("Other")]
         Cricket = 27,
+
+        [StringValue("Other")]
+        Kabaddi = 47,
+
+        [StringValue("Other")]
+        Futsal = 49,
+
+        [StringValue("Other")]
+        UpcomingSport56 = 56,
 
         [StringValue("Other")]
         CricketIndia = 50,

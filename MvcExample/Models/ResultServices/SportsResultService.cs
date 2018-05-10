@@ -23,7 +23,16 @@
                 new Sport { Id = 1, Name = "Soccer" },
                 new Sport { Id = 160, Name = "Lucky3" },
                 new Sport { Id = 192, Name = "VirtualSoccerWorldCup" },
-                new Sport { Id = 193, Name = "VirtualBasketball" }
+                new Sport { Id = 193, Name = "VirtualBasketball" },
+                new Sport { Id = 47, Name = "Kabaddi" },
+                new Sport { Id = 48, Name = "Sepak Takraw" },
+                new Sport { Id = 49, Name = "Futsal" },
+                new Sport { Id = 51, Name = "Beach Soccer" },
+                new Sport { Id = 52, Name = "Upcoming Sport 52" },
+                new Sport { Id = 53, Name = "Upcoming Sport 53" },
+                new Sport { Id = 54, Name = "Upcoming Sport 54" },
+                new Sport { Id = 55, Name = "Upcoming Sport 55" },
+                new Sport { Id = 56, Name = "Upcoming Sport 56" },
             };
         }
     }

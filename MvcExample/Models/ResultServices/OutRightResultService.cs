@@ -5,6 +5,7 @@
     using Fanex.Data;
     using Fanex.Data.Repository;
     using Fanex.Result.Core.Sportsbook.DTO;
+    using Fanex.Result.Data;
 
     public class OutRightResultService : IResultService<Outright>
     {
@@ -35,7 +36,9 @@
 
         public IEnumerable<Outright> GetResultFromExcel(string filePath)
         {
-            throw new NotImplementedException();
+            return OutrightResultExcelReader
+               .CreateInstance(filePath)
+               .GetResultData();
         }
     }
 }

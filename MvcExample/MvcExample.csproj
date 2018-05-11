@@ -245,6 +245,7 @@
     <Compile Include="Models\ResultData\AGCasinoResultData.cs" />
     <Compile Include="Models\ResultData\GoldDeluxeResultData.cs" />
     <Compile Include="Models\ResultData\MetricGamingResultData.cs" />
+    <Compile Include="Models\ResultData\OutRightResultData.cs" />
     <Compile Include="Models\ResultData\SportsbookResultData.cs" />
     <Compile Include="Models\ResultData\NumberGameResultData.cs" />
     <Compile Include="Models\ResultData\LiveCasinoResultData.cs" />
@@ -506,6 +507,17 @@
     <Content Include="App_Data\Result_Data\VirtualBasketball.xls" />
     <Content Include="App_Data\Fanex.Result\VSBasketBall.xls" />
     <Content Include="App_Data\Result_Data\VirtualBasketBallDetail.xls" />
+    <Content Include="App_Data\Result_Data\BeachSoccer.xls" />
+    <Content Include="App_Data\Result_Data\Futsal.xls" />
+    <Content Include="App_Data\Result_Data\Kabaddi.xls" />
+    <Content Include="App_Data\Result_Data\SepakTakraw.xls" />
+    <Content Include="App_Data\Result_Data\UpcomingSport52.xls" />
+    <Content Include="App_Data\Result_Data\UpcomingSport53.xls" />
+    <Content Include="App_Data\Result_Data\UpcomingSport54.xls" />
+    <Content Include="App_Data\Result_Data\UpcomingSport55.xls" />
+    <Content Include="App_Data\Result_Data\UpcomingSport56.xls" />
+    <Content Include="App_Data\Result_Data\VirtualSoccerWorldCup.xls" />
+    <Content Include="App_Data\Result_Data\Outright.xls" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>

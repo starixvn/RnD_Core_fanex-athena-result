@@ -57,6 +57,7 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Lucky3ResultExcelReader.cs" />
     <Compile Include="SportsbookDetailResultExcelReader.cs" />
+    <Compile Include="OutrightResultExcelReader.cs" />
     <Compile Include="SportsbookResultExcelReader.cs" />
     <Compile Include="ResultExcelReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

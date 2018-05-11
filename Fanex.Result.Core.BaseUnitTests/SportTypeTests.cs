@@ -1,101 +1,115 @@
 ﻿namespace Fanex.Result.Core.Base.Tests
 {
+    using System.Collections.Generic;
     using Base.Extension;
     using NUnit.Framework;
 
     [TestFixture]
     public class SportTypeTests
     {
-        [TestCase(1, "Soccer")]
-        [TestCase(44, "MuayThai")]
-        [TestCase(2, "BasketBall")]
-        [TestCase(32, "BasketBall")]
-        [TestCase(3, "BasketBall")]
-        [TestCase(26, "BasketBall")]
-        [TestCase(4, "Hockey")]
-        [TestCase(28, "Hockey")]
-        [TestCase(5, "Tennis")]
-        [TestCase(6, "Badminton")]
-        [TestCase(9, "Badminton")]
-        [TestCase(6, "Badminton")]
-        [TestCase(30, "Badminton")]
-        [TestCase(48, "Badminton")]
-        [TestCase(10, "Billiard")]
-        [TestCase(11, "Billiard")]
-        [TestCase(7, "Billiard")]
-        [TestCase(33, "Billiard")]
-        [TestCase(34, "Billiard")]
-        [TestCase(35, "Billiard")]
-        [TestCase(36, "Billiard")]
-        [TestCase(37, "Billiard")]
-        [TestCase(38, "Billiard")]
-        [TestCase(39, "Billiard")]
-        [TestCase(40, "Billiard")]
-        [TestCase(41, "Billiard")]
-        [TestCase(42, "Billiard")]
-        [TestCase(43, "Billiard")]
-        [TestCase(29, "Billiard")]
-        [TestCase(154, "Billiard")]
-        [TestCase(51, "Billiard")]
-        [TestCase(52, "Billiard")]
-        [TestCase(53, "Billiard")]
-        [TestCase(54, "Billiard")]
-        [TestCase(55, "Billiard")]
-        [TestCase(151, "Racing")]
-        [TestCase(153, "Racing")]
-        [TestCase(152, "Racing")]
-        [TestCase(160, "Lucky3")]
-        [TestCase(161, "NumberGame")]
-        [TestCase(162, "LiveCasino")]
-        [TestCase(12, "Other")]
-        [TestCase(13, "Other")]
-        [TestCase(14, "Other")]
-        [TestCase(15, "Other")]
-        [TestCase(16, "Other")]
-        [TestCase(17, "Other")]
-        [TestCase(18, "Other")]
-        [TestCase(19, "Other")]
-        [TestCase(20, "Other")]
-        [TestCase(21, "Other")]
-        [TestCase(22, "Other")]
-        [TestCase(23, "Other")]
-        [TestCase(24, "Other")]
-        [TestCase(25, "Other")]
-        [TestCase(27, "Other")]
-        [TestCase(47, "Other")]
-        [TestCase(49, "Other")]
-        [TestCase(56, "Other")]
-        [TestCase(50, "Other")]
-        [TestCase(99, "Other")]
-        [TestCase(201, "Other")]
-        [TestCase(251, "Other")]
-        [TestCase(31, "Other")]
-        [TestCase(180, "Other")]
-        [TestCase(252, "Other")]
-        [TestCase(253, "Other")]
-        [TestCase(1000, "Other")]
-        [TestCase(190, "Other")]
-        [TestCase(191, "Other")]
-        [TestCase(192, "Other")]
-        [TestCase(181, "VSHRacing")]
-        [TestCase(182, "VSHRacing")]
-        [TestCase(183, "VSSpeedWay")]
-        [TestCase(184, "VSHRacing")]
-        [TestCase(185, "VSHRacing")]
-        [TestCase(186, "VSTennis")]
-        [TestCase(193, "VSBasketBall")]
-        [TestCase(203, "MicroGamingLC")]
-        [TestCase(205, "MicroGamingRNG")]
-        [TestCase(211, "AllBetCasino")]
-        [TestCase(250, "AGCasino")]
-        [TestCase(255, "GoldDeluxe")]
-        public void SportType_Always_GetCorrectDTOName(SportType sportType, string expectedDtoName)
+#pragma warning disable S1144 // Unused private types or members should be removed
+
+        private static int[] sportTypeList = {1, 44, 2, 32, 3, 26, 4, 28, 5, 6, 9,  30, 48, 10, 11, 7 ,33, 34, 35, 36, 37, 38, 39, 40, 41
+        ,42, 43, 29, 154, 51, 52, 53, 54, 55, 151, 153, 152, 160, 161, 162, 12, 13, 14, 15, 16, 17, 18 ,19 ,20, 21, 22, 23, 24, 25, 27,
+        47, 49, 56, 50, 99, 201, 251, 31, 180, 252, 253, 1000, 190, 191, 192, 181, 182, 183, 184, 185, 186, 193, 203, 205, 211, 250, 255
+        };
+
+#pragma warning restore S1144 // Unused private types or members should be removed
+
+        private static Dictionary<int, string> SportTypeDtoMapping = new Dictionary<int, string>
+        {
+            {1, "Soccer" },
+            {44, "MuayThai"},
+            {2, "BasketBall"},
+            {32, "BasketBall"},
+            {3, "BasketBall"},
+            {26, "BasketBall"},
+            {4, "Hockey"},
+            {28, "Hockey"},
+            {5, "Tennis"},
+            {6, "Badminton"},
+            {9, "Badminton"},
+            {30, "Badminton"},
+            {48, "Badminton"},
+            {10, "Billiard"},
+            {11, "Billiard"},
+            {7, "Billiard"},
+            {33, "Billiard"},
+            {34, "Billiard"},
+            {35, "Billiard"},
+            {36, "Billiard"},
+            {37, "Billiard"},
+            {38, "Billiard"},
+            {39, "Billiard"},
+            {40, "Billiard"},
+            {41, "Billiard"},
+            {42, "Billiard"},
+            {43, "Billiard"},
+            {29, "Billiard"},
+            {154, "Billiard"},
+            {51, "Billiard"},
+            {52, "Billiard"},
+            {53, "Billiard"},
+            {54, "Billiard"},
+            {55, "Billiard"},
+            {151, "Racing"},
+            {153, "Racing"},
+            {152, "Racing"},
+            {160, "Lucky3"},
+            {161, "NumberGame"},
+            {162, "LiveCasino"},
+            {12, "Other"},
+            {13, "Other"},
+            {14, "Other"},
+            {15, "Other"},
+            {16, "Other"},
+            {17, "Other"},
+            {18, "Other"},
+            {19, "Other"},
+            {20, "Other"},
+            {21, "Other"},
+            {22, "Other"},
+            {23, "Other"},
+            {24, "Other"},
+            {25, "Other"},
+            {27, "Other"},
+            {47, "Other"},
+            {49, "Other"},
+            {56, "Other"},
+            {50, "Other"},
+            {99, "Other"},
+            {201, "Other"},
+            {251, "Other"},
+            {31, "Other"},
+            {180, "Other"},
+            {252, "Other"},
+            {253, "Other"},
+            {1000, "Other"},
+            {190, "Other"},
+            {191, "Other"},
+            {192, "Other"},
+            {181, "VSHRacing"},
+            {182, "VSHRacing"},
+            {183, "VSSpeedWay"},
+            {184, "VSHRacing"},
+            {185, "VSHRacing"},
+            {186, "VSTennis"},
+            {193, "VSBasketBall"},
+            {203, "MicroGamingLC"},
+            {205, "MicroGamingRNG"},
+            {211, "AllBetCasino"},
+            {250, "AGCasino"},
+            {255, "GoldDeluxe"},
+        };
+
+        [TestCaseSource("sportTypeList")]
+        public void SportType_Always_GetCorrectDTOName(int sportType)
         {
             // Act
-            var dtoName = sportType.StringMe();
+            var dtoName = ((SportType)sportType).StringMe();
 
             // Assert
-            Assert.AreEqual(expectedDtoName, dtoName);
+            Assert.AreEqual(SportTypeDtoMapping[sportType], dtoName);
         }
     }
 }

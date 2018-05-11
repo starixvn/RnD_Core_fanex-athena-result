@@ -55,12 +55,12 @@ var normalReport = (function () {
     };
     var initEvent = function () {
         $("#date").datepicker(
-        {
-            dateFormat: "mm/dd/yy",
-            onSelect: function (dateText) {
-                renderSport(1, dateText, $("#get-data-from-excel").is(":checked"));
-            }
-        }).datepicker("setDate", new Date());
+            {
+                dateFormat: "mm/dd/yy",
+                onSelect: function (dateText) {
+                    renderSport(1, dateText, $("#get-data-from-excel").is(":checked"));
+                }
+            }).datepicker("setDate", new Date());
 
         $("#sport").change(function () {
             var sportId = $(this).val();
@@ -140,9 +140,9 @@ var normalReport = (function () {
             var detailPopUp = $("#game-detail");
             $.ajax({
                 url: window.rootUrl + "normalreport/GenHtmlGameDetail?matchid="
-                 + $(this).attr("data-match-id") + "&languageCode=" + $("#language").val()
-                 + "&showmatchcode=" + $("#showmatchcode").is(":checked")
-                 + "&sportId=" + $("#sport").val()
+                + $(this).attr("data-match-id") + "&languageCode=" + $("#language").val()
+                + "&showmatchcode=" + $("#showmatchcode").is(":checked")
+                + "&sportId=" + $("#sport").val()
                 + "&getDataFromExcel=" + $("#get-data-from-excel").is(":checked"),
                 datatype: "html",
                 type: "GET",

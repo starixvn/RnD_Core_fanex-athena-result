@@ -46,7 +46,7 @@
     </Setting>
     <Setting Key="Lrf_BetList_SelMatchResultNumberGame" SpName="Lrf_BetList_SelMatchResultNumberGame_xtest" DbName="DBEXT.bodb02.bodbLicenseeNet">
     </Setting>
-    <Setting Key="Lrf_Result_Outright" SpName="Lrf_Result_Outright" DbName="DBEXT.bodb02.bodbLicenseeNet">
+    <Setting Key="Lrf_Result_Outright" SpName="Age_Result_Outright" DbName="DBEXT.bodb02.bodbLicenseeNet">
     </Setting>
     <Setting Key="All_BetList_MatchResultGDSel" SpName="All_BetList_MatchResultGDSel" DbName="DBEXT.bodb02.bodbLicenseeNet">
     </Setting>

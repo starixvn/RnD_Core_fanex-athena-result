@@ -34,7 +34,8 @@
             resultData.KickOffTime = Convert.ToDateTime(row.GetCell(13)?.ToString());
             resultData.HtHomeScore = Convert.ToInt32(row.GetCell(16)?.ToString());
             resultData.HtAwayScore = Convert.ToInt32(row.GetCell(17)?.ToString());
-            resultData.GoalRecord = row.GetCell(31)?.ToString();
+            resultData.GoalRecord = row.GetCell(32)?.ToString();
+            resultData.IsPending = row.GetCell(41)?.ToString() != "0";
 
             return resultData;
         }

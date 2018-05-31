@@ -35,6 +35,7 @@ _ReSharper*/
 *.StyleCop.violations.xml
 *.StyleCop.xml
 *.FxCop.xml
+.axoCover/
 MsBuild.xml
 MSBUILD.SUMMARY.email
 SUMMARY.DISPLAY.xml

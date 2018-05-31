@@ -23,6 +23,7 @@
             this.ColumnStatus = 6;
             this.RowContentTemplate = 3;
             this._formatStatus = LangResource.Official + " {0} {1}";
+            this.IsSupportMatchCode = false;
         }
 
         protected override void AssignHeader(ISheet sheet)

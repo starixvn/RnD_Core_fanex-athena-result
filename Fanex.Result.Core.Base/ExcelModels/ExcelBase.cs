@@ -23,6 +23,7 @@
         protected const int RowNoInfoTemplate = 5;
         protected const string Na = "N/A";
         protected const int ColumnMatchCode = 0;
+        protected bool IsSupportMatchCode = true;
         protected const int ColumnRace = 0;
         protected const int ColumnKickOffTime = 1;
 
@@ -160,7 +161,7 @@
 
         protected virtual void ProcessUI(ISheet sheet)
         {
-            if (!Setting.VisibleMatchCodeIDColumn)
+            if (IsSupportMatchCode && !Setting.VisibleMatchCodeIDColumn)
             {
                 sheet.SetColumnHidden(ColumnMatchCode, true);
             }

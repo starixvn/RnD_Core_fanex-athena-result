@@ -27,6 +27,7 @@
             ColumnTemplateCount = 3;
             ColumnStatus = 4;
             RowContentTemplate = 3;
+            IsSupportMatchCode = false;
         }
 
         protected override void AssignHeader(ISheet sheet)

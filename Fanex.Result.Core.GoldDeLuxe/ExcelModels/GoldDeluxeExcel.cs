@@ -21,6 +21,7 @@
             this.ColumnTemplateCount = 3;
             this.ColumnStatus = 2;
             this.RowContentTemplate = 3;
+            base.IsSupportMatchCode = false;
         }
 
         protected override void AssignHeader(ISheet sheet)

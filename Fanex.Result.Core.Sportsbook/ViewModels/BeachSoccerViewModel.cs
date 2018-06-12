@@ -5,6 +5,7 @@
     using Base.ViewModels;
     using DTO;
     using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.Resources;
     using Utilities;
 
     public sealed class BeachSoccerViewModel : SportsbookBaseViewModel, IResultViewModel
@@ -31,7 +32,7 @@
 
             if (isRefund || isRefundFullTime)
             {
-                return ConstantValue.Refund;
+                return LangResource.Refund;
             }
 
             return base.GetScore(score);

@@ -72,9 +72,11 @@
     <Compile Include="ExcelModels\BadmintonExcel.cs" />
     <Compile Include="ExcelModels\BaseBallExcel.cs" />
     <Compile Include="ExcelModels\BasketballExcel.cs" />
+    <Compile Include="ExcelModels\BeachSoccerExcel.cs" />
     <Compile Include="ExcelModels\BilliardExcel.cs" />
     <Compile Include="ExcelModels\MuayThaiExcel.cs" />
     <Compile Include="ExcelModels\HockeyExcel.cs" />
+    <Compile Include="ExcelModels\KabaddiExcel.cs" />
     <Compile Include="ExcelModels\VSBasketBallExcel.cs" />
     <Compile Include="ExcelModels\OtherExcel.cs" />
     <Compile Include="ExcelModels\OutrightExcel.cs" />
@@ -101,11 +103,13 @@
     <Compile Include="ViewModels\BaseDetail\IResultDetail.cs" />
     <Compile Include="ViewModels\BasketBallDetail\BasketBallDetailViewModel.cs" />
     <Compile Include="ViewModels\BasketBallViewModel.cs" />
+    <Compile Include="ViewModels\BeachSoccerViewModel.cs" />
     <Compile Include="ViewModels\BilliardViewModel.cs" />
     <Compile Include="ViewModels\BasketBallDetail\BasketBallGameDetailItem.cs" />
     <Compile Include="ViewModels\BaseDetail\IGameDetailItem.cs" />
     <Compile Include="ViewModels\MuayThaiViewModel.cs" />
     <Compile Include="ViewModels\HockeyViewModel.cs" />
+    <Compile Include="ViewModels\KabaddiViewModel.cs" />
     <Compile Include="ViewModels\OtherViewModel.cs" />
     <Compile Include="ViewModels\OutrightViewModel.cs" />
     <Compile Include="ViewModels\ParlayViewModel.cs" />
@@ -170,6 +174,8 @@
     <EmbeddedResource Include="Views\MuayThai.cshtml" />
     <EmbeddedResource Include="Views\SoccerDetail\FastMarkets.cshtml" />
     <EmbeddedResource Include="Views\VSBasketBall.cshtml" />
+    <EmbeddedResource Include="Views\Kabaddi.cshtml" />
+    <EmbeddedResource Include="Views\BeachSoccer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\SonarAnalyzer.CSharp.6.7.1.4347\analyzers\Google.Protobuf.dll" />

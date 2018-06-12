@@ -108,21 +108,6 @@
         [StringValue("Billiard")]
         HorseRacingFixedOdd = 154,
 
-        [StringValue("Billiard")]
-        BeachSoccer = 51,
-
-        [StringValue("Billiard")]
-        UpcomingSport52 = 52,
-
-        [StringValue("Billiard")]
-        UpcomingSport53 = 53,
-
-        [StringValue("Billiard")]
-        UpcomingSport54 = 54,
-
-        [StringValue("Billiard")]
-        UpcomingSport55 = 55,
-
         #endregion Billiard
 
         #region Racing
@@ -193,15 +178,6 @@
 
         [StringValue("Other")]
         Cricket = 27,
-
-        [StringValue("Other")]
-        Kabaddi = 47,
-
-        [StringValue("Other")]
-        Futsal = 49,
-
-        [StringValue("Other")]
-        UpcomingSport56 = 56,
 
         [StringValue("Other")]
         CricketIndia = 50,
@@ -280,5 +256,29 @@
 
         [StringValue("GoldDeluxe")]
         GoldDeluxe = 255,
+
+        [StringValue("Kabaddi")]
+        Kabaddi = 47,
+
+        [StringValue("Kabaddi")]
+        Futsal = 49,
+
+        [StringValue("Kabaddi")]
+        UpcomingSport56 = 56,
+
+        [StringValue("BeachSoccer")]
+        BeachSoccer = 51,
+
+        [StringValue("BeachSoccer")]
+        UpcomingSport52 = 52,
+
+        [StringValue("BeachSoccer")]
+        UpcomingSport53 = 53,
+
+        [StringValue("BeachSoccer")]
+        UpcomingSport54 = 54,
+
+        [StringValue("BeachSoccer")]
+        UpcomingSport55 = 55,
     }
 }

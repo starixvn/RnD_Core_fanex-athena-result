@@ -71,6 +71,8 @@
   <ItemGroup>
     <Compile Include="DTOTest\SportsbookTests.cs" />
     <Compile Include="DTOTest\GameDetailTests.cs" />
+    <Compile Include="ExcelModels\BeackSoccerExcelTests.cs" />
+    <Compile Include="ExcelModels\KabaddiExcelTests.cs" />
     <Compile Include="ExcelModels\SoccerExcelTests.cs" />
     <Compile Include="ExcelModels\OtherExcelTests.cs" />
     <Compile Include="ExcelModels\VSTennisExcelTests.cs" />
@@ -88,7 +90,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\SportsbookHelperTests.cs" />
     <Compile Include="ViewModels\BadmintonViewModelTests.cs" />
+    <Compile Include="ViewModels\BeachSoccerViewModelTests.cs" />
     <Compile Include="ViewModels\MuayThaiViewModelTests.cs" />
+    <Compile Include="ViewModels\KabaddiViewModelTests.cs" />
     <Compile Include="ViewModels\OtherViewModelTests.cs" />
     <Compile Include="ViewModels\SoccerDetail\FastMarketResultDetailTests.cs" />
     <Compile Include="ViewModels\SoccerDetail\SoccerDetailItemTests.cs" />
@@ -130,6 +134,8 @@
     <Content Include="TestTemplate\excel\VSHRacing.xls" />
     <Content Include="TestTemplate\excel\VSSpeedWay.xls" />
     <Content Include="TestTemplate\excel\VSTennis.xls" />
+    <Content Include="TestTemplate\excel\NewSports.xls" />
+    <Content Include="TestTemplate\excel\BeachSoccer.xls" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj">

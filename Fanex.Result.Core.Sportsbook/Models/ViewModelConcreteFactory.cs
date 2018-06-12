@@ -47,7 +47,7 @@
                 return (IResultViewModel)Activator.CreateInstance(viewModel, resultData, setting, null);
             }
 
-            if (viewModel == typeof(OtherViewModel))
+            if (viewModel == typeof(OtherViewModel) || viewModel == typeof(KabaddiViewModel))
             {
                 return (IResultViewModel)Activator.CreateInstance(viewModel, resultData, setting, null);
             }

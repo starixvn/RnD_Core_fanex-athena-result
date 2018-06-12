@@ -569,6 +569,8 @@
     <Content Include="App_Data\Result_Data\UpcomingSport56.xls" />
     <Content Include="App_Data\Result_Data\VirtualSoccerWorldCup.xls" />
     <Content Include="App_Data\Result_Data\Outright.xls" />
+    <Content Include="App_Data\Fanex.Result\Kabaddi.xls" />
+    <Content Include="App_Data\Fanex.Result\BeachSoccer.xls" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>

@@ -6,6 +6,8 @@
     using Core.AGCasino.Models;
     using Core.Base;
     using Core.TestUtils;
+    using Fanex.Result.Core.Base.Utilities;
+    using NSubstitute;
     using NUnit.Framework;
 
     [TestFixture]
@@ -17,6 +19,7 @@
         public void SetUp()
         {
             _builder = new Builder();
+            ResultCoreManager.RegisterRefDataHelper(Substitute.For<IRefDataHelper>());
         }
 
         [Test]

@@ -3,6 +3,7 @@
     using Base;
     using Base.ViewModels;
     using DTO;
+    using Fanex.Result.Core.Base.Utilities;
     using Utilities;
 
     public sealed class OtherViewModel : SportsbookBaseViewModel, IResultViewModel
@@ -10,10 +11,10 @@
         public OtherViewModel(
             Sportsbook sportbook,
             ResultSetting setting,
-            ISportsbookRefDataHelper refDataHelper = null)
+            IRefDataHelper refDataHelper = null)
             : base(sportbook, setting, refDataHelper)
         {
-            sportbook.MatchCode = SportsbookRefDataHelper.GetBetRadarMatchCodeFormat(sportbook.MatchCode, GetSupportedLanguage);
+            sportbook.MatchCode = RefDataHelper.GetBetRadarMatchCodeFormat(sportbook.MatchCode, GetSupportedLanguage);
         }
 
         public string HTHomeScore => GetScore(SPORTBOOK.HtHomeScore);

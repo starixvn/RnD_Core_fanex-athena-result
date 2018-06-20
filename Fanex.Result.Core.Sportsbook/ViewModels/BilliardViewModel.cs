@@ -3,6 +3,7 @@
     using Base;
     using Base.ViewModels;
     using DTO;
+    using Fanex.Result.Core.Base.Utilities;
     using Utilities;
 
     public sealed class BilliardViewModel : SportsbookBaseViewModel, IResultViewModel
@@ -12,7 +13,7 @@
         {
         }
 
-        public BilliardViewModel(Sportsbook sportbook, ResultSetting setting, ISportsbookRefDataHelper refDataHelper)
+        public BilliardViewModel(Sportsbook sportbook, ResultSetting setting, IRefDataHelper refDataHelper)
             : base(sportbook, setting, refDataHelper)
         {
         }

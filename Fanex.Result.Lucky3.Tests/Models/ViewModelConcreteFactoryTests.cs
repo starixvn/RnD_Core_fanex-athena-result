@@ -13,6 +13,7 @@
     using KellermanSoftware.CompareNetObjects;
     using Lucky3.Models;
     using Lucky3.ViewModels;
+    using NSubstitute;
     using NUnit.Framework;
 
     [TestFixture]
@@ -28,6 +29,7 @@
             resultSetting = DataHelper.CreateResultSetting();
             resultData = DataHelper.CreateLucky3Data();
             comparer = new CompareLogic();
+            ResultCoreManager.RegisterRefDataHelper(Substitute.For<IRefDataHelper>());
         }
 
         [Test]
@@ -47,7 +49,7 @@
         public void GetViewModel_SportTypeIsValid_ReturnLucky3ViewModel()
         {
             // Arrange
-            var expectedViewModel = new Lucky3ViewModel(resultData, resultSetting, new RefDataHelper());
+            var expectedViewModel = new Lucky3ViewModel(resultData, resultSetting, ResultCoreManager.RefDataHelper);
 
             // Act
             var actualViewModel = ViewModelConcreteFactory.Instance.GetViewModel(resultData, resultSetting);
@@ -73,7 +75,7 @@
         public void GetExcelViewModel_SportTypeIsValid_ReturnLucky3ViewModel()
         {
             // Arrange
-            IEnumerable<IResultViewModel> viewModels = new List<Lucky3ViewModel> { new Lucky3ViewModel(resultData, resultSetting, new RefDataHelper()) };
+            IEnumerable<IResultViewModel> viewModels = new List<Lucky3ViewModel> { new Lucky3ViewModel(resultData, resultSetting, ResultCoreManager.RefDataHelper) };
             var expectedExcelViewModel = new Lucky3ExcelViewModel(FilePath.ExcelTemplateFilePath, resultSetting, viewModels.ToList());
 
             // Act

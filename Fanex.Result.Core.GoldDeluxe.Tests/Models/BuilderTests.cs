@@ -4,7 +4,9 @@
     using System.Collections.Generic;
     using Base;
     using DTO;
+    using Fanex.Result.Core.Base.Utilities;
     using GoldDeluxe.Models;
+    using NSubstitute;
     using NUnit.Framework;
     using TestUtils;
 
@@ -21,6 +23,7 @@
             _builder = new Builder();
             _dataList = new List<GoldDeluxe>() { new GoldDeluxe() };
             _setting = new ResultSetting { SportType = SportType.GoldDeluxe, LanguageCode = "en-US" };
+            ResultCoreManager.RegisterRefDataHelper(Substitute.For<IRefDataHelper>());
         }
 
         [Test]

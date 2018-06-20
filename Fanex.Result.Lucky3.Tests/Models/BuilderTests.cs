@@ -5,7 +5,9 @@
     using System.IO;
     using Base;
     using Data;
+    using Fanex.Result.Core.Base.Utilities;
     using Lucky3.Models;
+    using NSubstitute;
     using NUnit.Framework;
 
     [TestFixture]
@@ -19,6 +21,7 @@
         {
             resultSetting = DataHelper.CreateResultSetting();
             dataList = new List<DTO.Lucky3> { DataHelper.CreateLucky3Data() };
+            ResultCoreManager.RegisterRefDataHelper(Substitute.For<IRefDataHelper>());
         }
 
         [Test]

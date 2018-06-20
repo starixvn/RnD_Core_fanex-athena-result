@@ -2,24 +2,24 @@
 {
     using Base;
     using DTO;
+    using Fanex.Result.Core.Base.Utilities;
     using NSubstitute;
     using NUnit.Framework;
     using Racing.ViewModels;
-    using Utilities;
 
     [TestFixture]
     public class VSHRacingViewModelTests
     {
         private Racing _racing;
         private ResultSetting _setting;
-        private IRacingRefDataHelper _refDataHelper;
+        private IRefDataHelper _refDataHelper;
 
         [SetUp]
         public void Setup()
         {
             _racing = new Racing();
             _setting = new ResultSetting { LanguageCode = "en-US" };
-            _refDataHelper = Substitute.For<IRacingRefDataHelper>();
+            _refDataHelper = Substitute.For<IRefDataHelper>();
         }
 
         [Test]

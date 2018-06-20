@@ -4,10 +4,10 @@
     using Base;
     using Base.DataDomain;
     using DTO;
+    using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Sportsbook.ViewModels.SoccerDetail;
     using NSubstitute;
     using NUnit.Framework;
-    using Sportsbook.Utilities;
     using Sportsbook.ViewModels;
     using TestUtils;
 
@@ -16,14 +16,14 @@
     {
         private ResultSetting _setting;
         private Sportsbook _soccer;
-        private ISportsbookRefDataHelper _refDataHelper;
+        private IRefDataHelper _refDataHelper;
 
         [SetUp]
         public void Setup()
         {
             _setting = new ResultSetting();
             _soccer = new Sportsbook();
-            _refDataHelper = Substitute.For<ISportsbookRefDataHelper>();
+            _refDataHelper = Substitute.For<IRefDataHelper>();
         }
 
         [TestCase(true, true)]

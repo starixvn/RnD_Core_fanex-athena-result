@@ -4,6 +4,7 @@
     using Base;
     using Base.DataDomain;
     using DTO;
+    using Fanex.Result.Core.Base.Utilities;
     using NSubstitute;
     using NUnit.Framework;
     using Sportsbook.Utilities;
@@ -47,7 +48,7 @@
             "00", "01", "02", "Q1", "Q2", "Q3", "Q4", "OT"
         };
 
-        private ISportsbookRefDataHelper _refDataHelper;
+        private IRefDataHelper _refDataHelper;
         private ISportsbookHelperWraper _sportsBookHelper;
         private Sportsbook _sportsBook;
         private ResultSetting _setting;
@@ -55,11 +56,12 @@
         [SetUp]
         public void SetUp()
         {
-            _refDataHelper = Substitute.For<ISportsbookRefDataHelper>();
+            _refDataHelper = Substitute.For<IRefDataHelper>();
             _sportsBookHelper = Substitute.For<ISportsbookHelperWraper>();
             _sportsBook = new Sportsbook();
             _setting = new ResultSetting();
             _setting.LanguageCode = ConstantValue.EnglishLanguageCode;
+            ResultCoreManager.RegisterRefDataHelper(Substitute.For<IRefDataHelper>());
         }
 
         [Test, TestCaseSource("MoreResultResourceIdsTestCase")]

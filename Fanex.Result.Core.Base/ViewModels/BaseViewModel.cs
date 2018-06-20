@@ -31,7 +31,7 @@
         {
             DateTimeFormat = setting.DateTimeFormat;
             VisibleInternalEventStatus = setting.VisibleInternalEventStatus;
-            RefDataHelper = refDataHelper ?? new RefDataHelper();
+            RefDataHelper = refDataHelper ?? ResultCoreManager.RefDataHelper;
         }
 
         public string DateTimeFormat { get; set; }

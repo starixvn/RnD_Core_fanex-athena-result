@@ -28,7 +28,7 @@
         {
         }
 
-        public TennisViewModel(Sportsbook sportbook, ResultSetting setting, ISportsbookRefDataHelper refDataHelper)
+        public TennisViewModel(Sportsbook sportbook, ResultSetting setting, IRefDataHelper refDataHelper)
            : base(sportbook, setting, refDataHelper)
         {
         }

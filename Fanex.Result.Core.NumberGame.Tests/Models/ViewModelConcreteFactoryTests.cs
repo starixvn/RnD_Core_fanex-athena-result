@@ -5,6 +5,8 @@
     using Base;
     using Base.Exception;
     using DTO;
+    using Fanex.Result.Core.Base.Utilities;
+    using NSubstitute;
     using NumberGame.Models;
     using NUnit.Framework;
 
@@ -19,6 +21,7 @@
         {
             _numberGame = new NumberGame();
             _resultSetting = new ResultSetting();
+            ResultCoreManager.RegisterRefDataHelper(Substitute.For<IRefDataHelper>());
         }
 
         [Test]

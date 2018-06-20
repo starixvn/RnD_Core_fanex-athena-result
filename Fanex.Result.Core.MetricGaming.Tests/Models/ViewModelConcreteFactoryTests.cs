@@ -4,8 +4,10 @@
     using System.Collections.Generic;
     using Base;
     using Base.Exception;
+    using Fanex.Result.Core.Base.Utilities;
     using MetricGaming.DTO;
     using MetricGaming.Models;
+    using NSubstitute;
     using NUnit.Framework;
 
     [TestFixture]
@@ -19,6 +21,7 @@
         {
             _metricGaming = new MetricGaming();
             _resultSetting = new ResultSetting();
+            ResultCoreManager.RegisterRefDataHelper(Substitute.For<IRefDataHelper>());
         }
 
         [Test]

@@ -15,7 +15,7 @@
         public SportsbookBaseViewModel(
             Sportsbook sportbook,
             ResultSetting setting,
-            ISportsbookRefDataHelper refDataHelper = null)
+            IRefDataHelper refDataHelper = null)
             : base(setting, refDataHelper)
         {
             SPORTBOOK = sportbook;
@@ -25,7 +25,6 @@
             HighlightWinnerTeam = setting.HighlightWinnerTeam;
             VisibleGoalRecord = setting.VisibleGoalRecord;
             Setting = setting;
-            SportsbookRefDataHelper = refDataHelper ?? new SportsbookRefDataHelper();
         }
 
         public string[] HomeSet { get; set; }
@@ -85,8 +84,6 @@
 
         protected bool HighlightWinnerTeam { get; }
 
-        public ISportsbookRefDataHelper SportsbookRefDataHelper { get; set; }
-
         protected string GetScoreInfoFromBetStatus
         {
             get
@@ -133,7 +130,7 @@
         /// <param name="isNeutral">Is neutral.</param>
         /// <returns>The home team.</returns>
         protected string GetSportbookHomeTeam(int homeId, bool isNeutral)
-            => RefDataHelper.GetTeamName(homeId, GetSupportedLanguage, string.Empty)
+            => base.RefDataHelper.GetTeamName(homeId, GetSupportedLanguage, string.Empty)
                 + (isNeutral ? LangResource.IsNeutral : string.Empty);
 
         /// <summary>
@@ -142,7 +139,7 @@
         /// <param name="awayId">The away id.</param>
         /// <returns>The away team.</returns>
         protected string GetSportbookAwayTeam(int awayId)
-            => RefDataHelper.GetTeamName(awayId, GetSupportedLanguage, string.Empty);
+            => base.RefDataHelper.GetTeamName(awayId, GetSupportedLanguage, string.Empty);
 
         protected virtual string GetScore(int? score)
             => score.HasValue ? score.Value.ToString(CultureInfo.InvariantCulture) : ConstantValue.Hyphen;

@@ -9,6 +9,7 @@
     using BaseDetail;
     using DataDomain;
     using DTO;
+    using Fanex.Result.Core.Base.Utilities;
     using Resources;
     using Utilities;
 
@@ -17,7 +18,7 @@
         public SoccerResultDetail(
             Sportsbook sportsbook,
             ResultSetting setting,
-            ISportsbookRefDataHelper refDataHelper = null,
+            IRefDataHelper refDataHelper = null,
             ISportsbookHelperWraper sportsBookHelper = null)
             : base(sportsbook, setting, refDataHelper, sportsBookHelper)
         {

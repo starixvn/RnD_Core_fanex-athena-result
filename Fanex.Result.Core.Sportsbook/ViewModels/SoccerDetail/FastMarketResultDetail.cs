@@ -6,6 +6,7 @@
     using System.Text;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.Extension;
+    using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Sportsbook.DataDomain;
     using Fanex.Result.Core.Sportsbook.DTO;
     using Fanex.Result.Core.Sportsbook.Utilities;
@@ -19,7 +20,7 @@
         public FastMarketResultDetail(
             Sportsbook sportsbook,
             ResultSetting setting,
-            ISportsbookRefDataHelper refDataHelper = null,
+            IRefDataHelper refDataHelper = null,
             ISportsbookHelperWraper sportsBookHelper = null)
             : base(sportsbook, setting, refDataHelper, sportsBookHelper)
         {
@@ -40,7 +41,7 @@
             {
                 GroupCode = detailItem.ResourceId,
                 ResourceID = detailItem.ResourceId,
-                GroupName = SportsbookRefDataHelper.GetBetTypeNameById(Sportsbook.Bettype.ToString(), GetSupportedLanguage),
+                GroupName = RefDataHelper.GetBetTypeNameById(Sportsbook.Bettype.ToString(), GetSupportedLanguage),
                 TimeRange = new List<string> { SportsbookHelper.CreateFastMarketsTimeRange(detailItem.ResourceId, Sportsbook.BetID) }
             };
 
@@ -105,7 +106,7 @@
         }
 
         private string GetSituationName(int situationId)
-            => SportsbookRefDataHelper.GetResourceDataByRefIdAndResourceId(FastMarketRefId, situationId.ToString(), GetSupportedLanguage, string.Empty);
+            => RefDataHelper.GetResourceDataByRefIdAndResourceId(FastMarketRefId, situationId.ToString(), GetSupportedLanguage, string.Empty);
 
         private string GetSituationHappenedTimes(int startTime, int situationId)
         {
@@ -128,8 +129,8 @@
 
             var result = results[startTime % 45];
             var situation = betType == 225 ?
-                SportsbookRefDataHelper.GetFastMarket225Result(result.ToString(), GetSupportedLanguage) :
-                SportsbookRefDataHelper.GetFastMarketResult(result.ToString(), GetSupportedLanguage);
+                RefDataHelper.GetFastMarket225Result(result.ToString(), GetSupportedLanguage) :
+                RefDataHelper.GetFastMarketResult(result.ToString(), GetSupportedLanguage);
 
             return situation;
         }

@@ -1,11 +1,11 @@
-﻿namespace Fanex.Result.Core.Base.Utilities
+﻿namespace Fanex.Result.Core.RemotingRefV1
 {
-    using System;
     using System.Globalization;
-    using DataDomain;
+    using Fanex.Result.Core.Base.DataDomain;
+    using Fanex.Result.Core.Base.Utilities;
     using RemotingRef;
 
-    public class RefDataHelper : IRefDataHelper
+    public class RefDataHelperV1 : IRefDataHelper
     {
         protected string LanguageCode { get; set; } = ConstantValue.EnglishLanguageCode;
 
@@ -29,5 +29,17 @@
 
         public string GetResourceDataByRefIdAndResourceId(string refId, string resourceId, string lang, string defaultValue)
             => RefData.GetResourceDataByRefIdAndResourceId(refId, resourceId, lang, defaultValue);
+
+        public string GetFastMarket225Result(string resultId, string lang)
+            => RefData.GetFastMarkets225Result(resultId, lang);
+
+        public string GetFastMarketResult(string resultId, string lang)
+            => RefData.GetFastMarketsResult(resultId, lang);
+
+        public string GetBetRadarMatchCodeFormat(string matchCode, string lang)
+            => RefData.GetBetRadarMatchCodeFormat(matchCode, lang);
+
+        public string GetHorseTeamName(string codeId, string lang, string defaultValue)
+            => RefData.GetHorseTeamName(codeId, lang, defaultValue);
     }
 }

@@ -2,7 +2,7 @@
 {
     using Base;
     using Base.ViewModels;
-    using Utilities;
+    using Fanex.Result.Core.Base.Utilities;
 
     public class VSSpeedWayViewModel : VSHRacingViewModel, IResultViewModel
     {
@@ -11,7 +11,7 @@
         {
         }
 
-        public VSSpeedWayViewModel(DTO.Racing racing, ResultSetting setting, IRacingRefDataHelper refDataHelper)
+        public VSSpeedWayViewModel(DTO.Racing racing, ResultSetting setting, IRefDataHelper refDataHelper)
            : base(racing, setting, refDataHelper)
         {
         }

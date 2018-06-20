@@ -5,7 +5,9 @@
     using Base;
     using Base.Exception;
     using DTO;
+    using Fanex.Result.Core.Base.Utilities;
     using LiveCasino.Models;
+    using NSubstitute;
     using NUnit.Framework;
 
     [TestFixture]
@@ -19,6 +21,7 @@
         {
             _liveCasino = new LiveCasino();
             _resultSetting = new ResultSetting();
+            ResultCoreManager.RegisterRefDataHelper(Substitute.For<IRefDataHelper>());
         }
 
         [Test]

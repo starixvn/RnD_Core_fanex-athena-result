@@ -3,9 +3,9 @@
     using System.Collections.Generic;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.Extension;
+    using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Sportsbook.DataDomain;
     using Fanex.Result.Core.Sportsbook.DTO;
-    using Fanex.Result.Core.Sportsbook.Utilities;
     using Fanex.Result.Core.Sportsbook.ViewModels.BasketBallDetail;
     using Fanex.Result.Core.Sportsbook.ViewModels.VSBasketBallDetail;
     using KellermanSoftware.CompareNetObjects;
@@ -17,7 +17,7 @@
     {
         private Sportsbook _sportsbook;
         private ResultSetting _setting;
-        private ISportsbookRefDataHelper _sportsbookRefDataHelper;
+        private IRefDataHelper _refDataHelper;
         private CompareLogic _compareLogic;
 
         [SetUp]
@@ -35,19 +35,20 @@
                 }
             };
             _setting = new ResultSetting { LanguageCode = "en-US", VisibleDetailedLink = true };
-            _sportsbookRefDataHelper = Substitute.For<ISportsbookRefDataHelper>();
+            _refDataHelper = Substitute.For<IRefDataHelper>();
 
             _compareLogic = new CompareLogic();
+            ResultCoreManager.RegisterRefDataHelper(Substitute.For<IRefDataHelper>());
         }
 
         [Test]
         public void CreateGameDetailItem_DetailItemContainVSBasketBallResourseId_GenerateCorrectGameDetailItem()
         {
             // Arrange
-            _sportsbookRefDataHelper.GetBetTypeNameById("2809", "en", "20").Returns("FTRaceTo20Points");
-            _sportsbookRefDataHelper.GetBetTypeNameById("2809", "en", "40").Returns("FTRaceTo40Points");
-            _sportsbookRefDataHelper.GetTeamName(1, Arg.Any<string>(), Arg.Any<string>()).Returns("HomeTeam");
-            _sportsbookRefDataHelper.GetTeamName(2, Arg.Any<string>(), Arg.Any<string>()).Returns("AwayTeam");
+            _refDataHelper.GetBetTypeNameById("2809", "en", "20").Returns("FTRaceTo20Points");
+            _refDataHelper.GetBetTypeNameById("2809", "en", "40").Returns("FTRaceTo40Points");
+            _refDataHelper.GetTeamName(1, Arg.Any<string>(), Arg.Any<string>()).Returns("HomeTeam");
+            _refDataHelper.GetTeamName(2, Arg.Any<string>(), Arg.Any<string>()).Returns("AwayTeam");
 
             var expectGameDetailItems = new SafeList<BasketBallGameDetailItem>
             {
@@ -57,7 +58,7 @@
             };
 
             // Act
-            var resultDetail = new VSBasketBallResultDetail(_sportsbook, _setting, _sportsbookRefDataHelper);
+            var resultDetail = new VSBasketBallResultDetail(_sportsbook, _setting, _refDataHelper);
 
             // Assert
             Assert.True(_compareLogic.Compare(expectGameDetailItems, resultDetail.GetDetailItems()).AreEqual);

@@ -5,7 +5,6 @@
     using Base.Resources;
     using Base.Utilities;
     using Base.ViewModels;
-    using Utilities;
 
     public class RacingViewModel : BaseViewModel, IResultViewModel
     {
@@ -16,16 +15,16 @@
         {
         }
 
-        public RacingViewModel(DTO.Racing racing, ResultSetting setting, IRacingRefDataHelper refDataHelper)
+        public RacingViewModel(DTO.Racing racing, ResultSetting setting, IRefDataHelper refDataHelper)
         : base(setting, refDataHelper)
         {
             _racing = racing;
             LanguageCode = setting.LanguageCode;
             Sport = setting.SportType;
-            RacingRefDataHelper = refDataHelper ?? new RacingRefDataHelper();
+            DataHelper = refDataHelper ?? ResultCoreManager.RefDataHelper;
         }
 
-        public IRacingRefDataHelper RacingRefDataHelper { get; }
+        public IRefDataHelper DataHelper { get; }
 
         public override int LeagueId => _racing.LeagueId;
 
@@ -65,7 +64,7 @@
 
         public string HorseNo => _racing.EngineNo;
 
-        public string Result => RacingRefDataHelper.GetHorseTeamName(_racing.EngineId, GetSupportedLanguage, string.Empty);
+        public string Result => DataHelper.GetHorseTeamName(_racing.EngineId, GetSupportedLanguage, string.Empty);
 
         public string WinOdd
             => _racing.WinOdds > 0 ? Helper.DecFormat(_racing.WinOdds, 2) : string.Empty;

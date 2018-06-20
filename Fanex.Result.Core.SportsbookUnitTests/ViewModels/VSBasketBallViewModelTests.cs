@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.Extension;
+    using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Sportsbook.DataDomain;
     using Fanex.Result.Core.Sportsbook.Utilities;
     using Fanex.Result.Core.Sportsbook.ViewModels;
@@ -19,7 +20,7 @@
         private DTO.Sportsbook _sportsbook;
         private ResultSetting _setting;
         private IResultDetail<BasketBallGameDetailItem> _resultDetail;
-        private ISportsbookRefDataHelper _sportsbookRefDataHelper;
+        private IRefDataHelper _refDataHelper;
         private CompareLogic _compareLogic;
 
         [SetUp]
@@ -39,12 +40,12 @@
             _setting = new ResultSetting { LanguageCode = "en-US", VisibleDetailedLink = true };
 
             _resultDetail = Substitute.For<IResultDetail<BasketBallGameDetailItem>>();
-            _sportsbookRefDataHelper = Substitute.For<ISportsbookRefDataHelper>();
-            _sportsbookRefDataHelper.GetTeamName(Arg.Any<int>(), Arg.Any<string>(), Arg.Any<string>()).Returns("HomeTeam");
-            _sportsbookRefDataHelper.GetBetRadarMatchCodeFormat(Arg.Any<string>(), Arg.Any<string>()).Returns("matchinfo");
+            _refDataHelper = Substitute.For<IRefDataHelper>();
+            _refDataHelper.GetTeamName(Arg.Any<int>(), Arg.Any<string>(), Arg.Any<string>()).Returns("HomeTeam");
+            _refDataHelper.GetBetRadarMatchCodeFormat(Arg.Any<string>(), Arg.Any<string>()).Returns("matchinfo");
 
             _compareLogic = new CompareLogic();
-            var resultDetailItems = new VSBasketBallResultDetail(_sportsbook, _setting, _sportsbookRefDataHelper).GetDetailItems();
+            var resultDetailItems = new VSBasketBallResultDetail(_sportsbook, _setting, _refDataHelper).GetDetailItems();
             _resultDetail.GetDetailItems().Returns(resultDetailItems);
         }
 
@@ -56,7 +57,7 @@
             _resultDetail.GetDetailItems().Returns(expectedResultDetailItems);
 
             // Act
-            var viewModel = new VSBasketBallViewModel(_sportsbook, _setting, _sportsbookRefDataHelper, _resultDetail);
+            var viewModel = new VSBasketBallViewModel(_sportsbook, _setting, _refDataHelper, _resultDetail);
 
             // Assert
             Assert.AreEqual(expectedResultDetailItems, viewModel.ResultDetailItems);
@@ -66,7 +67,7 @@
         public void MoreResultDetailItems_Always_GetFromGameDetailsExceptFinalScore()
         {
             // Arrange
-            var resultDetailItems = new VSBasketBallResultDetail(_sportsbook, _setting, _sportsbookRefDataHelper).GetDetailItems();
+            var resultDetailItems = new VSBasketBallResultDetail(_sportsbook, _setting, _refDataHelper).GetDetailItems();
             _resultDetail.GetDetailItems().Returns(resultDetailItems);
             var expectedMoreResultDetailItems = new SafeList<BasketBallGameDetailItem>
             {
@@ -74,7 +75,7 @@
             };
 
             // Act
-            var viewModel = new VSBasketBallViewModel(_sportsbook, _setting, _sportsbookRefDataHelper, _resultDetail);
+            var viewModel = new VSBasketBallViewModel(_sportsbook, _setting, _refDataHelper, _resultDetail);
 
             // Assert
             Assert.True(_compareLogic.Compare(expectedMoreResultDetailItems, viewModel.MoreResultDetailItems).AreEqual);
@@ -84,7 +85,7 @@
         public void HTHomeScore_Always_GetFromGameDetails()
         {
             // Act
-            var viewModel = new VSBasketBallViewModel(_sportsbook, _setting, _sportsbookRefDataHelper, _resultDetail);
+            var viewModel = new VSBasketBallViewModel(_sportsbook, _setting, _refDataHelper, _resultDetail);
 
             // Assert
             Assert.AreEqual("2", viewModel.HTHomeScore);
@@ -94,7 +95,7 @@
         public void HTAwayScore_Always_GetFromGameDetails()
         {
             // Act
-            var viewModel = new VSBasketBallViewModel(_sportsbook, _setting, _sportsbookRefDataHelper, _resultDetail);
+            var viewModel = new VSBasketBallViewModel(_sportsbook, _setting, _refDataHelper, _resultDetail);
 
             // Assert
             Assert.AreEqual("4", viewModel.HTAwayScore);
@@ -104,7 +105,7 @@
         public void FinalAwayScore_Always_GetFromGameDetails()
         {
             // Act
-            var viewModel = new VSBasketBallViewModel(_sportsbook, _setting, _sportsbookRefDataHelper, _resultDetail);
+            var viewModel = new VSBasketBallViewModel(_sportsbook, _setting, _refDataHelper, _resultDetail);
 
             // Assert
             Assert.AreEqual("4", viewModel.FinalAwayScore);
@@ -114,7 +115,7 @@
         public void FinalHomeScore_Always_GetFromGameDetails()
         {
             // Act
-            var viewModel = new VSBasketBallViewModel(_sportsbook, _setting, _sportsbookRefDataHelper, _resultDetail);
+            var viewModel = new VSBasketBallViewModel(_sportsbook, _setting, _refDataHelper, _resultDetail);
 
             // Assert
             Assert.AreEqual("2", viewModel.FinalHomeScore);
@@ -124,7 +125,7 @@
         public void MatchInfo_Always_GetFromMatchCode()
         {
             // Act
-            var viewModel = new VSBasketBallViewModel(_sportsbook, _setting, _sportsbookRefDataHelper, _resultDetail);
+            var viewModel = new VSBasketBallViewModel(_sportsbook, _setting, _refDataHelper, _resultDetail);
 
             // Assert
             Assert.AreEqual("(matchinfo)", viewModel.MatchInfo);
@@ -134,7 +135,7 @@
         public void VisibleDetailedLink_Always_GetFromMatchCode()
         {
             // Act
-            var viewModel = new VSBasketBallViewModel(_sportsbook, _setting, _sportsbookRefDataHelper, _resultDetail);
+            var viewModel = new VSBasketBallViewModel(_sportsbook, _setting, _refDataHelper, _resultDetail);
 
             // Assert
             Assert.True(viewModel.VisibleDetailedLink);
@@ -144,7 +145,7 @@
         public void VisibleGameDetail_Always_GetFromMatchCode()
         {
             // Act
-            var viewModel = new VSBasketBallViewModel(_sportsbook, _setting, _sportsbookRefDataHelper, _resultDetail);
+            var viewModel = new VSBasketBallViewModel(_sportsbook, _setting, _refDataHelper, _resultDetail);
 
             // Assert
             Assert.True(viewModel.VisibleGameDetail);
@@ -154,7 +155,7 @@
         public void HomeId_Always_GetFromMatchCode()
         {
             // Act
-            var viewModel = new VSBasketBallViewModel(_sportsbook, _setting, _sportsbookRefDataHelper, _resultDetail);
+            var viewModel = new VSBasketBallViewModel(_sportsbook, _setting, _refDataHelper, _resultDetail);
 
             // Assert
             Assert.AreEqual(1, viewModel.HomeId);
@@ -164,7 +165,7 @@
         public void AwayId_Always_GetFromMatchCode()
         {
             // Act
-            var viewModel = new VSBasketBallViewModel(_sportsbook, _setting, _sportsbookRefDataHelper, _resultDetail);
+            var viewModel = new VSBasketBallViewModel(_sportsbook, _setting, _refDataHelper, _resultDetail);
 
             // Assert
             Assert.AreEqual(2, viewModel.AwayId);

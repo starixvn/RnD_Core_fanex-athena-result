@@ -5,11 +5,11 @@
     using System.Linq;
     using Base;
     using Base.ViewModels;
+    using Fanex.Result.Core.Base.Utilities;
     using NSubstitute;
     using NUnit.Framework;
     using Racing.DTO;
     using Racing.ExcelModels;
-    using Racing.Utilities;
     using Racing.ViewModels;
     using TestUtils;
 
@@ -18,14 +18,14 @@
     {
         private ResultSetting _resultSetting;
         private IEnumerable<IResultViewModel> _resultData;
-        private IRacingRefDataHelper _refDataHelper;
+        private IRefDataHelper _refDataHelper;
 
         [SetUp]
         public void Setup()
         {
             _resultSetting = DataUtils.CreateResultSetting();
             _resultData = new List<RacingViewModel>();
-            _refDataHelper = Substitute.For<IRacingRefDataHelper>();
+            _refDataHelper = Substitute.For<IRefDataHelper>();
         }
 
         [Test]

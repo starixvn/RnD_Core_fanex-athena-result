@@ -6,6 +6,8 @@
     using Result.Core;
     using TestUtils;
     using Sportsbook.DTO;
+    using NSubstitute;
+    using Fanex.Result.Core.Base.Utilities;
 
     [TestFixture]
     public class ResultEngineTests
@@ -20,6 +22,7 @@
             _resultSetting = new ResultSetting();
             _dataList = new List<Sportsbook>();
             _data = new Sportsbook();
+            ResultCoreManager.RegisterRefDataHelper(Substitute.For<IRefDataHelper>());
         }
 
         [TestCase(SportType.Badminton)]

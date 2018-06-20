@@ -8,6 +8,7 @@
     using BaseDetail;
     using DataDomain;
     using DTO;
+    using Fanex.Result.Core.Base.Utilities;
     using Utilities;
 
     public class BasketBallResultDetail : BaseResultDetail<BasketBallGameDetailItem>
@@ -15,7 +16,7 @@
         public BasketBallResultDetail(
             Sportsbook sportsbook,
             ResultSetting setting,
-            ISportsbookRefDataHelper refDataHelper,
+            IRefDataHelper refDataHelper,
             ISportsbookHelperWraper sportsBookHelper)
             : base(sportsbook, setting, refDataHelper, sportsBookHelper)
         {
@@ -31,7 +32,7 @@
                 var betTypeId = detailItem?.ResourceId?.Substring(0, 3);
                 var resourceId = detailItem?.ResourceId?.Remove(0, 3);
 
-                item.ResourceName = SportsbookRefDataHelper.GetBetTypeNameById(betTypeId, GetSupportedLanguage, resourceId);
+                item.ResourceName = RefDataHelper.GetBetTypeNameById(betTypeId, GetSupportedLanguage, resourceId);
             }
 
             return MapGameValueByStatusId(item, detailItem);

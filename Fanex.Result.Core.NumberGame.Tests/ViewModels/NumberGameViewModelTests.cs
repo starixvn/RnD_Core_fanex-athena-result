@@ -22,6 +22,7 @@
             _numberGame = new NumberGame();
             _setting = new ResultSetting { LanguageCode = "en-US" };
             _refDataHelper = Substitute.For<IRefDataHelper>();
+            ResultCoreManager.RegisterRefDataHelper(Substitute.For<IRefDataHelper>());
         }
 
         [Test]

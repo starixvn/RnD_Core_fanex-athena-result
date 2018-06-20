@@ -5,6 +5,8 @@
     using Base;
     using Base.Exception;
     using DTO;
+    using Fanex.Result.Core.Base.Utilities;
+    using NSubstitute;
     using NUnit.Framework;
     using Racing.Models;
 
@@ -19,6 +21,7 @@
         {
             _racing = new Racing();
             _resultSetting = new ResultSetting();
+            ResultCoreManager.RegisterRefDataHelper(Substitute.For<IRefDataHelper>());
         }
 
         [Test]

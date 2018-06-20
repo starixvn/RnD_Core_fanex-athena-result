@@ -15,5 +15,13 @@
         string GetSportName(int sportType, string lang, string defaultValue);
 
         string GetResourceDataByRefIdAndResourceId(string refId, string resourceId, string lang, string defaultValue);
+
+        string GetFastMarketResult(string resultId, string lang);
+
+        string GetFastMarket225Result(string resultId, string lang);
+
+        string GetBetRadarMatchCodeFormat(string matchCode, string lang);
+
+        string GetHorseTeamName(string codeId, string lang, string defaultValue);
     }
 }

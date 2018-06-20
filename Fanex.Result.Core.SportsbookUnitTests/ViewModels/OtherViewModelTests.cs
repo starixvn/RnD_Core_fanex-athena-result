@@ -2,15 +2,15 @@
 {
     using Base;
     using DTO;
+    using Fanex.Result.Core.Base.Utilities;
     using NSubstitute;
     using NUnit.Framework;
-    using Sportsbook.Utilities;
     using Sportsbook.ViewModels;
 
     [TestFixture]
     public class OtherViewModelTests
     {
-        private ISportsbookRefDataHelper _refDataHelper;
+        private IRefDataHelper _refDataHelper;
         private ResultSetting _resultSetting;
 
         [SetUp]
@@ -20,7 +20,7 @@
             {
                 LanguageCode = "en-US"
             };
-            _refDataHelper = Substitute.For<ISportsbookRefDataHelper>();
+            _refDataHelper = Substitute.For<IRefDataHelper>();
             _refDataHelper.GetBetRadarMatchCodeFormat(Arg.Any<string>(), Arg.Any<string>()).Returns("MatchCode");
         }
 

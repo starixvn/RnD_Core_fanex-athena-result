@@ -2,6 +2,7 @@
 {
     using System.Linq;
     using Fanex.Result.Core.Base;
+    using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Sportsbook.DataDomain;
     using Fanex.Result.Core.Sportsbook.DTO;
     using Fanex.Result.Core.Sportsbook.Utilities;
@@ -12,7 +13,7 @@
         public VSBasketBallResultDetail(
             Sportsbook sportsbook,
             ResultSetting setting,
-            ISportsbookRefDataHelper refDataHelper = null,
+            IRefDataHelper refDataHelper = null,
             ISportsbookHelperWraper sportsBookHelper = null)
             : base(sportsbook, setting, refDataHelper, sportsBookHelper)
         {
@@ -27,7 +28,7 @@
                 var betTypeId = detailItem?.ResourceId?.Substring(0, 4);
                 var resourceId = detailItem?.ResourceId?.Remove(0, 4);
 
-                item.ResourceName = SportsbookRefDataHelper.GetBetTypeNameById(betTypeId, GetSupportedLanguage, resourceId);
+                item.ResourceName = RefDataHelper.GetBetTypeNameById(betTypeId, GetSupportedLanguage, resourceId);
             }
 
             return MapGameValueByStatusId(item, detailItem);

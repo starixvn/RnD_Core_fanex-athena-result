@@ -3,6 +3,8 @@
     using System.Collections.Generic;
     using Base;
     using DTO;
+    using Fanex.Result.Core.Base.Utilities;
+    using NSubstitute;
     using NUnit.Framework;
     using Sportsbook.Models;
     using TestUtils;
@@ -19,6 +21,7 @@
             _resultSetting = DataUtils.CreateResultSetting();
             _resultSetting.SportType = SportType.Soccer;
             _dataList = new List<Sportsbook>();
+            ResultCoreManager.RegisterRefDataHelper(Substitute.For<IRefDataHelper>());
         }
 
         [Test]

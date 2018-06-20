@@ -8,6 +8,8 @@
     using NUnit.Framework;
     using GoldDeluxe.ViewModels;
     using GoldDeluxe.ExcelModels;
+    using NSubstitute;
+    using Fanex.Result.Core.Base.Utilities;
 
     [TestFixture]
     public class GoldDeluxeExcelTests
@@ -20,6 +22,7 @@
         {
             _resultSetting = DataUtils.CreateResultSetting();
             _resultData = new List<GoldDeluxeViewModel>();
+            ResultCoreManager.RegisterRefDataHelper(Substitute.For<IRefDataHelper>());
         }
 
         [Test]

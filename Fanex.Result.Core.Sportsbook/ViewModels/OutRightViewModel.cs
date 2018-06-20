@@ -15,7 +15,7 @@
         {
         }
 
-        public OutrightViewModel(Outright outRight, ResultSetting setting, ISportsbookRefDataHelper refDataHelper)
+        public OutrightViewModel(Outright outRight, ResultSetting setting, IRefDataHelper refDataHelper)
             : base(setting, refDataHelper)
         {
             _outRight = outRight;

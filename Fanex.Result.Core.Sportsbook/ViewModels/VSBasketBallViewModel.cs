@@ -4,6 +4,7 @@
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.Extension;
+    using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Sportsbook.DataDomain;
     using Fanex.Result.Core.Sportsbook.DTO;
@@ -22,7 +23,7 @@
         public VSBasketBallViewModel(
             Sportsbook sportbook,
             ResultSetting setting,
-            ISportsbookRefDataHelper refDataHelper,
+            IRefDataHelper refDataHelper,
             IResultDetail<BasketBallGameDetailItem> resultDetail)
             : base(sportbook, setting, refDataHelper)
         {
@@ -31,7 +32,7 @@
                 item.ResourceID != GameResourceID.FirstHalfScore &&
                 item.ResourceID != GameResourceID.FinalScore).ToSafeList();
 
-            sportbook.MatchCode = SportsbookRefDataHelper.GetBetRadarMatchCodeFormat(sportbook.MatchCode, GetSupportedLanguage);
+            sportbook.MatchCode = RefDataHelper.GetBetRadarMatchCodeFormat(sportbook.MatchCode, GetSupportedLanguage);
         }
 
         public SafeList<BasketBallGameDetailItem> ResultDetailItems { get; set; }

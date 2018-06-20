@@ -16,6 +16,7 @@
     using BaseDetail;
     using DataDomain;
     using DTO;
+    using Fanex.Result.Core.Base.Utilities;
     using Models;
     using RazorEngine;
     using RazorEngine.Templating;
@@ -48,7 +49,7 @@
             ResultSetting setting,
             IResultDetail<SoccerGameDetailItem> resultDetail,
             IResultDetail<SoccerGameDetailItem> fastMarketResultDetail,
-            ISportsbookRefDataHelper refDataHelper)
+            IRefDataHelper refDataHelper)
             : base(soccer, setting, refDataHelper)
         {
             IsShowLiveScore = DetermineShowingLiveScore(setting.IsParlayPopUp, setting.IsPopUp);

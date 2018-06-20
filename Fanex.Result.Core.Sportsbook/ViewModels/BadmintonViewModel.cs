@@ -6,6 +6,7 @@
     using Base.DataDomain;
     using Base.ViewModels;
     using DTO;
+    using Fanex.Result.Core.Base.Utilities;
     using Utilities;
 
     public sealed class BadmintonViewModel : SportsbookBaseViewModel, IResultViewModel
@@ -18,7 +19,7 @@
         {
         }
 
-        public BadmintonViewModel(Sportsbook sportbook, ResultSetting setting, ISportsbookRefDataHelper refDataHelper)
+        public BadmintonViewModel(Sportsbook sportbook, ResultSetting setting, IRefDataHelper refDataHelper)
            : base(sportbook, setting, refDataHelper)
         {
         }

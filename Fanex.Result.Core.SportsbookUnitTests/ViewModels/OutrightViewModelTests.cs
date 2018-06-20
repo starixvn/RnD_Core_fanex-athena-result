@@ -3,9 +3,9 @@
     using System;
     using Base;
     using DTO;
+    using Fanex.Result.Core.Base.Utilities;
     using NSubstitute;
     using NUnit.Framework;
-    using Sportsbook.Utilities;
     using Sportsbook.ViewModels;
 
     [TestFixture]
@@ -13,14 +13,14 @@
     {
         private Outright _outright;
         private ResultSetting _setting;
-        private ISportsbookRefDataHelper _refDataHelper;
+        private IRefDataHelper _refDataHelper;
 
         [SetUp]
         public void Setup()
         {
             _outright = new Outright();
             _setting = new ResultSetting();
-            _refDataHelper = Substitute.For<ISportsbookRefDataHelper>();
+            _refDataHelper = Substitute.For<IRefDataHelper>();
         }
 
         [Test]

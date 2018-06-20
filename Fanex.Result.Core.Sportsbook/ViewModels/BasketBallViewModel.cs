@@ -11,6 +11,7 @@
     using BasketBallDetail;
     using DataDomain;
     using DTO;
+    using Fanex.Result.Core.Base.Utilities;
     using Utilities;
 
     public sealed class BasketBallViewModel : SportsbookBaseViewModel, IResultViewModel
@@ -27,7 +28,7 @@
           Sportsbook sportbook,
           ResultSetting setting,
           IResultDetail<BasketBallGameDetailItem> resultDetail,
-          ISportsbookRefDataHelper refDataHelper)
+          IRefDataHelper refDataHelper)
             : base(sportbook, setting, refDataHelper)
         {
             ResultDetailItems = (resultDetail ?? new BasketBallResultDetail(sportbook, setting, null, null))

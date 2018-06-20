@@ -3,6 +3,7 @@
     using Base;
     using Base.ViewModels;
     using DTO;
+    using Fanex.Result.Core.Base.Utilities;
     using Utilities;
 
     public class VSTennisViewModel : SportsbookBaseViewModel, IResultViewModel
@@ -12,7 +13,7 @@
         {
         }
 
-        public VSTennisViewModel(Sportsbook sportbook, ResultSetting setting, ISportsbookRefDataHelper refDataHelper)
+        public VSTennisViewModel(Sportsbook sportbook, ResultSetting setting, IRefDataHelper refDataHelper)
            : base(sportbook, setting, refDataHelper)
         {
         }

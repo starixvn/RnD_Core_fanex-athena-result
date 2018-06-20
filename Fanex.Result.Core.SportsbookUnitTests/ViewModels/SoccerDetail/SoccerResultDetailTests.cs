@@ -6,6 +6,7 @@
     using Base.DataDomain;
     using DataDomain;
     using DTO;
+    using Fanex.Result.Core.Base.Utilities;
     using NSubstitute;
     using NUnit.Framework;
     using Sportsbook.Utilities;
@@ -14,7 +15,7 @@
     [TestFixture]
     public class SoccerResultDetailTests
     {
-        private ISportsbookRefDataHelper _refDataHelper;
+        private IRefDataHelper _refDataHelper;
         private ISportsbookHelperWraper _sportsbookHelper;
         private Sportsbook _sportsbook;
         private ResultSetting _setting;
@@ -22,11 +23,12 @@
         [SetUp]
         public void SetUp()
         {
-            _refDataHelper = Substitute.For<ISportsbookRefDataHelper>();
+            _refDataHelper = Substitute.For<IRefDataHelper>();
             _sportsbookHelper = Substitute.For<ISportsbookHelperWraper>();
             _sportsbook = new Sportsbook();
             _setting = new ResultSetting();
             _setting.LanguageCode = ConstantValue.EnglishLanguageCode;
+            ResultCoreManager.RegisterRefDataHelper(Substitute.For<IRefDataHelper>());
         }
 
         [Test]

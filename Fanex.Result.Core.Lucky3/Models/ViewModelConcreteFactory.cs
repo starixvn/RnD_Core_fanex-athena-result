@@ -22,7 +22,7 @@
         {
             CheckSportTypeIsValid((int)setting.SportType);
 
-            return new Lucky3ViewModel(resultData as DTO.Lucky3, setting, new RefDataHelper());
+            return new Lucky3ViewModel(resultData as DTO.Lucky3, setting, ResultCoreManager.RefDataHelper);
         }
 
         public override IExcelModel GetExcelViewModel<T>(IList<T> dataList, ResultSetting setting)

@@ -2,11 +2,17 @@
 
 namespace MvcExample
 {
+    using System;
+    using System.Configuration;
     using System.Web.Http;
     using System.Web.Mvc;
     using System.Web.Optimization;
     using System.Web.Routing;
     using Fanex.Data.Configuration;
+    using Fanex.RemotingRef;
+    using Fanex.Result.Core.Base;
+    using Fanex.Result.Core.RemotingRefV1;
+    using Fanex.Result.Core.RemotingRefV2;
 
     // Note: For instructions on enabling IIS6 or IIS7 classic mode,
     // visit http://go.microsoft.com/?LinkId=9394801
@@ -22,6 +28,13 @@ namespace MvcExample
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            RefDataTypeContainer
+                .ConnectTo(new Uri(ConfigurationManager.AppSettings["RemotingRefService"]))
+                .FromApplication("Result.Core.DemoSite");
+
+            //ResultCoreManager.RegisterRefDataHelper(new RefDataHelperV1());
+            ResultCoreManager.RegisterRefDataHelper(new RefDataHelperV2());
         }
     }
 }

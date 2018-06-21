@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Fanex.Result.Core.RemotingRefV2")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Support Fanex.RemotingRef in Result Core")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Starixsoft")]
 [assembly: AssemblyProduct("Fanex.Result.Core.RemotingRefV2")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]

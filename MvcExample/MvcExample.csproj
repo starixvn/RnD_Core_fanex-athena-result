@@ -80,6 +80,18 @@
     <Reference Include="Fanex.RemotingRef, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Fanex.RemotingRef.1.0.0-beta-2\lib\net461\Fanex.RemotingRef.dll</HintPath>
     </Reference>
+    <Reference Include="Fanex.Result.Core, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fanex.Result.Core-NPOI.2.0.6.2.1.0-beta1\lib\net40\Fanex.Result.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.Base, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fanex.Result.Core-NPOI.2.0.6.2.1.0-beta1\lib\net40\Fanex.Result.Core.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.RemotingRefV1, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fanex.Result.Core.RemotingRefV1.1.0.0-beta2\lib\net40\Fanex.Result.Core.RemotingRefV1.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.RemotingRefV2, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fanex.Result.Core.RemotingRefV2.1.0.0-beta2\lib\net461\Fanex.Result.Core.RemotingRefV2.dll</HintPath>
+    </Reference>
     <Reference Include="IBCFile">
       <HintPath>..\packages\Fanex.File.1.0.0\lib\net40\IBCFile.dll</HintPath>
     </Reference>
@@ -667,10 +679,6 @@
       <Project>{d9303680-11b8-41c1-9eb2-2ae37d02ffb1}</Project>
       <Name>Fanex.Result.Core.AllBetCasino</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj">
-      <Project>{8673f024-7726-4c30-8464-5a8357f79bf0}</Project>
-      <Name>Fanex.Result.Core.Base</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.CockFighting\Fanex.Result.Core.CockFighting.csproj">
       <Project>{29f23cc1-8d52-4e0b-84c9-6f463bc0a80c}</Project>
       <Name>Fanex.Result.Core.CockFighting</Name>
@@ -711,14 +719,6 @@
       <Project>{4869ED23-CD0C-4472-BCE6-54A9E170ED6E}</Project>
       <Name>Fanex.Result.Core.Racing</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Fanex.Result.Core.RemotingRefV1\Fanex.Result.Core.RemotingRefV1.csproj">
-      <Project>{6801b956-9428-4956-a570-035a387af8d4}</Project>
-      <Name>Fanex.Result.Core.RemotingRefV1</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Fanex.Result.Core.RemotingRefV2\Fanex.Result.Core.RemotingRefV2.csproj">
-      <Project>{66600e16-c784-41ee-9c62-d10e5e67efb7}</Project>
-      <Name>Fanex.Result.Core.RemotingRefV2</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.Sportsbook\Fanex.Result.Core.Sportsbook.csproj">
       <Project>{0469c900-5e5b-4d2c-8db3-7eaea991095b}</Project>
       <Name>Fanex.Result.Core.Sportsbook</Name>
@@ -726,10 +726,6 @@
     <ProjectReference Include="..\Fanex.Result.Core.Voidbridge\Fanex.Result.Core.Voidbridge.csproj">
       <Project>{394ffbab-dd32-4ea6-9c4e-d513adc51a74}</Project>
       <Name>Fanex.Result.Core.Voidbridge</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Fanex.Result.Core\Fanex.Result.Core.csproj">
-      <Project>{73aaea31-c52d-47d2-bc47-087a06794f55}</Project>
-      <Name>Fanex.Result.Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Data\Fanex.Result.Data.csproj">
       <Project>{15e2d2ec-e10d-4900-984f-b818011620da}</Project>

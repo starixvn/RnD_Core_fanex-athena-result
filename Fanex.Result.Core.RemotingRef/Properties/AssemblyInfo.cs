@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Fanex.Result.Core.RemotingRefV2")]
+[assembly: AssemblyTitle("Fanex.Result.Core.RemotingRef")]
 [assembly: AssemblyDescription("Support Fanex.RemotingRef in Result Core")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Starixsoft")]
-[assembly: AssemblyProduct("Fanex.Result.Core.RemotingRefV2")]
+[assembly: AssemblyProduct("Fanex.Result.Core.RemotingRef")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("66600e16-c784-41ee-9c62-d10e5e67efb7")]
+[assembly: Guid("b899f4ae-2360-45b1-96d0-423c7328e8ea")]
 
 // Version information for an assembly consists of the following four values:
 //

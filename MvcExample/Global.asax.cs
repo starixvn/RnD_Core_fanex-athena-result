@@ -11,8 +11,7 @@ namespace MvcExample
     using Fanex.Data.Configuration;
     using Fanex.RemotingRef;
     using Fanex.Result.Core.Base;
-    using Fanex.Result.Core.RemotingRefV1;
-    using Fanex.Result.Core.RemotingRefV2;
+    using Fanex.Result.Core.RemotingRef;
 
     // Note: For instructions on enabling IIS6 or IIS7 classic mode,
     // visit http://go.microsoft.com/?LinkId=9394801
@@ -34,7 +33,7 @@ namespace MvcExample
                 .FromApplication("Result.Core.DemoSite");
 
             //ResultCoreManager.RegisterRefDataHelper(new RefDataHelperV1());
-            ResultCoreManager.RegisterRefDataHelper(new RefDataHelperV2());
+            ResultCoreManager.RegisterRefDataHelper(new RefDataHelper());
         }
     }
 }

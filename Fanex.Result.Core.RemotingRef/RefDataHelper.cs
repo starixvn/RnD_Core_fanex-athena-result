@@ -1,18 +1,15 @@
-﻿namespace Fanex.Result.Core.RemotingRefV2
+﻿namespace Fanex.Result.Core.RemotingRef
 {
-    using System;
     using System.Globalization;
+    using Fanex.RemotingRef;
     using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.Utilities;
-    using RemotingRef;
 
-#pragma warning disable S3881 // "IDisposable" should be implemented correctly
-    public class RefDataHelperV2 : IRefDataHelper, IDisposable
-#pragma warning restore S3881 // "IDisposable" should be implemented correctly
+    public class RefDataHelper : IRefDataHelper
     {
         private readonly IRemotingRefService remotingRefService;
 
-        public RefDataHelperV2(IRemotingRefService remotingRefService = null)
+        public RefDataHelper(IRemotingRefService remotingRefService = null)
         {
             this.remotingRefService = remotingRefService ?? new RemotingRefService();
         }
@@ -51,15 +48,5 @@
 
         public string GetHorseTeamName(string codeId, string lang, string defaultValue)
             => remotingRefService.GetHorseTeamName(codeId, lang, defaultValue);
-
-        public void Dispose()
-        {
-            if(remotingRefService != null 
-                && remotingRefService is RemotingRefService)
-            {
-                ((RemotingRefService)remotingRefService).Dispose();
-            }
-
-        }
     }
 }

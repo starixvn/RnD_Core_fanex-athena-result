@@ -4,6 +4,8 @@
     using System.Web.Mvc;
     using Fanex.Result.Core.GlobalGaming;
     using Fanex.Result.Core.GlobalGaming.DTO;
+    using Fanex.Result.Core.PokerGames;
+    using Fanex.Result.Core.PokerGames.Models;
     using Fanex.Result.Core.PP;
     using Fanex.Result.Core.Voidbridge;
     using Newtonsoft.Json;
@@ -60,6 +62,20 @@
             catch (Exception e)
             {
                 return e.Message;
+            }
+        }
+
+        [HttpGet]
+        public string PokerGamesResult(string custId, string gameTypeId, string transId3rd, ViewerLevel viewerLevel, string language)
+        {
+            try
+            {
+                var pokerGamesResult = new PokerGamesResult();
+                return pokerGamesResult.GetResult(custId, gameTypeId, transId3rd, viewerLevel, language);
+            }
+            catch (Exception e)
+            {
+                return e.ToString();
             }
         }
     }

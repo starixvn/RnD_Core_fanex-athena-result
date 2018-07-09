@@ -713,6 +713,10 @@
       <Project>{083CA0EF-F420-4A62-BE5B-4145AFFEDEC1}</Project>
       <Name>Fanex.Result.Core.MicroGaming</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Fanex.Result.Core.PokerGames\Fanex.Result.Core.PokerGames.csproj">
+      <Project>{d0c14c69-33f8-4b76-bb9a-109f3dcffc57}</Project>
+      <Name>Fanex.Result.Core.PokerGames</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.PP\Fanex.Result.Core.PP.csproj">
       <Project>{05aa0490-7266-489a-9e2d-84c9d2f2fb39}</Project>
       <Name>Fanex.Result.Core.PP</Name>

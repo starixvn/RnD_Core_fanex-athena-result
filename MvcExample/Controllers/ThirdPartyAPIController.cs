@@ -59,7 +59,7 @@
         }
 
         [HttpPost]
-        public JObject GetPPResultUrl([FromBody] Request request)
+        public JObject GetPPResultUrl(Request request)
         {
             var response = new Response
             {
@@ -68,6 +68,23 @@
                 {
                     Seq = request.Call.Seq,
                     Url = "https://nexdev.net/projects/p111023/wiki/201801_Pragmatic_Betlist",
+                    ErrorCode = "0"
+                }
+            };
+
+            return JObject.Parse(JsonConvert.SerializeObject(response));
+        }
+
+        [HttpPost]
+        public JObject GetPokerGamesResult(Request request)
+        {
+            var response = new Response
+            {
+                TimeStamp = request.TimeStamp,
+                Result = new Models.Voidbridge.Result
+                {
+                    Seq = request.Call.Seq,
+                    Url = "https://nexdev.net/projects/p111024/wiki/CardClub_Results",
                     ErrorCode = "0"
                 }
             };

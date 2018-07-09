@@ -22,7 +22,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\RICKY~1.NGU\AppData\Local\Temp\vs9B3E.tmp\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\RICKY~1.NGU\AppData\Local\Temp\vs968F.tmp\Debug\</IntermediateOutputPath>
     <CodeAnalysisRuleSet>Fanex.Result.Core.Voidbridge.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -32,7 +32,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <IntermediateOutputPath>C:\Users\RICKY~1.NGU\AppData\Local\Temp\vs80AA.tmp\Release\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\RICKY~1.NGU\AppData\Local\Temp\vs968F.tmp\Release\</IntermediateOutputPath>
     <CodeAnalysisRuleSet>Fanex.Result.Core.Voidbridge.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>

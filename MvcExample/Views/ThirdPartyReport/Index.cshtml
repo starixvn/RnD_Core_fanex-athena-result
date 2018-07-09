@@ -27,54 +27,77 @@
             <th class="cl-league" colspan="3">Voidbridge</th>
         </tr>
         @for (var gamePlayId = 1000; gamePlayId < 1002; gamePlayId++)
-    {
-        <tr class="data">
-            <td>@custId</td>
-            <td>@gamePlayId</td>
-            <td><button onClick="showVoidbridgeResult('@custId', '@gamePlayId')">Detail</button></td>
-        </tr>
-}
+        {
+            <tr class="data">
+                <td>@custId</td>
+                <td>@gamePlayId</td>
+                <td><button onClick="showVoidbridgeResult('@custId', '@gamePlayId')">Detail</button></td>
+            </tr>
+        }
         <tr class="data-header">
             <th class="cl-league" colspan="3">Global Gaming</th>
         </tr>
         @for (var gameId = 1010; gameId < 1012; gameId++)
-    {
-        <tr class="data">
-            <td>@custId</td>
-            <td>@gameId</td>
-            <td><button onClick="showGlobalGamingResult('@custId', '@gameId')">Detail</button></td>
-        </tr>
-}
+        {
+            <tr class="data">
+                <td>@custId</td>
+                <td>@gameId</td>
+                <td><button onClick="showGlobalGamingResult('@custId', '@gameId')">Detail</button></td>
+            </tr>
+        }
 
         <tr class="data-header">
             <th class="cl-league" colspan="3">PP</th>
         </tr>
         @for (var gameId = 1010; gameId < 1012; gameId++)
-    {
-        <tr class="data">
-            <td>@custId</td>
-            <td>@gameId</td>
-            <td><button onClick="showPPResult('@custId', '@gameId')">Detail</button></td>
+        {
+            <tr class="data">
+                <td>@custId</td>
+                <td>@gameId</td>
+                <td><button onClick="showPPResult('@custId', '@gameId')">Detail</button></td>
+            </tr>
+    
+        }
+
+        <tr class="data-header">
+            <th class="cl-league" colspan="3">Poker Games</th>
         </tr>
-    }
+        <tr class="data">
+            <td>19997145</td>
+            <td>1403</td>
+            <td><button onClick="showPokerGamesResult('19997145', '1403')">Detail</button></td>
+        </tr>
     </table>
 </div>
 <script src="~/Scripts/Page/voidbridge-result.js"></script>
 <script>
+    var rootUrl = '@Url.Content("~/ThirdPartyReport/")';
     var showVoidbridgeResult = function (custId, gamePlayId) {
-        $.get('./VoidbridgeResult?custid=' + custId + '&gamePlayId=' + gamePlayId + '&language=' + $('#language').val(), function (result) {
+        $.get(rootUrl + 'VoidbridgeResult?custid=' + custId + '&gamePlayId=' + gamePlayId + '&language=' + $('#language').val(), function (result) {
             openVoidbridgeResult(result);
         });
     }
 
     var showGlobalGamingResult = function (custId, gameId) {
-        $.get('./GlobalGamingResult?custid=' + custId + '&gameId=' + gameId + '&language=' + $('#language').val(), function (result) {
+        $.get(rootUrl + 'GlobalGamingResult?custid=' + custId + '&gameId=' + gameId + '&language=' + $('#language').val(), function (result) {
             openResultPopUp(JSON.parse(result), "Error in showing Global Gaming Result");
         });
     }
 
     var showPPResult = function (custId, gamePlayId) {
-        $.get('./PPResult?custid=' + custId + '&gamePlayId=' + gamePlayId + '&language=' + $('#language').val(), function (result) {
+        $.get(rootUrl + 'PPResult?custid=' + custId + '&gamePlayId=' + gamePlayId + '&language=' + $('#language').val(), function (result) {
+            openVoidbridgeResult(result);
+        });
+    }
+
+    var showPokerGamesResult = function (custId, gameTypeId) {
+        $.get(rootUrl
+            + 'PokerGamesResult?custid=' + custId
+            + '&gameTypeId=' + gameTypeId
+            + '&language=' + $('#language').val()
+            + '&viewerLevel=3'
+            + '&transId3rd=1224',
+            function (result) {
             openVoidbridgeResult(result);
         });
     }

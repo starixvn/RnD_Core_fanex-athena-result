@@ -139,5 +139,15 @@
 
             return excelViewModel;
         }
+
+        [Test]
+        public void Ctor_Always_SetIsSupportMatchCodeToTrue()
+        {
+            // Act
+            var excelViewModel = new SoccerExcel(string.Empty, _resultSetting, _resultData.ToList());
+
+            // Assert
+            Assert.IsTrue(excelViewModel.IsSupportMatchCode);
+        }
     }
 }

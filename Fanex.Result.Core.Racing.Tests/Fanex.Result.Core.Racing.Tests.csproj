@@ -73,7 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExcelModels\VSSpeedWayExcelTests.cs" />
-    <Compile Include="ExcelModels\VSHRacingExcelTests.cs" />
+    <Compile Include="ExcelModels\VshRacingExcelTests.cs" />
     <Compile Include="ExcelModels\RacingExcelTests.cs" />
     <Compile Include="Models\BuilderTests.cs" />
     <Compile Include="Models\ViewModelConcreteFactoryTests.cs" />

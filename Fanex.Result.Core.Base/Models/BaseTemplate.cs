@@ -17,7 +17,7 @@
         {
             if (string.IsNullOrEmpty(templateName) || string.IsNullOrWhiteSpace(templateName))
             {
-                throw new ArgumentNullException("templateName");
+                throw new ArgumentNullException(nameof(templateName));
             }
 
             var cache = MemoryCache.Default;
@@ -55,7 +55,7 @@
             }
             catch (Exception exception)
             {
-                throw new ResultCoreException(exception.Message, exception.InnerException);
+                throw new ResultCoreException(exception.Message, exception.InnerException, templateName);
             }
         }
     }

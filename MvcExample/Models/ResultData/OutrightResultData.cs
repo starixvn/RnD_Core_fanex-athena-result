@@ -26,7 +26,7 @@
             return resultService.GetResult(new GetOutRightResult
             {
                 FromDate = date,
-                isShowAll = true,
+                isShowAll = false,
                 ToDate = date
             });
         }

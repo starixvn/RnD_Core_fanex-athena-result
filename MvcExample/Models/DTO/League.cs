@@ -12,7 +12,5 @@ namespace MvcExample
         public int Id { get; set; }
 
         public DateTime? EventDate { get; set; }
-
-        public short? SportId { get; set; }
     }
 }

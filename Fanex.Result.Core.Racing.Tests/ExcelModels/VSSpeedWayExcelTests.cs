@@ -115,6 +115,16 @@
             Assert.Null(actualDataRowFirst);
         }
 
+        [Test]
+        public void Ctor_Always_SetIsSupportMatchCodeToFalse()
+        {
+            // Act
+            var excelViewModel = new VSSpeedWayExcel(string.Empty, _resultSetting, _resultData.ToList());
+
+            // Assert
+            Assert.IsFalse(excelViewModel.IsSupportMatchCode);
+        }
+
         private void GenerateViewModel()
         {
             _resultData = new List<VSSpeedWayViewModel> {

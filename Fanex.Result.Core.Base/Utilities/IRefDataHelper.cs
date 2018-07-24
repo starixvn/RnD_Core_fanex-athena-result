@@ -23,5 +23,9 @@
         string GetBetRadarMatchCodeFormat(string matchCode, string lang);
 
         string GetHorseTeamName(string codeId, string lang, string defaultValue);
+
+        string GetRouletteBetItem(string itemId, string languageCode, string defaultValue);
+
+        string GetCasinoBetItem(string itemId, string languageCode, string defaultValue);
     }
 }

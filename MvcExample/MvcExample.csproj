@@ -78,18 +78,34 @@
       <HintPath>..\packages\Fanex.Data.0.5.404.63\lib\net40\Fanex.Data.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.RemotingRef, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.RemotingRef.1.0.0-beta-5\lib\net461\Fanex.RemotingRef.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\Fanex.RemotingRef.1.0.0-beta7\lib\net461\Fanex.RemotingRef.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.Result.Core-NPOI.2.0.6.2.1.0-beta1\lib\net40\Fanex.Result.Core.dll</HintPath>
+      <HintPath>..\packages\Fanex.Result.Core-NPOI.2.0.6.2.1.0-beta3\lib\net40\Fanex.Result.Core.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.Base, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.Result.Core-NPOI.2.0.6.2.1.0-beta1\lib\net40\Fanex.Result.Core.Base.dll</HintPath>
+      <HintPath>..\packages\Fanex.Result.Core-NPOI.2.0.6.2.1.0-beta3\lib\net40\Fanex.Result.Core.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.GoldDeluxe, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fanex.Result.Core-GoldDeluxe.1.0.2-beta1\lib\net40\Fanex.Result.Core.GoldDeluxe.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.LiveCasino, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fanex.Result.Core-LiveCasino.1.0.1-beta1\lib\net40\Fanex.Result.Core.LiveCasino.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.MetricGaming, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fanex.Result.Core-MetricGaming.1.0.1-beta1\lib\net40\Fanex.Result.Core.MetricGaming.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.NumberGame, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fanex.Result.Core-NumberGame.1.0.2-beta1\lib\net40\Fanex.Result.Core.NumberGame.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.Racing, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fanex.Result.Core-Racing.1.1.0-beta2\lib\net40\Fanex.Result.Core.Racing.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.RemotingRef, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.Result.Core.RemotingRef.1.0.0-beta1\lib\net461\Fanex.Result.Core.RemotingRef.dll</HintPath>
-      <Private>True</Private>
+      <HintPath>..\packages\Fanex.Result.Core.RemotingRef.1.0.0-beta2\lib\net461\Fanex.Result.Core.RemotingRef.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.Sportsbook, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fanex.Result.Core-Sportsbook.1.1.0-beta3\lib\net40\Fanex.Result.Core.Sportsbook.dll</HintPath>
     </Reference>
     <Reference Include="IBCFile">
       <HintPath>..\packages\Fanex.File.1.0.0\lib\net40\IBCFile.dll</HintPath>
@@ -686,41 +702,17 @@
       <Project>{24011d8b-9445-4377-8b70-e7d4049f372f}</Project>
       <Name>Fanex.Result.Core.GlobalGaming</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Fanex.Result.Core.GoldDeLuxe\Fanex.Result.Core.GoldDeluxe.csproj">
-      <Project>{DBD59404-19D9-422C-83F1-8F20E02545ED}</Project>
-      <Name>Fanex.Result.Core.GoldDeluxe</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Fanex.Result.Core.LiveCasino\Fanex.Result.Core.LiveCasino.csproj">
-      <Project>{C67A0F1F-9F62-4E75-A982-0894FDD79008}</Project>
-      <Name>Fanex.Result.Core.LiveCasino</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.Lucky3\Fanex.Result.Core.Lucky3.csproj">
       <Project>{5b12d69c-7bf6-4e40-ae62-3853db3d118d}</Project>
       <Name>Fanex.Result.Core.Lucky3</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Fanex.Result.Core.MetricGaming\Fanex.Result.Core.MetricGaming.csproj">
-      <Project>{76CD2383-849A-4291-AD55-378F6C26836C}</Project>
-      <Name>Fanex.Result.Core.MetricGaming</Name>
     </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.MicroGaming\Fanex.Result.Core.MicroGaming.csproj">
       <Project>{083CA0EF-F420-4A62-BE5B-4145AFFEDEC1}</Project>
       <Name>Fanex.Result.Core.MicroGaming</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Fanex.Result.Core.NumberGame\Fanex.Result.Core.NumberGame.csproj">
-      <Project>{CEBAE710-7919-4FC6-8978-862A3096972C}</Project>
-      <Name>Fanex.Result.Core.NumberGame</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.PP\Fanex.Result.Core.PP.csproj">
       <Project>{05aa0490-7266-489a-9e2d-84c9d2f2fb39}</Project>
       <Name>Fanex.Result.Core.PP</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Fanex.Result.Core.Racing\Fanex.Result.Core.Racing.csproj">
-      <Project>{4869ED23-CD0C-4472-BCE6-54A9E170ED6E}</Project>
-      <Name>Fanex.Result.Core.Racing</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Fanex.Result.Core.Sportsbook\Fanex.Result.Core.Sportsbook.csproj">
-      <Project>{0469c900-5e5b-4d2c-8db3-7eaea991095b}</Project>
-      <Name>Fanex.Result.Core.Sportsbook</Name>
     </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.Voidbridge\Fanex.Result.Core.Voidbridge.csproj">
       <Project>{394ffbab-dd32-4ea6-9c4e-d513adc51a74}</Project>

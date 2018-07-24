@@ -8,11 +8,10 @@
     using Base.DataDomain;
     using Base.Utilities;
     using Base.ViewModels;
-    using RemotingRef;
 
     public sealed class LiveCasinoViewModel : BaseViewModel, IResultViewModel
     {
-        private readonly int[] _rouletteBettype = new[] { 1102, 1104 };
+        private readonly int[] _rouletteBettype = { 1102, 1104 };
 
         private readonly DTO.LiveCasino _liveCasino;
 
@@ -144,7 +143,7 @@
 
             for (int i = 0; i < arr.Length; i++)
             {
-                statusName = RefData.GetRouletteBetItem(arr[i], GetSupportedLanguage, string.Empty);
+                statusName = RefDataHelper.GetRouletteBetItem(arr[i], GetSupportedLanguage, string.Empty);
 
                 stringBuilder.Append(i < arr.Length - 1 ? string.Format("{0}; ", statusName) : statusName);
 
@@ -176,7 +175,7 @@
             }
 
             var supportedLanguage = GetSupportedLanguage;
-            var livecasinoResult = string.Join(";", arrResult.Select(i => RefData.GetCasinoBetItem(i, supportedLanguage, string.Empty)));
+            var livecasinoResult = string.Join(";", arrResult.Select(i => RefDataHelper.GetCasinoBetItem(i, supportedLanguage, string.Empty)));
             if (arrResult.Length < 3)
             {
                 livecasinoResult += ";-";

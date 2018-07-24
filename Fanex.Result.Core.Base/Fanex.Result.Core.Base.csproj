@@ -49,6 +49,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
     <Reference Include="System.Runtime.Caching" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -102,6 +103,9 @@
     <Compile Include="Utilities\Helper.cs" />
     <Compile Include="Utilities\MapEventStatus.cs" />
     <Compile Include="Utilities\IRefDataHelper.cs" />
+    <Compile Include="Utilities\Serializer.cs" />
+    <Compile Include="Utilities\SimpleJson.cs" />
+    <Compile Include="Utilities\WebClient.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\GroupData.cs" />
     <Compile Include="ViewModels\IResultViewModel.cs" />

@@ -14,7 +14,7 @@
     using TestUtils;
 
     [TestFixture]
-    public class VSHRacingExcelTests
+    public class VshRacingExcelTests
     {
         private ResultSetting _resultSetting;
         private IEnumerable<IResultViewModel> _resultData;
@@ -116,6 +116,16 @@
 
             actualDataRowFirst = excelViewModel.Workbook.GetSheetAt(0).GetRow(7);
             Assert.Null(actualDataRowFirst);
+        }
+
+        [Test]
+        public void Ctor_Always_SetIsSupportMatchCodeToFalse()
+        {
+            // Act
+            var excelViewModel = new VSHRacingExcel(string.Empty, _resultSetting, _resultData.ToList());
+
+            // Assert
+            Assert.IsFalse(excelViewModel.IsSupportMatchCode);
         }
 
         private void GenerateViewModel()

@@ -92,5 +92,15 @@
             Assert.AreEqual("1", actualDataRow.Cells[1].StringCellValue);
             Assert.AreEqual("Completed", actualDataRow.Cells[2].StringCellValue);
         }
+
+        [Test]
+        public void Ctor_Always_SetIsSupportMatchCodeToFalse()
+        {
+            // Act
+            var excelViewModel = new GoldDeluxeExcel(string.Empty, _resultSetting, _resultData.ToList());
+
+            // Assert
+            Assert.IsFalse(excelViewModel.IsSupportMatchCode);
+        }
     }
 }

@@ -23,7 +23,7 @@
         protected const int RowNoInfoTemplate = 5;
         protected const string Na = "N/A";
         protected const int ColumnMatchCode = 0;
-        protected bool IsSupportMatchCode = true;
+        protected internal bool IsSupportMatchCode = true;
         protected const int ColumnRace = 0;
         protected const int ColumnKickOffTime = 1;
 

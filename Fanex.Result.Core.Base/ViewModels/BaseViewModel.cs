@@ -11,16 +11,16 @@
     public abstract class BaseViewModel
 #pragma warning restore S1694 // An abstract class should have both abstract and concrete methods
     {
-        private static Dictionary<string, string> _supportedLanguage = new Dictionary<string, string>
+        private static IList<string> _supportedLanguage = new List<string>
         {
-            { "en-US", "en" },
-            { "zh-TW", "ch" },
-            { "zh-CN", "cs" },
-            { "zh-Hans", "zhcn" },
-            { "ja-JP", "jp" },
-            { "th-TH", "th" },
-            { "ko-KR", "ko" },
-            { "vi-VN", "vn" }
+            { "en-US" },
+            { "zh-TW" },
+            { "zh-CN" },
+            { "zh-Hans" },
+            { "ja-JP" },
+            { "th-TH" },
+            { "ko-KR" },
+            { "vi-VN" }
         };
 
         protected BaseViewModel(ResultSetting setting) : this(setting, null)
@@ -41,9 +41,7 @@
         public IRefDataHelper RefDataHelper { get; }
 
         public string GetSupportedLanguage
-            => _supportedLanguage.ContainsKey(LanguageCode) ?
-            _supportedLanguage[LanguageCode] :
-            _supportedLanguage[ConstantValue.EnglishLanguageCode];
+            => _supportedLanguage.Contains(LanguageCode) ? LanguageCode : ConstantValue.EnglishLanguageCode;
 
         public virtual string EventStatus => string.Empty;
 

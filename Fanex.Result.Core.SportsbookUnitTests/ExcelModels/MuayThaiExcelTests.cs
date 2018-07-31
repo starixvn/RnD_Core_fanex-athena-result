@@ -80,8 +80,8 @@
         public void SetDataForMatch_Always_SetRowValue()
         {
             // Arrange
-            _refDataHelper.GetTeamName(1, "en", string.Empty).Returns("Home Team Name");
-            _refDataHelper.GetTeamName(2, "en", string.Empty).Returns("Away Team Name");
+            _refDataHelper.GetTeamName(1, "en-US", string.Empty).Returns("Home Team Name");
+            _refDataHelper.GetTeamName(2, "en-US", string.Empty).Returns("Away Team Name");
             var muaythaiViewModel = new MuayThaiViewModel(new DTO.Sportsbook
             {
                 MatchCode = "1231",

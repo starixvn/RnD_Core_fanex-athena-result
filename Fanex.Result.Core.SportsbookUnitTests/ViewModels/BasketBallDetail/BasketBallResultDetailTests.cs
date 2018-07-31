@@ -71,7 +71,7 @@
             _sportsBook.GameDetails.Add(new GameDetail { ResourceId = resourceId });
             var betTypeId = resourceId.Substring(0, 3);
             var resourceTypeId = resourceId.Remove(0, 3);
-            _refDataHelper.GetBetTypeNameById(betTypeId, "en", resourceTypeId).Returns("Bet Type Name");
+            _refDataHelper.GetBetTypeNameById(betTypeId, "en-US", resourceTypeId).Returns("Bet Type Name");
 
             // Act
             var resultDetail = new BasketBallResultDetail(_sportsBook, _setting, _refDataHelper, _sportsBookHelper);
@@ -100,8 +100,8 @@
             _sportsBook.GameDetails.Add(new GameDetail { ResourceId = resourceId, HomeValue = "h", SettlementStatusID = 4 });
             _sportsBook.HomeId = 1;
             _sportsBook.AwayId = 2;
-            _refDataHelper.GetTeamName(_sportsBook.HomeId, "en", string.Empty).Returns("Home Team");
-            _refDataHelper.GetTeamName(_sportsBook.AwayId, "en", string.Empty).Returns("Away Team");
+            _refDataHelper.GetTeamName(_sportsBook.HomeId, "en-US", string.Empty).Returns("Home Team");
+            _refDataHelper.GetTeamName(_sportsBook.AwayId, "en-US", string.Empty).Returns("Away Team");
 
             // Act
             var resultDetail = new BasketBallResultDetail(_sportsBook, _setting, _refDataHelper, _sportsBookHelper);
@@ -134,8 +134,8 @@
             _sportsBook.GameDetails.Add(new GameDetail { ResourceId = resourceId, HomeValue = "a", SettlementStatusID = 4 });
             _sportsBook.HomeId = 1;
             _sportsBook.AwayId = 2;
-            _refDataHelper.GetTeamName(_sportsBook.HomeId, "en", string.Empty).Returns("Home Team");
-            _refDataHelper.GetTeamName(_sportsBook.AwayId, "en", string.Empty).Returns("Away Team");
+            _refDataHelper.GetTeamName(_sportsBook.HomeId, "en-US", string.Empty).Returns("Home Team");
+            _refDataHelper.GetTeamName(_sportsBook.AwayId, "en-US", string.Empty).Returns("Away Team");
 
             // Act
             var resultDetail = new BasketBallResultDetail(_sportsBook, _setting, _refDataHelper, _sportsBookHelper);

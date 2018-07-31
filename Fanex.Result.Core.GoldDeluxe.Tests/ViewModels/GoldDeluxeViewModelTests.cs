@@ -27,7 +27,7 @@
         {
             // Arrange
             _goldDeluxe.Bettype = 1;
-            _refDataHelper.GetBetTypeNameById("1", "en", string.Empty).Returns("LeagueName");
+            _refDataHelper.GetBetTypeNameById("1", "en-US", string.Empty).Returns("LeagueName");
 
             // Act
             var viewModel = new GoldDeluxeViewModel(_goldDeluxe, _setting, _refDataHelper);

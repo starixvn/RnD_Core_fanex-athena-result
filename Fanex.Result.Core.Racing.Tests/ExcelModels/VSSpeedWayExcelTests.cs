@@ -79,9 +79,9 @@
         public void SetDataForMatch_Always_SetRowValue()
         {
             // Arrange
-            _refDataHelper.GetLeagueName(1, "en", string.Empty).Returns("LeagueName");
-            _refDataHelper.GetLeagueName(2, "en", string.Empty).Returns("LeagueName2");
-            _refDataHelper.GetHorseTeamName("11", "en", string.Empty).Returns("Team");
+            _refDataHelper.GetLeagueName(1, "en-US", string.Empty).Returns("LeagueName");
+            _refDataHelper.GetLeagueName(2, "en-US", string.Empty).Returns("LeagueName2");
+            _refDataHelper.GetHorseTeamName("11", "en-US", string.Empty).Returns("Team");
             GenerateViewModel();
             var excelViewModel = new VSSpeedWayExcel(TemplateFileUtils.GetExcelTemplatePath("VSSpeedWay.xls"), _resultSetting, _resultData.ToList());
 

@@ -79,7 +79,7 @@
             // Arrange
             _sportsbook.LeagueId = 1;
             _setting.LanguageCode = "en-US";
-            _refDataHelper.GetLeagueName(1, "en", Arg.Any<string>()).Returns("League");
+            _refDataHelper.GetLeagueName(1, "en-US", Arg.Any<string>()).Returns("League");
 
             // Act
             var viewModel = new SportsbookBaseViewModel(_sportsbook, _setting, _refDataHelper);
@@ -163,7 +163,7 @@
             _sportsbook.HomeId = 1;
             _sportsbook.IsNeutral = isNeutral;
             _setting.LanguageCode = "en-US";
-            _refDataHelper.GetTeamName(1, "en", string.Empty).Returns("HomeTeam");
+            _refDataHelper.GetTeamName(1, "en-US", string.Empty).Returns("HomeTeam");
 
             // Act
             var viewModel = new SportsbookBaseViewModel(_sportsbook, _setting, _refDataHelper);
@@ -178,7 +178,7 @@
             // Arrange
             _sportsbook.AwayId = 1;
             _setting.LanguageCode = "en-US";
-            _refDataHelper.GetTeamName(1, "en", string.Empty).Returns("AwayTeam");
+            _refDataHelper.GetTeamName(1, "en-US", string.Empty).Returns("AwayTeam");
 
             // Act
             var viewModel = new SportsbookBaseViewModel(_sportsbook, _setting, _refDataHelper);

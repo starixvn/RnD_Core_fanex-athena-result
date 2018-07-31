@@ -111,7 +111,7 @@
             // Arrange
             _sportsBook.HomeId = 1;
             _setting.LanguageCode = ConstantValue.EnglishLanguageCode;
-            _refDataHelper.GetTeamName(_sportsBook.HomeId, "en", string.Empty).Returns("Home Team");
+            _refDataHelper.GetTeamName(_sportsBook.HomeId, "en-US", string.Empty).Returns("Home Team");
 
             // Act
             var resultDetail = new BaseResultDetail<GameDetailItem>(_sportsBook, _setting, _refDataHelper, _sportsBookHelper);
@@ -126,7 +126,7 @@
             // Arrange
             _sportsBook.AwayId = 1;
             _setting.LanguageCode = ConstantValue.EnglishLanguageCode;
-            _refDataHelper.GetTeamName(_sportsBook.AwayId, "en", string.Empty).Returns("Away Team");
+            _refDataHelper.GetTeamName(_sportsBook.AwayId, "en-US", string.Empty).Returns("Away Team");
 
             // Act
             var resultDetail = new BaseResultDetail<GameDetailItem>(_sportsBook, _setting, _refDataHelper, _sportsBookHelper);

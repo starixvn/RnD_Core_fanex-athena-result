@@ -55,7 +55,7 @@
             // Arrange
             _outright.LeagueId = 1;
             _setting.LanguageCode = "en-US";
-            _refDataHelper.GetLeagueName(1, "en", Arg.Any<string>()).Returns("LeagueName");
+            _refDataHelper.GetLeagueName(1, "en-US", Arg.Any<string>()).Returns("LeagueName");
 
             // Act
             var viewModel = new OutrightViewModel(_outright, _setting, _refDataHelper);
@@ -70,7 +70,7 @@
             // Arrange
             _outright.SportType = 1;
             _setting.LanguageCode = "en-US";
-            _refDataHelper.GetSportName(1, "en", Arg.Any<string>()).Returns("Sport");
+            _refDataHelper.GetSportName(1, "en-US", Arg.Any<string>()).Returns("Sport");
 
             // Act
             var viewModel = new OutrightViewModel(_outright, _setting, _refDataHelper);
@@ -85,7 +85,7 @@
             // Arrange
             _outright.TeamId = 1;
             _setting.LanguageCode = "en-US";
-            _refDataHelper.GetTeamName(1, "en", Arg.Any<string>()).Returns("TeamName");
+            _refDataHelper.GetTeamName(1, "en-US", Arg.Any<string>()).Returns("TeamName");
 
             // Act
             var viewModel = new OutrightViewModel(_outright, _setting, _refDataHelper);

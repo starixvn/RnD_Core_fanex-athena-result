@@ -69,7 +69,7 @@
         {
             // Arrange
             _numberGame.LeagueId = 1;
-            _refDataHelper.GetLeagueName(1, "en", string.Empty).Returns("League");
+            _refDataHelper.GetLeagueName(1, "en-US", string.Empty).Returns("League");
 
             // Act
             var viewModel = new NumberGameViewModel(_numberGame, _setting, _refDataHelper);

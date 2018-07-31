@@ -805,8 +805,8 @@
             _soccer.HomeId = 1;
             _soccer.AwayId = 2;
             _setting.LanguageCode = "en-US";
-            _refDataHelper.GetTeamName(1, "en", string.Empty).Returns("HomeTeam");
-            _refDataHelper.GetTeamName(2, "en", string.Empty).Returns("AwayTeam");
+            _refDataHelper.GetTeamName(1, "en-US", string.Empty).Returns("HomeTeam");
+            _refDataHelper.GetTeamName(2, "en-US", string.Empty).Returns("AwayTeam");
 
             // Act
             var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
@@ -919,8 +919,8 @@
             _soccer.HomeId = 1;
             _soccer.AwayId = 2;
             _setting.LanguageCode = "en-US";
-            _refDataHelper.GetTeamName(1, "en", string.Empty).Returns("HomeTeam");
-            _refDataHelper.GetTeamName(2, "en", string.Empty).Returns("AwayTeam");
+            _refDataHelper.GetTeamName(1, "en-US", string.Empty).Returns("HomeTeam");
+            _refDataHelper.GetTeamName(2, "en-US", string.Empty).Returns("AwayTeam");
 
             // Act
             var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
@@ -956,8 +956,8 @@
             _soccer.HomeId = 1;
             _soccer.AwayId = 2;
             _setting.LanguageCode = "en-US";
-            _refDataHelper.GetTeamName(1, "en", string.Empty).Returns("HomeTeam");
-            _refDataHelper.GetTeamName(2, "en", string.Empty).Returns("AwayTeam");
+            _refDataHelper.GetTeamName(1, "en-US", string.Empty).Returns("HomeTeam");
+            _refDataHelper.GetTeamName(2, "en-US", string.Empty).Returns("AwayTeam");
 
             // Act
             var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
@@ -1034,8 +1034,8 @@
             _soccer.HomeId = 1;
             _soccer.AwayId = 2;
             _setting.LanguageCode = "en-US";
-            _refDataHelper.GetTeamName(1, "en", string.Empty).Returns("HomeTeam");
-            _refDataHelper.GetTeamName(2, "en", string.Empty).Returns("AwayTeam");
+            _refDataHelper.GetTeamName(1, "en-US", string.Empty).Returns("HomeTeam");
+            _refDataHelper.GetTeamName(2, "en-US", string.Empty).Returns("AwayTeam");
 
             // Act
             var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
@@ -1064,8 +1064,8 @@
             _soccer.HomeId = 1;
             _soccer.AwayId = 2;
             _setting.LanguageCode = "en-US";
-            _refDataHelper.GetTeamName(1, "en", string.Empty).Returns("HomeTeam");
-            _refDataHelper.GetTeamName(2, "en", string.Empty).Returns("AwayTeam");
+            _refDataHelper.GetTeamName(1, "en-US", string.Empty).Returns("HomeTeam");
+            _refDataHelper.GetTeamName(2, "en-US", string.Empty).Returns("AwayTeam");
 
             // Act
             var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
@@ -1088,9 +1088,9 @@
             };
             _soccer.BetID = betId;
             _setting.LanguageCode = "en-US";
-            _refDataHelper.GetFastMarket225Result(Arg.Any<string>(), "en").Returns("Penalty");
-            _refDataHelper.GetFastMarketResult(Arg.Any<string>(), "en").Returns("Penalty");
-            _refDataHelper.GetBetTypeNameById(Arg.Any<string>(), "en").Returns("BetType");
+            _refDataHelper.GetFastMarket225Result(Arg.Any<string>(), "en-US").Returns("Penalty");
+            _refDataHelper.GetFastMarketResult(Arg.Any<string>(), "en-US").Returns("Penalty");
+            _refDataHelper.GetBetTypeNameById(Arg.Any<string>(), "en-US").Returns("BetType");
             var fastMarketResultDetail = new FastMarketResultDetail(_soccer, _setting, _refDataHelper, null);
 
             // Act
@@ -1120,8 +1120,8 @@
             _soccer.BetID = betId;
             _soccer.Handicap2 = 2;
             _setting.LanguageCode = "en-US";
-            _refDataHelper.GetResourceDataByRefIdAndResourceId("FastMarket", "2", "en", Arg.Any<string>()).Returns("Goal");
-            _refDataHelper.GetBetTypeNameById(Arg.Any<string>(), "en").Returns("BetType");
+            _refDataHelper.GetResourceDataByRefIdAndResourceId("FastMarket", "2", "en-US", Arg.Any<string>()).Returns("Goal");
+            _refDataHelper.GetBetTypeNameById(Arg.Any<string>(), "en-US").Returns("BetType");
             var fastMarketResultDetail = new FastMarketResultDetail(_soccer, _setting, _refDataHelper, null);
 
             // Act
@@ -1145,9 +1145,9 @@
             };
             _soccer.BetID = betId;
             _setting.LanguageCode = "en-US";
-            _refDataHelper.GetFastMarket225Result(Arg.Any<string>(), "en").Returns("Penalty");
-            _refDataHelper.GetFastMarketResult(Arg.Any<string>(), "en").Returns("Penalty");
-            _refDataHelper.GetBetTypeNameById(Arg.Any<string>(), "en").Returns("BetType");
+            _refDataHelper.GetFastMarket225Result(Arg.Any<string>(), "en-US").Returns("Penalty");
+            _refDataHelper.GetFastMarketResult(Arg.Any<string>(), "en-US").Returns("Penalty");
+            _refDataHelper.GetBetTypeNameById(Arg.Any<string>(), "en-US").Returns("BetType");
             var fastMarketResultDetail = new FastMarketResultDetail(_soccer, _setting, _refDataHelper, null);
 
             // Act
@@ -1176,8 +1176,8 @@
             _soccer.BetID = betId;
             _soccer.Handicap2 = 2;
             _setting.LanguageCode = "en-US";
-            _refDataHelper.GetResourceDataByRefIdAndResourceId("FastMarket", "2", "en", Arg.Any<string>()).Returns("Goal");
-            _refDataHelper.GetBetTypeNameById(Arg.Any<string>(), "en").Returns("BetType");
+            _refDataHelper.GetResourceDataByRefIdAndResourceId("FastMarket", "2", "en-US", Arg.Any<string>()).Returns("Goal");
+            _refDataHelper.GetBetTypeNameById(Arg.Any<string>(), "en-US").Returns("BetType");
             var fastMarketResultDetail = new FastMarketResultDetail(_soccer, _setting, _refDataHelper, null);
 
             // Act
@@ -1206,9 +1206,9 @@
             _soccer.Bettype = 225;
             _soccer.BetID = betId;
             _setting.LanguageCode = "en-US";
-            _refDataHelper.GetFastMarket225Result(Arg.Any<string>(), "en").Returns("Penalty225");
-            _refDataHelper.GetFastMarketResult(Arg.Any<string>(), "en").Returns("Penalty");
-            _refDataHelper.GetBetTypeNameById(Arg.Any<string>(), "en").Returns("BetType");
+            _refDataHelper.GetFastMarket225Result(Arg.Any<string>(), "en-US").Returns("Penalty225");
+            _refDataHelper.GetFastMarketResult(Arg.Any<string>(), "en-US").Returns("Penalty");
+            _refDataHelper.GetBetTypeNameById(Arg.Any<string>(), "en-US").Returns("BetType");
             var fastMarketResultDetail = new FastMarketResultDetail(_soccer, _setting, _refDataHelper, null);
 
             // Act
@@ -1239,8 +1239,8 @@
             _soccer.Bettype = 226;
             _soccer.BetID = betId;
             _setting.LanguageCode = "en-US";
-            _refDataHelper.GetFastMarketResult(Arg.Any<string>(), "en").Returns("Penalty");
-            _refDataHelper.GetBetTypeNameById(Arg.Any<string>(), "en").Returns("BetType");
+            _refDataHelper.GetFastMarketResult(Arg.Any<string>(), "en-US").Returns("Penalty");
+            _refDataHelper.GetBetTypeNameById(Arg.Any<string>(), "en-US").Returns("BetType");
             var fastMarketResultDetail = new FastMarketResultDetail(_soccer, _setting, _refDataHelper, null);
 
             // Act
@@ -1264,9 +1264,9 @@
             };
             _soccer.BetID = betId;
             _setting.LanguageCode = "en-US";
-            _refDataHelper.GetFastMarket225Result(Arg.Any<string>(), "en").Returns("Penalty");
-            _refDataHelper.GetFastMarketResult(Arg.Any<string>(), "en").Returns("Penalty");
-            _refDataHelper.GetBetTypeNameById(Arg.Any<string>(), "en").Returns("BetType");
+            _refDataHelper.GetFastMarket225Result(Arg.Any<string>(), "en-US").Returns("Penalty");
+            _refDataHelper.GetFastMarketResult(Arg.Any<string>(), "en-US").Returns("Penalty");
+            _refDataHelper.GetBetTypeNameById(Arg.Any<string>(), "en-US").Returns("BetType");
             var fastMarketResultDetail = new FastMarketResultDetail(_soccer, _setting, _refDataHelper, null);
 
             // Act
@@ -1337,8 +1337,8 @@
             _soccer.HomeId = 1;
             _soccer.AwayId = 2;
             _setting.LanguageCode = "en-US";
-            _refDataHelper.GetTeamName(1, "en", string.Empty).Returns("HomeTeam");
-            _refDataHelper.GetTeamName(2, "en", string.Empty).Returns("AwayTeam");
+            _refDataHelper.GetTeamName(1, "en-US", string.Empty).Returns("HomeTeam");
+            _refDataHelper.GetTeamName(2, "en-US", string.Empty).Returns("AwayTeam");
 
             // Act
             var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);

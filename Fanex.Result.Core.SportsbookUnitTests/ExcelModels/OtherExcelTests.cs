@@ -80,8 +80,8 @@
         public void SetDataForMatch_Always_SetRowValue()
         {
             // Arrange
-            _refDataHelper.GetTeamName(1, "en", string.Empty).Returns("Home Team Name");
-            _refDataHelper.GetTeamName(2, "en", string.Empty).Returns("Away Team Name");
+            _refDataHelper.GetTeamName(1, "en-US", string.Empty).Returns("Home Team Name");
+            _refDataHelper.GetTeamName(2, "en-US", string.Empty).Returns("Away Team Name");
             _refDataHelper.GetBetRadarMatchCodeFormat("1231", Arg.Any<string>()).Returns("1231");
             _resultSetting.SportType = SportType.VirtualSoccerNation;
 

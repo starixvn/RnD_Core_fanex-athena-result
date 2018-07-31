@@ -40,7 +40,7 @@
         {
             // Arrange
             _racing.LeagueId = 1;
-            _refDataHelper.GetLeagueName(1, "en", string.Empty).Returns("LeagueName");
+            _refDataHelper.GetLeagueName(1, "en-US", string.Empty).Returns("LeagueName");
 
             // Act
             var viewModel = new VSHRacingViewModel(_racing, _setting, _refDataHelper);
@@ -110,7 +110,7 @@
         {
             // Arrange
             _racing.EngineId = "1";
-            _refDataHelper.GetHorseTeamName("1", "en", string.Empty).Returns("Team");
+            _refDataHelper.GetHorseTeamName("1", "en-US", string.Empty).Returns("Team");
 
             // Act
             var viewModel = new RacingViewModel(_racing, _setting, _refDataHelper);

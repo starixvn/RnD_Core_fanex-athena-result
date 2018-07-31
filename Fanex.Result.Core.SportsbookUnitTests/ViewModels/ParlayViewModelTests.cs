@@ -75,7 +75,7 @@
             // Arrange
             _parlay.SportId = 1;
             _setting.LanguageCode = "en-US";
-            _refDataHelper.GetSportName(1, "en", Arg.Any<string>()).Returns("SportName");
+            _refDataHelper.GetSportName(1, "en-US", Arg.Any<string>()).Returns("SportName");
 
             // Act
             var viewModel = new ParlayViewModel(_parlay, _setting, _refDataHelper);
@@ -90,7 +90,7 @@
             // Arrange
             _parlay.LeagueId = 1;
             _setting.LanguageCode = "en-US";
-            _refDataHelper.GetLeagueName(1, "en", Arg.Any<string>()).Returns("League");
+            _refDataHelper.GetLeagueName(1, "en-US", Arg.Any<string>()).Returns("League");
 
             // Act
             var viewModel = new ParlayViewModel(_parlay, _setting, _refDataHelper);

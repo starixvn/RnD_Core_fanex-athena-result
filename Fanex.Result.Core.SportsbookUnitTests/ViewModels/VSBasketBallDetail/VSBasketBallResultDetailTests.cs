@@ -45,8 +45,8 @@
         public void CreateGameDetailItem_DetailItemContainVSBasketBallResourseId_GenerateCorrectGameDetailItem()
         {
             // Arrange
-            _refDataHelper.GetBetTypeNameById("2809", "en", "20").Returns("FTRaceTo20Points");
-            _refDataHelper.GetBetTypeNameById("2809", "en", "40").Returns("FTRaceTo40Points");
+            _refDataHelper.GetBetTypeNameById("2809", "en-US", "20").Returns("FTRaceTo20Points");
+            _refDataHelper.GetBetTypeNameById("2809", "en-US", "40").Returns("FTRaceTo40Points");
             _refDataHelper.GetTeamName(1, Arg.Any<string>(), Arg.Any<string>()).Returns("HomeTeam");
             _refDataHelper.GetTeamName(2, Arg.Any<string>(), Arg.Any<string>()).Returns("AwayTeam");
 

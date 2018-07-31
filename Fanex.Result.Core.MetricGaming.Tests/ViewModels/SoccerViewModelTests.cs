@@ -41,7 +41,7 @@
         {
             // Arrange
             _metricGaming.HomeId = "1";
-            _refDataHelper.GetTeamName("1", "en", string.Empty).Returns("Home Team");
+            _refDataHelper.GetTeamName("1", "en-US", string.Empty).Returns("Home Team");
 
             // Act
             var viewModel = new SoccerViewModel(_metricGaming, _setting, _refDataHelper);
@@ -55,7 +55,7 @@
         {
             // Arrange
             _metricGaming.AwayId = "2";
-            _refDataHelper.GetTeamName("2", "en", string.Empty).Returns("Away Team");
+            _refDataHelper.GetTeamName("2", "en-US", string.Empty).Returns("Away Team");
 
             // Act
             var viewModel = new SoccerViewModel(_metricGaming, _setting, _refDataHelper);
@@ -83,7 +83,7 @@
             // Arrange
             _metricGaming.GameId = 1;
             _metricGaming.BetTypeTime = string.Empty;
-            _refDataHelper.GetBetTypeNameById("1", "en", string.Empty).Returns("game name");
+            _refDataHelper.GetBetTypeNameById("1", "en-US", string.Empty).Returns("game name");
 
             // Act
             var viewModel = new SoccerViewModel(_metricGaming, _setting, _refDataHelper);
@@ -98,8 +98,8 @@
             // Arrange
             _metricGaming.GameId = 1;
             _metricGaming.BetTypeTime = "1";
-            _refDataHelper.GetBetTypeNameById("1", "en", string.Empty).Returns("game name");
-            _refDataHelper.GetTeamName("1", "en", string.Empty).Returns("Away Team");
+            _refDataHelper.GetBetTypeNameById("1", "en-US", string.Empty).Returns("game name");
+            _refDataHelper.GetTeamName("1", "en-US", string.Empty).Returns("Away Team");
 
             // Act
             var viewModel = new SoccerViewModel(_metricGaming, _setting, _refDataHelper);
@@ -114,8 +114,8 @@
             // Arrange
             _metricGaming.GameId = 1;
             _metricGaming.BetTypeTime = "1,57%";
-            _refDataHelper.GetBetTypeNameById("1", "en", string.Empty).Returns("game name");
-            _refDataHelper.GetTeamName("1", "en", string.Empty).Returns("Away Team");
+            _refDataHelper.GetBetTypeNameById("1", "en-US", string.Empty).Returns("game name");
+            _refDataHelper.GetTeamName("1", "en-US", string.Empty).Returns("Away Team");
 
             // Act
             var viewModel = new SoccerViewModel(_metricGaming, _setting, _refDataHelper);
@@ -143,9 +143,9 @@
             // Arrange
             _metricGaming.GameResult = "1,2,3";
             _metricGaming.OtherInfo = "22:30,12:10";
-            _refDataHelper.GetResourceDataByRefIdAndResourceId("SuperLive", "1", "en", string.Empty).Returns("Corner Kick");
-            _refDataHelper.GetResourceDataByRefIdAndResourceId("SuperLive", "2", "en", string.Empty).Returns("Goal Kick");
-            _refDataHelper.GetResourceDataByRefIdAndResourceId("SuperLive", "3", "en", string.Empty).Returns("Off Side");
+            _refDataHelper.GetResourceDataByRefIdAndResourceId("SuperLive", "1", "en-US", string.Empty).Returns("Corner Kick");
+            _refDataHelper.GetResourceDataByRefIdAndResourceId("SuperLive", "2", "en-US", string.Empty).Returns("Goal Kick");
+            _refDataHelper.GetResourceDataByRefIdAndResourceId("SuperLive", "3", "en-US", string.Empty).Returns("Off Side");
 
             // Act
             var viewModel = new SoccerViewModel(_metricGaming, _setting, _refDataHelper);
@@ -162,7 +162,7 @@
             // Arrange
             _metricGaming.GameResult = "1";
             _metricGaming.OtherInfo = "";
-            _refDataHelper.GetResourceDataByRefIdAndResourceId("SuperLive", "1", "en", string.Empty).Returns("Corner Kick");
+            _refDataHelper.GetResourceDataByRefIdAndResourceId("SuperLive", "1", "en-US", string.Empty).Returns("Corner Kick");
 
             // Act
             var viewModel = new SoccerViewModel(_metricGaming, _setting, _refDataHelper);
@@ -189,8 +189,8 @@
             _metricGaming.GameResult = "1,2,3";
             _metricGaming.OtherInfo = "22:30,12:10";
             _metricGaming.SettlementStatusId = statusId;
-            _refDataHelper.GetResourceDataByRefIdAndResourceId("SuperLive", "1", "en", string.Empty).Returns("Corner Kick");
-            _refDataHelper.GetResourceDataByRefIdAndResourceId("SuperLive", "2", "en", string.Empty).Returns("Goal Kick");
+            _refDataHelper.GetResourceDataByRefIdAndResourceId("SuperLive", "1", "en-US", string.Empty).Returns("Corner Kick");
+            _refDataHelper.GetResourceDataByRefIdAndResourceId("SuperLive", "2", "en-US", string.Empty).Returns("Goal Kick");
 
             // Act
             var viewModel = new SoccerViewModel(_metricGaming, _setting, _refDataHelper);

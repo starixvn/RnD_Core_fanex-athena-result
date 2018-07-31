@@ -30,6 +30,7 @@ namespace MvcExample
 
             RefDataTypeContainer
                 .ConnectTo(new Uri(ConfigurationManager.AppSettings["RemotingRefService"]))
+                .SupportMultiLanguages()
                 .FromApplication("Result.Core.DemoSite");
 
             //ResultCoreManager.RegisterRefDataHelper(new RefDataHelperV1());

@@ -27,7 +27,7 @@
         {
             // Arrange
             _casino.Bettype = 1;
-            _refDataHelper.GetBetTypeNameById("1", "en", string.Empty).Returns("League");
+            _refDataHelper.GetBetTypeNameById("1", "en-US", string.Empty).Returns("League");
 
             // Act
             var viewModel = new AGCasinoViewModel(_casino, _setting, _refDataHelper);

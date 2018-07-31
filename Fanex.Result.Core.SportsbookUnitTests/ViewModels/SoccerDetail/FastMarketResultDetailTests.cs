@@ -24,7 +24,7 @@
         public void SetUp()
         {
             _refDataHelper = Substitute.For<IRefDataHelper>();
-            _refDataHelper.GetBetTypeNameById(Arg.Any<string>(), "en").Returns("bettype");
+            _refDataHelper.GetBetTypeNameById(Arg.Any<string>(), "en-US").Returns("bettype");
             _sportsbookHelper = Substitute.For<ISportsbookHelperWraper>();
             _sportsbook = new Sportsbook
             {
@@ -60,7 +60,7 @@
             };
             _sportsbook.Bettype = 221;
             _sportsbook.BetID = "2";
-            _refDataHelper.GetBetTypeNameById("221", "en").Returns("NextOneMinutes");
+            _refDataHelper.GetBetTypeNameById("221", "en-US").Returns("NextOneMinutes");
             var soccerResultDetail = new FastMarketResultDetail(_sportsbook, _setting, _refDataHelper, _sportsbookHelper);
 
             // Act
@@ -89,7 +89,7 @@
             _sportsbook.Bettype = 221;
             _sportsbook.BetID = "45";
             _sportsbook.Handicap2 = 2;
-            _refDataHelper.GetResourceDataByRefIdAndResourceId("FastMarket", "2", "en", string.Empty).Returns("Goal");
+            _refDataHelper.GetResourceDataByRefIdAndResourceId("FastMarket", "2", "en-US", string.Empty).Returns("Goal");
             var soccerResultDetail = new FastMarketResultDetail(_sportsbook, _setting, _refDataHelper, _sportsbookHelper);
 
             // Act
@@ -109,7 +109,7 @@
             _sportsbook.Bettype = 221;
             _sportsbook.BetID = "2";
             _sportsbook.Handicap2 = 2;
-            _refDataHelper.GetFastMarketResult(Arg.Any<string>(), "en").Returns("Goal");
+            _refDataHelper.GetFastMarketResult(Arg.Any<string>(), "en-US").Returns("Goal");
             var soccerResultDetail = new FastMarketResultDetail(_sportsbook, _setting, _refDataHelper, _sportsbookHelper);
 
             // Act
@@ -135,7 +135,7 @@
             _sportsbook.Bettype = 222;
             _sportsbook.BetID = "2";
             _sportsbook.Handicap2 = 2;
-            _refDataHelper.GetResourceDataByRefIdAndResourceId("FastMarket", "2", "en", string.Empty).Returns("Goal");
+            _refDataHelper.GetResourceDataByRefIdAndResourceId("FastMarket", "2", "en-US", string.Empty).Returns("Goal");
             var soccerResultDetail = new FastMarketResultDetail(_sportsbook, _setting, _refDataHelper, _sportsbookHelper);
 
             // Act
@@ -164,7 +164,7 @@
             _sportsbook.Bettype = 222;
             _sportsbook.BetID = "2";
             _sportsbook.Handicap2 = 2;
-            _refDataHelper.GetFastMarketResult(Arg.Any<string>(), "en").Returns("Goal");
+            _refDataHelper.GetFastMarketResult(Arg.Any<string>(), "en-US").Returns("Goal");
             var soccerResultDetail = new FastMarketResultDetail(_sportsbook, _setting, _refDataHelper, _sportsbookHelper);
 
             // Act
@@ -191,7 +191,7 @@
             _sportsbook.Bettype = 225;
             _sportsbook.BetID = "2";
             _sportsbook.Handicap2 = 2;
-            _refDataHelper.GetFastMarket225Result(Arg.Any<string>(), "en").Returns("Goal");
+            _refDataHelper.GetFastMarket225Result(Arg.Any<string>(), "en-US").Returns("Goal");
             var soccerResultDetail = new FastMarketResultDetail(_sportsbook, _setting, _refDataHelper, _sportsbookHelper);
 
             // Act
@@ -212,7 +212,7 @@
             _sportsbook.Bettype = 226;
             _sportsbook.BetID = "2";
             _sportsbook.Handicap2 = 2;
-            _refDataHelper.GetFastMarketResult(Arg.Any<string>(), "en").Returns("Goal");
+            _refDataHelper.GetFastMarketResult(Arg.Any<string>(), "en-US").Returns("Goal");
             var soccerResultDetail = new FastMarketResultDetail(_sportsbook, _setting, _refDataHelper, _sportsbookHelper);
 
             // Act
@@ -233,7 +233,7 @@
             _sportsbook.Bettype = 227;
             _sportsbook.BetID = "2";
             _sportsbook.Handicap2 = 2;
-            _refDataHelper.GetFastMarketResult(Arg.Any<string>(), "en").Returns("Goal");
+            _refDataHelper.GetFastMarketResult(Arg.Any<string>(), "en-US").Returns("Goal");
             var soccerResultDetail = new FastMarketResultDetail(_sportsbook, _setting, _refDataHelper, _sportsbookHelper);
 
             // Act

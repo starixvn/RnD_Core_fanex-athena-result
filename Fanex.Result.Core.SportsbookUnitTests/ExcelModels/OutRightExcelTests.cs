@@ -91,7 +91,7 @@
         public void SetDataForMatch_Always_SetRowValue()
         {
             // Arrange
-            _refDataHelper.GetTeamName(1, "en", string.Empty).Returns("Team Name");
+            _refDataHelper.GetTeamName(1, "en-US", string.Empty).Returns("Team Name");
             var outrightViewModel = new OutrightViewModel(new DTO.Outright
             {
                 TeamId = 1,

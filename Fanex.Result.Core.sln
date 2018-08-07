@@ -124,6 +124,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{6B0DBBCB-864
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.RemotingRef", "Fanex.Result.Core.RemotingRef\Fanex.Result.Core.RemotingRef.csproj", "{B899F4AE-2360-45B1-96D0-423C7328E8EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.RemotingRef.Tests", "Fanex.Result.Core.RemotingRef.Tests\Fanex.Result.Core.RemotingRef.Tests.csproj", "{266EB456-C4F5-4E6D-B7D5-B851D1810DFB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -274,6 +276,10 @@ Global
 		{B899F4AE-2360-45B1-96D0-423C7328E8EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B899F4AE-2360-45B1-96D0-423C7328E8EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B899F4AE-2360-45B1-96D0-423C7328E8EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{266EB456-C4F5-4E6D-B7D5-B851D1810DFB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{266EB456-C4F5-4E6D-B7D5-B851D1810DFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{266EB456-C4F5-4E6D-B7D5-B851D1810DFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{266EB456-C4F5-4E6D-B7D5-B851D1810DFB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -331,6 +337,7 @@ Global
 		{D462DDB2-5A02-4F69-AF66-24764D078FC1} = {35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}
 		{19744982-883E-47DE-B12A-F38DA76C4C5B} = {35EF4AF1-5804-4EE9-A2C3-F048FA7F9F5C}
 		{B899F4AE-2360-45B1-96D0-423C7328E8EA} = {4530FBF2-26E2-411F-BCEF-4772DA475239}
+		{266EB456-C4F5-4E6D-B7D5-B851D1810DFB} = {4530FBF2-26E2-411F-BCEF-4772DA475239}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4BF11104-7EAE-4BB6-A235-1C10DB35CE8B}

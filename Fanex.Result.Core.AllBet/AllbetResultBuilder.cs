@@ -31,7 +31,7 @@
         {
         }
 
-        public AllbetResultBuilder(IResultPopup resultPopup)
+        internal AllbetResultBuilder(IResultPopup resultPopup)
         {
             _resultPopup = resultPopup;
         }

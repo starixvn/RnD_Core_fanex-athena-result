@@ -21,16 +21,28 @@
         private readonly IPokerGamesResultConfigs _configs;
         private readonly IWebClient _client;
         private readonly ISerializer _serializer;
+        private readonly Func<DateTime> _getDatimeNow;
+        private readonly Func<int> _randomInt;
 
         public PokerGamesResult(
             IWebClient client = null, 
             ISerializer serializer = null,
-            IPokerGamesResultConfigs configs = null)
+            IPokerGamesResultConfigs configs = null,
+            Func<DateTime> getDatimeNow = null,
+            Func<int> randomInt = null)
         {
             _serializer = serializer ?? new JsonSerializer();
             _client = client ?? new JsonWebClient(_serializer);
             _configs = configs ?? PokerGamesResultConfigs.Configs;
+            _getDatimeNow = getDatimeNow ?? GetDateTimeNow;
+            _randomInt = randomInt ?? RandomInt;
         }
+
+        private static DateTime GetDateTimeNow()
+            => DateTime.Now;
+
+        private static int RandomInt()
+            => new Random().Next(0, int.MaxValue);
 
         public string GetResult(string custId, string gameTypeId, string transId3rd, ViewerLevel viewerLevel, string language = "en-US", int siteId = 0)
         {
@@ -111,7 +123,7 @@
         {
             return new Request
             {
-                TimeStamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"),
+                TimeStamp = _getDatimeNow().ToString("yyyy-MM-dd HH:mm:ss.fff"),
                 Auth = new Auth
                 {
                     Login = _configs.Login,
@@ -124,9 +136,8 @@
 
         private Call CreateCallObject(string custId, string gameTypeId, string transId3rd, ViewerLevel viewerLevel)
         {
-            var random = new Random();
-            var timestampWithRandom = $"{DateTime.Now.Ticks}-{random.Next(0, int.MaxValue)}";
-            var hashedPreInfo = $"{_configs.SiteId}-{custId}-{gameTypeId}-{random.Next(0, int.MaxValue)}";
+            var timestampWithRandom = $"{_getDatimeNow().Ticks}-{_randomInt()}";
+            var hashedPreInfo = $"{_configs.SiteId}-{custId}-{gameTypeId}-{_randomInt()}";
             var seq = $"{timestampWithRandom}-{hashedPreInfo}";
 
             return new Call

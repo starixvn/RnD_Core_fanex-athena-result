@@ -5,6 +5,7 @@
     using System.Linq;
     using Base;
     using Base.ViewModels;
+    using Fanex.Result.Core.Base.Utilities;
     using NSubstitute;
     using NUnit.Framework;
     using Sportsbook.ExcelModels;
@@ -17,14 +18,14 @@
     {
         private ResultSetting _resultSetting;
         private IEnumerable<IResultViewModel> _resultData;
-        private ISportsbookRefDataHelper _refDataHelper;
+        private IRefDataHelper _refDataHelper;
 
         [SetUp]
         public void Setup()
         {
             _resultSetting = DataUtils.CreateResultSetting();
             _resultData = new List<BilliardViewModel>();
-            _refDataHelper = Substitute.For<ISportsbookRefDataHelper>();
+            _refDataHelper = Substitute.For<IRefDataHelper>();
         }
 
         [Test]
@@ -80,8 +81,8 @@
         public void SetDataForMatch_Always_SetRowValue()
         {
             // Arrange
-            _refDataHelper.GetTeamName(1, "en", string.Empty).Returns("Home Team Name");
-            _refDataHelper.GetTeamName(2, "en", string.Empty).Returns("Away Team Name");
+            _refDataHelper.GetTeamName(1, "en-US", string.Empty).Returns("Home Team Name");
+            _refDataHelper.GetTeamName(2, "en-US", string.Empty).Returns("Away Team Name");
             var viewModel = new BeachSoccerViewModel(new DTO.Sportsbook
             {
                 MatchCode = "1231",

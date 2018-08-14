@@ -5,10 +5,10 @@
     using System.Linq;
     using Base;
     using Base.ViewModels;
+    using Fanex.Result.Core.Base.Utilities;
     using NSubstitute;
     using NUnit.Framework;
     using Sportsbook.ExcelModels;
-    using Sportsbook.Utilities;
     using Sportsbook.ViewModels;
     using TestUtils;
 
@@ -17,14 +17,14 @@
     {
         private ResultSetting _resultSetting;
         private IEnumerable<IResultViewModel> _resultData;
-        private ISportsbookRefDataHelper _refDataHelper;
+        private IRefDataHelper _refDataHelper;
 
         [SetUp]
         public void Setup()
         {
             _resultSetting = DataUtils.CreateResultSetting();
             _resultData = new List<KabaddiViewModel>();
-            _refDataHelper = Substitute.For<ISportsbookRefDataHelper>();
+            _refDataHelper = Substitute.For<IRefDataHelper>();
         }
 
         [Test]
@@ -80,8 +80,8 @@
         public void SetDataForMatch_Always_SetRowValue()
         {
             // Arrange
-            _refDataHelper.GetTeamName(1, "en", string.Empty).Returns("Home Team Name");
-            _refDataHelper.GetTeamName(2, "en", string.Empty).Returns("Away Team Name");
+            _refDataHelper.GetTeamName(1, "en-US", string.Empty).Returns("Home Team Name");
+            _refDataHelper.GetTeamName(2, "en-US", string.Empty).Returns("Away Team Name");
             _refDataHelper.GetBetRadarMatchCodeFormat("1231", Arg.Any<string>()).Returns("1231");
             _resultSetting.SportType = SportType.VirtualSoccerNation;
 

@@ -6,6 +6,7 @@
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.Resources;
+    using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Sportsbook.Utilities;
 
@@ -18,10 +19,10 @@
         public KabaddiViewModel(
          Sportsbook sportbook,
          ResultSetting setting,
-         ISportsbookRefDataHelper refDataHelper = null)
+         IRefDataHelper refDataHelper = null)
          : base(sportbook, setting, refDataHelper)
         {
-            sportbook.MatchCode = SportsbookRefDataHelper.GetBetRadarMatchCodeFormat(sportbook.MatchCode, GetSupportedLanguage);
+            sportbook.MatchCode = RefDataHelper.GetBetRadarMatchCodeFormat(sportbook.MatchCode, GetSupportedLanguage);
         }
 
         public string HTHomeScore => GetScore(SPORTBOOK.HtHomeScore, isFinalScore: false);

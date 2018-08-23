@@ -2,9 +2,8 @@
 {
     using System;
     using Fanex.Result.Core.Base.Exception;
+    using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.PokerGames.Models;
-    using Fanex.Result.Core.PokerGames.Ultilities.Serializer;
-    using Fanex.Result.Core.PokerGames.Ultilities.WebClient;
     using NSubstitute;
     using NUnit.Framework;
 

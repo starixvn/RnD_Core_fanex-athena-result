@@ -98,14 +98,14 @@
     <Reference Include="Fanex.Result.Core.NumberGame, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Fanex.Result.Core-NumberGame.1.0.2\lib\net40\Fanex.Result.Core.NumberGame.dll</HintPath>
     </Reference>
+    <Reference Include="Fanex.Result.Core.PokerGames, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fanex.Result.Core.PokerGames.1.0.1-beta1\lib\net40\Fanex.Result.Core.PokerGames.dll</HintPath>
+    </Reference>
     <Reference Include="Fanex.Result.Core.Racing, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Fanex.Result.Core-Racing.1.1.0\lib\net40\Fanex.Result.Core.Racing.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.RemotingRef, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Fanex.Result.Core.RemotingRef.1.0.0\lib\net461\Fanex.Result.Core.RemotingRef.dll</HintPath>
-    </Reference>
-    <Reference Include="Fanex.Result.Core.RemotingRef, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.Result.Core.RemotingRef.1.0.0-beta4\lib\net461\Fanex.Result.Core.RemotingRef.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.Sportsbook, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Fanex.Result.Core-Sportsbook.1.1.0\lib\net40\Fanex.Result.Core.Sportsbook.dll</HintPath>
@@ -712,10 +712,6 @@
     <ProjectReference Include="..\Fanex.Result.Core.MicroGaming\Fanex.Result.Core.MicroGaming.csproj">
       <Project>{083CA0EF-F420-4A62-BE5B-4145AFFEDEC1}</Project>
       <Name>Fanex.Result.Core.MicroGaming</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Fanex.Result.Core.PokerGames\Fanex.Result.Core.PokerGames.csproj">
-      <Project>{d0c14c69-33f8-4b76-bb9a-109f3dcffc57}</Project>
-      <Name>Fanex.Result.Core.PokerGames</Name>
     </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.PP\Fanex.Result.Core.PP.csproj">
       <Project>{05aa0490-7266-489a-9e2d-84c9d2f2fb39}</Project>

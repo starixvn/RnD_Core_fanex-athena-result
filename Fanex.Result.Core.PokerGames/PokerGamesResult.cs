@@ -4,9 +4,8 @@
     using System.Collections.Generic;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.Exception;
+    using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.PokerGames.Models;
-    using Fanex.Result.Core.PokerGames.Ultilities.Serializer;
-    using Fanex.Result.Core.PokerGames.Ultilities.WebClient;
 
     public class PokerGamesResult : IPokerGamesResult
     {

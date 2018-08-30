@@ -71,7 +71,7 @@
             try
             {
                 var pokerGamesResult = new PokerGamesResult();
-                return pokerGamesResult.GetResult(custId, gameTypeId, transId3rd, viewerLevel, language);
+                return pokerGamesResult.GetResult(custId, gameTypeId, transId3rd, viewerLevel, language).Replace("http://", "https://");
             }
             catch (Exception e)
             {

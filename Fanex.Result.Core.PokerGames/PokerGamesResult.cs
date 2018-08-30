@@ -58,7 +58,9 @@
             return GetResultUrl(language, request);
         }
 
+#pragma warning disable S3995 // URI return values should not be strings
         private string GetResultUrl(string language, Request request)
+#pragma warning restore S3995 // URI return values should not be strings
         {
             var response = ExecuteRequest(request);
 

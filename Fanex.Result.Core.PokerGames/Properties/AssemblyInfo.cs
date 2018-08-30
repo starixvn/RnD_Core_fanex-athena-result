@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Fanex.Result.Core.PokerGames")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("_")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("_")]
 [assembly: AssemblyProduct("Fanex.Result.Core.PokerGames")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]

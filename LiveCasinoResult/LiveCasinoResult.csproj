@@ -40,10 +40,6 @@
     <SonarQubeExclude>true</SonarQubeExclude>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="RemotingRef, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>dependency\RemotingRef.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
@@ -67,6 +63,12 @@
     <Analyzer Include="..\packages\SonarAnalyzer.CSharp.6.7.1.4347\analyzers\Google.Protobuf.dll" />
     <Analyzer Include="..\packages\SonarAnalyzer.CSharp.6.7.1.4347\analyzers\SonarAnalyzer.CSharp.dll" />
     <Analyzer Include="..\packages\SonarAnalyzer.CSharp.6.7.1.4347\analyzers\SonarAnalyzer.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj">
+      <Project>{8673f024-7726-4c30-8464-5a8357f79bf0}</Project>
+      <Name>Fanex.Result.Core.Base</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

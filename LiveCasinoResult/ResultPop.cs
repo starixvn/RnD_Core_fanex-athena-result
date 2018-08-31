@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web;
-using RemotingRef;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics.CodeAnalysis;
+using Fanex.Result.Core.Base.Utilities;
+using Fanex.Result.Core.Base;
 
 namespace LiveCasinoResult
 {
@@ -22,12 +23,14 @@ namespace LiveCasinoResult
         private static string strBankerImg = "";
         private static System.Web.HttpContext _Context;
         private static int[] AGArr = { 1801, 1802, 1803, 1804 };
+        private static IRefDataHelper refDataHelper;
 
-        public ResultPop(System.Web.HttpContext context, string ConnectionString, string ImgPath)
+        public ResultPop(System.Web.HttpContext context, string ConnectionString, string ImgPath, IRefDataHelper refDataHelper)
         {
             _ConnectionString = ConnectionString;
             _ImgPath = ImgPath;
             _Context = context;
+            ResultPop.refDataHelper = refDataHelper ?? ResultCoreManager.RefDataHelper;
         }
 
         public string genResultPopHtmlbyID(string TransID, string slang)
@@ -90,9 +93,9 @@ namespace LiveCasinoResult
             for (int j = 0; j < strResult.Length; j++)
             {
                 if (strFinalScore == "")
-                    strFinalScore = RefData.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
+                    strFinalScore = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
                 else
-                    strFinalScore = strFinalScore + ", " + RefData.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
+                    strFinalScore = strFinalScore + ", " + refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
             }
             //string strFinalScore = GetSplitValue('=', (bAG) ? GameDetail[6].ToString() : GameDetail[6].ToString());
             string strScoreValue = (bAG) ? GameDetail[7].ToString() : GameDetail[6].ToString();
@@ -116,9 +119,9 @@ namespace LiveCasinoResult
             for (int j = 0; j < strResult.Length; j++)
             {
                 if (j == 0)
-                    strFinalScore += RefData.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
+                    strFinalScore += refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
                 else
-                    strFinalScore += ", " + RefData.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
+                    strFinalScore += ", " + refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
             }
             //strFinalScore += GetSplitValue('=', (bAG) ? GameDetail[6].ToString() : GameDetail[6].ToString());
             string strFinalLayout = GetFinalLayout(bettype);
@@ -140,9 +143,9 @@ namespace LiveCasinoResult
             for (int j = 0; j < strResult.Length; j++)
             {
                 if (j == 0)
-                    strFinalScore += RefData.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
+                    strFinalScore += refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
                 else
-                    strFinalScore += ", " + RefData.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
+                    strFinalScore += ", " + refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
             }
             //strFinalScore += GetSplitValue('=', (bAG) ? GameDetail[6].ToString() : GameDetail[6].ToString());
             string strFinalLayout = GetFinalLayout(bettype);
@@ -168,7 +171,7 @@ namespace LiveCasinoResult
             }
 
             string strRefKey = (bAG) ? "AG_DragonTiger" : "AllBet_BT";
-            string strFinalScore = RefData.GetResourceDataByRefIdAndResourceId(strRefKey, GetSplitValue('=', (bAG) ? GameDetail[6].ToString() : GameDetail[7].ToString()), slang, "");
+            string strFinalScore = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, GetSplitValue('=', (bAG) ? GameDetail[6].ToString() : GameDetail[7].ToString()), slang, "");
             //string strFinalScore = GetSplitValue('=', (bAG) ? GameDetail[6].ToString() : GameDetail[6].ToString());
             string strScoreValue = (bAG) ? GameDetail[7].ToString() : GameDetail[6].ToString();
             string[] strScore = GetSplitValue('=', strScoreValue).Replace("D;", "").Replace("T;", "").Split(':');

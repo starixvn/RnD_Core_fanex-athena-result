@@ -48,6 +48,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj">
+      <Project>{8673f024-7726-4c30-8464-5a8357f79bf0}</Project>
+      <Name>Fanex.Result.Core.Base</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LiveCasinoResult\LiveCasinoResult.csproj">
       <Project>{e8d9e9b2-5dd6-4612-98a8-24320f21a95a}</Project>
       <Name>LiveCasinoResult</Name>

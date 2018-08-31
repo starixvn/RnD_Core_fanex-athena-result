@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Configuration;
     using System.Web;
+    using Fanex.Result.Core.Base;
     using LiveCasinoResult;
 
     public class AllbetResultBuilder : IAllbetResultBuilder
@@ -57,18 +58,27 @@
                 throw new AllBetCasinoException(InvalidImagePathErrorMessage);
             }
 
-            tplPath = CreateRelativePath(tplPath);
-
+            
+            var langCode = supportedLanguage.ContainsKey(languageCode) ? supportedLanguage[languageCode] : DefaultLanguageCode;
             try
             {
-                _resultPopup = _resultPopup ?? new ResultPop(HttpContext.Current, null, tplPath);
-                var langCode = supportedLanguage.ContainsKey(languageCode) ? supportedLanguage[languageCode] : DefaultLanguageCode;
+                tplPath = CreateRelativePath(tplPath);
+                _resultPopup = _resultPopup ?? new ResultPop(HttpContext.Current, null, tplPath, ResultCoreManager.RefDataHelper);
+                
 
                 return _resultPopup.genResultPopHtml(transDesc, gameId3rd, langCode, betType);
             }
             catch (Exception exception)
             {
-                throw new AllBetCasinoException(exception.Message, exception.InnerException);
+                var message = string.Join("\r\n",
+                    $"transDesc: {transDesc}",
+                    $"gameId3rd: {gameId3rd}",
+                    $"langCode: {langCode}",
+                    $"betType: {betType}",
+                    $"Exception: {exception}",
+                    $"GetTemplatePath: {GetTemplatePath}",
+                    $"tplPath: {tplPath}");
+                throw new AllBetCasinoException(message, exception.InnerException);
             }
         }
 

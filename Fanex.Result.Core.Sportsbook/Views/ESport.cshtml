@@ -1,0 +1,227 @@
+﻿@using Fanex.Result.Core.Base.ViewModels;
+@using Fanex.Result.Core.Base.DataDomain;
+@using Fanex.Result.Core.Base.Resources;
+@using Fanex.Result.Core.Sportsbook.ViewModels;
+
+@{
+    var viewModel = (RazorBinderModel)Model;
+
+
+    var colspan = viewModel.VisibleMatchCodeIDColumn ? 14 : 13;
+
+    var popupCss = viewModel.IsPopUp || viewModel.IsDetail ? "popup" : string.Empty;
+}
+
+@helper RenderHeader(RazorBinderModel viewModel, int colspan)
+{
+    <thead>
+        @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+        {
+            var item = viewModel.Data[0].Data[0];
+            <tr class="row-title">
+                <th class="cl-title" colspan="@colspan">
+                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                </th>
+            </tr>
+        }
+        <tr class="header">
+            @if (viewModel.VisibleMatchCodeIDColumn)
+            {
+                <th class="cl-m-code">@LangResource.MatchCode/@LangResource.ID</th>
+            }
+            <th class="cl-ko-time">@LangResource.KickOffTime</th>
+            <th class="cl-match">@Raw(LangResource.Match)</th>
+
+
+
+            <th class="cl-s">M1</th>
+            <th class="cl-s">M2</th>
+            <th class="cl-s">M3</th>
+            <th class="cl-s">M4</th>
+            <th class="cl-s">M5</th>
+            <th class="cl-s">M6</th>
+            <th class="cl-s">M7</th>
+            <th class="cl-s">M8</th>
+            <th class="cl-s">M9</th>
+
+
+            <th class="cl-totalset">@LangResource.FinalScore</th>
+            <th class="cl-status">@LangResource.Status</th>
+        </tr>
+    </thead>
+}
+
+@if (viewModel.VisibleMainResult)
+{
+    if (viewModel.VisibleFreeHeader)
+    {
+        <div class="fn-rs-content-header">
+            <table class="fn-rs @popupCss">
+                @RenderHeader(viewModel, colspan)
+            </table>
+        </div>
+
+        @Raw("<div class=\"fn-rs-content-scroll\">")
+    }
+    <table class="fn-rs @popupCss">
+        @if (!viewModel.VisibleFreeHeader)
+        {
+            @RenderHeader(viewModel, colspan)
+        }
+        <tbody>
+            @if (viewModel.Data.Count > 0)
+            {
+                var index = 0;
+                foreach (var group in viewModel.Data)
+                {
+                    if (!viewModel.IsPopUp)
+                    {
+                        <tr class="data">
+                            <td colspan="@colspan" class="cl-league">
+                                @group.Data[0].LeagueName
+                            </td>
+                        </tr>
+                    }
+
+                    foreach (ESportViewModel item in group.Data)
+                    {
+                        index++;
+                        <tr class="data @item.Color(index, "even", "odd")">
+                            @if (viewModel.VisibleMatchCodeIDColumn)
+                            {
+                                <td class="cl-m-code">
+                                    <div class="m-code">@item.MatchCode</div>
+                                </td>
+                            }
+
+                            <td class="cl-ko-time" rowspan="2">@Raw(item.KickOffTime)</td>
+                            <td class="cl-match home @item.HomeWin">@Raw(item.HomeTeam)</td>
+
+                            @for (var s = 0; s < ESportViewModel.MaxNumberOfMaps; s++)
+                            {
+                                <td class="cl-s">
+                                    @item.GetHomeAwaySet(s, true)
+                                </td>
+                            }
+
+                            <td class="cl-totalset">@item.FinalHomeScore</td>
+                            <td rowspan="2" class="cl-status @item.EventStatusBackground">
+                                @item.EventStatus
+                                @if (item.VisibleDetailedLink && !viewModel.IsPopUp)
+                                {
+                                    <div>
+                                        <span class="detail-link" data-league-id="@item.LeagueId" data-match-id="@item.MatchId">
+                                            @LangResource.Details
+                                        </span>
+                                    </div>
+                                }
+                            </td>
+                        </tr>
+                        <tr class="data @item.Color(index, "even", "odd")">
+                            @if (viewModel.VisibleMatchCodeIDColumn)
+                            {
+                                <td class="cl-m-code">@item.MatchId</td>
+                            }
+
+                            <td class="cl-match away @item.AwayWin">
+                                @Raw(item.AwayTeam)
+                            </td>
+
+                            @for (var s = 0; s < ESportViewModel.MaxNumberOfMaps; s++)
+                            {
+                                <td class="cl-s">@item.GetHomeAwaySet(s, false)</td>
+                            }
+                            <td class="cl-totalset">@item.FinalAwayScore</td>
+                        </tr>
+                    }
+                }
+            }
+            else
+            {
+                <!--NoInfo-->
+                <tr class="row-noinfo">
+                    <td colspan="@colspan">@LangResource.NoInfo</td>
+                </tr>
+                <!--/NoInfo-->
+            }
+        </tbody>
+    </table>
+    if (viewModel.VisibleFreeHeader)
+    {
+        @Raw("</div>")
+    }
+}
+<!--Detail-->
+
+@if (viewModel.VisibleDetailResult)
+{
+    <br />
+
+    if (viewModel.Data.Count > 0 && viewModel.Data[0].Data.Count > 0)
+    {
+
+        ESportViewModel item = (ESportViewModel)viewModel.Data[0].Data[0];
+
+
+        <table class="fn-rs popup">
+            <thead>
+                @if (!viewModel.IsDetail && viewModel.VisiblePopUpTitle)
+                {
+                    <tr class="row-title">
+                        <th class="cl-title" colspan="14">
+                            <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                        </th>
+                    </tr>
+                }
+                <tr class="header">
+                    <th class="width-40">@LangResource.MoreResults</th>
+                    <th class="width-30">@item.HomeTeam</th>
+                    <th class="width-30">@item.AwayTeam</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @if (item.MoreResultDetailByMap.Count > 0)
+                {
+                    foreach (var map in item.MoreResultDetailByMap)
+                    {
+                        if (map.Key == 0)
+                        {
+                            continue;
+                        }
+
+                        <tr>
+                            <td></td>
+                            <td colspan="2" class="map">@LangResource.Map @(map.Key)</td>
+                        </tr>
+                        foreach (var mapResult in map.Value)
+                        {
+                            <tr>
+                                <td class="cl-match">@mapResult.ResourceName</td>
+
+                                @if (mapResult.IsDisplayBothTeam)
+                                {
+                                    <td class="home">@mapResult.HomeValue</td>
+                                    <td class="away">@mapResult.AwayValue</td>
+                                }
+                                else
+                                {
+                                    <td colspan="2" class="single-result color-blue">@mapResult.HomeValue</td>
+                                }
+                            </tr>
+
+                        }
+                    }
+                }
+                else
+                {
+                    <tr class="row-noinfo">
+                        <td colspan="3">@LangResource.NoInfo</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    }
+}
+<!--/Detail-->

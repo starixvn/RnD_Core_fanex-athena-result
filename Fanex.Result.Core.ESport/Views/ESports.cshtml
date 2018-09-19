@@ -1,0 +1,273 @@
+﻿@using Fanex.Result.Core.Base.ViewModels;
+@using Fanex.Result.Core.Base.DataDomain;
+@using Fanex.Result.Core.Base.Resources;
+@using Fanex.Result.Core.ESport.ViewModels;
+
+@{
+    var viewModel = (RazorBinderModel)Model;
+
+
+    var colspan = viewModel.VisibleMatchCodeIDColumn ? 14 : 13;
+
+    var popupCss = viewModel.IsPopUp || viewModel.IsDetail ? "popup" : string.Empty;
+}
+
+@helper RenderHeader(RazorBinderModel viewModel, int colspan)
+{
+    <thead>
+        @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+        {
+            var item = viewModel.Data[0].Data[0];
+            <tr class="row-title">
+                <th class="cl-title" colspan="@colspan">
+                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                </th>
+            </tr>
+        }
+            <tr class="header">
+                @if (viewModel.VisibleMatchCodeIDColumn)
+                {
+                    <th class="cl-m-code">@LangResource.MatchCode/@LangResource.ID</th>
+                }
+                <th class="cl-ko-time">@LangResource.KickOffTime</th>
+                <th class="cl-match">@Raw(LangResource.Match)</th>
+
+                
+
+                <th class="cl-s">M1</th>
+                <th class="cl-s">M2</th>
+                <th class="cl-s">M3</th>
+                <th class="cl-s">M4</th>
+                <th class="cl-s">M5</th>
+                <th class="cl-s">M6</th>
+                <th class="cl-s">M7</th>
+                <th class="cl-s">M8</th>
+                <th class="cl-s">M9</th>
+
+
+                <th class="cl-totalset">@LangResource.FinalScore</th>
+                <th class="cl-status">@LangResource.Status</th>
+            </tr>
+    </thead>
+}
+
+@if (viewModel.VisibleMainResult)
+{
+    if (viewModel.VisibleFreeHeader)
+    {
+        <div class="fn-rs-content-header">
+            <table class="fn-rs @popupCss">
+                @RenderHeader(viewModel, colspan)
+            </table>
+        </div>
+
+        @Raw("<div class=\"fn-rs-content-scroll\">")
+    }
+    <table class="fn-rs @popupCss">
+        @if (!viewModel.VisibleFreeHeader)
+        {
+            @RenderHeader(viewModel, colspan)
+        }
+        <tbody>
+            @if (viewModel.Data.Count > 0)
+            {
+                var index = 0;
+                foreach (var group in viewModel.Data)
+                {
+                    if (!viewModel.IsPopUp)
+                    {
+                        <tr class="data">
+                            <td colspan="@colspan" class="cl-league">
+                                @group.Data[0].LeagueName
+                            </td>
+                        </tr>
+                    }
+
+                    foreach (ESportViewModel item in group.Data)
+                    {
+                        index++;
+                        <tr class="data @item.Color(index, "even", "odd")">
+                            @if (viewModel.VisibleMatchCodeIDColumn)
+                            {
+                                <td class="cl-m-code">
+                                    <div class="m-code">@item.MatchCode</div>
+                                </td>
+                            }
+                            <td class="cl-ko-time" rowspan="2">@Raw(item.KickOffTime)</td>
+                            <td class="cl-match home @item.HomeWin">@Raw(item.HomeTeam)</td>
+                            @for (var s = 0; s < 5; s++)
+                            {
+                                <td class="cl-s">@item.GetHomeAwaySet(s, true)</td>
+                            }
+                            <td class="cl-totalgames">@item.TotalGameHome</td>
+                            <td class="cl-totalset">@item.TotalSetHome</td>
+                            <td rowspan="2" class="cl-status @item.EventStatusBackground">
+                                @item.EventStatus
+                                @if (item.VisibleDetailedLink && !viewModel.IsPopUp)
+                                {
+                                    <div>
+                                        <span class="detail-link" data-league-id="@item.LeagueId" data-match-id="@item.MatchId">
+                                            @LangResource.Details
+                                        </span>
+                                    </div>
+                                }
+                            </td>
+                        </tr>
+                        <tr class="data @item.Color(index, "even", "odd")">
+                            @if (viewModel.VisibleMatchCodeIDColumn)
+                            {
+                                <td class="cl-m-code">@item.MatchId</td>
+                            }
+                            <td class="cl-match away @item.AwayWin">@Raw(item.AwayTeam)</td>
+                            @for (var s = 0; s < 5; s++)
+                            {
+                                <td class="cl-s">@item.GetHomeAwaySet(s, false)</td>
+                            }
+                            <td class="cl-totalgames">@item.TotalGameAway</td>
+                            <td class="cl-totalset">@item.TotalSetAWay</td>
+                        </tr>
+                    }
+                }
+            }
+            else
+            {
+                <!--NoInfo-->
+                <tr class="row-noinfo">
+                    <td colspan="@colspan">@LangResource.NoInfo</td>
+                </tr>
+                <!--/NoInfo-->
+            }
+        </tbody>
+    </table>
+    if (viewModel.VisibleFreeHeader)
+    {
+        @Raw("</div>")
+    }
+}
+<!--Detail-->
+
+@if (viewModel.VisibleDetailResult)
+{
+    var visibleNoInfomationRow = false;
+    if (viewModel.Data.Count > 0 && viewModel.Data[0].Data.Count > 0)
+    {
+        TennisViewModel item = (TennisViewModel)viewModel.Data[0].Data[0];
+        var numOfNullSet = 0;
+        for (var i = 0; i < item.SetDetail.Length; i++)
+        {
+            var setValue = item.SetDetail[i];
+
+            if (setValue != null && (viewModel.IsDetail || item.VisibleSet(i + 1)))
+            {
+                if (viewModel.IsDetail)
+                {
+                    <br />
+                }
+                <table class="fn-rs popup">
+                    <thead>
+                        @if (!viewModel.IsDetail && viewModel.VisiblePopUpTitle)
+                        {
+                            <tr class="row-title">
+                                <th class="cl-title" colspan="14">
+                                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                                </th>
+                            </tr>
+                        }
+                        <tr class="header">
+                            <th class="cl-match">@LangResource.Set&nbsp;@(i + 1)&nbsp;@LangResource.GameResult</th>
+                            @for (var k = 1; k <= ConstantValue.NumberGameOfTennisSet; k++)
+                            {
+                                <th class="cl-s">@k</th>
+                            }
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{
+                            var maxGameId = setValue.Games.Count;
+                            var subRowspan = 1;
+                            if (maxGameId > ConstantValue.NumberGameOfTennisSet)
+                            {
+                                subRowspan = (maxGameId / ConstantValue.NumberGameOfTennisSet) * 2;
+                                subRowspan += (subRowspan / 2) - 1;
+                            }
+                            var lastGameId = ConstantValue.NumberGameOfTennisSet;
+                            var startGameId = 0;
+
+                            for (var t = 0; t < maxGameId; t += ConstantValue.NumberGameOfTennisSet)
+                            {
+                                if (t >= ConstantValue.NumberGameOfTennisSet)
+                                {
+                                    startGameId = lastGameId;
+                                    lastGameId += 13;
+                                    <tr class="sub-header">
+                                        @for (var j = startGameId + 1; j <= lastGameId; j++)
+                                        {
+                                            <td class="cl-s">@j</td>
+                                        }
+                                    </tr>
+                                }
+                                <tr class="data odd">
+                                    @if (maxGameId == ConstantValue.NumberGameOfTennisSet)
+                                    {
+                                        <td class="cl-match home">@Raw(item.HomeTeam)</td>
+                                    }
+                                    else if (t == 0)
+                                    {
+                                        <td class="cl-match" rowspan="@subRowspan">
+                                            <div class="home">@Raw(item.HomeTeam)</div>
+                                            <div class="away">@Raw(item.AwayTeam)</div>
+                                        </td>
+                                    }
+                                    @for (var g = startGameId; g < lastGameId; g++)
+                                    {
+                                        <td class="cl-s">@setValue.Games[g].HomeValue</td>
+                                    }
+                                </tr>
+
+                                <tr class="data odd">
+                                    @if (maxGameId == ConstantValue.NumberGameOfTennisSet)
+                                    {
+                                        <td class="cl-match away">@Raw(item.AwayTeam)</td>
+                                    }
+                                    @for (var g = startGameId; g < lastGameId; g++)
+                                    {
+                                        <td class="cl-s">@setValue.Games[g].AwayValue</td>
+                                    }
+                                </tr>
+                            }
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                numOfNullSet++;
+            }
+        }
+
+        visibleNoInfomationRow = numOfNullSet == 5;
+    }
+
+    if (visibleNoInfomationRow)
+    {
+        <table class="fn-rs popup">
+            <thead>
+                <tr class="header">
+                    <th class="cl-match">
+                        @LangResource.GameResult
+                    </th>
+                    @for (var k = 1; k <= ConstantValue.NumberGameOfTennisSet; k++)
+                    {
+                        <th class="cl-s">@k</th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="row-noinfo">
+                    <td colspan="14">@LangResource.NoInfo</td>
+                </tr>
+            </tbody>
+        </table>
+    }
+}
+<!--/Detail-->

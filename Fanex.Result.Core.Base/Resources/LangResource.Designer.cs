@@ -565,6 +565,15 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Map.
+        /// </summary>
+        public static string Map {
+            get {
+                return ResourceManager.GetString("Map", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Match.
         /// </summary>
         public static string Match {
@@ -588,6 +597,15 @@ namespace Fanex.Result.Core.Base.Resources {
         public static string Min {
             get {
                 return ResourceManager.GetString("Min", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} min {1} sec.
+        /// </summary>
+        public static string MinSec {
+            get {
+                return ResourceManager.GetString("MinSec", resourceCulture);
             }
         }
         

@@ -132,6 +132,13 @@
                     .GetResultData().ToList();
             }
 
+            if (filePath.Contains(SportType.ESport.ToString()))
+            {
+                sportBooks.First().GameDetails = SportsbookDetailResultExcelReader
+                    .CreateInstance(filePath.Replace("ESport", "ESportDetail"))
+                    .GetResultData().ToList();
+            }
+
             return sportBooks;
         }
 

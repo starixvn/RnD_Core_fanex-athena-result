@@ -522,4 +522,10 @@
   <data name="UnderSettlement" xml:space="preserve">
     <value>Under Settlement</value>
   </data>
+  <data name="Map" xml:space="preserve">
+    <value>Map</value>
+  </data>
+  <data name="MinSec" xml:space="preserve">
+    <value>{0} min {1} sec</value>
+  </data>
 </root>

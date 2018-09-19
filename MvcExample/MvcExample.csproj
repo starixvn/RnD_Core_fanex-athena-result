@@ -563,6 +563,9 @@
     <Content Include="App_Data\Result_Data\GoldDeluxe.xls" />
     <Content Include="App_Data\Result_Data\Tennis.xls" />
     <Content Include="App_Data\Result_Data\TennisDetail.xls" />
+    <Content Include="App_Data\Result_Data\Esport.xls" />
+    <Content Include="App_Data\Result_Data\ESportDetail.xls" />
+    <Content Include="App_Data\Fanex.Result\ESport.xls" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>

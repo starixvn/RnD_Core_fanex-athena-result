@@ -19,6 +19,8 @@
 
         public const string Refund = "Refund";
 
+        public const string R = "R";
+
         public const string Void = "Void";
         public const string PenaltyLabel = "PS:";
         public const string Zero = "0";

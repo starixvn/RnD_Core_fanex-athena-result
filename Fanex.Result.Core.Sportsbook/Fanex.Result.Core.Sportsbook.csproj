@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="DataDomain\BasketBalResourceID.cs" />
     <Compile Include="DataDomain\BetTypeID.cs" />
+    <Compile Include="DataDomain\ESportResourceID.cs" />
     <Compile Include="DataDomain\GameResourceID.cs" />
     <Compile Include="DataDomain\GameResources.cs" />
     <Compile Include="DataDomain\TennisBetID.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="DTO\Sportsbook.cs" />
     <Compile Include="ExcelModels\BadmintonExcel.cs" />
     <Compile Include="ExcelModels\BaseBallExcel.cs" />
+    <Compile Include="ExcelModels\ESportExcel.cs" />
     <Compile Include="ExcelModels\BasketballExcel.cs" />
     <Compile Include="ExcelModels\BeachSoccerExcel.cs" />
     <Compile Include="ExcelModels\BilliardExcel.cs" />
@@ -107,6 +109,10 @@
     <Compile Include="ViewModels\BilliardViewModel.cs" />
     <Compile Include="ViewModels\BasketBallDetail\BasketBallGameDetailItem.cs" />
     <Compile Include="ViewModels\BaseDetail\IGameDetailItem.cs" />
+    <Compile Include="ViewModels\ESportDetail\Map.cs" />
+    <Compile Include="ViewModels\ESportDetail\MapResult.cs" />
+    <Compile Include="ViewModels\ESportDetail\MapResultMetadata.cs" />
+    <Compile Include="ViewModels\ESportViewModel.cs" />
     <Compile Include="ViewModels\MuayThaiViewModel.cs" />
     <Compile Include="ViewModels\HockeyViewModel.cs" />
     <Compile Include="ViewModels\KabaddiViewModel.cs" />
@@ -176,13 +182,16 @@
     <EmbeddedResource Include="Views\VSBasketBall.cshtml" />
     <EmbeddedResource Include="Views\Kabaddi.cshtml" />
     <EmbeddedResource Include="Views\BeachSoccer.cshtml" />
+    <EmbeddedResource Include="Views\ESport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\SonarAnalyzer.CSharp.6.7.1.4347\analyzers\Google.Protobuf.dll" />
     <Analyzer Include="..\packages\SonarAnalyzer.CSharp.6.7.1.4347\analyzers\SonarAnalyzer.CSharp.dll" />
     <Analyzer Include="..\packages\SonarAnalyzer.CSharp.6.7.1.4347\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Templates\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

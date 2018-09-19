@@ -99,7 +99,7 @@
         [StringValue("Billiard")]
         Wrestling = 42,
 
-        [StringValue("Billiard")]
+        [StringValue("ESport")]
         ESport = 43,
 
         [StringValue("Billiard")]

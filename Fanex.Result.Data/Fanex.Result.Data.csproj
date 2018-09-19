@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ESportResultExcelReader.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="NumberGameResultExcelReader.cs" />
     <Compile Include="GoldDeluxeResultExcelReader.cs" />

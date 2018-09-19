@@ -87,6 +87,8 @@
                         new GoldDeluxeResultData().GetNormalResult(getDataFromExcel).ToList(), resultSetting);
                     break;
 
+
+
                 default:
                     htmlResult = ResultEngine.HtmlParser(
                         new SportsbookResultData().GetNormalResult(date, sportId, leagueId, getDataFromExcel).ToList(), resultSetting);

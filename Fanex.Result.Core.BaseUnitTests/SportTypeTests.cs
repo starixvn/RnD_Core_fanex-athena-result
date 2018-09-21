@@ -44,7 +44,7 @@
             {40, "Billiard"},
             {41, "Billiard"},
             {42, "Billiard"},
-            {43, "Billiard"},
+            {43, "ESport"},
             {29, "Billiard"},
             {154, "Billiard"},
             {51, "BeachSoccer"},

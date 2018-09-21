@@ -1,10 +1,6 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.Tests.ViewModels
 {
-    using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using DTO;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.Extension;
@@ -30,6 +26,7 @@
             _resultDetail = Substitute.For<IResultDetail<MapResult>>();
             _resultDetail.GetDetailItems().Returns(new SafeList<MapResult>());
             _refDataHelper = Substitute.For<IRefDataHelper>();
+            ResultCoreManager.RegisterRefDataHelper(_refDataHelper);
         }
 
         [Test]
@@ -45,13 +42,117 @@
             Assert.AreEqual("-", homeAwaySet);
         }
 
-        [Test]
-        public void Ctor_Always_GroupMoreResultByMap()
+        [TestCase(0, true, "1")]
+        [TestCase(1, true, "R")]
+        [TestCase(2, true, "3")]
+        [TestCase(3, true, "-")]
+        [TestCase(4, true, "-")]
+        [TestCase(5, true, "-")]
+        [TestCase(6, true, "7")]
+        [TestCase(7, true, "8")]
+        [TestCase(8, true, "9")]
+        [TestCase(9, true, "-")]
+        [TestCase(10, true, "-")]
+        [TestCase(0, false, "3")]
+        [TestCase(1, false, "R")]
+        [TestCase(2, false, "6")]
+        [TestCase(3, false, "-")]
+        [TestCase(4, false, "-")]
+        [TestCase(5, false, "-")]
+        [TestCase(6, false, "2")]
+        [TestCase(7, false, "1")]
+        [TestCase(8, false, "3")]
+        [TestCase(9, false, "-")]
+        [TestCase(10, false, "-")]
+        public void GetHomeAwaySet_Alway_ReturnData(int mapIndex, bool isHome, string expectedValue)
         {
-            var sportsbookData = StubSportsbook();
+            // Arrange
+            var viewModel = new ESportViewModel(StubSportsbook(), new ResultSetting(), null, _refDataHelper);
+
+            // Act
+            var homeAwaySet = viewModel.GetHomeAwaySet(mapIndex, isHome);
+
+            // Assert
+            Assert.AreEqual(expectedValue, homeAwaySet);
         }
 
-        private Sportsbook StubSportsbook()
+        [Test]
+        public void FinalHomeScore_GameDetailsHasData_ReturnDataFromGameDetails()
+        {
+            // Arrange
+            var viewModel = new ESportViewModel(StubSportsbook(), new ResultSetting(), null, _refDataHelper);
+
+            // Act
+            var score = viewModel.FinalHomeScore;
+
+            // Assert
+            Assert.AreEqual("100", score);
+        }
+
+        [Test]
+        public void FinalAwayScore_GameDetailsHasData_ReturnDataFromGameDetails()
+        {
+            // Arrange
+            var viewModel = new ESportViewModel(StubSportsbook(), new ResultSetting(), null, _refDataHelper);
+
+            // Act
+            var score = viewModel.FinalAwayScore;
+
+            // Assert
+            Assert.AreEqual("75", score);
+        }
+
+        [Test]
+        public void FinalHomeScore_GameDetailsDoesNotHasData_ReturnDataFromSportsbookDto()
+        {
+            // Arrange
+            _sportsbook.FinalHomeScore = 2;
+            var viewModel = new ESportViewModel(_sportsbook, new ResultSetting(), null, _refDataHelper);
+
+            // Act
+            var score = viewModel.FinalHomeScore;
+
+            // Assert
+            Assert.AreEqual("2", score);
+        }
+
+        [Test]
+        public void FinalAwayScore_GameDetailsDoesNotHasData_ReturnDataFromSportsbookDto()
+        {
+            // Arrange
+            _sportsbook.FinalAwayScore = 1;
+            var viewModel = new ESportViewModel(_sportsbook, new ResultSetting(), null, _refDataHelper);
+
+            // Act
+            var score = viewModel.FinalAwayScore;
+
+            // Assert
+            Assert.AreEqual("1", score);
+        }
+
+        [Test]
+        public void MoreResultDetailByMap_Always_ReturnGroupedMap()
+        {
+            // Arrange
+            var viewModel = new ESportViewModel(StubSportsbook(), new ResultSetting(), null, _refDataHelper);
+
+            // Act
+            var moreResult = viewModel.MoreResultDetailByMap;
+
+            // Assert
+            Assert.AreEqual(3, moreResult.Count);
+            Assert.AreEqual(50, moreResult[1].Count);
+            Assert.AreEqual(2, moreResult[2].Count);
+            Assert.AreEqual(1, moreResult[4].Count);
+        }
+
+        ////[Test]
+        ////public void Ctor_Always_GroupMoreResultByMap()
+        ////{
+        ////    var sportsbookData = StubSportsbook();
+        ////}
+
+        public static Sportsbook StubSportsbook()
             => new Sportsbook
             {
                 Bettype = 1,
@@ -61,7 +162,7 @@
                 GameDetails = StubGameDetails()
             };
 
-        private List<GameDetail> StubGameDetails()
+        public static List<GameDetail> StubGameDetails()
             => new List<GameDetail>
             {
                 new GameDetail { MatchId = 1, ResourceId = "900601", HomeValue = "A", AwayValue = "H", SettlementStatusID = 4 },
@@ -118,7 +219,7 @@
                 new GameDetail { MatchId = 1, ResourceId = "M1", HomeValue = "1", AwayValue = "3", SettlementStatusID = 4 },
                 new GameDetail { MatchId = 1, ResourceId = "M2", HomeValue = "2", AwayValue = "4", SettlementStatusID = 1 },
                 new GameDetail { MatchId = 1, ResourceId = "M3", HomeValue = "3", AwayValue = "6", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "M4", HomeValue = "4", AwayValue = "3", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "M4", HomeValue = "4", AwayValue = "3", SettlementStatusID = 0 },
                 new GameDetail { MatchId = 1, ResourceId = "M7", HomeValue = "7", AwayValue = "2", SettlementStatusID = 4 },
                 new GameDetail { MatchId = 1, ResourceId = "M8", HomeValue = "8", AwayValue = "1", SettlementStatusID = 4 },
                 new GameDetail { MatchId = 1, ResourceId = "M9", HomeValue = "9", AwayValue = "3", SettlementStatusID = 4 },

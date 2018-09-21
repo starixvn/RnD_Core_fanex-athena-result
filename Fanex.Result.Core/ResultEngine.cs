@@ -20,19 +20,17 @@
         private const string BuilderNamespacePattern = "Fanex.Result.Core.{0}.Models.Builder";
         private const string CacheKey = "Fanex.Result.Core.Plugin.CacheKey";
 
-        /// <summary>
-        /// Render detail result by sport.
-        /// </summary>
-        /// <param name="data">The SPORTSBOOK data.</param>
-        /// <param name="setting">The result setting.</param>
-        /// <returns>The html result.</returns>
+#pragma warning disable S1541 // Methods and properties should not be too complex
         public static string HtmlGameDetailParser(dynamic data, ResultSetting setting)
+#pragma warning restore S1541 // Methods and properties should not be too complex
         {
+#pragma warning disable S1067 // Expressions should not be too complex
             if (setting.SportType != SportType.Tennis &&
                 setting.SportType != SportType.Soccer &&
                 setting.SportType != SportType.BasketBall &&
                 setting.SportType != SportType.VirtualBasketBall &&
                 setting.SportType != SportType.ESport)
+#pragma warning restore S1067 // Expressions should not be too complex
             {
                 throw new ObjectUnSupportedException(string.Format(CoreResourceConfig.UNSUPPORTSPORTTYPEARGUEMENTMES, setting.SportType.StringMe()));
             }

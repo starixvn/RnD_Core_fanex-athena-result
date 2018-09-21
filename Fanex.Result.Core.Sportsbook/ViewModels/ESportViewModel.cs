@@ -33,17 +33,21 @@
             ResultDetailItems = (resultDetail ?? new Map(sportbook, setting, null, null)).GetDetailItems();
 
             MoreResultDetailByMap = ResultDetailItems
+                .Where(item => item.MapId > 0 && item.Visible)
                 .OrderBy(mapResult => MapResultMetadata.ResultTypeOrder.Keys.Contains(mapResult.BetTypeId)
                                     ? MapResultMetadata.ResultTypeOrder[mapResult.BetTypeId].Order
                                     : 0)
                 .GroupBy(mapResult => mapResult.MapId)
                 .ToDictionary(group => group.Key, group => group.ToList());
 
+            IsPopupOpenFromBetList = setting.IsPopupOpenFromBetList;
         }
 
         public string FinalHomeScore => GetTotalScore(true);
 
         public string FinalAwayScore => GetTotalScore(false);
+
+        public bool IsPopupOpenFromBetList { get; }
 
         public override bool VisibleDetailedLink => base.VisibleDetailedLink && HasGameDetailData();
 
@@ -63,7 +67,7 @@
             var result = GetResultFromGameDetails($"M{index + 1}", isHome);
 
             return string.IsNullOrEmpty(result) 
-                ? GetResultFromBetStatus(index, isHome) 
+                ? ConstantValue.Hyphen
                 : result;
         }
 
@@ -88,22 +92,6 @@
             return GetScore(isHome ? SPORTBOOK.FinalHomeScore : SPORTBOOK.FinalAwayScore);
         }
 
-        private string GetResultFromBetStatus(int index, bool isHome)
-        {
-            if (HomeSet == null || AwaySet == null)
-            {
-                HomeSet = new[] { ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen };
-                AwaySet = new[] { ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen };
-
-                if (SPORTBOOK.EventStatus != ConstantValue.RefundFT)
-                {
-                    GenerateHomeAwaySetValueFromBetStatus(MaxNumberOfMaps);
-                }
-            }
-
-            return isHome ? HomeSet[index] : AwaySet[index];
-        }
-
-        private bool HasGameDetailData() => MoreResultDetailByMap.Any();
+        private bool HasGameDetailData() => MoreResultDetailByMap.Count > 0;
     }
 }

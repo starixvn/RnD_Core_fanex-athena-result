@@ -87,8 +87,6 @@
                         new GoldDeluxeResultData().GetNormalResult(getDataFromExcel).ToList(), resultSetting);
                     break;
 
-
-
                 default:
                     htmlResult = ResultEngine.HtmlParser(
                         new SportsbookResultData().GetNormalResult(date, sportId, leagueId, getDataFromExcel).ToList(), resultSetting);
@@ -128,7 +126,9 @@
                         VisibleMatchCodeIDColumn = showMatchCode,
                         LanguageCode = languageCode,
                         HighlightWinnerTeam = true,
-                        EnableCheckScoreCalculated = false
+                        EnableCheckScoreCalculated = true,
+                        IsPopUp = true,
+                        //IsPopupOpenFromBetList = true
                     });
             }
 

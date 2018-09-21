@@ -91,6 +91,7 @@
     <Compile Include="Utilities\SportsbookHelperTests.cs" />
     <Compile Include="ViewModels\BadmintonViewModelTests.cs" />
     <Compile Include="ViewModels\BeachSoccerViewModelTests.cs" />
+    <Compile Include="ViewModels\ESportViewModelTests.cs" />
     <Compile Include="ViewModels\MuayThaiViewModelTests.cs" />
     <Compile Include="ViewModels\KabaddiViewModelTests.cs" />
     <Compile Include="ViewModels\OtherViewModelTests.cs" />

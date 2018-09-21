@@ -19,7 +19,7 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class SportsbookResx {
@@ -57,6 +57,159 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
             }
             set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} Total Kills Score.
+        /// </summary>
+        public static string ESports_90020X {
+            get {
+                return ResourceManager.GetString("ESports_90020X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} Towers Score.
+        /// </summary>
+        public static string ESports_90080X {
+            get {
+                return ResourceManager.GetString("ESports_90080X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} Roshans Score.
+        /// </summary>
+        public static string ESports_90120X {
+            get {
+                return ResourceManager.GetString("ESports_90120X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} Barracks Score.
+        /// </summary>
+        public static string ESports_90180X {
+            get {
+                return ResourceManager.GetString("ESports_90180X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} Turrets Score.
+        /// </summary>
+        public static string ESports_90240X {
+            get {
+                return ResourceManager.GetString("ESports_90240X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} Dragons Score.
+        /// </summary>
+        public static string ESports_90280X {
+            get {
+                return ResourceManager.GetString("ESports_90280X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} Barrons Score.
+        /// </summary>
+        public static string ESports_90340X {
+            get {
+                return ResourceManager.GetString("ESports_90340X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} Inhibitors Score.
+        /// </summary>
+        public static string ESports_90400X {
+            get {
+                return ResourceManager.GetString("ESports_90400X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} Tyrants Score.
+        /// </summary>
+        public static string ESports_90460X {
+            get {
+                return ResourceManager.GetString("ESports_90460X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} Lords Score.
+        /// </summary>
+        public static string ESports_90520X {
+            get {
+                return ResourceManager.GetString("ESports_90520X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} Duration.
+        /// </summary>
+        public static string ESports_90580X {
+            get {
+                return ResourceManager.GetString("ESports_90580X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} Rounds Score.
+        /// </summary>
+        public static string ESports_90590X {
+            get {
+                return ResourceManager.GetString("ESports_90590X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} Total First Kills.
+        /// </summary>
+        public static string ESports_90650X {
+            get {
+                return ResourceManager.GetString("ESports_90650X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} Clutches Score.
+        /// </summary>
+        public static string ESports_90660X {
+            get {
+                return ResourceManager.GetString("ESports_90660X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} Round {1} Winner.
+        /// </summary>
+        public static string ESports_90680X0Y {
+            get {
+                return ResourceManager.GetString("ESports_90680X0Y", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} Round {1} Total Kills.
+        /// </summary>
+        public static string ESports_90690X0Y {
+            get {
+                return ResourceManager.GetString("ESports_90690X0Y", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} Rounds Score (including Overtime).
+        /// </summary>
+        public static string ESports_90740X {
+            get {
+                return ResourceManager.GetString("ESports_90740X", resourceCulture);
             }
         }
         

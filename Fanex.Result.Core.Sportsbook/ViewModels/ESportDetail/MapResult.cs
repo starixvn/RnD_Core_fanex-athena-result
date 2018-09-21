@@ -11,5 +11,7 @@
         public bool IsDisplaySingleTeam { get; set; }
 
         public bool IsDisplayBothTeam { get; set; }
+
+        public bool Visible { get; set; }
     }
 }

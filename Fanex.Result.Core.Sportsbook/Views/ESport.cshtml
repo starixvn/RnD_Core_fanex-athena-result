@@ -1,5 +1,4 @@
 ﻿@using Fanex.Result.Core.Base.ViewModels;
-@using Fanex.Result.Core.Base.DataDomain;
 @using Fanex.Result.Core.Base.Resources;
 @using Fanex.Result.Core.Sportsbook.ViewModels;
 
@@ -32,8 +31,6 @@
             <th class="cl-ko-time">@LangResource.KickOffTime</th>
             <th class="cl-match">@Raw(LangResource.Match)</th>
 
-
-
             <th class="cl-s">M1</th>
             <th class="cl-s">M2</th>
             <th class="cl-s">M3</th>
@@ -43,7 +40,6 @@
             <th class="cl-s">M7</th>
             <th class="cl-s">M8</th>
             <th class="cl-s">M9</th>
-
 
             <th class="cl-totalset">@LangResource.FinalScore</th>
             <th class="cl-status">@LangResource.Status</th>
@@ -165,14 +161,6 @@
 
         <table class="fn-rs popup">
             <thead>
-                @if (!viewModel.IsDetail && viewModel.VisiblePopUpTitle)
-                {
-                    <tr class="row-title">
-                        <th class="cl-title" colspan="14">
-                            <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
-                        </th>
-                    </tr>
-                }
                 <tr class="header">
                     <th class="width-40">@LangResource.MoreResults</th>
                     <th class="width-30">@item.HomeTeam</th>
@@ -190,12 +178,21 @@
                             continue;
                         }
 
-                        <tr>
-                            <td></td>
-                            <td colspan="2" class="map">@LangResource.Map @(map.Key)</td>
-                        </tr>
+                        if (!item.IsPopupOpenFromBetList)
+                        {
+                            <tr>
+                                <td></td>
+                                <td colspan="2" class="map">@LangResource.Map @(map.Key)</td>
+                            </tr>
+                        }
+
                         foreach (var mapResult in map.Value)
                         {
+                            if(!mapResult.Visible)
+                            {
+                                continue;
+                            }
+
                             <tr>
                                 <td class="cl-match">@mapResult.ResourceName</td>
 

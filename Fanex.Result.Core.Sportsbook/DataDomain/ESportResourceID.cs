@@ -14,6 +14,8 @@
         internal const string Map9 = "M9";
 
         internal const string Refund = "R";
+        internal const string Name0X = "0X";
+        internal const string NameOY = "0Y";
 
         internal static readonly string[] MainResultResourceIDs =
         {

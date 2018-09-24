@@ -90,5 +90,56 @@
             // Assert
             Assert.AreEqual(expectedResult, viewModel.ResultInExcel);
         }
+
+        [TestCase("Betchoice=R159DD343;Result=123", "<div class=\"sicbo-result\"><span>⚀</span><span>⚁</span><span>⚂</span></div>")]
+        [TestCase("Betchoice=R159DD343;Result=253", "<div class=\"sicbo-result\"><span>⚁</span><span>⚄</span><span>⚂</span></div>")]
+        [TestCase("Betchoice=R159DD343;Result=3", "3")]
+        [TestCase("Betchoice=R159DD343;Result=", "No information is available")]
+        [TestCase("Betchoice=R159DD343;Result=789", "<div class=\"sicbo-result\"><span>7</span><span>8</span><span>9</span></div>")]
+        public void ResultInHtml_SicboResult_ReturnExpectedValue(string resultToken, string expectedResult)
+        {
+            // Arrange
+            _goldDeluxe.Result = resultToken;
+            _goldDeluxe.Bettype = 1704;
+
+            // Act
+            var viewModel = new GoldDeluxeViewModel(_goldDeluxe, _setting, _refDataHelper);
+
+            // Assert
+            Assert.AreEqual(expectedResult, viewModel.ResultInHtml);
+        }
+
+        [TestCase("Betchoice=R159DD343;Result=123", "123")]
+        [TestCase("Betchoice=R159DD343;Result=3", "3")]
+        [TestCase("Betchoice=R159DD343;Result=", "")]
+        [TestCase("Betchoice=R159DD343;Result=789", "789")]
+        public void ResultInExcel_SicboResult_ReturnExpectedValue(string resultToken, string expectedResult)
+        {
+            // Arrange
+            _goldDeluxe.Result = resultToken;
+            _goldDeluxe.Bettype = 1704;
+
+            // Act
+            var viewModel = new GoldDeluxeViewModel(_goldDeluxe, _setting, _refDataHelper);
+
+            // Assert
+            Assert.AreEqual(expectedResult, viewModel.ResultInExcel);
+        }
+
+        [TestCase("Betchoice=R159DD343;Result=P DIAMOND 5 HEART K CLUB K B HEART 9 SPADE 5",
+            "<ul class=\"banker\"><li><span class=\"B\"><span class=\"icon\"></span><span class=\"card\">Banker&nbsp;(4)&nbsp;:</span></span></li><li><span class=\"heart\"><span class=\"icon\">&hearts;</span><span class=\"card\">9</span></span></li><li><span class=\"spade\"><span class=\"icon\">&spades;</span><span class=\"card\">5</span></span></li></ul><ul class=\"player\"><li><span class=\"P\"><span class=\"icon\"></span><span class=\"card\">Player&nbsp;(5)&nbsp;:</span></span></li><li><span class=\"diamond\"><span class=\"icon\">&diams;</span><span class=\"card\">5</span></span></li><li><span class=\"heart\"><span class=\"icon\">&hearts;</span><span class=\"card\">K</span></span></li><li><span class=\"club\"><span class=\"icon\">&clubs;</span><span class=\"card\">K</span></span></li></ul>")]
+        [TestCase("", "No information is available")]
+        public void ResultInHtml_BidMeResult_ReturnExpectedValue(string resultToken, string expectedResult)
+        {
+            // Arrange
+            _goldDeluxe.Result = resultToken;
+            _goldDeluxe.Bettype = 1705;
+
+            // Act
+            var viewModel = new GoldDeluxeViewModel(_goldDeluxe, _setting, _refDataHelper);
+
+            // Assert
+            Assert.AreEqual(expectedResult, viewModel.ResultInHtml);
+        }
     }
 }

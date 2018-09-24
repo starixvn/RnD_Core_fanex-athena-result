@@ -80,8 +80,8 @@
     <Reference Include="Fanex.RemotingRef, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Fanex.RemotingRef.1.2.0\lib\net461\Fanex.RemotingRef.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Result.Core.GoldDeluxe, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.Result.Core-GoldDeluxe.1.0.2\lib\net40\Fanex.Result.Core.GoldDeluxe.dll</HintPath>
+    <Reference Include="Fanex.Result.Core.GoldDeluxe, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fanex.Result.Core-GoldDeluxe.1.0.3-beta1\lib\net40\Fanex.Result.Core.GoldDeluxe.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.LiveCasino, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Fanex.Result.Core-LiveCasino.1.0.1\lib\net40\Fanex.Result.Core.LiveCasino.dll</HintPath>
@@ -560,6 +560,7 @@
     <Content Include="App_Data\Fanex.Result\Kabaddi.xls" />
     <Content Include="App_Data\Fanex.Result\BeachSoccer.xls" />
     <Content Include="App_Data\Result_Data\NumberGame.xls" />
+    <Content Include="App_Data\Result_Data\GoldDeluxe.xls" />
     <Content Include="App_Data\Result_Data\Tennis.xls" />
     <Content Include="App_Data\Result_Data\TennisDetail.xls" />
     <None Include="BundleTransformer.Configuration.xsd">

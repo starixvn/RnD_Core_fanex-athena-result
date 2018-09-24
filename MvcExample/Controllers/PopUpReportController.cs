@@ -115,7 +115,7 @@
 
                 case SportType.GoldDeluxe:
                     return ResultEngine.HtmlParser(
-                        new GoldDeluxeResultData().GetPopupResult(metalModel.RefNo, metalModel.Bettype).ToList(), setting);
+                        new GoldDeluxeResultData().GetPopupResult(metalModel.RefNo, metalModel.Bettype, metalModel.GetDataFromExcel).ToList(), setting);
 
                 case SportType.AGCasino:
                     return ResultEngine.HtmlParser(

@@ -108,9 +108,20 @@
                 return;
             }
 
-            _htmlResult = _goldDeluxe.Bettype == GoldDeluxeBettype.Roulette ?
-                GoldDeluxeHelper.GetRoutletResult(_result) :
-                GoldDeluxeHelper.GetBacaratResult(_result, LangResource.Banker, LangResource.Player);
+            switch(_goldDeluxe.Bettype)
+            {
+                case GoldDeluxeBettype.Roulette:
+                    _htmlResult = GoldDeluxeHelper.GetRoutletResult(_result);
+                    return;
+
+                case GoldDeluxeBettype.Sicbo:
+                    _htmlResult = GoldDeluxeHelper.GetSicboResult(_result);
+                    return;
+
+                default:
+                    _htmlResult = GoldDeluxeHelper.GetBacaratResult(_result, LangResource.Banker, LangResource.Player);
+                    return;
+            }
         }
     }
 }

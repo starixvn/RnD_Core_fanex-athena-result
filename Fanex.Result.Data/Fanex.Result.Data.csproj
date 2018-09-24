@@ -56,6 +56,7 @@
   <ItemGroup>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="NumberGameResultExcelReader.cs" />
+    <Compile Include="GoldDeluxeResultExcelReader.cs" />
     <Compile Include="Lucky3ResultExcelReader.cs" />
     <Compile Include="SportsbookDetailResultExcelReader.cs" />
     <Compile Include="OutrightResultExcelReader.cs" />
@@ -68,6 +69,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Fanex.Result.Core.GoldDeLuxe\Fanex.Result.Core.GoldDeluxe.csproj">
+      <Project>{dbd59404-19d9-422c-83f1-8f20e02545ed}</Project>
+      <Name>Fanex.Result.Core.GoldDeluxe</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.Lucky3\Fanex.Result.Core.Lucky3.csproj">
       <Project>{5b12d69c-7bf6-4e40-ae62-3853db3d118d}</Project>
       <Name>Fanex.Result.Core.Lucky3</Name>

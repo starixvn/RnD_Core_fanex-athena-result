@@ -1,11 +1,11 @@
 ﻿namespace MvcExample.Models.ResultServices
 {
-    using System;
     using System.Collections.Generic;
     using Criteria;
     using Fanex.Data;
     using Fanex.Data.Repository;
     using Fanex.Result.Core.GoldDeluxe.DTO;
+    using Fanex.Result.Data;
 
     public class GoldDeluxeResultService : IResultService<GoldDeluxe>
     {
@@ -32,8 +32,8 @@
         }
 
         public IEnumerable<GoldDeluxe> GetResultFromExcel(string filePath)
-        {
-            throw new NotImplementedException();
-        }
+            => GoldDeluxeResultExcelReader
+                    .CreateInstance(filePath)
+                    .GetResultData();
     }
 }

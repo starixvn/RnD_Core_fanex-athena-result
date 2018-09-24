@@ -84,7 +84,7 @@
 
                 case SportType.GoldDeluxe:
                     htmlResult = ResultEngine.HtmlParser(
-                        new GoldDeluxeResultData().GetNormalResult().ToList(), resultSetting);
+                        new GoldDeluxeResultData().GetNormalResult(getDataFromExcel).ToList(), resultSetting);
                     break;
 
                 default:
@@ -194,7 +194,7 @@
 
                 case SportType.GoldDeluxe:
                     excelResult = ResultEngine.ExcelParser(
-                        new GoldDeluxeResultData().GetNormalResult().ToList(), resultSetting);
+                        new GoldDeluxeResultData().GetNormalResult(getDataFromExcel).ToList(), resultSetting);
                     break;
 
                 default:

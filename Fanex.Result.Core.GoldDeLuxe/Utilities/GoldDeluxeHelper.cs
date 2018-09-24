@@ -9,6 +9,7 @@
     internal static class GoldDeluxeHelper
     {
         private const string RoutletResultTemplate = "<span class=\"{0}\">{1}</span>";
+        private const string SicboResultTemplate = "<div class=\"sicbo-result\"><span>{0}</span><span>{1}</span><span>{2}</span></div>";
         private const string BacaratResultTemplate = "<li><span class=\"{0}\"><span class=\"icon\">{1}</span><span class=\"card\">{2}</span></span></li>";
         private const string BankerKey = "B";
         private const string PlayerKey = "P";
@@ -35,6 +36,16 @@
         { "heart", "&hearts;" }
         };
 
+        private static readonly IDictionary<string, string> diceNumbers = new Dictionary<string, string>
+        {
+            { "1", "⚀" },
+            { "2", "⚁" },
+            { "3", "⚂" },
+            { "4", "⚃" },
+            { "5", "⚄" },
+            { "6", "⚅" },
+        };
+
         public static string GetBacaratResult(string result, string bankerText, string playerText)
         {
             var bankerResult = new List<string>();
@@ -56,6 +67,20 @@
                 Red : Black;
 
             return string.Format(RoutletResultTemplate, color, result);
+        }
+
+        public static string GetSicboResult(string rawResult)
+        {
+            if(string.IsNullOrWhiteSpace(rawResult) || rawResult.Length < 3)
+            {
+                return rawResult ?? string.Empty;
+            }
+
+            var result = rawResult
+                            .Select(r => diceNumbers.ContainsKey(r.ToString()) ? diceNumbers[r.ToString()] : r.ToString())
+                            .ToArray();
+
+            return string.Format(SicboResultTemplate, result);
         }
 
         private static string GetHtmlResult(string choiceName, string choiceKey, List<string> choiceResult, int choicePoint)

@@ -559,3 +559,10 @@ table .row-noinfo {
   height: 17px;
   text-align: center;
 }
+.sicbo-result {
+  padding: 6px 0px;
+}
+.sicbo-result span {
+  margin: 0px 5px;
+  font-size: 50px;
+}

@@ -39,9 +39,6 @@ namespace MvcExample
         protected void Application_Error()
         {
             Exception ex = Server.GetLastError();
-
-            //ResultCoreManager.RegisterRefDataHelper(new RefDataHelperV1());
-           
         }
     }
 }

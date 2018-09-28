@@ -158,11 +158,11 @@
 
         #region Utilities
 
-        private bool EventStatusIsRefundFT => SPORTBOOK.EventStatus.Equals(ConstantValue.RefundFT, StringComparison.OrdinalIgnoreCase);
+        private bool EventStatusIsRefundFT => EventStatus.Equals(ConstantValue.RefundFT, StringComparison.OrdinalIgnoreCase);
 
         private bool EventStatusIsAbandoned
-            => SPORTBOOK.EventStatus.Equals(ConstantValue.Abandoned1H, StringComparison.OrdinalIgnoreCase)
-                || SPORTBOOK.EventStatus.Equals(ConstantValue.Abandoned2H, StringComparison.OrdinalIgnoreCase);
+            => EventStatus.Equals(ConstantValue.Abandoned1H, StringComparison.OrdinalIgnoreCase)
+                || EventStatus.Equals(ConstantValue.Abandoned2H, StringComparison.OrdinalIgnoreCase);
 
         private bool HasValidGameData
         {
@@ -202,13 +202,13 @@
         {
             var refundType = isFinalScore ? ConstantValue.RefundFT : ConstantValue.RefundHT;
 
-            if (SPORTBOOK.EventStatus.Equals(ConstantValue.Refund, StringComparison.OrdinalIgnoreCase)
-                || SPORTBOOK.EventStatus.Equals(refundType, StringComparison.OrdinalIgnoreCase))
+            if (EventStatus.Equals(ConstantValue.Refund, StringComparison.OrdinalIgnoreCase)
+                || EventStatus.Equals(refundType, StringComparison.OrdinalIgnoreCase))
             {
                 return LangResource.Refund;
             }
 
-            if (SPORTBOOK.EventStatus.Equals(ConstantValue.Abandoned1H, StringComparison.OrdinalIgnoreCase) &&
+            if (EventStatus.Equals(ConstantValue.Abandoned1H, StringComparison.OrdinalIgnoreCase) &&
                 isFinalScore)
             {
                 return ConstantValue.Hyphen;
@@ -589,9 +589,6 @@
         /// Get goal information.
         /// </summary>
         /// <returns>The goal detail information.</returns>
-        [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules",
-            "SP2101:MethodMustNotContainMoreLinesThan",
-            Justification = "Reviewed. Suppression is OK here.")]
         private SoccerDetailInfo GetGoalInfo()
         {
             if (_goalInfo == null)

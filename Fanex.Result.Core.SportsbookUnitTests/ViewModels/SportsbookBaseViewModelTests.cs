@@ -88,27 +88,6 @@
             Assert.AreEqual("League", viewModel.LeagueName);
         }
 
-        [TestCase("Running", false, true, "Running")]
-        [TestCase("Running", true, true, "Pending")]
-        [TestCase("Internal", false, true, "Internal")]
-        [TestCase("Internal", false, true, "Internal")]
-        [TestCase("Internal", false, true, "Internal")]
-        [TestCase("Internal", false, false, "Running")]
-        [TestCase("Completed", false, false, "Completed")]
-        public void EventStatus_Always_ReturnEventStatus(string status, bool isPending, bool visibleInternal, string expectedStatus)
-        {
-            // Arrange
-            _sportsbook.EventStatus = status;
-            _sportsbook.IsPending = isPending;
-            _setting.VisibleInternalEventStatus = visibleInternal;
-
-            // Act
-            var viewModel = new SportsbookBaseViewModel(_sportsbook, _setting);
-
-            // Assert
-            Assert.AreEqual(expectedStatus, viewModel.EventStatus);
-        }
-
         [Test]
         public void VisibleMatchResult_Always_GetDefaultValue()
         {

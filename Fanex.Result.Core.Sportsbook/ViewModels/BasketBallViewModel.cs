@@ -66,6 +66,12 @@
 
         public SafeList<BasketBallGameDetailItem> MoreResultDetailItems { get; }
 
+        public override string EventStatus
+          => MapEventStatus.MapEventStatusString(
+                  SPORTBOOK.SettlementStatus,
+                  SPORTBOOK.EventStatus,
+                  SPORTBOOK.BetStatus);
+
         public override string GetHomeAwaySet(int index, bool isHome)
         {
             if (index > 4)
@@ -121,7 +127,7 @@
                 HomeSet = new[] { ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Zero };
                 AwaySet = new[] { ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Zero };
 
-                if (SPORTBOOK.EventStatus != ConstantValue.RefundFT)
+                if (EventStatus != ConstantValue.RefundFT)
                 {
                     GenerateHomeAwaySetValueFromBetStatus(5);
                 }

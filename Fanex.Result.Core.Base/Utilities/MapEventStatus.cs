@@ -9,72 +9,71 @@
     public static class MapEventStatus
     {
         private const string InternalStatus = "internal";
+        private const string Pending = "pending";
 
-        public static string MapEventStatusString(string eventstatus, bool isPending, bool visibleInternalEventStatus)
+        public static string MapEventStatusString(string eventstatus, bool isPending)
         {
+            if (isPending)
+            {
+                return LangResource.Pending;
+            }
+
             var isInternalMatch = IsInternal(eventstatus);
 
-            if (isInternalMatch && visibleInternalEventStatus)
-            {
-                return LangResource.Internal;
-            }
-
-            if (!isPending)
-            {
-                return isInternalMatch ? LangResource.Running : GetLogResource(eventstatus);
-            }
-
-            return LangResource.Pending;
+            return isInternalMatch ? LangResource.Running : GetLogResource(eventstatus);
         }
 
-        public static string MapEventStatusString(byte settlementStatus, string eventStatus, string betStatus, bool visibleInternalEventStatus)
+        public static string MapEventStatusString(byte settlementStatus, string eventStatus, string betStatus)
         {
             var bits = GetBitArray(settlementStatus);
             var isPending = bits[0] == 1;
             var isUndecided = bits[1] == 1;
             var isUnderSettlement = bits[2] == 1;
-            var isCompleted = IsCompleted(eventStatus);
-            var refundOrPendingValue = GetRefundOrPending(betStatus);
+            var isCompletedEventStatus = IsCompleted(eventStatus);
 
             if (isPending)
             {
                 return LangResource.ResultPending;
             }
 
-            if (isUndecided || isUnderSettlement || isCompleted)
+            if (isUndecided || isUnderSettlement || isCompletedEventStatus)
             {
-                if (isCompleted)
+                if (isCompletedEventStatus)
                 {
-                    return string.IsNullOrEmpty(refundOrPendingValue)
+                    var isRefundOrAbandonedBetStatus = GetRefundOrAbandonedStatus(betStatus);
+
+                    return string.IsNullOrEmpty(isRefundOrAbandonedBetStatus)
                         ? LangResource.Completed
-                        : refundOrPendingValue;
+                        : isRefundOrAbandonedBetStatus;
                 }
 
                 return LangResource.UnderSettlement;
             }
 
-            if (IsInternal(eventStatus) && visibleInternalEventStatus)
+            if (IsInternal(eventStatus))
             {
-                return LangResource.Internal;
+                return LangResource.Running;
             }
 
             return GetLogResource(eventStatus);
         }
 
-        private static string GetRefundOrPending(string betStatus)
+        private static string GetRefundOrAbandonedStatus(string betStatus)
         {
             if (string.IsNullOrWhiteSpace(betStatus))
             {
                 return betStatus;
             }
 
-            var abandonValue = GetAbandon(betStatus);
+            var abandonValue = GetAbandoned(betStatus);
+
             if (!string.IsNullOrEmpty(abandonValue))
             {
                 return abandonValue;
             }
 
             var refundValue = GetRefund(betStatus);
+
             if (!string.IsNullOrEmpty(refundValue))
             {
                 return refundValue;
@@ -82,6 +81,9 @@
 
             return string.Empty;
         }
+
+        public static bool IsPending(string eventStatus)
+            => Pending.Equals(eventStatus, StringComparison.OrdinalIgnoreCase);
 
         private static bool IsCompleted(string eventStatus)
             => ConstantValue.Completed.Equals(eventStatus, StringComparison.OrdinalIgnoreCase);
@@ -114,7 +116,7 @@
             return string.Empty;
         }
 
-        private static string GetAbandon(string betStatus)
+        private static string GetAbandoned(string betStatus)
         {
             if (betStatus.IndexOf(ConstantValue.Abandoned1H, StringComparison.OrdinalIgnoreCase) >= 0)
             {

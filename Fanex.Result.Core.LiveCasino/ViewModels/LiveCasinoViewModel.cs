@@ -120,8 +120,7 @@
             {
                 return MapEventStatus.MapEventStatusString(
                     _liveCasino.EventStatus,
-                    _liveCasino.IsPending,
-                   VisibleInternalEventStatus);
+                    _liveCasino.IsPending);
             }
         }
 

@@ -45,8 +45,7 @@
             => MapEventStatus.MapEventStatusString(
                     SPORTBOOK.SettlementStatus,
                     SPORTBOOK.EventStatus,
-                    SPORTBOOK.BetStatus,
-                    VisibleInternalEventStatus);
+                    SPORTBOOK.BetStatus);
 
         public new virtual bool VisibleMatchResult => true;
 
@@ -65,8 +64,6 @@
         public virtual string HomeTeam => GetSportbookHomeTeam(SPORTBOOK.HomeId, SPORTBOOK.IsNeutral);
 
         public string AwayTeam => GetSportbookAwayTeam(SPORTBOOK.AwayId);
-
-        public override bool IsPending => SPORTBOOK.IsPending;
 
         public virtual string HomeWin => GetWonTeam(true);
 

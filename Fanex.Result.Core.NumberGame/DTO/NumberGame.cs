@@ -30,5 +30,9 @@
         public IList<int> Seg { get; set; }
 
         public IList<int> Ball { get; set; }
+
+        public byte SettlementStatus { get; set; }
+
+        public string BetStatus { get; set; } = string.Empty;
     }
 }

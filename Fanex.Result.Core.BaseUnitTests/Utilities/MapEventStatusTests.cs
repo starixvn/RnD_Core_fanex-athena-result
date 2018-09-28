@@ -2,7 +2,6 @@
 {
     using Base.Resources;
     using Base.Utilities;
-    using NSubstitute;
     using NUnit.Framework;
 
     [TestFixture]
@@ -10,93 +9,155 @@
     {
         [TestCase("running")]
         [TestCase("pending")]
-        public void MapEventStatusString_FromEventStatusIsNotInternal_ReturnsIsNotInternal(string status)
+        public void MapEventStatusString_IsPending_ReturnsPending(string status)
         {
             // Act
-            var eventStatus = MapEventStatus.MapEventStatusString(status, Arg.Any<bool>(), Arg.Any<bool>());
+            var eventStatus = MapEventStatus.MapEventStatusString(status, true);
 
             // Assert
-            var expectedEventStatus = "Internal";
-            Assert.AreNotEqual(expectedEventStatus, eventStatus);
-        }
-
-        [Test]
-        public void MapEventStatusString_FromEventStatusIsInternalVisibleInternalStatusIsFalse_ReturnsNotInternal()
-        {
-            // Arrange
-            var eventstatus = "Internal";
-            var visibleInternalEventStatus = false;
-
-            // Act
-            var eventStatus = MapEventStatus.MapEventStatusString(eventstatus, Arg.Any<bool>(), visibleInternalEventStatus);
-
-            // Assert
-            var expectedEventStatus = "Internal";
-            Assert.AreNotEqual(expectedEventStatus, eventStatus);
+            Assert.AreEqual("Pending", eventStatus);
         }
 
         [TestCase("internal")]
         [TestCase("InTeRnal")]
-        public void MapEventStatusString_FromEventStatusIsInternalAndVisibleInternalStatusIsTrue_ReturnsInternal(string status)
+        public void MapEventStatusString_FromEventStatusIsInternal_ReturnsRunning(string status)
         {
-            // Arrange
-            var visibleInternalEventStatus = true;
-
             // Act
-            var eventStatus = MapEventStatus.MapEventStatusString(status, Arg.Any<bool>(), visibleInternalEventStatus);
+            var eventStatus = MapEventStatus.MapEventStatusString(status, false);
 
             // Assert
-            var expectedEventStatus = "Internal";
+            var expectedEventStatus = "Running";
             Assert.AreEqual(expectedEventStatus, eventStatus);
         }
 
-        [TestCase("rUnNing", true)]
-        [TestCase("pending", true)]
-        [TestCase("internal", false)]
-        public void MapEventStatusString_FromEventStatusIsNotInternalOrVisibleInternalStatusIsFalseAndPendingIsTrue_ReturnsPending(
-            string status,
-            bool visibleInternalEventStatus)
+        [TestCase("completed", "Completed")]
+        [TestCase("running", "Running")]
+        public void MapEventStatusString_NotPendingAndAnotherStatus_ReturnsExpectedStatus(string status, string expectedStatus)
         {
             // Arrange
-            var isPending = true;
-
-            // Act
-            var eventStatus = MapEventStatus.MapEventStatusString(status, isPending, visibleInternalEventStatus);
-
-            // Assert
-            var expectedEventStatus = "Pending";
-            Assert.AreEqual(expectedEventStatus, eventStatus);
-        }
-
-        [Test]
-        public void MapEventStatusString_FromEventStatusIsInternalAndVisibleInternalEventStatusIsFalseAndPendingIsFalse_ReturnsRunning()
-        {
-            // Arrange
-            var eventStatus = "Internal";
-            var visibleInternalEventStatus = false;
             var isPending = false;
 
             // Act
-            var status = MapEventStatus.MapEventStatusString(eventStatus, isPending, visibleInternalEventStatus);
+            var actualStatus = MapEventStatus.MapEventStatusString(status, isPending);
 
             // Assert
-            var expectedStatus = "Running";
-            Assert.AreEqual(expectedStatus, status);
+            Assert.AreEqual(expectedStatus, actualStatus);
         }
 
-        [Test]
-        public void MapEventStatusString_FromEventStatusIsNotInternalAndPendingIsFalse_ReturnsRunning()
+        [TestCase(1)]
+        [TestCase(3)]
+        [TestCase(5)]
+        [TestCase(7)]
+        public void SecondMapEventStatusString_IsPending_ReturnsPending(byte settlementStatus)
         {
-            // Arrange
-            var eventStatus = "thirdParty";
-            var isPending = false;
-
             // Act
-            var status = MapEventStatus.MapEventStatusString(eventStatus, isPending, Arg.Any<bool>());
+            var actualStatus = MapEventStatus.MapEventStatusString(settlementStatus, "completed", string.Empty);
 
             // Assert
-            var expectedStatus = "Thirdparty";
-            Assert.AreEqual(expectedStatus, status);
+            Assert.AreEqual("Result Pending", actualStatus);
+        }
+
+        [TestCase(2)]
+        [TestCase(6)]
+        public void SecondMapEventStatusString_IsUndecided_EventStatusIsRunning_ReturnUnderSettlement(byte settlementStatus)
+        {
+            // Act
+            var actualStatus = MapEventStatus.MapEventStatusString(settlementStatus, "Running", string.Empty);
+
+            // Assert
+            Assert.AreEqual("Under Settlement", actualStatus);
+        }
+
+        [TestCase(2)]
+        [TestCase(6)]
+        public void SecondMapEventStatusString_IsUndecided_EventStatusIsInternal_ReturnUnderSettlement(byte settlementStatus)
+        {
+            // Act
+            var actualStatus = MapEventStatus.MapEventStatusString(settlementStatus, "Internal", string.Empty);
+
+            // Assert
+            Assert.AreEqual("Under Settlement", actualStatus);
+        }
+
+        [TestCase(2)]
+        [TestCase(6)]
+        public void SecondMapEventStatusString_IsUndecided_EventStatusIsPostponed_ReturnUnderSettlement(byte settlementStatus)
+        {
+            // Act
+            var actualStatus = MapEventStatus.MapEventStatusString(settlementStatus, "Postponed", string.Empty);
+
+            // Assert
+            Assert.AreEqual("Under Settlement", actualStatus);
+        }
+
+        [TestCase("Running")]
+        [TestCase("Internal")]
+        [TestCase("Postponed")]
+        public void SecondMapEventStatusString_IsUnderSettlement_EventStatusIsNotCompleted_ReturnUnderSettlement(string status)
+        {
+            // Act
+            var actualStatus = MapEventStatus.MapEventStatusString(4, status, string.Empty);
+
+            // Assert
+            Assert.AreEqual("Under Settlement", actualStatus);
+        }
+
+        [TestCase("Refund;Abandoned 1H;", "Abandoned 1H")]
+        [TestCase("Refund;Abandoned 2H;", "Abandoned 2H")]
+        [TestCase("Refund;Refund FT;", "Refund FT")]
+        [TestCase("Refund HT;Refund;", "Refund HT")]
+        [TestCase("Refund;", "Refund")]
+        public void SecondMapEventStatusString_IsUndecided_EventStatusIsCompleted_BetStatusHasRefundOrAbandoned_ReturnExpectedStatus(
+            string betStatus, string expectedStatus)
+        {
+            // Act
+            var actualStatus = MapEventStatus.MapEventStatusString(2, "completed", betStatus);
+
+            // Assert
+            Assert.AreEqual(expectedStatus, actualStatus);
+        }
+
+        [TestCase("Refund;Abandoned 1H;", "Abandoned 1H")]
+        [TestCase("Refund;Abandoned 2H;", "Abandoned 2H")]
+        [TestCase("Refund;Refund FT;", "Refund FT")]
+        [TestCase("Refund HT;Refund;", "Refund HT")]
+        [TestCase("Refund;", "Refund")]
+        public void SecondMapEventStatusString_IsUnderSettlement_EventStatusIsCompleted_BetStatusHasRefundOrAbandoned_ReturnExpectedStatus(
+           string betStatus, string expectedStatus)
+        {
+            // Act
+            var actualStatus = MapEventStatus.MapEventStatusString(4, "completed", betStatus);
+
+            // Assert
+            Assert.AreEqual(expectedStatus, actualStatus);
+        }
+
+        [TestCase("Refund;Abandoned 1H;", "Abandoned 1H")]
+        [TestCase("Refund;Abandoned 2H;", "Abandoned 2H")]
+        [TestCase("Refund;Refund FT;", "Refund FT")]
+        [TestCase("Refund HT;Refund;", "Refund HT")]
+        [TestCase("Refund;", "Refund")]
+        public void SecondMapEventStatusString_IsNormal_EventStatusIsCompleted_BetStatusHasRefundOrAbandoned_ReturnExpectedStatus(
+            string betStatus, string expectedStatus)
+        {
+            // Act
+            var actualStatus = MapEventStatus.MapEventStatusString(0, "completed", betStatus);
+
+            // Assert
+            Assert.AreEqual(expectedStatus, actualStatus);
+        }
+
+        [TestCase("Running", "Running")]
+        [TestCase("Internal", "Running")]
+        [TestCase("Postponed", "Postponed")]
+        public void SecondMapEventStatusString_IsNormal_EventStatusIsNotCompleted_ReturnExpectedStatus(
+           string status, string expectedStatus)
+        {
+            // Act
+            var actualStatus = MapEventStatus.MapEventStatusString(0, status, string.Empty);
+
+            // Assert
+            Assert.AreEqual(expectedStatus, actualStatus);
         }
 
         [Test]

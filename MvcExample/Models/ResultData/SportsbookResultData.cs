@@ -23,7 +23,7 @@
         {
             if (getDataFromExcel)
             {
-                return GetResultFromExcel((SportType)sportId);
+                return GetResultFromExcel((SportType)sportId).Where(data => data.EventDate.Date == date);
             }
 
             return resultService.GetResult(new GetSportbookResultCriteria

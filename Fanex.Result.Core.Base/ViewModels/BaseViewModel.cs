@@ -30,13 +30,10 @@
         protected BaseViewModel(ResultSetting setting, IRefDataHelper refDataHelper)
         {
             DateTimeFormat = setting.DateTimeFormat;
-            VisibleInternalEventStatus = setting.VisibleInternalEventStatus;
             RefDataHelper = refDataHelper ?? ResultCoreManager.RefDataHelper;
         }
 
         public string DateTimeFormat { get; set; }
-
-        public bool VisibleInternalEventStatus { get; private set; }
 
         public IRefDataHelper RefDataHelper { get; }
 
@@ -45,7 +42,7 @@
 
         public virtual string EventStatus => string.Empty;
 
-        public virtual bool IsPending => false;
+        public virtual bool IsPending => LangResource.ResultPending.Equals(EventStatus, StringComparison.OrdinalIgnoreCase);
 
         public virtual bool VisibleMatchResult => true;
 

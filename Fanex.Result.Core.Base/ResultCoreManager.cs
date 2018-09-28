@@ -16,6 +16,7 @@
             return managerInstance;
         }
 
-        public static IRefDataHelper RefDataHelper => managerInstance.refDataHelper ?? throw new System.InvalidOperationException(NullRefDataHelperErrorMessage);
+        public static IRefDataHelper RefDataHelper => managerInstance.refDataHelper
+            ?? throw new InvalidOperationException(NullRefDataHelperErrorMessage);
     }
 }

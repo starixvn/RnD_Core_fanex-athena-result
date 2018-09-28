@@ -48,7 +48,7 @@
                 VisibleDetailedLink = true,
                 VisibleFreeHeader = true,
                 HighlightWinnerTeam = true,
-                EnableCheckScoreCalculated = true
+                EnableCheckScoreCalculated = false
             };
             var htmlResult = string.Empty;
 

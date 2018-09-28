@@ -28,5 +28,9 @@
         public IList<int> Seq { get; set; } = new List<int>();
 
         public IList<int> Ball { get; set; } = new List<int>();
+
+        public byte SettlementStatus { get; set; }
+
+        public string BetStatus { get; set; } = string.Empty;
     }
 }

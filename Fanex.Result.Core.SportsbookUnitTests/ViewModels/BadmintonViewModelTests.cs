@@ -2,12 +2,23 @@
 {
     using Base;
     using DTO;
+    using Fanex.Result.Core.Base.Utilities;
+    using NSubstitute;
     using NUnit.Framework;
     using Sportsbook.ViewModels;
 
     [TestFixture]
     public class BadmintonViewModelTests
     {
+        private IRefDataHelper refDataHelper;
+
+        [SetUp]
+        public void Setup()
+        {
+            refDataHelper = Substitute.For<IRefDataHelper>();
+            ResultCoreManager.RegisterRefDataHelper(refDataHelper);
+        }
+
         [Test]
         public void GetHomeAwaySet_FromIndexIsGreaterThan4_ReturnsHyphen()
         {

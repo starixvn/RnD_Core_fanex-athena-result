@@ -243,25 +243,6 @@
             Assert.AreEqual("1", actualValue);
         }
 
-        [TestCase("running", false, false, "Running")]
-        [TestCase("running", true, false, "Pending")]
-        [TestCase("internal", true, true, "Internal")]
-        [TestCase("internal", false, false, "Running")]
-        public void EventStatus_Always_GetEventStatus(string eventStatus, bool isPending, bool visibleInternalEventStatus, string expectedEventStatus)
-        {
-            // Arrange
-            resultData.EventStatus = eventStatus;
-            resultData.IsPending = isPending;
-            resultSetting.VisibleInternalEventStatus = visibleInternalEventStatus;
-            var viewModel = new Lucky3ViewModel(resultData, resultSetting, refDataHelper);
-
-            // Act
-            var actualValue = viewModel.EventStatus;
-
-            // Assert
-            Assert.AreEqual(expectedEventStatus, actualValue);
-        }
-
         [Test]
         public void MatchCode_Always_ReturnMatchCode()
         {

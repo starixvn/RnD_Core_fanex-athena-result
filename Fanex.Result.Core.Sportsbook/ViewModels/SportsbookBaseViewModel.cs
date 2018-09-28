@@ -43,8 +43,9 @@
 
         public override string EventStatus
             => MapEventStatus.MapEventStatusString(
+                    SPORTBOOK.SettlementStatus,
                     SPORTBOOK.EventStatus,
-                    SPORTBOOK.IsPending,
+                    SPORTBOOK.BetStatus,
                     VisibleInternalEventStatus);
 
         public new virtual bool VisibleMatchResult => true;

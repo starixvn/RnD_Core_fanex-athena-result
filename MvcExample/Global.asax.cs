@@ -41,7 +41,7 @@ namespace MvcExample
             Exception ex = Server.GetLastError();
 
             //ResultCoreManager.RegisterRefDataHelper(new RefDataHelperV1());
-            ResultCoreManager.RegisterRefDataHelper(new RefDataHelper());
+           
         }
     }
 }

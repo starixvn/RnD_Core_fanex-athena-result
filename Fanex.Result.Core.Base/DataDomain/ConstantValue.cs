@@ -33,5 +33,11 @@
         public const string Abandoned1H = "Abandoned 1H";
 
         public const string Abandoned2H = "Abandoned 2H";
+
+        public const byte PendingId = 1;
+        public const byte Undecided = 2;
+        public const byte UnderSettlement = 3;
+
+        public const string Completed = "Completed";
     }
 }

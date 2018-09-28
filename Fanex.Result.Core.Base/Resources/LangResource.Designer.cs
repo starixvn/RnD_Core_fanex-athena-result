@@ -19,7 +19,7 @@ namespace Fanex.Result.Core.Base.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class LangResource {
@@ -799,6 +799,15 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Result Pending.
+        /// </summary>
+        public static string ResultPending {
+            get {
+                return ResourceManager.GetString("ResultPending", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Results.
         /// </summary>
         public static string Results {
@@ -1060,6 +1069,15 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Time Of First Goal.
+        /// </summary>
+        public static string RS455 {
+            get {
+                return ResourceManager.GetString("RS455", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Running.
         /// </summary>
         public static string Running {
@@ -1182,6 +1200,15 @@ namespace Fanex.Result.Core.Base.Resources {
         public static string TotalSet {
             get {
                 return ResourceManager.GetString("TotalSet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Under Settlement.
+        /// </summary>
+        public static string UnderSettlement {
+            get {
+                return ResourceManager.GetString("UnderSettlement", resourceCulture);
             }
         }
         

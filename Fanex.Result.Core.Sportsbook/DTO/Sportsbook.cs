@@ -92,5 +92,7 @@
         public string BetID { get; set; }
 
         public int Handicap2 { get; set; }
+
+        public byte SettlementStatus { get; set; }
     }
 }

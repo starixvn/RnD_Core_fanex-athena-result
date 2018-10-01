@@ -60,7 +60,9 @@
                     Ball = new List<int> { int.Parse(reader["number"].ToString()) },
                     LiveHomeScore = int.Parse(reader["livehomescore"].ToString()),
                     LiveAwayScore = int.Parse(reader["liveawayscore"].ToString()),
-                    FinalHomeScore = int.Parse(reader["finalhomescore"].ToString())
+                    FinalHomeScore = int.Parse(reader["finalhomescore"].ToString()),
+                    SettlementStatus = byte.Parse(reader["settlementstatus"].ToString()),
+                    BetStatus = reader["betstatus"].ToString()
                 });
             }
         }

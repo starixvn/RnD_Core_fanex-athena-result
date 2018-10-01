@@ -73,7 +73,7 @@
 
                 case SportType.NumberGame:
                     htmlResult = ResultEngine.HtmlParser(
-                        new NumberGameResultData().GetNormalResult(date, leagueId).ToList(), resultSetting);
+                        new NumberGameResultData().GetNormalResult(date, leagueId, getDataFromExcel).ToList(), resultSetting);
                     break;
 
                 case SportType.Lucky3:
@@ -183,7 +183,7 @@
 
                 case SportType.NumberGame:
                     excelResult = ResultEngine.ExcelParser(
-                        new NumberGameResultData().GetNormalResult(date, leagueId).ToList(), resultSetting);
+                        new NumberGameResultData().GetNormalResult(date, leagueId, getDataFromExcel).ToList(), resultSetting);
                     break;
 
                 case SportType.Lucky3:

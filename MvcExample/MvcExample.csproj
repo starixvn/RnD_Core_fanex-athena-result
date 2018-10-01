@@ -89,9 +89,6 @@
     <Reference Include="Fanex.Result.Core.MetricGaming, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Fanex.Result.Core-MetricGaming.1.0.1\lib\net40\Fanex.Result.Core.MetricGaming.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Result.Core.NumberGame, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.Result.Core-NumberGame.1.0.2\lib\net40\Fanex.Result.Core.NumberGame.dll</HintPath>
-    </Reference>
     <Reference Include="Fanex.Result.Core.PokerGames, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Fanex.Result.Core.PokerGames.1.0.1-beta1\lib\net40\Fanex.Result.Core.PokerGames.dll</HintPath>
     </Reference>
@@ -706,6 +703,10 @@
     <ProjectReference Include="..\Fanex.Result.Core.MicroGaming\Fanex.Result.Core.MicroGaming.csproj">
       <Project>{083CA0EF-F420-4A62-BE5B-4145AFFEDEC1}</Project>
       <Name>Fanex.Result.Core.MicroGaming</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fanex.Result.Core.NumberGame\Fanex.Result.Core.NumberGame.csproj">
+      <Project>{cebae710-7919-4fc6-8978-862a3096972c}</Project>
+      <Name>Fanex.Result.Core.NumberGame</Name>
     </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.PP\Fanex.Result.Core.PP.csproj">
       <Project>{05aa0490-7266-489a-9e2d-84c9d2f2fb39}</Project>

@@ -21,7 +21,9 @@
         {
             if (getDataFromExcel)
             {
-                return GetResultFromExcel();
+                var data = GetResultFromExcel();
+
+                return data;
             }
 
             return resultService.GetResult(new GetNumberGameResultCriteria

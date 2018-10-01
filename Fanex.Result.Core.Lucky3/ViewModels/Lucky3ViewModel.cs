@@ -52,9 +52,9 @@
             => MapEventStatus.MapEventStatusString(resultData.SettlementStatus, resultData.EventStatus, resultData.BetStatus);
 
         public bool EventStatusIsRefund
-            => resultData.EventStatus.Equals(ConstantValue.Refund, StringComparison.OrdinalIgnoreCase) ||
-                resultData.EventStatus.Equals(ConstantValue.RefundFT, StringComparison.OrdinalIgnoreCase) ||
-                resultData.EventStatus.Equals(ConstantValue.RefundHT, StringComparison.OrdinalIgnoreCase);
+            => EventStatus.Equals(ConstantValue.Refund, StringComparison.OrdinalIgnoreCase) ||
+                EventStatus.Equals(ConstantValue.RefundFT, StringComparison.OrdinalIgnoreCase) ||
+                EventStatus.Equals(ConstantValue.RefundHT, StringComparison.OrdinalIgnoreCase);
 
         public string MatchCode => resultData.MatchCode;
 

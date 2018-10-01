@@ -7,6 +7,7 @@
     using Fanex.Data;
     using Fanex.Data.Repository;
     using Fanex.Result.Core.NumberGame.DTO;
+    using Fanex.Result.Data;
 
     public class NumberGameResultService : IResultService<NumberGame>
     {
@@ -49,14 +50,18 @@
                     KickOffTime = DateTime.Parse(reader["kickofftime"].ToString()),
                     MatchCode = reader["matchcode"].ToString(),
                     Seg = new List<int> { int.Parse(reader["seq"].ToString()) },
-                    Ball = new List<int> { int.Parse(reader["number"].ToString()) }
+                    Ball = new List<int> { int.Parse(reader["number"].ToString()) },
+                    SettlementStatus = byte.Parse(reader["settlementstatus"].ToString()),
+                    BetStatus = reader["betstatus"].ToString()
                 });
             }
         }
 
         public IEnumerable<NumberGame> GetResultFromExcel(string filePath)
         {
-            throw new NotImplementedException();
+            return NumberGameResultExcelReader
+               .CreateInstance(filePath)
+               .GetResultData();
         }
     }
 }

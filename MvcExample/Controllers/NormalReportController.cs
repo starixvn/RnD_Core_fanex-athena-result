@@ -126,7 +126,7 @@
                         VisibleMatchCodeIDColumn = showMatchCode,
                         LanguageCode = languageCode,
                         HighlightWinnerTeam = true,
-                        EnableCheckScoreCalculated = true
+                        EnableCheckScoreCalculated = false
                     });
             }
 
@@ -156,7 +156,7 @@
                 ExcelTemplatePath = Server.MapPath(ExcelTemplatePath),
                 VisibleMatchCodeIDColumn = showMatchCode,
                 HighlightWinnerTeam = true,
-                EnableCheckScoreCalculated = true
+                EnableCheckScoreCalculated = false
             };
 
             MemoryStream excelResult = null;

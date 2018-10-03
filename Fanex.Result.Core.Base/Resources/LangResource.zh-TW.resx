@@ -237,8 +237,8 @@
   <data name="Warrior" xml:space="preserve">
     <value>鬥士</value>
   </data>
-  <data name="PostPoned" xml:space="preserve">
-    <value>改期</value>
+  <data name="Postponed" xml:space="preserve">
+    <value>延期</value>
   </data>
   <data name="TotalPoints" xml:space="preserve">
     <value>總積分</value>
@@ -274,10 +274,10 @@
     <value>關閉</value>
   </data>
   <data name="Refundft" xml:space="preserve">
-    <value>全場退還</value>
+    <value>退款(全場)</value>
   </data>
   <data name="Refundht" xml:space="preserve">
-    <value>上半場退還</value>
+    <value>退款(半場)</value>
   </data>
   <data name="Place" xml:space="preserve">
     <value>位置</value>
@@ -295,12 +295,18 @@
     <value>即 時 比 分</value>
   </data>
   <data name="Abandoned1h" xml:space="preserve">
-    <value>在上半场中止</value>
+    <value>在上半場中止</value>
   </data>
   <data name="Abandoned2h" xml:space="preserve">
-    <value>在下半场中止</value>
+    <value>在下半場中止</value>
   </data>
   <data name="BetType" xml:space="preserve">
     <value>投注類別</value>
+  </data>
+  <data name="ResultPending" xml:space="preserve">
+    <value>賽果待定</value>
+  </data>
+  <data name="UnderSettlement" xml:space="preserve">
+    <value>結算中</value>
   </data>
 </root>

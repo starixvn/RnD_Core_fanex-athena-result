@@ -160,4 +160,19 @@
   <data name="HTScore" xml:space="preserve">
     <value>前半戦のスコア</value>
   </data>
+  <data name="ResultPending" xml:space="preserve">
+    <value>結果が保留中です</value>
+  </data>
+  <data name="UnderSettlement" xml:space="preserve">
+    <value>支払い中</value>
+  </data>
+  <data name="Lose" xml:space="preserve">
+    <value>マイナス</value>
+  </data>
+  <data name="Postponed" xml:space="preserve">
+    <value>延期される</value>
+  </data>
+  <data name="Refundht" xml:space="preserve">
+    <value>払い戻し(HT)</value>
+  </data>
 </root>

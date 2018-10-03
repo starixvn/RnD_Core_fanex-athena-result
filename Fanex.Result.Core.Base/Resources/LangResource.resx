@@ -306,7 +306,7 @@
   <data name="PlayerSentOff" xml:space="preserve">
     <value>Player Sent Off</value>
   </data>
-  <data name="PostPoned" xml:space="preserve">
+  <data name="Postponed" xml:space="preserve">
     <value>Postponed</value>
   </data>
   <data name="PS" xml:space="preserve">

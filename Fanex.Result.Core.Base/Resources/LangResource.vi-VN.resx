@@ -124,7 +124,7 @@
     <value>Đội</value>
   </data>
   <data name="Refund" xml:space="preserve">
-    <value>Hoàn Tiền</value>
+    <value>Hoàn phí</value>
   </data>
   <data name="Running" xml:space="preserve">
     <value>Đang diễn ra</value>
@@ -168,8 +168,8 @@
   <data name="Time" xml:space="preserve">
     <value>Thời Gian</value>
   </data>
-  <data name="PostPoned" xml:space="preserve">
-    <value>Bị hoãn lại</value>
+  <data name="Postponed" xml:space="preserve">
+    <value>Bị trì hoãn</value>
   </data>
   <data name="TotalPoints" xml:space="preserve">
     <value>Tổng điểm</value>
@@ -181,7 +181,7 @@
     <value>Thời gian bắt đầu</value>
   </data>
   <data name="Completed" xml:space="preserve">
-    <value>Kết thúc</value>
+    <value>Đã kết thúc</value>
   </data>
   <data name="Official" xml:space="preserve">
     <value>Chính thức</value>
@@ -196,10 +196,10 @@
     <value>Bị khóa</value>
   </data>
   <data name="Refundft" xml:space="preserve">
-    <value>Hoàn tiền cho  FT</value>
+    <value>Hoàn Phí FT</value>
   </data>
   <data name="Refundht" xml:space="preserve">
-    <value>Hoàn tiền cho  HT</value>
+    <value>Hoàn Phí HT</value>
   </data>
   <data name="HTScore" xml:space="preserve">
     <value>Tỷ số hiệp 1</value>
@@ -218,5 +218,14 @@
   </data>
   <data name="BetType" xml:space="preserve">
     <value>Loại cược</value>
+  </data>
+  <data name="ResultPending" xml:space="preserve">
+    <value>Chờ kết quả</value>
+  </data>
+  <data name="UnderSettlement" xml:space="preserve">
+    <value>Đang xử lý</value>
+  </data>
+  <data name="Lose" xml:space="preserve">
+    <value>Thua</value>
   </data>
 </root>

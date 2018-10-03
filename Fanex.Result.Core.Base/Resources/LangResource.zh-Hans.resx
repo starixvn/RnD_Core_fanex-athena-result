@@ -169,19 +169,19 @@
     <value>比分</value>
   </data>
   <data name="Refundft" xml:space="preserve">
-    <value>全场退还</value>
+    <value>退款(全场)</value>
   </data>
   <data name="HTScore" xml:space="preserve">
     <value>上半场比分</value>
   </data>
   <data name="Refundht" xml:space="preserve">
-    <value>上半场退还</value>
+    <value>退款(半场)</value>
   </data>
   <data name="LblOT" xml:space="preserve">
     <value>延时</value>
   </data>
-  <data name="PostPoned" xml:space="preserve">
-    <value>改期</value>
+  <data name="Postponed" xml:space="preserve">
+    <value>延期</value>
   </data>
   <data name="Time" xml:space="preserve">
     <value>时间</value>
@@ -299,5 +299,11 @@
   </data>
   <data name="BetType" xml:space="preserve">
     <value>投注类别</value>
+  </data>
+  <data name="ResultPending" xml:space="preserve">
+    <value>赛果待定</value>
+  </data>
+  <data name="UnderSettlement" xml:space="preserve">
+    <value>结算中</value>
   </data>
 </root>

@@ -729,9 +729,9 @@ namespace Fanex.Result.Core.Base.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Postponed.
         /// </summary>
-        public static string PostPoned {
+        public static string Postponed {
             get {
-                return ResourceManager.GetString("PostPoned", resourceCulture);
+                return ResourceManager.GetString("Postponed", resourceCulture);
             }
         }
         

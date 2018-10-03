@@ -49,7 +49,7 @@
         public virtual bool VisibleGameDetail => false;
 
         public virtual string EventStatusBackground
-            => EventStatus.Equals(LangResource.PostPoned, StringComparison.OrdinalIgnoreCase) ?
+            => EventStatus.Equals(LangResource.Postponed, StringComparison.OrdinalIgnoreCase) ?
                     ConstantValue.BackgroundPosponed :
                         IsPending ? ConstantValue.BackgroundPending : string.Empty;
 

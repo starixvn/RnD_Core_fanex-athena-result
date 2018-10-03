@@ -110,7 +110,7 @@
     <value>Corners</value>
   </data>
   <data name="Completed" xml:space="preserve">
-    <value>완료됨</value>
+    <value>종료</value>
   </data>
   <data name="Dragon" xml:space="preserve">
     <value>Dragon</value>
@@ -286,8 +286,8 @@
   <data name="PlayerSentOff" xml:space="preserve">
     <value>Player Sent Off</value>
   </data>
-  <data name="PostPoned" xml:space="preserve">
-    <value>연기</value>
+  <data name="Postponed" xml:space="preserve">
+    <value>연기됨</value>
   </data>
   <data name="PS" xml:space="preserve">
     <value>PS</value>
@@ -296,13 +296,13 @@
     <value>경주</value>
   </data>
   <data name="Refund" xml:space="preserve">
-    <value>환급</value>
+    <value>환불</value>
   </data>
   <data name="Refundft" xml:space="preserve">
-    <value>전후반 환불</value>
+    <value>환불 FT</value>
   </data>
   <data name="Refundht" xml:space="preserve">
-    <value>전반전 환불</value>
+    <value>환불 HT</value>
   </data>
   <data name="Result" xml:space="preserve">
     <value>결과</value>
@@ -363,5 +363,11 @@
   </data>
   <data name="Lose" xml:space="preserve">
     <value>패배</value>
+  </data>
+  <data name="ResultPending" xml:space="preserve">
+    <value>결과 보류</value>
+  </data>
+  <data name="UnderSettlement" xml:space="preserve">
+    <value>정산 중</value>
   </data>
 </root>

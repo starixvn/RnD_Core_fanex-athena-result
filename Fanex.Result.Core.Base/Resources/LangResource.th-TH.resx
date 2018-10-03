@@ -234,7 +234,7 @@
   <data name="Warrior" xml:space="preserve">
     <value>นักรบ</value>
   </data>
-  <data name="PostPoned" xml:space="preserve">
+  <data name="Postponed" xml:space="preserve">
     <value>เลื่อน</value>
   </data>
   <data name="TotalPoints" xml:space="preserve">
@@ -250,7 +250,7 @@
     <value>การต่อเวลาพิเศษ</value>
   </data>
   <data name="Completed" xml:space="preserve">
-    <value>เสร็จสมบูรณ์</value>
+    <value>สมบูรณ์</value>
   </data>
   <data name="Official" xml:space="preserve">
     <value>เป็นทางการ</value>
@@ -271,13 +271,13 @@
     <value>ปิด</value>
   </data>
   <data name="Refundft" xml:space="preserve">
-    <value>คืนเงินเต็มเวลา</value>
+    <value>คืนเงิน เมื่อการแข่งขันจบเต็มเวลา</value>
   </data>
   <data name="Place" xml:space="preserve">
     <value>วาง</value>
   </data>
   <data name="Refundht" xml:space="preserve">
-    <value>คืนเงินครึ่งแรก</value>
+    <value>คืนเงิน ครึ่งแรก</value>
   </data>
   <data name="Lose" xml:space="preserve">
     <value>เสีย</value>
@@ -296,5 +296,11 @@
   </data>
   <data name="BetType" xml:space="preserve">
     <value>ประเภทการเดิมพัน</value>
+  </data>
+  <data name="ResultPending" xml:space="preserve">
+    <value>กำลังรอผลการแข่งขัน</value>
+  </data>
+  <data name="UnderSettlement" xml:space="preserve">
+    <value>กําลังดําเนินการชำระเงิน</value>
   </data>
 </root>

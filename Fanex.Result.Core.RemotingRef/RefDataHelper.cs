@@ -41,7 +41,7 @@
             => remotingRefService.GetFastMarkets225Result(resultId, lang);
 
         public string GetFastMarketResult(string resultId, string lang)
-            => remotingRefService.GetFastMarkets225Result(resultId, lang);
+            => remotingRefService.GetFastMarketsResult(resultId, lang);
 
         public string GetBetRadarMatchCodeFormat(string matchCode, string lang)
             => remotingRefService.GetBetRadarMatchCodeFormat(matchCode, lang);

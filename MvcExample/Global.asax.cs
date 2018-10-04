@@ -32,6 +32,8 @@ namespace MvcExample
                 .ConnectTo(new Uri(ConfigurationManager.AppSettings["RemotingRefService"]))
                 .SupportMultiLanguages()
                 .FromApplication("Result.Core.DemoSite");
+
+            ResultCoreManager.RegisterRefDataHelper(new RefDataHelper());
         }
 
         protected void Application_Error()

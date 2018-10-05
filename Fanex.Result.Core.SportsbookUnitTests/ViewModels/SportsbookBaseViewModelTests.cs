@@ -167,19 +167,6 @@
         }
 
         [Test]
-        public void IsPending_Always_GetDTO()
-        {
-            // Arrange
-            _sportsbook.IsPending = false;
-
-            // Act
-            var viewModel = new SportsbookBaseViewModel(_sportsbook, _setting);
-
-            // Assert
-            Assert.False(viewModel.IsPending);
-        }
-
-        [Test]
         public void HomeWin_SettingNotHighlightTeamWinner_ReturnEmpty()
         {
             // Arrange

@@ -39,8 +39,6 @@
 
         public string EventStatus { get; set; } = string.Empty;
 
-        public bool IsPending { get; set; }
-
         public bool IsNeutral { get; set; }
 
         public string GoalRecord { get; set; } = string.Empty;

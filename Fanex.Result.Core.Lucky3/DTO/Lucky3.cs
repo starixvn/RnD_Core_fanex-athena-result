@@ -23,8 +23,6 @@
 
         public string EventStatus { get; set; } = string.Empty;
 
-        public bool IsPending { get; set; }
-
         public IList<int> Seq { get; set; } = new List<int>();
 
         public IList<int> Ball { get; set; } = new List<int>();

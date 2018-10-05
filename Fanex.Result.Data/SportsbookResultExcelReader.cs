@@ -35,7 +35,6 @@
             resultData.HtHomeScore = Convert.ToInt32(row.GetCell(16)?.ToString());
             resultData.HtAwayScore = Convert.ToInt32(row.GetCell(17)?.ToString());
             resultData.GoalRecord = row.GetCell(32)?.ToString();
-            resultData.IsPending = row.GetCell(41)?.ToString() != "0";
             resultData.BetID = "3";
             resultData.SettlementStatus = Convert.ToByte(row.GetCell(14)?.ToString());
 

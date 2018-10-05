@@ -25,8 +25,6 @@
 
         public string EventStatus { get; set; }
 
-        public bool IsPending { get; set; }
-
         public IList<int> Seg { get; set; }
 
         public IList<int> Ball { get; set; }

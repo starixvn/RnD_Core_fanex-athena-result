@@ -39,19 +39,6 @@
         }
 
         [Test]
-        public void IsPending_Always_GetFromNumberGame()
-        {
-            // Arrange
-            _numberGame.IsPending = false;
-
-            // Act
-            var viewModel = new NumberGameViewModel(_numberGame, _setting);
-
-            // Assert
-            Assert.AreEqual(false, viewModel.IsPending);
-        }
-
-        [Test]
         public void LeagueId_Always_GetFromNumberGame()
         {
             // Arrange

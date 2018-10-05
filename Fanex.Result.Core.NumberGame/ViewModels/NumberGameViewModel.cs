@@ -29,8 +29,6 @@
 
         public override string KickOffTime => GetFormatedKickOffTime(numberGame.KickOffTime);
 
-        public override bool IsPending => numberGame.IsPending;
-
         public override int LeagueId => numberGame.LeagueId;
 
         public override string LeagueName => GetLeagueNameByLanguage(numberGame.LeagueId);

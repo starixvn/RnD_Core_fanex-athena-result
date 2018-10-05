@@ -40,11 +40,11 @@
             {
                 if (isCompletedEventStatus)
                 {
-                    var isRefundOrAbandonedBetStatus = GetRefundOrAbandonedStatus(betStatus);
+                    var refundOrAbandonedStatus = GetRefundOrAbandonedStatus(betStatus);
 
-                    return string.IsNullOrEmpty(isRefundOrAbandonedBetStatus)
+                    return string.IsNullOrEmpty(refundOrAbandonedStatus)
                         ? LangResource.Completed
-                        : isRefundOrAbandonedBetStatus;
+                        : refundOrAbandonedStatus;
                 }
 
                 return LangResource.UnderSettlement;

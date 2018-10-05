@@ -34,11 +34,11 @@
     </Setting>-->
     <Setting Key="Lrf_Result_MatchSelByLeague" SpName="Age_Result_MatchSelByLeague_UAT2" DbName="DBACC.bodb02.BODBDownlineNet">
     </Setting>
-    <Setting Key="Lrf_Result_MatchSelByLeague_Detail" SpName="Age_Result_MatchSelResultDetail" DbName="DBACC.bodb02.BODBDownlineNet">
+    <Setting Key="Lrf_Result_MatchSelByLeague_Detail" SpName="Age_Result_MatchSelResultDetail_UAT2" DbName="DBACC.bodb02.BODBDownlineNet">
     </Setting>
     <Setting Key="Lrf_BetList_SelMatchResultParlay" SpName="Age_BetList_SelMatchResultParlay_UAT2" DbName="DBACC.bodb02.BODBDownlineNet">
     </Setting>
-    <Setting Key="Lrf_BetList_SelMatchResult" SpName="Age_BetList_SelMatchResult" DbName="DBACC.bodb02.BODBDownlineNet">
+    <Setting Key="Lrf_BetList_SelMatchResult" SpName="Age_BetList_SelMatchResult_UAT2" DbName="DBACC.bodb02.BODBDownlineNet">
     </Setting>
     <Setting Key="Lrf_Result_RaceSelByMeeting" SpName="Lrf_Result_RaceSelByMeeting" DbName="DBEXT.bodb02.bodbLicenseeNet">
     </Setting>

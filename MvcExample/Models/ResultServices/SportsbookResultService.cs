@@ -176,6 +176,7 @@
                 GoalRecord = reader["goalrecord"].ToString(),
                 IsHTCal = Convert.ToBoolean(reader["IsHTCal"]),
                 Calculate = Convert.ToBoolean(reader["Calculate"]),
+                SettlementStatus = Convert.ToByte(reader["settlementstatus"]),
                 RefNo = string.Empty,
                 GameDetails = new List<GameDetail>(),
                 Bettype = GetBetTypeFromToken(reader),

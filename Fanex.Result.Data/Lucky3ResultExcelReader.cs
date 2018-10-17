@@ -55,8 +55,7 @@
             resultData.LiveHomeScore = Convert.ToInt32(row.GetCell(9)?.ToString());
             resultData.LiveAwayScore = Convert.ToInt32(row.GetCell(10)?.ToString());
             resultData.FinalHomeScore = Convert.ToInt32(row.GetCell(11)?.ToString());
-            resultData.SettlementStatus = Convert.ToByte(row.GetCell(12)?.ToString());
-            resultData.BetStatus = row.GetCell(13)?.ToString();
+            resultData.IsPending = row.GetCell(14)?.ToString() == "1";
 
             return resultData;
         }

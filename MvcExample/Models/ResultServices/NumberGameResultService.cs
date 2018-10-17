@@ -50,9 +50,7 @@
                     KickOffTime = DateTime.Parse(reader["kickofftime"].ToString()),
                     MatchCode = reader["matchcode"].ToString(),
                     Seg = new List<int> { int.Parse(reader["seq"].ToString()) },
-                    Ball = new List<int> { int.Parse(reader["number"].ToString()) },
-                    SettlementStatus = byte.Parse(reader["settlementstatus"].ToString()),
-                    BetStatus = reader["betstatus"].ToString()
+                    Ball = new List<int> { int.Parse(reader["number"].ToString()) }
                 });
             }
         }

@@ -58,11 +58,9 @@
                     MatchCode = reader["matchcode"].ToString(),
                     Seq = new List<int> { int.Parse(reader["seq"].ToString()) },
                     Ball = new List<int> { int.Parse(reader["number"].ToString()) },
-                    LiveHomeScore = int.Parse(reader["livehomescore"].ToString()),
-                    LiveAwayScore = int.Parse(reader["liveawayscore"].ToString()),
-                    FinalHomeScore = int.Parse(reader["finalhomescore"].ToString()),
-                    SettlementStatus = byte.Parse(reader["settlementstatus"].ToString()),
-                    BetStatus = reader["betstatus"].ToString()
+                    LiveHomeScore = int.Parse(reader["livehomescore"]?.ToString()),
+                    LiveAwayScore = int.Parse(reader["liveawayscore"]?.ToString()),
+                    FinalHomeScore = int.Parse(reader["finalhomescore"].ToString())
                 });
             }
         }

@@ -48,13 +48,14 @@
 
         public string ThirdPrize => EventStatusIsRefund ? ConstantValue.Hyphen : resultData.FinalHomeScore.ToString();
 
-        public override string EventStatus
-            => MapEventStatus.MapEventStatusString(resultData.SettlementStatus, resultData.EventStatus, resultData.BetStatus);
+        public override string EventStatus => MapEventStatus.MapEventStatusString(
+            resultData.EventStatus,
+            resultData.IsPending);
 
         public bool EventStatusIsRefund
-            => EventStatus.Equals(ConstantValue.Refund, StringComparison.OrdinalIgnoreCase) ||
-                EventStatus.Equals(ConstantValue.RefundFT, StringComparison.OrdinalIgnoreCase) ||
-                EventStatus.Equals(ConstantValue.RefundHT, StringComparison.OrdinalIgnoreCase);
+            => resultData.EventStatus.Equals(ConstantValue.Refund, StringComparison.OrdinalIgnoreCase) ||
+                resultData.EventStatus.Equals(ConstantValue.RefundFT, StringComparison.OrdinalIgnoreCase) ||
+                resultData.EventStatus.Equals(ConstantValue.RefundHT, StringComparison.OrdinalIgnoreCase);
 
         public string MatchCode => resultData.MatchCode;
 

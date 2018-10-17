@@ -57,7 +57,7 @@
             => numberGame.Ball.Select(i => Helper.FormatTwoDigit(i)).ToSafeList();
 
         public override string EventStatus
-            => MapEventStatus.MapEventStatusString(numberGame.SettlementStatus, numberGame.EventStatus, numberGame.BetStatus);
+            => MapEventStatus.MapEventStatusString(numberGame.EventStatus, numberGame.IsPending);
 
         public static string ShowBall(int ball)
             => Helper.FormatTwoDigit(ball);

@@ -52,8 +52,7 @@
             resultData.EventStatus = row.GetCell(6)?.ToString();
             resultData.MatchCode = row.GetCell(7)?.ToString();
             resultData.LeagueId = Convert.ToInt32(row.GetCell(8)?.ToString());
-            resultData.SettlementStatus = Convert.ToByte(row.GetCell(12)?.ToString());
-            resultData.BetStatus = row.GetCell(13)?.ToString();
+            resultData.IsPending = row.GetCell(14)?.ToString() == "1";
 
             return resultData;
         }

@@ -226,6 +226,8 @@
                 new GameDetail { MatchId = 1, ResourceId = "90680401", HomeValue = "A", AwayValue = "A", SettlementStatusID = 0 },
                 new GameDetail { MatchId = 1, ResourceId = "90690202", HomeValue = "1", AwayValue = "4", SettlementStatusID = 4 },
                 new GameDetail { MatchId = 1, ResourceId = "90730202", HomeValue = "Y", AwayValue = "A", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "90730201", HomeValue = "Y", AwayValue = "A", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "90730203", HomeValue = "Y", AwayValue = "A", SettlementStatusID = 4 },
                 new GameDetail { MatchId = 1, ResourceId = "90680401", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 }
             };
     }

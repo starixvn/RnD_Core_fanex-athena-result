@@ -13,5 +13,7 @@
         public bool IsDisplayBothTeam { get; set; }
 
         public bool Visible { get; set; }
+
+        public int RoundId { get; set; }
     }
 }

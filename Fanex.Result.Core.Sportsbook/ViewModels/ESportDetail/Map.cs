@@ -38,24 +38,37 @@
                                     : null;
 
                 mapResult.MapId = int.Parse(detailItem.ResourceId.Substring(4, 2));
-                mapResult.ResourceName = mapResultItem != null && !string.IsNullOrEmpty(mapResultItem.LocalResourceKey)
-                    ? GetLocalResource(mapResultItem, mapResult.MapId, detailItem.ResourceId)
-                    : RefDataHelper.GetBetTypeNameById(betTypeId, GetSupportedLanguage, resourceId);
-
+                mapResult.RoundId = GetRoundId(detailItem.ResourceId);
+                mapResult.ResourceName = GetResourceName(mapResult, betTypeId, resourceId, mapResultItem);
                 mapResult.Visible = detailItem.SettlementStatusID > 0;
             }
 
             return MapGameValueByStatusId(mapResult, detailItem);
         }
 
-        private static string GetLocalResource(MapResultMetadata mapResultItem, int mapId, string resourceId)
+        private string GetResourceName(
+            MapResult mapResult,
+            string betTypeId,
+            string resourceId,
+            MapResultMetadata mapResultItem)
+            => mapResultItem != null
+                && !string.IsNullOrEmpty(mapResultItem.LocalResourceKey)
+                    ? GetLocalResource(mapResultItem, mapResult.MapId, mapResult.RoundId)
+                    : RefDataHelper.GetBetTypeNameById(betTypeId, GetSupportedLanguage, resourceId);
+
+        private static int GetRoundId(string resourceId)
+            => !string.IsNullOrWhiteSpace(resourceId) && resourceId.Length >= 8
+                ? int.Parse(resourceId.Substring(6, 2))
+                : 0;
+
+        private static string GetLocalResource(MapResultMetadata mapResultItem, int mapId, int roundId)
         {
             var localResource = SportsbookResx.ResourceManager.GetString(mapResultItem.LocalResourceKey);
 
             if (!string.IsNullOrWhiteSpace(localResource))
             {
-                return resourceId.Length >= 8
-                    ? string.Format(localResource, mapId, int.Parse(resourceId.Substring(6, 2)))
+                return roundId > 0
+                    ? string.Format(localResource, mapId, roundId)
                     : string.Format(localResource, mapId);
             }
 

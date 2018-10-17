@@ -35,7 +35,7 @@
             MoreResultDetailByMap = ResultDetailItems
                 .Where(item => item.MapId > 0 && item.Visible)
                 .OrderBy(mapResult => MapResultMetadata.ResultTypeOrder.Keys.Contains(mapResult.BetTypeId)
-                                    ? MapResultMetadata.ResultTypeOrder[mapResult.BetTypeId].Order
+                                    ? MapResultMetadata.ResultTypeOrder[mapResult.BetTypeId].Order + mapResult.RoundId
                                     : 0)
                 .GroupBy(mapResult => mapResult.MapId)
                 .ToDictionary(group => group.Key, group => group.ToList());
@@ -66,7 +66,7 @@
 
             var result = GetResultFromGameDetails($"M{index + 1}", isHome);
 
-            return string.IsNullOrEmpty(result) 
+            return string.IsNullOrEmpty(result)
                 ? ConstantValue.Hyphen
                 : result;
         }
@@ -75,8 +75,8 @@
         {
             var result = ResultDetailItems.FirstOrDefault(g => g.ResourceID == resourceId);
 
-            return isHome 
-                ? result?.HomeValue 
+            return isHome
+                ? result?.HomeValue
                 : result?.AwayValue;
         }
 

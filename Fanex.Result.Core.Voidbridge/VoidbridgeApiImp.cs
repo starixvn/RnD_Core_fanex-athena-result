@@ -18,8 +18,11 @@
             { "en-US", "en" },
             { "zh-CN", "cs" },
             { "zh-Hans", "zhcn" },
+            { "zh-TW", "ch" },
+            { "ja-JP", "jp" },
             { "th-TH", "th" },
             { "vi-VN", "vn" },
+            { "ko-KR", "ko" },
             { "id-ID", "id" }
         };
 

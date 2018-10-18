@@ -107,14 +107,14 @@
         }
 
         [Test]
-        public void GetFastMarketResult_Always_ExecuteGetFastMarkets225Result()
+        public void GetFastMarketResult_Always_ExecuteGetFastMarketsResult()
         {
             string resultId = "1";
             string lang = "en-US";
 
             refDataHelper.GetFastMarketResult(resultId, lang);
 
-            remotingRefService.Received().GetFastMarkets225Result(resultId, lang);
+            remotingRefService.Received().GetFastMarketsResult(resultId, lang);
         }
 
         [Test]

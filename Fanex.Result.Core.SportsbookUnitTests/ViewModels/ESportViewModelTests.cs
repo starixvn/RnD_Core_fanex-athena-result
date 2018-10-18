@@ -142,7 +142,7 @@
 
             // Assert
             Assert.AreEqual(3, moreResult.Count);
-            Assert.AreEqual(52, moreResult[1].Count);
+            Assert.AreEqual(55, moreResult[1].Count);
             Assert.AreEqual(4, moreResult[2].Count);
             Assert.AreEqual(1, moreResult[4].Count);
         }
@@ -157,9 +157,15 @@
             var moreResult = viewModel.MoreResultDetailByMap;
 
             // Assert
-            var expectedOrderResultTypeList = new string[] { "900601", "90070102", "900201", "90110102", "900801", "901501", "901601", "901701", "901201", "902101", "902201", "902301", "901801",
-            "90270101", "90270102", "90270103", "902401", "903101", "903201", "903301", "902801", "903701", "903801", "903901", "903401", "904301", "904401", "904501", "904001", "904901", "905001", "905101", "904601", "905501",
-            "905601", "905701", "905201", "905801", "90620102", "906301", "906701", "906401", "905901", "907401", "906501", "906601", "90680101", "90680102", "90720102", "90690102", "90730102", "907501"};
+            var expectedOrderResultTypeList = new string[] {
+                "900601", "90070102", "900201", "90110102", "900801", "901501",
+                "901601", "901701", "901201", "902101", "902201", "902301",
+                "901801", "90270101", "90270102", "90270103", "902401", "903101",
+                "903201", "903301", "902801", "903701", "903801", "903901", "903401",
+                "904301", "904401", "904501", "904001", "904901", "905001", "905101",
+                "904601", "905501", "905601", "905701", "905201", "905801", "90620102",
+                "906301", "906701", "906401", "905901", "907401", "906501", "906601",
+                "90680101", "90720101", "90690101", "90730101", "90680102", "90720102", "90690102", "90730102", "907501"};
 
             for (int i = 0; i < expectedOrderResultTypeList.Length; i++)
             {
@@ -245,7 +251,10 @@
                 new GameDetail { MatchId = 1, ResourceId = "90730202", HomeValue = "Y", AwayValue = "A", SettlementStatusID = 4 },
                 new GameDetail { MatchId = 1, ResourceId = "90730201", HomeValue = "Y", AwayValue = "A", SettlementStatusID = 4 },
                 new GameDetail { MatchId = 1, ResourceId = "90730203", HomeValue = "Y", AwayValue = "A", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "90680401", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 }
+                new GameDetail { MatchId = 1, ResourceId = "90680401", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "90720101", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "90690101", HomeValue = "1", AwayValue = "5", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "90730101", HomeValue = "Y", AwayValue = "A", SettlementStatusID = 4 },
             };
     }
 }

@@ -54,11 +54,11 @@ namespace Fanex.Result.Core.ESport.DTO
             { 9074, new MapResultMetadata(4200, false, localResourceKey: "ESports_90740X") },
             { 9065, new MapResultMetadata(4300, false, localResourceKey: "ESports_90650X") },
             { 9066, new MapResultMetadata(4400, false, localResourceKey: "ESports_90660X") },
-            { 9068, new MapResultMetadata(4500, true, localResourceKey: "ESports_90680X0Y") },
-            { 9072, new MapResultMetadata(4600, true) },
-            { 9069, new MapResultMetadata(4700, false, localResourceKey: "ESports_90690X0Y") },
-            { 9073, new MapResultMetadata(4800, true, isYesNo: true) },
-            { 9075, new MapResultMetadata(4900, true, isYesNo: true) }
+            { 9068, new MapResultMetadata(4500, true, localResourceKey: "ESports_90680X0Y", mapXRoundYType: true) },
+            { 9072, new MapResultMetadata(4600, true, mapXRoundYType: true) },
+            { 9069, new MapResultMetadata(4700, false, localResourceKey: "ESports_90690X0Y", mapXRoundYType: true) },
+            { 9073, new MapResultMetadata(4800, true, isYesNo: true, mapXRoundYType: true) },
+            { 9075, new MapResultMetadata(4900, true, isYesNo: true, isLastResult: true) }
         };
 #pragma warning restore S2386 // Mutable fields should not be "public static"
 #pragma warning restore S3887 // Mutable, non-private fields should not be "readonly"
@@ -68,13 +68,17 @@ namespace Fanex.Result.Core.ESport.DTO
             bool isSingleResult, 
             bool isYesNo = false, 
             bool isDuration = false,
-            string localResourceKey = "")
+            string localResourceKey = "",
+            bool mapXRoundYType = false,
+            bool isLastResult = false)
         {
             Order = order;
             IsSingleResult = isSingleResult;
             IsYesNo = isYesNo;
             IsDuration = isDuration;
             LocalResourceKey = localResourceKey;
+            MapXRoundYType = mapXRoundYType;
+            IsLastResult = isLastResult;
         }
 
         public int Order { get; }
@@ -86,5 +90,9 @@ namespace Fanex.Result.Core.ESport.DTO
         public bool IsDuration { get; }
 
         public string LocalResourceKey { get; }
+
+        public bool MapXRoundYType { get; }
+
+        public bool IsLastResult { get; }
     }
 }

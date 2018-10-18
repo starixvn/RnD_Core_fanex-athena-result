@@ -7,7 +7,6 @@
     using Base.Resources;
     using Base.Utilities;
     using Base.ViewModels;
-    using Fanex.Result.Core.ESport.DTO;
     using NPOI.SS.UserModel;
     using ViewModels;
 
@@ -31,7 +30,7 @@
 
             for (int i = 0; i < ESportViewModel.MaxNumberOfMaps; i++)
             {
-                row.Cells[colidx++].SetCellValue($"M{i+1}");
+                row.Cells[colidx++].SetCellValue($"M{i + 1}");
             }
 
             row.Cells[colidx++].SetCellValue(LangResource.FinalScore);

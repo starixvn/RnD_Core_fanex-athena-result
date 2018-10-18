@@ -32,16 +32,35 @@
         {
             ResultDetailItems = (resultDetail ?? new Map(sportbook, setting, null, null)).GetDetailItems();
 
-            MoreResultDetailByMap = ResultDetailItems
+            MoreResultDetailByMap = OrderAndGroupMapResult();
+
+            IsPopupOpenFromBetList = setting.IsPopupOpenFromBetList;
+        }
+
+        private Dictionary<int, List<MapResult>> OrderAndGroupMapResult()
+        {
+            var orderByRound = ResultDetailItems
                 .Where(item => item.MapId > 0 && item.Visible)
                 .OrderBy(mapResult => MapResultMetadata.ResultTypeOrder.Keys.Contains(mapResult.BetTypeId)
-                                    ? MapResultMetadata.ResultTypeOrder[mapResult.BetTypeId].Order + mapResult.RoundId
+                                        && !MapResultMetadata.ResultTypeOrder[mapResult.BetTypeId].MapXRoundYType
+                                    ? mapResult.RoundId
+                                    : 0);
+
+            var OrderbyMapXRoundYAndResultType = orderByRound
+                .OrderBy(mapResult => MapResultMetadata.ResultTypeOrder[mapResult.BetTypeId].MapXRoundYType
+                                    ? mapResult.RoundId
                                     : 0)
+                .ThenBy(mapResult => MapResultMetadata.ResultTypeOrder.Keys.Contains(mapResult.BetTypeId)
+                                    ? MapResultMetadata.ResultTypeOrder[mapResult.BetTypeId].Order
+                                    : 0);
+
+            return OrderbyMapXRoundYAndResultType
+                .OrderBy(mapResult => MapResultMetadata.ResultTypeOrder[mapResult.BetTypeId].IsLastResult
+                                ? 1
+                                : 0)
                 .GroupBy(mapResult => mapResult.MapId)
                 .OrderBy(group => group.Key)
                 .ToDictionary(group => group.Key, group => group.ToList());
-
-            IsPopupOpenFromBetList = setting.IsPopupOpenFromBetList;
         }
 
         public string FinalHomeScore => GetTotalScore(true);

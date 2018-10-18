@@ -83,6 +83,7 @@
     <Compile Include="DTOTest\SportsbookTests.cs" />
     <Compile Include="DTOTest\GameDetailTests.cs" />
     <Compile Include="ExcelModels\BeackSoccerExcelTests.cs" />
+    <Compile Include="ExcelModels\ESportsExcelTests.cs" />
     <Compile Include="ExcelModels\KabaddiExcelTests.cs" />
     <Compile Include="ExcelModels\SoccerExcelTests.cs" />
     <Compile Include="ExcelModels\OtherExcelTests.cs" />
@@ -149,6 +150,7 @@
     <Content Include="TestTemplate\excel\VSTennis.xls" />
     <Content Include="TestTemplate\excel\NewSports.xls" />
     <Content Include="TestTemplate\excel\BeachSoccer.xls" />
+    <Content Include="TestTemplate\excel\ESport.xls" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj">

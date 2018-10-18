@@ -1,6 +1,7 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.Tests.ViewModels
 {
     using System.Collections.Generic;
+    using System.Linq;
     using DTO;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.Extension;
@@ -141,16 +142,30 @@
 
             // Assert
             Assert.AreEqual(3, moreResult.Count);
-            Assert.AreEqual(50, moreResult[1].Count);
-            Assert.AreEqual(2, moreResult[2].Count);
+            Assert.AreEqual(52, moreResult[1].Count);
+            Assert.AreEqual(4, moreResult[2].Count);
             Assert.AreEqual(1, moreResult[4].Count);
         }
 
-        ////[Test]
-        ////public void Ctor_Always_GroupMoreResultByMap()
-        ////{
-        ////    var sportsbookData = StubSportsbook();
-        ////}
+        [Test]
+        public void Ctor_Always_OrderResultTypes()
+        {
+            // Arrange
+            var viewModel = new ESportViewModel(StubSportsbook(), new ResultSetting(), null, _refDataHelper);
+
+            // Act
+            var moreResult = viewModel.MoreResultDetailByMap;
+
+            // Assert
+            var expectedOrderResultTypeList = new string[] { "900601", "90070102", "900201", "90110102", "900801", "901501", "901601", "901701", "901201", "902101", "902201", "902301", "901801",
+            "90270101", "90270102", "90270103", "902401", "903101", "903201", "903301", "902801", "903701", "903801", "903901", "903401", "904301", "904401", "904501", "904001", "904901", "905001", "905101", "904601", "905501",
+            "905601", "905701", "905201", "905801", "90620102", "906301", "906701", "906401", "905901", "907401", "906501", "906601", "90680101", "90680102", "90720102", "90690102", "90730102", "907501"};
+
+            for (int i = 0; i < expectedOrderResultTypeList.Length; i++)
+            {
+                Assert.AreEqual(expectedOrderResultTypeList[i], moreResult[1].ElementAt(i).ResourceID);
+            }
+        }
 
         public static Sportsbook StubSportsbook()
             => new Sportsbook
@@ -165,40 +180,18 @@
         public static List<GameDetail> StubGameDetails()
             => new List<GameDetail>
             {
-                new GameDetail { MatchId = 1, ResourceId = "900601", HomeValue = "A", AwayValue = "H", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "90070102", HomeValue = "N", AwayValue = "H", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "900201", HomeValue = "2", AwayValue = "4", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "90110102", HomeValue = "H", AwayValue = "H", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "900801", HomeValue = "1", AwayValue = "3", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "901501", HomeValue = "N", AwayValue = "H", SettlementStatusID = 4 },
                 new GameDetail { MatchId = 1, ResourceId = "901601", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
                 new GameDetail { MatchId = 1, ResourceId = "901701", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
                 new GameDetail { MatchId = 1, ResourceId = "901201", HomeValue = "4", AwayValue = "3", SettlementStatusID = 4 },
                 new GameDetail { MatchId = 1, ResourceId = "902101", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
                 new GameDetail { MatchId = 1, ResourceId = "902201", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
                 new GameDetail { MatchId = 1, ResourceId = "902301", HomeValue = "H", AwayValue = "A", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "901801", HomeValue = "2", AwayValue = "1", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "90270101", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "902401", HomeValue = "2", AwayValue = "3", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "903101", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "903201", HomeValue = "H", AwayValue = "A", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "903301", HomeValue = "6", AwayValue = "3", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "902801", HomeValue = "H", AwayValue = "A", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "903701", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "903801", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "903901", HomeValue = "1", AwayValue = "3", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "903401", HomeValue = "H", AwayValue = "A", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "904301", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "904401", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "904501", HomeValue = "1", AwayValue = "6", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "904001", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "904901", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "905001", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "905101", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "904601", HomeValue = "5", AwayValue = "2", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "905501", HomeValue = "H", AwayValue = "A", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "905601", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "905701", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "900601", HomeValue = "A", AwayValue = "H", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "90070102", HomeValue = "N", AwayValue = "H", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "900201", HomeValue = "2", AwayValue = "4", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "90110102", HomeValue = "H", AwayValue = "H", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "900801", HomeValue = "1", AwayValue = "3", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "901501", HomeValue = "N", AwayValue = "H", SettlementStatusID = 4 },
                 new GameDetail { MatchId = 1, ResourceId = "905201", HomeValue = "3", AwayValue = "2", SettlementStatusID = 4 },
                 new GameDetail { MatchId = 1, ResourceId = "905801", HomeValue = "10", AwayValue = "1", SettlementStatusID = 4 },
                 new GameDetail { MatchId = 1, ResourceId = "90620102", HomeValue = "H", AwayValue = "A", SettlementStatusID = 4 },
@@ -223,6 +216,30 @@
                 new GameDetail { MatchId = 1, ResourceId = "M7", HomeValue = "7", AwayValue = "2", SettlementStatusID = 4 },
                 new GameDetail { MatchId = 1, ResourceId = "M8", HomeValue = "8", AwayValue = "1", SettlementStatusID = 4 },
                 new GameDetail { MatchId = 1, ResourceId = "M9", HomeValue = "9", AwayValue = "3", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "901801", HomeValue = "2", AwayValue = "1", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "90270102", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "90270103", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "90270101", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "902401", HomeValue = "2", AwayValue = "3", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "903101", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "903201", HomeValue = "H", AwayValue = "A", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "903301", HomeValue = "6", AwayValue = "3", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "902801", HomeValue = "H", AwayValue = "A", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "903701", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "903801", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "903901", HomeValue = "1", AwayValue = "3", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "903401", HomeValue = "H", AwayValue = "A", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "904301", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "904401", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "904501", HomeValue = "1", AwayValue = "6", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "904001", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "904901", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "905001", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "905101", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "904601", HomeValue = "5", AwayValue = "2", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "905501", HomeValue = "H", AwayValue = "A", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "905601", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "905701", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
                 new GameDetail { MatchId = 1, ResourceId = "90680401", HomeValue = "A", AwayValue = "A", SettlementStatusID = 0 },
                 new GameDetail { MatchId = 1, ResourceId = "90690202", HomeValue = "1", AwayValue = "4", SettlementStatusID = 4 },
                 new GameDetail { MatchId = 1, ResourceId = "90730202", HomeValue = "Y", AwayValue = "A", SettlementStatusID = 4 },

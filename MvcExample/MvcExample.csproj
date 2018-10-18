@@ -105,9 +105,6 @@
     <Reference Include="Fanex.Result.Core.Racing, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Fanex.Result.Core-Racing.1.1.0\lib\net40\Fanex.Result.Core.Racing.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Result.Core.Sportsbook, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.Result.Core-Sportsbook.1.1.2-beta6\lib\net40\Fanex.Result.Core.Sportsbook.dll</HintPath>
-    </Reference>
     <Reference Include="IBCFile">
       <HintPath>..\packages\Fanex.File.1.0.0\lib\net40\IBCFile.dll</HintPath>
     </Reference>
@@ -727,6 +724,10 @@
     <ProjectReference Include="..\Fanex.Result.Core.RemotingRef\Fanex.Result.Core.RemotingRef.csproj">
       <Project>{b899f4ae-2360-45b1-96d0-423c7328e8ea}</Project>
       <Name>Fanex.Result.Core.RemotingRef</Name>
+      </ProjectReference>
+    <ProjectReference Include="..\Fanex.Result.Core.Sportsbook\Fanex.Result.Core.Sportsbook.csproj">
+      <Project>{0469c900-5e5b-4d2c-8db3-7eaea991095b}</Project>
+      <Name>Fanex.Result.Core.Sportsbook</Name>
     </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.Voidbridge\Fanex.Result.Core.Voidbridge.csproj">
       <Project>{394ffbab-dd32-4ea6-9c4e-d513adc51a74}</Project>

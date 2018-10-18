@@ -38,6 +38,7 @@
                                     ? MapResultMetadata.ResultTypeOrder[mapResult.BetTypeId].Order + mapResult.RoundId
                                     : 0)
                 .GroupBy(mapResult => mapResult.MapId)
+                .OrderBy(group => group.Key)
                 .ToDictionary(group => group.Key, group => group.ToList());
 
             IsPopupOpenFromBetList = setting.IsPopupOpenFromBetList;

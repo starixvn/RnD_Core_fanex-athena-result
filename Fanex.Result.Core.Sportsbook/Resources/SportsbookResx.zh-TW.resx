@@ -168,4 +168,55 @@
   <data name="FT" xml:space="preserve">
     <value>全場</value>
   </data>
+  <data name="ESports_90020X" xml:space="preserve">
+    <value>地圖 {0} 擊殺總數得分</value>
+  </data>
+  <data name="ESports_90080X" xml:space="preserve">
+    <value>地圖 {0} 防禦塔得分</value>
+  </data>
+  <data name="ESports_90120X" xml:space="preserve">
+    <value>地圖 {0} 肉山大魔王得分</value>
+  </data>
+  <data name="ESports_90180X" xml:space="preserve">
+    <value>地圖 {0} 兵營得分</value>
+  </data>
+  <data name="ESports_90240X" xml:space="preserve">
+    <value>地圖 {0} 砲塔得分</value>
+  </data>
+  <data name="ESports_90280X" xml:space="preserve">
+    <value>地圖 {0} 巨龍得分</value>
+  </data>
+  <data name="ESports_90340X" xml:space="preserve">
+    <value>地圖 {0} 男爵得分</value>
+  </data>
+  <data name="ESports_90400X" xml:space="preserve">
+    <value>地圖 {0} 水晶得分</value>
+  </data>
+  <data name="ESports_90460X" xml:space="preserve">
+    <value>地圖 {0} 暴君得分</value>
+  </data>
+  <data name="ESports_90520X" xml:space="preserve">
+    <value>地圖 {0} 主宰 得分</value>
+  </data>
+  <data name="ESports_90580X" xml:space="preserve">
+    <value>地圖 {0} 賽事時間 </value>
+  </data>
+  <data name="ESports_90590X" xml:space="preserve">
+    <value>地圖 {0} 回合得分</value>
+  </data>
+  <data name="ESports_90650X" xml:space="preserve">
+    <value>地圖 {0} 第一擊殺總數</value>
+  </data>
+  <data name="ESports_90660X" xml:space="preserve">
+    <value>地圖 {0} Cluthes 得分</value>
+  </data>
+  <data name="ESports_90690X0Y" xml:space="preserve">
+    <value>地圖 {0} 回合 {1} 擊殺總數</value>
+  </data>
+  <data name="ESports_90740X" xml:space="preserve">
+    <value>地圖{0}回合得分（包括加時）</value>
+  </data>
+  <data name="ESports_90680X0Y" xml:space="preserve">
+    <value>地圖 {0} 回合 {1} 優勝者</value>
+  </data>
 </root>

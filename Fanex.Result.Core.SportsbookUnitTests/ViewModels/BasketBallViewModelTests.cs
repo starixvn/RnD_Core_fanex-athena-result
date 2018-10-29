@@ -14,6 +14,8 @@
     [TestFixture]
     public class BasketBallViewModelTests
     {
+#pragma warning disable S1144 // Unused private types or members should be removed
+
         private static readonly string[] MoreResultResourceIdsTestCase =
         {
             "604",
@@ -41,6 +43,8 @@
             "61703",
             "61704"
         };
+
+#pragma warning restore S1144 // Unused private types or members should be removed
 
         public static readonly string[] OrderedMoreResultResourceIdsTestCase =
         {

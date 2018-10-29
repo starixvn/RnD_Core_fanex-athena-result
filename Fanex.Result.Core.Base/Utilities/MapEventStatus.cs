@@ -27,27 +27,32 @@
         {
             var bits = GetBitArray(settlementStatus);
             var isPending = bits[0] == 1;
-            var isUndecided = bits[1] == 1;
             var isUnderSettlement = bits[2] == 1;
+            var isSystemSettlement = bits[3] == 1;
             var isCompletedEventStatus = IsCompleted(eventStatus);
+            var refundOrAbandonedStatus = GetRefundOrAbandonedStatus(betStatus);
 
             if (isPending)
             {
                 return LangResource.ResultPending;
             }
 
-            if (isUndecided || isUnderSettlement || isCompletedEventStatus)
+            if (isCompletedEventStatus)
             {
-                if (isCompletedEventStatus)
-                {
-                    var refundOrAbandonedStatus = GetRefundOrAbandonedStatus(betStatus);
+                return string.IsNullOrEmpty(refundOrAbandonedStatus)
+                    ? LangResource.Completed
+                    : refundOrAbandonedStatus;
+            }
 
-                    return string.IsNullOrEmpty(refundOrAbandonedStatus)
-                        ? LangResource.Completed
-                        : refundOrAbandonedStatus;
-                }
-
+            if (isUnderSettlement || isSystemSettlement)
+            {
                 return LangResource.UnderSettlement;
+            }
+
+            // In case not completed event status and not under settlement status
+            if (IsRefundHT(betStatus))
+            {
+                return LangResource.Refundht;
             }
 
             if (IsInternal(eventStatus))
@@ -90,6 +95,9 @@
 
         private static bool IsInternal(string eventStatus)
             => InternalStatus.Equals(eventStatus, StringComparison.OrdinalIgnoreCase);
+
+        private static bool IsRefundHT(string betStatus)
+           => !string.IsNullOrEmpty(betStatus) && betStatus.IndexOf(ConstantValue.RefundHT, StringComparison.OrdinalIgnoreCase) >= 0;
 
         private static int[] GetBitArray(byte number)
             => new BitArray(new[] { number })

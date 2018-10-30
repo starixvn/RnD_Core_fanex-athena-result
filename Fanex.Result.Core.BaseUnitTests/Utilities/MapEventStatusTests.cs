@@ -48,10 +48,65 @@
         [TestCase(3)]
         [TestCase(5)]
         [TestCase(7)]
-        public void SecondMapEventStatusString_IsPending_ReturnsPending(byte settlementStatus)
+        [TestCase(9)]
+        [TestCase(11)]
+        [TestCase(13)]
+        [TestCase(15)]
+        public void SecondMapEventStatusString_IsPending_EventStatusIsClosed_ReturnsPending(byte settlementStatus)
         {
             // Act
-            var actualStatus = MapEventStatus.MapEventStatusString(settlementStatus, "completed", string.Empty);
+            var actualStatus = MapEventStatus.MapEventStatusString(settlementStatus, "Closed", string.Empty);
+
+            // Assert
+            Assert.AreEqual("Result Pending", actualStatus);
+        }
+
+        [TestCase(1)]
+        [TestCase(3)]
+        [TestCase(5)]
+        [TestCase(7)]
+        [TestCase(9)]
+        [TestCase(11)]
+        [TestCase(13)]
+        [TestCase(15)]
+        public void SecondMapEventStatusString_IsPending_EventStatusIsRunning_ReturnsPending(byte settlementStatus)
+        {
+            // Act
+            var actualStatus = MapEventStatus.MapEventStatusString(settlementStatus, "Running", string.Empty);
+
+            // Assert
+            Assert.AreEqual("Result Pending", actualStatus);
+        }
+
+        [TestCase(1)]
+        [TestCase(3)]
+        [TestCase(5)]
+        [TestCase(7)]
+        [TestCase(9)]
+        [TestCase(11)]
+        [TestCase(13)]
+        [TestCase(15)]
+        public void SecondMapEventStatusString_IsPending_EventStatusIsInternal_ReturnsPending(byte settlementStatus)
+        {
+            // Act
+            var actualStatus = MapEventStatus.MapEventStatusString(settlementStatus, "Internal", string.Empty);
+
+            // Assert
+            Assert.AreEqual("Result Pending", actualStatus);
+        }
+
+        [TestCase(1)]
+        [TestCase(3)]
+        [TestCase(5)]
+        [TestCase(7)]
+        [TestCase(9)]
+        [TestCase(11)]
+        [TestCase(13)]
+        [TestCase(15)]
+        public void SecondMapEventStatusString_IsPending_EventStatusIsPostponed_ReturnsPending(byte settlementStatus)
+        {
+            // Act
+            var actualStatus = MapEventStatus.MapEventStatusString(settlementStatus, "Postponed", string.Empty);
 
             // Assert
             Assert.AreEqual("Result Pending", actualStatus);
@@ -72,22 +127,143 @@
             Assert.AreEqual("Under Settlement", actualStatus);
         }
 
-        [TestCase("Running")]
-        [TestCase("Internal")]
-        [TestCase("Postponed")]
-        public void SecondMapEventStatusString_IsUnderSettlement_EventStatusIsNotCompleted_ReturnUnderSettlement(string status)
+        [TestCase(4)]
+        [TestCase(6)]
+        [TestCase(8)]
+        [TestCase(10)]
+        [TestCase(12)]
+        [TestCase(14)]
+        public void SecondMapEventStatusString_IsUnderSettlementOrSystemSettlement_EventStatusIsRunning_NotRefundHT_ReturnUnderSettlement(byte settlementStatus)
         {
             // Act
-            var actualStatus = MapEventStatus.MapEventStatusString(4, status, string.Empty);
+            var actualStatus = MapEventStatus.MapEventStatusString(settlementStatus, "Running", string.Empty);
 
             // Assert
             Assert.AreEqual("Under Settlement", actualStatus);
         }
 
+        [TestCase(4)]
+        [TestCase(6)]
+        [TestCase(8)]
+        [TestCase(10)]
+        [TestCase(12)]
+        [TestCase(14)]
+        public void SecondMapEventStatusString_IsUnderSettlementOrSystemSettlement_EventStatusIsInternal_ReturnUnderSettlement(byte settlementStatus)
+        {
+            // Act
+            var actualStatus = MapEventStatus.MapEventStatusString(settlementStatus, "Internal", "Refund HT");
+
+            // Assert
+            Assert.AreEqual("Under Settlement", actualStatus);
+        }
+
+        [TestCase(4)]
+        [TestCase(6)]
+        [TestCase(8)]
+        [TestCase(10)]
+        [TestCase(12)]
+        [TestCase(14)]
+        public void SecondMapEventStatusString_IsUnderSettlementOrSystemSettlement_EventStatusIsInternal_NotRefundHT_ReturnUnderSettlement(byte settlementStatus)
+        {
+            // Act
+            var actualStatus = MapEventStatus.MapEventStatusString(settlementStatus, "Internal", string.Empty);
+
+            // Assert
+            Assert.AreEqual("Under Settlement", actualStatus);
+        }
+
+        [TestCase(4)]
+        [TestCase(6)]
+        [TestCase(8)]
+        [TestCase(10)]
+        [TestCase(12)]
+        [TestCase(14)]
+        public void SecondMapEventStatusString_IsUnderSettlementOrSystemSettlement_EventStatusIsPostponed_ReturnUnderSettlement(byte settlementStatus)
+        {
+            // Act
+            var actualStatus = MapEventStatus.MapEventStatusString(settlementStatus, "Postponed", "Refund HT");
+
+            // Assert
+            Assert.AreEqual("Under Settlement", actualStatus);
+        }
+
+        [TestCase(4)]
+        [TestCase(6)]
+        [TestCase(8)]
+        [TestCase(10)]
+        [TestCase(12)]
+        [TestCase(14)]
+        public void SecondMapEventStatusString_IsUnderSettlementOrSystemSettlement_EventStatusIsPostponed_NotRefundHT_ReturnUnderSettlement(byte settlementStatus)
+        {
+            // Act
+            var actualStatus = MapEventStatus.MapEventStatusString(settlementStatus, "Postponed", string.Empty);
+
+            // Assert
+            Assert.AreEqual("Under Settlement", actualStatus);
+        }
+
+        [TestCase(4, "Abandoned 1H;", "Abandoned 1H")]
+        [TestCase(6, "Abandoned 1H;", "Abandoned 1H")]
+        [TestCase(8, "Abandoned 1H;", "Abandoned 1H")]
+        [TestCase(10, "Abandoned 1H;", "Abandoned 1H")]
+        [TestCase(12, "Abandoned 1H;", "Abandoned 1H")]
+        [TestCase(14, "Abandoned 1H;", "Abandoned 1H")]
+        [TestCase(4, "Abandoned 2H;", "Abandoned 2H")]
+        [TestCase(6, "Abandoned 2H;", "Abandoned 2H")]
+        [TestCase(8, "Abandoned 2H;", "Abandoned 2H")]
+        [TestCase(10, "Abandoned 2H;", "Abandoned 2H")]
+        [TestCase(12, "Abandoned 2H;", "Abandoned 2H")]
+        [TestCase(14, "Abandoned 2H;", "Abandoned 2H")]
+        [TestCase(4, "Refund FT;", "Refund FT")]
+        [TestCase(6, "Refund FT;", "Refund FT")]
+        [TestCase(8, "Refund FT;", "Refund FT")]
+        [TestCase(10, "Refund FT;", "Refund FT")]
+        [TestCase(12, "Refund FT;", "Refund FT")]
+        [TestCase(14, "Refund FT;", "Refund FT")]
+        [TestCase(4, "Refund HT;", "Refund HT")]
+        [TestCase(6, "Refund HT;", "Refund HT")]
+        [TestCase(8, "Refund HT;", "Refund HT")]
+        [TestCase(10, "Refund HT;", "Refund HT")]
+        [TestCase(12, "Refund HT;", "Refund HT")]
+        [TestCase(14, "Refund HT;", "Refund HT")]
+        [TestCase(4, "Refund;", "Refund")]
+        [TestCase(6, "Refund;", "Refund")]
+        [TestCase(8, "Refund;", "Refund")]
+        [TestCase(10, "Refund;", "Refund")]
+        [TestCase(12, "Refund;", "Refund")]
+        [TestCase(14, "Refund;", "Refund")]
+        [TestCase(4, "", "Completed")]
+        [TestCase(6, "", "Completed")]
+        [TestCase(8, "", "Completed")]
+        [TestCase(10, "", "Completed")]
+        [TestCase(12, "", "Completed")]
+        [TestCase(14, "", "Completed")]
+        public void SecondMapEventStatusString_IsUnderSettlementOrSystemSettlement_EventStatusIsCompleted_ReturnExpectedStatus(
+          byte settlementStatus, string betStatus, string expectedStatus)
+        {
+            // Act
+            var actualStatus = MapEventStatus.MapEventStatusString(settlementStatus, "completed", betStatus);
+
+            // Assert
+            Assert.AreEqual(expectedStatus, actualStatus);
+        }
+
         [TestCase("Running")]
         [TestCase("Internal")]
         [TestCase("Postponed")]
-        public void SecondMapEventStatusString_IsNotUnderSettlement_EventStatusIsNotCompleted_BetStatusContainsRefundHT_ReturnExpectedStatus(string status)
+        public void SecondMapEventStatusString_IsUndecided_EventStatusIsNotCompleted_BetStatusContainsRefundHT_ReturnExpectedStatus(string status)
+        {
+            // Act
+            var actualStatus = MapEventStatus.MapEventStatusString(2, status, "Refund HT");
+
+            // Assert
+            Assert.AreEqual("Refund HT", actualStatus);
+        }
+
+        [TestCase("Running")]
+        [TestCase("Internal")]
+        [TestCase("Postponed")]
+        public void SecondMapEventStatusString_IsNotUnderSettlementOrSystemSettlement_EventStatusIsNotCompleted_BetStatusContainsRefundHT_ReturnExpectedStatus(string status)
         {
             // Act
             var actualStatus = MapEventStatus.MapEventStatusString(0, status, "Refund HT");
@@ -99,55 +275,10 @@
         [TestCase("Running", "Running")]
         [TestCase("Internal", "Running")]
         [TestCase("Postponed", "Postponed")]
-        public void SecondMapEventStatusString_IsNotUnderSettlement_EventStatusIsNotCompleted_ReturnExpectedStatus(string status, string expectedStatus)
+        public void SecondMapEventStatusString_IsUndecided_EventStatusIsNotCompleted_ReturnExpectedStatus(string status, string expectedStatus)
         {
             // Act
-            var actualStatus = MapEventStatus.MapEventStatusString(0, status, string.Empty);
-
-            // Assert
-            Assert.AreEqual(expectedStatus, actualStatus);
-        }
-
-        [TestCase("Refund;Abandoned 1H;", "Abandoned 1H")]
-        [TestCase("Refund;Abandoned 2H;", "Abandoned 2H")]
-        [TestCase("Refund;Refund FT;", "Refund FT")]
-        [TestCase("Refund HT;Refund;", "Refund HT")]
-        [TestCase("Refund;", "Refund")]
-        public void SecondMapEventStatusString_IsUndecided_EventStatusIsCompleted_BetStatusHasRefundOrAbandoned_ReturnExpectedStatus(
-            string betStatus, string expectedStatus)
-        {
-            // Act
-            var actualStatus = MapEventStatus.MapEventStatusString(2, "completed", betStatus);
-
-            // Assert
-            Assert.AreEqual(expectedStatus, actualStatus);
-        }
-
-        [TestCase("Refund;Abandoned 1H;", "Abandoned 1H")]
-        [TestCase("Refund;Abandoned 2H;", "Abandoned 2H")]
-        [TestCase("Refund;Refund FT;", "Refund FT")]
-        [TestCase("Refund HT;Refund;", "Refund HT")]
-        [TestCase("Refund;", "Refund")]
-        public void SecondMapEventStatusString_IsUnderSettlement_EventStatusIsCompleted_BetStatusHasRefundOrAbandoned_ReturnExpectedStatus(
-           string betStatus, string expectedStatus)
-        {
-            // Act
-            var actualStatus = MapEventStatus.MapEventStatusString(4, "completed", betStatus);
-
-            // Assert
-            Assert.AreEqual(expectedStatus, actualStatus);
-        }
-
-        [TestCase("Refund;Abandoned 1H;", "Abandoned 1H")]
-        [TestCase("Refund;Abandoned 2H;", "Abandoned 2H")]
-        [TestCase("Refund;Refund FT;", "Refund FT")]
-        [TestCase("Refund HT;Refund;", "Refund HT")]
-        [TestCase("Refund;", "Refund")]
-        public void SecondMapEventStatusString_IsNormal_EventStatusIsCompleted_BetStatusHasRefundOrAbandoned_ReturnExpectedStatus(
-            string betStatus, string expectedStatus)
-        {
-            // Act
-            var actualStatus = MapEventStatus.MapEventStatusString(0, "completed", betStatus);
+            var actualStatus = MapEventStatus.MapEventStatusString(2, status, string.Empty);
 
             // Assert
             Assert.AreEqual(expectedStatus, actualStatus);
@@ -156,11 +287,42 @@
         [TestCase("Running", "Running")]
         [TestCase("Internal", "Running")]
         [TestCase("Postponed", "Postponed")]
-        public void SecondMapEventStatusString_IsNormal_EventStatusIsNotCompleted_ReturnExpectedStatus(
-           string status, string expectedStatus)
+        public void SecondMapEventStatusString_IsNotUnderSettlementOrSystemSettlement_EventStatusIsNotCompleted_ReturnExpectedStatus(string status, string expectedStatus)
         {
             // Act
             var actualStatus = MapEventStatus.MapEventStatusString(0, status, string.Empty);
+
+            // Assert
+            Assert.AreEqual(expectedStatus, actualStatus);
+        }
+
+        [TestCase("Abandoned 1H;", "Abandoned 1H")]
+        [TestCase("Abandoned 2H;", "Abandoned 2H")]
+        [TestCase("Refund FT;", "Refund FT")]
+        [TestCase("Refund HT;", "Refund HT")]
+        [TestCase("Refund;", "Refund")]
+        [TestCase("", "Completed")]
+        public void SecondMapEventStatusString_IsUndecided_EventStatusIsCompleted_ReturnExpectedStatus(
+           string betStatus, string expectedStatus)
+        {
+            // Act
+            var actualStatus = MapEventStatus.MapEventStatusString(2, "completed", betStatus);
+
+            // Assert
+            Assert.AreEqual(expectedStatus, actualStatus);
+        }
+
+        [TestCase("Abandoned 1H;", "Abandoned 1H")]
+        [TestCase("Abandoned 2H;", "Abandoned 2H")]
+        [TestCase("Refund FT;", "Refund FT")]
+        [TestCase("Refund HT;", "Refund HT")]
+        [TestCase("Refund;", "Refund")]
+        [TestCase("", "Completed")]
+        public void SecondMapEventStatusString_IsNotUnderSettlementOrSystemSettlement_EventStatusIsCompleted_ReturnExpectedStatus(
+            string betStatus, string expectedStatus)
+        {
+            // Act
+            var actualStatus = MapEventStatus.MapEventStatusString(0, "completed", betStatus);
 
             // Assert
             Assert.AreEqual(expectedStatus, actualStatus);

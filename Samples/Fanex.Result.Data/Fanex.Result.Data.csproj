@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{15E2D2EC-E10D-4900-984F-B818011620DA}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Fanex.Result.Data</RootNamespace>
+    <AssemblyName>Fanex.Result.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>Fanex.Result.Data.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>Fanex.Result.Data.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <!-- Exclude the project from analysis -->
+    <SonarQubeExclude>true</SonarQubeExclude>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.0.6\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NPOI, Version=2.0.6.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\NPOI.2.0.6\lib\net40\NPOI.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Happy5ResultExcelReader.cs" />
+    <Compile Include="NumberGameResultExcelReader.cs" />
+    <Compile Include="GoldDeluxeResultExcelReader.cs" />
+    <Compile Include="Lucky3ResultExcelReader.cs" />
+    <Compile Include="SportsbookDetailResultExcelReader.cs" />
+    <Compile Include="OutrightResultExcelReader.cs" />
+    <Compile Include="SportsbookResultExcelReader.cs" />
+    <Compile Include="ResultExcelReader.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Fanex.Result.Data.ruleset" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Fanex.Result.Core.GoldDeLuxe\Fanex.Result.Core.GoldDeluxe.csproj">
+      <Project>{dbd59404-19d9-422c-83f1-8f20e02545ed}</Project>
+      <Name>Fanex.Result.Core.GoldDeluxe</Name>
+     </ProjectReference>
+      <Project>{8ED01504-3503-43C2-8E0E-8127E36E482C}</Project>
+      <Name>Fanex.Result.Core.Happy5</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Src\Products\Lucky3\Fanex.Result.Core.Lucky3\Fanex.Result.Core.Lucky3.csproj">
+      <Project>{5b12d69c-7bf6-4e40-ae62-3853db3d118d}</Project>
+      <Name>Fanex.Result.Core.Lucky3</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fanex.Result.Core.NumberGame\Fanex.Result.Core.NumberGame.csproj">
+      <Project>{cebae710-7919-4fc6-8978-862a3096972c}</Project>
+      <Name>Fanex.Result.Core.NumberGame</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Src\Products\Sportsbook\Fanex.Result.Core.Sportsbook\Fanex.Result.Core.Sportsbook.csproj">
+      <Project>{0469c900-5e5b-4d2c-8db3-7eaea991095b}</Project>
+      <Name>Fanex.Result.Core.Sportsbook</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.8.0.7320\analyzers\Google.Protobuf.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.8.0.7320\analyzers\SonarAnalyzer.CSharp.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.8.0.7320\analyzers\SonarAnalyzer.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -282,6 +282,12 @@ table.lucky3 .cl-result {
 table.lucky3 .cl-prize {
   width: 70px;
 }
+table.happy5 .cl-result {
+  width: 250px;
+}
+table.happy5 .cl-detail-result {
+  width: 70px;
+}
 table.ag-cs {
   /*header*/
 }

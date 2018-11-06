@@ -24,6 +24,7 @@
                 new Sport { Id = 5, Name = "Tennis" },
                 new Sport { Id = 160, Name = "Lucky3" },
                 new Sport { Id = 161, Name = "NumberGame" },
+                new Sport { Id = 164, Name = "Happy5" },
                 new Sport { Id = 192, Name = "VirtualSoccerWorldCup" },
                 new Sport { Id = 193, Name = "VirtualBasketball" },
                 new Sport { Id = 194, Name = "VirtualSoccerAsianCup" },

@@ -1,0 +1,173 @@
+﻿@using Fanex.Result.Core.Happy5.ViewModels;
+@using Fanex.Result.Core.Base.ViewModels;
+@using Fanex.Result.Core.Base.Resources;
+@using Fanex.Result.Core.Happy5.Resources;
+@using Fanex.Result.Core.Happy5.DataDomain;
+@{
+    var viewModel = Model as RazorBinderModel;
+    var colSpan = viewModel.VisibleMatchCodeIDColumn ? 11 : 10;
+    var popupStyleClass = viewModel.IsPopUp ? "popup" : string.Empty;
+}
+
+@if (viewModel.VisibleFreeHeader)
+{
+    <div class="fn-rs-content-header">
+        <table class="fn-rs happy5 @popupStyleClass">
+            @RenderTableHeader(viewModel, colSpan)
+        </table>
+    </div>
+    @Raw("<div class=\"fn-rs-content-scroll\">")
+}
+
+<table class="fn-rs happy5 @popupStyleClass">
+    @if (!viewModel.VisibleFreeHeader)
+    {
+        @RenderTableHeader(viewModel, colSpan)
+    }
+    <tbody>
+        @if (viewModel.Data.Count > 0)
+        {
+            var index = 0;
+
+            foreach (var group in viewModel.Data)
+            {
+
+                if (!viewModel.IsPopUp)
+                {
+
+                    <tr class="data">
+                        <td colspan="@colSpan" class="cl-league">
+                            @group.Data[0].LeagueName
+                        </td>
+                    </tr>
+                }
+                foreach (Happy5ViewModel item in group.Data)
+                {
+                    index++;
+                    <tr class="data @item.Color(index, "even", "odd")">
+                        @if (viewModel.VisibleMatchCodeIDColumn)
+                        {
+                            <td class="cl-m-code">
+                                <div class="m-code">
+                                    @item.MatchCode
+                                </div>
+                                <div class="m-id">
+                                    @item.MatchId
+                                </div>
+                            </td>
+                        }
+                        <td class="cl-ko-time">
+                            @Raw(item.KickOffTime)
+                        </td>
+                        <td class="cl-match">
+                            @item.Match
+                        </td>
+                        <td class="cl-result">
+                            @if (item.EventStatusIsRefundOrPending)
+                            {
+                                <div>@Constant.NA</div>
+                            }
+                            else
+                            {
+                                <div class="lottoBall @item.FirstBallColor">@item.FirstBall</div>
+                                <div class="lottoBall @item.SecondBallColor">@item.SecondBall</div>
+                                <div class="lottoBall @item.ThirdBallColor">@item.ThirdBall</div>
+                                <div class="lottoBall @item.FourthBallColor">@item.FourthBall</div>
+                                <div class="lottoBall @item.FifthBallColor">@item.FifthBall</div>
+                            }
+                        </td>
+
+                        <td class="cl-detail-result">
+                            @item.TotalBall
+                        </td>
+                        <td class="cl-detail-result">
+                            @item.BigSmall
+                        </td>
+                        <td class="cl-detail-result">
+                            @item.OddEven
+                        </td>
+                        <td class="cl-detail-result">
+                            @item.FourSeason
+                        </td>
+                        <td class="cl-detail-result">
+                            @item.MoreOddMoreEven
+                        </td>
+                        <td class="cl-detail-result">
+                            @item.Combo
+                        </td>
+                        <td class="cl-status @item.EventStatusBackground">
+                            @item.EventStatus
+                        </td>
+                    </tr>
+                }
+            }
+        }
+        else
+        {
+        <!--NoInfo-->
+            <tr class="row-noinfo">
+                <td colspan="@colSpan">@LangResource.NoInfo</td>
+            </tr>
+        <!--/ NoInfo-->
+        }
+    </tbody>
+</table>
+
+@if (viewModel.VisibleFreeHeader)
+{
+    @Raw("</div>")
+}
+
+@helper RenderTableHeader(RazorBinderModel viewModel, int colSpan)
+{
+    <thead>
+        @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+        {
+            var item = viewModel.Data[0].Data[0];
+
+            <tr class="row-title">
+                <th class="cl-title" colspan="@colSpan">
+                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                </th>
+            </tr>
+        }
+            <tr class="header">
+                @if (viewModel.VisibleMatchCodeIDColumn)
+                {
+                    <th class="cl-m-code">
+                        @LangResource.MatchCode/@LangResource.ID
+                    </th>
+                }
+                <th class="cl-ko-time">
+                    @LangResource.KickOffTime
+                </th>
+                <th class="cl-match">
+                    @Raw(LangResource.Match)
+                </th>
+                <th class="cl-result">
+                    @Raw(LangResource.Result)
+                </th>
+                <th class="cl-detail-result">
+                    @Raw(Happy5Resources.Total)
+                </th>
+                <th class="cl-detail-result">
+                    @Constant.BigSmall
+                </th>
+                <th class="cl-detail-result">
+                    @Constant.OddEven
+                </th>
+                <th class="cl-detail-result">
+                    @Constant.FourSeasons
+                </th>
+                <th class="cl-detail-result">
+                    @Constant.MoreOddMoreEven
+                </th>
+                <th class="cl-detail-result">
+                    @Constant.Combo
+                </th>
+                <th class="cl-status" >
+                    @LangResource.Status
+                </th>
+            </tr>
+    </thead>
+}

@@ -13,6 +13,8 @@ namespace MvcExample.Models.Criteria
 
         public int LeagueID { get; set; }
 
+        public int SportType { get; set; }
+
         [SpParam(Ignored = true)]
         public string Language { get; set; }
 

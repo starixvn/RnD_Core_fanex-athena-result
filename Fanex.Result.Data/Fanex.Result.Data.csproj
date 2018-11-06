@@ -55,6 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Happy5ResultExcelReader.cs" />
     <Compile Include="NumberGameResultExcelReader.cs" />
     <Compile Include="GoldDeluxeResultExcelReader.cs" />
     <Compile Include="Lucky3ResultExcelReader.cs" />
@@ -72,6 +73,10 @@
     <ProjectReference Include="..\Fanex.Result.Core.GoldDeLuxe\Fanex.Result.Core.GoldDeluxe.csproj">
       <Project>{dbd59404-19d9-422c-83f1-8f20e02545ed}</Project>
       <Name>Fanex.Result.Core.GoldDeluxe</Name>
+     </ProjectReference>
+    <ProjectReference Include="..\Fanex.Result.Core.Happy5\Fanex.Result.Core.Happy5.csproj">
+      <Project>{8ED01504-3503-43C2-8E0E-8127E36E482C}</Project>
+      <Name>Fanex.Result.Core.Happy5</Name>
     </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.Lucky3\Fanex.Result.Core.Lucky3.csproj">
       <Project>{5b12d69c-7bf6-4e40-ae62-3853db3d118d}</Project>
@@ -92,7 +97,7 @@
     <Analyzer Include="..\packages\SonarAnalyzer.CSharp.6.6.0.3969\analyzers\SonarAnalyzer.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>

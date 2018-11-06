@@ -287,6 +287,7 @@
     <Compile Include="Models\GlobalGaming\GlobalGamingResponse.cs" />
     <Compile Include="Models\GlobalGaming\GlobalGamingRequest.cs" />
     <Compile Include="Models\MetaModel\ResultPopupMetalModel.cs" />
+    <Compile Include="Models\ResultData\Happy5ResultData.cs" />
     <Compile Include="Models\ResultData\MicroGamingResultData.cs" />
     <Compile Include="Models\ResultData\AllbetResultData.cs" />
     <Compile Include="Models\ResultData\Constant.cs" />
@@ -301,6 +302,7 @@
     <Compile Include="Models\ResultData\Lucky3ResultData.cs" />
     <Compile Include="Models\ResultServices\BaseResultService.cs" />
     <Compile Include="Models\ResultServices\CasinoResultService.cs" />
+    <Compile Include="Models\ResultServices\Happy5ResultService.cs" />
     <Compile Include="Models\ResultServices\MetricGamingResultService.cs" />
     <Compile Include="Models\ResultServices\IResultService.cs" />
     <Compile Include="Models\ResultServices\Lucky3ResultService.cs" />
@@ -571,6 +573,8 @@
     <Content Include="App_Data\Result_Data\NumberGame.xls" />
     <Content Include="App_Data\Result_Data\GoldDeluxe.xls" />
     <Content Include="App_Data\Result_Data\Tennis.xls" />
+    <Content Include="App_Data\Result_Data\Happy5.xls" />
+    <Content Include="App_Data\Fanex.Result\Happy5.xls" />
     <Content Include="App_Data\Result_Data\TennisDetail.xls" />
     <Content Include="App_Data\Result_Data\Esport.xls" />
     <Content Include="App_Data\Result_Data\ESportDetail.xls" />
@@ -711,6 +715,10 @@
     <ProjectReference Include="..\Fanex.Result.Core.GlobalGaming\Fanex.Result.Core.GlobalGaming.csproj">
       <Project>{24011d8b-9445-4377-8b70-e7d4049f372f}</Project>
       <Name>Fanex.Result.Core.GlobalGaming</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Fanex.Result.Core.Happy5\Fanex.Result.Core.Happy5.csproj">
+      <Project>{8ED01504-3503-43C2-8E0E-8127E36E482C}</Project>
+      <Name>Fanex.Result.Core.Happy5</Name>
     </ProjectReference>
     <ProjectReference Include="..\Fanex.Result.Core.Lucky3\Fanex.Result.Core.Lucky3.csproj">
       <Project>{5b12d69c-7bf6-4e40-ae62-3853db3d118d}</Project>

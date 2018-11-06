@@ -72,6 +72,9 @@
                 case SportType.Lucky3:
                     return dtoName == DTOType.LUCKY3;
 
+                case SportType.Happy5:
+                    return dtoName == DTOType.HAPPY5;
+
                 default:
                     return dtoName == DTOType.SPORTSBOOK || dtoName == DTOType.METRICGAMING;
             }

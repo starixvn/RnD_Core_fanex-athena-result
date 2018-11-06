@@ -132,6 +132,9 @@
         [StringValue("LiveCasino")]
         LiveCasino = 162,
 
+        [StringValue("Happy5")]
+        Happy5 = 164,
+
         #region Other
 
         [StringValue("Other")]

@@ -1,0 +1,112 @@
+﻿namespace Fanex.Result.Core.Happy5.Tests.Models
+{
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using Base;
+    using Data;
+    using Fanex.Result.Core.Base.Utilities;
+    using Fanex.Result.Core.Happy5.Models;
+    using KellermanSoftware.CompareNetObjects;
+    using NSubstitute;
+    using NUnit.Framework;
+
+    [TestFixture]
+    public class BuilderTests
+    {
+        private ResultSetting resultSetting;
+        private List<DTO.Happy5> dataList;
+
+        [SetUp]
+        public void Setup()
+        {
+            resultSetting = new ResultSetting { SportType = SportType.Happy5 };
+            dataList = new List<DTO.Happy5> { new DTO.Happy5() };
+            ResultCoreManager.RegisterRefDataHelper(Substitute.For<IRefDataHelper>());
+        }
+
+        [Test]
+        public void HtmlBuilder_Always_GetExpectedHtml()
+        {
+            // Arrange
+            var builder = new Builder();
+
+            // Act
+            var actualHtml = builder.HtmlBuilder(dataList, resultSetting);
+
+            // Assert
+            var expectedHtml = File.ReadAllText(FilePath.ExpectedHtmlFilePath);
+            Assert.AreEqual(RemoveEndLineSymbolHtml(expectedHtml), RemoveEndLineSymbolHtml(actualHtml));
+        }
+
+        [Test]
+        public void ExcelBuilder_Always_GetExpectedExcel()
+        {
+            // Arrange
+            var builder = new Builder();
+            resultSetting.ExcelTemplatePath = FilePath.ExcelTemplatePath;
+            var excelViewModel = ViewModelConcreteFactory.Instance.GetExcelViewModel(dataList, resultSetting);
+
+            // Act
+            var actualExcelMemoryStream = builder.ExcelBuilder(dataList, resultSetting);
+
+            // Assert
+            Assert.AreEqual(excelViewModel.Export(), actualExcelMemoryStream);
+        }
+
+        [Test]
+        public void HtmlGameDetailBuilder_Always_ThrowNotImplementedException()
+        {
+            // Arrange
+            var builder = new Builder();
+
+            // Act
+            TestDelegate testDelegate = () => builder.HtmlGameDetailBuilder(dataList, resultSetting);
+
+            // Assert
+            Assert.Throws<NotImplementedException>(testDelegate);
+        }
+
+        [Test]
+        public void OutrightExcelBuilder_Always_ThrowNotImplementedException()
+        {
+            // Arrange
+            var builder = new Builder();
+
+            // Act
+            TestDelegate testDelegate = () => builder.OutrightExcelBuilder(dataList, resultSetting);
+
+            // Assert
+            Assert.Throws<NotImplementedException>(testDelegate);
+        }
+
+        [Test]
+        public void OutrightHtmlBuilder_Always_ThrowNotImplementedException()
+        {
+            // Arrange
+            var builder = new Builder();
+
+            // Act
+            TestDelegate testDelegate = () => builder.OutrightHtmlBuilder(dataList, resultSetting);
+
+            // Assert
+            Assert.Throws<NotImplementedException>(testDelegate);
+        }
+
+        [Test]
+        public void PopUpParalyBuilder_Always_ThrowNotImplementedException()
+        {
+            // Arrange
+            var builder = new Builder();
+
+            // Act
+            TestDelegate testDelegate = () => builder.PopUpParalyBuilder(dataList, resultSetting);
+
+            // Assert
+            Assert.Throws<NotImplementedException>(testDelegate);
+        }
+
+        private static string RemoveEndLineSymbolHtml(string htmlText)
+            => htmlText.Replace("\r", string.Empty).Replace(" ", string.Empty).Replace("\n", string.Empty);
+    }
+}

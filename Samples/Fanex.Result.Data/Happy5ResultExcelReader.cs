@@ -54,9 +54,6 @@
                 EventStatus = row.GetCell(6)?.ToString(),
                 MatchCode = row.GetCell(7)?.ToString(),
                 LeagueId = Convert.ToInt32(row.GetCell(8)?.ToString()),
-                LiveHomeScore = Convert.ToInt32(row.GetCell(9)?.ToString()),
-                LiveAwayScore = Convert.ToInt32(row.GetCell(10)?.ToString()),
-                FinalHomeScore = Convert.ToInt32(row.GetCell(11)?.ToString()),
                 IsPending = row.GetCell(14)?.ToString() == "1"
             };
         }

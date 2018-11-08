@@ -15,12 +15,6 @@
 
         public string MatchCode { get; set; } = string.Empty;
 
-        public int LiveHomeScore { get; set; }
-
-        public int LiveAwayScore { get; set; }
-
-        public int FinalHomeScore { get; set; }
-
         public string EventStatus { get; set; } = string.Empty;
 
         public bool IsPending { get; set; }

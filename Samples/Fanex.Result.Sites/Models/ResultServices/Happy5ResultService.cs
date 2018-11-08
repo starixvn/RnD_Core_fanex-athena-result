@@ -59,10 +59,7 @@
                     KickOffTime = DateTime.Parse(reader["kickofftime"].ToString()),
                     MatchCode = reader["matchcode"].ToString(),
                     Seq = new List<int> { int.Parse(reader["seq"].ToString()) },
-                    Ball = new List<int> { int.Parse(reader["number"].ToString()) },
-                    LiveHomeScore = int.Parse(string.IsNullOrEmpty(reader["livehomescore"]?.ToString()) ? "0" : reader["livehomescore"]?.ToString()),
-                    LiveAwayScore = int.Parse(string.IsNullOrEmpty(reader["liveawayscore"]?.ToString()) ? "0" : reader["liveawayscore"]?.ToString()),
-                    FinalHomeScore = int.Parse(string.IsNullOrEmpty(reader["finalhomescore"]?.ToString()) ? "0" : reader["finalhomescore"]?.ToString()),
+                    Ball = new List<int> { int.Parse(reader["number"].ToString()) }
                 });
             }
         }

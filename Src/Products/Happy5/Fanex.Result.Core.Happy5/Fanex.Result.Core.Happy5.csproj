@@ -71,12 +71,19 @@
     <Compile Include="ViewModels\Happy5ViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Resources\Happy5Resources.ja-JP.resx" />
+    <EmbeddedResource Include="Resources\Happy5Resources.ko-KR.resx" />
     <EmbeddedResource Include="Resources\Happy5Resources.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Happy5Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Fanex.Result.Core.Happy5.ruleset" />
     <None Include="packages.config" />
+    <EmbeddedResource Include="Resources\Happy5Resources.th-TH.resx" />
+    <EmbeddedResource Include="Resources\Happy5Resources.vi-VN.resx" />
+    <EmbeddedResource Include="Resources\Happy5Resources.zh-CN.resx" />
+    <EmbeddedResource Include="Resources\Happy5Resources.zh-Hans.resx" />
+    <EmbeddedResource Include="Resources\Happy5Resources.zh-TW.resx" />
     <EmbeddedResource Include="Views\Happy5.cshtml" />
   </ItemGroup>
   <ItemGroup>

@@ -3,6 +3,7 @@
     using Base;
     using Base.Extension;
     using DTO;
+    using Fanex.Result.Core.Base.Utilities;
     using KellermanSoftware.CompareNetObjects;
     using NSubstitute;
     using NUnit.Framework;
@@ -75,6 +76,7 @@
             _sportsbook = new Sportsbook();
             _setting = new ResultSetting();
             _resultDetail = Substitute.For<IResultDetail<BasketBallGameDetailItem>>();
+            ResultCoreManager.RegisterRefDataHelper(Substitute.For<IRefDataHelper>());
         }
 
         [Test]

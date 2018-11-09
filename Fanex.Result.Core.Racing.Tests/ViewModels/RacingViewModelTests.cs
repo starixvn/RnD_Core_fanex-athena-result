@@ -21,6 +21,7 @@
             _racing = new Racing();
             _setting = new ResultSetting { LanguageCode = "en-US" };
             _refDataHelper = Substitute.For<IRefDataHelper>();
+            ResultCoreManager.RegisterRefDataHelper(_refDataHelper);
         }
 
         [Test]

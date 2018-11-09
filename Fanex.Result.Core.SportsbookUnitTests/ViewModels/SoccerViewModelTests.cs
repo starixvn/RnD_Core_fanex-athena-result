@@ -24,6 +24,7 @@
             _setting = new ResultSetting();
             _soccer = new Sportsbook();
             _refDataHelper = Substitute.For<IRefDataHelper>();
+            ResultCoreManager.RegisterRefDataHelper(_refDataHelper);
         }
 
         [TestCase(true, true)]

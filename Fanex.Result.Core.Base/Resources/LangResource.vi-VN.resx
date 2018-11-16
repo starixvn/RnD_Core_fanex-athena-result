@@ -228,4 +228,10 @@
   <data name="Lose" xml:space="preserve">
     <value>Thua</value>
   </data>
+  <data name="MinSec" xml:space="preserve">
+    <value>{0} phút {1} giây</value>
+  </data>
+  <data name="Map" xml:space="preserve">
+    <value>Bản Đồ</value>
+  </data>
 </root>

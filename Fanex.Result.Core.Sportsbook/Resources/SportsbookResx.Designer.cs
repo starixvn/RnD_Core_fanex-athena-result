@@ -142,7 +142,7 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Map {0} Lords Score.
+        ///   Looks up a localized string similar to Map {0} Overlords Score.
         /// </summary>
         public static string ESports_90520X {
             get {

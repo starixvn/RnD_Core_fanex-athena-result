@@ -214,7 +214,7 @@
     <value>地图 {0} 回合 {1} 优胜者</value>
   </data>
   <data name="ESports_90690X0Y" xml:space="preserve">
-    <value>地图 {0} 回合 {1} 击杀总数</value>
+    <value>地图 {0} 回合  {1}  击杀总数</value>
   </data>
   <data name="ESports_90740X" xml:space="preserve">
     <value>地图{0}回合得分（包括加时）</value>

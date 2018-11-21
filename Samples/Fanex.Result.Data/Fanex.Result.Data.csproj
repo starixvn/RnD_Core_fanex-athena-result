@@ -81,7 +81,7 @@
       <Project>{5b12d69c-7bf6-4e40-ae62-3853db3d118d}</Project>
       <Name>Fanex.Result.Core.Lucky3</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Fanex.Result.Core.NumberGame\Fanex.Result.Core.NumberGame.csproj">
+    <ProjectReference Include="..\..\Src\Products\NumberGame\Fanex.Result.Core.NumberGame\Fanex.Result.Core.NumberGame.csproj">
       <Project>{cebae710-7919-4fc6-8978-862a3096972c}</Project>
       <Name>Fanex.Result.Core.NumberGame</Name>
     </ProjectReference>

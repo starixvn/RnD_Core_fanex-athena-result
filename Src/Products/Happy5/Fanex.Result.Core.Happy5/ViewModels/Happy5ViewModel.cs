@@ -64,18 +64,18 @@
 
         public string TotalBall => EventStatusIsRefundOrPending ? Constant.NA : Total.ToString();
 
-        public string BigSmall => EventStatusIsRefundOrPending ? Constant.NA : (Total >= 53 ? Big : Small);
+        public string BigSmall => EventStatusIsRefundOrPending ? Constant.NA : GetBigSmallResult();
 
-        public string OddEven => EventStatusIsRefundOrPending ? Constant.NA : ((Total % 2) == 0 ? Even : Odd);
+        public string OddEven => EventStatusIsRefundOrPending ? Constant.NA : GetEvenOddResult();
 
         public string FourSeason => EventStatusIsRefundOrPending ? Constant.NA : GetFourSeasonResult(Total);
 
-        public string MoreOddMoreEven => EventStatusIsRefundOrPending ? Constant.NA : (CountOdd(resultData.Ball) > 2 ? MoreOdd : MoreEven);
+        public string MoreOddMoreEven => EventStatusIsRefundOrPending ? Constant.NA : GetMoreOddMoreEvenResult();
 
         public string Combo => EventStatusIsRefundOrPending ? Constant.NA : BigSmall + OddEven;
 
         public override string EventStatus
-            => MapEventStatus.MapEventStatusString(resultData.EventStatus, resultData.IsPending, VisibleInternalEventStatus);
+            => MapEventStatus.MapEventStatusString(resultData.EventStatus, resultData.IsPending);
 
         public bool EventStatusIsRefundOrPending
             => resultData.EventStatus.Equals(ConstantValue.Refund, StringComparison.OrdinalIgnoreCase) ||
@@ -97,6 +97,12 @@
         private int GetBall(int index)
            => (resultData.Ball.Count > 0 && index < resultData.Ball.Count) ?
                 resultData.Ball[index] : 0;
+
+        private string GetBigSmallResult() => Total >= 53 ? Big : Small;
+
+        private string GetEvenOddResult() => Total % 2 == 0 ? Even : Odd;
+
+        private string GetMoreOddMoreEvenResult() => CountOdd(resultData.Ball) > 2 ? MoreOdd : MoreEven;
 
         private static string GetFourSeasonResult(int totalBall)
         {

@@ -26,6 +26,7 @@
                 new Sport { Id = 161, Name = "NumberGame" },
                 new Sport { Id = 192, Name = "VirtualSoccerWorldCup" },
                 new Sport { Id = 193, Name = "VirtualBasketball" },
+                new Sport { Id = 194, Name = "VirtualSoccerAsianCup" },
                 new Sport { Id = 47, Name = "Kabaddi" },
                 new Sport { Id = 48, Name = "Sepak Takraw" },
                 new Sport { Id = 49, Name = "Futsal" },

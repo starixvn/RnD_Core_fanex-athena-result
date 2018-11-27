@@ -55,9 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="GoldDeluxeResultExcelReader.cs" />
     <Compile Include="Happy5ResultExcelReader.cs" />
     <Compile Include="NumberGameResultExcelReader.cs" />
-    <Compile Include="GoldDeluxeResultExcelReader.cs" />
     <Compile Include="Lucky3ResultExcelReader.cs" />
     <Compile Include="SportsbookDetailResultExcelReader.cs" />
     <Compile Include="OutrightResultExcelReader.cs" />
@@ -70,10 +70,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Fanex.Result.Core.GoldDeLuxe\Fanex.Result.Core.GoldDeluxe.csproj">
+    <ProjectReference Include="..\..\Src\Products\GoldDeluxe\Fanex.Result.Core.GoldDeLuxe\Fanex.Result.Core.GoldDeluxe.csproj">
       <Project>{dbd59404-19d9-422c-83f1-8f20e02545ed}</Project>
       <Name>Fanex.Result.Core.GoldDeluxe</Name>
-     </ProjectReference>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Src\Products\Happy5\Fanex.Result.Core.Happy5\Fanex.Result.Core.Happy5.csproj">
       <Project>{8ED01504-3503-43C2-8E0E-8127E36E482C}</Project>
       <Name>Fanex.Result.Core.Happy5</Name>
     </ProjectReference>

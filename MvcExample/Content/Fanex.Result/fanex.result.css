@@ -561,14 +561,13 @@ table .row-noinfo {
 }
 .sicbo-result {
   padding: 6px 0px;
-  }
-
-.width-40 {
-  width: 40%;
 }
 .sicbo-result span {
   margin: 0px 5px;
   font-size: 50px;
+}
+.width-40 {
+  width: 40%;
 }
 .width-30 {
   width: 30%;

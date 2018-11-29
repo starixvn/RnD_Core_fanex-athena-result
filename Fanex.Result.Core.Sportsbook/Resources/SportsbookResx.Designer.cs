@@ -115,7 +115,7 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Map {0} Barrons Score.
+        ///   Looks up a localized string similar to Map {0} Barons Score.
         /// </summary>
         public static string ESports_90340X {
             get {

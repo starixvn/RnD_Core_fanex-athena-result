@@ -51,6 +51,18 @@
           "lib/net46/NSubstitute.dll": {}
         }
       },
+      "NUnit/3.11.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/nunit.framework.dll": {}
+        },
+        "runtime": {
+          "lib/net45/nunit.framework.dll": {}
+        },
+        "build": {
+          "build/NUnit.props": {}
+        }
+      },
       "SharpZipLib/0.86.0": {
         "type": "package",
         "compile": {
@@ -151,6 +163,18 @@
         },
         "runtime": {
           "lib/net46/NSubstitute.dll": {}
+        }
+      },
+      "NUnit/3.11.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/nunit.framework.dll": {}
+        },
+        "runtime": {
+          "lib/net45/nunit.framework.dll": {}
+        },
+        "build": {
+          "build/NUnit.props": {}
         }
       },
       "SharpZipLib/0.86.0": {
@@ -255,6 +279,18 @@
           "lib/net46/NSubstitute.dll": {}
         }
       },
+      "NUnit/3.11.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/nunit.framework.dll": {}
+        },
+        "runtime": {
+          "lib/net45/nunit.framework.dll": {}
+        },
+        "build": {
+          "build/NUnit.props": {}
+        }
+      },
       "SharpZipLib/0.86.0": {
         "type": "package",
         "compile": {
@@ -355,6 +391,18 @@
         },
         "runtime": {
           "lib/net46/NSubstitute.dll": {}
+        }
+      },
+      "NUnit/3.11.0": {
+        "type": "package",
+        "compile": {
+          "lib/net45/nunit.framework.dll": {}
+        },
+        "runtime": {
+          "lib/net45/nunit.framework.dll": {}
+        },
+        "build": {
+          "build/NUnit.props": {}
         }
       },
       "SharpZipLib/0.86.0": {
@@ -472,6 +520,39 @@
         "nsubstitute.nuspec"
       ]
     },
+    "NUnit/3.11.0": {
+      "sha512": "zecrYxUA5p5w8AZ2bvbBbiUIcrQnZAVPrziNMSWMdcOi0D2Oe7yKUNivWPIQMcUwQDHmWtS/ijnD48ubU/eHZQ==",
+      "type": "package",
+      "path": "nunit/3.11.0",
+      "files": [
+        ".signature.p7s",
+        "CHANGES.md",
+        "LICENSE.txt",
+        "NOTICES.txt",
+        "build/NUnit.props",
+        "lib/net20/NUnit.System.Linq.dll",
+        "lib/net20/nunit.framework.dll",
+        "lib/net20/nunit.framework.pdb",
+        "lib/net20/nunit.framework.xml",
+        "lib/net35/nunit.framework.dll",
+        "lib/net35/nunit.framework.pdb",
+        "lib/net35/nunit.framework.xml",
+        "lib/net40/nunit.framework.dll",
+        "lib/net40/nunit.framework.pdb",
+        "lib/net40/nunit.framework.xml",
+        "lib/net45/nunit.framework.dll",
+        "lib/net45/nunit.framework.pdb",
+        "lib/net45/nunit.framework.xml",
+        "lib/netstandard1.4/nunit.framework.dll",
+        "lib/netstandard1.4/nunit.framework.pdb",
+        "lib/netstandard1.4/nunit.framework.xml",
+        "lib/netstandard2.0/nunit.framework.dll",
+        "lib/netstandard2.0/nunit.framework.pdb",
+        "lib/netstandard2.0/nunit.framework.xml",
+        "nunit.3.11.0.nupkg.sha512",
+        "nunit.nuspec"
+      ]
+    },
     "SharpZipLib/0.86.0": {
       "sha512": "5DbS1SlKLMi+WG00Cm0ueYf2oyXJrowETQk8nx96rmdjTuHsA3laPykGV7Sxi0R5Xxfx0Kh/EfacAZ1f6M7y/g==",
       "type": "package",
@@ -522,7 +603,8 @@
       "Fanex.Result.Core.GoldDeLuxe >= 1.0.0",
       "Fanex.Result.Core.Tests.Utils >= 1.0.0",
       "NPOI >= 2.0.6",
-      "NSubstitute >= 3.1.0"
+      "NSubstitute >= 3.1.0",
+      "NUnit >= 3.11.0"
     ]
   },
   "packageFolders": {
@@ -531,11 +613,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Working\\Nexcel\\Projects\\Nexcel Projects\\result-core\\fanex-athena-result\\Src\\Products\\GoldDeluxe\\Fanex.Result.Core.GoldDeluxe.Tests\\Fanex.Result.Core.GoldDeluxe.Tests.csproj",
+      "projectUniqueName": "D:\\working\\nexcel\\projects\\normal\\Fanex.Result.Core\\Src\\Products\\GoldDeluxe\\Fanex.Result.Core.GoldDeluxe.Tests\\Fanex.Result.Core.GoldDeluxe.Tests.csproj",
       "projectName": "Fanex.Result.Core.GoldDeluxe.Tests",
-      "projectPath": "D:\\Working\\Nexcel\\Projects\\Nexcel Projects\\result-core\\fanex-athena-result\\Src\\Products\\GoldDeluxe\\Fanex.Result.Core.GoldDeluxe.Tests\\Fanex.Result.Core.GoldDeluxe.Tests.csproj",
+      "projectPath": "D:\\working\\nexcel\\projects\\normal\\Fanex.Result.Core\\Src\\Products\\GoldDeluxe\\Fanex.Result.Core.GoldDeluxe.Tests\\Fanex.Result.Core.GoldDeluxe.Tests.csproj",
       "packagesPath": "C:\\Users\\harrison.nguyen\\.nuget\\packages\\",
-      "outputPath": "D:\\Working\\Nexcel\\Projects\\Nexcel Projects\\result-core\\fanex-athena-result\\Src\\Products\\GoldDeluxe\\Fanex.Result.Core.GoldDeluxe.Tests\\obj\\",
+      "outputPath": "D:\\working\\nexcel\\projects\\normal\\Fanex.Result.Core\\Src\\Products\\GoldDeluxe\\Fanex.Result.Core.GoldDeluxe.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
@@ -553,14 +635,14 @@
       "frameworks": {
         "net461": {
           "projectReferences": {
-            "D:\\Working\\Nexcel\\Projects\\Nexcel Projects\\result-core\\fanex-athena-result\\Src\\Products\\Core\\Fanex.Result.Core.Base\\Fanex.Result.Core.Base.csproj": {
-              "projectPath": "D:\\Working\\Nexcel\\Projects\\Nexcel Projects\\result-core\\fanex-athena-result\\Src\\Products\\Core\\Fanex.Result.Core.Base\\Fanex.Result.Core.Base.csproj"
+            "D:\\working\\nexcel\\projects\\normal\\Fanex.Result.Core\\Src\\Products\\Core\\Fanex.Result.Core.Base\\Fanex.Result.Core.Base.csproj": {
+              "projectPath": "D:\\working\\nexcel\\projects\\normal\\Fanex.Result.Core\\Src\\Products\\Core\\Fanex.Result.Core.Base\\Fanex.Result.Core.Base.csproj"
             },
-            "D:\\Working\\Nexcel\\Projects\\Nexcel Projects\\result-core\\fanex-athena-result\\Src\\Products\\Core\\Fanex.Result.Core.Tests.Utils\\Fanex.Result.Core.Tests.Utils.csproj": {
-              "projectPath": "D:\\Working\\Nexcel\\Projects\\Nexcel Projects\\result-core\\fanex-athena-result\\Src\\Products\\Core\\Fanex.Result.Core.Tests.Utils\\Fanex.Result.Core.Tests.Utils.csproj"
+            "D:\\working\\nexcel\\projects\\normal\\Fanex.Result.Core\\Src\\Products\\Core\\Fanex.Result.Core.Tests.Utils\\Fanex.Result.Core.Tests.Utils.csproj": {
+              "projectPath": "D:\\working\\nexcel\\projects\\normal\\Fanex.Result.Core\\Src\\Products\\Core\\Fanex.Result.Core.Tests.Utils\\Fanex.Result.Core.Tests.Utils.csproj"
             },
-            "D:\\Working\\Nexcel\\Projects\\Nexcel Projects\\result-core\\fanex-athena-result\\Src\\Products\\GoldDeluxe\\Fanex.Result.Core.GoldDeLuxe\\Fanex.Result.Core.GoldDeLuxe.csproj": {
-              "projectPath": "D:\\Working\\Nexcel\\Projects\\Nexcel Projects\\result-core\\fanex-athena-result\\Src\\Products\\GoldDeluxe\\Fanex.Result.Core.GoldDeLuxe\\Fanex.Result.Core.GoldDeLuxe.csproj"
+            "D:\\working\\nexcel\\projects\\normal\\Fanex.Result.Core\\Src\\Products\\GoldDeluxe\\Fanex.Result.Core.GoldDeLuxe\\Fanex.Result.Core.GoldDeLuxe.csproj": {
+              "projectPath": "D:\\working\\nexcel\\projects\\normal\\Fanex.Result.Core\\Src\\Products\\GoldDeluxe\\Fanex.Result.Core.GoldDeLuxe\\Fanex.Result.Core.GoldDeLuxe.csproj"
             }
           }
         }
@@ -576,6 +658,10 @@
           "NSubstitute": {
             "target": "Package",
             "version": "[3.1.0, )"
+          },
+          "NUnit": {
+            "target": "Package",
+            "version": "[3.11.0, )"
           }
         }
       }

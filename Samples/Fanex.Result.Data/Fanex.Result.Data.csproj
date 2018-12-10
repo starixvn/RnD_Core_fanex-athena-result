@@ -70,9 +70,17 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Src\Products\GoldDeluxe\Fanex.Result.Core.GoldDeLuxe\Fanex.Result.Core.GoldDeluxe.csproj">
+    <ProjectReference Include="..\..\Src\Products\Core\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj">
+      <Project>{8673f024-7726-4c30-8464-5a8357f79bf0}</Project>
+      <Name>Fanex.Result.Core.Base</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Src\Products\Core\Fanex.Result.Core\Fanex.Result.Core.csproj">
+      <Project>{73aaea31-c52d-47d2-bc47-087a06794f55}</Project>
+      <Name>Fanex.Result.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Src\Products\GoldDeluxe\Fanex.Result.Core.GoldDeLuxe\Fanex.Result.Core.GoldDeLuxe.csproj">
       <Project>{dbd59404-19d9-422c-83f1-8f20e02545ed}</Project>
-      <Name>Fanex.Result.Core.GoldDeluxe</Name>
+      <Name>Fanex.Result.Core.GoldDeLuxe</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Src\Products\Happy5\Fanex.Result.Core.Happy5\Fanex.Result.Core.Happy5.csproj">
       <Project>{8ED01504-3503-43C2-8E0E-8127E36E482C}</Project>

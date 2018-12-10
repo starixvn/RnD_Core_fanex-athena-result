@@ -76,6 +76,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MicroGaming", "MicroGaming", "{6B9FF6A4-F603-4439-86B3-D0F044FDDBFF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.MicroGaming", "Src\Products\MicroGaming\Fanex.Result.Core.MicroGaming\Fanex.Result.Core.MicroGaming.csproj", "{083CA0EF-F420-4A62-BE5B-4145AFFEDEC1}"
+EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NumberGame", "NumberGame", "{A925CE5C-CB8C-44EF-898F-2C0164FF0D32}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.NumberGame", "Src\Products\NumberGame\Fanex.Result.Core.NumberGame\Fanex.Result.Core.NumberGame.csproj", "{CEBAE710-7919-4FC6-8978-862A3096972C}"
@@ -135,10 +136,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.GoldDeluxe.Tests", "Src\Products\GoldDeluxe\Fanex.Result.Core.GoldDeluxe.Tests\Fanex.Result.Core.GoldDeluxe.Tests.csproj", "{B7E1ABCF-0E52-4BD8-813C-68EEE351DE58}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.CockFighting.Tests", "Src\Products\Cockfighting\Fanex.Result.Core.CockFighting.Tests\Fanex.Result.Core.CockFighting.Tests.csproj", "{9B472221-EF3F-4833-B71F-CD9402C8519F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Base.Tests", "Fanex.Result.Core.BaseUnitTests\Fanex.Result.Core.Base.Tests.csproj", "{77EA5F5D-52E9-47D8-BF8C-7974A2F00AF7}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.TestUtils", "Fanex.Result.Core.TestUtils\Fanex.Result.Core.TestUtils.csproj", "{055D46DB-5556-4A00-902B-CF7C4B8225BA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -365,6 +362,7 @@ Global
 		{FDBD763F-5380-4A74-BCB9-C53FFDD9A550} = {056CB47B-8797-4C93-BF01-5E4B6EE25EB7}
 		{B899F4AE-2360-45B1-96D0-423C7328E8EA} = {FDBD763F-5380-4A74-BCB9-C53FFDD9A550}
 		{266EB456-C4F5-4E6D-B7D5-B851D1810DFB} = {FDBD763F-5380-4A74-BCB9-C53FFDD9A550}
+		{15E2D2EC-E10D-4900-984F-B818011620DA} = {2A1EF0A1-A4C4-48AC-94B4-F32BC137EE77}
 		{FA14D5CB-B702-4D24-A938-A091E3032D06} = {2A1EF0A1-A4C4-48AC-94B4-F32BC137EE77}
 		{EBD31F24-8F67-4E36-BD6D-1BB78A71E54B} = {2A1EF0A1-A4C4-48AC-94B4-F32BC137EE77}
 		{73AAEA31-C52D-47D2-BC47-087A06794F55} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
@@ -373,11 +371,10 @@ Global
 		{055D46DB-5556-4A00-902B-CF7C4B8225BA} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{B7E1ABCF-0E52-4BD8-813C-68EEE351DE58} = {9E13D86A-E136-4D47-8B10-FCBD979314DA}
 		{9B472221-EF3F-4833-B71F-CD9402C8519F} = {57B6B8AB-1BC2-4DA6-84A7-4A6AD8410B57}
-		{055D46DB-5556-4A00-902B-CF7C4B8225BA} = {AA01F89E-722F-4345-B1A7-97DE91CA86FF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		LessCompiler = ebd31f24-8f67-4e36-bd6d-1bb78a71e54b
 		SolutionGuid = {4BF11104-7EAE-4BB6-A235-1C10DB35CE8B}
+		LessCompiler = ebd31f24-8f67-4e36-bd6d-1bb78a71e54b
 	EndGlobalSection
 	GlobalSection(JSLint) = preSolution
 		SolutionConfigurationLocation = JSLintOptions.xml

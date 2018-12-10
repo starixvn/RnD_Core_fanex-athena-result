@@ -80,11 +80,11 @@
     <Reference Include="Fanex.RemotingRef, Version=1.2.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Fanex.RemotingRef.1.2.0\lib\net461\Fanex.RemotingRef.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Result.Core, Version=2.1.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.Result.Core-NPOI.2.0.6.2.1.6\lib\net40\Fanex.Result.Core.dll</HintPath>
+    <Reference Include="Fanex.Result.Core, Version=2.1.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fanex.Result.Core-NPOI.2.0.6.2.1.7-beta\lib\net40\Fanex.Result.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Result.Core.Base, Version=2.1.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.Result.Core-NPOI.2.0.6.2.1.6\lib\net40\Fanex.Result.Core.Base.dll</HintPath>
+    <Reference Include="Fanex.Result.Core.Base, Version=2.1.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Fanex.Result.Core-NPOI.2.0.6.2.1.7-beta\lib\net40\Fanex.Result.Core.Base.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.GoldDeluxe, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Fanex.Result.Core-GoldDeluxe.1.0.3-beta1\lib\net40\Fanex.Result.Core.GoldDeluxe.dll</HintPath>
@@ -575,6 +575,7 @@
     <Content Include="App_Data\Result_Data\Esport.xls" />
     <Content Include="App_Data\Result_Data\ESportDetail.xls" />
     <Content Include="App_Data\Fanex.Result\ESport.xls" />
+    <Content Include="App_Data\Result_Data\VirtualSoccerAsianCup.xls" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>

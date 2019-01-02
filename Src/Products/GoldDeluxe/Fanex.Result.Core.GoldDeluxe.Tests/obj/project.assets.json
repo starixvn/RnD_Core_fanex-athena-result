@@ -14,24 +14,22 @@
           "lib/net45/Castle.Core.dll": {}
         }
       },
-      "NPOI/2.0.6": {
+      "NPOI/2.4.1": {
         "type": "package",
         "dependencies": {
-          "SharpZipLib": "0.86.0"
+          "SharpZipLib": "1.0.0"
         },
         "compile": {
-          "lib/net40/ICSharpCode.SharpZipLib.dll": {},
-          "lib/net40/NPOI.OOXML.dll": {},
-          "lib/net40/NPOI.OpenXml4Net.dll": {},
-          "lib/net40/NPOI.OpenXmlFormats.dll": {},
-          "lib/net40/NPOI.dll": {}
+          "lib/net45/NPOI.OOXML.dll": {},
+          "lib/net45/NPOI.OpenXml4Net.dll": {},
+          "lib/net45/NPOI.OpenXmlFormats.dll": {},
+          "lib/net45/NPOI.dll": {}
         },
         "runtime": {
-          "lib/net40/ICSharpCode.SharpZipLib.dll": {},
-          "lib/net40/NPOI.OOXML.dll": {},
-          "lib/net40/NPOI.OpenXml4Net.dll": {},
-          "lib/net40/NPOI.OpenXmlFormats.dll": {},
-          "lib/net40/NPOI.dll": {}
+          "lib/net45/NPOI.OOXML.dll": {},
+          "lib/net45/NPOI.OpenXml4Net.dll": {},
+          "lib/net45/NPOI.OpenXmlFormats.dll": {},
+          "lib/net45/NPOI.dll": {}
         }
       },
       "NSubstitute/3.1.0": {
@@ -63,13 +61,13 @@
           "build/NUnit.props": {}
         }
       },
-      "SharpZipLib/0.86.0": {
+      "SharpZipLib/1.0.0": {
         "type": "package",
         "compile": {
-          "lib/20/ICSharpCode.SharpZipLib.dll": {}
+          "lib/net45/ICSharpCode.SharpZipLib.dll": {}
         },
         "runtime": {
-          "lib/20/ICSharpCode.SharpZipLib.dll": {}
+          "lib/net45/ICSharpCode.SharpZipLib.dll": {}
         }
       },
       "System.Threading.Tasks.Extensions/4.3.0": {
@@ -128,24 +126,22 @@
           "lib/net45/Castle.Core.dll": {}
         }
       },
-      "NPOI/2.0.6": {
+      "NPOI/2.4.1": {
         "type": "package",
         "dependencies": {
-          "SharpZipLib": "0.86.0"
+          "SharpZipLib": "1.0.0"
         },
         "compile": {
-          "lib/net40/ICSharpCode.SharpZipLib.dll": {},
-          "lib/net40/NPOI.OOXML.dll": {},
-          "lib/net40/NPOI.OpenXml4Net.dll": {},
-          "lib/net40/NPOI.OpenXmlFormats.dll": {},
-          "lib/net40/NPOI.dll": {}
+          "lib/net45/NPOI.OOXML.dll": {},
+          "lib/net45/NPOI.OpenXml4Net.dll": {},
+          "lib/net45/NPOI.OpenXmlFormats.dll": {},
+          "lib/net45/NPOI.dll": {}
         },
         "runtime": {
-          "lib/net40/ICSharpCode.SharpZipLib.dll": {},
-          "lib/net40/NPOI.OOXML.dll": {},
-          "lib/net40/NPOI.OpenXml4Net.dll": {},
-          "lib/net40/NPOI.OpenXmlFormats.dll": {},
-          "lib/net40/NPOI.dll": {}
+          "lib/net45/NPOI.OOXML.dll": {},
+          "lib/net45/NPOI.OpenXml4Net.dll": {},
+          "lib/net45/NPOI.OpenXmlFormats.dll": {},
+          "lib/net45/NPOI.dll": {}
         }
       },
       "NSubstitute/3.1.0": {
@@ -177,13 +173,13 @@
           "build/NUnit.props": {}
         }
       },
-      "SharpZipLib/0.86.0": {
+      "SharpZipLib/1.0.0": {
         "type": "package",
         "compile": {
-          "lib/20/ICSharpCode.SharpZipLib.dll": {}
+          "lib/net45/ICSharpCode.SharpZipLib.dll": {}
         },
         "runtime": {
-          "lib/20/ICSharpCode.SharpZipLib.dll": {}
+          "lib/net45/ICSharpCode.SharpZipLib.dll": {}
         }
       },
       "System.Threading.Tasks.Extensions/4.3.0": {
@@ -242,24 +238,22 @@
           "lib/net45/Castle.Core.dll": {}
         }
       },
-      "NPOI/2.0.6": {
+      "NPOI/2.4.1": {
         "type": "package",
         "dependencies": {
-          "SharpZipLib": "0.86.0"
+          "SharpZipLib": "1.0.0"
         },
         "compile": {
-          "lib/net40/ICSharpCode.SharpZipLib.dll": {},
-          "lib/net40/NPOI.OOXML.dll": {},
-          "lib/net40/NPOI.OpenXml4Net.dll": {},
-          "lib/net40/NPOI.OpenXmlFormats.dll": {},
-          "lib/net40/NPOI.dll": {}
+          "lib/net45/NPOI.OOXML.dll": {},
+          "lib/net45/NPOI.OpenXml4Net.dll": {},
+          "lib/net45/NPOI.OpenXmlFormats.dll": {},
+          "lib/net45/NPOI.dll": {}
         },
         "runtime": {
-          "lib/net40/ICSharpCode.SharpZipLib.dll": {},
-          "lib/net40/NPOI.OOXML.dll": {},
-          "lib/net40/NPOI.OpenXml4Net.dll": {},
-          "lib/net40/NPOI.OpenXmlFormats.dll": {},
-          "lib/net40/NPOI.dll": {}
+          "lib/net45/NPOI.OOXML.dll": {},
+          "lib/net45/NPOI.OpenXml4Net.dll": {},
+          "lib/net45/NPOI.OpenXmlFormats.dll": {},
+          "lib/net45/NPOI.dll": {}
         }
       },
       "NSubstitute/3.1.0": {
@@ -291,13 +285,13 @@
           "build/NUnit.props": {}
         }
       },
-      "SharpZipLib/0.86.0": {
+      "SharpZipLib/1.0.0": {
         "type": "package",
         "compile": {
-          "lib/20/ICSharpCode.SharpZipLib.dll": {}
+          "lib/net45/ICSharpCode.SharpZipLib.dll": {}
         },
         "runtime": {
-          "lib/20/ICSharpCode.SharpZipLib.dll": {}
+          "lib/net45/ICSharpCode.SharpZipLib.dll": {}
         }
       },
       "System.Threading.Tasks.Extensions/4.3.0": {
@@ -356,24 +350,22 @@
           "lib/net45/Castle.Core.dll": {}
         }
       },
-      "NPOI/2.0.6": {
+      "NPOI/2.4.1": {
         "type": "package",
         "dependencies": {
-          "SharpZipLib": "0.86.0"
+          "SharpZipLib": "1.0.0"
         },
         "compile": {
-          "lib/net40/ICSharpCode.SharpZipLib.dll": {},
-          "lib/net40/NPOI.OOXML.dll": {},
-          "lib/net40/NPOI.OpenXml4Net.dll": {},
-          "lib/net40/NPOI.OpenXmlFormats.dll": {},
-          "lib/net40/NPOI.dll": {}
+          "lib/net45/NPOI.OOXML.dll": {},
+          "lib/net45/NPOI.OpenXml4Net.dll": {},
+          "lib/net45/NPOI.OpenXmlFormats.dll": {},
+          "lib/net45/NPOI.dll": {}
         },
         "runtime": {
-          "lib/net40/ICSharpCode.SharpZipLib.dll": {},
-          "lib/net40/NPOI.OOXML.dll": {},
-          "lib/net40/NPOI.OpenXml4Net.dll": {},
-          "lib/net40/NPOI.OpenXmlFormats.dll": {},
-          "lib/net40/NPOI.dll": {}
+          "lib/net45/NPOI.OOXML.dll": {},
+          "lib/net45/NPOI.OpenXml4Net.dll": {},
+          "lib/net45/NPOI.OpenXmlFormats.dll": {},
+          "lib/net45/NPOI.dll": {}
         }
       },
       "NSubstitute/3.1.0": {
@@ -405,13 +397,13 @@
           "build/NUnit.props": {}
         }
       },
-      "SharpZipLib/0.86.0": {
+      "SharpZipLib/1.0.0": {
         "type": "package",
         "compile": {
-          "lib/20/ICSharpCode.SharpZipLib.dll": {}
+          "lib/net45/ICSharpCode.SharpZipLib.dll": {}
         },
         "runtime": {
-          "lib/20/ICSharpCode.SharpZipLib.dll": {}
+          "lib/net45/ICSharpCode.SharpZipLib.dll": {}
         }
       },
       "System.Threading.Tasks.Extensions/4.3.0": {
@@ -476,35 +468,36 @@
         "readme.txt"
       ]
     },
-    "NPOI/2.0.6": {
-      "sha512": "207XIbT5FikKQHP0UlqRMT/7raSjWDLydg5e1MgNmP2JWPW2SrIdChaAlK7b/hoWwm5CiWVjtsNLqD2O5QKLIw==",
+    "NPOI/2.4.1": {
+      "sha512": "k6KgsGWQpODQcIo7SwTw4j0be6qILTQlk7xKMEPQjp1Bz3+YaUZSvQ/ePG5vcLKnzGDgGGN1TccvYccmrZU53g==",
       "type": "package",
-      "path": "npoi/2.0.6",
+      "path": "npoi/2.4.1",
       "files": [
-        "License.txt",
+        ".signature.p7s",
+        "LICENSE",
         "Read Me.txt",
-        "Release Notes.txt",
-        "lib/net20/ICSharpCode.SharpZipLib.dll",
-        "lib/net20/NPOI.OOXML.XML",
-        "lib/net20/NPOI.OOXML.dll",
-        "lib/net20/NPOI.OpenXml4Net.XML",
-        "lib/net20/NPOI.OpenXml4Net.dll",
-        "lib/net20/NPOI.OpenXmlFormats.dll",
-        "lib/net20/NPOI.XML",
-        "lib/net20/NPOI.dll",
-        "lib/net40/ICSharpCode.SharpZipLib.dll",
-        "lib/net40/NPOI.OOXML.XML",
+        "lib/NPOI.xml",
         "lib/net40/NPOI.OOXML.dll",
-        "lib/net40/NPOI.OpenXml4Net.XML",
         "lib/net40/NPOI.OpenXml4Net.dll",
         "lib/net40/NPOI.OpenXmlFormats.dll",
-        "lib/net40/NPOI.XML",
         "lib/net40/NPOI.dll",
+        "lib/net45/NPOI.OOXML.dll",
+        "lib/net45/NPOI.OpenXml4Net.dll",
+        "lib/net45/NPOI.OpenXmlFormats.dll",
+        "lib/net45/NPOI.dll",
+        "lib/netstandard2.0/NPOI.OOXML.deps.json",
+        "lib/netstandard2.0/NPOI.OOXML.dll",
+        "lib/netstandard2.0/NPOI.OpenXml4Net.deps.json",
+        "lib/netstandard2.0/NPOI.OpenXml4Net.dll",
+        "lib/netstandard2.0/NPOI.OpenXmlFormats.deps.json",
+        "lib/netstandard2.0/NPOI.OpenXmlFormats.dll",
+        "lib/netstandard2.0/NPOI.deps.json",
+        "lib/netstandard2.0/NPOI.dll",
         "logo/120_120.jpg",
         "logo/240_240.png",
         "logo/32_32.jpg",
         "logo/60_60.jpg",
-        "npoi.2.0.6.nupkg.sha512",
+        "npoi.2.4.1.nupkg.sha512",
         "npoi.nuspec"
       ]
     },
@@ -553,16 +546,17 @@
         "nunit.nuspec"
       ]
     },
-    "SharpZipLib/0.86.0": {
-      "sha512": "5DbS1SlKLMi+WG00Cm0ueYf2oyXJrowETQk8nx96rmdjTuHsA3laPykGV7Sxi0R5Xxfx0Kh/EfacAZ1f6M7y/g==",
+    "SharpZipLib/1.0.0": {
+      "sha512": "38egGevtPMQn/6olZZUteKUC7+BD47LdCGKo9Vyj17+HWDwiqPXsyJu55q9WSybhwVKwt0q2FLhiuJjZfQpsHw==",
       "type": "package",
-      "path": "sharpziplib/0.86.0",
+      "path": "sharpziplib/1.0.0",
       "files": [
-        "lib/11/ICSharpCode.SharpZipLib.dll",
-        "lib/20/ICSharpCode.SharpZipLib.dll",
-        "lib/SL3/SharpZipLib.Silverlight3.dll",
-        "lib/SL4/SharpZipLib.Silverlight4.dll",
-        "sharpziplib.0.86.0.nupkg.sha512",
+        ".signature.p7s",
+        "lib/net45/ICSharpCode.SharpZipLib.dll",
+        "lib/net45/ICSharpCode.SharpZipLib.xml",
+        "lib/netstandard2.0/ICSharpCode.SharpZipLib.dll",
+        "lib/netstandard2.0/ICSharpCode.SharpZipLib.xml",
+        "sharpziplib.1.0.0.nupkg.sha512",
         "sharpziplib.nuspec"
       ]
     },
@@ -602,7 +596,7 @@
       "Fanex.Result.Core.Base >= 1.0.0",
       "Fanex.Result.Core.GoldDeLuxe >= 1.0.0",
       "Fanex.Result.Core.Tests.Utils >= 1.0.0",
-      "NPOI >= 2.0.6",
+      "NPOI >= 2.4.1",
       "NSubstitute >= 3.1.0",
       "NUnit >= 3.11.0"
     ]
@@ -653,7 +647,7 @@
         "dependencies": {
           "NPOI": {
             "target": "Package",
-            "version": "[2.0.6, )"
+            "version": "[2.4.1, )"
           },
           "NSubstitute": {
             "target": "Package",

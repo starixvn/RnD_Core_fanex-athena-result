@@ -312,4 +312,7 @@
   <data name="MinSec" xml:space="preserve">
     <value>{0} 分钟 {1} 秒</value>
   </data>
+  <data name="MoreResults" xml:space="preserve">
+    <value>更多赛果</value>
+  </data>
 </root>

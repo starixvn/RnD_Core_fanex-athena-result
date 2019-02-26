@@ -7,7 +7,10 @@
     using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
 
+#pragma warning disable S101 // Types should be named in PascalCase
+
     public class ThirdPartyAPIController : ApiController
+#pragma warning restore S101 // Types should be named in PascalCase
     {
         private const string Login = "Login";
         private const string Password = "LoginSecret";

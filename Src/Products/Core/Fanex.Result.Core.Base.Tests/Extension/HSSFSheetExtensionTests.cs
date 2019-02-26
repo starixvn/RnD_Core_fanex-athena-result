@@ -10,7 +10,7 @@
     using NUnit.Framework;
 
     [TestFixture]
-    public class HSSFSheetExtensionTests
+    public class HssfSheetExtensionTests
     {
         private HSSFWorkbook _workbook;
         private ISheet _sheet;
@@ -29,8 +29,8 @@
         {
             // Arrange
             var newSheet = _workbook.CreateSheet("NewSheet");
-            var sourceRowIndex = 10;
-            var destRowIndex = 3;
+            const int sourceRowIndex = 10;
+            const int destRowIndex = 3;
 
             // Act
             newSheet.CopyRow(_sheet, sourceRowIndex, destRowIndex);
@@ -44,7 +44,7 @@
         {
             // Arrange
             var newSheet = _workbook.CreateSheet("NewSheet");
-            var sourceRowIndex = 10;
+            const int sourceRowIndex = 10;
 
             // Act
             var newRow = newSheet.CopyRow(_sheet, sourceRowIndex, Arg.Any<int>());
@@ -58,8 +58,8 @@
         {
             // Arrange
             var newSheet = _workbook.CreateSheet("NewSheet");
-            var sourceRowIndex = 2;
-            var destRowIndex = 0;
+            const int sourceRowIndex = 2;
+            const int destRowIndex = 0;
 
             // Act
             var newRow = newSheet.CopyRow(_sheet, sourceRowIndex, destRowIndex);
@@ -73,8 +73,8 @@
         {
             // Arrange
             var newSheet = _workbook.CreateSheet("NewSheet");
-            var sourceRowIndex = 10;
-            var destRowIndex = 3;
+            const int sourceRowIndex = 10;
+            const int destRowIndex = 3;
             var cellIndexList = new List<int>();
 
             // Act
@@ -89,7 +89,7 @@
         {
             // Arrange
             var newSheet = _workbook.CreateSheet("NewSheet");
-            var sourceRowIndex = 10;
+            const int sourceRowIndex = 10;
             var cellIndexList = new List<int>();
 
             // Act
@@ -104,8 +104,8 @@
         {
             // Arrange
             var newSheet = _workbook.CreateSheet("NewSheet");
-            var sourceRowIndex = 2;
-            var destRowIndex = 3;
+            const int sourceRowIndex = 2;
+            const int destRowIndex = 3;
             var cellIndexList = new List<int> { 0, 1 };
 
             // Act
@@ -120,8 +120,8 @@
         {
             // Arrange
             var newSheet = _workbook.CreateSheet("NewSheet");
-            var sourceRowIndex = 10;
-            var destRowIndex = 3;
+            const int sourceRowIndex = 10;
+            const int destRowIndex = 3;
             var cellIndexList = new List<int>();
 
             // Act
@@ -136,7 +136,7 @@
         {
             // Arrange
             var newSheet = _workbook.CreateSheet("NewSheet");
-            var sourceRowIndex = 10;
+            const int sourceRowIndex = 10;
             var cellIndexList = new List<int>();
 
             // Act
@@ -151,8 +151,8 @@
         {
             // Arrange
             var newSheet = _workbook.CreateSheet("NewSheet");
-            var sourceRowIndex = 2;
-            var destRowIndex = 3;
+            const int sourceRowIndex = 2;
+            const int destRowIndex = 3;
             var cellIndexList = new List<int> { 0, 1 };
 
             // Act
@@ -167,8 +167,8 @@
         {
             // Arrange
             var newSheet = _workbook.CreateSheet("NewSheet");
-            var sourceRowIndex = 10;
-            var destRowIndex = 3;
+            const int sourceRowIndex = 10;
+            const int destRowIndex = 3;
             var cellIndexList = new List<int> { 0, 1 };
 
             // Act
@@ -183,8 +183,8 @@
         {
             // Arrange
             var newSheet = _workbook.CloneSheet(0);
-            var sourceRowIndex = 3;
-            var destRowIndex = 4;
+            const int sourceRowIndex = 3;
+            const int destRowIndex = 4;
             var cellIndexList = new List<int> { 0, 1 };
             var defaultCellStyle = new HSSFCellStyle(1, null, _workbook);
 
@@ -193,25 +193,14 @@
 
             // Assert
             Assert.True(
-                newRow.Cells[2].StringCellValue == string.Empty &&
-                newRow.Cells[2].CellStyle.Index == 1);
+                newRow.Cells[2].StringCellValue?.Length == 0
+                && newRow.Cells[2].CellStyle.Index == 1);
         }
 
         [TestCase(1, 2)]
         [TestCase(2, 2)]
-        public void InsertCopy_FromRowNumLessThanOrEqualSourceRowNum_ReturnsNewRowHasFirstCellValueEqualFirstCellValueOfSourceRow(
-            int rowNum, int rowSourceNum)
-        {
-            // Act
-            var newRow = _sheet.InsertCopy(rowNum, rowSourceNum);
-            var sourceRow = _sheet.GetRow(rowSourceNum + 1);
-
-            // Assert
-            Assert.AreEqual(sourceRow.GetCell(0).StringCellValue, newRow.GetCell(0).StringCellValue);
-        }
-
         [TestCase(3, 1)]
-        public void InsertCopy_FromRowNumGreaterThanSourceRowNum_ReturnsNewRowHasFirstCellValueEqualFirstCellValueOfSourceRow(
+        public void InsertCopy_FromRowNumLessThanOrEqualSourceRowNum_ReturnsNewRowHasFirstCellValueEqualFirstCellValueOfSourceRow(
             int rowNum, int rowSourceNum)
         {
             // Act
@@ -240,7 +229,7 @@
         public void CopyCell_FromDestCellHasComment_ReturnsDestCellCommentIsDestCellComment()
         {
             // Arrange
-            var commentContent = "This is a comment for test";
+            const string commentContent = "This is a comment for test";
             var comment = Substitute.For<IComment>();
             comment.String.Returns(new HSSFRichTextString(commentContent));
 
@@ -276,9 +265,11 @@
         public void CopyCell_FromDestCellHasHyperlink_ReturnsDestCellHyperlinkIsDestCellHyperlink()
         {
             // Arrange
-            var address = "http://google.com";
-            var hyperlink = new HSSFHyperlink(HyperlinkType.Url);
-            hyperlink.Address = address;
+            const string address = "http://google.com";
+            var hyperlink = new HSSFHyperlink(HyperlinkType.Url)
+            {
+                Address = address
+            };
 
             var sourceCell = _sheet.GetCell(3, 2);
             sourceCell.Hyperlink = hyperlink;
@@ -385,7 +376,7 @@
             var rowIndex = _sheet.LastRowNum + 10;
 
             // Act
-            TestDelegate testDelegate = () => _sheet.GetCell(rowIndex, Arg.Any<int>());
+            void testDelegate() => _sheet.GetCell(rowIndex, Arg.Any<int>());
 
             // Assert
             Assert.Throws<NullReferenceException>(testDelegate);
@@ -395,7 +386,7 @@
         public void GetCell_FromInvalidRowIndexAndColIndexIsOutRange_ReturnsNull()
         {
             // Arrange
-            var colIndex = 100;
+            const int colIndex = 100;
 
             // Act
             var cell = _sheet.GetCell(0, colIndex);
@@ -410,12 +401,12 @@
         [TestCase(2, 0, 10, 20)]
         public void MergeCells_FromFirstRowNLastRowNFirstColNLastCol_ReturnsTrue(
             int firstRow,
-            int lastRow,
             int firstCol,
+            int lastRow,
             int lastCol)
         {
             // Act
-            var result = _sheet.MergeCells(firstRow, lastRow, firstCol, lastCol);
+            var result = _sheet.MergeCells(firstRow, firstCol, lastRow, lastCol);
 
             // Assert
             Assert.AreEqual(1, result);

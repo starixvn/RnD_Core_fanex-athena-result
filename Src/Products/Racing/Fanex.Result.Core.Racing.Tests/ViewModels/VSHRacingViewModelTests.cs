@@ -8,7 +8,7 @@
     using Racing.ViewModels;
 
     [TestFixture]
-    public class VSHRacingViewModelTests
+    public class VirtualHorseRacingViewModelTests
     {
         private Racing _racing;
         private ResultSetting _setting;
@@ -20,6 +20,7 @@
             _racing = new Racing();
             _setting = new ResultSetting { LanguageCode = "en-US" };
             _refDataHelper = Substitute.For<IRefDataHelper>();
+            ResultCoreManager.RegisterRefDataHelper(_refDataHelper);
         }
 
         [Test]

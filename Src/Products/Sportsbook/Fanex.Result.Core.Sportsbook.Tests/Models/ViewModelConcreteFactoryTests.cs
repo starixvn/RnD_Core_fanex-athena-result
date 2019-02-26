@@ -4,6 +4,8 @@
     using Base;
     using Base.Exception;
     using DTO;
+    using Fanex.Result.Core.Base.Utilities;
+    using NSubstitute;
     using NUnit.Framework;
     using Sportsbook.Models;
 
@@ -13,12 +15,15 @@
         private ResultSetting _resultSetting;
         private Sportsbook _sportsbook;
         private TestDelegate _testDelegate;
+        private IRefDataHelper _refDataHelper;
 
         [SetUp]
         public void SetUp()
         {
             _resultSetting = new ResultSetting { LanguageCode = "en-US" };
             _sportsbook = new Sportsbook();
+            _refDataHelper = Substitute.For<IRefDataHelper>();
+            ResultCoreManager.RegisterRefDataHelper(_refDataHelper);
         }
 
         [Test]
@@ -76,7 +81,7 @@
             var outrightViewModel = ViewModelConcreteFactory.Instance.GetOutrightViewModel(outright, _resultSetting);
 
             // Assert
-            var expectedViewModelType = "OutrightViewModel";
+            const string expectedViewModelType = "OutrightViewModel";
             Assert.AreEqual(expectedViewModelType, outrightViewModel.GetType().Name);
         }
 
@@ -90,7 +95,7 @@
             var parlayViewModel = ViewModelConcreteFactory.Instance.GetParlayViewModel(parlay, _resultSetting);
 
             // Assert
-            var expectedViewModelType = "ParlayViewModel";
+            const string expectedViewModelType = "ParlayViewModel";
             Assert.AreEqual(expectedViewModelType, parlayViewModel.GetType().Name);
         }
 

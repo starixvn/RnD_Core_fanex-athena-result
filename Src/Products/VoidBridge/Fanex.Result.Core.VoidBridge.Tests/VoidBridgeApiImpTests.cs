@@ -17,7 +17,7 @@
             var testDelegate = new TestDelegate(() => api.GetBetHistoryUrl("", ""));
 
             // Assert
-            var ex = Assert.Throws(
+            Assert.Throws(
                 Is.TypeOf<VoidbridgeException>().And
                     .Message.EqualTo("Voidbridge Result API Exception. Exception: custId is null or empty!"),
                 testDelegate);
@@ -33,7 +33,7 @@
             var testDelegate = new TestDelegate(() => api.GetBetHistoryUrl("1", ""));
 
             // Assert
-            var ex = Assert.Throws(
+            Assert.Throws(
                 Is.TypeOf<VoidbridgeException>().And
                     .Message.EqualTo("Voidbridge Result API Exception. Exception: gamePlayId is null or empty!"),
                 testDelegate);
@@ -49,7 +49,7 @@
             var testDelegate = new TestDelegate(() => api.GetBetHistoryUrl("1", "1"));
 
             // Assert
-            var ex = Assert.Throws(
+            Assert.Throws(
                 Is.TypeOf<VoidbridgeException>().And
                     .Message.EqualTo("Voidbridge Result API Exception. Exception: siteId argument must have value or SiteId in Web.config file!"),
                 testDelegate);

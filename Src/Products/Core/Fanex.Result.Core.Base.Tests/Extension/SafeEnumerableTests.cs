@@ -34,7 +34,7 @@
         public void GetEnumerator_Always_EnterdLock()
         {
             // Act
-            var safeEnumerator = _safeEnumerable.GetEnumerator();
+            _safeEnumerable.GetEnumerator();
 
             // Assert
             Assert.IsTrue(Monitor.IsEntered(_lock));

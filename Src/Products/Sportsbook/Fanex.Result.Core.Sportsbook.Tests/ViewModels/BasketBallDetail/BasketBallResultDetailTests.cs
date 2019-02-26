@@ -13,6 +13,8 @@
     [TestFixture]
     public class BasketBallResultDetailTests
     {
+#pragma warning disable S1144 // Unused private types or members should be removed
+
         private static readonly string[] MoreResultResourceIdsTestCase =
         {
             "604",
@@ -47,6 +49,8 @@
         {
             "00", "01", "02", "Q1", "Q2", "Q3", "Q4", "OT"
         };
+
+#pragma warning restore S1144 // Unused private types or members should be removed
 
         private IRefDataHelper _refDataHelper;
         private ISportsbookHelperWraper _sportsBookHelper;

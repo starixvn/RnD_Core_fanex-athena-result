@@ -51,19 +51,10 @@
         [TestCase("B;H5;C8;D7:P;H10;D9;", "(0)")]
         [TestCase("B;H9;C10;D7:P;H10;D9;S3", "(6)")]
         [TestCase("B;H10;CJ;DK:P;H10;DK;SJ", "(0)")]
-        public void GetBacaratResult_WhenValidResult_ReturnValidBankerPoint(string inputResult, string expectedResult)
-        {
-            // Action
-            var result = AGCasinoHelper.GetBacaratResult(inputResult, _bankerText, _playerText);
-
-            // Assert
-            StringAssert.Contains(expectedResult, result);
-        }
-
         [TestCase("B;H5;C8;D7:P;H10;D9;", "(9)")]
         [TestCase("B;H5;C8;D7:P;H10;D9;S3", "(2)")]
         [TestCase("B;H5;C8;D7:P;H10;DK;SJ", "(0)")]
-        public void GetBacaratResult_WhenValidResult_ReturnValidPlayerPoint(string inputResult, string expectedResult)
+        public void GetBacaratResult_WhenValidResult_ReturnValidBankerPoint(string inputResult, string expectedResult)
         {
             // Action
             var result = AGCasinoHelper.GetBacaratResult(inputResult, _bankerText, _playerText);

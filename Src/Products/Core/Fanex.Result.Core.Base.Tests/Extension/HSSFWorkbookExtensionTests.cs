@@ -7,7 +7,7 @@
     using NUnit.Framework;
 
     [TestFixture]
-    public class HSSFWorkbookExtensionTests
+    public class HssfWorkbookExtensionTests
     {
         private HSSFWorkbook _workbook;
 

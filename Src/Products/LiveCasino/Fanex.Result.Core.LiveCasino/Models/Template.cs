@@ -1,17 +1,8 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="Template.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-
-namespace Fanex.Result.Core.LiveCasino.Models
+﻿namespace Fanex.Result.Core.LiveCasino.Models
 {
     using System;
-    using BaseCore = Fanex.Result.Core.Base.Models;
+    using BaseCore = Base.Models;
 
-    /// <summary>
-    /// TODO: Update summary.
-    /// </summary>
     internal class Template : BaseCore.BaseTemplate, BaseCore.ITemplate
     {
         private static readonly Lazy<BaseCore.ITemplate> LazyTemplateService = new Lazy<BaseCore.ITemplate>(() => new Template());

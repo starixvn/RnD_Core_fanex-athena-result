@@ -6,7 +6,6 @@
     using Base.Models;
     using DTO;
     using Exceptions;
-    using Fanex.Result.Core.Base.Models;
     using Models;
 
     public class GlobalGamingResultApi : Base3rdResultApi

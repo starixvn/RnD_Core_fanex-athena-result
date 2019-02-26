@@ -137,22 +137,8 @@
         [TestCase(5, 1, false, "")]
         [TestCase(1, 5, true, "")]
         [TestCase(1, 5, false, "win")]
-        public void GetWonTeam_IsHome_IsValidScore_ReturnWin(int? homeScore, int? awayScore, bool isHome, string expectedResult)
-        {
-            // Arrange
-            _sportsbook.FinalHomeScore = homeScore;
-            _sportsbook.FinalAwayScore = awayScore;
-            _setting.HighlightWinnerTeam = true;
-
-            // Act
-            var muaythaiViewModel = new MuayThaiViewModel(_sportsbook, _setting);
-
-            // Assert
-            Assert.AreEqual(expectedResult, muaythaiViewModel.GetWonTeam(isHome));
-        }
-
         [TestCase(null, 1, true, "")]
-        public void GetWonTeam_IsNotValidScore_ReturnEmpty(int? homeScore, int? awayScore, bool isHome, string expectedResult)
+        public void GetWonTeam_IsHome_IsValidScore_ReturnWin(int? homeScore, int? awayScore, bool isHome, string expectedResult)
         {
             // Arrange
             _sportsbook.FinalHomeScore = homeScore;

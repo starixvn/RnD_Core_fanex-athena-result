@@ -9,6 +9,7 @@
     using NUnit.Framework;
 
     [TestFixture]
+#pragma warning disable S101 // Types should be named in PascalCase
     public class HSSFCellExtensionTests
     {
         private HSSFWorkbook _workbook;
@@ -62,40 +63,13 @@
 
         [TestCase(1.2)]
         [TestCase(-1.20)]
-        public void SetCellValue_FromDecimalObjectValue_CellNumbericValueEqualToValue(decimal value)
-        {
-            // Act
-            _cell.SetCellValue((object)value);
-
-            // Assert
-            Assert.AreEqual(value, _cell.NumericCellValue);
-        }
-
-        [TestCase(1.2)]
-        [TestCase(-1.20)]
-        public void SetCellValue_FromDoubleObjectValue_CellNumbericValueEqualToValue(double value)
-        {
-            // Act
-            _cell.SetCellValue((object)value);
-
-            // Assert
-            Assert.AreEqual(value, _cell.NumericCellValue);
-        }
-
         [TestCase(100)]
         [TestCase(-120)]
-        public void SetCellValue_FromIntObjectValue_CellNumbericValueEqualToValue(int value)
-        {
-            // Act
-            _cell.SetCellValue((object)value);
-
-            // Assert
-            Assert.AreEqual(value, _cell.NumericCellValue);
-        }
-
         [TestCase(102020202)]
         [TestCase(-1231231)]
-        public void SetCellValue_FromLongObjectValue_CellNumbericValueEqualToValue(long value)
+        [TestCase(102020202)]
+        [TestCase(-1231231)]
+        public void SetCellValue_FromDoubleObjectValue_CellNumbericValueEqualToValue(double value)
         {
             // Act
             _cell.SetCellValue((object)value);
@@ -113,17 +87,6 @@
 
             // Assert
             Assert.AreEqual(value, _cell.StringCellValue);
-        }
-
-        [TestCase(102020202)]
-        [TestCase(-1231231)]
-        public void SetCellValue_FromLongValue_CellNumbericValueEqualToValue(long value)
-        {
-            // Act
-            _cell.SetCellValue(value);
-
-            // Assert
-            Assert.AreEqual(value, _cell.NumericCellValue);
         }
 
         [Test]
@@ -197,4 +160,6 @@
             Assert.AreEqual(defaultStyle, _cell.CellStyle);
         }
     }
+
+#pragma warning restore S101 // Types should be named in PascalCase
 }

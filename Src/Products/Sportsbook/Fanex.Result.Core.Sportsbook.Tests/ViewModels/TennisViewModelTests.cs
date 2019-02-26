@@ -6,7 +6,9 @@
     using Base.DataDomain;
     using DataDomain;
     using DTO;
+    using Fanex.Result.Core.Base.Utilities;
     using KellermanSoftware.CompareNetObjects;
+    using NSubstitute;
     using NUnit.Framework;
     using Sportsbook.ViewModels;
     using Sportsbook.ViewModels.TennisDetail;
@@ -17,6 +19,7 @@
         private Sportsbook _sportsbook;
         private ResultSetting _setting;
         private CompareLogic _comparer;
+        private IRefDataHelper _refDataHelper;
 
         [SetUp]
         public void Setup()
@@ -24,6 +27,9 @@
             _sportsbook = new Sportsbook();
             _setting = new ResultSetting();
             _comparer = new CompareLogic();
+
+            _refDataHelper = Substitute.For<IRefDataHelper>();
+            ResultCoreManager.RegisterRefDataHelper(_refDataHelper);
         }
 
         [Test]
@@ -31,7 +37,7 @@
         {
             // Arrange
             var viewModel = new TennisViewModel(_sportsbook, _setting);
-            var index = 7;
+            const int index = 7;
 
             // Act
             var homeAwaySet = viewModel.GetHomeAwaySet(index, false);
@@ -48,7 +54,7 @@
             var viewModel = new TennisViewModel(_sportsbook, _setting);
 
             // Act
-            var homeAwaySet = viewModel.GetHomeAwaySet(5, false);
+            var homeAwaySet = viewModel.GetHomeAwaySet(4, false);
 
             // Assert
             Assert.AreEqual("-", homeAwaySet);
@@ -75,7 +81,7 @@
             string expectedSet)
         {
             // Arrange
-            var index = 3;
+            const int index = 3;
             _sportsbook.GameDetails = new List<GameDetail>
             {
                 new GameDetail
@@ -85,7 +91,7 @@
                     AwayValue = "12",
                     SettlementStatusID = EventStatusID.RunningSettlementStatusID
                 }
-            }; ;
+            };
 
             var viewModel = new TennisViewModel(_sportsbook, _setting);
 
@@ -103,7 +109,7 @@
             string expectedSet)
         {
             // Arrange
-            var index = 3;
+            const int index = 3;
             _sportsbook.GameDetails = new List<GameDetail>
             {
                 new GameDetail
@@ -128,7 +134,7 @@
         public void GetHomeAwaySet_FromIndexLessThan5AndFirstElementOfGameDetailsHasResourceIdIsEqualToIndexPlus1AndSettlementStatusIDIsRefund_ReturnsRefund()
         {
             // Arrange
-            var index = 3;
+            const int index = 3;
             _sportsbook.GameDetails = new List<GameDetail>
             {
                 new GameDetail
@@ -153,7 +159,7 @@
         public void GetHomeAwaySet_FromIndexLessThan5FirstElementOfGameDetailsHasResourceIdIsEqualToIndexPlus1AndAndSettlementStatusIDIsRefundHT_ReturnsHTRefund()
         {
             // Arrange
-            var index = 3;
+            const int index = 3;
             _sportsbook.GameDetails = new List<GameDetail>
             {
                 new GameDetail
@@ -178,7 +184,7 @@
         public void GetHomeAwaySet_FromIndexLessThan5FirstElementOfGameDetailsHasResourceIdIsEqualToIndexPlus1AndAndSettlementStatusIDIsRefundFT_ReturnsRefundFT()
         {
             // Arrange
-            var index = 3;
+            const int index = 3;
             _sportsbook.GameDetails = new List<GameDetail>
             {
                 new GameDetail
@@ -203,7 +209,7 @@
         public void GetHomeAwaySet_FromIndexLessThan5FirstElementOfGameDetailsHasResourceIdIsEqualToIndexPlus1AndAndSettlementStatusIDIsOtherCases_ReturnsHyphen()
         {
             // Arrange
-            var index = 3;
+            const int index = 3;
             _sportsbook.GameDetails = new List<GameDetail>
             {
                 new GameDetail
@@ -231,7 +237,7 @@
             var viewModel = new TennisViewModel(_sportsbook, _setting);
 
             // Act
-            TestDelegate testDelegate = () => viewModel.VisibleSet(0);
+            void testDelegate() => viewModel.VisibleSet(0);
 
             // Assert
             Assert.Throws<ArgumentNullException>(testDelegate);
@@ -308,7 +314,7 @@
         public void TotalGameHome_SetIsNull_ReturnHyphen()
         {
             // Arrange
-            _sportsbook.GameDetails = new List<GameDetail> { };
+            _sportsbook.GameDetails = new List<GameDetail>();
 
             // Act
             var viewModel = new TennisViewModel(_sportsbook, _setting);
@@ -516,11 +522,11 @@
             var viewModel = new TennisViewModel(_sportsbook, _setting);
 
             // Assert
-            Assert.True(_comparer.Compare(expectedSet1, viewModel.SetDetail[0]).AreEqual &&
-                _comparer.Compare(expectedSet2, viewModel.SetDetail[1]).AreEqual &&
-                _comparer.Compare(expectedSet3, viewModel.SetDetail[2]).AreEqual &&
-                _comparer.Compare(expectedSet4, viewModel.SetDetail[3]).AreEqual &&
-                _comparer.Compare(null, viewModel.SetDetail[4]).AreEqual);
+            Assert.True(_comparer.Compare(expectedSet1, viewModel.SetDetail[0]).AreEqual
+                && _comparer.Compare(expectedSet2, viewModel.SetDetail[1]).AreEqual
+                && _comparer.Compare(expectedSet3, viewModel.SetDetail[2]).AreEqual
+                && _comparer.Compare(expectedSet4, viewModel.SetDetail[3]).AreEqual
+                && _comparer.Compare(null, viewModel.SetDetail[4]).AreEqual);
         }
 
         [Test]

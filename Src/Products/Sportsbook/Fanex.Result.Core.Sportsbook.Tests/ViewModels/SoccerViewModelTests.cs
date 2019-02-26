@@ -276,7 +276,7 @@
         [Test]
         public void IsShowFGHome_BetStatusIsNull_ReturnFalse()
         {
-            // Arrange // 1FL:1-1;FL:1-1;
+            // Arrange
             _soccer.BetStatus = null;
 
             // Act
@@ -744,24 +744,6 @@
 
         [TestCase(EventStatusID.RunningSettlementStatusID, "AH;H", "")]
         [TestCase(EventStatusID.CompletedSettlementStatusID, "12312", "")]
-        public void DetailedResult_ResourceIsGoalSequence_IsNotShowGoalSequence_ReturnExpectedResult(int eventStatusId, string goalSequence, string expectedResult)
-        {
-            // Arrange
-            _soccer.GameDetails = new List<GameDetail>
-            {
-                new GameDetail {ResourceId = "08", HomeValue = goalSequence, SettlementStatusID = eventStatusId }
-            };
-
-            // Act
-            var viewModel = new SoccerViewModel(_soccer, _setting);
-
-            // Assert
-            var expectedHtml = string.IsNullOrEmpty(expectedResult) ?
-                expectedResult :
-                TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_GoalSequence.html").Replace("{Result}", expectedResult);
-            Assert.AreEqual(expectedHtml, TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
-        }
-
         [TestCase(EventStatusID.CompletedSettlementStatusID, "AH;H", "A.H.H")]
         [TestCase(EventStatusID.Abandoned1HSettlementStatusID, "AH;H", "A.H.H")]
         [TestCase(EventStatusID.Abandoned2HSettlementStatusID, "AH;H", "A.H.H")]
@@ -1160,8 +1142,8 @@
             Assert.AreEqual(expectedHtml, TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
         }
 
-        [TestCase("1", " (       0  (", "01:00-05:59")]
-        public void DetailedResult_ResourceIsFastMarkets5Minutes_Two_ReturnExpectedResult(string betId, string value, string expectedResult)
+        [TestCase("1", " (       0  (")]
+        public void DetailedResult_ResourceIsFastMarkets5Minutes_Two_ReturnExpectedResult(string betId, string value)
         {
             // Arrange
             _soccer.GameDetails = new List<GameDetail>

@@ -2,12 +2,23 @@
 {
     using Base;
     using DTO;
+    using Fanex.Result.Core.Base.Utilities;
+    using NSubstitute;
     using NUnit.Framework;
     using Sportsbook.ViewModels;
 
     [TestFixture]
     public class BeachSoccerViewModelTests
     {
+        private IRefDataHelper _refDataHelper;
+
+        [SetUp]
+        public void SetUp()
+        {
+            _refDataHelper = Substitute.For<IRefDataHelper>();
+            ResultCoreManager.RegisterRefDataHelper(_refDataHelper);
+        }
+
         [TestCase(1, "1")]
         [TestCase(null, "-")]
         public void FinalHomeScore_ScoreHasValue_ShowScore(int? scoreValue, string expectedScoreValue)

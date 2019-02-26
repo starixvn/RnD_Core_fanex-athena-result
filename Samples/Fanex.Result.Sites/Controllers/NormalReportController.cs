@@ -18,7 +18,9 @@
     /// </summary>
     public class NormalReportController : Controller
     {
-        private const string ExcelTemplatePath = @"~/App_Data/Fanex.Result/";
+#pragma warning disable S1075 // URIs should not be hardcoded
+        private const string ExcelTemplatePath = "~/App_Data/Fanex.Result/";
+#pragma warning restore S1075 // URIs should not be hardcoded
 
         [HttpGet]
         public ActionResult Index()

@@ -7,17 +7,6 @@
     [TestFixture]
     public class SportsbookHelperTests
     {
-        [TestCase("")]
-        [TestCase(null)]
-        public void IsSetXGameYBetID_FromBetIdNullOrEmpty_ReturnsFalse(string betId)
-        {
-            // Act
-            var result = SportsbookHelper.IsSetXGameYBetID(betId);
-
-            // Assert
-            Assert.IsFalse(result);
-        }
-
         [TestCase("80101")]
         [TestCase("80501")]
         [TestCase("80199")]
@@ -31,6 +20,8 @@
             Assert.IsTrue(result);
         }
 
+        [TestCase("")]
+        [TestCase(null)]
         [TestCase("8")]
         [TestCase("805011")]
         [TestCase("abcd123")]
@@ -90,8 +81,8 @@
         public void IsValidResourceId_FromPatternContainsCaretAndIsMatchResourceId_ReturnsTrue()
         {
             // Arrange
-            var pattern = "^0[0-9]+$";
-            var resourceId = "0123";
+            const string pattern = "^0[0-9]+$";
+            const string resourceId = "0123";
 
             // Act
             var result = SportsbookHelper.IsValidResourceId(pattern, resourceId);
@@ -104,8 +95,8 @@
         public void IsValidResourceId_FromPatternContainsCaretAndIsNotMatchResourceId_ReturnsFalse()
         {
             // Arrange
-            var pattern = "^0\\d+$";
-            var resourceId = "123";
+            const string pattern = "^0\\d+$";
+            const string resourceId = "123";
 
             // Act
             var result = SportsbookHelper.IsValidResourceId(pattern, resourceId);
@@ -118,8 +109,8 @@
         public void IsValidResourceId_FromPatternNotContainsCaretAndIsEqualResourceId_ReturnsTrue()
         {
             // Arrange
-            var pattern = "0123";
-            var resourceId = "0123";
+            const string pattern = "0123";
+            const string resourceId = "0123";
 
             // Act
             var result = SportsbookHelper.IsValidResourceId(pattern, resourceId);
@@ -186,21 +177,13 @@
         [TestCase("160", "FT - Goal {0}")]
         [TestCase("164", "ET - Goal {0}")]
         [TestCase("168", "Who advances to next round")]
-        public void GetResourceLang_FromKeyNameIsIntegerAndNotMatchSoccerRangeResourceIdRegex_ReturnsExpectedResource(string keyName, string expectedResource)
-        {
-            // Act
-            var resource = SportsbookHelper.GetResourceLang(keyName);
-
-            // Assert
-            Assert.AreEqual(expectedResource, resource);
-        }
-
         [TestCase("16001", "FT - Goal 01")]
         [TestCase("16002", "FT - Goal 02")]
         [TestCase("16405", "ET - Goal 05")]
         [TestCase("16402", "ET - Goal 02")]
         [TestCase("16901", "Goal 01")]
-        public void GetResourceLang_FromKeyNameIsIntegerAndMatchToSoccerRangeResourceIdRegex_ReturnsExpectedResource(string keyName, string expectedResource)
+        public void GetResourceLang_FromKeyNameIsIntegerAndNotMatchSoccerRangeResourceIdRegex_ReturnsExpectedResource(
+            string keyName, string expectedResource)
         {
             // Act
             var resource = SportsbookHelper.GetResourceLang(keyName);
@@ -212,19 +195,10 @@
         [TestCase("abc")]
         [TestCase("&df")]
         [TestCase("")]
-        public void CreateFastMarketsTimeRange_FromStartTimeIsNotInteger_ThrowsException(string startTime)
-        {
-            // Act
-            TestDelegate testDelegate = () => SportsbookHelper.CreateFastMarketsTimeRange(string.Empty, startTime);
-
-            // Assert
-            Assert.Throws<SportsbookException>(testDelegate);
-        }
-
         [TestCase("-10")]
         [TestCase("90")]
         [TestCase("100")]
-        public void CreateFastMarketsTimeRange_FromStartTimeIsOutRangeMatchTime_ThrowsException(string startTime)
+        public void CreateFastMarketsTimeRange_FromStartTimeIsNotInteger_ThrowsException(string startTime)
         {
             // Act
             TestDelegate testDelegate = () => SportsbookHelper.CreateFastMarketsTimeRange(string.Empty, startTime);

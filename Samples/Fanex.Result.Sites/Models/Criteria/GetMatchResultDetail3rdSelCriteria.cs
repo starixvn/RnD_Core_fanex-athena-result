@@ -1,13 +1,11 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="GetMatchResultDetail3rdSelCriteria.cs" company="">
-// TODO: Update copyright text.
-// </copyright>
-// -----------------------------------------------------------------------
-namespace MvcExample.Models.Criteria
+﻿namespace MvcExample.Models.Criteria
 {
     using Fanex.Data.Repository;
 
+#pragma warning disable S101 // Types should be named in PascalCase
+
     public class GetMatchResultDetail3rdSelCriteria : CriteriaBase
+#pragma warning restore S101 // Types should be named in PascalCase
     {
         public int BetId { get; set; }
 

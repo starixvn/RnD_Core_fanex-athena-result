@@ -1,10 +1,5 @@
 ﻿namespace Fanex.Result.Core.GlobalGaming.Tests
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using DTO;
     using Exceptions;
     using GlobalGaming;
@@ -37,7 +32,7 @@
             var testDelegate = new TestDelegate(() => api.GetResultUrl(_data));
 
             // Assert
-            var ex = Assert.Throws(
+            Assert.Throws(
                 Is.TypeOf<GlobalGamingException>().And
                     .Message.EqualTo("Global Gaming Result API Exception. Exception: custId is null or empty!"),
                 testDelegate);
@@ -54,7 +49,7 @@
             var testDelegate = new TestDelegate(() => api.GetResultUrl(_data));
 
             // Assert
-            var ex = Assert.Throws(
+            Assert.Throws(
                 Is.TypeOf<GlobalGamingException>().And
                     .Message.EqualTo("Global Gaming Result API Exception. Exception: gameId is null or empty!"),
                 testDelegate);
@@ -71,7 +66,7 @@
             var testDelegate = new TestDelegate(() => api.GetResultUrl(_data));
 
             // Assert
-            var ex = Assert.Throws(
+            Assert.Throws(
                 Is.TypeOf<GlobalGamingException>().And
                     .Message.EqualTo("Global Gaming Result API Exception. Exception: siteId argument must have value or SiteId in Web.config file!"),
                 testDelegate);
@@ -87,7 +82,7 @@
             var testDelegate = new TestDelegate(() => api.GetResultUrl(_data));
 
             // Assert
-            var ex = Assert.Throws(
+            Assert.Throws(
               Is.TypeOf<GlobalGamingException>(),
               testDelegate);
         }

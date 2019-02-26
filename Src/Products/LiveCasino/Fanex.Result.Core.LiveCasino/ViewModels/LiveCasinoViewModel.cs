@@ -216,12 +216,15 @@
             }
             else
             {
+#pragma warning disable S3358 // Ternary operators should not be nested
+
                 _finalScore = _liveCasino.FinalHomeScore.HasValue ?
                    _liveCasino.FinalHomeScore.Value + " - " +
-
-                   (_liveCasino.FinalAwayScore.HasValue ? _liveCasino.FinalAwayScore.ToString() : string.Empty)
-                   :
-                   string.Empty;
+                   (_liveCasino.FinalAwayScore.HasValue
+                       ? _liveCasino.FinalAwayScore.ToString()
+                       : string.Empty)
+                   : string.Empty;
+#pragma warning restore S3358 // Ternary operators should not be nested
 
                 _result = SetResults(_liveCasino.BetStatus);
             }

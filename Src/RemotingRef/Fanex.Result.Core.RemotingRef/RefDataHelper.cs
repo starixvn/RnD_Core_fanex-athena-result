@@ -57,7 +57,7 @@
 
         public string GetBetBuilderSelectionName(int selectionType, string languageCode, string defaultValue)
         {
-            var names = remotingRefService.GetBetBuilderSelectionNames(new int[] { selectionType }, languageCode);
+            var names = remotingRefService.GetBetBuilderSelectionNames(new[] { selectionType }, languageCode);
 
             return names != null && names.Length == 1 ? names[0] : defaultValue;
         }

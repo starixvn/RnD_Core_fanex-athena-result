@@ -25,16 +25,13 @@
             }
 
             var sourceRow = sourceSheet.GetRow(sourceRowIndex);
+
             if (sourceRow == null)
             {
                 return null;
             }
 
-            var newRow = sheet.GetRow(destRowIndex);
-            if (newRow == null)
-            {
-                newRow = sheet.CreateRow(destRowIndex);
-            }
+            var newRow = sheet.GetRow(destRowIndex) ?? sheet.CreateRow(destRowIndex);
 
             for (int i = 0; i < sourceRow.LastCellNum; i++)
             {
@@ -64,12 +61,7 @@
                 return null;
             }
 
-            var newRow = sheet.GetRow(destRowIndex);
-
-            if (newRow == null)
-            {
-                newRow = sheet.CreateRow(destRowIndex);
-            }
+            var newRow = sheet.GetRow(destRowIndex) ?? sheet.CreateRow(destRowIndex);
 
             var startIndex = 0;
 
@@ -101,12 +93,7 @@
                 return null;
             }
 
-            var newRow = sheet.GetRow(destRowIndex);
-
-            if (newRow == null)
-            {
-                newRow = sheet.CreateRow(destRowIndex);
-            }
+            var newRow = sheet.GetRow(destRowIndex) ?? sheet.CreateRow(destRowIndex);
 
             var startIndex = 0;
 
@@ -146,7 +133,6 @@
             return newRow;
         }
 
-        [SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", Justification = "Reviewed.")]
         public static ICell CopyCell(this ISheet sheet, ICell sourceCell, ICell destCell)
         {
             if (sourceCell == null)

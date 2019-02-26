@@ -59,6 +59,7 @@
     <Compile Include="Happy5ResultExcelReader.cs" />
     <Compile Include="NumberGameResultExcelReader.cs" />
     <Compile Include="Lucky3ResultExcelReader.cs" />
+    <Compile Include="BetBuilderDetailResultExcelReader.cs" />
     <Compile Include="SportsbookDetailResultExcelReader.cs" />
     <Compile Include="OutrightResultExcelReader.cs" />
     <Compile Include="SportsbookResultExcelReader.cs" />

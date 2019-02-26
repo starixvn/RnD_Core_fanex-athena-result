@@ -223,6 +223,15 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Final Result.
+        /// </summary>
+        public static string FinalResult {
+            get {
+                return ResourceManager.GetString("FinalResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to FT.
         /// </summary>
         public static string FT {
@@ -363,6 +372,15 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         public static string Season {
             get {
                 return ResourceManager.GetString("Season", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Selection.
+        /// </summary>
+        public static string Selection {
+            get {
+                return ResourceManager.GetString("Selection", resourceCulture);
             }
         }
         

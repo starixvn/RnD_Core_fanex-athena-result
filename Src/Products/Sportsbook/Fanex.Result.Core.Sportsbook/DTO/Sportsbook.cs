@@ -7,6 +7,8 @@
     {
         private List<GameDetail> _gameDetails = new List<GameDetail>();
 
+        private List<BetBuilderDetail> betBuilderDetails = new List<BetBuilderDetail>();
+
         public string BetStatus { get; set; } = string.Empty;
 
         public int LeagueId { get; set; }
@@ -71,6 +73,16 @@
                 {
                     _gameDetails = value;
                 }
+            }
+        }
+
+        public List<BetBuilderDetail> BetBuilderDetails
+        {
+            get => betBuilderDetails;
+
+            set
+            {
+                betBuilderDetails = value ?? new List<BetBuilderDetail>();
             }
         }
 

@@ -38,7 +38,7 @@
         private IList<SoccerGameDetailItem> _detailedItemModels;
         private readonly IResultDetail<SoccerGameDetailItem> _resultDetail;
         private readonly IResultDetail<SoccerGameDetailItem> _fastMarketResultDetail;
-
+        private readonly BetBuilderResutlViewModel betBuilderViewModel;
         public SoccerViewModel(Sportsbook soccer, ResultSetting setting)
             : this(soccer, setting, null, null, null)
         {
@@ -58,6 +58,7 @@
                 ExistMatchCode(PenaltyOverUnderCode) ? PenaltyOverUnderName : string.Empty;
             _resultDetail = resultDetail ?? new SoccerResultDetail(soccer, setting);
             _fastMarketResultDetail = fastMarketResultDetail ?? new FastMarketResultDetail(soccer, setting);
+            betBuilderViewModel = new BetBuilderResutlViewModel(soccer);
         }
 
         public bool IsShowLiveScore { get; }
@@ -113,6 +114,27 @@
             Regex.Replace(SPORTBOOK.GoalRecord.ToUpperInvariant(), "[^HA]", string.Empty);
 
         public override bool VisibleGoalRecord => base.VisibleGoalRecord && !string.IsNullOrEmpty(GoalRecord);
+
+        public bool VisibleBetBuilderDetail => Setting.IsPopupOpenFromBetList && betBuilderViewModel.Detail.Any();
+
+        public string BetBuilderResult
+        {
+            get
+            {
+                var result = new StringBuilder();
+                var templateName = TemplateNameSpace + "BetBuilder";
+                var templateContent = Template.Instance.GetRazorTemplate(templateName);
+                if (!string.IsNullOrEmpty(templateContent))
+                {
+                    using (var writer = new StringWriter(result))
+                    {
+                        Engine.Razor.RunCompile(templateContent, templateName, writer, typeof(BetBuilderResutlViewModel), betBuilderViewModel);
+                    }                    
+                }
+
+                return result.ToString();
+            }
+        }
 
         public string DetailedResult
         {

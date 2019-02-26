@@ -58,7 +58,8 @@
                 VisibleMatchCodeIDColumn = false,
                 VisibleFreeHeader = true,
                 VisibleDetailedLink = true,
-                EnableCheckScoreCalculated = true
+                EnableCheckScoreCalculated = true,
+                IsPopupOpenFromBetList = true
             };
 
             if (setting.IsParlayPopUp)

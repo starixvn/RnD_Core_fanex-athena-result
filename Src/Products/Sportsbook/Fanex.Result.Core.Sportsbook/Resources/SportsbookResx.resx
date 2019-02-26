@@ -225,4 +225,10 @@
   <data name="ESports_90680X0Y" xml:space="preserve">
     <value>Map {0} Round {1} Winner</value>
   </data>
+  <data name="Selection" xml:space="preserve">
+    <value>Selection</value>
+  </data>
+  <data name="FinalResult" xml:space="preserve">
+    <value>Final Result</value>
+  </data>
 </root>

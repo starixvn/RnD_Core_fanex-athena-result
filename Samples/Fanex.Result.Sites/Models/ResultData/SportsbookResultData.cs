@@ -10,13 +10,16 @@
     using MetaModel;
     using ResultServices;
 
+
     public class SportsbookResultData
     {
         private readonly SportsbookResultService resultService;
+        private readonly BetBuilderResultService betBuilderResultService;
 
         public SportsbookResultData()
         {
             resultService = new SportsbookResultService();
+            betBuilderResultService = new BetBuilderResultService();
         }
 
         public IEnumerable<Sportsbook> GetNormalResult(DateTime date, short sportId, int leagueId, bool getDataFromExcel)
@@ -42,19 +45,33 @@
 
             if (metaModel.GetDataFromExcel)
             {
-                data = GetResultFromExcel(sportType);
+                data = GetResultFromExcel(sportType, metaModel.Bettype);
                 data = data.Where(item => item.MatchId == metaModel.MatchId);
             }
             else
             {
-                data = resultService.GetResult(new GetSportbookPopupResultCriteria
+                if (metaModel.Bettype == (int)BetType.BetBuilder)
                 {
-                    LicenseeID = licenseeId,
-                    MatchID = metaModel.MatchId,
-                    UserID = userId,
-                    BetId = metaModel.BetId,
-                    Bettype = metaModel.Bettype
-                });
+                    data = new List<Sportsbook>
+                    {
+                        betBuilderResultService.GetGameDetail(new GetBetBuilderPopupResultCriteria
+                        {
+                            MatchID = metaModel.MatchId,
+                            MarketId = metaModel.BetId
+                        })
+                    };
+                }
+                else
+                {
+                    data = resultService.GetResult(new GetSportbookPopupResultCriteria
+                    {
+                        LicenseeID = licenseeId,
+                        MatchID = metaModel.MatchId,
+                        UserID = userId,
+                        BetId = metaModel.BetId,
+                        Bettype = metaModel.Bettype
+                    });
+                }
             }
 
             if (sportType == SportType.BasketBall)
@@ -65,8 +82,12 @@
             return data;
         }
 
-        public IEnumerable<Sportsbook> GetResultFromExcel(SportType sportType)
-            => resultService.GetResultFromExcel(HostingEnvironment.MapPath(string.Format(Constant.ExcelFilePath, sportType)));
+        public IEnumerable<Sportsbook> GetResultFromExcel(SportType sportType, int? betType = null)
+            => betType.HasValue && betType.Value == (int)BetType.BetBuilder ?
+                betBuilderResultService.GetResultFromExcel(HostingEnvironment.MapPath(string.Format(Constant.ExcelFilePath, "BetBuilder")))
+                : resultService.GetResultFromExcel(HostingEnvironment.MapPath(string.Format(Constant.ExcelFilePath, sportType)));
+
+
 
         private static void GenerateGameDetailForBasketBall(ResultPopupMetaModel metaModel, IEnumerable<Sportsbook> resultData)
         {
@@ -77,5 +98,10 @@
                 sportsbook.GameDetails = sportsbook.GameDetails.Where(d => d.ResourceId.Contains(metaModel.Bettype.ToString()) && d.ResourceId.Contains(resourceId)).ToList();
             }
         }
+    }
+
+    public enum BetType
+    {
+        BetBuilder = 38
     }
 }

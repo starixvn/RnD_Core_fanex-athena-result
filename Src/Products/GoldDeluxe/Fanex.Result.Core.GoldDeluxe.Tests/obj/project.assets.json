@@ -459,6 +459,8 @@
       "files": [
         ".nupkg.metadata",
         "License.txt",
+        "NPOI.2.0.6.nupkg.sha512",
+        "NPOI.nuspec",
         "Read Me.txt",
         "Release Notes.txt",
         "lib/net20/ICSharpCode.SharpZipLib.dll",
@@ -470,9 +472,7 @@
         "logo/120_120.jpg",
         "logo/240_240.png",
         "logo/32_32.jpg",
-        "logo/60_60.jpg",
-        "npoi.2.0.6.nupkg.sha512",
-        "npoi.nuspec"
+        "logo/60_60.jpg"
       ]
     },
     "NSubstitute/3.1.0": {
@@ -577,20 +577,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\harrison.nguyen\\.nuget\\packages\\": {}
+    "C:\\Users\\razor.nguyen\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\working\\nexcel\\projects\\normal\\Fanex.Result.Core\\Src\\Products\\GoldDeluxe\\Fanex.Result.Core.GoldDeluxe.Tests\\Fanex.Result.Core.GoldDeluxe.Tests.csproj",
+      "projectUniqueName": "D:\\Working\\_Rome\\Core\\fanex-athena-result\\Src\\Products\\GoldDeluxe\\Fanex.Result.Core.GoldDeluxe.Tests\\Fanex.Result.Core.GoldDeluxe.Tests.csproj",
       "projectName": "Fanex.Result.Core.GoldDeluxe.Tests",
-      "projectPath": "D:\\working\\nexcel\\projects\\normal\\Fanex.Result.Core\\Src\\Products\\GoldDeluxe\\Fanex.Result.Core.GoldDeluxe.Tests\\Fanex.Result.Core.GoldDeluxe.Tests.csproj",
-      "packagesPath": "C:\\Users\\harrison.nguyen\\.nuget\\packages\\",
-      "outputPath": "D:\\working\\nexcel\\projects\\normal\\Fanex.Result.Core\\Src\\Products\\GoldDeluxe\\Fanex.Result.Core.GoldDeluxe.Tests\\obj\\",
+      "projectPath": "D:\\Working\\_Rome\\Core\\fanex-athena-result\\Src\\Products\\GoldDeluxe\\Fanex.Result.Core.GoldDeluxe.Tests\\Fanex.Result.Core.GoldDeluxe.Tests.csproj",
+      "packagesPath": "C:\\Users\\razor.nguyen\\.nuget\\packages\\",
+      "outputPath": "D:\\Working\\_Rome\\Core\\fanex-athena-result\\Src\\Products\\GoldDeluxe\\Fanex.Result.Core.GoldDeluxe.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\harrison.nguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\razor.nguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -604,14 +604,14 @@
       "frameworks": {
         "net461": {
           "projectReferences": {
-            "D:\\working\\nexcel\\projects\\normal\\Fanex.Result.Core\\Src\\Products\\Core\\Fanex.Result.Core.Base\\Fanex.Result.Core.Base.csproj": {
-              "projectPath": "D:\\working\\nexcel\\projects\\normal\\Fanex.Result.Core\\Src\\Products\\Core\\Fanex.Result.Core.Base\\Fanex.Result.Core.Base.csproj"
+            "D:\\Working\\_Rome\\Core\\fanex-athena-result\\Src\\Products\\Core\\Fanex.Result.Core.Base\\Fanex.Result.Core.Base.csproj": {
+              "projectPath": "D:\\Working\\_Rome\\Core\\fanex-athena-result\\Src\\Products\\Core\\Fanex.Result.Core.Base\\Fanex.Result.Core.Base.csproj"
             },
-            "D:\\working\\nexcel\\projects\\normal\\Fanex.Result.Core\\Src\\Products\\Core\\Fanex.Result.Core.Tests.Utils\\Fanex.Result.Core.Tests.Utils.csproj": {
-              "projectPath": "D:\\working\\nexcel\\projects\\normal\\Fanex.Result.Core\\Src\\Products\\Core\\Fanex.Result.Core.Tests.Utils\\Fanex.Result.Core.Tests.Utils.csproj"
+            "D:\\Working\\_Rome\\Core\\fanex-athena-result\\Src\\Products\\Core\\Fanex.Result.Core.Tests.Utils\\Fanex.Result.Core.Tests.Utils.csproj": {
+              "projectPath": "D:\\Working\\_Rome\\Core\\fanex-athena-result\\Src\\Products\\Core\\Fanex.Result.Core.Tests.Utils\\Fanex.Result.Core.Tests.Utils.csproj"
             },
-            "D:\\working\\nexcel\\projects\\normal\\Fanex.Result.Core\\Src\\Products\\GoldDeluxe\\Fanex.Result.Core.GoldDeLuxe\\Fanex.Result.Core.GoldDeLuxe.csproj": {
-              "projectPath": "D:\\working\\nexcel\\projects\\normal\\Fanex.Result.Core\\Src\\Products\\GoldDeluxe\\Fanex.Result.Core.GoldDeLuxe\\Fanex.Result.Core.GoldDeLuxe.csproj"
+            "D:\\Working\\_Rome\\Core\\fanex-athena-result\\Src\\Products\\GoldDeluxe\\Fanex.Result.Core.GoldDeLuxe\\Fanex.Result.Core.GoldDeLuxe.csproj": {
+              "projectPath": "D:\\Working\\_Rome\\Core\\fanex-athena-result\\Src\\Products\\GoldDeluxe\\Fanex.Result.Core.GoldDeLuxe\\Fanex.Result.Core.GoldDeLuxe.csproj"
             }
           }
         }

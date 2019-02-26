@@ -1,0 +1,19 @@
+﻿@using Fanex.Result.Core.Sportsbook.Resources;
+@using Fanex.Result.Core.Sportsbook.ViewModels.SoccerDetail;
+@{
+    var viewModel = (BetBuilderResutlViewModel)Model;
+}
+@foreach (var item in viewModel.Detail)
+{
+    <tr class="data">
+        <td class="cl-match">@item.SelectionName</td>
+        <td class="cl-result home">@item.Result</td>
+    </tr>
+}
+@if (viewModel.Total != null)
+{
+    <tr class="cl-total">
+        <td class="selection">@SportsbookResx.FinalResult</td>
+        <td class="result">@viewModel.Total.Result</td>
+    </tr>
+}

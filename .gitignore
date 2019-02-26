@@ -50,3 +50,11 @@ Fanex.Result.Core.v3.ncrunchsolution
 packages
 .vs
 /UpgradeLog2.htm
+
+#Ignore thumbnails created by Windows
+#Ignore files built by Visual Studio
+[Dd]ebug*/
+obj/
+.vs/
+#Nuget packages folder
+packages/

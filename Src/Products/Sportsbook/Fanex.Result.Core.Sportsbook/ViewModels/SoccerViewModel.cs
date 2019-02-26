@@ -39,6 +39,7 @@
         private readonly IResultDetail<SoccerGameDetailItem> _resultDetail;
         private readonly IResultDetail<SoccerGameDetailItem> _fastMarketResultDetail;
         private readonly BetBuilderResutlViewModel betBuilderViewModel;
+
         public SoccerViewModel(Sportsbook soccer, ResultSetting setting)
             : this(soccer, setting, null, null, null)
         {
@@ -124,12 +125,13 @@
                 var result = new StringBuilder();
                 var templateName = TemplateNameSpace + "BetBuilder";
                 var templateContent = Template.Instance.GetRazorTemplate(templateName);
+
                 if (!string.IsNullOrEmpty(templateContent))
                 {
                     using (var writer = new StringWriter(result))
                     {
                         Engine.Razor.RunCompile(templateContent, templateName, writer, typeof(BetBuilderResutlViewModel), betBuilderViewModel);
-                    }                    
+                    }
                 }
 
                 return result.ToString();

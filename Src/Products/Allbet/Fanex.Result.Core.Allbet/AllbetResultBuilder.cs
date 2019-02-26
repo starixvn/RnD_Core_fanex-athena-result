@@ -13,6 +13,7 @@
         private const string InvalidBetTypeErrorMessage = "betType is invalid!";
         private const string InvalidImagePathErrorMessage = "not found AllBetCasino image path configuration!";
         private const string DefaultLanguageCode = "en";
+        private readonly bool useOriginalPath;
 
         private static Dictionary<string, string> supportedLanguage = new Dictionary<string, string>
         {
@@ -30,6 +31,7 @@
 
         public AllbetResultBuilder()
         {
+            useOriginalPath = Convert.ToBoolean(ConfigurationManager.AppSettings["AllbetUseOriginalPath"] ?? "false");
         }
 
         internal AllbetResultBuilder(IResultPopup resultPopup)
@@ -58,13 +60,11 @@
                 throw new AllBetCasinoException(InvalidImagePathErrorMessage);
             }
 
-            
             var langCode = supportedLanguage.ContainsKey(languageCode) ? supportedLanguage[languageCode] : DefaultLanguageCode;
             try
             {
-                tplPath = CreateRelativePath(tplPath);
+                tplPath = CreateTplPath(tplPath, useOriginalPath);
                 _resultPopup = _resultPopup ?? new ResultPop(HttpContext.Current, null, tplPath, ResultCoreManager.RefDataHelper);
-                
 
                 return _resultPopup.genResultPopHtml(transDesc, gameId3rd, langCode, betType);
             }
@@ -82,11 +82,11 @@
             }
         }
 
-        private static string CreateRelativePath(string path)
+        private static string CreateTplPath(string path, bool useOriginalPath = false)
         {
-            var relativePath = HttpRuntime.AppDomainAppVirtualPath + path;
+            var tplPath = useOriginalPath ? path : HttpRuntime.AppDomainAppVirtualPath + path;
 
-            return relativePath.Replace("//", "/");
+            return tplPath.Replace("//", "/");
         }
     }
 }

@@ -4,28 +4,14 @@
     using System.Collections.Generic;
     using System.Data;
     using System.Linq;
-    using System.Threading;
     using Criteria;
     using Fanex.Data;
     using Fanex.Data.Repository;
-    using Fanex.RemotingRef;
-    using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Sportsbook.DTO;
     using Fanex.Result.Data;
 
     public class BetBuilderResultService : IResultService<Sportsbook>
     {
-        private readonly IRemotingRefService remotingRefService;
-        public BetBuilderResultService() : this(null)
-        {
-
-        }
-
-        public BetBuilderResultService(IRemotingRefService remotingRefService)
-        {
-            this.remotingRefService = remotingRefService ?? new RemotingRefService();
-        }
-
         public IEnumerable<Sportsbook> GetResult(ICriteria criteria)
         {
             throw new NotSupportedException();
@@ -54,12 +40,6 @@
                         {
                             result.BetBuilderDetails.Add(BindBetBuilderDetail(reader));
                         }
-                    }
-
-                    foreach (var detail in result.BetBuilderDetails)
-                    {
-                        var names = remotingRefService.GetBetBuilderSelectionNames(new int[] { detail.SelectionType }, Thread.CurrentThread.CurrentCulture.Name);
-                        detail.SelectionName = names != null && names.Length == 1 ? names[0] : string.Empty;
                     }
 
                     return result;

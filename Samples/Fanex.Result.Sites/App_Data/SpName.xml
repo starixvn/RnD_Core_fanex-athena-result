@@ -52,6 +52,6 @@
     </Setting>
     <Setting Key="All_BetList_MatchResultAGSel" SpName="All_BetList_MatchResultAGSel" DbName="DBEXT.bodb02.bodbLicenseeNet">
     </Setting>
-    <Setting Key="Age_TicketResult_BetBuilder" SpName="Age_TicketResult_BetBuilder_xtest" DbName="DBACC.bodb02.BODBDownlineNet.Alpha"/>
+    <Setting Key="Age_TicketResult_BetBuilder" SpName="Age_TicketResult_BetBuilder_xtest" DbName="DBACC.bodb02.BODBDownlineNet.Alpha" />
   </Function>
 </Functions>

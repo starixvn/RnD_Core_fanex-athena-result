@@ -20,8 +20,7 @@
             var resultData = new BetBuilderDetail();
 
             resultData.SelectionType = Convert.ToInt32(row.GetCell(0)?.ToString());
-            resultData.SelectionName = row.GetCell(1)?.ToString();
-            resultData.Result = row.GetCell(2)?.ToString();
+            resultData.Result = row.GetCell(1)?.ToString();
 
             return resultData;
         }

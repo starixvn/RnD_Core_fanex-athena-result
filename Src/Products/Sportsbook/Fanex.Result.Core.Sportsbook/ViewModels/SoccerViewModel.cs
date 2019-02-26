@@ -38,7 +38,7 @@
         private IList<SoccerGameDetailItem> _detailedItemModels;
         private readonly IResultDetail<SoccerGameDetailItem> _resultDetail;
         private readonly IResultDetail<SoccerGameDetailItem> _fastMarketResultDetail;
-        private readonly BetBuilderResutlViewModel betBuilderViewModel;
+        private readonly BetBuilderResultViewModel betBuilderViewModel;
 
         public SoccerViewModel(Sportsbook soccer, ResultSetting setting)
             : this(soccer, setting, null, null, null)
@@ -59,7 +59,7 @@
                 ExistMatchCode(PenaltyOverUnderCode) ? PenaltyOverUnderName : string.Empty;
             _resultDetail = resultDetail ?? new SoccerResultDetail(soccer, setting);
             _fastMarketResultDetail = fastMarketResultDetail ?? new FastMarketResultDetail(soccer, setting);
-            betBuilderViewModel = new BetBuilderResutlViewModel(soccer);
+            betBuilderViewModel = new BetBuilderResultViewModel(soccer, setting, refDataHelper);
         }
 
         public bool IsShowLiveScore { get; }
@@ -130,7 +130,7 @@
                 {
                     using (var writer = new StringWriter(result))
                     {
-                        Engine.Razor.RunCompile(templateContent, templateName, writer, typeof(BetBuilderResutlViewModel), betBuilderViewModel);
+                        Engine.Razor.RunCompile(templateContent, templateName, writer, typeof(BetBuilderResultViewModel), betBuilderViewModel);
                     }
                 }
 

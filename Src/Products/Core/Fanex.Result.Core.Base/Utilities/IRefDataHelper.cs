@@ -27,5 +27,7 @@
         string GetRouletteBetItem(string itemId, string languageCode, string defaultValue);
 
         string GetCasinoBetItem(string itemId, string languageCode, string defaultValue);
+
+        string GetBetBuilderSelectionName(int selectionType, string languageCode, string defaultValue);
     }
 }

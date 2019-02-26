@@ -54,5 +54,12 @@
 
         public string GetCasinoBetItem(string itemId, string languageCode, string defaultValue)
             => remotingRefService.GetCasinoBetItem(itemId, languageCode, defaultValue);
+
+        public string GetBetBuilderSelectionName(int selectionType, string languageCode, string defaultValue)
+        {
+            var names = remotingRefService.GetBetBuilderSelectionNames(new int[] { selectionType }, languageCode);
+
+            return names != null && names.Length == 1 ? names[0] : defaultValue;
+        }
     }
 }

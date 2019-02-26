@@ -85,10 +85,10 @@ table.fn-rs tbody td {
   vertical-align: middle;
 }
 table.fn-rs tbody .cl-total {
-  font-size: 12px;
   background: #cccccc;
 }
 table.fn-rs tbody .cl-total .selection {
+  font-size: 12px;
   text-align: left;
   padding-left: 3px;
 }

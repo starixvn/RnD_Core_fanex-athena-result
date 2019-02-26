@@ -1,6 +1,5 @@
 ﻿namespace MvcExample.Models.ResultServices
 {
-    using System;
     using System.Collections.Generic;
     using DTO;
     using Fanex.Data;

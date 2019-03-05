@@ -219,4 +219,10 @@
   <data name="ESports_90740X" xml:space="preserve">
     <value>地图 {0} 回合得分（包括加时）</value>
   </data>
+  <data name="Selection" xml:space="preserve">
+    <value>选择项目</value>
+  </data>
+  <data name="FinalResult" xml:space="preserve">
+    <value>最终结果</value>
+  </data>
 </root>

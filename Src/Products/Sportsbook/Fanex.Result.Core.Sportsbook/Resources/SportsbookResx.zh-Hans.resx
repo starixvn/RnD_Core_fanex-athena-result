@@ -225,4 +225,10 @@
   <data name="Round162" xml:space="preserve">
     <value>十六强 -2</value>
   </data>
+  <data name="FinalResult" xml:space="preserve">
+    <value>最终结果</value>
+  </data>
+  <data name="Selection" xml:space="preserve">
+    <value>选择项目</value>
+  </data>
 </root>

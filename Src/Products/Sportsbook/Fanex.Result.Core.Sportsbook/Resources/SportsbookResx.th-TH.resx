@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -125,5 +125,11 @@
   </data>
   <data name="MatchDay" xml:space="preserve">
     <value>Match Day</value>
+  </data>
+  <data name="Selection" xml:space="preserve">
+    <value>ตัวเลือก</value>
+  </data>
+  <data name="FinalResult" xml:space="preserve">
+    <value>ผลลัพธ์</value>
   </data>
 </root>

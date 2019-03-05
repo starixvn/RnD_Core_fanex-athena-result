@@ -177,4 +177,10 @@
   <data name="ESports_90740X" xml:space="preserve">
     <value>Bản Đồ {0} Số Vòng Đấu (gồm Hiệp Phụ)</value>
   </data>
+  <data name="Selection" xml:space="preserve">
+    <value>Lựa chọn</value>
+  </data>
+  <data name="FinalResult" xml:space="preserve">
+    <value>Kết quả cuối cùng</value>
+  </data>
 </root>

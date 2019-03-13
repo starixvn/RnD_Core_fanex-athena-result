@@ -61,6 +61,9 @@
                 case 2405:
                     return "choice=2001*comms=101*site=spondemo*tableCode=B001*state=0*result=D;C2:T;D3*results=D;2:T;3*winResult=2001";
 
+                case 2406:
+                    return "choice=9001*comms=100*site=IBC*tableCode=W001*state=0*result=D;D4;H10;H3:P;CA;H9;D9*results=*winResult=9003;9001*ForcedCompleted=0*ReasonCode=0*enterType=100";
+
                 default:
                     return "choice=1001*comms=101*site=spondemo*tableCode=B001*state=0*result=B;S6;H2:P;D10;D5*results=B;8:P;5*winResult=1001";
             }

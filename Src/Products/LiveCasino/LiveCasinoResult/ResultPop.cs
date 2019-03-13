@@ -12,7 +12,7 @@ using Fanex.Result.Core.Base;
 
 namespace LiveCasinoResult
 {
-    public class ResultPop: IResultPopup
+    public class ResultPop : IResultPopup
     {
         private static string _ConnectionString = "";
         private static string _ImgPath = "";
@@ -67,6 +67,8 @@ namespace LiveCasinoResult
                         return GetSicBoLayout(TransDesc, slang, GameId3rd, bettype);
                     case "2405":
                         return GetDragonTigerLayout(TransDesc, slang, GameId3rd, bettype);
+                    case "2406":
+                        return GetWinThreeCardsLayout(TransDesc, slang, GameId3rd, bettype);
                     default:
                         return "";
                 }
@@ -103,6 +105,31 @@ namespace LiveCasinoResult
             string strFinalLayout = GetFinalLayout(bettype);
 
             return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Player", "Banker", strScore[1].ToString(), strPlayerImg, strBankerImg, strScore[0].ToString(), strFinalScore);
+        }
+
+        private static string GetWinThreeCardsLayout(string sDesc, string slang, string GameId3rd, string bettype)
+        {
+            string[] GameDetail = sDesc.Split('*');
+            string s1 = GetSplitValue('=', (bAG) ? GameDetail[5].ToString() : GameDetail[5].ToString());
+            string[] CardValue = s1.Replace("D;", "").Replace("P;", "").Replace("0", "").Replace(";", ",").Split(':');
+            strBankerCardValue = CardValue[0].ToString();
+            strPlayerCardValue = CardValue[1].ToString();
+            RenderTemplate();
+
+            string[] strResult = GetSplitValue('=', (bAG) ? GameDetail[6].ToString() : GameDetail[7].ToString()).Split(';');
+            string strFinalScore = "";
+            string strRefKey = (bAG) ? "AG_Baccarat" : "AllBet_BT";
+            for (int j = 0; j < strResult.Length; j++)
+            {
+                if (strFinalScore == "")
+                    strFinalScore = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
+                else
+                    strFinalScore = strFinalScore + ", " + refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
+            }
+            
+            string strFinalLayout = GetFinalLayout(bettype);
+
+            return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Dragon", "Phoenix", strPlayerImg, strBankerImg, strFinalScore);
         }
 
         private static string GetRouletteLayout(string sDesc, string slang, string GameId3rd, string bettype)
@@ -166,7 +193,7 @@ namespace LiveCasinoResult
             }
             catch (Exception)
             {
-                
+
                 throw new Exception("session1");
             }
 
@@ -256,6 +283,21 @@ namespace LiveCasinoResult
                     }
                     strFinalLayout += "<td width='30'>{6}</td></tr>";
                     strFinalLayout += "<tr align='center' class='bgcpe'><td colspan='4' style='height: 24px; vertical-align:bottom;'>{7}</td></tr>";
+                    strFinalLayout += "</tbody></table></div>";
+                    break;
+                case "2406":
+                    strFinalLayout = "<div class='popWTableArea'><table width='100%' cellpadding='0' cellspacing='0' border='0' class='oddsTable info'>";
+                    strFinalLayout += "<tbody><tr><td colspan='2' class='tabtitle'>{0}</td></tr></tbody>";
+                    strFinalLayout += "<tbody>";
+                    strFinalLayout += "<tr align='center'><th width='50%'>{1}</th><th width='50%' class='even'>{2}</th></tr>";
+                    strFinalLayout += "<tr align='center' class='bgcpe'>";
+                    
+                    
+                        strFinalLayout += "<td align='center'>{3}</td>";
+                        strFinalLayout += "<td align='center'>{4}</td>";
+                    
+                    strFinalLayout += "</tr>";
+                    strFinalLayout += "<tr align='center' class='bgcpe'><td colspan='2' style='height: 24px; vertical-align:bottom;'>{5}</td></tr>";
                     strFinalLayout += "</tbody></table></div>";
                     break;
                 case "2403":

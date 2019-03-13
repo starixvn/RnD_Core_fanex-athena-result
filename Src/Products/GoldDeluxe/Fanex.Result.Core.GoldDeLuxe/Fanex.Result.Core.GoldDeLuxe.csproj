@@ -66,12 +66,25 @@
     <Compile Include="Models\Template.cs" />
     <Compile Include="Models\ViewModelConcreteFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\GoldDeluxeResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GoldDeluxeResource.resx</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\GoldDeluxeHelper.cs" />
     <Compile Include="ViewModels\GoldDeluxeViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Fanex.Result.Core.GoldDeluxe.ruleset" />
     <None Include="packages.config" />
+    <EmbeddedResource Include="Resources\GoldDeluxeResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>GoldDeluxeResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\GoldDeluxeResource.th-TH.resx" />
+    <EmbeddedResource Include="Resources\GoldDeluxeResource.vi-VN.resx" />
+    <EmbeddedResource Include="Resources\GoldDeluxeResource.zh-CN.resx" />
+    <EmbeddedResource Include="Resources\GoldDeluxeResource.zh-TW.resx" />
     <EmbeddedResource Include="Views\GoldDeluxe.cshtml" />
   </ItemGroup>
   <ItemGroup>

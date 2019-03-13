@@ -1,7 +1,6 @@
 ﻿@{
     var viewModel = (Fanex.Result.Core.Base.ViewModels.RazorBinderModel)Model;
 
- 
     var colspan = 3;
     var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
 
@@ -11,6 +10,7 @@
 @using Fanex.Result.Core.GoldDeluxe.ViewModels;
 @using System.Collections;
 @using Fanex.Result.Core.Base.Resources;
+@using Fanex.Result.Core.GoldDeluxe.Resources
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
@@ -84,19 +84,19 @@
                     var item = (GoldDeluxeViewModel)temp;
                     index++;
 
-            <tr class="data @item.Color(index, "even", "odd")">
-                <td class="cl-ko-time">
-                    @item.GameID
-                </td>
-                <td class="cl-match">
-                    <div class="gd">
-                        @Raw(item.ResultInHtml)
-                    </div>
-                </td>
-                <td class="cl-status @item.EventStatusBackground">
-                    @item.EventStatus
-                </td>
-            </tr>
+                    <tr class="data @item.Color(index, "even", "odd")">
+                        <td class="cl-ko-time">
+                            @item.GameID
+                        </td>
+                        <td class="cl-match">
+                            <div class="gd">
+                                @Raw(item.ResultInHtml)
+                            </div>
+                        </td>
+                        <td class="cl-status @item.EventStatusBackground">
+                            @item.EventStatus
+                        </td>
+                    </tr>
 
                 }
             }
@@ -106,7 +106,7 @@
             <!--NoInfo-->
             <tr class="row-noinfo">
                 <td colspan="@colspan">
-                    @LangResource.NoInfo
+                    @GoldDeluxeResource.NoInfo
                 </td>
             </tr>
             <!--/NoInfo-->

@@ -85,9 +85,6 @@
     <Reference Include="Fanex.Result.Core.Base, Version=2.1.7.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Fanex.Result.Core-NPOI.2.0.6.2.1.7-beta\lib\net40\Fanex.Result.Core.Base.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Result.Core.GoldDeluxe, Version=1.0.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.Result.Core-GoldDeluxe.1.0.3-beta1\lib\net40\Fanex.Result.Core.GoldDeluxe.dll</HintPath>
-    </Reference>
     <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Ionic.Zip.1.9.1.8\lib\Ionic.Zip.dll</HintPath>
     </Reference>
@@ -639,6 +636,10 @@
     <ProjectReference Include="..\..\Src\Products\GlobalGaming\Fanex.Result.Core.GlobalGaming\Fanex.Result.Core.GlobalGaming.csproj">
       <Project>{24011d8b-9445-4377-8b70-e7d4049f372f}</Project>
       <Name>Fanex.Result.Core.GlobalGaming</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Src\Products\GoldDeluxe\Fanex.Result.Core.GoldDeLuxe\Fanex.Result.Core.GoldDeLuxe.csproj">
+      <Project>{dbd59404-19d9-422c-83f1-8f20e02545ed}</Project>
+      <Name>Fanex.Result.Core.GoldDeLuxe</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Src\Products\GoldDeluxe\Fanex.Result.Core.GoldDeLuxe\Fanex.Result.Core.GoldDeLuxe.csproj">
       <Project>{dbd59404-19d9-422c-83f1-8f20e02545ed}</Project>

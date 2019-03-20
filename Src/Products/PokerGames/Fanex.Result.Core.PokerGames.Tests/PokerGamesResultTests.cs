@@ -99,6 +99,49 @@
                         && request.Call.Type == expectedType));
         }
 
+        [TestCase(1901, "P")]
+        public void GetResult_VideoPoker_CallUploadString(int bettype, string expectedType)
+        {
+            var custId = "12";
+            var gameTypeId = bettype.ToString();
+            var transId3rd = "1232";
+            var language = "en-US";
+            var siteId = 3434;
+            var apiUrl = "apiUrl";
+            _configs.DebugMode.Returns(0);
+            _configs.Login.Returns("Login");
+            _configs.Password.Returns("GetResult_Always_CallUploadString");
+            _configs.Url.Returns(apiUrl);
+            var now = new DateTime(1989, 5, 28);
+            _randomInt.Invoke().Returns(10000);
+            _getDatimeNow.Invoke().Returns(now);
+            _client.UploadString<Request, Response>(
+                Arg.Any<string>(),
+                Arg.Any<Request>()).Returns(new Response
+                {
+                    Result = new Result
+                    {
+                        Url = "ResultUrl",
+                        Seq = "627479136000000000-10000-0-12-34343-10000"
+                    },
+                    TimeStamp = now.ToString("yyyy-MM-dd HH:mm:ss.fff")
+                });
+
+            _result.GetResult(custId, gameTypeId, transId3rd, ViewerLevel.Company, language, siteId);
+
+            _client.Received().UploadString<Request, Response>(
+                apiUrl,
+                Arg.Is<Request>(
+                    request =>
+                        request.Auth.Login == "Login"
+                        && request.Auth.Password == "GetResult_Always_CallUploadString"
+                        && request.Auth.SiteId == siteId
+                        && request.Call.OBCustId == custId
+                        && request.Call.GameTypeId == gameTypeId
+                        && request.Call.TransId3rd == transId3rd
+                        && request.Call.Type == expectedType));
+        }
+
         [Test]
         public void GetResult_InvalidRequest_ThrowResultCoreException()
         {

@@ -9,6 +9,9 @@
 
     public class PokerGamesResult : IPokerGamesResult
     {
+        private const int VideoPokerBetTypeMin = 1901;
+        private const int VideoPokerBetTypeMax = 1999;
+
         private const string DefaultLanguage = "en-US";
 
         private static readonly Dictionary<string, string> SupportedLanguages = new Dictionary<string, string>
@@ -24,7 +27,7 @@
         private readonly Func<int> _randomInt;
 
         public PokerGamesResult(
-            IWebClient client = null, 
+            IWebClient client = null,
             ISerializer serializer = null,
             IPokerGamesResultConfigs configs = null,
             Func<DateTime> getDatimeNow = null,
@@ -59,6 +62,7 @@
         }
 
 #pragma warning disable S3995 // URI return values should not be strings
+
         private string GetResultUrl(string language, Request request)
 #pragma warning restore S3995 // URI return values should not be strings
         {
@@ -79,7 +83,7 @@
             {
                 return _client.UploadString<Request, Response>(_configs.Url, request);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 var exceptionMessage = string.Join(
                     "\r\n",
@@ -99,9 +103,14 @@
             }
         }
 
-        private static string MapLevel(ViewerLevel viewLevel)
+        private static string MapLevel(ViewerLevel viewLevel, int betTypeId)
         {
-            switch(viewLevel)
+            if (betTypeId >= VideoPokerBetTypeMin && betTypeId <= VideoPokerBetTypeMax)
+            {
+                return "P";
+            }
+
+            switch (viewLevel)
             {
                 case ViewerLevel.Company:
                     return "C";
@@ -147,7 +156,7 @@
                 OBCustId = custId,
                 GameTypeId = gameTypeId,
                 TransId3rd = transId3rd,
-                Type = MapLevel(viewerLevel)
+                Type = MapLevel(viewerLevel, int.Parse(gameTypeId))
             };
         }
 

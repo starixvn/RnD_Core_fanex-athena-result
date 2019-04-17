@@ -11,6 +11,7 @@
     using BasketBallDetail;
     using DataDomain;
     using DTO;
+    using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.Utilities;
     using Utilities;
 
@@ -121,7 +122,7 @@
                 HomeSet = new[] { ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Zero };
                 AwaySet = new[] { ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Zero };
 
-                if (EventStatus != ConstantValue.RefundFT)
+                if (EventStatus != LangResource.Refundft)
                 {
                     GenerateHomeAwaySetValueFromBetStatus(5);
                 }

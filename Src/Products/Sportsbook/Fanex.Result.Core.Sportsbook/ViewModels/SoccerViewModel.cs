@@ -158,11 +158,11 @@
 
         #region Utilities
 
-        private bool EventStatusIsRefundFT => EventStatus.Equals(ConstantValue.RefundFT, StringComparison.OrdinalIgnoreCase);
+        private bool EventStatusIsRefundFT => EventStatus.Equals(LangResource.Refundft, StringComparison.OrdinalIgnoreCase);
 
         private bool EventStatusIsAbandoned
-            => EventStatus.Equals(ConstantValue.Abandoned1H, StringComparison.OrdinalIgnoreCase)
-                || EventStatus.Equals(ConstantValue.Abandoned2H, StringComparison.OrdinalIgnoreCase);
+            => EventStatus.Equals(LangResource.Abandoned1h, StringComparison.OrdinalIgnoreCase)
+                || EventStatus.Equals(LangResource.Abandoned2h, StringComparison.OrdinalIgnoreCase);
 
         private bool HasValidGameData
         {
@@ -200,15 +200,15 @@
 
         private string CalculateScore(int? score, bool isFinalScore)
         {
-            var refundType = isFinalScore ? ConstantValue.RefundFT : ConstantValue.RefundHT;
+            var refundType = isFinalScore ? LangResource.Refundft : LangResource.Refundht;
 
-            if (EventStatus.Equals(ConstantValue.Refund, StringComparison.OrdinalIgnoreCase)
+            if (EventStatus.Equals(LangResource.Refund, StringComparison.OrdinalIgnoreCase)
                 || EventStatus.Equals(refundType, StringComparison.OrdinalIgnoreCase))
             {
                 return LangResource.Refund;
             }
 
-            if (EventStatus.Equals(ConstantValue.Abandoned1H, StringComparison.OrdinalIgnoreCase) &&
+            if (EventStatus.Equals(LangResource.Abandoned1h, StringComparison.OrdinalIgnoreCase) &&
                 isFinalScore)
             {
                 return ConstantValue.Hyphen;

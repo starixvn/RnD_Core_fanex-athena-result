@@ -154,10 +154,10 @@
     <value>比赛日3 E组和F组</value>
   </data>
   <data name="Semifinal2" xml:space="preserve">
-    <value>半决赛 2</value>
+    <value>半决赛2</value>
   </data>
   <data name="Semifinal1" xml:space="preserve">
-    <value>半决赛 1</value>
+    <value>半决赛1</value>
   </data>
   <data name="Final" xml:space="preserve">
     <value>决赛</value>
@@ -169,54 +169,60 @@
     <value>全场</value>
   </data>
   <data name="ESports_90020X" xml:space="preserve">
-    <value>地图 {0} 击杀总数得分</value>
+    <value>地图{0}击杀总数得分</value>
   </data>
   <data name="ESports_90080X" xml:space="preserve">
-    <value>地图 {0} 防御塔得分</value>
+    <value>地图{0}防御塔得分</value>
   </data>
   <data name="ESports_90120X" xml:space="preserve">
-    <value>地图 {0} 肉山大魔王得分</value>
+    <value>地图{0}肉山大魔王得分</value>
   </data>
   <data name="ESports_90180X" xml:space="preserve">
-    <value>地图 {0} 兵营得分</value>
+    <value>地图{0}兵营得分</value>
   </data>
   <data name="ESports_90240X" xml:space="preserve">
-    <value>地图 {0} 炮塔得分</value>
+    <value>地图{0}炮塔得分</value>
   </data>
   <data name="ESports_90280X" xml:space="preserve">
-    <value>地图 {0} 巨龙得分</value>
+    <value>地图{0}巨龙得分</value>
   </data>
   <data name="ESports_90340X" xml:space="preserve">
-    <value>地图 {0} 男爵得分</value>
+    <value>地图{0}男爵得分</value>
   </data>
   <data name="ESports_90400X" xml:space="preserve">
-    <value>地图 {0} 水晶得分</value>
+    <value>地图{0}水晶得分</value>
   </data>
   <data name="ESports_90460X" xml:space="preserve">
-    <value>地图 {0} 暴君得分</value>
+    <value>地图{0}暴君得分</value>
   </data>
   <data name="ESports_90520X" xml:space="preserve">
-    <value>地图 {0} 主宰 得分</value>
+    <value>地图{0}主宰 得分</value>
   </data>
   <data name="ESports_90580X" xml:space="preserve">
-    <value>地图 {0} 赛事时间 </value>
+    <value>地图{0}赛事时间</value>
   </data>
   <data name="ESports_90590X" xml:space="preserve">
-    <value>地图 {0} 回合得分</value>
+    <value>地图{0}回合得分</value>
   </data>
   <data name="ESports_90650X" xml:space="preserve">
-    <value>地图 {0} 第一击杀总数</value>
+    <value>地图{0}第一击杀总数</value>
   </data>
   <data name="ESports_90660X" xml:space="preserve">
-    <value>地图 {0} Cluthes 得分</value>
+    <value>地图{0} Cluthes得分</value>
   </data>
   <data name="ESports_90680X0Y" xml:space="preserve">
-    <value>地图 {0} 回合 {1} 优胜者</value>
+    <value>地图{0}回合{1}优胜者</value>
   </data>
   <data name="ESports_90690X0Y" xml:space="preserve">
-    <value>地图 {0} 回合  {1}  击杀总数</value>
+    <value>地图{0}回合{1}击杀总数</value>
   </data>
   <data name="ESports_90740X" xml:space="preserve">
-    <value>地图 {0} 回合得分（包括加时）</value>
+    <value>地图{0}回合得分（包括加时）</value>
+  </data>
+  <data name="Round161" xml:space="preserve">
+    <value>十六强 -1</value>
+  </data>
+  <data name="Round162" xml:space="preserve">
+    <value>十六强 -2</value>
   </data>
 </root>

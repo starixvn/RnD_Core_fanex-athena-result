@@ -313,6 +313,213 @@
     <value>地圖</value>
   </data>
   <data name="MinSec" xml:space="preserve">
-    <value>{0} 分鐘 {1} 秒</value>
+    <value>{0}分鐘{1}秒</value>
+  </data>
+  <data name="Away" xml:space="preserve">
+    <value>客</value>
+  </data>
+  <data name="Banker" xml:space="preserve">
+    <value>莊</value>
+  </data>
+  <data name="Corner" xml:space="preserve">
+    <value>角球</value>
+  </data>
+  <data name="Dragon" xml:space="preserve">
+    <value>龍</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>[i]</value>
+  </data>
+  <data name="Draw" xml:space="preserve">
+    <value>和局</value>
+  </data>
+  <data name="ExtraTime" xml:space="preserve">
+    <value>加時賽</value>
+  </data>
+  <data name="FirstLastCorners" xml:space="preserve">
+    <value>首個/末個角球</value>
+  </data>
+  <data name="GameID" xml:space="preserve">
+    <value>遊戲代碼</value>
+  </data>
+  <data name="GameResult" xml:space="preserve">
+    <value>比賽結果</value>
+  </data>
+  <data name="GameTypeAndTableNumber" xml:space="preserve">
+    <value>遊戲類型 - 桌號</value>
+  </data>
+  <data name="GoalRecord" xml:space="preserve">
+    <value>進球紀錄</value>
+  </data>
+  <data name="Goals" xml:space="preserve">
+    <value>進球數</value>
+  </data>
+  <data name="GoalScorer" xml:space="preserve">
+    <value>進球球員</value>
+  </data>
+  <data name="GoalTime" xml:space="preserve">
+    <value>進球時間</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>主隊</value>
+  </data>
+  <data name="HomeAwayPlayerSentOff" xml:space="preserve">
+    <value>主/客 - 球員驅逐離場</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>代碼</value>
+  </data>
+  <data name="LblOEFT" xml:space="preserve">
+    <value>全場單/雙</value>
+  </data>
+  <data name="MatchCode" xml:space="preserve">
+    <value>比賽代碼</value>
+  </data>
+  <data name="Min" xml:space="preserve">
+    <value>分</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>否</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>無</value>
+  </data>
+  <data name="Penalty" xml:space="preserve">
+    <value>點球</value>
+  </data>
+  <data name="Player" xml:space="preserve">
+    <value>球員</value>
+  </data>
+  <data name="PlayerSentOff" xml:space="preserve">
+    <value>球員驅逐離場</value>
+  </data>
+  <data name="PS" xml:space="preserve">
+    <value>PS</value>
+  </data>
+  <data name="RegularTime" xml:space="preserve">
+    <value>正規時間</value>
+  </data>
+  <data name="RS04" xml:space="preserve">
+    <value>全場</value>
+  </data>
+  <data name="RS05" xml:space="preserve">
+    <value>上半場</value>
+  </data>
+  <data name="RS135" xml:space="preserve">
+    <value>點球決勝 是/否</value>
+  </data>
+  <data name="RS160" xml:space="preserve">
+    <value>全場- 進球數{0}</value>
+  </data>
+  <data name="RS164" xml:space="preserve">
+    <value>加時賽- 進球數{0}</value>
+  </data>
+  <data name="RS168" xml:space="preserve">
+    <value>哪一隊可晉級</value>
+  </data>
+  <data name="RS169" xml:space="preserve">
+    <value>進球數{0}</value>
+  </data>
+  <data name="RS173" xml:space="preserve">
+    <value>加時賽 是/否</value>
+  </data>
+  <data name="RS174" xml:space="preserve">
+    <value>加時賽&amp;進球數</value>
+  </data>
+  <data name="RS175" xml:space="preserve">
+    <value>決定賽事方式</value>
+  </data>
+  <data name="RS176" xml:space="preserve">
+    <value>前10分鐘1X2</value>
+  </data>
+  <data name="RS180" xml:space="preserve">
+    <value>上半場- 進球數{0}</value>
+  </data>
+  <data name="RS192" xml:space="preserve">
+    <value>特定時間的第一個進球(10 分鐘)</value>
+  </data>
+  <data name="RS193" xml:space="preserve">
+    <value>特定時間的第一個進球(15 分鐘)</value>
+  </data>
+  <data name="RS206" xml:space="preserve">
+    <value>全場- 第一個角球</value>
+  </data>
+  <data name="RS207" xml:space="preserve">
+    <value>上半場第一個角球</value>
+  </data>
+  <data name="RS208" xml:space="preserve">
+    <value>全場- 最後一個角球</value>
+  </data>
+  <data name="RS209" xml:space="preserve">
+    <value>上半場最後一個角球</value>
+  </data>
+  <data name="RS210" xml:space="preserve">
+    <value>全場</value>
+  </data>
+  <data name="RS211" xml:space="preserve">
+    <value>上半場</value>
+  </data>
+  <data name="RS212" xml:space="preserve">
+    <value>全場</value>
+  </data>
+  <data name="RS213" xml:space="preserve">
+    <value>上半場</value>
+  </data>
+  <data name="RS214" xml:space="preserve">
+    <value>全場</value>
+  </data>
+  <data name="RS215" xml:space="preserve">
+    <value>上半場</value>
+  </data>
+  <data name="RS216" xml:space="preserve">
+    <value>進球數{0}</value>
+  </data>
+  <data name="RS217" xml:space="preserve">
+    <value>第一個進球</value>
+  </data>
+  <data name="Set" xml:space="preserve">
+    <value>總局數</value>
+  </data>
+  <data name="Special" xml:space="preserve">
+    <value>特別</value>
+  </data>
+  <data name="Tiger" xml:space="preserve">
+    <value>老虎</value>
+  </data>
+  <data name="VS" xml:space="preserve">
+    <value>比</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>是</value>
+  </data>
+  <data name="FiveRoundsCompleted" xml:space="preserve">
+    <value>5回合完成</value>
+  </data>
+  <data name="KOInRound" xml:space="preserve">
+    <value>第{0}回擊倒</value>
+  </data>
+  <data name="RS424" xml:space="preserve">
+    <value>第一個進球方式</value>
+  </data>
+  <data name="FreeKick" xml:space="preserve">
+    <value>任意球</value>
+  </data>
+  <data name="Header" xml:space="preserve">
+    <value>頭球</value>
+  </data>
+  <data name="NoGoal" xml:space="preserve">
+    <value>無進球</value>
+  </data>
+  <data name="OwnGoal" xml:space="preserve">
+    <value>烏龍球</value>
+  </data>
+  <data name="Shot" xml:space="preserve">
+    <value>射門</value>
+  </data>
+  <data name="RS08" xml:space="preserve">
+    <value>進球順序</value>
+  </data>
+  <data name="RS455" xml:space="preserve">
+    <value>第一個進球時間</value>
   </data>
 </root>

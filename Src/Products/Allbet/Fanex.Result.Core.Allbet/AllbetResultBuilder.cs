@@ -12,20 +12,7 @@
         private const string InvalidTransDescErrorMessage = "tranDesc is invalid!";
         private const string InvalidBetTypeErrorMessage = "betType is invalid!";
         private const string InvalidImagePathErrorMessage = "not found AllBetCasino image path configuration!";
-        private const string DefaultLanguageCode = "en";
-        private readonly bool useOriginalPath;
-
-        private static Dictionary<string, string> supportedLanguage = new Dictionary<string, string>
-        {
-            { "en-US", "en" },
-            { "zh-TW", "ch" },
-            { "zh-CN", "cs" },
-            { "zh-Hans", "zhcn" },
-            { "ja-JP", "jp" },
-            { "th-TH", "th" },
-            { "ko-KR", "ko" },
-            { "vi-VN", "vn" }
-        };
+        private readonly bool useOriginalPath;       
 
         private IResultPopup _resultPopup;
 
@@ -60,20 +47,19 @@
                 throw new AllBetCasinoException(InvalidImagePathErrorMessage);
             }
 
-            var langCode = supportedLanguage.ContainsKey(languageCode) ? supportedLanguage[languageCode] : DefaultLanguageCode;
             try
             {
                 tplPath = CreateTplPath(tplPath, useOriginalPath);
                 _resultPopup = _resultPopup ?? new ResultPop(HttpContext.Current, null, tplPath, ResultCoreManager.RefDataHelper);
 
-                return _resultPopup.genResultPopHtml(transDesc, gameId3rd, langCode, betType);
+                return _resultPopup.genResultPopHtml(transDesc, gameId3rd, languageCode, betType);
             }
             catch (Exception exception)
             {
                 var message = string.Join("\r\n",
                     $"transDesc: {transDesc}",
                     $"gameId3rd: {gameId3rd}",
-                    $"langCode: {langCode}",
+                    $"langCode: {languageCode}",
                     $"betType: {betType}",
                     $"Exception: {exception}",
                     $"GetTemplatePath: {GetTemplatePath}",

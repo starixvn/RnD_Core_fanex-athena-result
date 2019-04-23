@@ -522,4 +522,34 @@
   <data name="RS455" xml:space="preserve">
     <value>第一个进球时间</value>
   </data>
+  <data name="M1" xml:space="preserve">
+    <value>地图1</value>
+  </data>
+  <data name="M2" xml:space="preserve">
+    <value>地图2</value>
+  </data>
+  <data name="M3" xml:space="preserve">
+    <value>地图3</value>
+  </data>
+  <data name="M4" xml:space="preserve">
+    <value>地图4</value>
+  </data>
+  <data name="M5" xml:space="preserve">
+    <value>地图5</value>
+  </data>
+  <data name="M6" xml:space="preserve">
+    <value>地图6</value>
+  </data>
+  <data name="M7" xml:space="preserve">
+    <value>地图7</value>
+  </data>
+  <data name="M8" xml:space="preserve">
+    <value>地图8</value>
+  </data>
+  <data name="M9" xml:space="preserve">
+    <value>地图9</value>
+  </data>
+  <data name="EI" xml:space="preserve">
+    <value>延长赛</value>
+  </data>
 </root>

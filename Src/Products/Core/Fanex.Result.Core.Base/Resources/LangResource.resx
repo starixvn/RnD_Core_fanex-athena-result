@@ -528,4 +528,34 @@
   <data name="MinSec" xml:space="preserve">
     <value>{0} min {1} sec</value>
   </data>
+  <data name="M1" xml:space="preserve">
+    <value>M1</value>
+  </data>
+  <data name="M2" xml:space="preserve">
+    <value>M2</value>
+  </data>
+  <data name="M3" xml:space="preserve">
+    <value>M3</value>
+  </data>
+  <data name="M4" xml:space="preserve">
+    <value>M4</value>
+  </data>
+  <data name="M5" xml:space="preserve">
+    <value>M5</value>
+  </data>
+  <data name="M6" xml:space="preserve">
+    <value>M6</value>
+  </data>
+  <data name="M7" xml:space="preserve">
+    <value>M7</value>
+  </data>
+  <data name="M8" xml:space="preserve">
+    <value>M8</value>
+  </data>
+  <data name="M9" xml:space="preserve">
+    <value>M9</value>
+  </data>
+  <data name="EI" xml:space="preserve">
+    <value>E.I</value>
+  </data>
 </root>

@@ -160,6 +160,15 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to E.I.
+        /// </summary>
+        public static string EI {
+            get {
+                return ResourceManager.GetString("EI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Even.
         /// </summary>
         public static string Even {
@@ -561,6 +570,87 @@ namespace Fanex.Result.Core.Base.Resources {
         public static string Lose {
             get {
                 return ResourceManager.GetString("Lose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to M1.
+        /// </summary>
+        public static string M1 {
+            get {
+                return ResourceManager.GetString("M1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to M2.
+        /// </summary>
+        public static string M2 {
+            get {
+                return ResourceManager.GetString("M2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to M3.
+        /// </summary>
+        public static string M3 {
+            get {
+                return ResourceManager.GetString("M3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to M4.
+        /// </summary>
+        public static string M4 {
+            get {
+                return ResourceManager.GetString("M4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to M5.
+        /// </summary>
+        public static string M5 {
+            get {
+                return ResourceManager.GetString("M5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to M6.
+        /// </summary>
+        public static string M6 {
+            get {
+                return ResourceManager.GetString("M6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to M7.
+        /// </summary>
+        public static string M7 {
+            get {
+                return ResourceManager.GetString("M7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to M8.
+        /// </summary>
+        public static string M8 {
+            get {
+                return ResourceManager.GetString("M8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to M9.
+        /// </summary>
+        public static string M9 {
+            get {
+                return ResourceManager.GetString("M9", resourceCulture);
             }
         }
         

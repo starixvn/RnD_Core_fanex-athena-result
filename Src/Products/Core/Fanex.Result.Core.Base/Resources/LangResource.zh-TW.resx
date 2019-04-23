@@ -522,4 +522,34 @@
   <data name="RS455" xml:space="preserve">
     <value>第一個進球時間</value>
   </data>
+  <data name="M1" xml:space="preserve">
+    <value>地圖1</value>
+  </data>
+  <data name="M2" xml:space="preserve">
+    <value>地圖2</value>
+  </data>
+  <data name="M3" xml:space="preserve">
+    <value>地圖3</value>
+  </data>
+  <data name="M4" xml:space="preserve">
+    <value>地圖4</value>
+  </data>
+  <data name="M5" xml:space="preserve">
+    <value>地圖5</value>
+  </data>
+  <data name="M6" xml:space="preserve">
+    <value>地圖6</value>
+  </data>
+  <data name="M7" xml:space="preserve">
+    <value>地圖7</value>
+  </data>
+  <data name="M8" xml:space="preserve">
+    <value>地圖8</value>
+  </data>
+  <data name="M9" xml:space="preserve">
+    <value>地圖9</value>
+  </data>
+  <data name="EI" xml:space="preserve">
+    <value>延長賽</value>
+  </data>
 </root>

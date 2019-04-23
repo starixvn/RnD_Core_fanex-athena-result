@@ -30,11 +30,11 @@
             row.Cells[2].SetCellValue(LangResource.Match);
             row.Cells[3].SetCellValue(LangResource.Result);
             row.Cells[4].SetCellValue(Happy5Resources.Total);
-            row.Cells[5].SetCellValue(Constant.BigSmall);
-            row.Cells[6].SetCellValue(Constant.OddEven);
-            row.Cells[7].SetCellValue(Constant.FourSeasons);
-            row.Cells[8].SetCellValue(Constant.MoreOddMoreEven);
-            row.Cells[9].SetCellValue(Constant.Combo);
+            row.Cells[5].SetCellValue(Happy5Resources.BigSmall);
+            row.Cells[6].SetCellValue(Happy5Resources.OddEven);
+            row.Cells[7].SetCellValue(Happy5Resources.FourSeasons);
+            row.Cells[8].SetCellValue(Happy5Resources.MoreOddMoreEven);
+            row.Cells[9].SetCellValue(Happy5Resources.Combo);
             row.Cells[ColumnStatus].SetCellValue(LangResource.Status);
         }
 
@@ -67,7 +67,7 @@
 
         private static string GetResult(Happy5ViewModel happy5Data)
             => happy5Data.EventStatusIsRefundOrPending ?
-                Constant.NA :
+                Happy5Resources.NA :
                 $"{happy5Data.FirstBall}-{happy5Data.SecondBall}-{happy5Data.ThirdBall}-{happy5Data.FourthBall}-{happy5Data.FifthBall}";
     }
 }

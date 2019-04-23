@@ -62,17 +62,17 @@
 
         public string FifthBallColor => GetBallColor(FifthBall);
 
-        public string TotalBall => EventStatusIsRefundOrPending ? Constant.NA : Total.ToString();
+        public string TotalBall => EventStatusIsRefundOrPending ? Happy5Resources.NA : Total.ToString();
 
-        public string BigSmall => EventStatusIsRefundOrPending ? Constant.NA : GetBigSmallResult();
+        public string BigSmall => EventStatusIsRefundOrPending ? Happy5Resources.NA : GetBigSmallResult();
 
-        public string OddEven => EventStatusIsRefundOrPending ? Constant.NA : GetEvenOddResult();
+        public string OddEven => EventStatusIsRefundOrPending ? Happy5Resources.NA : GetEvenOddResult();
 
-        public string FourSeason => EventStatusIsRefundOrPending ? Constant.NA : GetFourSeasonResult(Total);
+        public string FourSeason => EventStatusIsRefundOrPending ? Happy5Resources.NA : GetFourSeasonResult(Total);
 
-        public string MoreOddMoreEven => EventStatusIsRefundOrPending ? Constant.NA : GetMoreOddMoreEvenResult();
+        public string MoreOddMoreEven => EventStatusIsRefundOrPending ? Happy5Resources.NA : GetMoreOddMoreEvenResult();
 
-        public string Combo => EventStatusIsRefundOrPending ? Constant.NA : BigSmall + OddEven;
+        public string Combo => EventStatusIsRefundOrPending ? Happy5Resources.NA : BigSmall + OddEven;
 
         public override string EventStatus
             => MapEventStatus.MapEventStatusString(resultData.EventStatus, resultData.IsPending);
@@ -126,7 +126,7 @@
                 return Winter;
             }
 
-            return Constant.NA;
+            return Happy5Resources.NA;
         }
 
         private static int CountOdd(IList<int> ball)

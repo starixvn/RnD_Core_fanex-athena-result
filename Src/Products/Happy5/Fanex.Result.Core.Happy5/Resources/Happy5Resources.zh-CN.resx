@@ -120,4 +120,22 @@
   <data name="Total" xml:space="preserve">
     <value>总和</value>
   </data>
+  <data name="BigSmall" xml:space="preserve">
+    <value>大/小</value>
+  </data>
+  <data name="OddEven" xml:space="preserve">
+    <value>单/双</value>
+  </data>
+  <data name="FourSeasons" xml:space="preserve">
+    <value>四季</value>
+  </data>
+  <data name="MoreOddMoreEven" xml:space="preserve">
+    <value>多单/多双</value>
+  </data>
+  <data name="Combo" xml:space="preserve">
+    <value>组合</value>
+  </data>
+  <data name="NA" xml:space="preserve">
+    <value>无</value>
+  </data>
 </root>

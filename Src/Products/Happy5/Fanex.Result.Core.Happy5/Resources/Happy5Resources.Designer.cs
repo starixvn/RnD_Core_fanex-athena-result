@@ -61,11 +61,65 @@ namespace Fanex.Result.Core.Happy5.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to B/S.
+        /// </summary>
+        public static string BigSmall {
+            get {
+                return ResourceManager.GetString("BigSmall", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CB.
+        /// </summary>
+        public static string Combo {
+            get {
+                return ResourceManager.GetString("Combo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 4S.
+        /// </summary>
+        public static string FourSeasons {
+            get {
+                return ResourceManager.GetString("FourSeasons", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MO/ME.
+        /// </summary>
+        public static string MoreOddMoreEven {
+            get {
+                return ResourceManager.GetString("MoreOddMoreEven", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to N/A.
+        /// </summary>
+        public static string NA {
+            get {
+                return ResourceManager.GetString("NA", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No..
         /// </summary>
         public static string No {
             get {
                 return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to O/E.
+        /// </summary>
+        public static string OddEven {
+            get {
+                return ResourceManager.GetString("OddEven", resourceCulture);
             }
         }
         

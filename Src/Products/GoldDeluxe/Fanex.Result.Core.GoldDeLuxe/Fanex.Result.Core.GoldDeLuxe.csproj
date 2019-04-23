@@ -84,6 +84,7 @@
     <EmbeddedResource Include="Resources\GoldDeluxeResource.th-TH.resx" />
     <EmbeddedResource Include="Resources\GoldDeluxeResource.vi-VN.resx" />
     <EmbeddedResource Include="Resources\GoldDeluxeResource.zh-CN.resx" />
+    <EmbeddedResource Include="Resources\GoldDeluxeResource.zh-Hans.resx" />
     <EmbeddedResource Include="Resources\GoldDeluxeResource.zh-TW.resx" />
     <EmbeddedResource Include="Views\GoldDeluxe.cshtml" />
   </ItemGroup>

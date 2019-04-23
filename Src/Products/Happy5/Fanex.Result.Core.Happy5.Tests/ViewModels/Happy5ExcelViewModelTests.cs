@@ -100,11 +100,11 @@ namespace Fanex.Result.Core.Happy5.Tests.ViewModels
                 expectedHeaderRow.Cells[2].StringCellValue == LangResource.Match &&
                 expectedHeaderRow.Cells[3].StringCellValue == LangResource.Result &&
                 expectedHeaderRow.Cells[4].StringCellValue == Happy5Resources.Total &&
-                expectedHeaderRow.Cells[5].StringCellValue == Constant.BigSmall &&
-                expectedHeaderRow.Cells[6].StringCellValue == Constant.OddEven &&
-                expectedHeaderRow.Cells[7].StringCellValue == Constant.FourSeasons &&
-                expectedHeaderRow.Cells[8].StringCellValue == Constant.MoreOddMoreEven &&
-                expectedHeaderRow.Cells[9].StringCellValue == Constant.Combo &&
+                expectedHeaderRow.Cells[5].StringCellValue == Happy5Resources.BigSmall &&
+                expectedHeaderRow.Cells[6].StringCellValue == Happy5Resources.OddEven &&
+                expectedHeaderRow.Cells[7].StringCellValue == Happy5Resources.FourSeasons &&
+                expectedHeaderRow.Cells[8].StringCellValue == Happy5Resources.MoreOddMoreEven &&
+                expectedHeaderRow.Cells[9].StringCellValue == Happy5Resources.Combo &&
                 expectedHeaderRow.Cells[10].StringCellValue == LangResource.Status);
         }
 

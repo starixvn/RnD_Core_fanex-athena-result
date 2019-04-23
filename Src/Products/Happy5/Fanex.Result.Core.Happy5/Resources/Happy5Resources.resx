@@ -123,4 +123,22 @@
   <data name="Total" xml:space="preserve">
     <value>Total</value>
   </data>
+  <data name="BigSmall" xml:space="preserve">
+    <value>B/S</value>
+  </data>
+  <data name="OddEven" xml:space="preserve">
+    <value>O/E</value>
+  </data>
+  <data name="FourSeasons" xml:space="preserve">
+    <value>4S</value>
+  </data>
+  <data name="MoreOddMoreEven" xml:space="preserve">
+    <value>MO/ME</value>
+  </data>
+  <data name="Combo" xml:space="preserve">
+    <value>CB</value>
+  </data>
+  <data name="NA" xml:space="preserve">
+    <value>N/A</value>
+  </data>
 </root>

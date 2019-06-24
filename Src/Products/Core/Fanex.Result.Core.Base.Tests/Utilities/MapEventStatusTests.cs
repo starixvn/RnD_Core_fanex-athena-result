@@ -52,6 +52,37 @@
         [TestCase(11)]
         [TestCase(13)]
         [TestCase(15)]
+        public void SecondMapEventStatusString_IsCompleted_EventStatusIsCompleted_ReturnsCompleted(byte settlementStatus)
+        {
+            // Act
+            var actualStatus = MapEventStatus.MapEventStatusString(settlementStatus, "Completed", string.Empty);
+
+            // Assert
+            Assert.AreEqual("Completed", actualStatus);
+        }
+
+        [TestCase("Abandoned 1H;", "Abandoned 1H")]
+        [TestCase("Abandoned 2H;", "Abandoned 2H")]
+        [TestCase("Refund FT;", "Refund FT")]
+        [TestCase("Refund HT;", "Refund HT")]
+        [TestCase("Refund;", "Refund")]
+        public void SecondMapEventStatusString_IsCompleted_BetStatusIsNotCompleted_ReturnsNotCompleted(string betStatus, string expectedMatchStatus)
+        {
+            // Act
+            var actualStatus = MapEventStatus.MapEventStatusString(1, "Completed", betStatus);
+
+            // Assert
+            Assert.AreEqual(expectedMatchStatus, actualStatus);
+        }
+
+        [TestCase(1)]
+        [TestCase(3)]
+        [TestCase(5)]
+        [TestCase(7)]
+        [TestCase(9)]
+        [TestCase(11)]
+        [TestCase(13)]
+        [TestCase(15)]
         public void SecondMapEventStatusString_IsPending_EventStatusIsClosed_ReturnsPending(byte settlementStatus)
         {
             // Act

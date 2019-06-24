@@ -32,16 +32,16 @@
             var isCompletedEventStatus = IsCompleted(eventStatus);
             var refundOrAbandonedStatus = GetRefundOrAbandonedStatus(betStatus);
 
-            if (isPending)
-            {
-                return LangResource.ResultPending;
-            }
-
             if (isCompletedEventStatus)
             {
                 return string.IsNullOrEmpty(refundOrAbandonedStatus)
                     ? LangResource.Completed
                     : refundOrAbandonedStatus;
+            }
+
+            if (isPending)
+            {
+                return LangResource.ResultPending;
             }
 
             if (isUnderSettlement || isSystemSettlement)

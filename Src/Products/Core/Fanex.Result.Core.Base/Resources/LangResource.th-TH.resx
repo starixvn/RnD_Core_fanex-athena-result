@@ -303,4 +303,22 @@
   <data name="UnderSettlement" xml:space="preserve">
     <value>กําลังดําเนินการชำระเงิน</value>
   </data>
+  <data name="RS479" xml:space="preserve">
+    <value>เวลาในการเตะลูกเตะมุมแรก</value>
+  </data>
+  <data name="RS481" xml:space="preserve">
+    <value>เวลาในการเตะลูกเตะมุมแรกในครึ่งหลัง</value>
+  </data>
+  <data name="RS09" xml:space="preserve">
+    <value>ลำดับ 1H</value>
+  </data>
+  <data name="RS08" xml:space="preserve">
+    <value>ลำดับ FT</value>
+  </data>
+  <data name="Corners" xml:space="preserve">
+    <value>ลูกเตะมุม</value>
+  </data>
+  <data name="NoCorner" xml:space="preserve">
+    <value>ไม่มีลูกเตะมุม</value>
+  </data>
 </root>

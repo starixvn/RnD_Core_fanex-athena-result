@@ -10,7 +10,9 @@
 
         public const string FirstHalfCorners = "05";
 
-        public const string GoalSequence = "08";
+        public const string FTSequence = "08";
+
+        public const string H1Sequence = "09";
 
         public const string PenaltyShootout = "135";
 
@@ -31,6 +33,10 @@
         public const string NextGoal1H = "^180\\d{2}$";
 
         public const string TimeOfFirstGoal = "455";
+
+        public const string TimeOfFirstCorner = "479";
+
+        public const string TimeOfSecondHalfFirstCorner = "481";
 
         public const string FirstGoalTime10Min = "192";
 

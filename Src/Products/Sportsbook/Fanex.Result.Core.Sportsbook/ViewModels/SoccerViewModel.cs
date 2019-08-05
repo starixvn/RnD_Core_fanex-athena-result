@@ -26,6 +26,7 @@
 
     public sealed class SoccerViewModel : SportsbookBaseViewModel, IResultViewModel
     {
+        private const string GameOnTopInDetailItem = "Sequence";
         private const string TemplateNameSpace = "SoccerDetail.";
         private const string FastMarketsTemplate = "FastMarkets";
         private const string PenaltyHandicapCode = "(h)";
@@ -262,7 +263,8 @@
             GetBetRadarDetailedResult();
             _detailedItemModels = _detailedItemModels.Concat(_fastMarketResultDetail.GetDetailItems()).ToSafeList();
             _detailedItemModels = _detailedItemModels
-                .OrderBy(item => GameResources.BetRadar.Keys.ToList().FindIndex(k => k == item.GroupCode)).ToList();
+                .OrderBy(item => item.GroupCode != GameOnTopInDetailItem)
+                .ThenBy(item => GameResources.BetRadar.Keys.ToList().FindIndex(k => k == item.GroupCode)).ToList();
         }
 
         private void GetBetRadarDetailedResult()
@@ -284,10 +286,11 @@
             foreach (GameDetail detailedItem in detailedGameRecords)
             {
                 var detailedItemModel = MapBetRadarDetailedGameValue(group.Key, detailedItem);
+                var isSequence = detailedItemModel.ResourceID == GameResourceID.FTSequence ||
+                    detailedItemModel.ResourceID == GameResourceID.H1Sequence;
 
-                if (detailedItemModel.ResourceID != GameResourceID.GoalSequence ||
-                    (detailedItemModel.ResourceID == GameResourceID.GoalSequence &&
-                    !string.IsNullOrEmpty(detailedItemModel.HomeValue)))
+                if (!isSequence ||
+                    (isSequence && !string.IsNullOrEmpty(detailedItemModel.HomeValue)))
                 {
                     _detailedItemModels.Add(detailedItemModel);
                 }
@@ -369,15 +372,14 @@
                     item.HomeValue = item.AwayValue = GetFirstGoalMethodResult(detailedValue.HomeValue);
                     break;
 
-                case GameResourceID.GoalSequence:
+                case GameResourceID.FTSequence:
+                case GameResourceID.H1Sequence:
                     item.HomeValue = item.AwayValue = string.Empty;
-
-                    if (IsShowGoalSequence(detailedValue.SettlementStatusID))
+                    var sequence = GetSequenceFromGameDetails(detailedValue.HomeValue);
+                    if (IsShowSequence(detailedValue.SettlementStatusID, sequence))
                     {
-                        var goalSequence = GetGoalSequenceFromGameDetails();
-                        item.HomeValue = item.AwayValue = string.Join(".", goalSequence.ToArray());
+                        item.HomeValue = item.AwayValue = string.Join(".", sequence.ToArray());
                     }
-
                     break;
 
                 /*Group: Goal Time*/
@@ -454,7 +456,10 @@
                 case GameResourceID.MatchDecidedMethod:
                     item.HomeValue = item.AwayValue = GetResourceGameValueByPattern175(detailedValue.HomeValue);
                     break;
-
+                case GameResourceID.TimeOfFirstCorner:
+                case GameResourceID.TimeOfSecondHalfFirstCorner:
+                    item.HomeValue = GetResourceGameValueByTimeEvent(detailedValue);
+                    break;
                 default:
                     if (SportsbookHelper.IsValidResourceId(GameResourceID.NextGoalTime, item.ResourceID))
                     {
@@ -481,11 +486,11 @@
             }
         }
 
-        private bool IsShowGoalSequence(int settlementStatusID)
+        private static bool IsShowSequence(int settlementStatusID, string goalSequence)
             => (settlementStatusID == EventStatusID.CompletedSettlementStatusID ||
                 settlementStatusID == EventStatusID.Abandoned1HSettlementStatusID ||
                 settlementStatusID == EventStatusID.Abandoned2HSettlementStatusID) &&
-                !string.IsNullOrEmpty(GetGoalSequenceFromGameDetails());
+                !string.IsNullOrEmpty(GetSequenceFromGameDetails(goalSequence));
 
         /// <summary>
         /// Get game value by pattern goal time.
@@ -501,6 +506,20 @@
 
             return homeValue.Equals(ConstantValue.None, StringComparison.OrdinalIgnoreCase) ?
                 LangResource.None : homeValue + " " + LangResource.Min;
+        }
+
+        private static string GetResourceGameValueByTimeEvent(GameDetail detailedValue)
+        {
+            if ((detailedValue.HomeValue == "0" || detailedValue.HomeValue == "00")
+                && (detailedValue.AwayValue == "0" || detailedValue.AwayValue == "00"))
+            {
+                return LangResource.NoCorner;
+            }
+
+            var homeValue = detailedValue.HomeValue.Trim().Length == 1 ? "0" + detailedValue.HomeValue : detailedValue.HomeValue;
+            var awayValue = detailedValue.AwayValue.Trim().Length == 1 ? "0" + detailedValue.AwayValue : detailedValue.AwayValue;
+
+            return string.Format(LangResource.MinSec, homeValue, awayValue);
         }
 
         /// <summary>
@@ -680,10 +699,8 @@
             }
         }
 
-        private string GetGoalSequenceFromGameDetails()
+        private static string GetSequenceFromGameDetails(string goalSequence)
         {
-            var goalSequence = SPORTBOOK.GameDetails.FirstOrDefault(d => d.ResourceId == GameResourceID.GoalSequence).HomeValue;
-
             return string.IsNullOrEmpty(goalSequence) ?
                 string.Empty :
                 Regex.Replace(goalSequence.ToUpperInvariant(), "[^HA]", string.Empty);

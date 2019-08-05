@@ -6,11 +6,13 @@
     {
         private static IDictionary<string, List<string>> _betRadar = new Dictionary<string, List<string>>
         {
-            { "Goals", new List<string> { GameResourceID.FirstTenMinutes1X2, GameResourceID.FirstGoalMethod, GameResourceID.GoalSequence } },
+            { "Sequence", new List<string> { GameResourceID.H1Sequence, GameResourceID.FTSequence } },
+            { "Goals", new List<string> { GameResourceID.FirstTenMinutes1X2, GameResourceID.FirstGoalMethod} },
             { "GoalRecord", new List<string> { GameResourceID.NextGoal1H, GameResourceID.NextGoal3rd, GameResourceID.ExtraTimeNextGoal } },
             { "GoalTime", new List<string> { GameResourceID.FirstGoalTime10Min, GameResourceID.FirstGoalTime15Min, GameResourceID.NextGoalTime } },
             { "GoalScorer", new List<string> { GameResourceID.FirstGoalScorer, GameResourceID.GoalScorer } },
             { "Corner", new List<string> { GameResourceID.FirstHalfCorners, GameResourceID.FinalCorners } },
+            { "Corners", new List<string> { GameResourceID.TimeOfFirstCorner, GameResourceID.TimeOfSecondHalfFirstCorner } },
             { "FirstLastCorners", new List<string> { GameResourceID.First1HCorner, GameResourceID.Last1HCorner, GameResourceID.FirstCorner, GameResourceID.LastCorner } },
             { "PlayerSentOff", new List<string> { GameResourceID.PlayserSentOff1H, GameResourceID.PlayerSentOff } },
             { "HomeAwayPlayerSentOff", new List<string>

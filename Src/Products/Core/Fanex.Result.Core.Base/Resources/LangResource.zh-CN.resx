@@ -345,4 +345,22 @@
   <data name="EI" xml:space="preserve">
     <value>延长赛</value>
   </data>
+  <data name="RS479" xml:space="preserve">
+    <value>第一个角球时段</value>
+  </data>
+  <data name="RS481" xml:space="preserve">
+    <value>下半场第一个角球时段</value>
+  </data>
+  <data name="RS09" xml:space="preserve">
+    <value>上半场进球顺序</value>
+  </data>
+  <data name="RS08" xml:space="preserve">
+    <value>全场进球顺序</value>
+  </data>
+  <data name="Corners" xml:space="preserve">
+    <value>角球</value>
+  </data>
+  <data name="NoCorner" xml:space="preserve">
+    <value>无角球</value>
+  </data>
 </root>

@@ -742,16 +742,22 @@
             Assert.AreEqual("", viewModel.DetailedResult);
         }
 
-        [TestCase(EventStatusID.RunningSettlementStatusID, "AH;H", "")]
-        [TestCase(EventStatusID.CompletedSettlementStatusID, "12312", "")]
-        [TestCase(EventStatusID.CompletedSettlementStatusID, "AH;H", "A.H.H")]
-        [TestCase(EventStatusID.Abandoned1HSettlementStatusID, "AH;H", "A.H.H")]
-        [TestCase(EventStatusID.Abandoned2HSettlementStatusID, "AH;H", "A.H.H")]
-        [TestCase(EventStatusID.RefundSettlementStatusID, "AH;H", "Refund")]
-        [TestCase(EventStatusID.RefundHTSettlementStatusID, "AH;H", "RefundHT")]
-        [TestCase(EventStatusID.RefundFTSettlementStatusID, "AH;H", "RefundFT")]
-        [TestCase(342, "AH;H", "-")]
-        public void DetailedResult_ResourceIsGoalSequence_IsShowGoalSequence_ReturnExpectedResult(int eventStatusId, string goalSequence, string expectedResult)
+        [TestCase(EventStatusID.Abandoned2HSettlementStatusID, "", "", "FT Sequence")]
+        [TestCase(EventStatusID.Abandoned2HSettlementStatusID, ";", "", "FT Sequence")]
+        [TestCase(EventStatusID.Abandoned1HSettlementStatusID, "", "", "FT Sequence")]
+        [TestCase(EventStatusID.Abandoned1HSettlementStatusID, ";", "", "FT Sequence")]
+        [TestCase(EventStatusID.CompletedSettlementStatusID, "", "", "FT Sequence")]
+        [TestCase(EventStatusID.CompletedSettlementStatusID, ";", "", "FT Sequence")]
+        [TestCase(EventStatusID.RunningSettlementStatusID, "AH;H", "", "FT Sequence")]
+        [TestCase(EventStatusID.CompletedSettlementStatusID, "12312", "", "FT Sequence")]
+        [TestCase(EventStatusID.CompletedSettlementStatusID, "AH;H", "A.H.H", "FT Sequence")]
+        [TestCase(EventStatusID.Abandoned1HSettlementStatusID, "AH;H", "A.H.H", "FT Sequence")]
+        [TestCase(EventStatusID.Abandoned2HSettlementStatusID, "AH;H", "A.H.H", "FT Sequence")]
+        [TestCase(EventStatusID.RefundSettlementStatusID, "AH;H", "Refund", "FT Sequence")]
+        [TestCase(EventStatusID.RefundHTSettlementStatusID, "AH;H", "RefundHT", "FT Sequence")]
+        [TestCase(EventStatusID.RefundFTSettlementStatusID, "AH;H", "RefundFT", "FT Sequence")]
+        [TestCase(342, "AH;H", "-", "FT Sequence")]
+        public void DetailedResult_ResourceIsGoalSequence_IsShowGoalSequence_ReturnExpectedResult(int eventStatusId, string goalSequence, string expectedResult, string expectedName)
         {
             // Arrange
             _soccer.GameDetails = new List<GameDetail>
@@ -765,7 +771,44 @@
             // Assert
             var expectedHtml = string.IsNullOrEmpty(expectedResult) ?
                 expectedResult :
-                TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_GoalSequence.html").Replace("{Result}", expectedResult);
+                TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_GoalSequence.html")
+                .Replace("{Result}", expectedResult)
+                .Replace("{Name}", expectedName);
+            Assert.AreEqual(TemplateFileUtils.RemoveEndLineSymbolHtml(expectedHtml), TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
+        }
+
+        [TestCase(EventStatusID.Abandoned2HSettlementStatusID, "", "", "1HSequence")]
+        [TestCase(EventStatusID.Abandoned2HSettlementStatusID, ";", "", "1HSequence")]
+        [TestCase(EventStatusID.Abandoned1HSettlementStatusID, "", "", "1HSequence")]
+        [TestCase(EventStatusID.Abandoned1HSettlementStatusID, ";", "", "1HSequence")]
+        [TestCase(EventStatusID.CompletedSettlementStatusID, "", "", "1HSequence")]
+        [TestCase(EventStatusID.CompletedSettlementStatusID, ";", "", "1HSequence")]
+        [TestCase(EventStatusID.RunningSettlementStatusID, "AH;H", "", "1HSequence")]
+        [TestCase(EventStatusID.CompletedSettlementStatusID, "12312", "", "1HSequence")]
+        [TestCase(EventStatusID.CompletedSettlementStatusID, "AH;H", "A.H.H", "1HSequence")]
+        [TestCase(EventStatusID.Abandoned1HSettlementStatusID, "AH;H", "A.H.H", "1HSequence")]
+        [TestCase(EventStatusID.Abandoned2HSettlementStatusID, "AH;H", "A.H.H", "1HSequence")]
+        [TestCase(EventStatusID.RefundSettlementStatusID, "AH;H", "Refund", "1HSequence")]
+        [TestCase(EventStatusID.RefundHTSettlementStatusID, "AH;H", "RefundHT", "1HSequence")]
+        [TestCase(EventStatusID.RefundFTSettlementStatusID, "AH;H", "RefundFT", "1HSequence")]
+        [TestCase(342, "AH;H", "-", "1HSequence")]
+        public void DetailedResult_ResourceIsSequence_IsShowGoalSequence_ReturnExpectedResult(int eventStatusId, string goalSequence, string expectedResult, string expectedName)
+        {
+            // Arrange
+            _soccer.GameDetails = new List<GameDetail>
+            {
+                new GameDetail {ResourceId = "09", HomeValue = goalSequence, SettlementStatusID = eventStatusId }
+            };
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting);
+
+            // Assert
+            var expectedHtml = string.IsNullOrEmpty(expectedResult) ?
+                expectedResult :
+                TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_GoalSequence.html")
+                .Replace("{Result}", expectedResult)
+                .Replace("{Name}", expectedName);
             Assert.AreEqual(expectedHtml, TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
         }
 
@@ -1330,6 +1373,52 @@
             var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_NextGoal.html")
                 .Replace("{Result}", expectedResult);
             Assert.AreEqual(expectedHtml, TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
+        }
+
+        [TestCase("12", "Time Of First Corner", "12 min 12 sec")]
+        [TestCase("2", "Time Of First Corner", "02 min 02 sec")]
+        [TestCase("0", "Time Of First Corner", "No Corner")]
+        [TestCase("00", "Time Of First Corner", "No Corner")]
+        public void DetailedResult_ResourceIsTimeOfFirstCorner_ReturnExpectedResult(string value, string expectedName, string expectedValue)
+        {
+            // Arrange
+            _soccer.GameDetails = new List<GameDetail>
+            {
+                new GameDetail {ResourceId = "479", HomeValue = value, AwayValue = value, SettlementStatusID = EventStatusID.CompletedSettlementStatusID},
+            };
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
+
+            // Assert
+            var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_Corners.html")
+                .Replace("{Name}", expectedName)
+                .Replace("{Value}", expectedValue);
+
+            Assert.AreEqual(TemplateFileUtils.RemoveEndLineSymbolHtml(expectedHtml), TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
+        }
+
+        [TestCase("12", "Time Of 2H First Corner", "12 min 12 sec")]
+        [TestCase("2", "Time Of 2H First Corner", "02 min 02 sec")]
+        [TestCase("0", "Time Of 2H First Corner", "No Corner")]
+        [TestCase("00", "Time Of 2H First Corner", "No Corner")]
+        public void DetailedResult_ResourceIsTimeOf2HFirstCorner_ReturnExpectedResult(string value, string expectedName, string expectedValue)
+        {
+            // Arrange
+            _soccer.GameDetails = new List<GameDetail>
+            {
+                new GameDetail {ResourceId = "481", HomeValue = value, AwayValue = value, SettlementStatusID = EventStatusID.CompletedSettlementStatusID},
+            };
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
+
+            // Assert
+            var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_Corners.html")
+                .Replace("{Name}", expectedName)
+                .Replace("{Value}", expectedValue);
+
+            Assert.AreEqual(TemplateFileUtils.RemoveEndLineSymbolHtml(expectedHtml), TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
         }
     }
 }

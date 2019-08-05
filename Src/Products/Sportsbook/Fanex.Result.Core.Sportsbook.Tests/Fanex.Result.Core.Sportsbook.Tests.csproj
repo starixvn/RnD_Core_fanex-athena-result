@@ -191,6 +191,7 @@
     <Content Include="TestTemplate\html\SoccerDetail_MatchDecidedMethod.html" />
     <Content Include="TestTemplate\html\SoccerDetail_FastMarkets.html" />
     <Content Include="TestTemplate\html\SoccerDetail_WhoAdvancesToNextRound.html" />
+    <Content Include="TestTemplate\html\SoccerDetail_Corners.html" />
     <Content Include="TestTemplate\html\SoccerDetail_PlayerSentOff.html" />
     <Content Include="TestTemplate\html\SoccerDetail_LastCorner.html" />
     <Content Include="TestTemplate\html\SoccerDetail_FirstGoalScorer.html" />

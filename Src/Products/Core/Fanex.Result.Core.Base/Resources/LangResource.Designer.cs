@@ -133,6 +133,15 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Corners.
+        /// </summary>
+        public static string Corners {
+            get {
+                return ResourceManager.GetString("Corners", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to [i].
         /// </summary>
         public static string Details {
@@ -718,6 +727,15 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No Corner.
+        /// </summary>
+        public static string NoCorner {
+            get {
+                return ResourceManager.GetString("NoCorner", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No Goal.
         /// </summary>
         public static string NoGoal {
@@ -943,11 +961,20 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Goal Sequence.
+        ///   Looks up a localized string similar to FT Sequence.
         /// </summary>
         public static string RS08 {
             get {
                 return ResourceManager.GetString("RS08", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1H Sequence.
+        /// </summary>
+        public static string RS09 {
+            get {
+                return ResourceManager.GetString("RS09", resourceCulture);
             }
         }
         
@@ -1182,6 +1209,24 @@ namespace Fanex.Result.Core.Base.Resources {
         public static string RS455 {
             get {
                 return ResourceManager.GetString("RS455", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time Of First Corner.
+        /// </summary>
+        public static string RS479 {
+            get {
+                return ResourceManager.GetString("RS479", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Time Of 2H First Corner.
+        /// </summary>
+        public static string RS481 {
+            get {
+                return ResourceManager.GetString("RS481", resourceCulture);
             }
         }
         

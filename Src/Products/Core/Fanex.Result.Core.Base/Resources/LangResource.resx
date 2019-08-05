@@ -499,7 +499,7 @@
     <value>Shot</value>
   </data>
   <data name="RS08" xml:space="preserve">
-    <value>Goal Sequence</value>
+    <value>FT Sequence</value>
   </data>
   <data name="LiveScore" xml:space="preserve">
     <value>Live Score</value>
@@ -557,5 +557,20 @@
   </data>
   <data name="EI" xml:space="preserve">
     <value>E.I</value>
+  </data>
+  <data name="RS09" xml:space="preserve">
+    <value>1H Sequence</value>
+  </data>
+  <data name="RS479" xml:space="preserve">
+    <value>Time Of First Corner</value>
+  </data>
+  <data name="RS481" xml:space="preserve">
+    <value>Time Of 2H First Corner</value>
+  </data>
+  <data name="NoCorner" xml:space="preserve">
+    <value>No Corner</value>
+  </data>
+  <data name="Corners" xml:space="preserve">
+    <value>Corners</value>
   </data>
 </root>

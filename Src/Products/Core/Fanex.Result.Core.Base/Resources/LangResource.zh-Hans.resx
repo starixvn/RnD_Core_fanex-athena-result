@@ -517,7 +517,7 @@
     <value>射门</value>
   </data>
   <data name="RS08" xml:space="preserve">
-    <value>进球顺序</value>
+    <value>全場進球順序</value>
   </data>
   <data name="RS455" xml:space="preserve">
     <value>第一个进球时间</value>
@@ -551,5 +551,20 @@
   </data>
   <data name="EI" xml:space="preserve">
     <value>延长赛</value>
+  </data>
+  <data name="RS479" xml:space="preserve">
+    <value>第一个角球时段</value>
+  </data>
+  <data name="RS481" xml:space="preserve">
+    <value>下半场第一个角球时段</value>
+  </data>
+  <data name="RS09" xml:space="preserve">
+    <value>上半場進球順序</value>
+  </data>
+  <data name="Corners" xml:space="preserve">
+    <value>角球</value>
+  </data>
+  <data name="NoCorner" xml:space="preserve">
+    <value>無角球</value>
   </data>
 </root>

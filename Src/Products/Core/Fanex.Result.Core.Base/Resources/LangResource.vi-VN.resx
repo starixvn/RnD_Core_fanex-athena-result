@@ -234,4 +234,22 @@
   <data name="Map" xml:space="preserve">
     <value>Bản Đồ</value>
   </data>
+  <data name="RS479" xml:space="preserve">
+    <value>Thời gian phạt góc đầu tiên</value>
+  </data>
+  <data name="RS481" xml:space="preserve">
+    <value>Thời gian phạt góc đầu tiên Hiệp 2</value>
+  </data>
+  <data name="RS09" xml:space="preserve">
+    <value>Chuỗi - Hiệp 1</value>
+  </data>
+  <data name="RS08" xml:space="preserve">
+    <value>Chuỗi - Cả trận</value>
+  </data>
+  <data name="Corners" xml:space="preserve">
+    <value>Phạt góc</value>
+  </data>
+  <data name="NoCorner" xml:space="preserve">
+    <value>Không Phạt góc</value>
+  </data>
 </root>

@@ -166,6 +166,8 @@
     <EmbeddedResource Include="Views\BeachSoccer.cshtml" />
     <EmbeddedResource Include="Views\ESport.cshtml" />
     <EmbeddedResource Include="Views\SoccerDetail\BetBuilder.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\Sequence.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\Corners.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Fanex.File">

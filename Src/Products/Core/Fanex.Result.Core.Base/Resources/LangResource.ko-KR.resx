@@ -370,4 +370,22 @@
   <data name="UnderSettlement" xml:space="preserve">
     <value>정산 중</value>
   </data>
+  <data name="RS479" xml:space="preserve">
+    <value>첫 번째 코너킥 시간</value>
+  </data>
+  <data name="RS481" xml:space="preserve">
+    <value>후반전 첫 번째 코너킥 시간</value>
+  </data>
+  <data name="RS09" xml:space="preserve">
+    <value>전반전 순서</value>
+  </data>
+  <data name="RS08" xml:space="preserve">
+    <value>FT 순서</value>
+  </data>
+  <data name="Corners" xml:space="preserve">
+    <value>코너킥</value>
+  </data>
+  <data name="NoCorner" xml:space="preserve">
+    <value>코너킥 없음</value>
+  </data>
 </root>

@@ -175,4 +175,22 @@
   <data name="Refundht" xml:space="preserve">
     <value>払い戻し(HT)</value>
   </data>
+  <data name="RS479" xml:space="preserve">
+    <value>最初のコーナーキックの時間</value>
+  </data>
+  <data name="RS481" xml:space="preserve">
+    <value>後半最初のコーナーキックの時間</value>
+  </data>
+  <data name="RS09" xml:space="preserve">
+    <value>1H順番</value>
+  </data>
+  <data name="RS08" xml:space="preserve">
+    <value>FT順番</value>
+  </data>
+  <data name="Corners" xml:space="preserve">
+    <value>コーナー</value>
+  </data>
+  <data name="NoCorner" xml:space="preserve">
+    <value>コーナーキックなし</value>
+  </data>
 </root>

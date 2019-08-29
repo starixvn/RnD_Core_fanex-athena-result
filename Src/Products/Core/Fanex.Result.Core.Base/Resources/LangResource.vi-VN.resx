@@ -124,7 +124,7 @@
     <value>Đội</value>
   </data>
   <data name="Refund" xml:space="preserve">
-    <value>Hoàn phí</value>
+    <value>Hoàn Tiền</value>
   </data>
   <data name="Running" xml:space="preserve">
     <value>Đang diễn ra</value>
@@ -181,7 +181,7 @@
     <value>Thời gian bắt đầu</value>
   </data>
   <data name="Completed" xml:space="preserve">
-    <value>Đã kết thúc</value>
+    <value>Kết thúc</value>
   </data>
   <data name="Official" xml:space="preserve">
     <value>Chính thức</value>
@@ -196,10 +196,10 @@
     <value>Bị khóa</value>
   </data>
   <data name="Refundft" xml:space="preserve">
-    <value>Hoàn Phí FT</value>
+    <value>Hoàn Tiền FT</value>
   </data>
   <data name="Refundht" xml:space="preserve">
-    <value>Hoàn Phí HT</value>
+    <value>Hoàn Tiền HT</value>
   </data>
   <data name="HTScore" xml:space="preserve">
     <value>Tỷ số hiệp 1</value>

@@ -130,7 +130,7 @@
     <value>ไม่เข้ารอบ</value>
   </data>
   <data name="Running" xml:space="preserve">
-    <value>กำลังแข่งขัน</value>
+    <value>ยอมรับการวางเดิมพันแล้ว</value>
   </data>
   <data name="Won" xml:space="preserve">
     <value>ชนะ</value>

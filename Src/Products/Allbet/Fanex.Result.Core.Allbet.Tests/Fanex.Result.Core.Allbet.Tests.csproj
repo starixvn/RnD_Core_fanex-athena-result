@@ -69,7 +69,7 @@
       <Project>{d9303680-11b8-41c1-9eb2-2ae37d02ffb1}</Project>
       <Name>Fanex.Result.Core.Allbet</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\LiveCasino\LiveCasinoResult\LiveCasinoResult.csproj">
+    <ProjectReference Include="..\LiveCasinoResult\LiveCasinoResult.csproj">
       <Project>{E8D9E9B2-5DD6-4612-98A8-24320F21A95A}</Project>
       <Name>LiveCasinoResult</Name>
     </ProjectReference>

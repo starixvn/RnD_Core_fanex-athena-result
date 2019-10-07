@@ -59,8 +59,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.LiveCasin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.LiveCasino.Tests", "Src\Products\LiveCasino\Fanex.Result.Core.LiveCasino.Tests\Fanex.Result.Core.LiveCasino.Tests.csproj", "{7130AF26-A411-46B5-8A5B-6C52119D4BB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCasinoResult", "Src\Products\LiveCasino\LiveCasinoResult\LiveCasinoResult.csproj", "{E8D9E9B2-5DD6-4612-98A8-24320F21A95A}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lucky3", "Lucky3", "{3C6292DA-718D-427D-8CFD-C947A136B7E7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Lucky3", "Src\Products\Lucky3\Fanex.Result.Core.Lucky3\Fanex.Result.Core.Lucky3.csproj", "{5B12D69C-7BF6-4E40-AE62-3853DB3D118D}"
@@ -137,6 +135,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.GoldDelux
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.CockFighting.Tests", "Src\Products\Cockfighting\Fanex.Result.Core.CockFighting.Tests\Fanex.Result.Core.CockFighting.Tests.csproj", "{9B472221-EF3F-4833-B71F-CD9402C8519F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCasinoResult", "Src\Products\Allbet\LiveCasinoResult\LiveCasinoResult.csproj", "{E8D9E9B2-5DD6-4612-98A8-24320F21A95A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -191,10 +191,6 @@ Global
 		{7130AF26-A411-46B5-8A5B-6C52119D4BB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7130AF26-A411-46B5-8A5B-6C52119D4BB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7130AF26-A411-46B5-8A5B-6C52119D4BB1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E8D9E9B2-5DD6-4612-98A8-24320F21A95A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E8D9E9B2-5DD6-4612-98A8-24320F21A95A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E8D9E9B2-5DD6-4612-98A8-24320F21A95A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E8D9E9B2-5DD6-4612-98A8-24320F21A95A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5B12D69C-7BF6-4E40-AE62-3853DB3D118D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5B12D69C-7BF6-4E40-AE62-3853DB3D118D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5B12D69C-7BF6-4E40-AE62-3853DB3D118D}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -307,6 +303,10 @@ Global
 		{9B472221-EF3F-4833-B71F-CD9402C8519F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B472221-EF3F-4833-B71F-CD9402C8519F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B472221-EF3F-4833-B71F-CD9402C8519F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8D9E9B2-5DD6-4612-98A8-24320F21A95A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8D9E9B2-5DD6-4612-98A8-24320F21A95A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8D9E9B2-5DD6-4612-98A8-24320F21A95A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8D9E9B2-5DD6-4612-98A8-24320F21A95A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -332,7 +332,6 @@ Global
 		{0D0D625B-B61E-4ABD-92DD-CEDEEA522456} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{C67A0F1F-9F62-4E75-A982-0894FDD79008} = {0D0D625B-B61E-4ABD-92DD-CEDEEA522456}
 		{7130AF26-A411-46B5-8A5B-6C52119D4BB1} = {0D0D625B-B61E-4ABD-92DD-CEDEEA522456}
-		{E8D9E9B2-5DD6-4612-98A8-24320F21A95A} = {561B98E8-E022-491F-AA9F-D425FE1BA095}
 		{3C6292DA-718D-427D-8CFD-C947A136B7E7} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{5B12D69C-7BF6-4E40-AE62-3853DB3D118D} = {3C6292DA-718D-427D-8CFD-C947A136B7E7}
 		{ABC335A1-4EBB-4CC7-B452-A30B28D42B3C} = {3C6292DA-718D-427D-8CFD-C947A136B7E7}
@@ -371,10 +370,11 @@ Global
 		{055D46DB-5556-4A00-902B-CF7C4B8225BA} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{B7E1ABCF-0E52-4BD8-813C-68EEE351DE58} = {9E13D86A-E136-4D47-8B10-FCBD979314DA}
 		{9B472221-EF3F-4833-B71F-CD9402C8519F} = {57B6B8AB-1BC2-4DA6-84A7-4A6AD8410B57}
+		{E8D9E9B2-5DD6-4612-98A8-24320F21A95A} = {561B98E8-E022-491F-AA9F-D425FE1BA095}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		LessCompiler = ebd31f24-8f67-4e36-bd6d-1bb78a71e54b
 		SolutionGuid = {4BF11104-7EAE-4BB6-A235-1C10DB35CE8B}
+		LessCompiler = ebd31f24-8f67-4e36-bd6d-1bb78a71e54b
 	EndGlobalSection
 	GlobalSection(JSLint) = preSolution
 		SolutionConfigurationLocation = JSLintOptions.xml

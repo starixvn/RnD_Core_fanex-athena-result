@@ -34,7 +34,6 @@
             var custId = "12";
             var gameTypeId = "34343";
             var transId3rd = "1232";
-            var viewerLevel = ViewerLevel.Super;
             var language = "en-US";
             var siteId = 0;
             _configs.DebugMode.Returns(1);
@@ -46,18 +45,13 @@
                                 && request.Auth.Password == "GetResult_InDebugMode_ReturnRequestSerializedObject"))
                                 .Returns("Serialized");
 
-            var result = _result.GetResult(custId, gameTypeId, transId3rd, viewerLevel, language, siteId);
+            var result = _result.GetResult(custId, gameTypeId, transId3rd, language, siteId);
 
             Assert.AreEqual("Serialized", result);
         }
 
-        [TestCase(ViewerLevel.Company, "C")]
-        [TestCase(ViewerLevel.Super, "S")]
-        [TestCase(ViewerLevel.Master, "M")]
-        [TestCase(ViewerLevel.Agent, "A")]
-        [TestCase(ViewerLevel.Member, "P")]
-        [TestCase(100, "P")]
-        public void GetResult_Always_CallUploadString(ViewerLevel viewerLevel, string expectedType)
+        [TestCase("P")]
+        public void GetResult_Always_CallUploadString(string expectedType)
         {
             var custId = "12";
             var gameTypeId = "34343";
@@ -84,7 +78,7 @@
                     TimeStamp = now.ToString("yyyy-MM-dd HH:mm:ss.fff")
                 });
 
-            _result.GetResult(custId, gameTypeId, transId3rd, viewerLevel, language, siteId);
+            _result.GetResult(custId, gameTypeId, transId3rd, language, siteId);
 
             _client.Received().UploadString<Request, Response>(
                 apiUrl,
@@ -127,7 +121,7 @@
                     TimeStamp = now.ToString("yyyy-MM-dd HH:mm:ss.fff")
                 });
 
-            _result.GetResult(custId, gameTypeId, transId3rd, ViewerLevel.Company, language, siteId);
+            _result.GetResult(custId, gameTypeId, transId3rd, language, siteId);
 
             _client.Received().UploadString<Request, Response>(
                 apiUrl,
@@ -170,7 +164,7 @@
                 });
 
             Assert.Throws<ResultCoreException>(() =>
-                _result.GetResult(custId, gameTypeId, transId3rd, ViewerLevel.Super, language, siteId));
+                _result.GetResult(custId, gameTypeId, transId3rd, language, siteId));
         }
     }
 }

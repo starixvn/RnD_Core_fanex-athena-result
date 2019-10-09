@@ -9,9 +9,6 @@
 
     public class PokerGamesResult : IPokerGamesResult
     {
-        private const int VideoPokerBetTypeMin = 1901;
-        private const int VideoPokerBetTypeMax = 1999;
-
         private const string DefaultLanguage = "en-US";
 
         private static readonly Dictionary<string, string> SupportedLanguages = new Dictionary<string, string>
@@ -46,12 +43,12 @@
         private static int RandomInt()
             => new Random().Next(0, int.MaxValue);
 
-        public string GetResult(string custId, string gameTypeId, string transId3rd, ViewerLevel viewerLevel, string language = "en-US", int siteId = 0)
+        public string GetResult(string custId, string gameTypeId, string transId3rd, string language = "en-US", int siteId = 0)
         {
             CheckArgument(custId, "custId");
             CheckArgument(gameTypeId, "gameTypeId");
 
-            var request = CreateRequest(custId, gameTypeId, transId3rd, siteId, viewerLevel);
+            var request = CreateRequest(custId, gameTypeId, transId3rd, siteId);
 
             if ((DebugMode)_configs.DebugMode == DebugMode.DontSendRequest)
             {
@@ -103,33 +100,7 @@
             }
         }
 
-        private static string MapLevel(ViewerLevel viewLevel, int betTypeId)
-        {
-            if (betTypeId >= VideoPokerBetTypeMin && betTypeId <= VideoPokerBetTypeMax)
-            {
-                return "P";
-            }
-
-            switch (viewLevel)
-            {
-                case ViewerLevel.Company:
-                    return "C";
-
-                case ViewerLevel.Super:
-                    return "S";
-
-                case ViewerLevel.Master:
-                    return "M";
-
-                case ViewerLevel.Agent:
-                    return "A";
-
-                default:
-                    return "P";
-            }
-        }
-
-        private Request CreateRequest(string custId, string gameTypeId, string transId3rd, int siteId, ViewerLevel viewerLevel)
+        private Request CreateRequest(string custId, string gameTypeId, string transId3rd, int siteId)
         {
             return new Request
             {
@@ -140,11 +111,11 @@
                     Password = _configs.Password,
                     SiteId = siteId == 0 ? _configs.SiteId : siteId
                 },
-                Call = CreateCallObject(custId, gameTypeId, transId3rd, viewerLevel)
+                Call = CreateCallObject(custId, gameTypeId, transId3rd)
             };
         }
 
-        private Call CreateCallObject(string custId, string gameTypeId, string transId3rd, ViewerLevel viewerLevel)
+        private Call CreateCallObject(string custId, string gameTypeId, string transId3rd)
         {
             var timestampWithRandom = $"{_getDatimeNow().Ticks}-{_randomInt()}";
             var hashedPreInfo = $"{_configs.SiteId}-{custId}-{gameTypeId}-{_randomInt()}";
@@ -156,7 +127,7 @@
                 OBCustId = custId,
                 GameTypeId = gameTypeId,
                 TransId3rd = transId3rd,
-                Type = MapLevel(viewerLevel, int.Parse(gameTypeId))
+                Type = "P"
             };
         }
 

@@ -4,6 +4,6 @@
 
     public interface IPokerGamesResult
     {
-        string GetResult(string custId, string gameTypeId, string transId3rd, ViewerLevel viewerLevel, string language = "en-US", int siteId = 0);
+        string GetResult(string custId, string gameTypeId, string transId3rd, string language = "en-US", int siteId = 0);
     }
 }

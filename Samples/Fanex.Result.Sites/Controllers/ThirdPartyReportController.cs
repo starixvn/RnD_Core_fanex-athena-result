@@ -66,12 +66,12 @@
         }
 
         [HttpGet]
-        public string PokerGamesResult(string custId, string gameTypeId, string transId3rd, ViewerLevel viewerLevel, string language)
+        public string PokerGamesResult(string custId, string gameTypeId, string transId3rd, string language)
         {
             try
             {
                 var pokerGamesResult = new PokerGamesResult();
-                return pokerGamesResult.GetResult(custId, gameTypeId, transId3rd, viewerLevel, language).Replace("http://", "https://");
+                return pokerGamesResult.GetResult(custId, gameTypeId, transId3rd, language).Replace("http://", "https://");
             }
             catch (Exception e)
             {

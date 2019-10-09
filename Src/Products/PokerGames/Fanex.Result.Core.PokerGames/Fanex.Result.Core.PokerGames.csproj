@@ -64,7 +64,6 @@
     <Compile Include="Models\Request.cs" />
     <Compile Include="Models\Response.cs" />
     <Compile Include="Models\Result.cs" />
-    <Compile Include="Models\ViewerLevel.cs" />
     <Compile Include="PokerGamesResultConfigs.cs" />
     <Compile Include="PokerGamesResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

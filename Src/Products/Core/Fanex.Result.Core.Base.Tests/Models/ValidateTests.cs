@@ -43,7 +43,6 @@
         [TestCase("AllBetCasino", 211)]
         [TestCase("Sportsbook", 1)]
         [TestCase("Sportsbook", 44)]
-        [TestCase("Lucky3", 160)]
         public void ValidateNormal_FromValidData_ReturnsTrue(string dtoName, SportType sportType)
         {
             // Act
@@ -60,7 +59,6 @@
         [TestCase("AGCasino", 1)]
         [TestCase("AllBetCasino", 250)]
         [TestCase("Sportsbook", 211)]
-        [TestCase("Lucky3", 23123)]
         public void ValidateNormal_FromInvalidData_ReturnsFalse(string dtoName, SportType sportType)
         {
             // Act

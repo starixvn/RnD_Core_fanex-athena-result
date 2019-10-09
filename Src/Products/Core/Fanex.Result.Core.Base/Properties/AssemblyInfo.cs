@@ -37,7 +37,6 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("2.2.8.1")]
 [assembly: AssemblyFileVersion("2.2.8.1")]
 [assembly: InternalsVisibleTo("Fanex.Result.Core.Base.Tests")]
-[assembly: InternalsVisibleTo("Fanex.Result.Core.Lucky3.Tests")]
 [assembly: InternalsVisibleTo("Fanex.Result.Core.Sportsbook.Tests")]
 [assembly: InternalsVisibleTo("Fanex.Result.Core.GoldDeluxe.Tests")]
 [assembly: InternalsVisibleTo("Fanex.Result.Core.Racing.Tests")]

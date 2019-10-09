@@ -73,12 +73,6 @@
                         new NumberGameResultData().GetNormalResult(date, leagueId, getDataFromExcel).ToList(), resultSetting);
                     break;
 
-                case SportType.Lucky3:
-                    resultSetting.VisibleMatchCodeIDColumn = false;
-                    htmlResult = ResultEngine.HtmlParser(
-                        new Lucky3ResultData().GetNormalResult(date, leagueId, getDataFromExcel).ToList(), resultSetting);
-                    break;
-
                 case SportType.Happy5:
                     resultSetting.VisibleMatchCodeIDColumn = false;
                     htmlResult = ResultEngine.HtmlParser(
@@ -183,12 +177,6 @@
                 case SportType.NumberGame:
                     excelResult = ResultEngine.ExcelParser(
                         new NumberGameResultData().GetNormalResult(date, leagueId, getDataFromExcel).ToList(), resultSetting);
-                    break;
-
-                case SportType.Lucky3:
-                    resultSetting.VisibleMatchCodeIDColumn = false;
-                    excelResult = ResultEngine.ExcelParser(
-                        new Lucky3ResultData().GetNormalResult(date, leagueId, getDataFromExcel).ToList(), resultSetting);
                     break;
 
                 case SportType.Happy5:

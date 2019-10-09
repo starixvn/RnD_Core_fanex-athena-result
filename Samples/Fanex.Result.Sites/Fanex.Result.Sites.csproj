@@ -250,13 +250,11 @@
     <Compile Include="Models\ResultData\SportsbookResultData.cs" />
     <Compile Include="Models\ResultData\NumberGameResultData.cs" />
     <Compile Include="Models\ResultData\RacingResultData.cs" />
-    <Compile Include="Models\ResultData\Lucky3ResultData.cs" />
     <Compile Include="Models\ResultServices\BaseResultService.cs" />
     <Compile Include="Models\ResultServices\CasinoResultService.cs" />
     <Compile Include="Models\ResultServices\Happy5ResultService.cs" />
     <Compile Include="Models\ResultServices\MetricGamingResultService.cs" />
     <Compile Include="Models\ResultServices\IResultService.cs" />
-    <Compile Include="Models\ResultServices\Lucky3ResultService.cs" />
     <Compile Include="Models\ResultServices\GoldDeluxeResultService.cs" />
     <Compile Include="Models\ResultServices\ParlayResultService.cs" />
     <Compile Include="Models\ResultServices\OutRightResultService.cs" />
@@ -482,8 +480,6 @@
     <Content Include="App_Data\Fanex.Result\GoldDeluxe.xls" />
     <Content Include="App_Data\Fanex.Result\MuayThai.xls" />
     <Content Include="App_Data\Result_Data\Soccer.xls" />
-    <Content Include="App_Data\Result_Data\Lucky3.xls" />
-    <Content Include="App_Data\Fanex.Result\Lucky3.xls" />
     <Content Include="App_Data\Result_Data\SoccerDetail.xls" />
     <Content Include="App_Data\Result_Data\VirtualBasketball.xls" />
     <Content Include="App_Data\Fanex.Result\VSBasketBall.xls" />
@@ -643,10 +639,6 @@
     <ProjectReference Include="..\..\Src\Products\Happy5\Fanex.Result.Core.Happy5\Fanex.Result.Core.Happy5.csproj">
       <Project>{8ED01504-3503-43C2-8E0E-8127E36E482C}</Project>
       <Name>Fanex.Result.Core.Happy5</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\Products\Lucky3\Fanex.Result.Core.Lucky3\Fanex.Result.Core.Lucky3.csproj">
-      <Project>{5b12d69c-7bf6-4e40-ae62-3853db3d118d}</Project>
-      <Name>Fanex.Result.Core.Lucky3</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Src\Products\MetricGaming\Fanex.Result.Core.MetricGaming\Fanex.Result.Core.MetricGaming.csproj">
       <Project>{76cd2383-849a-4291-ad55-378f6c26836c}</Project>

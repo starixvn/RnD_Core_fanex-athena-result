@@ -128,10 +128,6 @@
                     return ResultEngine.HtmlParser(
                         new NumberGameResultData().GetPopupResult(metalModel.MatchId).ToList(), setting);
 
-                case SportType.Lucky3:
-                    return ResultEngine.HtmlParser(
-                        new Lucky3ResultData().GetPopupResult(metalModel.MatchId, metalModel.GetDataFromExcel).ToList(), setting);
-
                 case SportType.Happy5:
                     return ResultEngine.HtmlParser(
                         new Happy5ResultData().GetPopupResult(metalModel.MatchId, metalModel.GetDataFromExcel).ToList(), setting);

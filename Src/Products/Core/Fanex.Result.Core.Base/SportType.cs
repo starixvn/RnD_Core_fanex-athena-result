@@ -123,9 +123,6 @@
 
         #endregion Racing
 
-        [StringValue("Lucky3")]
-        Lucky3 = 160,
-
         [StringValue("NumberGame")]
         NumberGame = 161,
 

@@ -58,7 +58,6 @@
     <Compile Include="GoldDeluxeResultExcelReader.cs" />
     <Compile Include="Happy5ResultExcelReader.cs" />
     <Compile Include="NumberGameResultExcelReader.cs" />
-    <Compile Include="Lucky3ResultExcelReader.cs" />
     <Compile Include="BetBuilderDetailResultExcelReader.cs" />
     <Compile Include="SportsbookDetailResultExcelReader.cs" />
     <Compile Include="OutrightResultExcelReader.cs" />
@@ -87,10 +86,6 @@
     <ProjectReference Include="..\..\Src\Products\Happy5\Fanex.Result.Core.Happy5\Fanex.Result.Core.Happy5.csproj">
       <Project>{8ED01504-3503-43C2-8E0E-8127E36E482C}</Project>
       <Name>Fanex.Result.Core.Happy5</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\Products\Lucky3\Fanex.Result.Core.Lucky3\Fanex.Result.Core.Lucky3.csproj">
-      <Project>{5b12d69c-7bf6-4e40-ae62-3853db3d118d}</Project>
-      <Name>Fanex.Result.Core.Lucky3</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Src\Products\NumberGame\Fanex.Result.Core.NumberGame\Fanex.Result.Core.NumberGame.csproj">
       <Project>{cebae710-7919-4fc6-8978-862a3096972c}</Project>

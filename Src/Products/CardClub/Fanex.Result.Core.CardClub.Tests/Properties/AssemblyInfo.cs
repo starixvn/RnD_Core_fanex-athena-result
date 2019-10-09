@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Fanex.Result.Core.PokerGames")]
-[assembly: AssemblyDescription("_")]
+[assembly: AssemblyTitle("Fanex.Result.Core.CardClub.Tests")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("_")]
-[assembly: AssemblyProduct("Fanex.Result.Core.PokerGames")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Fanex.Result.Core.CardClub.Tests")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("d0c14c69-33f8-4b76-bb9a-109f3dcffc57")]
+[assembly: Guid("3645ff8c-c788-46d2-af72-148ced908fbc")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -32,6 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.2.0")]
-[assembly: AssemblyFileVersion("1.0.2.0")]
-[assembly: InternalsVisibleTo("Fanex.Result.Core.PokerGames.Tests")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

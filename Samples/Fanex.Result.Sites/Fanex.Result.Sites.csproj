@@ -652,9 +652,9 @@
       <Project>{cebae710-7919-4fc6-8978-862a3096972c}</Project>
       <Name>Fanex.Result.Core.NumberGame</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\Src\Products\PokerGames\Fanex.Result.Core.PokerGames\Fanex.Result.Core.PokerGames.csproj">
+    <ProjectReference Include="..\..\Src\Products\CardClub\Fanex.Result.Core.CardClub\Fanex.Result.Core.CardClub.csproj">
       <Project>{d0c14c69-33f8-4b76-bb9a-109f3dcffc57}</Project>
-      <Name>Fanex.Result.Core.PokerGames</Name>
+      <Name>Fanex.Result.Core.CardClub</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Src\Products\PP\Fanex.Result.Core.PP\Fanex.Result.Core.PP.csproj">
       <Project>{05aa0490-7266-489a-9e2d-84c9d2f2fb39}</Project>

@@ -1,31 +1,32 @@
-﻿namespace Fanex.Result.Core.PokerGames.Tests
+﻿namespace Fanex.Result.Core.CardClub.Tests
 {
     using System;
     using Fanex.Result.Core.Base.Exception;
     using Fanex.Result.Core.Base.Utilities;
-    using Fanex.Result.Core.PokerGames.Models;
+    using Fanex.Result.Core.CardClub;
+    using Fanex.Result.Core.CardClub.Models;
     using NSubstitute;
     using NUnit.Framework;
 
     [TestFixture]
-    public class PokerGamesResultTests
+    public class CardClubResultTests
     {
         private IWebClient _client;
         private ISerializer _serializer;
-        private IPokerGamesResultConfigs _configs;
-        private PokerGamesResult _result;
+        private ICardClubResultConfigs _configs;
+        private CardClubResult _result;
         private Func<DateTime> _getDatimeNow;
         private Func<int> _randomInt;
 
         [SetUp]
         public void Setup()
         {
-            _configs = Substitute.For<IPokerGamesResultConfigs>();
+            _configs = Substitute.For<ICardClubResultConfigs>();
             _client = Substitute.For<IWebClient>();
             _serializer = Substitute.For<ISerializer>();
             _getDatimeNow = Substitute.For<Func<DateTime>>();
             _randomInt = Substitute.For<Func<int>>();
-            _result = new PokerGamesResult(_client, _serializer, _configs, _getDatimeNow, _randomInt);
+            _result = new CardClubResult(_client, _serializer, _configs, _getDatimeNow, _randomInt);
         }
 
         [TestCase]

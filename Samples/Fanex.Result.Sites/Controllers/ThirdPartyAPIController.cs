@@ -79,7 +79,7 @@
         }
 
         [HttpPost]
-        public JObject GetPokerGamesResult(Request request)
+        public JObject GetCardClubResult(Request request)
         {
             var response = new Response
             {

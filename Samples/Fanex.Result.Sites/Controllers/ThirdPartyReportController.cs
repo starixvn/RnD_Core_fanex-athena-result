@@ -4,8 +4,8 @@
     using System.Web.Mvc;
     using Fanex.Result.Core.GlobalGaming;
     using Fanex.Result.Core.GlobalGaming.DTO;
-    using Fanex.Result.Core.PokerGames;
-    using Fanex.Result.Core.PokerGames.Models;
+    using Fanex.Result.Core.CardClub;
+    using Fanex.Result.Core.CardClub.Models;
     using Fanex.Result.Core.PP;
     using Fanex.Result.Core.Voidbridge;
     using Newtonsoft.Json;
@@ -66,12 +66,12 @@
         }
 
         [HttpGet]
-        public string PokerGamesResult(string custId, string gameTypeId, string transId3rd, string language)
+        public string CardClubResult(string custId, string gameTypeId, string transId3rd, string language)
         {
             try
             {
-                var pokerGamesResult = new PokerGamesResult();
-                return pokerGamesResult.GetResult(custId, gameTypeId, transId3rd, language).Replace("http://", "https://");
+                var cardClubResult = new CardClubResult();
+                return cardClubResult.GetResult(custId, gameTypeId, transId3rd, language).Replace("http://", "https://");
             }
             catch (Exception e)
             {

@@ -1,4 +1,4 @@
-﻿namespace Fanex.Result.Core.PokerGames.Models
+﻿namespace Fanex.Result.Core.CardClub.Models
 {
     using System.Runtime.Serialization;
 

@@ -60,12 +60,12 @@
         }
 
         <tr class="data-header">
-            <th class="cl-league" colspan="3">Poker Games</th>
+            <th class="cl-league" colspan="3">Card Club</th>
         </tr>
         <tr class="data">
             <td>19997145</td>
             <td>1403</td>
-            <td><button onClick="showPokerGamesResult('19997145', '1403')">Detail</button></td>
+            <td><button onClick="showCardClubResult('19997145', '1403')">Detail</button></td>
         </tr>
     </table>
 </div>
@@ -90,12 +90,11 @@
         });
     }
 
-    var showPokerGamesResult = function (custId, gameTypeId) {
+    var showCardClubResult = function (custId, gameTypeId) {
         $.get(rootUrl
-            + 'PokerGamesResult?custid=' + custId
+            + 'CardClubResult?custid=' + custId
             + '&gameTypeId=' + gameTypeId
             + '&language=' + $('#language').val()
-            + '&viewerLevel=3'
             + '&transId3rd=1224',
             function (result) {
             openVoidbridgeResult(result);

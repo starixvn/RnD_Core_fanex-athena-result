@@ -9,8 +9,8 @@
     <ProjectGuid>{3645FF8C-C788-46D2-AF72-148CED908FBC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Fanex.Result.Core.PokerGames.Tests</RootNamespace>
-    <AssemblyName>Fanex.Result.Core.PokerGames.Tests</AssemblyName>
+    <RootNamespace>Fanex.Result.Core.CardClub.Tests</RootNamespace>
+    <AssemblyName>Fanex.Result.Core.CardClub.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
@@ -63,7 +63,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PokerGamesResultTests.cs" />
+    <Compile Include="CardClubResultTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -71,9 +71,9 @@
       <Project>{8673f024-7726-4c30-8464-5a8357f79bf0}</Project>
       <Name>Fanex.Result.Core.Base</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Fanex.Result.Core.PokerGames\Fanex.Result.Core.PokerGames.csproj">
+    <ProjectReference Include="..\Fanex.Result.Core.PokerGames\Fanex.Result.Core.CardClub.csproj">
       <Project>{d0c14c69-33f8-4b76-bb9a-109f3dcffc57}</Project>
-      <Name>Fanex.Result.Core.PokerGames</Name>
+      <Name>Fanex.Result.Core.CardClub</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -7,8 +7,8 @@
     <ProjectGuid>{D0C14C69-33F8-4B76-BB9A-109F3DCFFC57}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Fanex.Result.Core.PokerGames</RootNamespace>
-    <AssemblyName>Fanex.Result.Core.PokerGames</AssemblyName>
+    <RootNamespace>Fanex.Result.Core.CardClub</RootNamespace>
+    <AssemblyName>Fanex.Result.Core.CardClub</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -20,7 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>Fanex.Result.Core.PokerGames.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>Fanex.Result.Core.CardClub.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -29,7 +29,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>Fanex.Result.Core.PokerGames.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>Fanex.Result.Core.CardClub.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
@@ -58,20 +58,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IPokerGamesResult.cs" />
+    <Compile Include="ICardClubResult.cs" />
     <Compile Include="Models\Auth.cs" />
     <Compile Include="Models\Call.cs" />
     <Compile Include="Models\Request.cs" />
     <Compile Include="Models\Response.cs" />
     <Compile Include="Models\Result.cs" />
-    <Compile Include="PokerGamesResultConfigs.cs" />
-    <Compile Include="PokerGamesResult.cs" />
+    <Compile Include="CardClubResultConfigs.cs" />
+    <Compile Include="CardClubResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
     <Content Include="web.config.transform" />
-    <None Include="Fanex.Result.Core.PokerGames.ruleset" />
+    <None Include="Fanex.Result.Core.CardClub.ruleset" />
     <None Include="packages.config" />
     <None Include="_CreateNewNuGetPackage\Config.ps1" />
   </ItemGroup>

@@ -1,8 +1,8 @@
-﻿namespace Fanex.Result.Core.PokerGames
+﻿namespace Fanex.Result.Core.CardClub
 {
     using System.Configuration;
 
-    public interface IPokerGamesResultConfigs
+    public interface ICardClubResultConfigs
     {
 #pragma warning disable S3996 // URI properties should not be strings
         string Url { get; set; }
@@ -17,11 +17,11 @@
         int DebugMode { get; set; }
     }
 
-    public sealed class PokerGamesResultConfigs : ConfigurationSection, IPokerGamesResultConfigs
+    public sealed class CardClubResultConfigs : ConfigurationSection, ICardClubResultConfigs
     {
         #region const
 
-        private const string RESULT_CONFIG = "PokerGamesResultConfigs";
+        private const string RESULT_CONFIG = "CardClubResultConfigs";
         private const string URL = "Url";
         private const string LOGIN = "Login";
         private const string PASSWORD = "Password";
@@ -30,7 +30,7 @@
 
         #endregion const
 
-        public static readonly PokerGamesResultConfigs Configs = ConfigurationManager.GetSection(RESULT_CONFIG) as PokerGamesResultConfigs;
+        public static readonly CardClubResultConfigs Configs = ConfigurationManager.GetSection(RESULT_CONFIG) as CardClubResultConfigs;
 
         [ConfigurationProperty(URL, IsRequired = true)]
 #pragma warning disable S3996 // URI properties should not be strings

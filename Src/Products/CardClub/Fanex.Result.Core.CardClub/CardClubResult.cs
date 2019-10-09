@@ -1,13 +1,13 @@
-﻿namespace Fanex.Result.Core.PokerGames
+﻿namespace Fanex.Result.Core.CardClub
 {
     using System;
     using System.Collections.Generic;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.Exception;
     using Fanex.Result.Core.Base.Utilities;
-    using Fanex.Result.Core.PokerGames.Models;
+    using Fanex.Result.Core.CardClub.Models;
 
-    public class PokerGamesResult : IPokerGamesResult
+    public class CardClubResult : ICardClubResult
     {
         private const string DefaultLanguage = "en-US";
 
@@ -17,22 +17,22 @@
             { "vi-VN", "vn" }
         };
 
-        private readonly IPokerGamesResultConfigs _configs;
+        private readonly ICardClubResultConfigs _configs;
         private readonly IWebClient _client;
         private readonly ISerializer _serializer;
         private readonly Func<DateTime> _getDatimeNow;
         private readonly Func<int> _randomInt;
 
-        public PokerGamesResult(
+        public CardClubResult(
             IWebClient client = null,
             ISerializer serializer = null,
-            IPokerGamesResultConfigs configs = null,
+            ICardClubResultConfigs configs = null,
             Func<DateTime> getDatimeNow = null,
             Func<int> randomInt = null)
         {
             _serializer = serializer ?? new JsonSerializer();
             _client = client ?? new JsonWebClient(_serializer);
-            _configs = configs ?? PokerGamesResultConfigs.Configs;
+            _configs = configs ?? CardClubResultConfigs.Configs;
             _getDatimeNow = getDatimeNow ?? GetDateTimeNow;
             _randomInt = randomInt ?? RandomInt;
         }
@@ -157,10 +157,10 @@
                     throw new ResultCoreException(response.Result.ErrorDescription);
                 }
 
-                throw new ResultCoreException("Poker Games Result send request incorrectly!");
+                throw new ResultCoreException("Card Club Result send request incorrectly!");
             }
 
-            throw new ResultCoreException($"Poker Games Result send request incorrectly! Detail request:" +
+            throw new ResultCoreException($"Card Club Result send request incorrectly! Detail request:" +
                     $" {_serializer.Serialize(request)}; Detail response: {_serializer.Serialize(response)}");
         }
     }

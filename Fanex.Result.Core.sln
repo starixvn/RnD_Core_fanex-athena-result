@@ -69,11 +69,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.NumberGam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.NumberGame.Tests", "Src\Products\NumberGame\Fanex.Result.Core.NumberGame.Tests\Fanex.Result.Core.NumberGame.Tests.csproj", "{400A42FF-5785-4CBA-9499-0F659DD4F688}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PokerGames", "PokerGames", "{EEF16602-74C4-4CD1-ABC7-482E87150A98}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CardClub", "CardClub", "{EEF16602-74C4-4CD1-ABC7-482E87150A98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.PokerGames", "Src\Products\PokerGames\Fanex.Result.Core.PokerGames\Fanex.Result.Core.PokerGames.csproj", "{D0C14C69-33F8-4B76-BB9A-109F3DCFFC57}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.CardClub", "Src\Products\CardClub\Fanex.Result.Core.CardClub\Fanex.Result.Core.CardClub.csproj", "{D0C14C69-33F8-4B76-BB9A-109F3DCFFC57}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.PokerGames.Tests", "Src\Products\PokerGames\Fanex.Result.Core.PokerGames.Tests\Fanex.Result.Core.PokerGames.Tests.csproj", "{3645FF8C-C788-46D2-AF72-148CED908FBC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.CardClub.Tests", "Src\Products\CardClub\Fanex.Result.Core.CardClub.Tests\Fanex.Result.Core.CardClub.Tests.csproj", "{3645FF8C-C788-46D2-AF72-148CED908FBC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PP", "PP", "{1FA9F643-D6F3-4FB0-8C55-97EAA64DFC36}"
 EndProject
@@ -339,8 +339,8 @@ Global
 		{E8D9E9B2-5DD6-4612-98A8-24320F21A95A} = {561B98E8-E022-491F-AA9F-D425FE1BA095}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		LessCompiler = ebd31f24-8f67-4e36-bd6d-1bb78a71e54b
 		SolutionGuid = {4BF11104-7EAE-4BB6-A235-1C10DB35CE8B}
+		LessCompiler = ebd31f24-8f67-4e36-bd6d-1bb78a71e54b
 	EndGlobalSection
 	GlobalSection(JSLint) = preSolution
 		SolutionConfigurationLocation = JSLintOptions.xml

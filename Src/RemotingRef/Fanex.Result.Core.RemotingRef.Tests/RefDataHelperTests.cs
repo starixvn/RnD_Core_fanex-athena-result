@@ -145,29 +145,5 @@
 
             remotingRefService.Received().GetHorseTeamName(codeId, lang, defaultValue);
         }
-
-        [Test]
-        public void GetRouletteBetItem_Always_ExecuteGetRouletteBetItem()
-        {
-            string itemId = "1";
-            string lang = "en-US";
-            string defaultValue = "1";
-
-            refDataHelper.GetRouletteBetItem(itemId, lang, defaultValue);
-
-            remotingRefService.Received().GetRouletteBetItem(itemId, lang, defaultValue);
-        }
-
-        [Test]
-        public void GetCasinoBetItem_Always_ExecuteGetCasinoBetItem()
-        {
-            string itemId = "1";
-            string lang = "en-US";
-            string defaultValue = "1";
-
-            refDataHelper.GetCasinoBetItem(itemId, lang, defaultValue);
-
-            remotingRefService.Received().GetCasinoBetItem(itemId, lang, defaultValue);
-        }
     }
 }

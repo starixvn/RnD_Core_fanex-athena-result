@@ -38,7 +38,6 @@
         [TestCase("Racing", 181)]
         [TestCase("Racing", 182)]
         [TestCase("NumberGame", 161)]
-        [TestCase("LiveCasino", 162)]
         [TestCase("GoldDeluxe", 255)]
         [TestCase("AGCasino", 250)]
         [TestCase("AllBetCasino", 211)]

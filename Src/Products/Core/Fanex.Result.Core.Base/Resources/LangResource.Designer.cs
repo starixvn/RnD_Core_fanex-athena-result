@@ -259,15 +259,6 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Game Type - Table Number.
-        /// </summary>
-        public static string GameTypeAndTableNumber {
-            get {
-                return ResourceManager.GetString("GameTypeAndTableNumber", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Goal Record.
         /// </summary>
         public static string GoalRecord {

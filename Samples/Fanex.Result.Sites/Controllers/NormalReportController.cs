@@ -68,11 +68,6 @@
                         new RacingResultData().GetNormalResult(sportId, date, leagueId).ToList(), resultSetting);
                     break;
 
-                case SportType.LiveCasino:
-                    htmlResult = ResultEngine.HtmlParser(
-                        new LiveCasinoResultData().GetNormalResult(sportId, date, leagueId).ToList(), resultSetting);
-                    break;
-
                 case SportType.NumberGame:
                     htmlResult = ResultEngine.HtmlParser(
                         new NumberGameResultData().GetNormalResult(date, leagueId, getDataFromExcel).ToList(), resultSetting);
@@ -184,13 +179,7 @@
                     excelResult = ResultEngine.ExcelParser(
                         new RacingResultData().GetNormalResult(sportId, date, leagueId).ToList(), resultSetting);
                     break;
-
-                case SportType.LiveCasino:
-                    excelResult = ResultEngine.ExcelParser(
-                        new LiveCasinoResultData().GetNormalResult(sportId, date, leagueId).ToList(), resultSetting);
-
-                    break;
-
+                    
                 case SportType.NumberGame:
                     excelResult = ResultEngine.ExcelParser(
                         new NumberGameResultData().GetNormalResult(date, leagueId, getDataFromExcel).ToList(), resultSetting);

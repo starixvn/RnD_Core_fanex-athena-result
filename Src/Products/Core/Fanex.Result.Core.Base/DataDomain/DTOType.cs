@@ -3,7 +3,6 @@
     public static class DTOType
     {
         public const string SPORTSBOOK = "Sportsbook";
-        public const string LIVECASINO = "LiveCasino";
         public const string NUMBERGAME = "NumberGame";
         public const string RACING = "Racing";
         public const string OUTRIGHT = "Outright";

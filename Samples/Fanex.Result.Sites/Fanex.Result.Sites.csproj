@@ -227,12 +227,10 @@
     <Compile Include="Models\DTO\Sport.cs" />
     <Compile Include="Models\Criteria\GetRacingResultCriteria.cs" />
     <Compile Include="Models\Criteria\GetNumberGameResultCriteria.cs" />
-    <Compile Include="Models\Criteria\GetLiveCasinoResultCriteria.cs" />
     <Compile Include="Models\Criteria\GetSportbookResultCriteria.cs" />
     <Compile Include="Models\Criteria\GetNumberGamePopupResultCriteria.cs" />
     <Compile Include="Models\Criteria\GetRacingPopupResultCriteria.cs" />
     <Compile Include="Models\Criteria\GetSportbookPopupResultCriteria.cs" />
-    <Compile Include="Models\Criteria\GetLiveCasinoPopupResultCriteria.cs" />
     <Compile Include="Models\Criteria\GetParlayResultCriteria.cs" />
     <Compile Include="Models\Criteria\GetOutRightResult.cs" />
     <Compile Include="Models\Criteria\GetGolDeluxePopUpResultCriteria.cs" />
@@ -251,7 +249,6 @@
     <Compile Include="Models\ResultData\OutRightResultData.cs" />
     <Compile Include="Models\ResultData\SportsbookResultData.cs" />
     <Compile Include="Models\ResultData\NumberGameResultData.cs" />
-    <Compile Include="Models\ResultData\LiveCasinoResultData.cs" />
     <Compile Include="Models\ResultData\RacingResultData.cs" />
     <Compile Include="Models\ResultData\Lucky3ResultData.cs" />
     <Compile Include="Models\ResultServices\BaseResultService.cs" />
@@ -266,7 +263,6 @@
     <Compile Include="Models\ResultServices\BetBuilderResultService.cs" />
     <Compile Include="Models\ResultServices\SportsbookResultService.cs" />
     <Compile Include="Models\ResultServices\NumberGameResultService.cs" />
-    <Compile Include="Models\ResultServices\LiveCasinoResultService.cs" />
     <Compile Include="Models\ResultServices\RacingResultService.cs" />
     <Compile Include="Models\ResultServices\LeaguesResultService.cs" />
     <Compile Include="Models\ResultServices\SportsResultService.cs" />
@@ -477,7 +473,6 @@
     <Content Include="App_Data\Fanex.Result\Billiard.xls" />
     <Content Include="App_Data\Fanex.Result\Hockey.xls" />
     <Content Include="App_Data\Fanex.Result\HorseRacing.xls" />
-    <Content Include="App_Data\Fanex.Result\LiveCasino.xls" />
     <Content Include="App_Data\Fanex.Result\NumberGame.xls" />
     <Content Include="App_Data\Fanex.Result\Outright.xls" />
     <Content Include="App_Data\Fanex.Result\Soccer.xls" />
@@ -648,10 +643,6 @@
     <ProjectReference Include="..\..\Src\Products\Happy5\Fanex.Result.Core.Happy5\Fanex.Result.Core.Happy5.csproj">
       <Project>{8ED01504-3503-43C2-8E0E-8127E36E482C}</Project>
       <Name>Fanex.Result.Core.Happy5</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\Products\LiveCasino\Fanex.Result.Core.LiveCasino\Fanex.Result.Core.LiveCasino.csproj">
-      <Project>{c67a0f1f-9f62-4e75-a982-0894fdd79008}</Project>
-      <Name>Fanex.Result.Core.LiveCasino</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Src\Products\Lucky3\Fanex.Result.Core.Lucky3\Fanex.Result.Core.Lucky3.csproj">
       <Project>{5b12d69c-7bf6-4e40-ae62-3853db3d118d}</Project>

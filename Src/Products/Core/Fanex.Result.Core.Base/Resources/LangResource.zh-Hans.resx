@@ -345,9 +345,6 @@
   <data name="GameResult" xml:space="preserve">
     <value>比赛结果</value>
   </data>
-  <data name="GameTypeAndTableNumber" xml:space="preserve">
-    <value>游戏类型 - 桌号</value>
-  </data>
   <data name="GoalRecord" xml:space="preserve">
     <value>进球纪录</value>
   </data>

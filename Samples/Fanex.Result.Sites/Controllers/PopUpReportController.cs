@@ -110,10 +110,6 @@
                     }
                     break;
 
-                case SportType.LiveCasino:
-                    return ResultEngine.HtmlParser(
-                        new LiveCasinoResultData().GetPopupResult(licenseeId, userId, metalModel.MatchId).ToList(), setting);
-
                 case SportType.GoldDeluxe:
                     return ResultEngine.HtmlParser(
                         new GoldDeluxeResultData().GetPopupResult(metalModel.RefNo, metalModel.Bettype, metalModel.GetDataFromExcel).ToList(), setting);

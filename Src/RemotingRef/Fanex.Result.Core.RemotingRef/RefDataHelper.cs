@@ -49,12 +49,6 @@
         public string GetHorseTeamName(string codeId, string lang, string defaultValue)
             => remotingRefService.GetHorseTeamName(codeId, lang, defaultValue);
 
-        public string GetRouletteBetItem(string itemId, string languageCode, string defaultValue)
-            => remotingRefService.GetRouletteBetItem(itemId, languageCode, defaultValue);
-
-        public string GetCasinoBetItem(string itemId, string languageCode, string defaultValue)
-            => remotingRefService.GetCasinoBetItem(itemId, languageCode, defaultValue);
-
         public string GetBetBuilderSelectionName(int selectionType, string languageCode, string defaultValue)
         {
             var names = remotingRefService.GetBetBuilderSelectionNames(new[] { selectionType }, languageCode);

@@ -129,9 +129,6 @@
         [StringValue("NumberGame")]
         NumberGame = 161,
 
-        [StringValue("LiveCasino")]
-        LiveCasino = 162,
-
         [StringValue("Happy5")]
         Happy5 = 164,
 

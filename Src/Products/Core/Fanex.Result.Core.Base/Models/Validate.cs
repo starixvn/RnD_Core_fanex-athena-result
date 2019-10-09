@@ -57,9 +57,6 @@
                 case SportType.NumberGame:
                     return dtoName == DTOType.NUMBERGAME;
 
-                case SportType.LiveCasino:
-                    return dtoName == DTOType.LIVECASINO;
-
                 case SportType.GoldDeluxe:
                     return dtoName == DTOType.GOLDDELUXE;
 

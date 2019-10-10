@@ -240,7 +240,6 @@
     <Compile Include="Models\GlobalGaming\GlobalGamingRequest.cs" />
     <Compile Include="Models\MetaModel\ResultPopupMetalModel.cs" />
     <Compile Include="Models\ResultData\Happy5ResultData.cs" />
-    <Compile Include="Models\ResultData\MicroGamingResultData.cs" />
     <Compile Include="Models\ResultData\AllbetResultData.cs" />
     <Compile Include="Models\ResultData\Constant.cs" />
     <Compile Include="Models\ResultData\AGCasinoResultData.cs" />
@@ -642,10 +641,6 @@
     <ProjectReference Include="..\..\Src\Products\MetricGaming\Fanex.Result.Core.MetricGaming\Fanex.Result.Core.MetricGaming.csproj">
       <Project>{76cd2383-849a-4291-ad55-378f6c26836c}</Project>
       <Name>Fanex.Result.Core.MetricGaming</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\Products\MicroGaming\Fanex.Result.Core.MicroGaming\Fanex.Result.Core.MicroGaming.csproj">
-      <Project>{083CA0EF-F420-4A62-BE5B-4145AFFEDEC1}</Project>
-      <Name>Fanex.Result.Core.MicroGaming</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Src\Products\NumberGame\Fanex.Result.Core.NumberGame\Fanex.Result.Core.NumberGame.csproj">
       <Project>{cebae710-7919-4fc6-8978-862a3096972c}</Project>

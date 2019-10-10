@@ -36,23 +36,7 @@
             // Assert
             Assert.Throws<ObjectNullException>(testDelegate);
         }
-
-        [TestCase(203)]
-        [TestCase(205)]
-        public void GetViewModel_FromSportTypeIsMicroGaming_ReturnsSoccerViewModel(SportType sportType)
-        {
-            // Arrange
-            _resultSetting.SportType = sportType;
-
-            // Act
-            var viewModel = ViewModelConcreteFactory.Instance.GetViewModel(_metricGaming, _resultSetting);
-
-            // Assert
-            var expectViewModelTypeName = "SoccerViewModel";
-
-            Assert.AreEqual(expectViewModelTypeName, viewModel.GetType().Name);
-        }
-
+        
         [Test]
         public void GetOutrightViewModel_Always_ThrowsException()
         {
@@ -77,7 +61,7 @@
         public void GetExcelViewModel_Always_ThrowsException()
         {
             // Arrange
-            _resultSetting.SportType = SportType.MicroGamingLC;
+            _resultSetting.SportType = SportType.AGCasino;
 
             // Act
             TestDelegate testDelegate = () => ViewModelConcreteFactory.Instance.GetExcelViewModel(new List<MetricGaming>(), _resultSetting);

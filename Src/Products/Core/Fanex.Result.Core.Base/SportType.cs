@@ -229,12 +229,6 @@
 
         #endregion VirtualSport
 
-        [StringValue("MicroGamingLC")]
-        MicroGamingLC = 203,
-
-        [StringValue("MicroGamingRNG")]
-        MicroGamingRNG = 205,
-
         [StringValue("AllBetCasino")]
         AllBetCasino = 211,
 

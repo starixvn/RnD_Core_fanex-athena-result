@@ -14,7 +14,6 @@
         [TestCase(32, "BasketBall")]
         [TestCase(5, "Tennis")]
         [TestCase(9, "Badminton")]
-        [TestCase(203, "MicroGamingLC")]
         public void StringMe_FromSportType_ReturnsExpectedTemplateName(SportType sportType, string expectedTemplateName)
         {
             // Act

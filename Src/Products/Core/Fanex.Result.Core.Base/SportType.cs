@@ -179,12 +179,6 @@
         VirtualSports = 180,
 
         [StringValue("Other")]
-        Bingo = 252,
-
-        [StringValue("Other")]
-        P2P = 253,
-
-        [StringValue("Other")]
         Others = 1000,
 
         [StringValue("Other")]

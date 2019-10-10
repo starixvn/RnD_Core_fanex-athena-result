@@ -76,7 +76,6 @@
   <ItemGroup>
     <Compile Include="ExcelModels\VSSpeedWayExcelTests.cs" />
     <Compile Include="ExcelModels\VshRacingExcelTests.cs" />
-    <Compile Include="ExcelModels\RacingExcelTests.cs" />
     <Compile Include="Models\BuilderTests.cs" />
     <Compile Include="Models\ViewModelConcreteFactoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -100,7 +99,6 @@
   <ItemGroup>
     <Content Include="TestTemplate\html\Racing.html" />
     <None Include="packages.config" />
-    <Content Include="TestTemplate\excel\Racing.xls" />
     <Content Include="TestTemplate\excel\VSHRacing.xls" />
     <Content Include="TestTemplate\excel\VSSpeedWay.xls" />
   </ItemGroup>

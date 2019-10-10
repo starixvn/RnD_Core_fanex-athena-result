@@ -108,20 +108,7 @@
         [StringValue("Billiard")]
         HorseRacingFixedOdd = 154,
 
-        #endregion Billiard
-
-        #region Racing
-
-        [StringValue("Racing")]
-        HorseRacing = 151,
-
-        [StringValue("Racing")]
-        Greyhound = 152,
-
-        [StringValue("Racing")]
-        Harness = 153,
-
-        #endregion Racing
+        #endregion Billiard        
 
         [StringValue("NumberGame")]
         NumberGame = 161,

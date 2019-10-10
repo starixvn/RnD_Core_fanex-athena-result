@@ -71,7 +71,7 @@
       <Project>{8673f024-7726-4c30-8464-5a8357f79bf0}</Project>
       <Name>Fanex.Result.Core.Base</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Fanex.Result.Core.PokerGames\Fanex.Result.Core.CardClub.csproj">
+    <ProjectReference Include="..\Fanex.Result.Core.CardClub\Fanex.Result.Core.CardClub.csproj">
       <Project>{d0c14c69-33f8-4b76-bb9a-109f3dcffc57}</Project>
       <Name>Fanex.Result.Core.CardClub</Name>
     </ProjectReference>
@@ -84,6 +84,9 @@
     <Analyzer Include="..\..\..\..\packages\SonarAnalyzer.CSharp.7.8.0.7320\analyzers\Google.Protobuf.dll" />
     <Analyzer Include="..\..\..\..\packages\SonarAnalyzer.CSharp.7.8.0.7320\analyzers\SonarAnalyzer.CSharp.dll" />
     <Analyzer Include="..\..\..\..\packages\SonarAnalyzer.CSharp.7.8.0.7320\analyzers\SonarAnalyzer.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -470,7 +470,6 @@
     <Content Include="App_Data\Fanex.Result\Basketball.xls" />
     <Content Include="App_Data\Fanex.Result\Billiard.xls" />
     <Content Include="App_Data\Fanex.Result\Hockey.xls" />
-    <Content Include="App_Data\Fanex.Result\HorseRacing.xls" />
     <Content Include="App_Data\Fanex.Result\NumberGame.xls" />
     <Content Include="App_Data\Fanex.Result\Outright.xls" />
     <Content Include="App_Data\Fanex.Result\Soccer.xls" />

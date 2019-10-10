@@ -95,9 +95,6 @@
         {
             switch (sportType)
             {
-                case SportType.HorseRacing:
-                case SportType.Greyhound:
-                case SportType.Harness:
                 case SportType.VirtualHorseRacing:
                 case SportType.VirtualMotorRacing:
                 case SportType.VirtualGreyhounds:

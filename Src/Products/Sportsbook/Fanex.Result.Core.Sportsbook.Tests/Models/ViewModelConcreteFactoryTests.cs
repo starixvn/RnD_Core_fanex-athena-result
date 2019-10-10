@@ -43,7 +43,7 @@
         public void GetViewModel_FromSportTypeIsNotSportsbook_ThrowException()
         {
             // Arrange
-            _resultSetting.SportType = SportType.HorseRacing;
+            _resultSetting.SportType = SportType.VirtualHorseRacing;
 
             // Act
             _testDelegate = () => ViewModelConcreteFactory.Instance.GetViewModel(new object(), _resultSetting);
@@ -116,7 +116,7 @@
         public void GetExcelViewModel_FromSportTypeIsUndefined_ThrowException()
         {
             // Arrange
-            _resultSetting.SportType = SportType.HorseRacing;
+            _resultSetting.SportType = SportType.VirtualHorseRacing;
 
             // Act
             _testDelegate = () => ViewModelConcreteFactory.Instance.GetExcelViewModel(new List<Sportsbook>(), _resultSetting);

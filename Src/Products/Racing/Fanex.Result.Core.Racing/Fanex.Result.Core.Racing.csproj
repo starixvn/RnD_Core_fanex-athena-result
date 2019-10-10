@@ -53,7 +53,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DTO\Racing.cs" />
-    <Compile Include="ExcelModels\RacingExcel.cs" />
     <Compile Include="ExcelModels\VSHRacingExcel.cs" />
     <Compile Include="ExcelModels\VSSpeedWayExcel.cs" />
     <Compile Include="Models\Builder.cs" />
@@ -68,7 +67,6 @@
     <None Include="app.config" />
     <None Include="Fanex.Result.Core.Racing.ruleset" />
     <None Include="packages.config" />
-    <EmbeddedResource Include="Views\Racing.cshtml" />
     <EmbeddedResource Include="Views\VSHRacing.cshtml" />
     <EmbeddedResource Include="Views\VSSpeedWay.cshtml" />
   </ItemGroup>

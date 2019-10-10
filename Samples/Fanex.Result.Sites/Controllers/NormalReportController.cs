@@ -56,9 +56,6 @@
 
             switch (sportType)
             {
-                case SportType.HorseRacing:
-                case SportType.Greyhound:
-                case SportType.Harness:
                 case SportType.VirtualHorseRacing:
                 case SportType.VirtualGreyhounds:
                 case SportType.VirtualMotorRacing:
@@ -162,9 +159,6 @@
 
             switch (sportType)
             {
-                case SportType.HorseRacing:
-                case SportType.Greyhound:
-                case SportType.Harness:
                 case SportType.VirtualHorseRacing:
                 case SportType.VirtualGreyhounds:
                 case SportType.VirtualMotorRacing:

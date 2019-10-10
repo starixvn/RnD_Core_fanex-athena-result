@@ -34,7 +34,6 @@
             Assert.IsFalse(isValidated);
         }
 
-        [TestCase("Racing", 151)]
         [TestCase("Racing", 181)]
         [TestCase("Racing", 182)]
         [TestCase("NumberGame", 161)]

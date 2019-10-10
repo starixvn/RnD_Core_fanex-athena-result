@@ -20,7 +20,7 @@
         {
             _resultSetting = new ResultSetting
             {
-                SportType = SportType.HorseRacing,
+                SportType = SportType.VirtualHorseRacing,
                 LanguageCode = "en-US"
             };
 

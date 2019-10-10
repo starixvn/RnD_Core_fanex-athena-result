@@ -50,9 +50,6 @@
             Assert.Throws<ObjectNullException>(testDelegate);
         }
 
-        [TestCase(151, "RacingViewModel")]
-        [TestCase(152, "RacingViewModel")]
-        [TestCase(153, "RacingViewModel")]
         [TestCase(181, "VSHRacingViewModel")]
         [TestCase(182, "VSHRacingViewModel")]
         [TestCase(183, "VSSpeedWayViewModel")]
@@ -116,9 +113,6 @@
             Assert.Throws<ObjectNullException>(testDelegate);
         }
 
-        [TestCase(151, "RacingExcel")]
-        [TestCase(152, "RacingExcel")]
-        [TestCase(153, "RacingExcel")]
         [TestCase(181, "VSHRacingExcel")]
         [TestCase(182, "VSHRacingExcel")]
         [TestCase(183, "VSSpeedWayExcel")]

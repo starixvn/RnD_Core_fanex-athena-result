@@ -2,46 +2,60 @@
 {
     using System;
     using System.Globalization;
+    using System.Linq;
+    using System.Text.RegularExpressions;
     using Base;
     using Base.DataDomain;
     using Base.ViewModels;
     using DTO;
+    using Fanex.Result.Core.Base.Extension;
     using Fanex.Result.Core.Base.Utilities;
-    using Utilities;
+    using Fanex.Result.Core.Sportsbook.DataDomain;
+    using Fanex.Result.Core.Sportsbook.ViewModels.Badminton;
+    using Fanex.Result.Core.Sportsbook.ViewModels.BaseDetail;
 
     public sealed class BadmintonViewModel : SportsbookBaseViewModel, IResultViewModel
     {
         private int _totalPointHome;
         private int _totalPointAway;
 
-        public BadmintonViewModel(Sportsbook sportbook, ResultSetting setting)
-            : this(sportbook, setting, null)
+        public BadmintonViewModel(Sportsbook sportbook, ResultSetting setting, IResultDetail<BadmintonlGameDetailItem> resultDetail = null)
+            : this(sportbook, setting, resultDetail, null)
         {
         }
 
-        public BadmintonViewModel(Sportsbook sportbook, ResultSetting setting, IRefDataHelper refDataHelper)
+        public BadmintonViewModel(Sportsbook sportbook, ResultSetting setting, IResultDetail<BadmintonlGameDetailItem> resultDetail, IRefDataHelper refDataHelper)
            : base(sportbook, setting, refDataHelper)
         {
+            ResultItems = (resultDetail ?? new BadmintonResultDetail(sportbook, setting, null, null))
+                .GetDetailItems();
+
+            ResultDetailItems = ResultItems
+                .Where(item => BadmintonResourceID.MoreResultResourceIDRegex.Any(id => Regex.IsMatch(item.ResourceID, id)))
+                .OrderBy(item => item.GameNumber)
+                .ThenBy(item => BadmintonResourceID.MoreResultResourceIDRegex.ToList().FindIndex(id => id == item.ResourceID || Regex.IsMatch(item.ResourceID, id)))
+                .ToSafeList();
         }
 
-        public string TotalPointHome => CreateTotalPointValue(true);
+        public SafeList<BadmintonlGameDetailItem> ResultItems { get; }
 
-        public string TotalPointAway => CreateTotalPointValue(false);
+        public SafeList<BadmintonlGameDetailItem> ResultDetailItems { get; }
 
-        public string TotalSetHome => GetScore(SPORTBOOK.FinalHomeScore);
+        public override bool VisibleDetailedLink => base.VisibleDetailedLink && HasGameDetailData();
 
-        public string TotalSetAWay => GetScore(SPORTBOOK.FinalAwayScore);
+        public override bool VisibleGameDetail => HasGameDetailData();
 
-        /// <summary>
-        /// Get home and away set.
-        /// Only used for some sport type such as tennis, badminton....
-        /// </summary>
-        /// <param name="index">The index of home or away array.</param>
-        /// <param name="isHome">True if you want to get value of home set.</param>
-        /// <returns>The string value.</returns>
+        public string TotalPointHome => CreateTotalPointValue(isHome: true);
+
+        public string TotalPointAway => CreateTotalPointValue(isHome: false);
+
+        public string TotalGameHome => GetTotalGames(isHome: true);
+
+        public string TotalGameAway => GetTotalGames(isHome: false);
+
         public override string GetHomeAwaySet(int index, bool isHome)
         {
-            if (index > 4)
+            if (index > 5)
             {
                 return ConstantValue.Hyphen;
             }
@@ -53,27 +67,23 @@
                 HomeSet = new[] { ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen };
                 AwaySet = new[] { ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen, ConstantValue.Hyphen };
 
-                GenerateHomeAwaySetValueFromBetStatus(5);
+                GenerateHomeAwaySetValue();
             }
 
             return isHome ? HomeSet[index] : AwaySet[index];
         }
 
-        protected override void GenerateHomeAwaySetValueFromBetStatus(int maxSetNumber)
+        private void GenerateHomeAwaySetValue()
         {
-            if (HasResult)
+            if (ResultItems.Any())
             {
-                string[] betStatusList = GetScoreInfoFromBetStatus.Split(',');
-
-                for (int j = 0; j < betStatusList.Length && j < 5; j++)
+                for (var j = 0; j < BadmintonResourceID.GameResourcesId.Length; j++)
                 {
-                    var values = betStatusList[j].Trim().Split('-');
+                    HomeSet[j] = GetResultFromGameDetails(BadmintonResourceID.GameResourcesId[j], isHome: true);
+                    AwaySet[j] = GetResultFromGameDetails(BadmintonResourceID.GameResourcesId[j], isHome: false);
 
-                    if (values.Length > 1)
+                    if (int.TryParse(AwaySet[j], out int resultAway) && int.TryParse(HomeSet[j], out int resultHome))
                     {
-                        HomeSet[j] = string.IsNullOrEmpty(values[0].Trim()) ? "0" : values[0].Trim();
-                        AwaySet[j] = string.IsNullOrEmpty(values[1].Trim()) ? "0" : values[1].Trim();
-
                         _totalPointAway += Convert.ToInt32(AwaySet[j]);
                         _totalPointHome += Convert.ToInt32(HomeSet[j]);
                     }
@@ -81,11 +91,9 @@
             }
         }
 
-        /// <summary>
-        /// Create total point value.
-        /// </summary>
-        /// <param name="isHome">If true, return home value.</param>
-        /// <returns>The total point value.</returns>
+        private string GetTotalGames(bool isHome)
+            => GetResultFromGameDetails(BadmintonResourceID.TotalGame, isHome);
+
         private string CreateTotalPointValue(bool isHome)
         {
             if (HomeSet == null || AwaySet == null)
@@ -103,5 +111,18 @@
 
             return ConstantValue.Hyphen;
         }
+
+        private string GetResultFromGameDetails(string resourceId, bool isHome)
+        {
+            var result = ResultItems.FirstOrDefault(g => g.ResourceID == resourceId);
+            if (result == null)
+            {
+                return ConstantValue.Hyphen;
+            }
+
+            return isHome ? result.HomeValue : result.AwayValue;
+        }
+
+        private bool HasGameDetailData() => ResultDetailItems.Any();
     }
 }

@@ -27,13 +27,13 @@
             row.Cells[colidx++].SetCellValue(LangResource.MatchCode + "/" + LangResource.ID);
             row.Cells[colidx++].SetCellValue(LangResource.KickOffTime);
             row.Cells[colidx++].SetCellValue(LangResource.Match);
-            row.Cells[colidx++].SetCellValue(LangResource.Lbl1S);
-            row.Cells[colidx++].SetCellValue(LangResource.Lbl2S);
-            row.Cells[colidx++].SetCellValue(LangResource.Lbl3S);
-            row.Cells[colidx++].SetCellValue(LangResource.Lbl4S);
-            row.Cells[colidx++].SetCellValue(LangResource.Lbl5S);
+            row.Cells[colidx++].SetCellValue(LangResource.Lbl1G);
+            row.Cells[colidx++].SetCellValue(LangResource.Lbl2G);
+            row.Cells[colidx++].SetCellValue(LangResource.Lbl3G);
+            row.Cells[colidx++].SetCellValue(LangResource.Lbl4G);
+            row.Cells[colidx++].SetCellValue(LangResource.Lbl5G);
             row.Cells[colidx++].SetCellValue(LangResource.TotalPoints);
-            row.Cells[colidx++].SetCellValue(LangResource.TotalSet);
+            row.Cells[colidx++].SetCellValue(LangResource.TotalGames);
             row.Cells[colidx].SetCellValue(LangResource.Status);
         }
 
@@ -63,7 +63,7 @@
                 exportRow.GetHomeAwaySet(3, true),
                 exportRow.GetHomeAwaySet(4, true),
                 exportRow.TotalPointHome,
-                exportRow.TotalSetHome,
+                exportRow.TotalGameHome,
                 exportRow.EventStatus);
 
             currentRow++;
@@ -80,7 +80,7 @@
                 exportRow.GetHomeAwaySet(3, false),
                 exportRow.GetHomeAwaySet(4, false),
                 exportRow.TotalPointAway,
-                exportRow.TotalSetAWay,
+                exportRow.TotalGameAway,
                 exportRow.EventStatus);
             currentRow++;
         }

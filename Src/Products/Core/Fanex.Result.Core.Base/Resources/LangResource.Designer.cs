@@ -241,6 +241,51 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Game 1.
+        /// </summary>
+        public static string Game01 {
+            get {
+                return ResourceManager.GetString("Game01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game 2.
+        /// </summary>
+        public static string Game02 {
+            get {
+                return ResourceManager.GetString("Game02", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game 3.
+        /// </summary>
+        public static string Game03 {
+            get {
+                return ResourceManager.GetString("Game03", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game 4.
+        /// </summary>
+        public static string Game04 {
+            get {
+                return ResourceManager.GetString("Game04", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game 5.
+        /// </summary>
+        public static string Game05 {
+            get {
+                return ResourceManager.GetString("Game05", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Game ID.
         /// </summary>
         public static string GameID {
@@ -385,6 +430,15 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 1G.
+        /// </summary>
+        public static string Lbl1G {
+            get {
+                return ResourceManager.GetString("Lbl1G", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 1P.
         /// </summary>
         public static string Lbl1P {
@@ -430,6 +484,15 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 2G.
+        /// </summary>
+        public static string Lbl2G {
+            get {
+                return ResourceManager.GetString("Lbl2G", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 2nd.
         /// </summary>
         public static string Lbl2nd {
@@ -462,6 +525,15 @@ namespace Fanex.Result.Core.Base.Resources {
         public static string Lbl2S {
             get {
                 return ResourceManager.GetString("Lbl2S", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3G.
+        /// </summary>
+        public static string Lbl3G {
+            get {
+                return ResourceManager.GetString("Lbl3G", resourceCulture);
             }
         }
         
@@ -502,6 +574,15 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 4G.
+        /// </summary>
+        public static string Lbl4G {
+            get {
+                return ResourceManager.GetString("Lbl4G", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 4Q.
         /// </summary>
         public static string Lbl4Q {
@@ -525,6 +606,15 @@ namespace Fanex.Result.Core.Base.Resources {
         public static string Lbl4th {
             get {
                 return ResourceManager.GetString("Lbl4th", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 5G.
+        /// </summary>
+        public static string Lbl5G {
+            get {
+                return ResourceManager.GetString("Lbl5G", resourceCulture);
             }
         }
         

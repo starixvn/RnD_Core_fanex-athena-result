@@ -39,6 +39,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataDomain\BadmintonResourceID.cs" />
     <Compile Include="DataDomain\BasketBalResourceID.cs" />
     <Compile Include="DataDomain\BetTypeID.cs" />
     <Compile Include="DataDomain\ESportResourceID.cs" />
@@ -81,6 +82,8 @@
     <Compile Include="Utilities\ISportsbookHelperWraper.cs" />
     <Compile Include="Utilities\SportsbookHelperWraper.cs" />
     <Compile Include="ViewModels\BadmintonViewModel.cs" />
+    <Compile Include="ViewModels\Badminton\BadmintonResultDetail.cs" />
+    <Compile Include="ViewModels\Badminton\BadmintonlGameDetailItem.cs" />
     <Compile Include="ViewModels\BaseBallViewModel.cs" />
     <Compile Include="ViewModels\BaseDetail\GameDetailItem.cs" />
     <Compile Include="ViewModels\BaseDetail\IResultDetail.cs" />

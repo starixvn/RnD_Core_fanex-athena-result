@@ -1,10 +1,12 @@
-﻿@using Fanex.Result.Core.Base.ViewModels;
+﻿@using Fanex.Result.Core.Sportsbook.ViewModels.Badminton;
+@using Fanex.Result.Core.Base.ViewModels;
 @using Fanex.Result.Core.Sportsbook.ViewModels;
 @using Fanex.Result.Core.Base.Resources;
 @{
     var viewModel = (RazorBinderModel)Model;
     var colspan = viewModel.VisibleMatchCodeIDColumn ? 11 : 10;
     var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
+    var gameName = string.Empty;
 }
 
 @helper RenderHeader(RazorBinderModel viewModel, int colspan)
@@ -26,13 +28,13 @@
             }
             <th class="cl-ko-time">@LangResource.KickOffTime</th>
             <th class="cl-match">@Raw(LangResource.Match)</th>
-            <th class="cl-s">@LangResource.Lbl1S</th>
-            <th class="cl-s">@LangResource.Lbl2S</th>
-            <th class="cl-s">@LangResource.Lbl3S</th>
-            <th class="cl-s">@LangResource.Lbl4S</th>
-            <th class="cl-s">@LangResource.Lbl5S</th>
+            <th class="cl-s">@LangResource.Lbl1G</th>
+            <th class="cl-s">@LangResource.Lbl2G</th>
+            <th class="cl-s">@LangResource.Lbl3G</th>
+            <th class="cl-s">@LangResource.Lbl4G</th>
+            <th class="cl-s">@LangResource.Lbl5G</th>
             <th class="cl-totalgames">@LangResource.TotalPoints</th>
-            <th class="cl-totalset">@LangResource.TotalSet</th>
+            <th class="cl-totalset">@LangResource.TotalGames</th>
             <th class="cl-status">@LangResource.Status</th>
         </tr>
     </thead>
@@ -89,8 +91,18 @@
                             <td class="cl-s">@item.GetHomeAwaySet(s, true)</td>
                         }
                         <td class="cl-totalgames">@item.TotalPointHome</td>
-                        <td class="cl-totalset">@item.TotalSetHome</td>
-                        <td rowspan="2" class="cl-status @item.EventStatusBackground">@item.EventStatus</td>
+                        <td class="cl-totalset">@item.TotalGameHome</td>
+                        <td rowspan="2" class="cl-status @item.EventStatusBackground">
+                            @item.EventStatus
+                            @if (item.VisibleDetailedLink && !viewModel.IsPopUp)
+                            {
+                                <div>
+                                    <span class="detail-link" data-match-id="@item.MatchId" data-league-id="@item.LeagueId">
+                                        @LangResource.Details
+                                    </span>
+                                </div>
+                            }
+                        </td>
                     </tr>
                     <tr class="data @item.Color(index, "even", "odd")">
                         @if (viewModel.VisibleMatchCodeIDColumn)
@@ -103,7 +115,7 @@
                             <td class="cl-s">@item.GetHomeAwaySet(s, false)</td>
                         }
                         <td class="cl-totalgames">@item.TotalPointAway</td>
-                        <td class="cl-totalset">@item.TotalSetAWay</td>
+                        <td class="cl-totalset">@item.TotalGameAway</td>
                     </tr>
                 }
             }
@@ -122,4 +134,38 @@
 @if (viewModel.VisibleFreeHeader)
 {
     @Raw("</div>")
+}
+
+@if (viewModel.VisibleDetailResult)
+{
+    var mainItem = viewModel.Data[0].Data[0] as BadmintonViewModel;
+    <br />
+    <table class="fn-rs badminton popup">
+        <thead>
+            <tr class="header">
+                <th class="cl-match">@LangResource.BetType</th>
+                <th class="cl-result home">@LangResource.Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (BadmintonlGameDetailItem item in mainItem.ResultDetailItems)
+            {
+                if (!gameName.Equals(item.GameName))
+                {
+                    gameName = item.GameName;
+                    <tr class="data cl-group-name">
+                        <td></td>
+                        <td colspan="2">@gameName</td>
+                    </tr>
+                }
+                <tr>
+                    <td class="cl-match">@item.ResourceName</td>
+                    <td class="cl-result @(item.IsHome ? "home" : item.IsAway ? "away": string.Empty)">
+                        @item.HomeValue
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
 }

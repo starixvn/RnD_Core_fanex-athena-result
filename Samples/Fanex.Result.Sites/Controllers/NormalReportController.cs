@@ -107,7 +107,7 @@
 
             if (getDataFromExcel)
             {
-                detailedData = new SportsbookResultData().GetResultFromExcel((SportType)sportId).First();
+                detailedData = new SportsbookResultData().GetResultFromExcel((SportType)sportId).FirstOrDefault(i => i.MatchId == matchId);
             }
 
             if (detailedData != null && detailedData.MatchId > 0)

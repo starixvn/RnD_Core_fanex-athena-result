@@ -324,4 +324,34 @@
   <data name="IsNeutral" xml:space="preserve">
     <value>(แข่งสนามกลาง)</value>
   </data>
+  <data name="Game01" xml:space="preserve">
+    <value>เกม 1</value>
+  </data>
+  <data name="Game02" xml:space="preserve">
+    <value>เกม 2</value>
+  </data>
+  <data name="Game03" xml:space="preserve">
+    <value>เกม 3</value>
+  </data>
+  <data name="Game04" xml:space="preserve">
+    <value>เกม 4</value>
+  </data>
+  <data name="Game05" xml:space="preserve">
+    <value>เกม 5</value>
+  </data>
+  <data name="Lbl1G" xml:space="preserve">
+    <value>เกม 1</value>
+  </data>
+  <data name="Lbl2G" xml:space="preserve">
+    <value>เกม 2</value>
+  </data>
+  <data name="Lbl3G" xml:space="preserve">
+    <value>เกม 3</value>
+  </data>
+  <data name="Lbl4G" xml:space="preserve">
+    <value>เกม 4</value>
+  </data>
+  <data name="Lbl5G" xml:space="preserve">
+    <value>เกม 5</value>
+  </data>
 </root>

@@ -366,4 +366,34 @@
   <data name="IsNeutral" xml:space="preserve">
     <value>(中)</value>
   </data>
+  <data name="Game01" xml:space="preserve">
+    <value> 第一局</value>
+  </data>
+  <data name="Game02" xml:space="preserve">
+    <value>第二局</value>
+  </data>
+  <data name="Game03" xml:space="preserve">
+    <value>第三局</value>
+  </data>
+  <data name="Game04" xml:space="preserve">
+    <value>第四局</value>
+  </data>
+  <data name="Game05" xml:space="preserve">
+    <value>第五局</value>
+  </data>
+  <data name="Lbl1G" xml:space="preserve">
+    <value> 第一局</value>
+  </data>
+  <data name="Lbl2G" xml:space="preserve">
+    <value>第二局</value>
+  </data>
+  <data name="Lbl3G" xml:space="preserve">
+    <value> 第三局</value>
+  </data>
+  <data name="Lbl4G" xml:space="preserve">
+    <value>第四局</value>
+  </data>
+  <data name="Lbl5G" xml:space="preserve">
+    <value>第五局</value>
+  </data>
 </root>

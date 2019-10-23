@@ -138,7 +138,7 @@
                     data.ToList().ForEach(x => x.BetID = metalModel.BetId.ToString());
                     data.ToList().ForEach(x => x.Handicap2 = metalModel.Handicap2);
 
-                    if (metalModel.GetDataFromExcel)
+                    if (metalModel.GetDataFromExcel && metalModel.SportType != (int)SportType.Badminton)
                     {
                         data.ToList()
                             .ForEach(x => x.GameDetails

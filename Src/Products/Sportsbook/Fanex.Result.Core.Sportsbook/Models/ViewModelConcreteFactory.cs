@@ -42,7 +42,7 @@
                 throw new ObjectNullException(dtoName);
             }
 
-            if (SportsUseBasketBallViewModel(setting.SportType))
+            if (SportsUseBasketBallViewModel(setting.SportType) || setting.SportType == SportType.Badminton)
             {
                 return (IResultViewModel)Activator.CreateInstance(viewModel, resultData, setting, null);
             }

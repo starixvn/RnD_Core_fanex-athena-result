@@ -27,7 +27,7 @@
         public BadmintonViewModel(Sportsbook sportbook, ResultSetting setting, IResultDetail<BadmintonlGameDetailItem> resultDetail, IRefDataHelper refDataHelper)
            : base(sportbook, setting, refDataHelper)
         {
-            ResultItems = (resultDetail ?? new BadmintonResultDetail(sportbook, setting, null, null))
+            ResultItems = (resultDetail ?? new BadmintonResultDetail(sportbook, setting, refDataHelper, null))
                 .GetDetailItems();
 
             ResultDetailItems = ResultItems
@@ -55,7 +55,7 @@
 
         public override string GetHomeAwaySet(int index, bool isHome)
         {
-            if (index > 5)
+            if (index > 4)
             {
                 return ConstantValue.Hyphen;
             }
@@ -96,6 +96,12 @@
 
         private string CreateTotalPointValue(bool isHome)
         {
+            var totalGames = GetTotalGames(isHome);
+            if (totalGames.Equals(ConstantValue.Hyphen) || totalGames.Equals(ConstantValue.Refund))
+            {
+                return totalGames;
+            }
+
             if (HomeSet == null || AwaySet == null)
             {
                 GetHomeAwaySet(0, true);

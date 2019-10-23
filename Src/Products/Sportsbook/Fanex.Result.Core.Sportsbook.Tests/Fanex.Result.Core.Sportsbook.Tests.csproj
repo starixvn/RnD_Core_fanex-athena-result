@@ -108,6 +108,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utilities\SportsbookHelperTests.cs" />
     <Compile Include="ViewModels\BadmintonViewModelTests.cs" />
+    <Compile Include="ViewModels\Badminton\BadmintonlGameDetailItemTests.cs" />
     <Compile Include="ViewModels\BeachSoccerViewModelTests.cs" />
     <Compile Include="ViewModels\ESportDetail\MapTests.cs" />
     <Compile Include="ViewModels\ESportViewModelTests.cs" />

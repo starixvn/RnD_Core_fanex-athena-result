@@ -5,6 +5,7 @@
     using Base;
     using BaseDetail;
     using DTO;
+    using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Sportsbook.DataDomain;
@@ -49,6 +50,17 @@
             }
         }
 
+        protected override BadmintonlGameDetailItem MapGameValueByStatusId(BadmintonlGameDetailItem item, GameDetail detailItem)
+        {
+            var newItem = base.MapGameValueByStatusId(item, detailItem);
+            if(detailItem.SettlementStatusID == EventStatusID.RunningSettlementStatusID)
+            {
+                newItem.HomeValue = ConstantValue.Hyphen;
+                newItem.AwayValue = ConstantValue.Hyphen;
+            }
+
+            return newItem;
+        }
         protected void MapGameValueForMoreResult(BadmintonlGameDetailItem item, GameDetail detailItem)
         {
             var isHomeTeam = detailItem?.HomeValue?.ToLowerInvariant() == "h";

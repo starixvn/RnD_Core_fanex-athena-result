@@ -25,7 +25,6 @@
             ResultCoreManager.RegisterRefDataHelper(Substitute.For<IRefDataHelper>());
         }
 
-        [TestCase(SportType.Badminton)]
         [TestCase(SportType.VirtualSports)]
         [TestCase(SportType.BaseBall)]
         public void HtmlGameDetailParser_SportTypeIsNotSupportGameDetail_ThrowObjectUnSupportedException(SportType sportType)

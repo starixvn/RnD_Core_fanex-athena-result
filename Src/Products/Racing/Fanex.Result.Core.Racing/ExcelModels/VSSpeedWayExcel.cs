@@ -62,7 +62,7 @@
 
         private void SetMatch(ISheet sheet, VSSpeedWayViewModel exportRow, ref int currentLeagueId, ref int currentRow, ref int endRowSpan)
         {
-            var cellIndex = 0;
+            const int cellIndex = 0;
 
             var leagueId = exportRow.LeagueId;
             var currentRace = DateTime.MinValue;

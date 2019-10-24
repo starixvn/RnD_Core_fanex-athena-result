@@ -43,25 +43,26 @@
         /// <returns>The string value.</returns>
         public override string GetHomeAwaySet(int index, bool isHome)
         {
-            if (index > 9)
+            const int maxIndex = 9;
+            if (index > maxIndex)
             {
                 return ConstantValue.Hyphen;
             }
 
             if (HomeSet == null || AwaySet == null)
             {
-                HomeSet = new string[10];
-                AwaySet = new string[10];
+                HomeSet = new string[maxIndex + 1];
+                AwaySet = new string[maxIndex + 1];
 
-                for (int j = 0; j < 9; j++)
+                for (int j = 0; j < maxIndex; j++)
                 {
                     HomeSet[j] = ConstantValue.Hyphen;
                     AwaySet[j] = ConstantValue.Hyphen;
                 }
 
-                HomeSet[9] = AwaySet[9] = "-1";
+                HomeSet[maxIndex] = AwaySet[maxIndex] = "-1";
 
-                GenerateHomeAwaySetValueFromBetStatus(10);
+                GenerateHomeAwaySetValueFromBetStatus(maxIndex + 1);
             }
 
             return isHome ? HomeSet[index] : AwaySet[index];

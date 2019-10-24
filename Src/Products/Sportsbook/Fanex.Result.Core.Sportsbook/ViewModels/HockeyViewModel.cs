@@ -39,7 +39,8 @@
         /// <returns>The string value.</returns>
         public override string GetHomeAwaySet(int index, bool isHome)
         {
-            if (index > 3)
+            const int maxIndex = 3;
+            if (index > maxIndex)
             {
                 return ConstantValue.Hyphen;
             }

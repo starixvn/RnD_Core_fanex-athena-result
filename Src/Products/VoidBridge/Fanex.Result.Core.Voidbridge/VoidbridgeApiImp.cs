@@ -185,7 +185,7 @@
 
         private bool ValidateResponse(Response responseObject, string request)
         {
-            var successStatus = "0";
+            const string successStatus = "0";
             DateTime requestDateTime;
             DateTime responseDateTime;
 

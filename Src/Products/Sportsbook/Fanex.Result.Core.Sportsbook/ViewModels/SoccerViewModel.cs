@@ -17,6 +17,7 @@
     using DataDomain;
     using DTO;
     using Fanex.Result.Core.Base.Utilities;
+    using Fanex.Result.Core.Sportsbook.Constants;
     using Models;
     using RazorEngine;
     using RazorEngine.Templating;
@@ -124,7 +125,7 @@
             get
             {
                 var result = new StringBuilder();
-                var templateName = TemplateNameSpace + "BetBuilder";
+                const string templateName = TemplateNameSpace + "BetBuilder";
                 var templateContent = Template.Instance.GetRazorTemplate(templateName);
 
                 if (!string.IsNullOrEmpty(templateContent))
@@ -209,10 +210,10 @@
             {
                 switch (SPORTBOOK.Bettype)
                 {
-                    case 3:
+                    case BetTypeConstants.OverUnder:
                         return !SPORTBOOK.FinalHomeScore.HasValue;
 
-                    case 8:
+                    case BetTypeConstants.OverUnder1H:
                         return !SPORTBOOK.HtHomeScore.HasValue;
 
                     default:

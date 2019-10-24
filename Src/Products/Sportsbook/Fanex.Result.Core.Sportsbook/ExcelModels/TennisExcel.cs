@@ -7,6 +7,7 @@
     using Base.Resources;
     using Base.Utilities;
     using Base.ViewModels;
+    using Fanex.Result.Core.Sportsbook.Constants;
     using NPOI.SS.UserModel;
     using ViewModels;
 
@@ -57,11 +58,11 @@
                 exportRow.MatchCode,
                 Helper.ToRtfString(exportRow.KickOffTime),
                 Helper.ToRtfString(exportRow.HomeTeam),
-                exportRow.GetHomeAwaySet(0, true),
-                exportRow.GetHomeAwaySet(1, true),
-                exportRow.GetHomeAwaySet(2, true),
-                exportRow.GetHomeAwaySet(3, true),
-                exportRow.GetHomeAwaySet(4, true),
+                exportRow.GetHomeAwaySet(TennisConstants.Set1 - 1, true),
+                exportRow.GetHomeAwaySet(TennisConstants.Set2 - 1, true),
+                exportRow.GetHomeAwaySet(TennisConstants.Set3 - 1, true),
+                exportRow.GetHomeAwaySet(TennisConstants.Set4 - 1, true),
+                exportRow.GetHomeAwaySet(TennisConstants.Set5 - 1, true),
                 exportRow.TotalGameHome,
                 exportRow.TotalSetHome,
                 exportRow.EventStatus);
@@ -73,11 +74,11 @@
                 exportRow.MatchId,
                 Helper.ToRtfString(exportRow.KickOffTime),
                 Helper.ToRtfString(exportRow.AwayTeam),
-                exportRow.GetHomeAwaySet(0, false),
-                exportRow.GetHomeAwaySet(1, false),
-                exportRow.GetHomeAwaySet(2, false),
-                exportRow.GetHomeAwaySet(3, false),
-                exportRow.GetHomeAwaySet(4, false),
+                exportRow.GetHomeAwaySet(TennisConstants.Set1 - 1, false),
+                exportRow.GetHomeAwaySet(TennisConstants.Set2 - 1, false),
+                exportRow.GetHomeAwaySet(TennisConstants.Set3 - 1, false),
+                exportRow.GetHomeAwaySet(TennisConstants.Set4 - 1, false),
+                exportRow.GetHomeAwaySet(TennisConstants.Set5 - 1, false),
                 exportRow.TotalGameAway,
                 exportRow.TotalSetAWay,
                 exportRow.EventStatus);

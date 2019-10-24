@@ -12,6 +12,7 @@
     using Base.ViewModels;
     using DataDomain;
     using DTO;
+    using Fanex.Result.Core.Sportsbook.Constants;
     using TennisDetail;
     using Utilities;
 
@@ -120,19 +121,19 @@
 
             switch (set)
             {
-                case 1:
+                case TennisConstants.Set1:
                     return betID >= TennisBetID.MinSet1GameY && betID <= TennisBetID.MaxSet1GameY;
 
-                case 2:
+                case TennisConstants.Set2:
                     return betID >= TennisBetID.MinSet2GameY && betID <= TennisBetID.MaxSet2GameY;
 
-                case 3:
+                case TennisConstants.Set3:
                     return betID >= TennisBetID.MinSet3GameY && betID <= TennisBetID.MaxSet3GameY;
 
-                case 4:
+                case TennisConstants.Set4:
                     return betID >= TennisBetID.MinSet4GameY && betID <= TennisBetID.MaxSet4GameY;
 
-                case 5:
+                case TennisConstants.Set5:
                     return betID >= TennisBetID.MinSet5GameY;
 
                 default:

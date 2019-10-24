@@ -69,7 +69,9 @@
 
         public override string GetHomeAwaySet(int index, bool isHome)
         {
-            if (index > 4)
+            const int maxIndex = 4;
+
+            if (index > maxIndex)
             {
                 return ConstantValue.Hyphen;
             }

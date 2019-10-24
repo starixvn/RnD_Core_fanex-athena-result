@@ -80,7 +80,9 @@
         private static string GetGameId(string gameToken)
         {
             var gameTokens = gameToken.Split(new[] { '=' }, StringSplitOptions.RemoveEmptyEntries);
+#pragma warning disable S109 // Magic numbers should not be used
             return gameTokens.Length >= 2 ? gameTokens[1] : string.Empty;
+#pragma warning restore S109 // Magic numbers should not be used
         }
 
         private static string GetDetailedGameResult(string gameDetailedTokens)

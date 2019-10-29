@@ -2,6 +2,7 @@
 {
     using System;
     using System.Web.Mvc;
+    using Fanex.Result.Core.Casino;
     using Fanex.Result.Core.GlobalGaming;
     using Fanex.Result.Core.GlobalGaming.DTO;
     using Fanex.Result.Core.CardClub;
@@ -76,6 +77,20 @@
             catch (Exception e)
             {
                 return e.ToString();
+            }
+        }
+
+        [HttpGet]
+        public string SpadegamingResult(string custId, string gamePlayId, string language)
+        {
+            try
+            {
+                var sgResult = new CasinoResult("SpadegamingResultConfigs");
+                return sgResult.GetCasinoResult(custId, gamePlayId, language);
+            }
+            catch (Exception e)
+            {
+                return e.Message;
             }
         }
     }

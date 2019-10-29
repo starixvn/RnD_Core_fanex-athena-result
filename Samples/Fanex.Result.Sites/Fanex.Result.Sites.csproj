@@ -606,6 +606,10 @@
       <Project>{d9303680-11b8-41c1-9eb2-2ae37d02ffb1}</Project>
       <Name>Fanex.Result.Core.Allbet</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Src\Products\Casino\Fanex.Result.Core.Casino\Fanex.Result.Core.Casino.csproj">
+      <Project>{d8429add-faa0-4ca7-80a4-1dd99347df76}</Project>
+      <Name>Fanex.Result.Core.Casino</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Src\Products\Cockfighting\Fanex.Result.Core.CockFighting\Fanex.Result.Core.CockFighting.csproj">
       <Project>{29f23cc1-8d52-4e0b-84c9-6f463bc0a80c}</Project>
       <Name>Fanex.Result.Core.CockFighting</Name>

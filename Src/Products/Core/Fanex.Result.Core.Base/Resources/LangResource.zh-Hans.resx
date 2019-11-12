@@ -148,13 +148,13 @@
     <value>大热门</value>
   </data>
   <data name="TotalPoints" xml:space="preserve">
-    <value>总积分</value>
+    <value>总得分</value>
   </data>
   <data name="TotalSet" xml:space="preserve">
     <value>总盘数</value>
   </data>
   <data name="TotalGames" xml:space="preserve">
-    <value>游戏总计</value>
+    <value>总局数</value>
   </data>
   <data name="Lbl1stBall" xml:space="preserve">
     <value>第一球</value>

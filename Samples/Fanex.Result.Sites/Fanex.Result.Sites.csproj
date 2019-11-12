@@ -239,7 +239,6 @@
     <Compile Include="Models\GlobalGaming\GlobalGamingResponse.cs" />
     <Compile Include="Models\GlobalGaming\GlobalGamingRequest.cs" />
     <Compile Include="Models\MetaModel\ResultPopupMetalModel.cs" />
-    <Compile Include="Models\ResultData\Happy5ResultData.cs" />
     <Compile Include="Models\ResultData\AllbetResultData.cs" />
     <Compile Include="Models\ResultData\Constant.cs" />
     <Compile Include="Models\ResultData\AGCasinoResultData.cs" />
@@ -251,7 +250,6 @@
     <Compile Include="Models\ResultData\RacingResultData.cs" />
     <Compile Include="Models\ResultServices\BaseResultService.cs" />
     <Compile Include="Models\ResultServices\CasinoResultService.cs" />
-    <Compile Include="Models\ResultServices\Happy5ResultService.cs" />
     <Compile Include="Models\ResultServices\MetricGamingResultService.cs" />
     <Compile Include="Models\ResultServices\IResultService.cs" />
     <Compile Include="Models\ResultServices\GoldDeluxeResultService.cs" />

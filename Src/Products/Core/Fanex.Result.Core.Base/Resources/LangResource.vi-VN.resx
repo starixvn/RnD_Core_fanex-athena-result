@@ -151,7 +151,7 @@
     <value>Trạng thái</value>
   </data>
   <data name="TotalGames" xml:space="preserve">
-    <value>Tổng điểm</value>
+    <value>Tổng số Game đấu</value>
   </data>
   <data name="NoInfo" xml:space="preserve">
     <value>Thông tin chưa được cập nhật</value>

@@ -122,10 +122,6 @@
                     return ResultEngine.HtmlParser(
                         new NumberGameResultData().GetPopupResult(metalModel.MatchId).ToList(), setting);
 
-                case SportType.Happy5:
-                    return ResultEngine.HtmlParser(
-                        new Happy5ResultData().GetPopupResult(metalModel.MatchId, metalModel.GetDataFromExcel).ToList(), setting);
-
                 default:
                     if (metalModel.Bettype == MetricGaming801)
                     {

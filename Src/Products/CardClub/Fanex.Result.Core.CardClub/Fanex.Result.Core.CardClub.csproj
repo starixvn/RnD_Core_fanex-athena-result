@@ -58,8 +58,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ICardClubResult.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="ICardClubResult.cs" />
     <Compile Include="Models\Auth.cs" />
     <Compile Include="Models\Call.cs" />
     <Compile Include="Models\Request.cs" />

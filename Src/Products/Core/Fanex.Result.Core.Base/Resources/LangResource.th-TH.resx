@@ -211,7 +211,7 @@
     <value>สถานะ</value>
   </data>
   <data name="TotalGames" xml:space="preserve">
-    <value>จำนวนรวมของเกมส์</value>
+    <value>เกมทั้งหมด</value>
   </data>
   <data name="NoInfo" xml:space="preserve">
     <value>ไม่มีข้อมูล</value>

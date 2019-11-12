@@ -217,7 +217,7 @@
     <value>狀態</value>
   </data>
   <data name="TotalGames" xml:space="preserve">
-    <value>遊戲總計</value>
+    <value>總局數</value>
   </data>
   <data name="NoInfo" xml:space="preserve">
     <value>没资料显示</value>
@@ -241,7 +241,7 @@
     <value>延期</value>
   </data>
   <data name="TotalPoints" xml:space="preserve">
-    <value>總積分</value>
+    <value>總得分</value>
   </data>
   <data name="TotalSet" xml:space="preserve">
     <value>總盤數</value>

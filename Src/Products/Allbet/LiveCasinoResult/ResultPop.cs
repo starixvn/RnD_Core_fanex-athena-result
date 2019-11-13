@@ -142,7 +142,7 @@ namespace LiveCasinoResult
             var results = GetSplitValue('=', GameDetail[6]);
             var winResult = GetSplitValue('=', GameDetail[7]);
 
-            var resultCard = result.Split(':')[0].Trim();
+            var resultCard = result.Split(':')[0].Replace("0", "").Trim();
             var resultTitle = result.Split(':')[1].Split(';')[0].Replace("B", Resource.Resource.Banker).Replace("P", Resource.Resource.Player);
             var resultCards = result.Split(':')[1].Replace("B;", "").Replace("P;", "").Replace(";", ",").Replace("0", "");
             var resultName = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, GetSplitValue(';', results.Split(':')[0]).Trim(), slang, "");

@@ -564,4 +564,7 @@
   <data name="NoCorner" xml:space="preserve">
     <value>無角球</value>
   </data>
+  <data name="IsNeutral" xml:space="preserve">
+    <value>(中)</value>
+  </data>
 </root>

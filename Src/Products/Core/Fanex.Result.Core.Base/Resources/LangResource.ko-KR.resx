@@ -170,7 +170,7 @@
     <value>내부의</value>
   </data>
   <data name="IsNeutral" xml:space="preserve">
-    <value>(N)</value>
+    <value>(중립)</value>
   </data>
   <data name="KickOffTime" xml:space="preserve">
     <value>경기 시작 시간</value>

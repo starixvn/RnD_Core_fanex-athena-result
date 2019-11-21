@@ -321,4 +321,7 @@
   <data name="NoCorner" xml:space="preserve">
     <value>ไม่มีลูกเตะมุม</value>
   </data>
+  <data name="IsNeutral" xml:space="preserve">
+    <value>(แข่งสนามกลาง)</value>
+  </data>
 </root>

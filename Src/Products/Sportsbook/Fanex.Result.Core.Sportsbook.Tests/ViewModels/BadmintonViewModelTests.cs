@@ -635,5 +635,146 @@
             Assert.AreEqual("7130303", actual[3].ResourceID);
             Assert.AreEqual("7130407", actual[4].ResourceID);
         }
+
+
+        [Test]
+        public void GetHomeAwaySet_FromIndexIsLessThan5AndBetStatusDoesNotHaveComma_ReturnsHyphen()
+        {
+            // Arrange
+            var index = 3;
+            var betStatus = "; 343 - 343";
+            var sportsbookDto = new Sportsbook { BetStatus = betStatus };
+            var viewModel = new BadmintonViewModel(sportsbookDto, new ResultSetting());
+
+            // Act
+            var homeAwaySet = viewModel.GetHomeAwaySet(index, false);
+
+            // Assert
+            Assert.AreEqual("-", homeAwaySet);
+        }
+
+        [Test]
+        public void GetHomeAwaySet_FromIndexIsLessThan5AndThanBetStatusSetsIsEqualOrLessThanIndex_ReturnsHyphen()
+        {
+            // Arrange
+            var index = 3;
+            var betStatus = ";1-2,3-1,2-3";
+            var sportsbookDto = new Sportsbook { BetStatus = betStatus };
+            var viewModel = new BadmintonViewModel(sportsbookDto, new ResultSetting());
+
+            // Act
+            var homeAwaySet = viewModel.GetHomeAwaySet(index, false);
+
+            // Assert
+            Assert.AreEqual("-", homeAwaySet);
+        }
+
+        [TestCase(0, ";1-2,3-1,2-3", true, "1")]
+        [TestCase(2, "1-2,3-1,2-3,1-2", false, "3")]
+        [TestCase(2, "1-2,3-1,2-3,", false, "3")]
+        [TestCase(2, "1-2,3-1,2-3,0", false, "3")]
+        [TestCase(2, "1-2,3-1,2-3,-", false, "3")]
+        public void GetHomeAwaySet_FromIndexIsLessThan5AndBetStatusSetsIsGreaterThanIndex_ReturnsExpectedSet(
+            int index,
+            string betStatus,
+            bool isHome,
+            string expectedSet)
+        {
+            // Arrange
+            var sportsbookDto = new Sportsbook { BetStatus = betStatus };
+            var viewModel = new BadmintonViewModel(sportsbookDto, new ResultSetting());
+
+            // Act
+            var homeAwaySet = viewModel.GetHomeAwaySet(index, isHome);
+
+            // Assert
+            Assert.AreEqual(expectedSet, homeAwaySet);
+        }
+
+        [Test]
+        public void TotalPointHomeOldData_WhenTotalPointIsGreaterThanZero_ShowTotalPointHome()
+        {
+            // Arrange
+            var sportsbookDto = new Sportsbook { BetStatus = "1-2,3-1,2-3,1-2" };
+            var viewModel = new BadmintonViewModel(sportsbookDto, new ResultSetting());
+
+            // Act
+            var actualTotalPoint = viewModel.TotalPointHome;
+
+            // Assert
+            Assert.AreEqual("7", actualTotalPoint);
+        }
+
+        [Test]
+        public void TotalPointHomeOldData_WhenTotalPointIsLessThanZero_ShowHyphen()
+        {
+            // Arrange
+            var sportsbookDto = new Sportsbook { BetStatus = "0-0,0-0,0-0,0-0" };
+            var viewModel = new BadmintonViewModel(sportsbookDto, new ResultSetting());
+
+            // Act
+            var actualTotalPoint = viewModel.TotalPointHome;
+
+            // Assert
+            Assert.AreEqual("-", actualTotalPoint);
+        }
+
+        [Test]
+        public void TotalPointAwayOldData_WhenTotalPointIsLGreaterThanZero_ShowTotalAwayPoints()
+        {
+            // Arrange
+            var sportsbookDto = new Sportsbook { BetStatus = "1-2,3-1,2-3,1-2" };
+            var viewModel = new BadmintonViewModel(sportsbookDto, new ResultSetting());
+
+            // Act
+            var actualTotalPoint = viewModel.TotalPointAway;
+
+            // Assert
+            Assert.AreEqual("8", actualTotalPoint);
+        }
+
+        [Test]
+        public void TotalPointAwayOldData_WhenTotalPointIsLessThanZero_ShowHyphen()
+        {
+            // Arrange
+            var sportsbookDto = new Sportsbook { BetStatus = "0-0,0-0,0-0,0-0" };
+            var viewModel = new BadmintonViewModel(sportsbookDto, new ResultSetting());
+
+            // Act
+            var actualTotalPoint = viewModel.TotalPointAway;
+
+            // Assert
+            Assert.AreEqual("-", actualTotalPoint);
+        }
+
+        [TestCase(1, "1")]
+        [TestCase(null, "-")]
+        public void FinalHomeScore_ScoreHasValue_ShowScore(int? scoreValue, string expectedScoreValue)
+        {
+            // Arrange
+            var sportsbookDto = new Sportsbook { FinalHomeScore = scoreValue };
+            var viewModel = new BadmintonViewModel(sportsbookDto, new ResultSetting());
+
+            // Act
+            var actualFinalHomeScore = viewModel.TotalGameHome;
+
+            // Assert
+            Assert.AreEqual(expectedScoreValue, actualFinalHomeScore);
+        }
+
+        [TestCase(1, "1")]
+        [TestCase(null, "-")]
+        public void FinalAwayScore_ScoreHasValue_ShowScore(int? scoreValue, string expectedScoreValue)
+        {
+            // Arrange
+            var sportsbookDto = new Sportsbook { FinalAwayScore = scoreValue };
+            var viewModel = new BadmintonViewModel(sportsbookDto, new ResultSetting());
+
+            // Act
+            var actualFinalAwayScore = viewModel.TotalGameAway;
+
+            // Assert
+            Assert.AreEqual(expectedScoreValue, actualFinalAwayScore);
+        }
     }
 }

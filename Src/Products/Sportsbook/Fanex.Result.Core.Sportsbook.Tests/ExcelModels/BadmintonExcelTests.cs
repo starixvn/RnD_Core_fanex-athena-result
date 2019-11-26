@@ -144,5 +144,58 @@
             Assert.AreEqual("1", actualAwayDataRow.Cells[9].StringCellValue);
             Assert.AreEqual("Completed", actualAwayDataRow.Cells[10].StringCellValue);
         }
+
+        [Test]
+        public void SetDataForMatch_OldData_SetRowValue()
+        {
+            // Arrange
+            _refDataHelper.GetTeamName(1, "en-US", string.Empty).Returns("Home Team Name");
+            _refDataHelper.GetTeamName(2, "en-US", string.Empty).Returns("Away Team Name");            
+            var badmintonViewModel = new BadmintonViewModel(new DTO.Sportsbook
+            {
+                MatchCode = "1231",
+                MatchId = 1111,
+                BetStatus = "21-23,21-16,21-16,0-0,0-0",
+                HomeId = 1,
+                AwayId = 2,
+                EventStatus = "Completed",
+                KickOffTime = DateTime.Parse("01/01/2017"),
+                FinalHomeScore = 11,
+                FinalAwayScore = 12
+            }, _resultSetting, null, _refDataHelper);
+
+            _resultData = new List<BadmintonViewModel> { badmintonViewModel };
+            var excelViewModel = new BadmintonExcel(TemplateFileUtils.GetExcelTemplatePath("Badminton.xls"), _resultSetting, _resultData.ToList());
+
+            // Act
+            excelViewModel.Export();
+
+            // Assert
+            var actualHomeDataRow = excelViewModel.Workbook.GetSheetAt(0).GetRow(3);
+            Assert.AreEqual("1231", actualHomeDataRow.Cells[0].StringCellValue);
+            Assert.AreEqual("01/01/2017\n12:00:00 AM", actualHomeDataRow.Cells[1].StringCellValue);
+            Assert.AreEqual("Home Team Name", actualHomeDataRow.Cells[2].StringCellValue);
+            Assert.AreEqual("21", actualHomeDataRow.Cells[3].StringCellValue);
+            Assert.AreEqual("21", actualHomeDataRow.Cells[4].StringCellValue);
+            Assert.AreEqual("21", actualHomeDataRow.Cells[5].StringCellValue);
+            Assert.AreEqual("0", actualHomeDataRow.Cells[6].StringCellValue);
+            Assert.AreEqual("0", actualHomeDataRow.Cells[7].StringCellValue);
+            Assert.AreEqual("63", actualHomeDataRow.Cells[8].StringCellValue);
+            Assert.AreEqual("11", actualHomeDataRow.Cells[9].StringCellValue);
+            Assert.AreEqual("Completed", actualHomeDataRow.Cells[10].StringCellValue);
+
+            var actualAwayDataRow = excelViewModel.Workbook.GetSheetAt(0).GetRow(4);
+            Assert.AreEqual("1111", actualAwayDataRow.Cells[0].StringCellValue);
+            Assert.AreEqual("01/01/2017\n12:00:00 AM", actualAwayDataRow.Cells[1].StringCellValue);
+            Assert.AreEqual("Away Team Name", actualAwayDataRow.Cells[2].StringCellValue);
+            Assert.AreEqual("23", actualAwayDataRow.Cells[3].StringCellValue);
+            Assert.AreEqual("16", actualAwayDataRow.Cells[4].StringCellValue);
+            Assert.AreEqual("16", actualAwayDataRow.Cells[5].StringCellValue);
+            Assert.AreEqual("0", actualAwayDataRow.Cells[6].StringCellValue);
+            Assert.AreEqual("0", actualAwayDataRow.Cells[7].StringCellValue);
+            Assert.AreEqual("55", actualAwayDataRow.Cells[8].StringCellValue);
+            Assert.AreEqual("12", actualAwayDataRow.Cells[9].StringCellValue);
+            Assert.AreEqual("Completed", actualAwayDataRow.Cells[10].StringCellValue);
+        }
     }
 }

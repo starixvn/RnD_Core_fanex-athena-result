@@ -76,7 +76,7 @@
 
         private void GenerateHomeAwaySetValue()
         {
-            if (ResultItems.Any())
+            if (IsNewData())
             {
                 for (var j = 0; j < BadmintonResourceID.GameResourcesId.Length; j++)
                 {
@@ -90,17 +90,53 @@
                     }
                 }
             }
+            else
+            {
+                GenerateHomeAwaySetValueWithOldData();
+            }
+        }
+
+        private void GenerateHomeAwaySetValueWithOldData()
+        {
+            if (HasResult)
+            {
+                const int maxIndex = 4;
+                var betStatusList = GetScoreInfoFromBetStatus.Split(',');
+                for (var j = 0; j < betStatusList.Length && j <= maxIndex; j++)
+                {
+                    var values = betStatusList[j].Trim().Split('-');
+                    if (values.Length > 1)
+                    {
+                        HomeSet[j] = string.IsNullOrEmpty(values[0].Trim()) ? "0" : values[0].Trim();
+                        AwaySet[j] = string.IsNullOrEmpty(values[1].Trim()) ? "0" : values[1].Trim();
+
+                        _totalPointAway += Convert.ToInt32(AwaySet[j]);
+                        _totalPointHome += Convert.ToInt32(HomeSet[j]);
+                    }
+                }
+            }
         }
 
         private string GetTotalGames(bool isHome)
-            => GetResultFromGameDetails(BadmintonResourceID.TotalGame, isHome);
+        {
+            if (IsNewData())
+            {
+                return GetResultFromGameDetails(BadmintonResourceID.TotalGame, isHome);
+            }
+
+            return isHome ? GetScore(SPORTBOOK.FinalHomeScore) : GetScore(SPORTBOOK.FinalAwayScore);
+        }
+
 
         private string CreateTotalPointValue(bool isHome)
         {
-            var totalGames = GetTotalGames(isHome);
-            if (totalGames.Equals(ConstantValue.Hyphen) || totalGames.Equals(ConstantValue.Refund))
+            if (IsNewData())
             {
-                return totalGames;
+                var totalGames = GetTotalGames(isHome);
+                if (totalGames.Equals(ConstantValue.Hyphen) || totalGames.Equals(ConstantValue.Refund))
+                {
+                    return totalGames;
+                }
             }
 
             if (HomeSet == null || AwaySet == null)
@@ -131,5 +167,7 @@
         }
 
         private bool HasGameDetailData() => ResultDetailItems.Any();
+
+        private bool IsNewData() => ResultItems.Any();
     }
 }

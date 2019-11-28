@@ -34,7 +34,7 @@
             _client = client ?? new JsonWebClient(_serializer);
             SectionName = sectionName;
             _configs = ConfigurationManager.GetSection(sectionName) as CasinoConfigs;
-    }
+        }
 
         public string GetCasinoResult(string custId, string gamePlayId, string language = "en-US", string siteId = null)
         {
@@ -45,7 +45,7 @@
 
             if ((DebugMode)_configs.DebugMode == DebugMode.DontSendRequest)
             {
-                return _serializer.Serialize(requestData);
+                throw new CasinoException("Request data:" + _serializer.Serialize(requestData));
             }
             else
             {

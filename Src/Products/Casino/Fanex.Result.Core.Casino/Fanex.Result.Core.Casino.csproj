@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CasinoConfigs.cs" />
+    <Compile Include="CasinoException.cs" />
     <Compile Include="CasinoResult.cs" />
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="ICasinoResult.cs" />

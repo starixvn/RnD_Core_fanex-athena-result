@@ -78,38 +78,15 @@
 
         public static IRow CopyRow(this ISheet sheet, ISheet sourceSheet, int sourceRowIndex, int destRowIndex, IList<int> cellIndexList, ICellStyle defaultStyle)
         {
-            if (sheet.LastRowNum < destRowIndex)
+            var newRow = sheet.CopyRow(sourceSheet, sourceRowIndex, destRowIndex, cellIndexList);
+            if (newRow != null)
             {
-                for (var i = sheet.LastRowNum + 1; i <= destRowIndex; i++)
+                for (int i = cellIndexList.Count; i < newRow.Cells.Count; i++)
                 {
-                    sheet.CreateRow(i);
+                    var cell = newRow.Cells[i];
+                    cell.CellStyle = defaultStyle;
+                    cell.SetCellValue(string.Empty);
                 }
-            }
-
-            var sourceRow = sourceSheet.GetRow(sourceRowIndex);
-
-            if (sourceRow == null)
-            {
-                return null;
-            }
-
-            var newRow = sheet.GetRow(destRowIndex) ?? sheet.CreateRow(destRowIndex);
-
-            var startIndex = 0;
-
-            foreach (var cellIndex in cellIndexList)
-            {
-                var oldCell = sourceRow.GetCell(cellIndex);
-                var newCell = newRow.CreateCell(startIndex);
-                sheet.CopyCell(oldCell, newCell);
-                startIndex++;
-            }
-
-            for (int i = cellIndexList.Count; i < newRow.Cells.Count; i++)
-            {
-                var cell = newRow.Cells[i];
-                cell.CellStyle = defaultStyle;
-                cell.SetCellValue(string.Empty);
             }
 
             return newRow;

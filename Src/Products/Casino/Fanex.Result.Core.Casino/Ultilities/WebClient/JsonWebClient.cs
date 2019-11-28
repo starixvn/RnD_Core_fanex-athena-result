@@ -13,7 +13,7 @@ namespace Fanex.Result.Core.Casino.Ultilities.WebClient
         public JsonWebClient(ISerializer serializer)
         {
             _client = new WebClient();
-            _client.Headers[HttpRequestHeader.ContentType] = "aCasinolication/json";
+            _client.Headers[HttpRequestHeader.ContentType] = "application/json";
             _serializer = serializer ?? new JsonSerializer();
         }
 

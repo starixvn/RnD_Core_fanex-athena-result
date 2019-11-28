@@ -42,7 +42,7 @@
                 throw new ObjectNullException(dtoName);
             }
 
-            if (SportsUseBasketBallViewModel(setting.SportType) || setting.SportType == SportType.Badminton)
+            if (SportsUseBasketBallViewModel(setting.SportType) || SportsUseBadmintonViewModel(setting.SportType))
             {
                 return (IResultViewModel)Activator.CreateInstance(viewModel, resultData, setting, null);
             }
@@ -92,5 +92,11 @@
                 sportType == SportType.NetBall ||
                 sportType == SportType.FootBall ||
                 sportType == SportType.Rugby;
+
+        private static bool SportsUseBadmintonViewModel(SportType sportType)
+            => sportType == SportType.Badminton ||
+                sportType == SportType.VolleyBall ||
+                sportType == SportType.Squash ||
+                sportType == SportType.SepakTakraw;
     }
 }

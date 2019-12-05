@@ -1,7 +1,6 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.Utilities
 {
     using System;
-    using System.Linq;
     using System.Text;
     using System.Text.RegularExpressions;
     using Base.Resources;
@@ -13,15 +12,7 @@
     {
         private const string ResourceIDSuffix = "RS";
         private static Regex setXGameYRegex = new Regex("^80[1-5]{1}\\d{2}$");
-
-        private static Regex[] soccerRangeResourceIDRegex = new[] {
-            new Regex(GameResourceID.NextGoalTime),
-            new Regex(GameResourceID.NextGoal3rd),
-            new Regex(GameResourceID.GoalScorer),
-            new Regex(GameResourceID.NextGoal1H),
-            new Regex(GameResourceID.ExtraTimeNextGoal),
-        };
-
+        
         private static Regex[] setXRGameYResourceID = new[] {
             new Regex("^01\\d{2}$"),
             new Regex("^02\\d{2}$"),
@@ -87,15 +78,15 @@
             var resourceNum = string.Empty;
 
             var realKeyName = new StringBuilder();
-            var isSpecialResourceId = soccerRangeResourceIDRegex.Any(i => i.IsMatch(keyName));
-            if (Helper.IsIntegerNumber(keyName) || isSpecialResourceId)
+            if (Helper.IsIntegerNumber(keyName))
             {
                 realKeyName.Append(ResourceIDSuffix);
-                if (isSpecialResourceId)
+                if (keyName.Length == 5)
                 {
                     realKeyName.Append(keyName.Substring(0, 3));
 
                     resourceNum = keyName.Substring(3, 2);
+                    resourceNum = resourceNum.StartsWith("0") ? resourceNum.Remove(0, 1) : resourceNum;
                 }
                 else
                 {

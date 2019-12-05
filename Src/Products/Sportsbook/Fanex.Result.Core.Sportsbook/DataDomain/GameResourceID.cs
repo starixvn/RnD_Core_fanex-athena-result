@@ -83,5 +83,15 @@
         public const string WhichCombinationFirstOneMinutes = "22601";
 
         public const string WhichCombinationFirstFiveMinutes = "22701";
+
+        public const string CornersRace = "^486\\d{2}$";
+
+        public const string FirstHaftCornerRace = "^487\\d{2}$";
+
+        public const string FTFirstCorner = "488";
+
+        public const string FirstHaftFirstCorner = "489";
+
+        public const string SecondHaftFirstCorner = "490";
     }
 }

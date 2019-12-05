@@ -254,5 +254,17 @@
   </data>
   <data name="Result" xml:space="preserve">
     <value>Kết quả</value>
+    </data>
+  <data name="RS488" xml:space="preserve">
+    <value>Phạt góc đầu tiên</value>
+  </data>
+  <data name="RS489" xml:space="preserve">
+    <value>Phạt góc đầu tiên Hiệp 1</value>
+  </data>
+  <data name="RS490" xml:space="preserve">
+    <value>Phạt góc đầu tiên Hiệp 2</value>
+  </data>
+  <data name="Neither" xml:space="preserve">
+    <value>Không bên nào</value>
   </data>
 </root>

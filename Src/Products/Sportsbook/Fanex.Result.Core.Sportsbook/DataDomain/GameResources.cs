@@ -12,7 +12,17 @@
             { "GoalTime", new List<string> { GameResourceID.FirstGoalTime10Min, GameResourceID.FirstGoalTime15Min, GameResourceID.NextGoalTime } },
             { "GoalScorer", new List<string> { GameResourceID.FirstGoalScorer, GameResourceID.GoalScorer } },
             { "Corner", new List<string> { GameResourceID.FirstHalfCorners, GameResourceID.FinalCorners } },
-            { "Corners", new List<string> { GameResourceID.TimeOfFirstCorner, GameResourceID.TimeOfSecondHalfFirstCorner } },
+            { "Corners", new List<string>
+                {
+                    GameResourceID.TimeOfFirstCorner,
+                    GameResourceID.TimeOfSecondHalfFirstCorner,
+                    GameResourceID.CornersRace,
+                    GameResourceID.FirstHaftCornerRace,
+                    GameResourceID.FTFirstCorner,
+                    GameResourceID.FirstHaftFirstCorner,
+                    GameResourceID.SecondHaftFirstCorner
+                }
+            },
             { "FirstLastCorners", new List<string> { GameResourceID.First1HCorner, GameResourceID.Last1HCorner, GameResourceID.FirstCorner, GameResourceID.LastCorner } },
             { "PlayerSentOff", new List<string> { GameResourceID.PlayserSentOff1H, GameResourceID.PlayerSentOff } },
             { "HomeAwayPlayerSentOff", new List<string>

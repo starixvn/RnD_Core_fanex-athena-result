@@ -58,7 +58,6 @@
                 VisibleMatchCodeIDColumn = false,
                 VisibleFreeHeader = true,
                 VisibleDetailedLink = true,
-                EnableCheckScoreCalculated = true,
                 IsPopupOpenFromBetList = true
             };
 
@@ -130,10 +129,7 @@
                     }
 
                     var data = new SportsbookResultData().GetPopupResult(sportType, licenseeId, userId, metalModel);
-                    data.ToList().ForEach(x => x.Bettype = metalModel.Bettype);
-                    data.ToList().ForEach(x => x.BetID = metalModel.BetId.ToString());
-                    data.ToList().ForEach(x => x.Handicap2 = metalModel.Handicap2);
-
+                   
                     if (metalModel.GetDataFromExcel && metalModel.SportType != (int)SportType.Badminton)
                     {
                         data.ToList()

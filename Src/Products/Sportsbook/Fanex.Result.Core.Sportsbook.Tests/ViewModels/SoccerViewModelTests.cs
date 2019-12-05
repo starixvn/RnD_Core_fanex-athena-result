@@ -75,12 +75,15 @@
             Assert.True(viewModel.IsShowLiveScore);
         }
 
-        [Test]
-        public void IsShowLiveScore_IsNotParlayPopupAndIsPopup_BetTypeIs3_FinalHomeScoreHasValue_ReturnFalse()
+        [TestCase(false, false, true)]
+        [TestCase(true, false, true)]
+        [TestCase(true, true, false)]
+        public void IsShowLiveScore_IsNotParlayPopupAndIsPopup_BetTypeIs3_ReturnExpected(bool isHTCal, bool cal, bool expected)
         {
             // Arrange
             _soccer.Bettype = 3;
-            _soccer.FinalHomeScore = 1;
+            _soccer.IsHTCal = isHTCal;
+            _soccer.Calculate = cal;
             _setting.IsParlayPopUp = false;
             _setting.IsPopUp = true;
 
@@ -88,15 +91,18 @@
             var viewModel = new SoccerViewModel(_soccer, _setting);
 
             // Assert
-            Assert.False(viewModel.IsShowLiveScore);
+            Assert.AreEqual(expected, viewModel.IsShowLiveScore);
         }
 
-        [Test]
-        public void IsShowLiveScore_IsNotParlayPopupAndIsPopup_BetTypeIs8_HalfTimeHomeScoreHasNoValue_ReturnTrue()
+        [TestCase(false, false, true)]
+        [TestCase(true, true, false)]
+        [TestCase(true, false, false)]
+        public void IsShowLiveScore_IsNotParlayPopupAndIsPopup_BetTypeIs8_ReturnExpected(bool isHTCal, bool cal, bool expected)
         {
             // Arrange
             _soccer.Bettype = 8;
-            _soccer.HtHomeScore = null;
+            _soccer.IsHTCal = isHTCal;
+            _soccer.Calculate = cal;
             _setting.IsParlayPopUp = false;
             _setting.IsPopUp = true;
 
@@ -104,23 +110,7 @@
             var viewModel = new SoccerViewModel(_soccer, _setting);
 
             // Assert
-            Assert.True(viewModel.IsShowLiveScore);
-        }
-
-        [Test]
-        public void IsShowLiveScore_IsNotParlayPopupAndIsPopup_BetTypeIs8_HalfTimeHomeScoreHasValue_ReturnFalse()
-        {
-            // Arrange
-            _soccer.Bettype = 8;
-            _soccer.HtHomeScore = 1;
-            _setting.IsParlayPopUp = false;
-            _setting.IsPopUp = true;
-
-            // Act
-            var viewModel = new SoccerViewModel(_soccer, _setting);
-
-            // Assert
-            Assert.False(viewModel.IsShowLiveScore);
+            Assert.AreEqual(expected, viewModel.IsShowLiveScore);
         }
 
         [Test]
@@ -495,18 +485,15 @@
             Assert.AreEqual("Refund", viewModel.HTHomeScore);
         }
 
-        [TestCase(false, "Completed", false, "1")]
-        [TestCase(true, "Abandoned 1H", false, "1")]
-        [TestCase(true, "Abandoned 2H", false, "1")]
-        [TestCase(true, "Refund FT", false, "1")]
-        [TestCase(true, "Completed", true, "1")]
-        [TestCase(true, "Completed", false, "-")]
-        public void HTHomeScore_EnableCheckCalculatedScore_And_EventStatusIsNotAbandonedAndRefundFT_ReturnHyphen(
-            bool enableCheckCalculatedScore, string eventStatus, bool isHTCal, string expectedResult)
+        [TestCase("Abandoned 1H", false, "1")]
+        [TestCase("Abandoned 2H", false, "1")]
+        [TestCase("Refund FT", false, "1")]
+        [TestCase("Completed", true, "1")]
+        [TestCase("Completed", false, "-")]
+        public void HTHomeScore_EventStatusIsNotAbandonedAndRefundFT_ReturnHyphen(string eventStatus, bool isHTCal, string expectedResult)
         {
             // Arrange
             _soccer.EventStatus = eventStatus;
-            _setting.EnableCheckScoreCalculated = enableCheckCalculatedScore;
             _soccer.IsHTCal = isHTCal;
             _soccer.HtHomeScore = 1;
 
@@ -546,18 +533,16 @@
             Assert.AreEqual("Refund", viewModel.HTAwayScore);
         }
 
-        [TestCase(false, "Completed", false, "1")]
-        [TestCase(true, "Abandoned 1H", false, "1")]
-        [TestCase(true, "Abandoned 2H", false, "1")]
-        [TestCase(true, "Refund FT", false, "1")]
-        [TestCase(true, "Completed", true, "1")]
-        [TestCase(true, "Completed", false, "-")]
-        public void HTAwayScore_EnableCheckCalculatedScore_And_EventStatusIsNotAbandonedAndRefundFT_ReturnHyphen(
-            bool enableCheckCalculatedScore, string eventStatus, bool isHTCal, string expectedResult)
+        [TestCase("Abandoned 1H", false, "1")]
+        [TestCase("Abandoned 2H", false, "1")]
+        [TestCase("Refund FT", false, "1")]
+        [TestCase("Completed", true, "1")]
+        [TestCase("Completed", false, "-")]
+        public void HTAwayScore_EventStatusIsNotAbandonedAndRefundFT_ReturnHyphen(
+            string eventStatus, bool isHTCal, string expectedResult)
         {
             // Arrange
             _soccer.EventStatus = eventStatus;
-            _setting.EnableCheckScoreCalculated = enableCheckCalculatedScore;
             _soccer.IsHTCal = isHTCal;
             _soccer.HtAwayScore = 1;
 
@@ -598,16 +583,14 @@
             Assert.AreEqual(expectedResult, viewModel.FinalHomeScore);
         }
 
-        [TestCase(false, "Completed", false, "1")]
-        [TestCase(true, "Abandoned 2H", false, "1")]
-        [TestCase(true, "Completed", true, "1")]
-        [TestCase(true, "Completed", false, "-")]
-        public void FinalHomeScore_EnableCheckCalculatedScore_And_EventStatusIsNotAbandonedAndRefundFT_ReturnHyphen(
-            bool enableCheckCalculatedScore, string eventStatus, bool isFinalCalculate, string expectedResult)
+        [TestCase("Abandoned 2H", false, "1")]
+        [TestCase("Completed", true, "1")]
+        [TestCase("Completed", false, "-")]
+        public void FinalHomeScore_EventStatusIsNotAbandonedAndRefundFT_ReturnHyphen(
+            string eventStatus, bool isFinalCalculate, string expectedResult)
         {
             // Arrange
             _soccer.EventStatus = eventStatus;
-            _setting.EnableCheckScoreCalculated = enableCheckCalculatedScore;
             _soccer.Calculate = isFinalCalculate;
             _soccer.FinalHomeScore = 1;
 
@@ -623,6 +606,8 @@
         public void FinalHomeScore_EventStatusIsNotRefund_WithScore_ReturnExpectedResult(int? score, string expectedResult)
         {
             // Arrange
+            _soccer.IsHTCal = true;
+            _soccer.Calculate = true;
             _soccer.EventStatus = "Completed";
             _soccer.FinalHomeScore = score;
 
@@ -648,16 +633,14 @@
             Assert.AreEqual(expectedResult, viewModel.FinalAwayScore);
         }
 
-        [TestCase(false, "Completed", false, "1")]
-        [TestCase(true, "Abandoned 2H", false, "1")]
-        [TestCase(true, "Completed", true, "1")]
-        [TestCase(true, "Completed", false, "-")]
-        public void FinalAwayScore_EnableCheckCalculatedScore_And_EventStatusIsNotAbandonedAndRefundFT_ReturnHyphen(
-            bool enableCheckCalculatedScore, string eventStatus, bool isFinalCalculate, string expectedResult)
+        [TestCase("Abandoned 2H", false, "1")]
+        [TestCase("Completed", true, "1")]
+        [TestCase("Completed", false, "-")]
+        public void FinalAwayScore_EventStatusIsNotAbandonedAndRefundFT_ReturnHyphen(
+            string eventStatus, bool isFinalCalculate, string expectedResult)
         {
             // Arrange
             _soccer.EventStatus = eventStatus;
-            _setting.EnableCheckScoreCalculated = enableCheckCalculatedScore;
             _soccer.Calculate = isFinalCalculate;
             _soccer.FinalAwayScore = 1;
 
@@ -667,21 +650,7 @@
             // Assert
             Assert.AreEqual(expectedResult, viewModel.FinalAwayScore);
         }
-
-        [TestCase(1, "1")]
-        [TestCase(null, "-")]
-        public void FinalAwayScore_EventStatusIsNotRefund_WithScore_ReturnExpectedResult(int? score, string expectedResult)
-        {
-            // Arrange
-            _soccer.EventStatus = "Completed";
-            _soccer.FinalAwayScore = score;
-
-            // Act
-            var viewModel = new SoccerViewModel(_soccer, _setting);
-
-            // Assert
-            Assert.AreEqual(expectedResult, viewModel.FinalAwayScore);
-        }
+               
 
         [TestCase(null, "-")]
         [TestCase(1, "1")]

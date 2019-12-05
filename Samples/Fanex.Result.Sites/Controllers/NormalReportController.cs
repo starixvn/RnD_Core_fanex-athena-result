@@ -50,7 +50,6 @@
                 VisibleDetailedLink = true,
                 VisibleFreeHeader = true,
                 HighlightWinnerTeam = true,
-                EnableCheckScoreCalculated = false
             };
             var htmlResult = string.Empty;
 
@@ -114,7 +113,6 @@
                         VisibleMatchCodeIDColumn = showMatchCode,
                         LanguageCode = languageCode,
                         HighlightWinnerTeam = true,
-                        EnableCheckScoreCalculated = true,
                         IsPopUp = true,
                         //IsPopupOpenFromBetList = true
                     });
@@ -145,8 +143,7 @@
                 ExcelTitle = "Result report",
                 ExcelTemplatePath = Server.MapPath(ExcelTemplatePath),
                 VisibleMatchCodeIDColumn = showMatchCode,
-                HighlightWinnerTeam = true,
-                EnableCheckScoreCalculated = false
+                HighlightWinnerTeam = true
             };
 
             MemoryStream excelResult = null;

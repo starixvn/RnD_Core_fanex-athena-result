@@ -354,4 +354,16 @@
   <data name="Lbl5G" xml:space="preserve">
     <value>เกม 5</value>
   </data>
+  <data name="RS488" xml:space="preserve">
+    <value>เตะมุมแรก</value>
+  </data>
+  <data name="RS489" xml:space="preserve">
+    <value>เตะมุมแรกในครึ่งแรก</value>
+  </data>
+  <data name="RS490" xml:space="preserve">
+    <value>เตะมุมแรกในครึ่งหลัง</value>
+  </data>
+  <data name="Neither" xml:space="preserve">
+    <value>ไม่เป็นทั้งสอง</value>
+  </data>
 </root>

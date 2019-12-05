@@ -597,4 +597,16 @@
   <data name="Lbl5G" xml:space="preserve">
     <value>第五局</value>
   </data>
+  <data name="RS488" xml:space="preserve">
+    <value>第一个角球</value>
+  </data>
+  <data name="RS489" xml:space="preserve">
+    <value>上半场第一个角球</value>
+  </data>
+  <data name="RS490" xml:space="preserve">
+    <value>下半场第一个角球</value>
+  </data>
+  <data name="Neither" xml:space="preserve">
+    <value>两者皆不</value>
+  </data>
 </root>

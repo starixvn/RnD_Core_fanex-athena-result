@@ -799,6 +799,15 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Neither.
+        /// </summary>
+        public static string Neither {
+            get {
+                return ResourceManager.GetString("Neither", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No.
         /// </summary>
         public static string No {
@@ -1308,6 +1317,51 @@ namespace Fanex.Result.Core.Base.Resources {
         public static string RS481 {
             get {
                 return ResourceManager.GetString("RS481", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Corner Race To {0}.
+        /// </summary>
+        public static string RS486 {
+            get {
+                return ResourceManager.GetString("RS486", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1H Corner Race To {0}.
+        /// </summary>
+        public static string RS487 {
+            get {
+                return ResourceManager.GetString("RS487", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to First Corner.
+        /// </summary>
+        public static string RS488 {
+            get {
+                return ResourceManager.GetString("RS488", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1H First Corner.
+        /// </summary>
+        public static string RS489 {
+            get {
+                return ResourceManager.GetString("RS489", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 2H First Corner.
+        /// </summary>
+        public static string RS490 {
+            get {
+                return ResourceManager.GetString("RS490", resourceCulture);
             }
         }
         

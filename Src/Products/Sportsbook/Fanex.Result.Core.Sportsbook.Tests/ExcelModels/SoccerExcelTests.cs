@@ -131,7 +131,9 @@
                 HtHomeScore = 9,
                 HtAwayScore = 10,
                 FinalHomeScore = 11,
-                FinalAwayScore = 12
+                FinalAwayScore = 12,
+                IsHTCal = true,
+                Calculate = true
             }, _resultSetting, null, null, _refDataHelper);
 
             _resultData = new List<SoccerViewModel> { soccerViewModel };

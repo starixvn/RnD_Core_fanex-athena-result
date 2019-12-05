@@ -208,17 +208,8 @@
         {
             if (!isParlayPopup && isPopUp)
             {
-                switch (SPORTBOOK.Bettype)
-                {
-                    case BetTypeConstants.OverUnder:
-                        return !SPORTBOOK.FinalHomeScore.HasValue;
-
-                    case BetTypeConstants.OverUnder1H:
-                        return !SPORTBOOK.HtHomeScore.HasValue;
-
-                    default:
-                        return false;
-                }
+                return (BetTypeConstants.InstantSettlementBetTypesSupportFT.Any(i => i == SPORTBOOK.Bettype) && !SPORTBOOK.Calculate) ||
+                    (BetTypeConstants.InstantSettlementBetTypesSupportHT.Any(i => i == SPORTBOOK.Bettype) && !SPORTBOOK.IsHTCal);
             }
 
             return false;
@@ -404,6 +395,9 @@
                 /*Group :First/Last Corner*/
                 case GameResourceID.First1HCorner:
                 case GameResourceID.FirstCorner:
+                case GameResourceID.FTFirstCorner:
+                case GameResourceID.FirstHaftFirstCorner:
+                case GameResourceID.SecondHaftFirstCorner:
                     item.HomeValue = item.AwayValue =
                         GetResourceGameValueByPattern1X2(detailedValue.HomeValue, LangResource.None);
                     break;
@@ -461,30 +455,42 @@
                 case GameResourceID.TimeOfSecondHalfFirstCorner:
                     item.HomeValue = GetResourceGameValueByTimeEvent(detailedValue);
                     break;
-                default:
-                    if (SportsbookHelper.IsValidResourceId(GameResourceID.NextGoalTime, item.ResourceID))
-                    {
-                        /*Group : Goal Time*/
-                        item.HomeValue = item.AwayValue = GetResourceGameValueByPatternGoalTime(detailedValue.HomeValue);
-                    }
-                    else if (SportsbookHelper.IsValidResourceId(GameResourceID.GoalScorer, item.ResourceID))
-                    {
-                        /*Group :Goal Scorer*/
-                        item.HomeValue = item.AwayValue = detailedValue.OtherInfo;
-                    }
-                    else
-                    {
-                        if (SportsbookHelper.IsValidResourceId(GameResourceID.NextGoal1H, item.ResourceID) ||
-                            SportsbookHelper.IsValidResourceId(GameResourceID.NextGoal3rd, item.ResourceID) ||
-                            SportsbookHelper.IsValidResourceId(GameResourceID.ExtraTimeNextGoal, item.ResourceID))
-                        {
-                            /*Group :Goal Record*/
-                            item.HomeValue = item.AwayValue = GetResourceGameValueByPattern1X2(detailedValue.HomeValue, LangResource.None);
-                        }
-                    }
 
+                default:
+                    item.HomeValue = item.AwayValue = MapResourceGameValueLikePattern(item.ResourceID, detailedValue);
                     break;
             }
+        }
+
+        private string MapResourceGameValueLikePattern(string resourceId, GameDetail detailedValue)
+        {
+            if (SportsbookHelper.IsValidResourceId(GameResourceID.NextGoalTime, resourceId))
+            {
+                /*Group : Goal Time*/
+                return  GetResourceGameValueByPatternGoalTime(detailedValue.HomeValue);
+            }
+            else if (SportsbookHelper.IsValidResourceId(GameResourceID.GoalScorer, resourceId))
+            {
+                /*Group :Goal Scorer*/
+                return detailedValue.OtherInfo;
+            }
+            else if (SportsbookHelper.IsValidResourceId(GameResourceID.CornersRace, resourceId) ||
+                SportsbookHelper.IsValidResourceId(GameResourceID.FirstHaftCornerRace, resourceId))
+            {
+                return GetResourceGameValueByPattern1X2(detailedValue.HomeValue, LangResource.Neither);
+            }
+            else
+            {
+                if (SportsbookHelper.IsValidResourceId(GameResourceID.NextGoal1H, resourceId) ||
+                    SportsbookHelper.IsValidResourceId(GameResourceID.NextGoal3rd, resourceId) ||
+                    SportsbookHelper.IsValidResourceId(GameResourceID.ExtraTimeNextGoal, resourceId))
+                {
+                    /*Group :Goal Record*/
+                    return GetResourceGameValueByPattern1X2(detailedValue.HomeValue, LangResource.None);
+                }
+            }
+
+            return detailedValue.HomeValue;
         }
 
         private static bool IsShowSequence(int settlementStatusID, string goalSequence)
@@ -709,7 +715,7 @@
 
         private bool ScoreIsNotCalculated(bool isFinalScore)
         {
-            if (Setting.EnableCheckScoreCalculated && !EventStatusIsAbandoned)
+            if (!EventStatusIsAbandoned)
             {
                 if (!isFinalScore && !SPORTBOOK.IsHTCal && !EventStatusIsRefundFT)
                 {

@@ -600,4 +600,22 @@
   <data name="Game05" xml:space="preserve">
     <value>Game 5</value>
   </data>
+  <data name="RS488" xml:space="preserve">
+    <value>First Corner</value>
+  </data>
+  <data name="RS489" xml:space="preserve">
+    <value>1H First Corner</value>
+  </data>
+  <data name="RS490" xml:space="preserve">
+    <value>2H First Corner</value>
+  </data>
+  <data name="RS486" xml:space="preserve">
+    <value>Corner Race To {0}</value>
+  </data>
+  <data name="RS487" xml:space="preserve">
+    <value>1H Corner Race To {0}</value>
+  </data>
+  <data name="Neither" xml:space="preserve">
+    <value>Neither</value>
+  </data>
 </root>

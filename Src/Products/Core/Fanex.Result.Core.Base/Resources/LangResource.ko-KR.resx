@@ -385,4 +385,16 @@
   <data name="NoCorner" xml:space="preserve">
     <value>코너킥 없음</value>
   </data>
+  <data name="RS488" xml:space="preserve">
+    <value>첫 번째 코너킥</value>
+  </data>
+  <data name="RS489" xml:space="preserve">
+    <value>전반전 첫 번째 코너킥</value>
+  </data>
+  <data name="RS490" xml:space="preserve">
+    <value>후반전 첫 번째 코너킥</value>
+  </data>
+  <data name="Neither" xml:space="preserve">
+    <value>양팀 모두 아닙니다</value>
+  </data>
 </root>

@@ -196,4 +196,16 @@
   <data name="IsNeutral" xml:space="preserve">
     <value>(中)</value>
   </data>
+  <data name="RS488" xml:space="preserve">
+    <value>最初のコーナーキック</value>
+  </data>
+  <data name="RS489" xml:space="preserve">
+    <value>前半最初のコーナーキック</value>
+  </data>
+  <data name="RS490" xml:space="preserve">
+    <value>後半最初のコーナーキック</value>
+  </data>
+  <data name="Neither" xml:space="preserve">
+    <value>得点なし</value>
+  </data>
 </root>

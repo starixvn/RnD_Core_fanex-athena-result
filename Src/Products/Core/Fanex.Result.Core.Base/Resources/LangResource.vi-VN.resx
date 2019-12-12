@@ -252,4 +252,7 @@
   <data name="NoCorner" xml:space="preserve">
     <value>Không Phạt góc</value>
   </data>
+  <data name="Result" xml:space="preserve">
+    <value>Kết quả</value>
+  </data>
 </root>

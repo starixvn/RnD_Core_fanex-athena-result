@@ -267,4 +267,31 @@
   <data name="Neither" xml:space="preserve">
     <value>Không bên nào</value>
   </data>
+  <data name="Both" xml:space="preserve">
+    <value>Cả Hai</value>
+  </data>
+  <data name="One" xml:space="preserve">
+    <value>Một</value>
+  </data>
+  <data name="RS393" xml:space="preserve">
+    <value>Loạt sút luân lưu – Chẵn/Lẻ (10 Lượt sút đầu)</value>
+  </data>
+  <data name="RS387" xml:space="preserve">
+    <value>Loạt sút luân lưu – Đội Nhà Tài/Xỉu (10 Lượt sút đầu)</value>
+  </data>
+  <data name="RS386" xml:space="preserve">
+    <value>Loạt sút luân lưu – Đội Khách Tài/Xỉu (10 Lượt sút đầu)</value>
+  </data>
+  <data name="RS391" xml:space="preserve">
+    <value>Loạt sút luân lưu – Tổng số bàn thắng chính xác  (10 Lượt sút đầu)</value>
+  </data>
+  <data name="RS390" xml:space="preserve">
+    <value>Loạt sút luân lưu sẽ kéo dài đến các lượt sút loại trực tiếp</value>
+  </data>
+  <data name="ExtraTime" xml:space="preserve">
+    <value>Thời gian Bù giờ</value>
+  </data>
+  <data name="Penalty" xml:space="preserve">
+    <value>Phạt đền</value>
+  </data>
 </root>

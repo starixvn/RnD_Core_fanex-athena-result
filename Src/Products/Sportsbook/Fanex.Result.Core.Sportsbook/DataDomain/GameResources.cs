@@ -41,6 +41,67 @@
                     GameResourceID.MatchDecidedMethod,
                     GameResourceID.WhoAdvancesToNextRound
                 }
+            },
+            { "ExtraTime", new List<string>{ GameResourceID.ExtraTimeNextGoalMethod} },            
+            { "PenaltyShootoutRoundOne", new List<string>
+                {
+                    GameResourceID.HomePenaltyShootoutRound1,
+                    GameResourceID.AwayPenaltyShootoutRound1,
+                    GameResourceID.PenaltyShootout1X2Round1,
+                    GameResourceID.PenaltyShootoutBothOneNeitherRound1,
+                    GameResourceID.PenaltyShootoutWoodworkRound1
+                }
+            },
+            { "PenaltyShootoutRoundTwo", new List<string>
+                {
+                    GameResourceID.HomePenaltyShootoutRound2,
+                    GameResourceID.AwayPenaltyShootoutRound2,
+                    GameResourceID.PenaltyShootout1X2Round2,
+                    GameResourceID.PenaltyShootoutBothOneNeitherRound2,
+                    GameResourceID.PenaltyShootoutWoodworkRound2
+                }
+            },
+            { "PenaltyShootoutRoundThree", new List<string>
+                {
+                    GameResourceID.HomePenaltyShootoutRound3,
+                    GameResourceID.AwayPenaltyShootoutRound3,
+                    GameResourceID.PenaltyShootout1X2Round3,
+                    GameResourceID.PenaltyShootoutBothOneNeitherRound3,
+                    GameResourceID.PenaltyShootoutWoodworkRound3
+                }
+            },
+            { "PenaltyShootoutRoundFour", new List<string>
+                {
+                    GameResourceID.HomePenaltyShootoutRound4,
+                    GameResourceID.AwayPenaltyShootoutRound4,
+                    GameResourceID.PenaltyShootout1X2Round4,
+                    GameResourceID.PenaltyShootoutBothOneNeitherRound4,
+                    GameResourceID.PenaltyShootoutWoodworkRound4
+                }
+            },
+            { "PenaltyShootoutRoundFive", new List<string>
+                {
+                    GameResourceID.HomePenaltyShootoutRound5,
+                    GameResourceID.AwayPenaltyShootoutRound5,
+                    GameResourceID.PenaltyShootout1X2Round5,
+                    GameResourceID.PenaltyShootoutBothOneNeitherRound5,
+                    GameResourceID.PenaltyShootoutWoodworkRound5
+                }
+            },
+            { "PenaltyShootoutFirstTen", new List<string>
+                {
+                    GameResourceID.PenaltyShootoutOddEvenFirst10,
+                    GameResourceID.HomePenaltyShootoutOverUnderFirst10,
+                    GameResourceID.AwayPenaltyShootoutOverUnderFirst10,
+                    GameResourceID.PenaltyShootoutExactTotalGoalFirst10                    
+                }
+            },
+            { "PenaltyShootoutSuddenDeath", new List<string>
+                {
+                    GameResourceID.PenaltyShootoutToGoToSuddenDeath,
+                    GameResourceID.HomePenaltyShootoutRoundMore5,
+                    GameResourceID.AwayPenaltyShootoutRoundMore5
+                }
             }
         };
 

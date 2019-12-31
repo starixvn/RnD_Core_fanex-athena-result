@@ -106,6 +106,15 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Both.
+        /// </summary>
+        public static string Both {
+            get {
+                return ResourceManager.GetString("Both", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Closed.
         /// </summary>
         public static string Closed {
@@ -349,6 +358,15 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hit.
+        /// </summary>
+        public static string Hit {
+            get {
+                return ResourceManager.GetString("Hit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Home.
         /// </summary>
         public static string Home {
@@ -363,6 +381,78 @@ namespace Fanex.Result.Core.Base.Resources {
         public static string HomeAwayPlayerSentOff {
             get {
                 return ResourceManager.GetString("HomeAwayPlayerSentOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home Hit - Away Not Taken.
+        /// </summary>
+        public static string HomeHitAwayNotTaken {
+            get {
+                return ResourceManager.GetString("HomeHitAwayNotTaken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home Miss - Away Not Taken.
+        /// </summary>
+        public static string HomeMissAwayNotTaken {
+            get {
+                return ResourceManager.GetString("HomeMissAwayNotTaken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home Not Hit - Away Not Taken.
+        /// </summary>
+        public static string HomeNotHitAwayNotTaken {
+            get {
+                return ResourceManager.GetString("HomeNotHitAwayNotTaken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home Not Taken - Away Hit.
+        /// </summary>
+        public static string HomeNotTakenAwayHit {
+            get {
+                return ResourceManager.GetString("HomeNotTakenAwayHit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home Not Taken - Away Miss.
+        /// </summary>
+        public static string HomeNotTakenAwayMiss {
+            get {
+                return ResourceManager.GetString("HomeNotTakenAwayMiss", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home Not Taken - Away Not Hit.
+        /// </summary>
+        public static string HomeNotTakenAwayNotHit {
+            get {
+                return ResourceManager.GetString("HomeNotTakenAwayNotHit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home Not Taken - Away Score.
+        /// </summary>
+        public static string HomeNotTakenAwayScore {
+            get {
+                return ResourceManager.GetString("HomeNotTakenAwayScore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home Score - Away Not Taken.
+        /// </summary>
+        public static string HomeScoreAwayNotTaken {
+            get {
+                return ResourceManager.GetString("HomeScoreAwayNotTaken", resourceCulture);
             }
         }
         
@@ -790,6 +880,15 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Miss.
+        /// </summary>
+        public static string Miss {
+            get {
+                return ResourceManager.GetString("Miss", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to More Results.
         /// </summary>
         public static string MoreResults {
@@ -862,6 +961,24 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Not Hit.
+        /// </summary>
+        public static string NotHit {
+            get {
+                return ResourceManager.GetString("NotHit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not Taken.
+        /// </summary>
+        public static string NotTaken {
+            get {
+                return ResourceManager.GetString("NotTaken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Number Game No.
         /// </summary>
         public static string NumberGameNo {
@@ -889,6 +1006,15 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to One.
+        /// </summary>
+        public static string One {
+            get {
+                return ResourceManager.GetString("One", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Own Goal.
         /// </summary>
         public static string OwnGoal {
@@ -903,6 +1029,69 @@ namespace Fanex.Result.Core.Base.Resources {
         public static string Penalty {
             get {
                 return ResourceManager.GetString("Penalty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Penalty Shootout - First 10.
+        /// </summary>
+        public static string PenaltyShootoutFirstTen {
+            get {
+                return ResourceManager.GetString("PenaltyShootoutFirstTen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Penalty Shootout - Round 5.
+        /// </summary>
+        public static string PenaltyShootoutRoundFive {
+            get {
+                return ResourceManager.GetString("PenaltyShootoutRoundFive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Penalty Shootout - Round 4.
+        /// </summary>
+        public static string PenaltyShootoutRoundFour {
+            get {
+                return ResourceManager.GetString("PenaltyShootoutRoundFour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Penalty Shootout - Round 1.
+        /// </summary>
+        public static string PenaltyShootoutRoundOne {
+            get {
+                return ResourceManager.GetString("PenaltyShootoutRoundOne", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Penalty Shootout - Round 3.
+        /// </summary>
+        public static string PenaltyShootoutRoundThree {
+            get {
+                return ResourceManager.GetString("PenaltyShootoutRoundThree", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Penalty Shootout - Round 2.
+        /// </summary>
+        public static string PenaltyShootoutRoundTwo {
+            get {
+                return ResourceManager.GetString("PenaltyShootoutRoundTwo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Penalty Shootout - Sudden Death.
+        /// </summary>
+        public static string PenaltyShootoutSuddenDeath {
+            get {
+                return ResourceManager.GetString("PenaltyShootoutSuddenDeath", resourceCulture);
             }
         }
         
@@ -993,6 +1182,15 @@ namespace Fanex.Result.Core.Base.Resources {
         public static string Refundht {
             get {
                 return ResourceManager.GetString("Refundht", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Refund with Settle Determined.
+        /// </summary>
+        public static string RefundWithSettleDetermined {
+            get {
+                return ResourceManager.GetString("RefundWithSettleDetermined", resourceCulture);
             }
         }
         
@@ -1281,6 +1479,105 @@ namespace Fanex.Result.Core.Base.Resources {
         public static string RS217 {
             get {
                 return ResourceManager.GetString("RS217", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Round {0} - Score/Miss.
+        /// </summary>
+        public static string RS381 {
+            get {
+                return ResourceManager.GetString("RS381", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Round {0} - Score/Miss.
+        /// </summary>
+        public static string RS382 {
+            get {
+                return ResourceManager.GetString("RS382", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Round {0} - Woodwork.
+        /// </summary>
+        public static string RS383 {
+            get {
+                return ResourceManager.GetString("RS383", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} - Both/One/Neither.
+        /// </summary>
+        public static string RS384 {
+            get {
+                return ResourceManager.GetString("RS384", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Round {0} - 1X2.
+        /// </summary>
+        public static string RS385 {
+            get {
+                return ResourceManager.GetString("RS385", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Away Penalty Shootout Over/Under (First 10).
+        /// </summary>
+        public static string RS386 {
+            get {
+                return ResourceManager.GetString("RS386", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Home Penalty Shootout Over/Under (First 10).
+        /// </summary>
+        public static string RS387 {
+            get {
+                return ResourceManager.GetString("RS387", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Penalty Shootout to Go to Sudden Death.
+        /// </summary>
+        public static string RS390 {
+            get {
+                return ResourceManager.GetString("RS390", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Penalty Shootout Exact Total Goal (First 10).
+        /// </summary>
+        public static string RS391 {
+            get {
+                return ResourceManager.GetString("RS391", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Penalty Shootout Odd/Even (First 10).
+        /// </summary>
+        public static string RS393 {
+            get {
+                return ResourceManager.GetString("RS393", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Goal {0} Method.
+        /// </summary>
+        public static string RS395 {
+            get {
+                return ResourceManager.GetString("RS395", resourceCulture);
             }
         }
         

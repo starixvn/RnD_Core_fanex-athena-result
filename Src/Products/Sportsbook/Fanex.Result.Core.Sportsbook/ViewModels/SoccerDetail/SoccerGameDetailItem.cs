@@ -22,5 +22,7 @@
         public List<string> TimeRange { get; set; }
 
         public List<string> SituationValue { get; set; }
+
+        public int SettlementStatusID { get; set; }
     }
 }

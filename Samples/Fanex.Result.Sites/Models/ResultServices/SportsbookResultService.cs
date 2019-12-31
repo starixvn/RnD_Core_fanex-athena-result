@@ -122,7 +122,7 @@
                 var details = SportsbookDetailResultExcelReader
                     .CreateInstance(filePath.Replace("Badminton", "BadmintonDetail"))
                     .GetResultData().ToList();
-                foreach(var badminton in sportBooks)
+                foreach (var badminton in sportBooks)
                 {
                     badminton.GameDetails = details.Where(i => i.MatchId == badminton.MatchId).ToList();
                 }
@@ -130,9 +130,13 @@
 
             if (filePath.Contains($"\\{SportType.Soccer.ToString()}.xls"))
             {
-                sportBooks.First().GameDetails = SportsbookDetailResultExcelReader
+                var details = sportBooks.First().GameDetails = SportsbookDetailResultExcelReader
                     .CreateInstance(filePath.Replace("Soccer", "SoccerDetail"))
                     .GetResultData().ToList();
+                foreach (var sb in sportBooks)
+                {
+                    sb.GameDetails = details.Where(i => i.MatchId == sb.MatchId).ToList();
+                }
             }
 
             if (filePath.Contains(SportType.VirtualBasketBall.ToString()))

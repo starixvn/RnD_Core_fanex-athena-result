@@ -177,11 +177,11 @@
         [TestCase("160", "FT - Goal {0}")]
         [TestCase("164", "ET - Goal {0}")]
         [TestCase("168", "Who advances to next round")]
-        [TestCase("16001", "FT - Goal 01")]
-        [TestCase("16002", "FT - Goal 02")]
-        [TestCase("16405", "ET - Goal 05")]
-        [TestCase("16402", "ET - Goal 02")]
-        [TestCase("16901", "Goal 01")]
+        [TestCase("16001", "FT - Goal 1")]
+        [TestCase("16002", "FT - Goal 2")]
+        [TestCase("16405", "ET - Goal 5")]
+        [TestCase("16402", "ET - Goal 2")]
+        [TestCase("16901", "Goal 1")]
         public void GetResourceLang_FromKeyNameIsIntegerAndNotMatchSoccerRangeResourceIdRegex_ReturnsExpectedResource(
             string keyName, string expectedResource)
         {

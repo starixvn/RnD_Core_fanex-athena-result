@@ -1,0 +1,77 @@
+﻿@using Fanex.Result.Core.Sportsbook.ViewModels.SoccerDetail;
+@using Fanex.Result.Core.Sportsbook.DataDomain;
+@using Fanex.Result.Core.Base.DataDomain;
+@using Fanex.Result.Core.Base.Resources;
+
+@{
+    var itemViewModel = (SoccerDetailViewModel)Model;
+}
+<tr class="data cl-group-name">
+    <td></td>
+    <td colspan="2">@itemViewModel.Name</td>
+</tr>
+@foreach (var item in itemViewModel.DetailItems)
+{
+    if (item.SettlementStatusID == EventStatusID.CompletedSettlementStatusID)
+    {
+        if (item.ResourceID == GameResourceID.PenaltyShootoutOddEvenFirst10 ||
+            item.ResourceID == GameResourceID.PenaltyShootoutExactTotalGoalFirst10)
+        {
+            <tr class="data">
+                <td class="cl-match">@item.ResourceName</td>
+                <td class="cl-result home">@item.HomeValue</td>
+                <td class="cl-result away">@item.AwayValue</td>
+            </tr>
+        }
+        else
+        {
+            <tr class="data">
+                <td class="cl-match">@item.ResourceName</td>
+                <td class="cl-result home" colspan="2">
+                    @item.HomeValue
+                </td>
+            </tr>
+        }
+    }
+
+    else if (item.SettlementStatusID == EventStatusID.RefundWithSettleDetermined)
+    {
+        if (item.ResourceID == GameResourceID.HomePenaltyShootoutOverUnderFirst10 ||
+        item.ResourceID == GameResourceID.AwayPenaltyShootoutOverUnderFirst10)
+        {
+            <tr class="data">
+                <td class="cl-match">@item.ResourceName</td>
+                <td class="cl-result home" colspan="2">
+                    @item.HomeValue
+
+                    <div>
+                        (@LangResource.RefundWithSettleDetermined)
+                    </div>
+                </td>
+            </tr>
+        }
+        else
+        {
+            <tr class="data">
+                <td class="cl-match">@item.ResourceName</td>
+                <td class="cl-result home" colspan="2">
+                    @item.HomeValue - @item.AwayValue
+
+                    <div>
+                        (@LangResource.RefundWithSettleDetermined)
+                    </div>
+
+                </td>
+            </tr>
+        }
+    }
+    else
+    {
+        <tr class="data">
+            <td class="cl-match">@item.ResourceName</td>
+            <td class="cl-result home" colspan="2">
+                @item.HomeValue
+            </td>
+        </tr>
+    }
+}

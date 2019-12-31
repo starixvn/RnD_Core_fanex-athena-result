@@ -1,0 +1,91 @@
+﻿@using Fanex.Result.Core.Sportsbook.ViewModels.SoccerDetail;
+@using Fanex.Result.Core.Sportsbook.DataDomain;
+@using Fanex.Result.Core.Base.DataDomain;
+@using Fanex.Result.Core.Base.Resources;
+
+@{
+    var itemViewModel = (SoccerDetailViewModel)Model;
+}
+
+<tr class="data cl-group-name">
+    <td></td>
+    <td colspan="2">@itemViewModel.Name</td>
+</tr>
+
+@foreach (var item in itemViewModel.DetailItems)
+{
+    if (item.SettlementStatusID == EventStatusID.CompletedSettlementStatusID)
+    {
+        if (item.ResourceID == GameResourceID.HomePenaltyShootoutRound4)
+        {
+            @RenderScoreMiss(itemViewModel, item);
+        }
+
+        if (item.ResourceID == GameResourceID.PenaltyShootoutWoodworkRound4)
+        {
+            <tr class="data">
+                <td class="cl-match">@item.ResourceName</td>
+                <td class="cl-result home">@item.HomeValue</td>
+                <td class="cl-result away">@item.AwayValue</td>
+            </tr>
+        }
+
+        if (item.ResourceID == GameResourceID.PenaltyShootoutBothOneNeitherRound4 ||
+            item.ResourceID == GameResourceID.PenaltyShootout1X2Round4)
+        {
+            <tr class="data">
+                <td class="cl-match">@item.ResourceName</td>
+                <td class="cl-result home" colspan="2">@item.HomeValue</td>
+            </tr>
+        }
+
+    }
+    else if (item.SettlementStatusID == EventStatusID.RefundWithSettleDetermined)
+    {
+        <tr class="data">
+            <td class="cl-match">@item.ResourceName</td>
+            <td class="cl-result home" colspan="2">
+                @item.HomeValue
+
+                <div>
+                    (@LangResource.RefundWithSettleDetermined)
+                </div>
+
+            </td>
+        </tr>
+    }
+    else
+    {
+        if (item.ResourceID == GameResourceID.HomePenaltyShootoutRound4 ||
+            item.ResourceID == GameResourceID.AwayPenaltyShootoutRound4)
+        {
+            @RenderScoreMiss(itemViewModel, item);
+        }
+        else
+        {
+            <tr class="data">
+                <td class="cl-match">@item.ResourceName</td>
+                <td class="cl-result home" colspan="2">@item.HomeValue</td>
+            </tr>
+        }
+    }
+
+}
+
+@helper RenderScoreMiss(SoccerDetailViewModel itemViewModel, SoccerGameDetailItem item)
+{
+    var awayValue = itemViewModel.GetAwayResourceId(item.ResourceID);
+    if (!string.IsNullOrEmpty(awayValue))
+    {
+        <tr class="data">
+            <td class="cl-match">@item.ResourceName</td>
+            <td class="cl-result home">
+                @item.HomeValue
+            </td>
+            <td class="cl-result away">
+                @awayValue
+            </td>
+        </tr>
+    }
+}
+

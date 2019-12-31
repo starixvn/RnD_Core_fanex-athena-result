@@ -302,7 +302,8 @@
                 GroupCode = groupCode,
                 ResourceID = detailedItem.ResourceId,
                 GroupName = SportsbookHelper.GetResourceLang(groupCode),
-                ResourceName = SportsbookHelper.GetResourceLang(detailedItem.ResourceId)
+                ResourceName = SportsbookHelper.GetResourceLang(detailedItem.ResourceId),
+                SettlementStatusID = detailedItem.SettlementStatusID
             };
 
             return MapMoreDetailedGameValue(item, detailedItem);
@@ -316,11 +317,21 @@
                 case EventStatusID.RunningSettlementStatusID:
                 case EventStatusID.Abandoned1HSettlementStatusID:
                 case EventStatusID.Abandoned2HSettlementStatusID:
+                case EventStatusID.RefundWithSettleDetermined:
                     MapResourceGameValueByPattern(soccerItem, gameDetail);
                     break;
 
                 case EventStatusID.RefundSettlementStatusID:
-                    soccerItem.HomeValue = soccerItem.AwayValue = LangResource.Refund;
+                    if (SportsbookHelper.IsValidResourceId(GameResourceID.HomePenaltyShootoutRoundX, gameDetail.ResourceId) ||
+                        SportsbookHelper.IsValidResourceId(GameResourceID.AwayPenaltyShootoutRoundX, gameDetail.ResourceId))
+                    {
+                        MapResourceGameValueByPattern(soccerItem, gameDetail);
+                    }
+                    else
+                    {
+                        soccerItem.HomeValue = soccerItem.AwayValue = LangResource.Refund;
+                    }
+
                     break;
 
                 case EventStatusID.RefundHTSettlementStatusID:
@@ -338,12 +349,6 @@
 
             return soccerItem;
         }
-
-        /// <summary>
-        /// Map resource code to appropriate value.
-        /// </summary>
-        /// <param name="item">The view model Item.</param>
-        /// <param name="detailedValue">The raw game value.</param>
         [SuppressMessage("StyleCop.CSharp.StylecopPlus.Rules", "SP2101:MethodMustNotContainMoreLinesThan",
             Justification = "Reviewed. Suppression is OK here.")]
 #pragma warning disable S1541 // Methods and properties should not be too complex
@@ -361,7 +366,7 @@
                     break;
 
                 case GameResourceID.FirstGoalMethod:
-                    item.HomeValue = item.AwayValue = GetFirstGoalMethodResult(detailedValue.HomeValue);
+                    item.HomeValue = item.AwayValue = ConvertHomeAwayToText.GetFirstGoalMethodResult(detailedValue.HomeValue);
                     break;
 
                 case GameResourceID.FTSequence:
@@ -377,7 +382,7 @@
                 /*Group: Goal Time*/
                 case GameResourceID.FirstGoalTime10Min:
                 case GameResourceID.FirstGoalTime15Min:
-                    item.HomeValue = item.AwayValue = GetResourceGameValueByPatternGoalTime(detailedValue.HomeValue);
+                    item.HomeValue = item.AwayValue = ConvertHomeAwayToText.GetResourceGameValueByPatternGoalTime(detailedValue.HomeValue);
                     break;
                 /*Group :Goal Scorer*/
                 case GameResourceID.FirstGoalScorer:
@@ -388,6 +393,8 @@
                 /*Group :Corner*/
                 case GameResourceID.FirstHalfCorners:
                 case GameResourceID.FinalCorners:
+                case GameResourceID.PenaltyShootoutOddEvenFirst10:
+                case GameResourceID.PenaltyShootoutExactTotalGoalFirst10:
                     item.HomeValue = string.IsNullOrEmpty(detailedValue.HomeValue) ? ConstantValue.Hyphen : detailedValue.HomeValue;
                     item.AwayValue = string.IsNullOrEmpty(detailedValue.AwayValue) ? ConstantValue.Hyphen : detailedValue.AwayValue;
                     break;
@@ -419,28 +426,20 @@
 
                     break;
 
-                /*Group :Player sent Off*/
                 case GameResourceID.PlayerSentOff:
                 case GameResourceID.PlayserSentOff1H:
-                    item.HomeValue = item.AwayValue = GetTextValueOfYesNoChoice(detailedValue.HomeValue);
-                    break;
-
-                /*Group :Home/Away Player sent Off*/
                 case GameResourceID.HomePlayerSentOff:
                 case GameResourceID.HomePlayerSentOff1H:
-                    item.HomeValue = item.AwayValue = GetTextValueOfYesNoChoice(detailedValue.HomeValue);
+                case GameResourceID.ExtraTimeYesNo:
+                case GameResourceID.ExtraTimeAndGoal:
+                case GameResourceID.PenaltyShootout:
+                case GameResourceID.PenaltyShootoutToGoToSuddenDeath:
+                    item.HomeValue = item.AwayValue = ConvertHomeAwayToText.GetTextValueOfYesNoChoice(detailedValue.HomeValue);
                     break;
 
                 case GameResourceID.AwayPlayerSentOff:
                 case GameResourceID.AwayPlayerSentOff1H:
-                    item.AwayValue = item.HomeValue = GetTextValueOfYesNoChoice(detailedValue.AwayValue);
-                    break;
-
-                /*Group: Special*/
-                case GameResourceID.ExtraTimeYesNo:
-                case GameResourceID.ExtraTimeAndGoal:
-                case GameResourceID.PenaltyShootout:
-                    item.HomeValue = item.AwayValue = GetTextValueOfYesNoChoice(detailedValue.HomeValue);
+                    item.AwayValue = item.HomeValue = ConvertHomeAwayToText.GetTextValueOfYesNoChoice(detailedValue.AwayValue);
                     break;
 
                 case GameResourceID.WhoAdvancesToNextRound:
@@ -453,26 +452,30 @@
                     break;
                 case GameResourceID.TimeOfFirstCorner:
                 case GameResourceID.TimeOfSecondHalfFirstCorner:
-                    item.HomeValue = GetResourceGameValueByTimeEvent(detailedValue);
+                    item.HomeValue = ConvertHomeAwayToText.GetResourceGameValueByTimeEvent(detailedValue);
+                    break;
+                case GameResourceID.HomePenaltyShootoutOverUnderFirst10:
+                    item.HomeValue = item.AwayValue = detailedValue.HomeValue;
+                    break;
+                case GameResourceID.AwayPenaltyShootoutOverUnderFirst10:
+                    item.HomeValue = item.AwayValue = detailedValue.AwayValue;
                     break;
 
                 default:
-                    item.HomeValue = item.AwayValue = MapResourceGameValueLikePattern(item.ResourceID, detailedValue);
+                    MapResourceGameValueLikePattern(detailedValue, item);
                     break;
             }
         }
 
-        private string MapResourceGameValueLikePattern(string resourceId, GameDetail detailedValue)
+        private void MapResourceGameValueLikePattern(GameDetail detailedValue, SoccerGameDetailItem item)
         {
-            if (SportsbookHelper.IsValidResourceId(GameResourceID.NextGoalTime, resourceId))
+            if (SportsbookHelper.IsValidResourceId(GameResourceID.NextGoalTime, item.ResourceID))
             {
-                /*Group : Goal Time*/
-                return  GetResourceGameValueByPatternGoalTime(detailedValue.HomeValue);
+                item.HomeValue = item.AwayValue = ConvertHomeAwayToText.GetResourceGameValueByPatternGoalTime(detailedValue.HomeValue);
             }
-            else if (SportsbookHelper.IsValidResourceId(GameResourceID.GoalScorer, resourceId))
+            else if (SportsbookHelper.IsValidResourceId(GameResourceID.GoalScorer, item.ResourceID))
             {
-                /*Group :Goal Scorer*/
-                return detailedValue.OtherInfo;
+                item.HomeValue = item.AwayValue = detailedValue.OtherInfo;
             }
             else if (SportsbookHelper.IsValidResourceId(GameResourceID.CornersRace, resourceId) ||
                 SportsbookHelper.IsValidResourceId(GameResourceID.FirstHaftCornerRace, resourceId))
@@ -481,16 +484,37 @@
             }
             else
             {
-                if (SportsbookHelper.IsValidResourceId(GameResourceID.NextGoal1H, resourceId) ||
-                    SportsbookHelper.IsValidResourceId(GameResourceID.NextGoal3rd, resourceId) ||
-                    SportsbookHelper.IsValidResourceId(GameResourceID.ExtraTimeNextGoal, resourceId))
+                if (SportsbookHelper.IsValidResourceId(GameResourceID.NextGoal1H, item.ResourceID) ||
+                    SportsbookHelper.IsValidResourceId(GameResourceID.NextGoal3rd, item.ResourceID) ||
+                    SportsbookHelper.IsValidResourceId(GameResourceID.ExtraTimeNextGoal, item.ResourceID))
                 {
-                    /*Group :Goal Record*/
-                    return GetResourceGameValueByPattern1X2(detailedValue.HomeValue, LangResource.None);
+                    item.HomeValue = item.AwayValue = GetResourceGameValueByPattern1X2(detailedValue.HomeValue, LangResource.None);
+                }
+
+                if (SportsbookHelper.IsValidResourceId(GameResourceID.ExtraTimeNextGoalMethod, item.ResourceID))
+                {
+                    item.HomeValue = ConvertHomeAwayToText.GetFirstGoalMethodResult(detailedValue.HomeValue);
+                }
+
+                if (SportsbookHelper.IsValidResourceId(GameResourceID.PenaltyShootoutWoodworkRoundX, item.ResourceID))
+                {
+                    item.HomeValue = ConvertHomeAwayToText.GetResourceGameValueByWoodwork(detailedValue, isHome: true);
+                    item.AwayValue = ConvertHomeAwayToText.GetResourceGameValueByWoodwork(detailedValue, isHome: false);
+                }
+                if (SportsbookHelper.IsValidResourceId(GameResourceID.PenaltyShootout1X2RoundX, item.ResourceID))
+                {
+                    item.HomeValue = item.AwayValue = ConvertHomeAwayToText.GetResourceGameValueBy1X2Determinded(detailedValue.HomeValue);
+                }
+                if (SportsbookHelper.IsValidResourceId(GameResourceID.PenaltyShootoutBothOneNeitherRoundX, item.ResourceID))
+                {
+                    item.HomeValue = item.AwayValue = ConvertHomeAwayToText.GetResourceGameValueByBothOneNeith(detailedValue.HomeValue);
+                }
+                if (SportsbookHelper.IsValidResourceId(GameResourceID.HomePenaltyShootoutRoundX, item.ResourceID) ||
+                    SportsbookHelper.IsValidResourceId(GameResourceID.AwayPenaltyShootoutRoundX, item.ResourceID))
+                {
+                    item.HomeValue = item.AwayValue = ConvertHomeAwayToText.GetResourceGameValueByScoreMiss(detailedValue.HomeValue);
                 }
             }
-
-            return detailedValue.HomeValue;
         }
 
         private static bool IsShowSequence(int settlementStatusID, string goalSequence)
@@ -498,36 +522,6 @@
                 settlementStatusID == EventStatusID.Abandoned1HSettlementStatusID ||
                 settlementStatusID == EventStatusID.Abandoned2HSettlementStatusID) &&
                 !string.IsNullOrEmpty(GetSequenceFromGameDetails(goalSequence));
-
-        /// <summary>
-        /// Get game value by pattern goal time.
-        /// </summary>
-        /// <param name="homeValue">The home value.</param>
-        /// <returns>The game value.</returns>
-        private static string GetResourceGameValueByPatternGoalTime(string homeValue)
-        {
-            if (string.IsNullOrEmpty(homeValue))
-            {
-                return ConstantValue.Hyphen;
-            }
-
-            return homeValue.Equals(ConstantValue.None, StringComparison.OrdinalIgnoreCase) ?
-                LangResource.None : homeValue + " " + LangResource.Min;
-        }
-
-        private static string GetResourceGameValueByTimeEvent(GameDetail detailedValue)
-        {
-            if ((detailedValue.HomeValue == "0" || detailedValue.HomeValue == "00")
-                && (detailedValue.AwayValue == "0" || detailedValue.AwayValue == "00"))
-            {
-                return LangResource.NoCorner;
-            }
-
-            var homeValue = detailedValue.HomeValue.Trim().Length == 1 ? "0" + detailedValue.HomeValue : detailedValue.HomeValue;
-            var awayValue = detailedValue.AwayValue.Trim().Length == 1 ? "0" + detailedValue.AwayValue : detailedValue.AwayValue;
-
-            return string.Format(LangResource.MinSec, homeValue, awayValue);
-        }
 
         /// <summary>
         /// Map resource value for ID 175.
@@ -566,16 +560,6 @@
             return ConstantValue.Hyphen;
         }
 
-        private static string GetTextValueOfYesNoChoice(string choice)
-        {
-            if (string.IsNullOrEmpty(choice))
-            {
-                return ConstantValue.Hyphen;
-            }
-
-            return choice.Equals(ConstantValue.Yes, StringComparison.OrdinalIgnoreCase) ? LangResource.Yes : LangResource.No;
-        }
-
         /// <summary>
         /// Map resource value by pattern 1X2.
         /// </summary>
@@ -608,32 +592,6 @@
             return ConstantValue.Hyphen;
         }
 
-        private static string GetFirstGoalMethodResult(string homeValue)
-        {
-            switch (homeValue.ToUpperInvariant())
-            {
-                case "S":
-                    return LangResource.Shot;
-
-                case "H":
-                    return LangResource.Header;
-
-                case "P":
-                    return LangResource.Penalty;
-
-                case "FK":
-                    return LangResource.FreeKick;
-
-                case "OG":
-                    return LangResource.OwnGoal;
-
-                case "NG":
-                    return LangResource.NoGoal;
-
-                default:
-                    return string.Empty;
-            }
-        }
 
         /// <summary>
         /// Get goal information.

@@ -197,15 +197,38 @@
     <value>(中)</value>
   </data>
   <data name="RS488" xml:space="preserve">
-    <value>最初のコーナーキック</value>
+    <value>最初のコーナーキック</value></data>
+  <data name="Both" xml:space="preserve">
+    <value>両方</value>
   </data>
   <data name="RS489" xml:space="preserve">
-    <value>前半最初のコーナーキック</value>
+    <value>前半最初のコーナーキック</value></data>
+  <data name="One" xml:space="preserve">
+    <value>ひとつ</value>
   </data>
   <data name="RS490" xml:space="preserve">
-    <value>後半最初のコーナーキック</value>
+    <value>後半最初のコーナーキック</value></data>
+  <data name="RS393" xml:space="preserve">
+    <value>PK戦ー奇数/偶数(最初の10)</value>
   </data>
   <data name="Neither" xml:space="preserve">
-    <value>得点なし</value>
+    <value>得点なし</value></data>
+  <data name="RS387" xml:space="preserve">
+    <value>PK戦 - ホームオーバー/アンダー(最初の10)</value>
+  </data>
+  <data name="RS386" xml:space="preserve">
+    <value>PK戦 - アウェイオーバー/アンダー(最初の10)</value>
+  </data>
+  <data name="RS391" xml:space="preserve">
+    <value>ペナルティショットー合計ゴール (最初の10)</value>
+  </data>
+  <data name="RS390" xml:space="preserve">
+    <value>サドンデス行きPK戦</value>
+  </data>
+  <data name="ExtraTime" xml:space="preserve">
+    <value>エクストラタイム</value>
+  </data>
+  <data name="Penalty" xml:space="preserve">
+    <value>ペナルティー</value>
   </data>
 </root>

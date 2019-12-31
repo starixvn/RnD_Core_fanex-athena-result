@@ -334,7 +334,7 @@
     <value>和局</value>
   </data>
   <data name="ExtraTime" xml:space="preserve">
-    <value>加時賽</value>
+    <value>加時時間</value>
   </data>
   <data name="FirstLastCorners" xml:space="preserve">
     <value>首個/末個角球</value>
@@ -596,6 +596,99 @@
   </data>
   <data name="Lbl5G" xml:space="preserve">
     <value>第五局</value>
+  </data>
+  <data name="RS395" xml:space="preserve">
+    <value>第{0}個進球方式</value>
+  </data>
+  <data name="PenaltyShootoutFirstTen" xml:space="preserve">
+    <value>點球決戰 - 前十</value>
+  </data>
+  <data name="RS381" xml:space="preserve">
+    <value>第 {0} 輪 - 得分/未得分</value>
+  </data>
+  <data name="RS382" xml:space="preserve">
+    <value>第 {0} 輪 - 得分/未得分</value>
+  </data>
+  <data name="RS385" xml:space="preserve">
+    <value>第 {0} 輪 - 獨贏盤</value>
+  </data>
+  <data name="RS384" xml:space="preserve">
+    <value>第 {0} 輪 - 雙方/一方/兩者皆不</value>
+  </data>
+  <data name="RS383" xml:space="preserve">
+    <value>第 {0} 輪 - 擊中門柱</value>
+  </data>
+  <data name="Hit" xml:space="preserve">
+    <value>中門柱</value>
+  </data>
+  <data name="NotHit" xml:space="preserve">
+    <value>未中門柱</value>
+  </data>
+  <data name="NotTaken" xml:space="preserve">
+    <value>沒有執行</value>
+  </data>
+  <data name="HomeScoreAwayNotTaken" xml:space="preserve">
+    <value>主隊得分-客隊不需執行罰球</value>
+  </data>
+  <data name="HomeNotTakenAwayScore" xml:space="preserve">
+    <value>主隊不需執行罰球-客隊得分</value>
+  </data>
+  <data name="HomeNotTakenAwayMiss" xml:space="preserve">
+    <value>主隊不需執行罰球-客隊未得分</value>
+  </data>
+  <data name="HomeMissAwayNotTaken" xml:space="preserve">
+    <value>主隊未得分-客隊不需執行罰球</value>
+  </data>
+  <data name="HomeHitAwayNotTaken" xml:space="preserve">
+    <value>主隊中門柱-客隊不需執行罰球</value>
+  </data>
+  <data name="HomeNotTakenAwayHit" xml:space="preserve">
+    <value>主隊未中門柱-客隊不需執行罰球</value>
+  </data>
+  <data name="HomeNotTakenAwayNotHit" xml:space="preserve">
+    <value>主隊不需執行罰球-客隊未中門柱</value>
+  </data>
+  <data name="Miss" xml:space="preserve">
+    <value>未得分</value>
+  </data>
+  <data name="Both" xml:space="preserve">
+    <value>雙方</value>
+  </data>
+  <data name="One" xml:space="preserve">
+    <value>一方</value>
+  </data>
+  <data name="HomeNotHitAwayNotTaken" xml:space="preserve">
+    <value>主隊中門柱-客隊不需執行罰球</value>
+  </data>
+  <data name="RS393" xml:space="preserve">
+    <value>點球決勝 - 單雙盤(前十)</value>
+  </data>
+  <data name="RS387" xml:space="preserve">
+    <value>點球決勝 - 主隊大小盤(前十)</value>
+  </data>
+  <data name="RS386" xml:space="preserve">
+    <value>點球決勝 - 客隊大小盤(前十)</value>
+  </data>
+  <data name="RS391" xml:space="preserve">
+    <value>點球決勝 – 準確的總進球(前十)</value>
+  </data>
+  <data name="RS390" xml:space="preserve">
+    <value>點球大戰驟死賽</value>
+  </data>
+  <data name="PenaltyShootoutRoundOne" xml:space="preserve">
+    <value>點球決戰 - 第 1 輪</value>
+  </data>
+  <data name="PenaltyShootoutRoundTwo" xml:space="preserve">
+    <value>點球決戰 - 第 2 輪</value>
+  </data>
+  <data name="PenaltyShootoutRoundThree" xml:space="preserve">
+    <value>點球決戰 - 第 3 輪</value>
+  </data>
+  <data name="PenaltyShootoutRoundFour" xml:space="preserve">
+    <value>點球決戰 - 第 4 輪</value>
+  </data>
+  <data name="PenaltyShootoutRoundFive" xml:space="preserve">
+    <value>點球決戰 - 第 5 輪</value>
   </data>
   <data name="RS488" xml:space="preserve">
     <value>第一個角球</value>

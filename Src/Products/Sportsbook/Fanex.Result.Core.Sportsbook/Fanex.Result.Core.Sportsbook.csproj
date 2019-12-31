@@ -80,6 +80,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SportsbookResx.resx</DependentUpon>
     </Compile>
+    <Compile Include="Utilities\ConvertHomeAwayToText.cs" />
     <Compile Include="Utilities\SportsbookHelper.cs" />
     <Compile Include="Utilities\ISportsbookHelperWraper.cs" />
     <Compile Include="Utilities\SportsbookHelperWraper.cs" />
@@ -173,6 +174,14 @@
     <EmbeddedResource Include="Views\SoccerDetail\BetBuilder.cshtml" />
     <EmbeddedResource Include="Views\SoccerDetail\Sequence.cshtml" />
     <EmbeddedResource Include="Views\SoccerDetail\Corners.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\ExtraTime.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\PenaltyShootoutFirstTen.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\PenaltyShootoutRoundOne.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\PenaltyShootoutRoundTwo.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\PenaltyShootoutRoundFive.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\PenaltyShootoutRoundFour.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\PenaltyShootoutRoundThree.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\PenaltyShootoutSuddenDeath.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Fanex.File">

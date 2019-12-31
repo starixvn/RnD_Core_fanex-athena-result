@@ -9,5 +9,6 @@
         public const int CompletedSettlementStatusID = 4;
         public const int Abandoned1HSettlementStatusID = 5;
         public const int Abandoned2HSettlementStatusID = 6;
+        public const int RefundWithSettleDetermined = 7;
     }
 }

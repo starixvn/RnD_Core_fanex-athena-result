@@ -601,21 +601,114 @@
     <value>Game 5</value>
   </data>
   <data name="RS488" xml:space="preserve">
-    <value>First Corner</value>
+    <value>First Corner</value></data>
+  <data name="RS395" xml:space="preserve">
+    <value>Goal {0} Method</value>
   </data>
   <data name="RS489" xml:space="preserve">
-    <value>1H First Corner</value>
+    <value>1H First Corner</value></data>
+  <data name="PenaltyShootoutFirstTen" xml:space="preserve">
+    <value>Penalty Shootout - First 10</value>
   </data>
   <data name="RS490" xml:space="preserve">
-    <value>2H First Corner</value>
+    <value>2H First Corner</value></data>
+  <data name="RS393" xml:space="preserve">
+    <value>Penalty Shootout Odd/Even (First 10)</value>
   </data>
   <data name="RS486" xml:space="preserve">
-    <value>Corner Race To {0}</value>
+    <value>Corner Race To {0}</value></data>
+  <data name="RS387" xml:space="preserve">
+    <value>Home Penalty Shootout Over/Under (First 10)</value>
   </data>
   <data name="RS487" xml:space="preserve">
-    <value>1H Corner Race To {0}</value>
+    <value>1H Corner Race To {0}</value></data>
+  <data name="RS386" xml:space="preserve">
+    <value>Away Penalty Shootout Over/Under (First 10)</value>
   </data>
   <data name="Neither" xml:space="preserve">
-    <value>Neither</value>
+    <value>Neither</value></data>
+  <data name="RS391" xml:space="preserve">
+    <value>Penalty Shootout Exact Total Goal (First 10)</value>
+  </data>
+  <data name="RS390" xml:space="preserve">
+    <value>Penalty Shootout to Go to Sudden Death</value>
+  </data>
+  <data name="RefundWithSettleDetermined" xml:space="preserve">
+    <value>Refund with Settle Determined</value>
+  </data>
+  <data name="PenaltyShootoutRoundOne" xml:space="preserve">
+    <value>Penalty Shootout - Round 1</value>
+  </data>
+  <data name="RS381" xml:space="preserve">
+    <value>Round {0} - Score/Miss</value>
+  </data>
+  <data name="RS382" xml:space="preserve">
+    <value>Round {0} - Score/Miss</value>
+  </data>
+  <data name="RS385" xml:space="preserve">
+    <value>Round {0} - 1X2</value>
+  </data>
+  <data name="RS384" xml:space="preserve">
+    <value>{0} - Both/One/Neither</value>
+  </data>
+  <data name="RS383" xml:space="preserve">
+    <value>Round {0} - Woodwork</value>
+  </data>
+  <data name="Miss" xml:space="preserve">
+    <value>Miss</value>
+  </data>
+  <data name="NotTaken" xml:space="preserve">
+    <value>Not Taken</value>
+  </data>
+  <data name="Hit" xml:space="preserve">
+    <value>Hit</value>
+  </data>
+  <data name="NotHit" xml:space="preserve">
+    <value>Not Hit</value>
+  </data>
+  <data name="PenaltyShootoutRoundTwo" xml:space="preserve">
+    <value>Penalty Shootout - Round 2</value>
+  </data>
+  <data name="PenaltyShootoutRoundThree" xml:space="preserve">
+    <value>Penalty Shootout - Round 3</value>
+  </data>
+  <data name="PenaltyShootoutRoundFour" xml:space="preserve">
+    <value>Penalty Shootout - Round 4</value>
+  </data>
+  <data name="PenaltyShootoutRoundFive" xml:space="preserve">
+    <value>Penalty Shootout - Round 5</value>
+  </data>
+  <data name="HomeScoreAwayNotTaken" xml:space="preserve">
+    <value>Home Score - Away Not Taken</value>
+  </data>
+  <data name="HomeNotTakenAwayScore" xml:space="preserve">
+    <value>Home Not Taken - Away Score</value>
+  </data>
+  <data name="HomeNotTakenAwayMiss" xml:space="preserve">
+    <value>Home Not Taken - Away Miss</value>
+  </data>
+  <data name="Both" xml:space="preserve">
+    <value>Both</value>
+  </data>
+  <data name="One" xml:space="preserve">
+    <value>One</value>
+  </data>
+  <data name="HomeMissAwayNotTaken" xml:space="preserve">
+    <value>Home Miss - Away Not Taken</value>
+  </data>
+  <data name="HomeHitAwayNotTaken" xml:space="preserve">
+    <value>Home Hit - Away Not Taken</value>
+  </data>
+  <data name="HomeNotHitAwayNotTaken" xml:space="preserve">
+    <value>Home Not Hit - Away Not Taken</value>
+  </data>
+  <data name="HomeNotTakenAwayHit" xml:space="preserve">
+    <value>Home Not Taken - Away Hit</value>
+  </data>
+  <data name="HomeNotTakenAwayNotHit" xml:space="preserve">
+    <value>Home Not Taken - Away Not Hit</value>
+  </data>
+  <data name="PenaltyShootoutSuddenDeath" xml:space="preserve">
+    <value>Penalty Shootout - Sudden Death</value>
   </data>
 </root>

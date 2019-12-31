@@ -128,7 +128,7 @@
     <value>짝수</value>
   </data>
   <data name="ExtraTime" xml:space="preserve">
-    <value>Extra Time</value>
+    <value>연장전</value>
   </data>
   <data name="FirstLastCorners" xml:space="preserve">
     <value>First/Last Corners</value>
@@ -269,7 +269,7 @@
     <value>확정</value>
   </data>
   <data name="Penalty" xml:space="preserve">
-    <value>Penalty</value>
+    <value>페널티킥</value>
   </data>
   <data name="Pending" xml:space="preserve">
     <value>보류</value>
@@ -384,6 +384,27 @@
   </data>
   <data name="NoCorner" xml:space="preserve">
     <value>코너킥 없음</value>
+  </data>
+  <data name="Both" xml:space="preserve">
+    <value>양팀</value>
+  </data>
+  <data name="One" xml:space="preserve">
+    <value>한팀</value>
+  </data>
+  <data name="RS393" xml:space="preserve">
+    <value>승부차기 - 홀수 /짝수 (처음 10)</value>
+  </data>
+  <data name="RS387" xml:space="preserve">
+    <value>승부차기 - 홈팀 오버/언더 (처음 10)</value>
+  </data>
+  <data name="RS386" xml:space="preserve">
+    <value>승부차기 - 원정팀 오버/언더 (처음 10)</value>
+  </data>
+  <data name="RS391" xml:space="preserve">
+    <value>부차기 - 총 득점 합 (처음 10)</value>
+  </data>
+  <data name="RS390" xml:space="preserve">
+    <value>승부차기에서 서든데스로 진행</value>
   </data>
   <data name="RS488" xml:space="preserve">
     <value>첫 번째 코너킥</value>

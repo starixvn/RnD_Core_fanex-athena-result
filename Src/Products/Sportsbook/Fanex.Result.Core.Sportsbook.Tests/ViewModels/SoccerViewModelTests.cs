@@ -991,7 +991,7 @@
         [TestCase("Y", "Yes")]
         [TestCase("3123", "No")]
         [TestCase("", "-")]
-        public void DetailedResult_ResourceIsExtraTime_ReturnExpectedResult(string value, string expectedResult)
+        public void DetailedResult_ResourceIsSpecial_ReturnExpectedResult(string value, string expectedResult)
         {
             // Arrange
             _soccer.GameDetails = new List<GameDetail>
@@ -1005,8 +1005,32 @@
             var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
 
             // Assert
-            var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_ExtraTime.html")
+            var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_Special.html")
                 .Replace("{Result}", expectedResult);
+            Assert.AreEqual(expectedHtml, TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
+        }
+
+        [TestCase("S", "Shot", "1")]
+        [TestCase("H", "Header", "2")]
+        [TestCase("P", "Penalty", "3")]
+        [TestCase("FK", "FreeKick", "4")]
+        [TestCase("OG", "OwnGoal", "5")]
+        [TestCase("NG", "NoGoal", "6")]
+        public void DetailedResult_ResourceIsExtraTime_ReturnExpectedResult(string value, string expectedResult, string expectedRound)
+        {
+            // Arrange
+            _soccer.GameDetails = new List<GameDetail>
+            {
+                new GameDetail {ResourceId = "3950" + expectedRound, HomeValue = value, SettlementStatusID = EventStatusID.CompletedSettlementStatusID}
+            };
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
+
+            // Assert
+            var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_ExtraTime.html")
+                .Replace("{Result}", expectedResult)
+                .Replace("{goal}", expectedRound);
             Assert.AreEqual(expectedHtml, TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
         }
 
@@ -1386,6 +1410,411 @@
             var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_Corners.html")
                 .Replace("{Name}", expectedName)
                 .Replace("{Value}", expectedValue);
+
+            Assert.AreEqual(TemplateFileUtils.RemoveEndLineSymbolHtml(expectedHtml), TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
+        }
+
+        [TestCase("S", "1", "Score", "Score", 4)]
+        [TestCase("M", "1", "Miss", "Miss", 4)]
+        [TestCase("NT", "1", "NotTaken", "NotTaken", 1)]
+        [TestCase("S", "2", "Score", "Score", 4)]
+        [TestCase("M", "2", "Miss", "Miss", 4)]
+        [TestCase("NT", "2", "NotTaken", "NotTaken", 1)]
+        [TestCase("S", "3", "Score", "Score", 4)]
+        [TestCase("M", "3", "Miss", "Miss", 4)]
+        [TestCase("NT", "3", "NotTaken", "NotTaken", 1)]
+        [TestCase("S", "4", "Score", "Score", 4)]
+        [TestCase("M", "4", "Miss", "Miss", 4)]
+        [TestCase("NT", "4", "NotTaken", "NotTaken", 1)]
+        [TestCase("S", "5", "Score", "Score", 4)]
+        [TestCase("M", "5", "Miss", "Miss", 4)]
+        [TestCase("NT", "5", "NotTaken", "NotTaken", 1)]
+        public void DetailedResult_ResourceIsScoreMiss_ReturnExpectedResult(string value, string expectedRound, string expectedHome, string expectedAway, int settlementId)
+        {
+            // Arrange
+            _soccer.GameDetails = new List<GameDetail>
+            {
+                new GameDetail {ResourceId = "3820" + expectedRound, HomeValue = value, SettlementStatusID = settlementId},
+                new GameDetail {ResourceId = "3810" + expectedRound, HomeValue = value, SettlementStatusID = settlementId},
+            };
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
+
+            // Assert
+            var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_PenaltyShootoutScoreMiss.html")
+                .Replace("{home}", expectedHome)
+                .Replace("{away}", expectedAway)
+                .Replace("{round}", expectedRound);
+
+            Assert.AreEqual(TemplateFileUtils.RemoveEndLineSymbolHtml(expectedHtml), TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
+        }
+
+        [TestCase("1", "1", "Home")]
+        [TestCase("X", "1", "Draw")]
+        [TestCase("2", "1", "Away")]
+        [TestCase("1", "2", "Home")]
+        [TestCase("X", "2", "Draw")]
+        [TestCase("2", "2", "Away")]
+        [TestCase("1", "3", "Home")]
+        [TestCase("X", "3", "Draw")]
+        [TestCase("2", "3", "Away")]
+        [TestCase("1", "4", "Home")]
+        [TestCase("X", "4", "Draw")]
+        [TestCase("2", "4", "Away")]
+        [TestCase("1", "5", "Home")]
+        [TestCase("X", "5", "Draw")]
+        [TestCase("2", "5", "Away")]
+        public void DetailedResult_ResourceIsPenaltyShootout1X2_Completed_ReturnExpectedResult(string value, string expectedRound, string expectedHome)
+        {
+            // Arrange
+            _soccer.GameDetails = new List<GameDetail>
+            {
+                new GameDetail {ResourceId = "3850" + expectedRound, HomeValue = value, SettlementStatusID = EventStatusID.CompletedSettlementStatusID}
+            };
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
+
+            // Assert
+            var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_PenaltyShootout1X2_Completed.html")
+                .Replace("{result}", expectedHome)
+                .Replace("{round}", expectedRound);
+
+            Assert.AreEqual(TemplateFileUtils.RemoveEndLineSymbolHtml(expectedHtml), TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
+        }
+
+        [TestCase("1SNT", "1", "Home Score - Away Not Taken")]
+        [TestCase("1MNT", "1", "Home Miss - Away Not Taken")]
+        [TestCase("NT2S", "1", "Home Not Taken - Away Score")]
+        [TestCase("NT2M", "2", "Home Not Taken - Away Miss")]
+        [TestCase("1SNT", "2", "Home Score - Away Not Taken")]
+        [TestCase("1MNT", "2", "Home Miss - Away Not Taken")]
+        [TestCase("NT2S", "3", "Home Not Taken - Away Score")]
+        [TestCase("NT2M", "3", "Home Not Taken - Away Miss")]
+        [TestCase("1SNT", "3", "Home Score - Away Not Taken")]
+        [TestCase("1MNT", "4", "Home Miss - Away Not Taken")]
+        [TestCase("NT2S", "4", "Home Not Taken - Away Score")]
+        [TestCase("NT2M", "4", "Home Not Taken - Away Miss")]
+        [TestCase("1SNT", "5", "Home Score - Away Not Taken")]
+        [TestCase("1MNT", "5", "Home Miss - Away Not Taken")]
+        [TestCase("NT2S", "5", "Home Not Taken - Away Score")]
+        public void DetailedResult_ResourceIsPenaltyShootout1X2_RefundWithSettled_ReturnExpectedResult(string value, string expectedRound, string expectedHome)
+        {
+            // Arrange
+            _soccer.GameDetails = new List<GameDetail>
+            {
+                new GameDetail {ResourceId = "3850" + expectedRound, HomeValue = value, SettlementStatusID = EventStatusID.RefundWithSettleDetermined}
+            };
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
+
+            // Assert
+            var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_PenaltyShootout1X2_RefundWithSettleDetermined.html")
+                .Replace("{result}", expectedHome)
+                .Replace("{round}", expectedRound);
+
+            Assert.AreEqual(TemplateFileUtils.RemoveEndLineSymbolHtml(expectedHtml), TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
+        }
+
+        [TestCase("B", "1", "Both")]
+        [TestCase("O", "1", "One")]
+        [TestCase("N", "1", "No Goal")]
+        [TestCase("B", "2", "Both")]
+        [TestCase("O", "2", "One")]
+        [TestCase("N", "2", "No Goal")]
+        [TestCase("B", "3", "Both")]
+        [TestCase("O", "3", "One")]
+        [TestCase("N", "3", "No Goal")]
+        [TestCase("B", "4", "Both")]
+        [TestCase("O", "4", "One")]
+        [TestCase("N", "4", "No Goal")]
+        [TestCase("B", "5", "Both")]
+        [TestCase("O", "5", "One")]
+        [TestCase("N", "5", "No Goal")]
+        public void DetailedResult_ResourceIsPenaltyShootoutBothOneNeither_Completed_ReturnExpectedResult(string value, string expectedRound, string expectedHome)
+        {
+            // Arrange
+            _soccer.GameDetails = new List<GameDetail>
+            {
+                new GameDetail {ResourceId = "3840" + expectedRound, HomeValue = value, SettlementStatusID = EventStatusID.CompletedSettlementStatusID}
+            };
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
+
+            // Assert
+            var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_PenaltyShootoutBothOneNeither_Completed.html")
+                .Replace("{result}", expectedHome)
+                .Replace("{round}", expectedRound);
+
+            Assert.AreEqual(TemplateFileUtils.RemoveEndLineSymbolHtml(expectedHtml), TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
+        }
+
+        [TestCase("1SNT", "1", "Home Score - Away Not Taken")]
+        [TestCase("1MNT", "1", "Home Miss - Away Not Taken")]
+        [TestCase("NT2S", "1", "Home Not Taken - Away Score")]
+        [TestCase("NT2M", "1", "Home Not Taken - Away Miss")]
+        [TestCase("1SNT", "2", "Home Score - Away Not Taken")]
+        [TestCase("1MNT", "2", "Home Miss - Away Not Taken")]
+        [TestCase("NT2S", "2", "Home Not Taken - Away Score")]
+        [TestCase("NT2M", "2", "Home Not Taken - Away Miss")]
+        [TestCase("1SNT", "3", "Home Score - Away Not Taken")]
+        [TestCase("1MNT", "3", "Home Miss - Away Not Taken")]
+        [TestCase("NT2S", "3", "Home Not Taken - Away Score")]
+        [TestCase("NT2M", "3", "Home Not Taken - Away Miss")]
+        [TestCase("1SNT", "4", "Home Score - Away Not Taken")]
+        [TestCase("1MNT", "4", "Home Miss - Away Not Taken")]
+        [TestCase("NT2S", "4", "Home Not Taken - Away Score")]
+        [TestCase("NT2M", "4", "Home Not Taken - Away Miss")]
+        [TestCase("1SNT", "5", "Home Score - Away Not Taken")]
+        [TestCase("1MNT", "5", "Home Miss - Away Not Taken")]
+        [TestCase("NT2S", "5", "Home Not Taken - Away Score")]
+        [TestCase("NT2M", "5", "Home Not Taken - Away Miss")]
+        public void DetailedResult_ResourceIsPenaltyShootoutBothOneNeither_RefundWithSettled_ReturnExpectedResult(string value, string expectedRound, string expectedHome)
+        {
+            // Arrange
+            _soccer.GameDetails = new List<GameDetail>
+            {
+                new GameDetail {ResourceId = "3840" + expectedRound, HomeValue = value, SettlementStatusID = EventStatusID.RefundWithSettleDetermined}
+            };
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
+
+            // Assert
+            var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_PenaltyShootoutBothOneNeither_RefundWithSettleDetermined.html")
+                .Replace("{result}", expectedHome)
+                .Replace("{round}", expectedRound);
+
+            Assert.AreEqual(TemplateFileUtils.RemoveEndLineSymbolHtml(expectedHtml), TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
+        }
+
+        [TestCase("H", "1", "Hit")]
+        [TestCase("N", "1", "Not Hit")]
+        public void DetailedResult_ResourceIsPenaltyShootoutWoodwork_Completed_ReturnExpectedResult(string value, string expectedRound, string expectedResult)
+        {
+            // Arrange
+            _soccer.GameDetails = new List<GameDetail>
+            {
+                new GameDetail {ResourceId = "3830" + expectedRound, HomeValue = value, AwayValue = value, SettlementStatusID = EventStatusID.CompletedSettlementStatusID}
+            };
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
+
+            // Assert
+            var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_PenaltyShootoutWoodwork_Completed.html")
+                .Replace("{result}", expectedResult)
+                .Replace("{round}", expectedRound);
+
+            Assert.AreEqual(TemplateFileUtils.RemoveEndLineSymbolHtml(expectedHtml), TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
+        }
+
+        [TestCase("H", "NT", "1", "Home Hit - Away Not Taken")]
+        [TestCase("NH", "NT", "1", "Home Not Hit - Away Not Taken")]
+        [TestCase("NT", "H", "1", "Home Not Taken - Away Hit")]
+        [TestCase("NT", "NH", "1", "Home Not Taken - Away Not Hit")]
+        [TestCase("H", "NT", "2", "Home Hit - Away Not Taken")]
+        [TestCase("NH", "NT", "2", "Home Not Hit - Away Not Taken")]
+        [TestCase("NT", "H", "2", "Home Not Taken - Away Hit")]
+        [TestCase("NT", "NH", "2", "Home Not Taken - Away Not Hit")]
+        [TestCase("H", "NT", "3", "Home Hit - Away Not Taken")]
+        [TestCase("NH", "NT", "3", "Home Not Hit - Away Not Taken")]
+        [TestCase("NT", "H", "3", "Home Not Taken - Away Hit")]
+        [TestCase("NT", "NH", "3", "Home Not Taken - Away Not Hit")]
+        [TestCase("H", "NT", "4", "Home Hit - Away Not Taken")]
+        [TestCase("NH", "NT", "4", "Home Not Hit - Away Not Taken")]
+        [TestCase("NT", "H", "4", "Home Not Taken - Away Hit")]
+        [TestCase("NT", "NH", "4", "Home Not Taken - Away Not Hit")]
+        [TestCase("H", "NT", "5", "Home Hit - Away Not Taken")]
+        [TestCase("NH", "NT", "5", "Home Not Hit - Away Not Taken")]
+        [TestCase("NT", "H", "5", "Home Not Taken - Away Hit")]
+        [TestCase("NT", "NH", "5", "Home Not Taken - Away Not Hit")]
+        public void DetailedResult_ResourceIsPenaltyShootoutWoodwork_RefundWithSettled_ReturnExpectedResult(string home, string away, string expectedRound, string expectedResult)
+        {
+            // Arrange
+            _soccer.GameDetails = new List<GameDetail>
+            {
+                new GameDetail {ResourceId = "3830" + expectedRound, HomeValue = home, AwayValue = away, SettlementStatusID = EventStatusID.RefundWithSettleDetermined}
+            };
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
+
+            // Assert
+            var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_PenaltyShootoutWoodwork_RefundWithSettled.html")
+                .Replace("{result}", expectedResult)
+                .Replace("{round}", expectedRound);
+
+            Assert.AreEqual(TemplateFileUtils.RemoveEndLineSymbolHtml(expectedHtml), TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
+        }
+
+        [Test]
+        public void DetailedResult_ResourceIsPenaltyShootoutOddEvenFirst10_ReturnExpectedResult()
+        {
+            // Arrange
+            _soccer.GameDetails = new List<GameDetail>
+            {
+                new GameDetail {ResourceId = "393", HomeValue = "1", AwayValue = "4", SettlementStatusID = EventStatusID.CompletedSettlementStatusID}
+            };
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
+
+            // Assert
+            var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_PenaltyShootoutOddEvenFirst10.html");
+
+            Assert.AreEqual(TemplateFileUtils.RemoveEndLineSymbolHtml(expectedHtml), TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
+        }
+
+        [TestCase(4, "1")]
+        [TestCase(7, "1<div>(Refund with Settle Determined)</div>")]
+        public void DetailedResult_ResourceIsHomePenaltyShootoutOverUnderFirst10_ReturnExpectedResult(int eventStatusId, string expectedResult)
+        {
+            // Arrange
+            _soccer.GameDetails = new List<GameDetail>
+            {
+                new GameDetail {ResourceId = "387", HomeValue = "1", AwayValue = "4", SettlementStatusID = eventStatusId}
+            };
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
+
+            // Assert
+            var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_HomePenaltyShootoutOverUnderFirst10.html")
+                .Replace("{result}", expectedResult);
+
+            Assert.AreEqual(TemplateFileUtils.RemoveEndLineSymbolHtml(expectedHtml), TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
+        }
+
+        [TestCase(4, "4")]
+        [TestCase(7, "4<div>(Refund with Settle Determined)</div>")]
+        public void DetailedResult_ResourceIsAwayPenaltyShootoutOverUnderFirst10_ReturnExpectedResult(int eventStatusId, string expectedResult)
+        {
+            // Arrange
+            _soccer.GameDetails = new List<GameDetail>
+            {
+                new GameDetail {ResourceId = "386", HomeValue = "1", AwayValue = "4", SettlementStatusID = eventStatusId}
+            };
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
+
+            // Assert
+            var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_AwayPenaltyShootoutOverUnderFirst10.html")
+                .Replace("{result}", expectedResult);
+
+            Assert.AreEqual(TemplateFileUtils.RemoveEndLineSymbolHtml(expectedHtml), TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
+        }
+
+        [Test]
+        public void DetailedResult_ResourceIsPenaltyShootoutExactTotalGoalFirst10_Completed_ReturnExpectedResult()
+        {
+            // Arrange
+            _soccer.GameDetails = new List<GameDetail>
+            {
+                new GameDetail {ResourceId = "391", HomeValue = "1", AwayValue = "4", SettlementStatusID = EventStatusID.CompletedSettlementStatusID}
+            };
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
+
+            // Assert
+            var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_PenaltyShootoutExactTotalGoalFirst10_Completed.html");
+
+            Assert.AreEqual(TemplateFileUtils.RemoveEndLineSymbolHtml(expectedHtml), TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
+        }
+
+        [Test]
+        public void DetailedResult_ResourceIsPenaltyShootoutExactTotalGoalFirst10_RefundWithSettled_ReturnExpectedResult()
+        {
+            // Arrange
+            _soccer.GameDetails = new List<GameDetail>
+            {
+                new GameDetail {ResourceId = "391", HomeValue = "1", AwayValue = "4", SettlementStatusID = EventStatusID.RefundWithSettleDetermined}
+            };
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
+
+            // Assert
+            var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_PenaltyShootoutExactTotalGoalFirst10_RefundWithSettleDetermined.html");
+
+            Assert.AreEqual(TemplateFileUtils.RemoveEndLineSymbolHtml(expectedHtml), TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
+        }
+
+        [TestCase("Y", "Yes")]
+        [TestCase("N", "No")]
+        public void DetailedResult_ResourceIsPenaltyShootoutSuddenDeath_ReturnExpectedResult(string value, string expectedResult)
+        {
+            // Arrange
+            _soccer.GameDetails = new List<GameDetail>
+            {
+                new GameDetail {ResourceId = "390", HomeValue = value, SettlementStatusID = EventStatusID.CompletedSettlementStatusID}
+            };
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
+
+            // Assert
+            var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_PenaltyShootoutSuddenDeath.html")
+                .Replace("{result}", expectedResult);
+
+            Assert.AreEqual(TemplateFileUtils.RemoveEndLineSymbolHtml(expectedHtml), TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
+        }
+
+        [TestCase("S", "6", "Score", "Score", 4)]
+        [TestCase("M", "6", "Miss", "Miss", 4)]
+        [TestCase("NT", "6", "NotTaken", "NotTaken", 1)]
+        [TestCase("S", "7", "Score", "Score", 4)]
+        [TestCase("M", "7", "Miss", "Miss", 4)]
+        [TestCase("NT", "7", "NotTaken", "NotTaken", 1)]
+        public void DetailedResult_ResourceIsScoreMissInSuddenDeathGroup_ReturnExpectedResult(string value, string expectedRound, string expectedHome, string expectedAway, int settlementId)
+        {
+            // Arrange
+            _soccer.GameDetails = new List<GameDetail>
+            {
+                new GameDetail {ResourceId = "3820" + expectedRound, HomeValue = value, SettlementStatusID = settlementId},
+                new GameDetail {ResourceId = "3810" + expectedRound, HomeValue = value, SettlementStatusID = settlementId},
+            };
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
+
+            // Assert
+            var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_PenaltyShootoutScoreMissSuddenDeathGroup.html")
+                .Replace("{home}", expectedHome)
+                .Replace("{away}", expectedAway)
+                .Replace("{round}", expectedRound);
+
+            Assert.AreEqual(TemplateFileUtils.RemoveEndLineSymbolHtml(expectedHtml), TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
+        }
+
+        [TestCase("S", "Score", "Score", 4)]
+        [TestCase("M", "Miss", "Miss", 4)]
+        [TestCase("NT", "NotTaken", "NotTaken", 1)]
+        [TestCase("S", "Score", "Score", 4)]
+        [TestCase("M", "Miss", "Miss", 4)]
+        [TestCase("NT", "NotTaken", "NotTaken", 1)]
+        public void DetailedResult_ResourceIsScoreMissInSuddenDeathGroupOnRound99_ReturnExpectedResult(string value, string expectedHome, string expectedAway, int settlementId)
+        {
+            // Arrange
+            _soccer.GameDetails = new List<GameDetail>
+            {
+                new GameDetail {ResourceId = "38299", HomeValue = value, SettlementStatusID = settlementId},
+                new GameDetail {ResourceId = "38199", HomeValue = value, SettlementStatusID = settlementId},
+            };
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
+
+            // Assert
+            var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_PenaltyShootoutScoreMissSuddenDeathGroup.html")
+                .Replace("{home}", expectedHome)
+                .Replace("{away}", expectedAway)
+                .Replace("{round}", "99");
 
             Assert.AreEqual(TemplateFileUtils.RemoveEndLineSymbolHtml(expectedHtml), TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
         }

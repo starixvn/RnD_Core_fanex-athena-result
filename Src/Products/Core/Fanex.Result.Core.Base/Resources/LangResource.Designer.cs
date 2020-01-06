@@ -1510,7 +1510,7 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} - Both/One/Neither.
+        ///   Looks up a localized string similar to Round {0} - Both/One/Neither.
         /// </summary>
         public static string RS384 {
             get {

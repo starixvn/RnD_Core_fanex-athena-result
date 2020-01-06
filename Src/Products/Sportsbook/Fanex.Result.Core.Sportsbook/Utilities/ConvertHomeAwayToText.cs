@@ -92,6 +92,10 @@
                 {"B",LangResource.Both },
                 {"O",LangResource.One },
                 {"N",LangResource.NoGoal },
+                {"1SNT",LangResource.HomeScoreAwayNotTaken },
+                {"1MNT",LangResource.HomeMissAwayNotTaken },
+                {"NT2S",LangResource.HomeNotTakenAwayScore },
+                {"NT2M",LangResource.HomeNotTakenAwayMiss }
             };
 
             return resources.ContainsKey(homeValue.ToUpperInvariant()) ? resources[homeValue.ToUpperInvariant()] : ConstantValue.Hyphen;

@@ -649,7 +649,7 @@
     <value>Round {0} - 1X2</value>
   </data>
   <data name="RS384" xml:space="preserve">
-    <value>{0} - Both/One/Neither</value>
+    <value>Round {0} - Both/One/Neither</value>
   </data>
   <data name="RS383" xml:space="preserve">
     <value>Round {0} - Woodwork</value>

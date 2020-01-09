@@ -477,10 +477,10 @@
             {
                 item.HomeValue = item.AwayValue = detailedValue.OtherInfo;
             }
-            else if (SportsbookHelper.IsValidResourceId(GameResourceID.CornersRace, resourceId) ||
-                SportsbookHelper.IsValidResourceId(GameResourceID.FirstHaftCornerRace, resourceId))
+            else if (SportsbookHelper.IsValidResourceId(GameResourceID.CornersRace, item.ResourceID) ||
+                SportsbookHelper.IsValidResourceId(GameResourceID.FirstHaftCornerRace, item.ResourceID))
             {
-                return GetResourceGameValueByPattern1X2(detailedValue.HomeValue, LangResource.Neither);
+                item.HomeValue = item.AwayValue = GetResourceGameValueByPattern1X2(detailedValue.HomeValue, LangResource.Neither);
             }
             else
             {

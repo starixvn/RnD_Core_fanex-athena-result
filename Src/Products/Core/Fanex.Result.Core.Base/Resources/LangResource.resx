@@ -634,7 +634,7 @@
     <value>Penalty Shootout to Go to Sudden Death</value>
   </data>
   <data name="RefundWithSettleDetermined" xml:space="preserve">
-    <value>Refund with Settle Determined</value>
+    <value>Unconditionally Determined</value>
   </data>
   <data name="PenaltyShootoutRoundOne" xml:space="preserve">
     <value>Penalty Shootout - Round 1</value>

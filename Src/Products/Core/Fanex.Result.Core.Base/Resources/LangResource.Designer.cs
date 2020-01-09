@@ -1186,7 +1186,7 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Refund with Settle Determined.
+        ///   Looks up a localized string similar to Unconditionally Determined.
         /// </summary>
         public static string RefundWithSettleDetermined {
             get {

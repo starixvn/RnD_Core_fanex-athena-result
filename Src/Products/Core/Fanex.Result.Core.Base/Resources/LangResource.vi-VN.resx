@@ -294,4 +294,67 @@
   <data name="Penalty" xml:space="preserve">
     <value>Phạt đền</value>
   </data>
+  <data name="RS395" xml:space="preserve">
+    <value>Cách thức bàn thắng {0}</value>
+  </data>
+  <data name="PenaltyShootoutRoundFive" xml:space="preserve">
+    <value>Loạt sút luân lưu – Vòng 5</value>
+  </data>
+  <data name="PenaltyShootoutRoundFour" xml:space="preserve">
+    <value>Loạt sút luân lưu – Vòng 4</value>
+  </data>
+  <data name="PenaltyShootoutRoundThree" xml:space="preserve">
+    <value>Loạt sút luân lưu – Vòng 3</value>
+  </data>
+  <data name="PenaltyShootoutRoundTwo" xml:space="preserve">
+    <value>Loạt sút luân lưu – Vòng 2</value>
+  </data>
+  <data name="PenaltyShootoutRoundOne" xml:space="preserve">
+    <value>Loạt sút luân lưu – Vòng 1</value>
+  </data>
+  <data name="RS381" xml:space="preserve">
+    <value>Vòng {0} - Ghi bàn/Hụt</value>
+  </data>
+  <data name="RS382" xml:space="preserve">
+    <value>Vòng {0} - Ghi bàn/Hụt</value>
+  </data>
+  <data name="RS385" xml:space="preserve">
+    <value>Vòng {0} - 1X2</value>
+  </data>
+  <data name="RS384" xml:space="preserve">
+    <value>Vòng {0} - Cả hai/Một/Không</value>
+  </data>
+  <data name="RS383" xml:space="preserve">
+    <value>Vòng {0} - Dội trúng khung thành</value>
+  </data>
+  <data name="PenaltyShootoutSuddenDeath" xml:space="preserve">
+    <value>Loạt sút luân lưu - Bàn thắng vàng</value>
+  </data>
+  <data name="PenaltyShootoutFirstTen" xml:space="preserve">
+    <value>Loạt sút luân lưu –10 Lượt sút đầu</value>
+  </data>
+  <data name="Miss" xml:space="preserve">
+    <value>Hụt</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Có</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>Không</value>
+  </data>
+  <data name="NoGoal" xml:space="preserve">
+    <value>Không Có Bàn Thắng</value>
+  </data>
+  <data name="Scored" xml:space="preserve">
+    <value>Ghi bàn</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Đội Nhà</value>
+  </data>
+  <data name="Away" xml:space="preserve">
+    <value>Đội Khách</value>
+  </data>
+  <data name="Draw" xml:space="preserve">
+    <value>Hòa</value>
+  </data>
 </root>

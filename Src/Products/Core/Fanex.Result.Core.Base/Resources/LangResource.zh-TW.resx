@@ -358,7 +358,7 @@
     <value>進球時間</value>
   </data>
   <data name="Home" xml:space="preserve">
-    <value>主隊</value>
+    <value>主</value>
   </data>
   <data name="HomeAwayPlayerSentOff" xml:space="preserve">
     <value>主/客 - 球員驅逐離場</value>
@@ -505,7 +505,7 @@
     <value>頭球</value>
   </data>
   <data name="NoGoal" xml:space="preserve">
-    <value>無進球</value>
+    <value>兩者皆不</value>
   </data>
   <data name="OwnGoal" xml:space="preserve">
     <value>烏龍球</value>
@@ -643,7 +643,7 @@
     <value>主隊中門柱-客隊不需執行罰球</value>
   </data>
   <data name="HomeNotTakenAwayHit" xml:space="preserve">
-    <value>主隊未中門柱-客隊不需執行罰球</value>
+    <value>主隊不需執行罰球-客隊中門柱</value>
   </data>
   <data name="HomeNotTakenAwayNotHit" xml:space="preserve">
     <value>主隊不需執行罰球-客隊未中門柱</value>
@@ -658,7 +658,7 @@
     <value>一方</value>
   </data>
   <data name="HomeNotHitAwayNotTaken" xml:space="preserve">
-    <value>主隊中門柱-客隊不需執行罰球</value>
+    <value>主隊未中門柱-客隊不需執行罰球</value>
   </data>
   <data name="RS393" xml:space="preserve">
     <value>點球決勝 - 單雙盤(前十)</value>
@@ -701,5 +701,14 @@
   </data>
   <data name="Neither" xml:space="preserve">
     <value>两者皆不</value>
+  </data>
+  <data name="PenaltyShootoutSuddenDeath" xml:space="preserve">
+    <value>點球決戰 - 驟死賽</value>
+  </data>
+  <data name="RefundWithSettleDetermined" xml:space="preserve">
+    <value>已無條件確定</value>
+  </data>
+  <data name="Scored" xml:space="preserve">
+    <value>得分</value>
   </data>
 </root>

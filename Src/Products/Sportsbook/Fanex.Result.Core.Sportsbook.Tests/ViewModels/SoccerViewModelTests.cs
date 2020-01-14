@@ -1689,8 +1689,8 @@
             Assert.AreEqual(TemplateFileUtils.RemoveEndLineSymbolHtml(expectedHtml), TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
         }
 
-        [TestCase(4, "4")]
-        [TestCase(7, "4<div>(Unconditionally Determined)</div>")]
+        [TestCase(4, "1")]
+        [TestCase(7, "1<div>(Unconditionally Determined)</div>")]
         public void DetailedResult_ResourceIsAwayPenaltyShootoutOverUnderFirst10_ReturnExpectedResult(int eventStatusId, string expectedResult)
         {
             // Arrange

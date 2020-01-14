@@ -1555,7 +1555,7 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Penalty Shootout Exact Total Goal (First 10).
+        ///   Looks up a localized string similar to Penalty Shootout Exact Total Goals (First 10).
         /// </summary>
         public static string RS391 {
             get {
@@ -1677,6 +1677,15 @@ namespace Fanex.Result.Core.Base.Resources {
         public static string Score {
             get {
                 return ResourceManager.GetString("Score", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Score.
+        /// </summary>
+        public static string Scored {
+            get {
+                return ResourceManager.GetString("Scored", resourceCulture);
             }
         }
         

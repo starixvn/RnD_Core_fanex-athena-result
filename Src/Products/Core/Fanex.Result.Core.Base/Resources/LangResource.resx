@@ -628,7 +628,7 @@
   <data name="Neither" xml:space="preserve">
     <value>Neither</value></data>
   <data name="RS391" xml:space="preserve">
-    <value>Penalty Shootout Exact Total Goal (First 10)</value>
+    <value>Penalty Shootout Exact Total Goals (First 10)</value>
   </data>
   <data name="RS390" xml:space="preserve">
     <value>Penalty Shootout to Go to Sudden Death</value>
@@ -710,5 +710,8 @@
   </data>
   <data name="PenaltyShootoutSuddenDeath" xml:space="preserve">
     <value>Penalty Shootout - Sudden Death</value>
+  </data>
+  <data name="Scored" xml:space="preserve">
+    <value>Score</value>
   </data>
 </root>

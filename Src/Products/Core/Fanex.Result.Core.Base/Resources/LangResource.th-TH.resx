@@ -357,40 +357,40 @@
   <data name="RS488" xml:space="preserve">
     <value>เตะมุมแรก</value></data>
   <data name="RS383" xml:space="preserve">
-    <value>รอบ {0} - ชนเสาหรือคานประตู</value>
+    <value>รอบที่ {0} - ชนเสาหรือคาน</value>
   </data>
   <data name="RS489" xml:space="preserve">
     <value>เตะมุมแรกในครึ่งแรก</value></data>
   <data name="PenaltyShootoutRoundTwo" xml:space="preserve">
-    <value>การยิงลูกโทษ - รอบ 2</value>
+    <value>การยิงลูกโทษ - รอบที่ 2</value>
   </data>
   <data name="RS490" xml:space="preserve">
     <value>เตะมุมแรกในครึ่งหลัง</value></data>
   <data name="PenaltyShootoutRoundThree" xml:space="preserve">
-    <value>การยิงลูกโทษ - รอบ 3</value>
+    <value>การยิงลูกโทษ - รอบที่ 3</value>
   </data>
   <data name="Neither" xml:space="preserve">
     <value>ไม่เป็นทั้งสอง</value></data>
   <data name="PenaltyShootoutRoundFour" xml:space="preserve">
-    <value>การยิงลูกโทษ - รอบ 4</value>
+    <value>การยิงลูกโทษ - รอบที่ 4</value>
   </data>
   <data name="PenaltyShootoutRoundFive" xml:space="preserve">
-    <value>การยิงลูกโทษ - รอบ 5</value>
+    <value>การยิงลูกโทษ - รอบที่ 5</value>
   </data>
   <data name="PenaltyShootoutRoundOne" xml:space="preserve">
-    <value>การยิงลูกโทษ - รอบ 1</value>
+    <value>การยิงลูกโทษ - รอบที่ 1</value>
   </data>
   <data name="RS381" xml:space="preserve">
-    <value>รอบ {0} - ทำประตู / พลาด</value>
+    <value>รอบที่ {0} - เข้า/ไม่เข้า</value>
   </data>
   <data name="RS382" xml:space="preserve">
-    <value>รอบ {0} - ทำประตู / พลาด</value>
+    <value>รอบที่ {0} - เข้า/ไม่เข้า</value>
   </data>
   <data name="RS385" xml:space="preserve">
-    <value>รอบ {0} - 1x2</value>
+    <value>รอบที่ {0} - 1x2</value>
   </data>
   <data name="RS384" xml:space="preserve">
-    <value>รอบ {0} - ทั้งสองทีม/หนึ่งทีม/ไม่มีทีมใด</value>
+    <value>รอบที่ {0} - ทั้งสองทีม/หนึ่งทีม/ไม่มีทีมใด</value>
   </data>
   <data name="Both" xml:space="preserve">
     <value>ทั้งคู่</value>
@@ -414,19 +414,19 @@
     <value>การยิงจุดโทษเพื่อไปยังรอบซัดเดนเดธ</value>
   </data>
   <data name="Hit" xml:space="preserve">
-    <value>ชนเสา</value>
+    <value>ชนเสา/คาน</value>
   </data>
   <data name="NotHit" xml:space="preserve">
-    <value>พลาดนเสา</value>
+    <value>ไม่ชนเสา/คาน</value>
   </data>
   <data name="NotTaken" xml:space="preserve">
-    <value>ไม่ได้ถ่าย</value>
+    <value>ไม่ต้องเตะ</value>
   </data>
   <data name="HomeScoreAwayNotTaken" xml:space="preserve">
-    <value>ทีมเหย้า คะแนน - ทีมเยือน ไม่ได้ถ่าย</value>
+    <value>ทีมเหย้ายิงเข้า - ทีมเยือนไม่ต้องเตะ</value>
   </data>
   <data name="HomeMissAwayNotTaken" xml:space="preserve">
-    <value>ทีมเหย้า พลาด - ทีมเยือน ไม่ได้ถ่าย</value>
+    <value>ทีมเหย้ายิงพลาด - ทีมเยือนไม่ต้องเตะ</value>
   </data>
   <data name="HomeNotTakenAwayScore" xml:space="preserve">
     <value>ทีมเหย้า ไม่ได้ถ่าย - ทีมเยือน คะแนน</value>
@@ -435,7 +435,7 @@
     <value>ทีมเหย้า ไม่ได้ถ่าย - ทีมเยือน พลาด</value>
   </data>
   <data name="HomeHitAwayNotTaken" xml:space="preserve">
-    <value>ทีมเหย้า ชนเสา - ทีมเยือน ไม่ได้ถ่าย</value>
+    <value>ทีมเหย้ายิงโดนเสา/คาน - ทีมเยือนไม่ต้องเตะ</value>
   </data>
   <data name="HomeNotHitAwayNotTaken" xml:space="preserve">
     <value>ทีมเหย้า พลาดนเสา - ทีมเยือน ไม่ได้ถ่าย</value>
@@ -444,12 +444,48 @@
     <value>ทีมเหย้า ไม่ได้ถ่าย - ทีมเยือน ชนเสา</value>
   </data>
   <data name="HomeNotTakenAwayNotHit" xml:space="preserve">
-    <value>ทีมเหย้า ไม่ได้ถ่าย - ทีมเยือน พลาดนเสา</value>
+    <value>ทีมเหย้ายิงไม่โดนเสา/คาน - ทีมเยือนไม่ต้องเตะ</value>
   </data>
   <data name="ExtraTime" xml:space="preserve">
     <value>เวลาเพิ่มเติม</value>
   </data>
   <data name="Penalty" xml:space="preserve">
     <value>ลูกโทษ</value>
+  </data>
+  <data name="RS395" xml:space="preserve">
+    <value>วิธีได้ประตูลูกที่ {0}</value>
+  </data>
+  <data name="PenaltyShootoutSuddenDeath" xml:space="preserve">
+    <value>การยิงลูกโทษ - ซัดเดน เดธ</value>
+  </data>
+  <data name="PenaltyShootoutFirstTen" xml:space="preserve">
+    <value>การยิงลูกโทษ - 10 ลูกแรก</value>
+  </data>
+  <data name="RefundWithSettleDetermined" xml:space="preserve">
+    <value>ไม่กำหนดเงื่อนไข</value>
+  </data>
+  <data name="Miss" xml:space="preserve">
+    <value>พลาด</value>
+  </data>
+  <data name="Yes" xml:space="preserve">
+    <value>ใช่</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>ไม่</value>
+  </data>
+  <data name="NoGoal" xml:space="preserve">
+    <value>ไม่มีประตู</value>
+  </data>
+  <data name="Scored" xml:space="preserve">
+    <value>คะแนน</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>ทีมเหย้า</value>
+  </data>
+  <data name="Away" xml:space="preserve">
+    <value>ทีมเยือน</value>
+  </data>
+  <data name="Draw" xml:space="preserve">
+    <value>เสมอ</value>
   </data>
 </root>

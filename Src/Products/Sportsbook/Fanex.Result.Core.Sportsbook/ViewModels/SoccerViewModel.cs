@@ -458,7 +458,7 @@
                     item.HomeValue = item.AwayValue = detailedValue.HomeValue;
                     break;
                 case GameResourceID.AwayPenaltyShootoutOverUnderFirst10:
-                    item.HomeValue = item.AwayValue = detailedValue.AwayValue;
+                    item.HomeValue = item.AwayValue = detailedValue.HomeValue;
                     break;
 
                 default:

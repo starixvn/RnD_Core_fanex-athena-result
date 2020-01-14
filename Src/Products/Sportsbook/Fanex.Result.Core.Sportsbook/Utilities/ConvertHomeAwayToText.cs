@@ -75,7 +75,7 @@
             switch (homeValue.ToUpperInvariant())
             {
                 case "S":
-                    return LangResource.Score;
+                    return LangResource.Scored;
                 case "M":
                     return LangResource.Miss;
                 case "NT":
@@ -138,9 +138,9 @@
             var resources = new Dictionary<string, string>
             {
                 { "HNT", LangResource.HomeHitAwayNotTaken},
-                { "NHNT", LangResource.HomeNotHitAwayNotTaken},
+                { "NNT", LangResource.HomeNotHitAwayNotTaken},
                 { "NTH", LangResource.HomeNotTakenAwayHit},
-                { "NTNH", LangResource.HomeNotTakenAwayNotHit}
+                { "NTN", LangResource.HomeNotTakenAwayNotHit}
             };
 
             return resources.ContainsKey(home + away) ? resources[home + away] : ConstantValue.Hyphen;

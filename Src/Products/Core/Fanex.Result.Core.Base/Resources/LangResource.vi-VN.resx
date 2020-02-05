@@ -295,37 +295,37 @@
     <value>Phạt đền</value>
   </data>
   <data name="RS395" xml:space="preserve">
-    <value>Cách thức bàn thắng {0}</value>
+    <value>Cách Thức Ghi Bàn {0}</value>
   </data>
   <data name="PenaltyShootoutRoundFive" xml:space="preserve">
-    <value>Loạt sút luân lưu – Vòng 5</value>
+    <value>Loạt Sút Luân Lưu – Vòng 5</value>
   </data>
   <data name="PenaltyShootoutRoundFour" xml:space="preserve">
-    <value>Loạt sút luân lưu – Vòng 4</value>
+    <value>Loạt Sút Luân Lưu – Vòng 4</value>
   </data>
   <data name="PenaltyShootoutRoundThree" xml:space="preserve">
-    <value>Loạt sút luân lưu – Vòng 3</value>
+    <value>Loạt Sút Luân Lưu – Vòng 3</value>
   </data>
   <data name="PenaltyShootoutRoundTwo" xml:space="preserve">
-    <value>Loạt sút luân lưu – Vòng 2</value>
+    <value>Loạt Sút Luân Lưu – Vòng 2</value>
   </data>
   <data name="PenaltyShootoutRoundOne" xml:space="preserve">
-    <value>Loạt sút luân lưu – Vòng 1</value>
+    <value>Loạt Sút Luân Lưu – Vòng 1</value>
   </data>
   <data name="RS381" xml:space="preserve">
-    <value>Vòng {0} - Ghi bàn/Hụt</value>
+    <value>Vòng {0} - Ghi Bàn/Hụt</value>
   </data>
   <data name="RS382" xml:space="preserve">
-    <value>Vòng {0} - Ghi bàn/Hụt</value>
+    <value>Vòng {0} - Ghi Bàn/Hụt</value>
   </data>
   <data name="RS385" xml:space="preserve">
     <value>Vòng {0} - 1X2</value>
   </data>
   <data name="RS384" xml:space="preserve">
-    <value>Vòng {0} - Cả hai/Một/Không</value>
+    <value>Vòng {0} - Cả Hai/Một/Không</value>
   </data>
   <data name="RS383" xml:space="preserve">
-    <value>Vòng {0} - Dội trúng khung thành</value>
+    <value>Vòng {0} - Dội Trúng Khung Thành</value>
   </data>
   <data name="PenaltyShootoutSuddenDeath" xml:space="preserve">
     <value>Loạt sút luân lưu - Bàn thắng vàng</value>
@@ -356,5 +356,38 @@
   </data>
   <data name="Draw" xml:space="preserve">
     <value>Hòa</value>
+  </data>
+  <data name="Hit" xml:space="preserve">
+    <value>Trúng Khung Thành</value>
+  </data>
+  <data name="NotHit" xml:space="preserve">
+    <value>Không Trúng Khung Thành</value>
+  </data>
+  <data name="NotTaken" xml:space="preserve">
+    <value>Không Đá</value>
+  </data>
+  <data name="HomeScoreAwayNotTaken" xml:space="preserve">
+    <value>Đội Nhà Ghi Bàn - Đội Khách Không Đá</value>
+  </data>
+  <data name="HomeMissAwayNotTaken" xml:space="preserve">
+    <value>Đội Nhà Hụt - Đội Khách Không Đá</value>
+  </data>
+  <data name="HomeNotTakenAwayScore" xml:space="preserve">
+    <value>Đội Nhà Không Đá - Đội Khách Ghi Bàn</value>
+  </data>
+  <data name="HomeNotTakenAwayMiss" xml:space="preserve">
+    <value>Đội Nhà Không Đá - Đội Khách Hụt</value>
+  </data>
+  <data name="HomeHitAwayNotTaken" xml:space="preserve">
+    <value>Đội Nhà Trúng Khung Thành - Đội Khách Không Đá</value>
+  </data>
+  <data name="HomeNotHitAwayNotTaken" xml:space="preserve">
+    <value>Đội Nhà Không Trúng Khung Thành - Đội Khách Không Đá</value>
+  </data>
+  <data name="HomeNotTakenAwayHit" xml:space="preserve">
+    <value>Đội Nhà Không Đá - Đội Khách Trúng Khung Thành</value>
+  </data>
+  <data name="HomeNotTakenAwayNotHit" xml:space="preserve">
+    <value>Đội Nhà Không Đá - Đội Khách Không Trúng Khung Thành</value>
   </data>
 </root>

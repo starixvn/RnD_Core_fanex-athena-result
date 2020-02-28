@@ -666,6 +666,10 @@
       <Project>{0469c900-5e5b-4d2c-8db3-7eaea991095b}</Project>
       <Name>Fanex.Result.Core.Sportsbook</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Src\Products\VirtualGames\Fanex.Result.Core.VirtualGames\Fanex.Result.Core.VirtualGames.csproj">
+      <Project>{946d3ae9-742b-4b4d-98aa-4a73f2b64b30}</Project>
+      <Name>Fanex.Result.Core.VirtualGames</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Src\Products\VoidBridge\Fanex.Result.Core.Voidbridge\Fanex.Result.Core.Voidbridge.csproj">
       <Project>{394ffbab-dd32-4ea6-9c4e-d513adc51a74}</Project>
       <Name>Fanex.Result.Core.Voidbridge</Name>

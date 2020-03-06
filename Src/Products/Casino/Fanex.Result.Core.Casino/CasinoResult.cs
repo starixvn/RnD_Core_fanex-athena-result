@@ -17,6 +17,7 @@
         {
             { "en-US", "en" },
             { "zh-CN", "cs" },
+            { "zh-TW", "ch" },
             { "zh-Hans", "zhcn" },
             { "th-TH", "th" },
             { "vi-VN", "vn" },

@@ -257,5 +257,8 @@
 
         [StringValue("BeachSoccer")]
         UpcomingSport55 = 55,
+
+        [StringValue("SAGaming")]
+        SAGaming = 244,
     }
 }

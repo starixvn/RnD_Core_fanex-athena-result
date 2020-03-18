@@ -133,6 +133,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.VirtualGa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.VirtualGames.Tests", "Src\Products\VirtualGames\Fanex.Result.Core.VirtualGames.Tests\Fanex.Result.Core.VirtualGames.Tests.csproj", "{DD9923B3-CA0B-4414-86F6-9A739215CC3B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SAGaming", "SAGaming", "{9E8C9BFF-2BE5-402F-95A9-90B98A3EE71A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.SAGaming", "Src\Products\SAGaming\Fanex.Result.Core.SAGaming\Fanex.Result.Core.SAGaming.csproj", "{45E45C87-3B5E-418A-85AA-642E025CE2A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCasinoResultForSA", "Src\Products\SAGaming\LiveCasinoResult\LiveCasinoResultForSA.csproj", "{5E335C60-B0A9-4563-8A50-59A04A814E42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.SAGaming.Tests", "Src\Products\SAGaming\Fanex.Result.Core.SAGaming.Tests\Fanex.Result.Core.SAGaming.Tests.csproj", "{93B7E42F-E441-49F1-917F-0DF2D2655223}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -299,6 +307,18 @@ Global
 		{DD9923B3-CA0B-4414-86F6-9A739215CC3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD9923B3-CA0B-4414-86F6-9A739215CC3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD9923B3-CA0B-4414-86F6-9A739215CC3B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45E45C87-3B5E-418A-85AA-642E025CE2A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45E45C87-3B5E-418A-85AA-642E025CE2A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45E45C87-3B5E-418A-85AA-642E025CE2A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45E45C87-3B5E-418A-85AA-642E025CE2A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E335C60-B0A9-4563-8A50-59A04A814E42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E335C60-B0A9-4563-8A50-59A04A814E42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E335C60-B0A9-4563-8A50-59A04A814E42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E335C60-B0A9-4563-8A50-59A04A814E42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93B7E42F-E441-49F1-917F-0DF2D2655223}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93B7E42F-E441-49F1-917F-0DF2D2655223}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93B7E42F-E441-49F1-917F-0DF2D2655223}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93B7E42F-E441-49F1-917F-0DF2D2655223}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -361,10 +381,14 @@ Global
 		{FFD375D7-23CF-49AA-B38C-3F5E649AB8D7} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{946D3AE9-742B-4B4D-98AA-4A73F2B64B30} = {FFD375D7-23CF-49AA-B38C-3F5E649AB8D7}
 		{DD9923B3-CA0B-4414-86F6-9A739215CC3B} = {FFD375D7-23CF-49AA-B38C-3F5E649AB8D7}
+		{9E8C9BFF-2BE5-402F-95A9-90B98A3EE71A} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
+		{45E45C87-3B5E-418A-85AA-642E025CE2A1} = {9E8C9BFF-2BE5-402F-95A9-90B98A3EE71A}
+		{5E335C60-B0A9-4563-8A50-59A04A814E42} = {9E8C9BFF-2BE5-402F-95A9-90B98A3EE71A}
+		{93B7E42F-E441-49F1-917F-0DF2D2655223} = {9E8C9BFF-2BE5-402F-95A9-90B98A3EE71A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		LessCompiler = ebd31f24-8f67-4e36-bd6d-1bb78a71e54b
 		SolutionGuid = {4BF11104-7EAE-4BB6-A235-1C10DB35CE8B}
+		LessCompiler = ebd31f24-8f67-4e36-bd6d-1bb78a71e54b
 	EndGlobalSection
 	GlobalSection(JSLint) = preSolution
 		SolutionConfigurationLocation = JSLintOptions.xml

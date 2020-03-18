@@ -48,6 +48,26 @@
             return result;
         }
 
+        public static string GetSAGamingTransDesc(int betType)
+        {
+            switch (betType)
+            {
+                case 3002:
+                    return "site=spondemo*tableCode=B001*state=0*result=D;C2:T;D3*results=D;2:T;3*winResult=2";
+                case 3003:
+                    return "site=spondemo*tableCode=B001*state=0*result=1;2;3;6;5*results=B;8:P;5*winResult=0;3";
+                case 3004:
+                    return "site=733333*tableCode=632*result=4*results=*winResult=2;3;1;4;10*ForcedCompleted=0*ReasonCode=0";
+                case 3005:
+                    return "site=spondemo*tableCode=B001*state=0*result=20*results=B;8:P;5*winResult=150;154";
+                case 3006:
+                    return "site=733333*tableCode=660*result=M;5:S;11*results=*winResult=5;11*ForcedCompleted=0*ReasonCode=0";
+
+                default:
+                    return "site=spondemo*tableCode=B001*state=0*result=B;S6;H2:P;D10;D5*results=B;8:P;5*winResult=2;244";
+            }
+        }
+
         public static string GetAllBetTransDesc(int betType)
         {
             switch (betType)

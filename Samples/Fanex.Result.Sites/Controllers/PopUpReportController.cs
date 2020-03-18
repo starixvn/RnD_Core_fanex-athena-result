@@ -117,6 +117,9 @@
                 case SportType.AllBetCasino:
                     return new AllbetResultData().GetPopupResult(metalModel.Bettype, metalModel.LanguageCode);
 
+                case SportType.SAGaming:
+                    return new SAGamingResultData().GetPopupResult(metalModel.Bettype, metalModel.LanguageCode);
+
                 case SportType.NumberGame:
                     return ResultEngine.HtmlParser(
                         new NumberGameResultData().GetPopupResult(metalModel.MatchId).ToList(), setting);

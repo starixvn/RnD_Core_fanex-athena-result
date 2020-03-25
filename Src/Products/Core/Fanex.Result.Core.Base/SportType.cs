@@ -225,6 +225,9 @@
 
         #endregion VirtualSport
 
+        [StringValue("SexyGaming")]
+        SexyGaming = 243,
+
         [StringValue("AllBetCasino")]
         AllBetCasino = 211,
 

@@ -39,6 +39,7 @@
                 new Sport { Id = 43, Name = "ESport" },
                 new Sport { Id = 211, Name = "Allbet" },
                 new Sport { Id = 244, Name = "SA Gaming" },
+                new Sport { Id = 243, Name = "SexyGaming" }
             };
         }
     }

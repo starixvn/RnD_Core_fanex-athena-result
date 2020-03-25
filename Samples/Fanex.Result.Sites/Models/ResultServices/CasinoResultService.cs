@@ -91,7 +91,29 @@
                     return "choice=1001*comms=101*site=spondemo*tableCode=B001*state=0*result=B;S6;H2:P;D10;D5*results=B;8:P;5*winResult=1001";
             }
         }
+        public static string GetSexyGamingTransDesc(int betType)
+        {
+            switch (betType)
+            {
+                case 3101:
+                    return "choice=1002*site=IBC*tableCode=5*result=B;SQ;S9;:P;S4;D3;*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
 
+                case 3102:
+                    return "choice=2001*site=IBC*tableCode=31*result=D;CQ:T;C7*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
+
+                case 3103:
+                    return "choice=3040*site=IBC*tableCode=51*result=5;6;6*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
+
+                case 3104:
+                    return "choice=4156*site=IBC*tableCode=71*result=5*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
+
+                case 3105:
+                    return "choice=3001*site=spondemo*tableCode=B001*state=0*result=R;d1:B;b5*results=*winResult=";
+
+                default:
+                    return "choice=1002*site=IBC*tableCode=5*result=B;SQ;S9;:P;S4;D3;*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
+            }
+        }
         public IEnumerable<AGCasino> GetResultFromExcel(string filePath)
         {
             throw new NotImplementedException();

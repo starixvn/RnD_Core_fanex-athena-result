@@ -1,5 +1,6 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.ViewModels
 {
+    using System.Collections.Generic;
     using Base;
     using Base.ViewModels;
     using DTO;
@@ -28,8 +29,19 @@
         public string MatchInfo => (IsVirtualSports(Setting.SportType) ? $" ({SPORTBOOK.MatchCode})" : string.Empty);
 
         private static bool IsVirtualSports(SportType sportType)
-            => sportType == SportType.VirtualSoccerLeague ||
-            sportType == SportType.VirtualSoccerNation ||
-            sportType == SportType.VirtualSoccerWorldCup;
+        {
+            var virtualSoccer = new List<SportType>
+            {
+                SportType.VirtualSoccerLeague,
+                SportType.VirtualSoccerNation,
+                SportType.VirtualSoccerWorldCup,
+                SportType.VirtualSoccerAsianCup,
+                SportType.VirtualSoccerEnglishPremier,
+                SportType.VirtualSoccerChampionsCup,
+                SportType.VirtualSoccerEuroCup
+            };
+
+            return virtualSoccer.Contains(sportType);
+        }
     }
 }

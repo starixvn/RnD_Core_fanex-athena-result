@@ -49,7 +49,9 @@
             var response = DeserializeJsonObject<Response>(jsonResponse);
             ValidateResponse(response, request);
 
-            return response.Result.ResultUrl;
+            return !string.IsNullOrWhiteSpace(response.Result.ResultUrl) ?
+                response.Result.ResultUrl.Replace("http:", string.Empty) :
+                string.Empty;
         }
 
         private void ValidateArguments(GlobalGamingDTO data)

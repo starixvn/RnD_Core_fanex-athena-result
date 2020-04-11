@@ -228,6 +228,9 @@
 
         #endregion VirtualSport
 
+        [StringValue("BBin")]
+        BBin = 241,
+
         [StringValue("SexyGaming")]
         SexyGaming = 243,
 

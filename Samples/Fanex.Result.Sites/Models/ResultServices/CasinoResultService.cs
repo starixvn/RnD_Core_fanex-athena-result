@@ -114,6 +114,45 @@
                     return "choice=1002*site=IBC*tableCode=5*result=B;SQ;S9;:P;S4;D3;*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
             }
         }
+
+        public static string GetBBinTransDesc(int betType)
+        {
+            switch (betType)
+            {
+                case 3001:
+                    return "choice=1002*site=IBC*tableCode=5*gamename=3001*result=B;C10;D9:P;DJ;C4*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3003:
+                    return "choice=1002*site=IBC*tableCode=5*gamename=3003*result=D;S7:T;H10*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3005:
+                    return "choice=1002*site=IBC*tableCode=5*gamename=3005*result=B;S7;S5;D2:P1;S4;C3;S10:P2;D3;C4;DQ:P3;H7;C6;H5*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3006:
+                    return "choice=1002*site=IBC*tableCode=5*gamename=3006*result=B;S6;H9:P1;D8;H8:P2;D5;S1:P3;C10;H5*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3007:
+                    return "choice=1002*site=IBC*tableCode=5*gamename=3007*result=26*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3008:
+                    return "choice=1002*site=IBC*tableCode=5*gamename=3008*result=2;3;5*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3011:
+                    return "choice=1002*site=IBC*tableCode=5*gamename=3011*result=W;W;R;R*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3012:
+                    return "choice=1002*site=IBC*tableCode=5*gamename=3012*result=B;D4;D7;H6;S4;HA:P1;CA;C10;H3;D8;D9:P2;DQ;DJ;H5;CK;C4:P3;S1;D10;CJ;D3;S8*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3015:
+                    return "choice=1002*site=IBC*tableCode=5*gamename=3015*result=4*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3016:
+                    return "choice=1002*site=IBC*tableCode=5*gamename=3016*result=2;3;5*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3017:
+                    return "choice=1002*site=IBC*tableCode=5*gamename=3017*result=B;C10;D9:P;DJ;C4*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3018:
+                    return "choice=1002*site=IBC*tableCode=5*gamename=3018*result=D;H6;S8;CJ:P;D2;S12;S7*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3020:
+                    return "choice=1002*site=IBC*tableCode=5*gamename=3020*result=B;C10;D9:P;DJ;C4*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3021:
+                    return "choice=1002*site=IBC*tableCode=5*gamename=3021*result=C10*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3023:
+                    return "choice=1002*site=IBC*tableCode=5*gamename=3023*result=B;D4;D7;H6;S4;HA:P1;CA;C10;H3;D8;D9:P2;DQ;DJ;H5;CK;C4:P3;S1;D10;CJ;D3;S8*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
+                default:
+                    return "";
+            }
+        }
         public IEnumerable<AGCasino> GetResultFromExcel(string filePath)
         {
             throw new NotImplementedException();

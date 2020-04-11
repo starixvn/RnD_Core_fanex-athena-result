@@ -122,7 +122,10 @@
 
                 case SportType.SexyGaming:
                     return new SexyGamingResultData().GetPopupResult(metalModel.Bettype, metalModel.LanguageCode);
-                    
+
+                case SportType.BBin:
+                    return new BBinResultData().GetPopupResult(metalModel.Bettype, metalModel.LanguageCode);
+
                 case SportType.NumberGame:
                     return ResultEngine.HtmlParser(
                         new NumberGameResultData().GetPopupResult(metalModel.MatchId).ToList(), setting);

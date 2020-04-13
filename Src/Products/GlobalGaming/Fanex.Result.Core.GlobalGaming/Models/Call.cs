@@ -19,5 +19,8 @@
 
         [DataMember]
         public string GameId { get; set; }
+
+        [DataMember]
+        public string SiteId { get; set; }
     }
 }

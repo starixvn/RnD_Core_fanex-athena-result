@@ -89,8 +89,7 @@
             var auth = new Auth
             {
                 Login = _configs.Login,
-                Password = _configs.Password,
-                SiteId = SiteId
+                Password = _configs.Password
             };
 
             return auth;
@@ -106,7 +105,8 @@
                 ObCustId = data.CustId,
                 GameId = data.GameId,
                 Style = _configs.Style,
-                Language = languageCode
+                Language = languageCode,
+                SiteId = SiteId
             };
 
             return call;
@@ -122,17 +122,10 @@
         private void ValidateResponse(Response response, Request request)
         {
             const int SuccessStatus = 0;
-            DateTime requestDateTime;
-            DateTime responseDateTime;
-
-            DateTime.TryParse(TimeStamp, out requestDateTime);
-            DateTime.TryParse(response.TimeStamp, out responseDateTime);
-
-            var isEqualTimeStamp = requestDateTime.Equals(responseDateTime);
 
             if ((DebugMode)_configs.DebugMode == DebugMode.None)
             {
-                if (!isEqualTimeStamp || response.Result.Seq != Seq)
+                if (response.Result.Seq != Seq)
                 {
                     throw new GlobalGamingException("Send request incorrectly!");
                 }

@@ -33,13 +33,6 @@ namespace Fanex.Result.Core.BBin
         {
             try
             {
-                var result = TransDesc.Split('*');
-                var s1 = GetSplitValue('=', result[4].ToString());
-                if (string.IsNullOrEmpty(s1))
-                {
-                    return NoInformation();
-                }
-
                 switch (gameId)
                 {
                     case GameIdConstants.Baccarat:
@@ -68,12 +61,12 @@ namespace Fanex.Result.Core.BBin
                     case GameIdConstants.FanTan:
                         return GetFanTanLayout(TransDesc, slang, GameId3rd, gameId);
                     default:
-                        return "";
+                        return NoInformation();
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                return NoInformation();
             }
         }
 
@@ -217,7 +210,7 @@ namespace Fanex.Result.Core.BBin
             var strImgUrl = GenImgUrl("FanTan", s1);
             var strFinalLayout = GetFinalLayout(gameId);
 
-            return String.Format(strFinalLayout, $"{GameNameText} {GameId3rd}", $"{GameIdText} {GameId3rd}", "Result", strImgUrl);
+            return String.Format(strFinalLayout, $"{GameNameText} {gameName}", $"{GameIdText} {GameId3rd}", "Result", strImgUrl);
         }
 
         private static string GetSplitValue(char strSymbol, string strValue)

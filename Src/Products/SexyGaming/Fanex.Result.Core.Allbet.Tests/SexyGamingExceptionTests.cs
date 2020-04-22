@@ -1,4 +1,4 @@
-﻿namespace Fanex.Result.AllBetCasino.Tests
+﻿namespace Fanex.Result.SexyGaming.Tests
 {
     using System;
     using System.Collections.Generic;

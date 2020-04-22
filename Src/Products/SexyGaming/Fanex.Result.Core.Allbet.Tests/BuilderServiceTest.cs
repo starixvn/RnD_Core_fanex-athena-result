@@ -19,7 +19,7 @@
         [TestCase(null)]
         [TestCase("")]
         [TestCase("  ")]
-        public void Render_WhenInvalidTransDesc_ThrowAllBetCasinoException(string transDesc)
+        public void Render_WhenInvalidTransDesc_ThrowSexyGamingCasinoException(string transDesc)
         {
             // Arrange
             var matchCode = string.Empty;
@@ -35,7 +35,7 @@
         [TestCase(null)]
         [TestCase("")]
         [TestCase("  ")]
-        public void Render_WhenInvalidBetType_ThrowAllBetCasinoException(string betType)
+        public void Render_WhenInvalidBetType_ThrowSexyGamingCasinoException(string betType)
         {
             // Arrange
             var transDesc = "transDesc";
@@ -49,7 +49,7 @@
         }
 
         [Test]
-        public void Render_WhenInvalidImagePathConfig_ThrowAllBetCasinoException()
+        public void Render_WhenInvalidImagePathConfig_ThrowSexyGamingCasinoException()
         {
             // Arrange
             var transDesc = "transDesc";

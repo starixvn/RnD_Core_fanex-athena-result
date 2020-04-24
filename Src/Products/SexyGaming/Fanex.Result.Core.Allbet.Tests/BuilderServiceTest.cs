@@ -1,7 +1,6 @@
 ﻿namespace Fanex.Result.SexyGaming.Tests
 {
     using Core.SexyGaming;
-    using LiveCasinoResultForSexyGaming;
     using NSubstitute;
     using NUnit.Framework;
 

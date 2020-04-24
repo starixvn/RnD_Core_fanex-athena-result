@@ -381,10 +381,10 @@
     <value>การยิงลูกโทษ - รอบที่ 1</value>
   </data>
   <data name="RS381" xml:space="preserve">
-    <value>รอบที่ {0} - เข้า/ไม่เข้า</value>
+    <value>รอบที่ {0} - การทำประตู/พลาด</value>
   </data>
   <data name="RS382" xml:space="preserve">
-    <value>รอบที่ {0} - เข้า/ไม่เข้า</value>
+    <value>รอบที่ {0} - การทำประตู/พลาด</value>
   </data>
   <data name="RS385" xml:space="preserve">
     <value>รอบที่ {0} - 1x2</value>
@@ -423,13 +423,13 @@
     <value>ไม่ต้องเตะ</value>
   </data>
   <data name="HomeScoreAwayNotTaken" xml:space="preserve">
-    <value>ทีมเหย้ายิงเข้า - ทีมเยือนไม่ต้องเตะ</value>
+    <value>ทีมเหย้าได้ประตู - ทีมเยือนไม่ต้องเตะ</value>
   </data>
   <data name="HomeMissAwayNotTaken" xml:space="preserve">
     <value>ทีมเหย้ายิงพลาด - ทีมเยือนไม่ต้องเตะ</value>
   </data>
   <data name="HomeNotTakenAwayScore" xml:space="preserve">
-    <value>ทีมเหย้า ไม่ได้ถ่าย - ทีมเยือน คะแนน</value>
+    <value>ทีมเหย้าไม่ต้องเตะ - ทีมเยือนได้คะแนน</value>
   </data>
   <data name="HomeNotTakenAwayMiss" xml:space="preserve">
     <value>ทีมเหย้า ไม่ได้ถ่าย - ทีมเยือน พลาด</value>
@@ -487,5 +487,8 @@
   </data>
   <data name="Draw" xml:space="preserve">
     <value>เสมอ</value>
+  </data>
+  <data name="Goal" xml:space="preserve">
+    <value>การทำประตู</value>
   </data>
 </root>

@@ -313,6 +313,15 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Goal.
+        /// </summary>
+        public static string Goal {
+            get {
+                return ResourceManager.GetString("Goal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Goal Record.
         /// </summary>
         public static string GoalRecord {
@@ -439,7 +448,7 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Home Not Taken - Away Score.
+        ///   Looks up a localized string similar to Home Not Taken - Away Goal.
         /// </summary>
         public static string HomeNotTakenAwayScore {
             get {
@@ -448,7 +457,7 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Home Score - Away Not Taken.
+        ///   Looks up a localized string similar to Home Goal - Away Not Taken.
         /// </summary>
         public static string HomeScoreAwayNotTaken {
             get {
@@ -1483,7 +1492,7 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Round {0} - Score/Miss.
+        ///   Looks up a localized string similar to Round {0} - Goal/Miss.
         /// </summary>
         public static string RS381 {
             get {
@@ -1492,7 +1501,7 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Round {0} - Score/Miss.
+        ///   Looks up a localized string similar to Round {0} - Goal/Miss.
         /// </summary>
         public static string RS382 {
             get {

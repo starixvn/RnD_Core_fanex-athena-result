@@ -604,10 +604,10 @@
     <value>点球决胜 – 前十</value>
   </data>
   <data name="RS381" xml:space="preserve">
-    <value>第 {0} 轮 - 得分/未得分</value>
+    <value>第 {0} 轮 - 进球/不进</value>
   </data>
   <data name="RS382" xml:space="preserve">
-    <value>第 {0} 轮 - 得分/未得分</value>
+    <value>第 {0} 轮 - 进球/不进</value>
   </data>
   <data name="RS385" xml:space="preserve">
     <value>第 {0} 轮 - 独赢盘 </value>
@@ -643,16 +643,16 @@
     <value>点球决战 - 第 5 轮</value>
   </data>
   <data name="HomeScoreAwayNotTaken" xml:space="preserve">
-    <value>主队得分-客队不需执行罚球</value>
+    <value>主队进球-客队不需执行罚球</value>
   </data>
   <data name="HomeNotTakenAwayScore" xml:space="preserve">
-    <value>主队不需执行罚球-客队得分</value>
+    <value>主队不需执行罚球-客队进球</value>
   </data>
   <data name="HomeNotTakenAwayMiss" xml:space="preserve">
-    <value>主队不需执行罚球-客队未得分</value>
+    <value>主队不需执行罚球-客队不进</value>
   </data>
   <data name="HomeMissAwayNotTaken" xml:space="preserve">
-    <value>主队未得分-客队不需执行罚球</value>
+    <value>主队不进-客队不需执行罚球</value>
   </data>
   <data name="HomeHitAwayNotTaken" xml:space="preserve">
     <value>主队中门柱-客队不需执行罚球</value>
@@ -664,7 +664,7 @@
     <value>主队不需执行罚球-客队未中门柱</value>
   </data>
   <data name="Miss" xml:space="preserve">
-    <value>未得分</value>
+    <value>不进</value>
   </data>
   <data name="Both" xml:space="preserve">
     <value>双方</value>
@@ -710,5 +710,8 @@
   </data>
   <data name="Scored" xml:space="preserve">
     <value>得分</value>
+  </data>
+  <data name="Goal" xml:space="preserve">
+    <value>进球</value>
   </data>
 </root>

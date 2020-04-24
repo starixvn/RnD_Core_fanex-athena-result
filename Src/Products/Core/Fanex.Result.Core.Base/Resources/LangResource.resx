@@ -640,10 +640,10 @@
     <value>Penalty Shootout - Round 1</value>
   </data>
   <data name="RS381" xml:space="preserve">
-    <value>Round {0} - Score/Miss</value>
+    <value>Round {0} - Goal/Miss</value>
   </data>
   <data name="RS382" xml:space="preserve">
-    <value>Round {0} - Score/Miss</value>
+    <value>Round {0} - Goal/Miss</value>
   </data>
   <data name="RS385" xml:space="preserve">
     <value>Round {0} - 1X2</value>
@@ -679,10 +679,10 @@
     <value>Penalty Shootout - Round 5</value>
   </data>
   <data name="HomeScoreAwayNotTaken" xml:space="preserve">
-    <value>Home Score - Away Not Taken</value>
+    <value>Home Goal - Away Not Taken</value>
   </data>
   <data name="HomeNotTakenAwayScore" xml:space="preserve">
-    <value>Home Not Taken - Away Score</value>
+    <value>Home Not Taken - Away Goal</value>
   </data>
   <data name="HomeNotTakenAwayMiss" xml:space="preserve">
     <value>Home Not Taken - Away Miss</value>
@@ -713,5 +713,8 @@
   </data>
   <data name="Scored" xml:space="preserve">
     <value>Score</value>
+  </data>
+  <data name="Goal" xml:space="preserve">
+    <value>Goal</value>
   </data>
 </root>

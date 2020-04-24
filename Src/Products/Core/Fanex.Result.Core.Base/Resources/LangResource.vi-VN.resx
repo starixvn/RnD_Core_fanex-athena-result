@@ -313,10 +313,10 @@
     <value>Loạt Sút Luân Lưu – Vòng 1</value>
   </data>
   <data name="RS381" xml:space="preserve">
-    <value>Vòng {0} - Ghi Bàn/Hụt</value>
+    <value>Vòng {0} - Bàn Thắng/Hụt</value>
   </data>
   <data name="RS382" xml:space="preserve">
-    <value>Vòng {0} - Ghi Bàn/Hụt</value>
+    <value>Vòng {0} - Bàn Thắng/Hụt</value>
   </data>
   <data name="RS385" xml:space="preserve">
     <value>Vòng {0} - 1X2</value>
@@ -389,5 +389,8 @@
   </data>
   <data name="HomeNotTakenAwayNotHit" xml:space="preserve">
     <value>Đội Nhà Không Đá - Đội Khách Không Trúng Khung Thành</value>
+  </data>
+  <data name="Goal" xml:space="preserve">
+    <value>Bàn Thắng</value>
   </data>
 </root>

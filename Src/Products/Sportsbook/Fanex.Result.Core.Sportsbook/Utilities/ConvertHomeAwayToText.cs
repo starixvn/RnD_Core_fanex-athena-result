@@ -75,7 +75,7 @@
             switch (homeValue.ToUpperInvariant())
             {
                 case "S":
-                    return LangResource.Scored;
+                    return LangResource.Goal;
                 case "M":
                     return LangResource.Miss;
                 case "NT":

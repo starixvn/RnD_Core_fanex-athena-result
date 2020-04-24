@@ -1414,19 +1414,19 @@
             Assert.AreEqual(TemplateFileUtils.RemoveEndLineSymbolHtml(expectedHtml), TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
         }
 
-        [TestCase("S", "1", "Score", "Score", 4)]
+        [TestCase("S", "1", "Goal", "Goal", 4)]
         [TestCase("M", "1", "Miss", "Miss", 4)]
         [TestCase("NT", "1", "NotTaken", "NotTaken", 1)]
-        [TestCase("S", "2", "Score", "Score", 4)]
+        [TestCase("S", "2", "Goal", "Goal", 4)]
         [TestCase("M", "2", "Miss", "Miss", 4)]
         [TestCase("NT", "2", "NotTaken", "NotTaken", 1)]
-        [TestCase("S", "3", "Score", "Score", 4)]
+        [TestCase("S", "3", "Goal", "Goal", 4)]
         [TestCase("M", "3", "Miss", "Miss", 4)]
         [TestCase("NT", "3", "NotTaken", "NotTaken", 1)]
-        [TestCase("S", "4", "Score", "Score", 4)]
+        [TestCase("S", "4", "Goal", "Goal", 4)]
         [TestCase("M", "4", "Miss", "Miss", 4)]
         [TestCase("NT", "4", "NotTaken", "NotTaken", 1)]
-        [TestCase("S", "5", "Score", "Score", 4)]
+        [TestCase("S", "5", "Goal", "Goal", 4)]
         [TestCase("M", "5", "Miss", "Miss", 4)]
         [TestCase("NT", "5", "NotTaken", "NotTaken", 1)]
         public void DetailedResult_ResourceIsScoreMiss_ReturnExpectedResult(string value, string expectedRound, string expectedHome, string expectedAway, int settlementId)
@@ -1486,19 +1486,19 @@
 
         [TestCase("1SNT", "1", "Home Score - Away Not Taken")]
         [TestCase("1MNT", "1", "Home Miss - Away Not Taken")]
-        [TestCase("NT2S", "1", "Home Not Taken - Away Score")]
+        [TestCase("NT2S", "1", "Home Not Taken - Away Goal")]
         [TestCase("NT2M", "2", "Home Not Taken - Away Miss")]
         [TestCase("1SNT", "2", "Home Score - Away Not Taken")]
         [TestCase("1MNT", "2", "Home Miss - Away Not Taken")]
-        [TestCase("NT2S", "3", "Home Not Taken - Away Score")]
+        [TestCase("NT2S", "3", "Home Not Taken - Away Goal")]
         [TestCase("NT2M", "3", "Home Not Taken - Away Miss")]
         [TestCase("1SNT", "3", "Home Score - Away Not Taken")]
         [TestCase("1MNT", "4", "Home Miss - Away Not Taken")]
-        [TestCase("NT2S", "4", "Home Not Taken - Away Score")]
+        [TestCase("NT2S", "4", "Home Not Taken - Away Goal")]
         [TestCase("NT2M", "4", "Home Not Taken - Away Miss")]
         [TestCase("1SNT", "5", "Home Score - Away Not Taken")]
         [TestCase("1MNT", "5", "Home Miss - Away Not Taken")]
-        [TestCase("NT2S", "5", "Home Not Taken - Away Score")]
+        [TestCase("NT2S", "5", "Home Not Taken - Away Goal")]
         public void DetailedResult_ResourceIsPenaltyShootout1X2_RefundWithSettled_ReturnExpectedResult(string value, string expectedRound, string expectedHome)
         {
             // Arrange
@@ -1554,23 +1554,23 @@
 
         [TestCase("1SNT", "1", "Home Score - Away Not Taken")]
         [TestCase("1MNT", "1", "Home Miss - Away Not Taken")]
-        [TestCase("NT2S", "1", "Home Not Taken - Away Score")]
+        [TestCase("NT2S", "1", "Home Not Taken - Away Goal")]
         [TestCase("NT2M", "1", "Home Not Taken - Away Miss")]
         [TestCase("1SNT", "2", "Home Score - Away Not Taken")]
         [TestCase("1MNT", "2", "Home Miss - Away Not Taken")]
-        [TestCase("NT2S", "2", "Home Not Taken - Away Score")]
+        [TestCase("NT2S", "2", "Home Not Taken - Away Goal")]
         [TestCase("NT2M", "2", "Home Not Taken - Away Miss")]
         [TestCase("1SNT", "3", "Home Score - Away Not Taken")]
         [TestCase("1MNT", "3", "Home Miss - Away Not Taken")]
-        [TestCase("NT2S", "3", "Home Not Taken - Away Score")]
+        [TestCase("NT2S", "3", "Home Not Taken - Away Goal")]
         [TestCase("NT2M", "3", "Home Not Taken - Away Miss")]
         [TestCase("1SNT", "4", "Home Score - Away Not Taken")]
         [TestCase("1MNT", "4", "Home Miss - Away Not Taken")]
-        [TestCase("NT2S", "4", "Home Not Taken - Away Score")]
+        [TestCase("NT2S", "4", "Home Not Taken - Away Goal")]
         [TestCase("NT2M", "4", "Home Not Taken - Away Miss")]
         [TestCase("1SNT", "5", "Home Score - Away Not Taken")]
         [TestCase("1MNT", "5", "Home Miss - Away Not Taken")]
-        [TestCase("NT2S", "5", "Home Not Taken - Away Score")]
+        [TestCase("NT2S", "5", "Home Not Taken - Away Goal")]
         [TestCase("NT2M", "5", "Home Not Taken - Away Miss")]
         public void DetailedResult_ResourceIsPenaltyShootoutBothOneNeither_RefundWithSettled_ReturnExpectedResult(string value, string expectedRound, string expectedHome)
         {
@@ -1765,10 +1765,10 @@
             Assert.AreEqual(TemplateFileUtils.RemoveEndLineSymbolHtml(expectedHtml), TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
         }
 
-        [TestCase("S", "6", "Score", "Score", 4)]
+        [TestCase("S", "6", "Goal", "Goal", 4)]
         [TestCase("M", "6", "Miss", "Miss", 4)]
         [TestCase("NT", "6", "NotTaken", "NotTaken", 1)]
-        [TestCase("S", "7", "Score", "Score", 4)]
+        [TestCase("S", "7", "Goal", "Goal", 4)]
         [TestCase("M", "7", "Miss", "Miss", 4)]
         [TestCase("NT", "7", "NotTaken", "NotTaken", 1)]
         public void DetailedResult_ResourceIsScoreMissInSuddenDeathGroup_ReturnExpectedResult(string value, string expectedRound, string expectedHome, string expectedAway, int settlementId)
@@ -1792,10 +1792,10 @@
             Assert.AreEqual(TemplateFileUtils.RemoveEndLineSymbolHtml(expectedHtml), TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
         }
 
-        [TestCase("S", "Score", "Score", 4)]
+        [TestCase("S", "Goal", "Goal", 4)]
         [TestCase("M", "Miss", "Miss", 4)]
         [TestCase("NT", "NotTaken", "NotTaken", 1)]
-        [TestCase("S", "Score", "Score", 4)]
+        [TestCase("S", "Goal", "Goal", 4)]
         [TestCase("M", "Miss", "Miss", 4)]
         [TestCase("NT", "NotTaken", "NotTaken", 1)]
         public void DetailedResult_ResourceIsScoreMissInSuddenDeathGroupOnRound99_ReturnExpectedResult(string value, string expectedHome, string expectedAway, int settlementId)

@@ -21,7 +21,7 @@
 
         }
 
-        protected VirtualGamesResult(IWebClient client = null, ISerializer serializer = null, INewGui newGui = null)
+        public VirtualGamesResult(IWebClient client = null, ISerializer serializer = null, INewGui newGui = null)
         {
             _serializer = serializer ?? new JsonSerializer();
             _client = client ?? new JsonWebClient(_serializer);

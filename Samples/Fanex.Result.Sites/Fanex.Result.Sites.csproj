@@ -240,8 +240,9 @@
     <Compile Include="Models\GlobalGaming\GlobalGamingRequest.cs" />
     <Compile Include="Models\MetaModel\ResultPopupMetalModel.cs" />
     <Compile Include="Models\ResultData\BBinResultData.cs" />
-    <Compile Include="Models\ResultData\SexyGamingResultData.cs" />
     <Compile Include="Models\ResultData\AllbetResultData.cs" />
+    <Compile Include="Models\ResultData\SexyGamingResultData.cs" />
+    <Compile Include="Models\ResultData\GTCasinoResultData.cs" />
     <Compile Include="Models\ResultData\Constant.cs" />
     <Compile Include="Models\ResultData\AGCasinoResultData.cs" />
     <Compile Include="Models\ResultData\GoldDeluxeResultData.cs" />
@@ -994,6 +995,10 @@
     <ProjectReference Include="..\..\Src\Products\GoldDeluxe\Fanex.Result.Core.GoldDeLuxe\Fanex.Result.Core.GoldDeLuxe.csproj">
       <Project>{dbd59404-19d9-422c-83f1-8f20e02545ed}</Project>
       <Name>Fanex.Result.Core.GoldDeLuxe</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Src\Products\GTCasino\Fanex.Result.Core.GTCasino\Fanex.Result.Core.GTCasino.csproj">
+      <Project>{CE6304E8-CB53-4C0F-AA9B-E24337DE2926}</Project>
+      <Name>Fanex.Result.Core.GTCasino</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Src\Products\Happy5\Fanex.Result.Core.Happy5\Fanex.Result.Core.Happy5.csproj">
       <Project>{8ED01504-3503-43C2-8E0E-8127E36E482C}</Project>

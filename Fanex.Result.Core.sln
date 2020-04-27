@@ -149,9 +149,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.SAGaming.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BBin", "BBin", "{FC44FC63-A987-409A-968B-C56E96A3CA67}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GTCasino", "GTCasino", "{03E240EE-32B3-47E7-AA6A-9EA4E2A8436D}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.BBin", "Src\Products\BBin\Fanex.Result.Core.BBin\Fanex.Result.Core.BBin.csproj", "{7517E30A-00E4-4ED6-843B-1700C111C158}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.GTCasino", "Src\Products\GTCasino\Fanex.Result.Core.GTCasino\Fanex.Result.Core.GTCasino.csproj", "{CE6304E8-CB53-4C0F-AA9B-E24337DE2926}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.BBin.Tests", "Src\Products\BBin\Fanex.Result.Core.BBin.Tests\Fanex.Result.Core.BBin.Tests.csproj", "{B8D94F5F-17A8-4887-BB96-D4453717E1C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.GTCasino.Tests", "Src\Products\GTCasino\Fanex.Result.Core.GTCasino.Tests\Fanex.Result.Core.GTCasino.Tests.csproj", "{6CF80F6A-9CA4-45DD-BFCF-5009B687D706}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCasinoResultForSexyGaming", "Src\Products\SexyGaming\LiveCasinoResult\LiveCasinoResultForSexyGaming.csproj", "{5719DB5A-9A17-4E50-9C06-947A6432C1B8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -347,6 +355,18 @@ Global
 		{B8D94F5F-17A8-4887-BB96-D4453717E1C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8D94F5F-17A8-4887-BB96-D4453717E1C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8D94F5F-17A8-4887-BB96-D4453717E1C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE6304E8-CB53-4C0F-AA9B-E24337DE2926}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE6304E8-CB53-4C0F-AA9B-E24337DE2926}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE6304E8-CB53-4C0F-AA9B-E24337DE2926}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE6304E8-CB53-4C0F-AA9B-E24337DE2926}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CF80F6A-9CA4-45DD-BFCF-5009B687D706}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CF80F6A-9CA4-45DD-BFCF-5009B687D706}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CF80F6A-9CA4-45DD-BFCF-5009B687D706}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CF80F6A-9CA4-45DD-BFCF-5009B687D706}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5719DB5A-9A17-4E50-9C06-947A6432C1B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5719DB5A-9A17-4E50-9C06-947A6432C1B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5719DB5A-9A17-4E50-9C06-947A6432C1B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5719DB5A-9A17-4E50-9C06-947A6432C1B8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -419,10 +439,14 @@ Global
 		{FC44FC63-A987-409A-968B-C56E96A3CA67} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{7517E30A-00E4-4ED6-843B-1700C111C158} = {FC44FC63-A987-409A-968B-C56E96A3CA67}
 		{B8D94F5F-17A8-4887-BB96-D4453717E1C6} = {FC44FC63-A987-409A-968B-C56E96A3CA67}
+		{03E240EE-32B3-47E7-AA6A-9EA4E2A8436D} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
+		{CE6304E8-CB53-4C0F-AA9B-E24337DE2926} = {03E240EE-32B3-47E7-AA6A-9EA4E2A8436D}
+		{6CF80F6A-9CA4-45DD-BFCF-5009B687D706} = {03E240EE-32B3-47E7-AA6A-9EA4E2A8436D}
+		{5719DB5A-9A17-4E50-9C06-947A6432C1B8} = {D3915803-B54D-4CCB-BB6E-B659C6BD64AC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {4BF11104-7EAE-4BB6-A235-1C10DB35CE8B}
 		LessCompiler = ebd31f24-8f67-4e36-bd6d-1bb78a71e54b
+		SolutionGuid = {4BF11104-7EAE-4BB6-A235-1C10DB35CE8B}
 	EndGlobalSection
 	GlobalSection(JSLint) = preSolution
 		SolutionConfigurationLocation = JSLintOptions.xml

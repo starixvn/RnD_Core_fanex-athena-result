@@ -91,6 +91,28 @@
                     return "choice=1001*comms=101*site=spondemo*tableCode=B001*state=0*result=B;S6;H2:P;D10;D5*results=B;8:P;5*winResult=1001";
             }
         }
+
+        public static string GetGTCasinoTransDesc(int betType)
+        {
+            switch (betType)
+            {
+                case 3204:
+                    return "choice=2018*site=IBC*tableCode=27*result=27*results=*winResult=2040;2001;2003;2005;2009;2012*ForcedCompleted=0*ReasonCode=0";
+
+                case 3203:
+                    return "choice=3009*site=IBC*tableCode=25*result=1;1;2*results=*winResult=3002;3004;3005;3026;3027;3032;3038*ForcedCompleted=0*ReasonCode=0";
+
+                case 3202:
+                    return "choice=1002*site=IBCIndo*tableCode=37*result=D;S6:T;D10*results=D;6:T;10*winResult=2002;1009*ForcedCompleted=0*ReasonCode=0";
+
+                case 3205:
+                    return "choice=5010*site=IBC*tableCode=26*result=DQ:B;D3;HJ;S5;S10;H6:P1;H4;CA;SK;H9;DK:P2;D8;CJ;SA;C2;D9:P3;S4;C9;S9;HA;SJ*results=B;0:P1;4:P2;10:P3;3*winResult=5007;5010;5008;5011;5009;5012*ForcedCompleted=0*ReasonCode=0";
+
+                default:
+                    return "choice=1002*site=IBCIndo*tableCode=37*result=P;S7;D5;D7:B;C4;HJ;CQ*results=P;9:B;4*winResult=1002;1009*ForcedCompleted=0*ReasonCode=0";
+            }
+        }
+
         public static string GetSexyGamingTransDesc(int betType)
         {
             switch (betType)

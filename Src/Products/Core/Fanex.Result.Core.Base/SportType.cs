@@ -269,5 +269,8 @@
 
         [StringValue("SAGaming")]
         SAGaming = 244,
+
+        [StringValue("GTCasino")]
+        GTCasino = 242,
     }
 }

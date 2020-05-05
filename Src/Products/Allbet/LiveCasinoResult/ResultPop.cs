@@ -136,7 +136,7 @@ namespace LiveCasinoResult
 
         private static string GetBullBullLayout(string sDesc, string slang, string GameId3rd, string bettype)
         {
-            var strRefKey = "Allbet_PokerHand";
+            var strRefKey = "ALLBET_PokerHand";
             var GameDetail = sDesc.Split('*');
             var result = GetSplitValue('=', GameDetail[5]);
             var results = GetSplitValue('=', GameDetail[6]);
@@ -155,7 +155,7 @@ namespace LiveCasinoResult
 
             var strFinalScore = new List<string>();
             var winResults = winResult.Split(';');
-            var strRefKeyOfWinResult = "Allbet_BT";
+            var strRefKeyOfWinResult = "AllBet_BT";
             for (int j = 0; j < winResults.Length; j++)
             {
                 var name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKeyOfWinResult, winResults[j].Trim(), slang, "");

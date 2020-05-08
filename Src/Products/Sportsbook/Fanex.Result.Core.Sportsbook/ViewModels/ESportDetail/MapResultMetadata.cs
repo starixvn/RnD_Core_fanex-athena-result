@@ -58,7 +58,8 @@ namespace Fanex.Result.Core.ESport.DTO
             { 9072, new MapResultMetadata(4600, true, mapXRoundYType: true) },
             { 9069, new MapResultMetadata(4700, false, localResourceKey: "ESports_90690X0Y", mapXRoundYType: true) },
             { 9073, new MapResultMetadata(4800, true, isYesNo: true, mapXRoundYType: true) },
-            { 9075, new MapResultMetadata(4900, true, isYesNo: true, isLastResult: true) }
+            { 9075, new MapResultMetadata(4900, true, isYesNo: true, isLastResult: true)  },
+            { 9087, new MapResultMetadata(5000, true, isYesNo: true, isLastResult: true) }
         };
 #pragma warning restore S2386 // Mutable fields should not be "public static"
 #pragma warning restore S3887 // Mutable, non-private fields should not be "readonly"

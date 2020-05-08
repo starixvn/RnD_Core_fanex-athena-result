@@ -857,6 +857,7 @@
     <Content Include="App_Data\Result_Data\BetBuilder.xls" />
     <Content Include="App_Data\Result_Data\BadmintonDetail.xls" />
     <Content Include="App_Data\Result_Data\Badminton.xls" />
+    <Content Include="App_Data\Result_Data\Esport.xls" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>

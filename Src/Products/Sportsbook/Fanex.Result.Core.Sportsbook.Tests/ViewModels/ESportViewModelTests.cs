@@ -142,7 +142,7 @@
 
             // Assert
             Assert.AreEqual(3, moreResult.Count);
-            Assert.AreEqual(55, moreResult[1].Count);
+            Assert.AreEqual(56, moreResult[1].Count);
             Assert.AreEqual(4, moreResult[2].Count);
             Assert.AreEqual(1, moreResult[4].Count);
         }
@@ -165,7 +165,7 @@
                 "904301", "904401", "904501", "904001", "904901", "905001", "905101",
                 "904601", "905501", "905601", "905701", "905201", "905801", "90620102",
                 "906301", "906701", "906401", "905901", "907401", "906501", "906601",
-                "90680101", "90720101", "90690101", "90730101", "90680102", "90720102", "90690102", "90730102", "907501"};
+                "90680101", "90720101", "90690101", "90730101", "90680102", "90720102", "90690102", "90730102", "907501", "908701"};
 
             for (int i = 0; i < expectedOrderResultTypeList.Length; i++)
             {
@@ -186,6 +186,7 @@
         public static List<GameDetail> StubGameDetails()
             => new List<GameDetail>
             {
+                new GameDetail { MatchId = 1, ResourceId = "908701", HomeValue = "Y", SettlementStatusID = 4 },
                 new GameDetail { MatchId = 1, ResourceId = "901601", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
                 new GameDetail { MatchId = 1, ResourceId = "901701", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
                 new GameDetail { MatchId = 1, ResourceId = "901201", HomeValue = "4", AwayValue = "3", SettlementStatusID = 4 },
@@ -254,7 +255,7 @@
                 new GameDetail { MatchId = 1, ResourceId = "90680401", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
                 new GameDetail { MatchId = 1, ResourceId = "90720101", HomeValue = "A", AwayValue = "A", SettlementStatusID = 4 },
                 new GameDetail { MatchId = 1, ResourceId = "90690101", HomeValue = "1", AwayValue = "5", SettlementStatusID = 4 },
-                new GameDetail { MatchId = 1, ResourceId = "90730101", HomeValue = "Y", AwayValue = "A", SettlementStatusID = 4 },
+                new GameDetail { MatchId = 1, ResourceId = "90730101", HomeValue = "Y", AwayValue = "A", SettlementStatusID = 4 },                
             };
     }
 }

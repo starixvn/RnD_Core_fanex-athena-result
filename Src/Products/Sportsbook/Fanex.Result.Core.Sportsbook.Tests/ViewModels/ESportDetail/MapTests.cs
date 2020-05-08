@@ -45,6 +45,10 @@
         [TestCase("903702", "n", "", 1, "Refund")]
         [TestCase("90730201", "n", "", 1, "Refund")]
         [TestCase("906402", "d", "", 4, "Draw")]
+        [TestCase("908701", "y", "", 4, "Yes")]
+        [TestCase("908701", "n", "", 4, "No")]
+        [TestCase("908701", "Y", "", 4, "Yes")]
+        [TestCase("908701", "N", "", 4, "No")]
         public void GetDetailItems_SingleResult_ReturnFormatedResult(
             string resourceId,
             string homeValue,

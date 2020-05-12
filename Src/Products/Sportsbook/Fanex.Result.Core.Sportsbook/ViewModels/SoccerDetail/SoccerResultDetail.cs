@@ -9,6 +9,7 @@
     using BaseDetail;
     using DataDomain;
     using DTO;
+    using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.Utilities;
     using Resources;
     using Utilities;
@@ -70,11 +71,44 @@
 
             foreach (GameDetail detailItem in detailGameRecords)
             {
-                var detailedItemModel = CreateGameDetailItem(group.Key, detailItem);
-                detailItems.Add(detailedItemModel);
+                if (detailItem.ResourceId == GameResourceID.PenaltyShootoutComboFirstTen)
+                {
+                    detailItems = detailItems.Concat(GenerateDetailForPenaltyComboFirstTen(group.Key, detailItem)).ToSafeList();
+                }
+                else
+                {
+                    var detailedItemModel = CreateGameDetailItem(group.Key, detailItem);
+                    detailItems.Add(detailedItemModel);
+                }
             }
 
             return detailItems;
+        }
+
+        private IEnumerable<SoccerGameDetailItem> GenerateDetailForPenaltyComboFirstTen(string groupCode, GameDetail detailedItem)
+        {
+            if (detailedItem.SettlementStatusID == EventStatusID.CompletedSettlementStatusID)
+            {
+                var homeValues = detailedItem.HomeValue.ToCharArray();
+                var awayValues = detailedItem.AwayValue.ToCharArray();
+                for (var i = 0; i < Math.Max(homeValues.Length, awayValues.Length); i++)
+                {
+                    var homeValue = i < homeValues.Length ? homeValues[i].ToString() : string.Empty;
+                    var awayValue = i < awayValues.Length ? awayValues[i].ToString() : string.Empty;
+                    var item = new SoccerGameDetailItem
+                    {
+                        GroupCode = groupCode,
+                        ResourceID = detailedItem.ResourceId,
+                        GroupName = SportsbookHelper.GetResourceLang(groupCode),
+                        ResourceName = string.Format(SportsbookHelper.GetResourceLang(detailedItem.ResourceId), i + 1),
+                        SettlementStatusID = detailedItem.SettlementStatusID,
+                        HomeValue = ConvertHomeAwayToText.GetResourceGameValueByScoreMiss(homeValue),
+                        AwayValue = ConvertHomeAwayToText.GetResourceGameValueByScoreMiss(awayValue)
+                    };
+
+                    yield return item;
+                }
+            }
         }
 
         private SoccerGameDetailItem CreateGameDetailItem(string groupCode, GameDetail detailItem)

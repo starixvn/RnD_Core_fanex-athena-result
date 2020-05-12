@@ -409,12 +409,12 @@
   <data name="RS490" xml:space="preserve">
     <value>下半场第一个角球</value></data>
   <data name="RS381" xml:space="preserve">
-    <value>第 {0} 轮 - 进球/不进</value>
+    <value>第 {0} 轮 - 进球/没进</value>
   </data>
   <data name="Neither" xml:space="preserve">
     <value>两者皆不</value></data>
   <data name="RS382" xml:space="preserve">
-    <value>第 {0} 轮 - 进球/不进</value>
+    <value>第 {0} 轮 - 进球/没进</value>
   </data>
   <data name="RS385" xml:space="preserve">
     <value>第 {0} 轮 - 独赢盘 </value>
@@ -456,10 +456,10 @@
     <value>主队不需执行罚球-客队进球</value>
   </data>
   <data name="HomeNotTakenAwayMiss" xml:space="preserve">
-    <value>主队不需执行罚球-客队不进</value>
+    <value>主队不需执行罚球-客队没进</value>
   </data>
   <data name="HomeMissAwayNotTaken" xml:space="preserve">
-    <value>主队不进-客队不需执行罚球</value>
+    <value>主队没进-客队不需执行罚球 </value>
   </data>
   <data name="HomeHitAwayNotTaken" xml:space="preserve">
     <value>主队中门柱-客队不需执行罚球</value>
@@ -471,7 +471,7 @@
     <value>主队不需执行罚球-客队未中门柱</value>
   </data>
   <data name="Miss" xml:space="preserve">
-    <value>不进</value>
+    <value>没进</value>
   </data>
   <data name="Both" xml:space="preserve">
     <value>双方</value>
@@ -526,5 +526,11 @@
   </data>
   <data name="Draw" xml:space="preserve">
     <value>和局</value>
+  </data>
+  <data name="PenaltyShootoutComboFirstTen" xml:space="preserve">
+    <value>点球决战-结果组合（前十）</value>
+  </data>
+  <data name="RS376" xml:space="preserve">
+    <value>第 {0} 轮 - 进球/没进</value>
   </data>
 </root>

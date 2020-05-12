@@ -182,6 +182,7 @@
     <EmbeddedResource Include="Views\SoccerDetail\PenaltyShootoutRoundFour.cshtml" />
     <EmbeddedResource Include="Views\SoccerDetail\PenaltyShootoutRoundThree.cshtml" />
     <EmbeddedResource Include="Views\SoccerDetail\PenaltyShootoutSuddenDeath.cshtml" />
+    <EmbeddedResource Include="Views\SoccerDetail\PenaltyShootoutComboFirstTen.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Fanex.File">

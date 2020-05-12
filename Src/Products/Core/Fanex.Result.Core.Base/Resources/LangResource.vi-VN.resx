@@ -393,4 +393,7 @@
   <data name="Goal" xml:space="preserve">
     <value>Bàn Thắng</value>
   </data>
+  <data name="RS376" xml:space="preserve">
+    <value>Vòng {0} - Bàn Thắng/Hụt</value>
+  </data>
 </root>

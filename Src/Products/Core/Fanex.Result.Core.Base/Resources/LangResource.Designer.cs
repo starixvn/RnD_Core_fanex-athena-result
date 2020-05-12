@@ -1042,6 +1042,15 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Penalty Shootout Combo (First 10).
+        /// </summary>
+        public static string PenaltyShootoutComboFirstTen {
+            get {
+                return ResourceManager.GetString("PenaltyShootoutComboFirstTen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Penalty Shootout - First 10.
         /// </summary>
         public static string PenaltyShootoutFirstTen {
@@ -1488,6 +1497,15 @@ namespace Fanex.Result.Core.Base.Resources {
         public static string RS217 {
             get {
                 return ResourceManager.GetString("RS217", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Round {0} - Goal/Miss.
+        /// </summary>
+        public static string RS376 {
+            get {
+                return ResourceManager.GetString("RS376", resourceCulture);
             }
         }
         

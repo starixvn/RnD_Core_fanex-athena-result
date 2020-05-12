@@ -115,7 +115,12 @@
             { "FirstLastCorners", new List<string>() },
             { "PlayerSentOff", new List<string>()},
             { "HomeAwayPlayerSentOff", new List<string>()},
-            { "Special", new List<string>()}
+            { "Special", new List<string>()},
+            { "PenaltyShootoutComboFirstTen" , new List<string>
+                {
+                    GameResourceID.PenaltyShootoutComboFirstTen
+                }
+            }
         };
 
         private static IList<string> _fastMarkets = new List<string>

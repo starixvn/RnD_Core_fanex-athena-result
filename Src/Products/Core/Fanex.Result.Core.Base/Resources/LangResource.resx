@@ -717,4 +717,10 @@
   <data name="Goal" xml:space="preserve">
     <value>Goal</value>
   </data>
+  <data name="PenaltyShootoutComboFirstTen" xml:space="preserve">
+    <value>Penalty Shootout Combo (First 10)</value>
+  </data>
+  <data name="RS376" xml:space="preserve">
+    <value>Round {0} - Goal/Miss</value>
+  </data>
 </root>

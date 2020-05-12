@@ -183,6 +183,7 @@
     <Content Include="TestTemplate\html\SoccerDetail.html" />
     <Content Include="TestTemplate\html\SoccerDetail_AwayPenaltyShootoutOverUnderFirst10.html" />
     <Content Include="TestTemplate\html\SoccerDetail_PenaltyShootoutScoreMissSuddenDeathGroup.html" />
+    <Content Include="TestTemplate\html\SoccerDetail_PenaltyShootoutComboFirstTen.html" />
     <Content Include="TestTemplate\html\SoccerDetail_PenaltyShootoutSuddenDeath.html" />
     <Content Include="TestTemplate\html\SoccerDetail_PenaltyShootoutBothOneNeither_Completed.html" />
     <Content Include="TestTemplate\html\SoccerDetail_PenaltyShootoutBothOneNeither_RefundWithSettleDetermined.html" />

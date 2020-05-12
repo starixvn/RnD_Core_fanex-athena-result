@@ -79,6 +79,7 @@
                 case "M":
                     return LangResource.Miss;
                 case "NT":
+                case "N":
                     return LangResource.NotTaken;
                 default:
                     return ConstantValue.Hyphen;

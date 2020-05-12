@@ -491,4 +491,7 @@
   <data name="Goal" xml:space="preserve">
     <value>การทำประตู</value>
   </data>
+  <data name="RS376" xml:space="preserve">
+    <value>รอบที่ {0} - การทำประตู/พลาด</value>
+  </data>
 </root>

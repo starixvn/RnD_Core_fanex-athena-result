@@ -133,5 +133,6 @@
         public const string AwayPenaltyShootoutRound3 = "38103";
         public const string AwayPenaltyShootoutRound4 = "38104";
         public const string AwayPenaltyShootoutRound5 = "38105";
+        public const string PenaltyShootoutComboFirstTen = "376";
     }
 }

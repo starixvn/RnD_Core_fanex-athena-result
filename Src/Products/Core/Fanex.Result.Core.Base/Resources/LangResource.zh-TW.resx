@@ -604,10 +604,10 @@
     <value>點球決戰 - 前十</value>
   </data>
   <data name="RS381" xml:space="preserve">
-    <value>第 {0} 輪 - 進球/不進</value>
+    <value>第 {0} 輪 - 進球/沒進</value>
   </data>
   <data name="RS382" xml:space="preserve">
-    <value>第 {0} 輪 - 進球/不進</value>
+    <value>第 {0} 輪 - 進球/沒進</value>
   </data>
   <data name="RS385" xml:space="preserve">
     <value>第 {0} 輪 - 獨贏盤</value>
@@ -634,10 +634,10 @@
     <value>主隊不需執行罰球-客隊進球</value>
   </data>
   <data name="HomeNotTakenAwayMiss" xml:space="preserve">
-    <value>主隊不需執行罰球-客隊不進</value>
+    <value>主隊不需執行罰球-客隊沒進</value>
   </data>
   <data name="HomeMissAwayNotTaken" xml:space="preserve">
-    <value>主隊不進-客隊不需執行罰球</value>
+    <value>主隊沒進-客隊不需執行罰球</value>
   </data>
   <data name="HomeHitAwayNotTaken" xml:space="preserve">
     <value>主隊中門柱-客隊不需執行罰球</value>
@@ -649,7 +649,7 @@
     <value>主隊不需執行罰球-客隊未中門柱</value>
   </data>
   <data name="Miss" xml:space="preserve">
-    <value>不進</value>
+    <value>沒進</value>
   </data>
   <data name="Both" xml:space="preserve">
     <value>雙方</value>
@@ -713,5 +713,11 @@
   </data>
   <data name="Goal" xml:space="preserve">
     <value>進球</value>
+  </data>
+  <data name="PenaltyShootoutComboFirstTen" xml:space="preserve">
+    <value>點球決戰-結果組合（前十）</value>
+  </data>
+  <data name="RS376" xml:space="preserve">
+    <value>第 {0} 輪 - 進球/沒進</value>
   </data>
 </root>

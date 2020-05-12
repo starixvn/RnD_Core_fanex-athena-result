@@ -1818,5 +1818,27 @@
 
             Assert.AreEqual(TemplateFileUtils.RemoveEndLineSymbolHtml(expectedHtml), TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
         }
+
+        [TestCase("SSSSS", "SSSSS", "Goal", "Goal")]
+        [TestCase("MMMMM", "SSSSS", "Miss", "Goal")]
+        [TestCase("MMMMM", "NNNNN", "Miss", "Not Taken")]
+        public void DetailedResult_ResourceIsPenaltyShootoutComboFirstTen_ReturnExpectedResult(string homeValue, string awayValue, string expectedHome, string expectedAway)
+        {
+            // Arrange
+            _soccer.GameDetails = new List<GameDetail>
+            {
+                new GameDetail {ResourceId = "376", HomeValue = homeValue, AwayValue= awayValue, SettlementStatusID = EventStatusID.CompletedSettlementStatusID}
+            };
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting, null, null, _refDataHelper);
+
+            // Assert
+            var expectedHtml = TemplateFileUtils.GetHtmlContentFromTestTemplate("SoccerDetail_PenaltyShootoutComboFirstTen.html")
+                .Replace("{home}", expectedHome)
+                .Replace("{away}", expectedAway);
+
+            Assert.AreEqual(TemplateFileUtils.RemoveEndLineSymbolHtml(expectedHtml), TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
+        }
     }
 }

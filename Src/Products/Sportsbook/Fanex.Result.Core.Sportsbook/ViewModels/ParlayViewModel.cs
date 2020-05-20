@@ -36,6 +36,7 @@
             LanguageCode = setting.LanguageCode;
             _sportSetting = new ResultSetting
             {
+                IsPopupOpenFromBetList = setting.IsPopupOpenFromBetList,
                 IsPopUp = true,
                 IsParlayPopUp = true,
                 LanguageCode = LanguageCode,

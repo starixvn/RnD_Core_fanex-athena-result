@@ -12,8 +12,6 @@
 
     public class GTCasinoResultBuilder : IGTCasinoResultBuilder
     {
-        private const string InvalidTransDescErrorMessage = "tranDesc is invalid!";
-        private const string InvalidBetTypeErrorMessage = "betType is invalid!";
         private const string InvalidImagePathErrorMessage = "not found GTCasino image path configuration!";
         private readonly bool useOriginalPath;
 

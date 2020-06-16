@@ -42,19 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ResultPop.cs" />
     <Compile Include="SAGamingException.cs" />
     <Compile Include="SAGamingResultBuilder.cs" />
     <Compile Include="ISAGamingResultBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TransDesc.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj">
       <Project>{8673f024-7726-4c30-8464-5a8357f79bf0}</Project>
       <Name>Fanex.Result.Core.Base</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LiveCasinoResult\LiveCasinoResultForSA.csproj">
-      <Project>{5e335c60-b0a9-4563-8a50-59a04a814e42}</Project>
-      <Name>LiveCasinoResultForSA</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

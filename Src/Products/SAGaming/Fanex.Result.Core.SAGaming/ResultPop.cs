@@ -2,10 +2,16 @@
 using System;
 using System.Collections.Generic;
 using Fanex.Result.Core.Base;
+using Fanex.Result.Core.Base.Resources;
 using Fanex.Result.Core.Base.Utilities;
 
-namespace LiveCasinoResultForSA
+namespace Fanex.Result.Core.SAGaming
 {
+    public interface IResultPopup
+    {
+        string genResultPopHtml(string TransDesc, string GameId3rd, string slang, string bettype);
+    }
+
     public class ResultPop : IResultPopup
     {
         private static string _ImgPath = "";
@@ -43,50 +49,48 @@ namespace LiveCasinoResultForSA
                         return GetMoneyWheelLayout(TransDesc, slang, GameId3rd, bettype);
 
                     default:
-                        return "";
+                        return NoInformation();
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                throw ex;
+                return NoInformation();
             }
         }
 
         private static string GetBaccaratLayout(string sDesc, string slang, string GameId3rd, string bettype)
         {
-            string[] GameDetail = sDesc.Split('*');
-            string s1 = GetSplitValue('=', GameDetail[3].ToString());
-            string[] CardValue = s1.Replace("B;", "").Replace("P;", "").Replace("0", "").Replace(";", ",").Split(':');
-            strBankerCardValue = CardValue[0].ToString();
-            strPlayerCardValue = CardValue[1].ToString();
+            var transDesc = new TransDesc(sDesc);
+            var result = transDesc.Result.Split(':');
+            strBankerCardValue = result[0].ToString();
+            strPlayerCardValue = result[1].ToString();
             RenderTemplate();
+            var results = transDesc.Results.Split(':');
+            var strFinalLayout = GetFinalLayout(bettype);
 
-            string[] strResult = GetSplitValue('=', GameDetail[5].ToString()).Split(';');
-            string strFinalScore = "";
-            string strRefKey = "SA_BT";
-            for (int j = 0; j < strResult.Length; j++)
-            {
-                if (strFinalScore == "")
-                    strFinalScore = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
-                else
-                    strFinalScore = strFinalScore + ", " + refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
-            }
-            string strScoreValue = GameDetail[4].ToString();
-            string[] strScore = GetSplitValue('=', strScoreValue).Replace("B;", "").Replace("P;", "").Split(':');
-            string strFinalLayout = GetFinalLayout(bettype);
+            return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Player", "Banker", strPlayerImg, strBankerImg, results[1].ToString(), results[0].ToString());
+        }
 
-            return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Player", "Banker", strPlayerImg, strBankerImg, strScore[1].ToString(), strScore[0].ToString(), strFinalScore);
+        private static string GetDragonTigerLayout(string sDesc, string slang, string GameId3rd, string bettype)
+        {
+            var transDesc = new TransDesc(sDesc);
+            var result = transDesc.Result.Split(':');
+            strBankerCardValue = result[1].ToString();
+            strPlayerCardValue = result[0].ToString();
+            RenderTemplate();
+            var results = transDesc.Results.Split(':');
+            var strFinalLayout = GetFinalLayout(bettype);
+
+            return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Dragon", "Tiger", strPlayerImg, strBankerImg, results[0].ToString(), results[1].ToString());
         }
 
         private static string GetRouletteLayout(string sDesc, string slang, string GameId3rd, string bettype)
         {
-            string[] GameDetail = sDesc.Split('*');
-
-            string strImgValue = GetSplitValue('=', GameDetail[3].ToString());
-            string strImgUrl = GenImgUrl("Roulette", strImgValue);
-            string strFinalScore = "";
-            string[] strResult = GetSplitValue('=', GameDetail[5].ToString()).Split(';');
-            string strRefKey = "SA_RT";
+            var transDesc = new TransDesc(sDesc);
+            var strImgUrl = GenImgUrl("Roulette", transDesc.Result);
+            var strFinalScore = "";
+            var strResult = transDesc.WinResult.Split(';');
+            var strRefKey = "SA_RT";
             for (int j = 0; j < strResult.Length; j++)
             {
                 if (j == 0)
@@ -94,20 +98,18 @@ namespace LiveCasinoResultForSA
                 else
                     strFinalScore += ", " + refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
             }
-            string strFinalLayout = GetFinalLayout(bettype);
+            var strFinalLayout = GetFinalLayout(bettype);
 
             return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Results", strImgUrl, strFinalScore);
         }
 
         private static string GetSicBoLayout(string sDesc, string slang, string GameId3rd, string bettype)
         {
-            string[] GameDetail = sDesc.Split('*');
-
-            string strImgValue = GetSplitValue('=', GameDetail[3].ToString());
-            string strImgUrl = GenImgUrl("Sicbo", strImgValue);
-            string strFinalScore = "";
-            string[] strResult = GetSplitValue('=', GameDetail[5].ToString()).Split(';');
-            string strRefKey = "SA_SB";
+            var transDesc = new TransDesc(sDesc);
+            var strImgUrl = GenImgUrl("Sicbo", transDesc.Result);
+            var strFinalScore = "";
+            var strResult = transDesc.WinResult.Split(';');
+            var strRefKey = "SA_SB";
             for (int j = 0; j < strResult.Length; j++)
             {
                 if (j == 0)
@@ -115,39 +117,20 @@ namespace LiveCasinoResultForSA
                 else
                     strFinalScore += ", " + refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
             }
-            string strFinalLayout = GetFinalLayout(bettype);
+            var strFinalLayout = GetFinalLayout(bettype);
 
             return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Results", strImgUrl, strFinalScore);
         }
 
-        private static string GetDragonTigerLayout(string sDesc, string slang, string GameId3rd, string bettype)
-        {
-            string[] GameDetail = sDesc.Split('*');
-            string s1 = GetSplitValue('=', GameDetail[3].ToString());
-            string[] CardValue = s1.Replace("D;", "").Replace("T;", "").Replace("0", "").Split(':');
-            strBankerCardValue = CardValue[1].ToString();
-            strPlayerCardValue = CardValue[0].ToString();
-            RenderTemplate();
-
-            string strRefKey = "SA_DT";
-            string strFinalScore = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, GetSplitValue('=', GameDetail[5].ToString()), slang, "");
-            string strScoreValue = GameDetail[4].ToString();
-            string[] strScore = GetSplitValue('=', strScoreValue).Replace("D;", "").Replace("T;", "").Split(':');
-            string strFinalLayout = GetFinalLayout(bettype);
-
-            return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Dragon", "Tiger", strPlayerImg, strBankerImg, strScore[0].ToString(), strScore[1].ToString(), strFinalScore);
-        }
+        
 
         private static string GetMoneyWheelLayout(string sDesc, string slang, string GameId3rd, string bettype)
         {
-            string[] GameDetail = sDesc.Split('*');
-            string s1 = GetSplitValue('=', GameDetail[2].ToString());
-            var strImgValue = s1.Replace("M;", "").Replace("S;", "");
-            string strImgUrl = GenImgUrl("MoneyWheel", strImgValue);
-
-            string strRefKey = "SA_MW";
-            string[] strResult = GetSplitValue('=', GameDetail[4].ToString()).Split(';');
-            var strFinalScore = string.Empty;
+            var transDesc = new TransDesc(sDesc);
+            var strImgUrl = GenImgUrl("MoneyWheel", transDesc.Result);
+            var strFinalScore = "";
+            var strResult = transDesc.WinResult.Split(';');
+            var strRefKey = "SA_MW";
             for (int j = 0; j < strResult.Length; j++)
             {
                 if (j == 0)
@@ -155,21 +138,18 @@ namespace LiveCasinoResultForSA
                 else
                     strFinalScore += ", " + refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
             }
+            var strFinalLayout = GetFinalLayout(bettype);
 
-            string strFinalLayout = GetFinalLayout(bettype);
-
-            return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Result", strImgUrl, strFinalScore);
+            return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Results", strImgUrl, strFinalScore);
         }
 
         private static string GetFanTanLayout(string sDesc, string slang, string GameId3rd, string bettype)
         {
-            string[] GameDetail = sDesc.Split('*');
-            string s1 = GetSplitValue('=', GameDetail[2].ToString());
-            string strImgUrl = GenImgUrl("FanTan", s1);
-
-            string strRefKey = "SA_FT";
-            string[] strResult = GetSplitValue('=', GameDetail[4].ToString()).Split(';');
-            var strFinalScore = string.Empty;
+            var transDesc = new TransDesc(sDesc);
+            var strImgUrl = GenImgUrl("FanTan", transDesc.Result);
+            var strFinalScore = "";
+            var strResult = transDesc.WinResult.Split(';');
+            var strRefKey = "SA_FT";
             for (int j = 0; j < strResult.Length; j++)
             {
                 if (j == 0)
@@ -177,10 +157,9 @@ namespace LiveCasinoResultForSA
                 else
                     strFinalScore += ", " + refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
             }
+            var strFinalLayout = GetFinalLayout(bettype);
 
-            string strFinalLayout = GetFinalLayout(bettype);
-
-            return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Result", strImgUrl, strFinalScore);
+            return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Results", strImgUrl, strFinalScore);
         }
 
         private static string GetSplitValue(char strSymbol, string strValue)
@@ -290,7 +269,6 @@ namespace LiveCasinoResultForSA
                     strFinalLayout += "<tr align='center'><th>{1}</th><th>{2}</th></tr>";
                     strFinalLayout += "<tr align='center' class='bgcpe'><td width='50%'>{3}</td><td width='50%'>{4}</td></tr>";
                     strFinalLayout += "<tr align='center'> <td style='height: 24px;'>{5}</td> <td>{6}</td></tr>";
-                    strFinalLayout += "<tr align='center'><td colspan='2' style='height: 24px; vertical-align:bottom;'>{7}</td></tr>";
                     strFinalLayout += "</tbody></table></div>";
                     break;
 
@@ -316,6 +294,15 @@ namespace LiveCasinoResultForSA
                     strFinalLayout += "</tbody></table></div>";
                     break;
             }
+
+            return strFinalLayout;
+        }
+
+        private static string NoInformation()
+        {
+            var strFinalLayout = "<div class='popWTableArea'><table width='100%' cellpadding='0' cellspacing='0' border='0' class='oddsTable info'>";
+            strFinalLayout += "<tbody>";
+            strFinalLayout += $"<tr align='center'><td class='noinformation'>{LangResource.NoInfo}</td></tr>";
 
             return strFinalLayout;
         }

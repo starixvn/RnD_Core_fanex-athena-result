@@ -54,7 +54,9 @@
 
                 if (ValidateResponse(responseData, requestData))
                 {
-                    return responseData.Result.Url;
+                    return !string.IsNullOrWhiteSpace(responseData.Result.Url) ?
+                        responseData.Result.Url.Replace("http:", string.Empty) :
+                        string.Empty;
                 }
             }
 
@@ -107,12 +109,7 @@
 
         private bool ValidateResponse(Response responseData, Request requestData)
         {
-            DateTime.TryParse(requestData.TimeStamp, out DateTime requestDateTime);
-            DateTime.TryParse(responseData.TimeStamp, out DateTime responseDateTime);
-            var isEqualTimeStamp = requestDateTime.Equals(responseDateTime);
-
-            if (!isEqualTimeStamp ||
-                responseData.Result.Seq != requestData.Call.Seq ||
+            if (responseData.Result.Seq != requestData.Call.Seq ||
                 responseData.Result.ErrorCode != "0")
             {
                 if ((DebugMode)_configs.DebugMode == DebugMode.None)

@@ -62,13 +62,13 @@ namespace Fanex.Result.Core.SAGaming
         {
             var transDesc = new TransDesc(sDesc);
             var result = transDesc.Result.Split(':');
-            strBankerCardValue = result[0].ToString();
-            strPlayerCardValue = result[1].ToString();
+            strBankerCardValue = result[1].ToString();
+            strPlayerCardValue = result[0].ToString();
             RenderTemplate();
             var results = transDesc.Results.Split(':');
             var strFinalLayout = GetFinalLayout(bettype);
 
-            return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Player", "Banker", strPlayerImg, strBankerImg, results[1].ToString(), results[0].ToString());
+            return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Player", "Banker", strPlayerImg, strBankerImg, results[0].ToString(), results[1].ToString());
         }
 
         private static string GetDragonTigerLayout(string sDesc, string slang, string GameId3rd, string bettype)

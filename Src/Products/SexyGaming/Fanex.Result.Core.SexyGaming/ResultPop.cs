@@ -61,18 +61,6 @@ namespace Fanex.Result.Core.SexyGaming
             strPlayerCardValue = CardValue[1].ToString();
             RenderTemplate();
 
-            //string[] strResult = GetSplitValue('=', GameDetail[7].ToString()).Split(';');
-            //string strFinalScore = "";
-            //string strRefKey = "SC_BT";
-            //for (int j = 0; j < strResult.Length; j++)
-            //{
-            //    if (strFinalScore == "")
-            //        strFinalScore = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
-            //    else
-            //        strFinalScore = strFinalScore + ", " + refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
-            //}
-            //string strScoreValue = GameDetail[6].ToString();
-            //string[] strScore = GetSplitValue('=', strScoreValue).Replace("B;", "").Replace("P;", "").Split(':');
             string strFinalLayout = GetFinalLayout(bettype);
 
             return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Player", "Banker", strPlayerImg, strBankerImg);
@@ -84,16 +72,6 @@ namespace Fanex.Result.Core.SexyGaming
 
             string strImgValue = GetSplitValue('=', GameDetail[3].ToString());
             string strImgUrl = GenImgUrl("Roulette", strImgValue);
-            //string strFinalScore = "";
-            // string[] strResult = GetSplitValue('=', GameDetail[7].ToString()).Split(';');
-            //string strRefKey = "SC_BT";
-            //for (int j = 0; j < strResult.Length; j++)
-            //{
-            //    if (j == 0)
-            //        strFinalScore += refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
-            //    else
-            //        strFinalScore += ", " + refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
-            //}
             string strFinalLayout = GetFinalLayout(bettype);
 
             return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Results", strImgUrl);
@@ -105,16 +83,6 @@ namespace Fanex.Result.Core.SexyGaming
 
             string strImgValue = GetSplitValue('=', GameDetail[3].ToString());
             string strImgUrl = GenImgUrl("Sicbo", strImgValue);
-            //string strFinalScore = "";
-            //string[] strResult = GetSplitValue('=', GameDetail[7].ToString()).Split(';');
-            //string strRefKey = "SC_BT";
-            //for (int j = 0; j < strResult.Length; j++)
-            //{
-            //    if (j == 0)
-            //        strFinalScore += refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
-            //    else
-            //        strFinalScore += ", " + refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
-            //}
             string strFinalLayout = GetFinalLayout(bettype);
 
             return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Results", strImgUrl);
@@ -129,10 +97,6 @@ namespace Fanex.Result.Core.SexyGaming
             strPlayerCardValue = CardValue[0].ToString();
             RenderTemplate();
 
-            //string strRefKey = "SC_BT";
-            //string strFinalScore = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, GetSplitValue('=', GameDetail[7].ToString()), slang, "");
-            //string strScoreValue = GameDetail[6].ToString();
-            //string[] strScore = GetSplitValue('=', strScoreValue).Replace("D;", "").Replace("T;", "").Split(':');
             string strFinalLayout = GetFinalLayout(bettype);
 
             return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Dragon", "Tiger", strPlayerImg, strBankerImg);
@@ -143,21 +107,10 @@ namespace Fanex.Result.Core.SexyGaming
             string[] GameDetail = sDesc.Split('*');
 
             string strImgValue = GetSplitValue('=', GameDetail[3].ToString());
-            string[] CardValue = strImgValue.Replace("R;", "").Replace("B;", "").Replace("0", "").Split(':');
+            string[] CardValue = strImgValue.Replace("R;", "d").Replace("B;", "b").Replace("0", "").Split(':');
             var red = GenImgUrl("RedBlueDuel", CardValue[0].ToString());
             var blue = GenImgUrl("RedBlueDuel", CardValue[1].ToString());
 
-            //string strImgUrl = GenImgUrl("RedBlueDuel", strImgValue);
-            //string strFinalScore = "";
-            //string[] strResult = GetSplitValue('=', GameDetail[7].ToString()).Split(';');
-            //string strRefKey = "SC_BT";
-            //for (int j = 0; j < strResult.Length; j++)
-            //{
-            //    if (j == 0)
-            //        strFinalScore += refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
-            //    else
-            //        strFinalScore += ", " + refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
-            //}
             string strFinalLayout = GetFinalLayout(bettype);
 
             return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Red", "Blue", red, blue);

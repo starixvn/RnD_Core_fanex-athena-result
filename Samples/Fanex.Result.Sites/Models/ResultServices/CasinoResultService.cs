@@ -130,7 +130,7 @@
                     return "choice=4156*site=IBC*tableCode=71*result=5*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
 
                 case 3105:
-                    return "choice=3001*site=spondemo*tableCode=B001*state=0*result=R;d1:B;b5*results=*winResult=";
+                    return "choice=3001*site=spondemo*tableCode=B001*result=R;1:B;5*results=*winResult=";
 
                 default:
                     return "choice=1002*site=IBC*tableCode=5*result=B;SQ;S9;:P;S4;D3;*results=*winResult=*ForcedCompleted=0*ReasonCode=0";

@@ -5,7 +5,7 @@
 
 @{
     var viewModel = (RazorBinderModel)Model;
-    var colspan = viewModel.VisibleMatchCodeIDColumn ? 11 : 10;
+    var colspan = viewModel.VisibleMatchCodeIDColumn ? 12 : 11;
     var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
 
 }
@@ -22,22 +22,23 @@
                 </th>
             </tr>
         }
-        <tr class="header">
-            @if (viewModel.VisibleMatchCodeIDColumn)
-            {
-                <th class="cl-m-code">@LangResource.MatchCode/@LangResource.ID</th>
-            }
-            <th class="cl-ko-time">@LangResource.KickOffTime</th>
-            <th class="cl-match">@Raw(LangResource.Match)</th>
-            <th class="cl-s">@LangResource.Lbl1Q</th>
-            <th class="cl-s">@LangResource.Lbl2Q</th>
-            <th class="cl-s">@LangResource.Lbl3Q</th>
-            <th class="cl-s">@LangResource.Lbl4Q</th>
-            <th class="cl-s">@LangResource.LblOT</th>
-            <th class="cl-ht-score">@Raw(LangResource.HTScore)</th>
-            <th class="cl-f-score">@LangResource.FinalScore</th>
-            <th class="cl-status">@LangResource.Status</th>
-        </tr>
+            <tr class="header">
+                @if (viewModel.VisibleMatchCodeIDColumn)
+                {
+                    <th class="cl-m-code">@LangResource.MatchCode/@LangResource.ID</th>
+                }
+                <th class="cl-ko-time">@LangResource.KickOffTime</th>
+                <th class="cl-match">@Raw(LangResource.Match)</th>
+                <th class="cl-s">@LangResource.Lbl1Q</th>
+                <th class="cl-s">@LangResource.Lbl2Q</th>
+                <th class="cl-s">@LangResource.Lbl3Q</th>
+                <th class="cl-s">@LangResource.Lbl4Q</th>
+                <th class="cl-s">@LangResource.LblOT</th>
+                <th class="cl-ht-score">@Raw(LangResource.HTScore)</th>
+                <th class="cl-ht-score">@Raw(LangResource._2HScore)</th>
+                <th class="cl-f-score">@LangResource.FinalScore</th>
+                <th class="cl-status">@LangResource.Status</th>
+            </tr>
     </thead>
 }
 
@@ -88,6 +89,7 @@
                         }
                         <td class="cl-s">@item.OTHome</td>
                         <td class="cl-ht-score">@item.HTHomeScore</td>
+                        <td class="cl-ht-score">@item.SecondHaftHomeScore</td>
                         <td class="cl-f-score">@item.FinalHomeScore</td>
                         <td rowspan="2" class="cl-status @item.EventStatusBackground">
                             @item.EventStatus
@@ -113,6 +115,7 @@
                         }
                         <td class="cl-s">@item.OTAway</td>
                         <td class="cl-ht-score">@item.HTAwayScore</td>
+                        <td class="cl-ht-score">@item.SecondHaftAwayScore</td>
                         <td class="cl-f-score">@item.FinalAwayScore</td>
                     </tr>
                 }

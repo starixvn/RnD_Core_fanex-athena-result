@@ -61,6 +61,15 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 2H Score.
+        /// </summary>
+        public static string _2HScore {
+            get {
+                return ResourceManager.GetString("2HScore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Abandoned 1H.
         /// </summary>
         public static string Abandoned1h {

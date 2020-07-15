@@ -723,4 +723,7 @@
   <data name="RS376" xml:space="preserve">
     <value>Round {0} - Goal/Miss</value>
   </data>
+  <data name="2HScore" xml:space="preserve">
+    <value>2H Score</value>
+  </data>
 </root>

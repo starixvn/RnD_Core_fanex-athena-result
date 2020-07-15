@@ -117,6 +117,16 @@
             var sportBooks = SportsbookResultExcelReader
                 .CreateInstance(filePath)
                 .GetResultData();
+            if (filePath.Contains($"\\{SportType.BasketBall.ToString()}.xls"))
+            {
+                var details = SportsbookDetailResultExcelReader
+                    .CreateInstance(filePath.Replace("BasketBall", "BasketBallDetail"))
+                    .GetResultData().ToList();
+                foreach (var basketball in sportBooks)
+                {
+                    basketball.GameDetails = details.Where(i => i.MatchId == basketball.MatchId).ToList();
+                }
+            }
             if (filePath.Contains($"\\{SportType.Badminton.ToString()}.xls"))
             {
                 var details = SportsbookDetailResultExcelReader

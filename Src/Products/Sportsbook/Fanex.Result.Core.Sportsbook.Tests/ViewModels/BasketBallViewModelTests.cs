@@ -527,6 +527,46 @@
             Assert.AreEqual("-", actualValue);
         }
 
+        [TestCase("10","2","8")]
+        [TestCase("Refund","Refund","Refund")]
+        [TestCase("","","-")]
+        public void SecondHaftHomeScore_Awlays_ReturnExpectedValue(string fullScore, string haftScore, string expectedValue)
+        {
+            // Arrange
+            _resultDetail.GetDetailItems().Returns(new SafeList<BasketBallGameDetailItem>
+            {
+                new BasketBallGameDetailItem{ ResourceID = "00", HomeValue = fullScore, AwayValue = fullScore},
+                new BasketBallGameDetailItem{ ResourceID = "01", HomeValue = haftScore, AwayValue = haftScore}
+            });
+            var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
+
+            // Act
+            var actualValue = viewModel.SecondHaftHomeScore;
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestCase("10", "2", "8")]
+        [TestCase("Refund", "Refund", "Refund")]
+        [TestCase("", "", "-")]
+        public void SecondHaftAwayScore_Awlays_ReturnExpectedValue(string fullScore, string haftScore, string expectedValue)
+        {
+            // Arrange
+            _resultDetail.GetDetailItems().Returns(new SafeList<BasketBallGameDetailItem>
+            {
+                new BasketBallGameDetailItem{ ResourceID = "00", HomeValue = fullScore, AwayValue = fullScore},
+                new BasketBallGameDetailItem{ ResourceID = "01", HomeValue = haftScore, AwayValue = haftScore}
+            });
+            var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
+
+            // Act
+            var actualValue = viewModel.SecondHaftAwayScore;
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
         [Test, TestCaseSource("MoreResultResourceIdsTestCase")]
         public void VisibleDetailedLink_HasGameDetailDataAndSettingVisible_IsTrue(string resourceId)
         {

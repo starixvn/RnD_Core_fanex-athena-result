@@ -59,6 +59,10 @@
 
         public string FinalAwayScore => GetTotalScore(false, true);
 
+        public string SecondHaftHomeScore => GetSecondHaftScore(isHome: true);
+
+        public string SecondHaftAwayScore => GetSecondHaftScore(isHome: false);
+
         public override bool VisibleDetailedLink => base.VisibleDetailedLink && HasGameDetailData();
 
         public override bool VisibleGameDetail => HasGameDetailData();
@@ -108,6 +112,23 @@
 
             return isFinal ? GetScore(isHome ? SPORTBOOK.FinalHomeScore : SPORTBOOK.FinalAwayScore) :
                 GetScore(isHome ? SPORTBOOK.HtHomeScore : SPORTBOOK.HtAwayScore);
+        }
+
+        private string GetSecondHaftScore(bool isHome)
+        {
+            if (!int.TryParse(HTHomeScore, out int HHome) ||
+                !int.TryParse(HTAwayScore, out int HAway))
+            {
+                return HTHomeScore;
+            }
+
+            if (!int.TryParse(FinalHomeScore, out int FHome) ||
+                !int.TryParse(FinalAwayScore, out int FAway))
+            {
+                return FinalHomeScore;
+            }
+
+            return isHome ? (FHome - HHome).ToString() : (FAway - HAway).ToString();
         }
 
         private string GetResultFromGameDetails(string resourceId, bool isHome)

@@ -19,7 +19,8 @@
         {
             return new List<Sport>
             {
-                new Sport { Id = 1, Name = "Soccer" },                
+                new Sport { Id = 1, Name = "Soccer" },
+                new Sport { Id = 2, Name = "Basketball" },
                 new Sport { Id = 5, Name = "Tennis" },
                 new Sport { Id = 9, Name = "Badminton" },
                 new Sport { Id = 161, Name = "NumberGame" },

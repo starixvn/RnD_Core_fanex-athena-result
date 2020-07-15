@@ -7,8 +7,6 @@
 
     public class SAGamingResultBuilder : ISAGamingResultBuilder
     {
-        private const string InvalidTransDescErrorMessage = "tranDesc is invalid!";
-        private const string InvalidBetTypeErrorMessage = "betType is invalid!";
         private const string InvalidImagePathErrorMessage = "not found SAGaming image path configuration!";
         private readonly bool useOriginalPath;
 

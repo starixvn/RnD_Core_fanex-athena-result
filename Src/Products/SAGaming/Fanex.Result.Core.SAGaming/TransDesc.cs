@@ -5,6 +5,7 @@
 
     public class TransDesc
     {
+        private const int ValidLengthOfFormatTag = 2;
         private const string ResultTag = "result";
         private const string ResultsTag = "results";
         private const string WinResultTag = "winresult";
@@ -20,7 +21,7 @@
                 {
                     var keyValuePair = part.Split(new[] { '=' }, StringSplitOptions.RemoveEmptyEntries);
 
-                    if (keyValuePair.Length == 2)
+                    if (keyValuePair.Length == ValidLengthOfFormatTag)
                     {
                         list.Add(keyValuePair[0].ToLowerInvariant(), keyValuePair[1]);
                     }

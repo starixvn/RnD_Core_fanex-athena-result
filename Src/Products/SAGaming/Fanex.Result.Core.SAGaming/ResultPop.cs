@@ -88,78 +88,36 @@ namespace Fanex.Result.Core.SAGaming
         {
             var transDesc = new TransDesc(sDesc);
             var strImgUrl = GenImgUrl("Roulette", transDesc.Result);
-            var strFinalScore = "";
-            var strResult = transDesc.WinResult.Split(';');
-            var strRefKey = "SA_RT";
-            for (int j = 0; j < strResult.Length; j++)
-            {
-                if (j == 0)
-                    strFinalScore += refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
-                else
-                    strFinalScore += ", " + refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
-            }
             var strFinalLayout = GetFinalLayout(bettype);
 
-            return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Results", strImgUrl, strFinalScore);
+            return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Results", strImgUrl);
         }
 
         private static string GetSicBoLayout(string sDesc, string slang, string GameId3rd, string bettype)
         {
             var transDesc = new TransDesc(sDesc);
             var strImgUrl = GenImgUrl("Sicbo", transDesc.Result);
-            var strFinalScore = "";
-            var strResult = transDesc.WinResult.Split(';');
-            var strRefKey = "SA_SB";
-            for (int j = 0; j < strResult.Length; j++)
-            {
-                if (j == 0)
-                    strFinalScore += refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
-                else
-                    strFinalScore += ", " + refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
-            }
             var strFinalLayout = GetFinalLayout(bettype);
 
-            return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Results", strImgUrl, strFinalScore);
+            return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Results", strImgUrl);
         }
-
-        
 
         private static string GetMoneyWheelLayout(string sDesc, string slang, string GameId3rd, string bettype)
         {
             var transDesc = new TransDesc(sDesc);
             var strImgUrl = GenImgUrl("MoneyWheel", transDesc.Result);
-            var strFinalScore = "";
-            var strResult = transDesc.WinResult.Split(';');
-            var strRefKey = "SA_MW";
-            for (int j = 0; j < strResult.Length; j++)
-            {
-                if (j == 0)
-                    strFinalScore += refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
-                else
-                    strFinalScore += ", " + refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
-            }
             var strFinalLayout = GetFinalLayout(bettype);
 
-            return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Results", strImgUrl, strFinalScore);
+            return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Results", strImgUrl);
         }
 
         private static string GetFanTanLayout(string sDesc, string slang, string GameId3rd, string bettype)
         {
             var transDesc = new TransDesc(sDesc);
             var strImgUrl = GenImgUrl("FanTan", transDesc.Result);
-            var strFinalScore = "";
-            var strResult = transDesc.WinResult.Split(';');
-            var strRefKey = "SA_FT";
-            for (int j = 0; j < strResult.Length; j++)
-            {
-                if (j == 0)
-                    strFinalScore += refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
-                else
-                    strFinalScore += ", " + refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
-            }
             var strFinalLayout = GetFinalLayout(bettype);
 
-            return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Results", strImgUrl, strFinalScore);
+            return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Results", strImgUrl);
         }
 
         private static string GetSplitValue(char strSymbol, string strValue)
@@ -210,7 +168,7 @@ namespace Fanex.Result.Core.SAGaming
             else if (sMode == "Sicbo")
             {
                 skinroot_path += @"Sicbo\";
-                string[] strResult = sResult.Split(';');
+                string[] strResult = sResult.Split(',');
                 string temp = "dice-";
                 for (int j = 0; j < strResult.Length; j++)
                 {
@@ -280,7 +238,6 @@ namespace Fanex.Result.Core.SAGaming
                     strFinalLayout += "<tbody>";
                     strFinalLayout += "<tr align='center'><th>{1}</th></tr>";
                     strFinalLayout += "<tr align='center' class='bgcpe'><td>{2}</td></tr>";
-                    strFinalLayout += "<tr align='center' class='bgcpe'><td><b>{3}</b></td></tr>";
                     strFinalLayout += "</tbody></table></div>";
                     break;
 
@@ -290,7 +247,6 @@ namespace Fanex.Result.Core.SAGaming
                     strFinalLayout += "<tbody>";
                     strFinalLayout += "<tr align='center'><th>{1}</th></tr>";
                     strFinalLayout += "<tr align='center' class='bgcpe'><td>{2}</td></tr>";
-                    strFinalLayout += "<tr align='center' class='bgcpe'><td><b>{3}</b></td></tr>";
                     strFinalLayout += "</tbody></table></div>";
                     break;
             }

@@ -720,4 +720,7 @@
   <data name="RS376" xml:space="preserve">
     <value>第 {0} 輪 - 進球/沒進</value>
   </data>
+  <data name="2HScore" xml:space="preserve">
+    <value>下半場總分</value>
+  </data>
 </root>

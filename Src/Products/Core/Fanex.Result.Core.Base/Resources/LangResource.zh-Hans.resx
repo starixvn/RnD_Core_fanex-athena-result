@@ -720,4 +720,7 @@
   <data name="RS376" xml:space="preserve">
     <value>第 {0} 轮 - 进球/没进</value>
   </data>
+  <data name="2HScore" xml:space="preserve">
+    <value>下半场总分</value>
+  </data>
 </root>

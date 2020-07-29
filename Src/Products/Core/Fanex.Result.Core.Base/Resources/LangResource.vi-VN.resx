@@ -396,4 +396,7 @@
   <data name="RS376" xml:space="preserve">
     <value>Vòng {0} - Bàn Thắng/Hụt</value>
   </data>
+  <data name="2HScore" xml:space="preserve">
+    <value>Điểm Hiệp 2</value>
+  </data>
 </root>

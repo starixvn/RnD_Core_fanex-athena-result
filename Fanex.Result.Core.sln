@@ -7,6 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{
 	ProjectSection(SolutionItems) = preProject
 		SonarQube\Result.CoreCSharp.ruleset = SonarQube\Result.CoreCSharp.ruleset
 		SonarQube\SolutionBinding.sqconfig = SonarQube\SolutionBinding.sqconfig
+		SonarQube\result.core\CSharp\SonarLint.xml = SonarQube\result.core\CSharp\SonarLint.xml
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A31ED938-6BDD-4C9D-940B-47E0F5442341}"
@@ -156,6 +157,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.BBin.Tests", "Src\Products\BBin\Fanex.Result.Core.BBin.Tests\Fanex.Result.Core.BBin.Tests.csproj", "{B8D94F5F-17A8-4887-BB96-D4453717E1C6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.GTCasino.Tests", "Src\Products\GTCasino\Fanex.Result.Core.GTCasino.Tests\Fanex.Result.Core.GTCasino.Tests.csproj", "{6CF80F6A-9CA4-45DD-BFCF-5009B687D706}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SabaClub", "SabaClub", "{EA8B7953-6699-46A0-9814-C59F16BDC631}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.SabaClub", "Src\Products\SabaClub\Fanex.Result.Core.SabaClub\Fanex.Result.Core.SabaClub.csproj", "{4935C15B-06B5-4C5A-9DCD-68908AC28DFC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -355,6 +360,10 @@ Global
 		{6CF80F6A-9CA4-45DD-BFCF-5009B687D706}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CF80F6A-9CA4-45DD-BFCF-5009B687D706}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CF80F6A-9CA4-45DD-BFCF-5009B687D706}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4935C15B-06B5-4C5A-9DCD-68908AC28DFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4935C15B-06B5-4C5A-9DCD-68908AC28DFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4935C15B-06B5-4C5A-9DCD-68908AC28DFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4935C15B-06B5-4C5A-9DCD-68908AC28DFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -429,6 +438,8 @@ Global
 		{CE6304E8-CB53-4C0F-AA9B-E24337DE2926} = {03E240EE-32B3-47E7-AA6A-9EA4E2A8436D}
 		{B8D94F5F-17A8-4887-BB96-D4453717E1C6} = {FC44FC63-A987-409A-968B-C56E96A3CA67}
 		{6CF80F6A-9CA4-45DD-BFCF-5009B687D706} = {03E240EE-32B3-47E7-AA6A-9EA4E2A8436D}
+		{EA8B7953-6699-46A0-9814-C59F16BDC631} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
+		{4935C15B-06B5-4C5A-9DCD-68908AC28DFC} = {EA8B7953-6699-46A0-9814-C59F16BDC631}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		LessCompiler = ebd31f24-8f67-4e36-bd6d-1bb78a71e54b

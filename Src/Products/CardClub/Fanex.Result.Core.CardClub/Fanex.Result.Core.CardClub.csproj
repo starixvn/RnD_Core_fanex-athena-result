@@ -71,6 +71,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <AdditionalFiles Include="..\..\..\..\SonarQube\result.core\CSharp\SonarLint.xml">
+      <Link>SonarLint.xml</Link>
+    </AdditionalFiles>
     <Content Include="web.config.transform" />
     <None Include="Fanex.Result.Core.CardClub.ruleset" />
     <None Include="packages.config" />

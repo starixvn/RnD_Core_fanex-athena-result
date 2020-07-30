@@ -59,6 +59,9 @@
     <Compile Include="VoidbridgeConfigs.cs" />
   </ItemGroup>
   <ItemGroup>
+    <AdditionalFiles Include="..\..\..\..\SonarQube\result.core\CSharp\SonarLint.xml">
+      <Link>SonarLint.xml</Link>
+    </AdditionalFiles>
     <Content Include="ClientScript\voidbridge-result.js" />
   </ItemGroup>
   <ItemGroup>

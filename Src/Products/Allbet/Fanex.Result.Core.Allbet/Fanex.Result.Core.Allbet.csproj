@@ -58,6 +58,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <AdditionalFiles Include="..\..\..\..\SonarQube\result.core\CSharp\SonarLint.xml">
+      <Link>SonarLint.xml</Link>
+    </AdditionalFiles>
     <Content Include="Content\css\button.css" />
     <Content Include="Content\css\images\layout\btn_UI04.png" />
     <Content Include="Content\css\images\layout\icon_UI02.png" />

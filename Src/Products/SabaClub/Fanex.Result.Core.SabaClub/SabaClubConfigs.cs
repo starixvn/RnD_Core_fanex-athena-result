@@ -9,7 +9,6 @@
         private const string URL = "Url";
         private const string LOGIN = "Login";
         private const string PASSWORD = "Password";
-        private const string SITE_ID = "SiteId";
         private const string DEBUG_MODE = "Debug";
 
         #endregion const       

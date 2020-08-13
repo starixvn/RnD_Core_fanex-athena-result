@@ -610,6 +610,15 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 2nd Ball.
+        /// </summary>
+        public static string Lbl2ndBall {
+            get {
+                return ResourceManager.GetString("Lbl2ndBall", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 2P.
         /// </summary>
         public static string Lbl2P {
@@ -736,6 +745,15 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to FT.O/E.
+        /// </summary>
+        public static string LblFTOE {
+            get {
+                return ResourceManager.GetString("LblFTOE", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to O/E FT.
         /// </summary>
         public static string LblOEFT {
@@ -750,6 +768,15 @@ namespace Fanex.Result.Core.Base.Resources {
         public static string LblOT {
             get {
                 return ResourceManager.GetString("LblOT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3rd Ball.
+        /// </summary>
+        public static string LblThirdBall {
+            get {
+                return ResourceManager.GetString("LblThirdBall", resourceCulture);
             }
         }
         

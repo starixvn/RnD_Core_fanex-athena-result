@@ -131,7 +131,7 @@
 
                 case SportType.NumberGame:
                     return ResultEngine.HtmlParser(
-                        new NumberGameResultData().GetPopupResult(metalModel.MatchId).ToList(), setting);
+                        new NumberGameResultData().GetPopupResult(metalModel.MatchId, metalModel.GetDataFromExcel).ToList(), setting);
 
                 default:
                     if (metalModel.Bettype == MetricGaming801)

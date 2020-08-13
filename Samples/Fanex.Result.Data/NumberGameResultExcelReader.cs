@@ -43,10 +43,20 @@
         protected override NumberGame MapResultData(IRow row)
         {
             var resultData = new NumberGame();
+            var seg = row.GetCell(1).ToString();
+            var ball = row.GetCell(2).ToString();
+            if (seg == "")
+            {
+                resultData.Seg = new List<int>();
+                resultData.Ball = new List<int>();
+            }
+            else
+            {
+                resultData.Seg = new List<int> { Convert.ToInt32(seg) };
+                resultData.Ball = new List<int> { Convert.ToInt32(ball) };
+            }
 
             resultData.MatchId = Convert.ToInt32(row.GetCell(0)?.ToString());
-            resultData.Seg = new List<int> { Convert.ToInt32(row.GetCell(1)?.ToString()) };
-            resultData.Ball = new List<int> { Convert.ToInt32(row.GetCell(2)?.ToString()) };
             resultData.KickOffTime = Convert.ToDateTime(row.GetCell(4)?.ToString());
             resultData.EventDate = Convert.ToDateTime(row.GetCell(5)?.ToString());
             resultData.EventStatus = row.GetCell(6)?.ToString();

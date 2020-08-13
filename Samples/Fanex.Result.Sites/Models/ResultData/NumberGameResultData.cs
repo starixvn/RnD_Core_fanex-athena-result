@@ -6,6 +6,7 @@
     using Criteria;
     using Fanex.Result.Core.NumberGame.DTO;
     using ResultServices;
+    using System.Linq;
 
     public class NumberGameResultData
     {
@@ -33,8 +34,15 @@
             });
         }
 
-        public IEnumerable<NumberGame> GetPopupResult(int matchId)
+        public IEnumerable<NumberGame> GetPopupResult(int matchId, bool getDataFromExcel)
         {
+            if (getDataFromExcel)
+            {
+                var data = GetResultFromExcel();
+
+                return data.Where(i => i.MatchId == matchId);
+            }
+
             return resultService.GetResult(new GetNumberGamePopupResultCriteria { MatchID = matchId });
         }
 

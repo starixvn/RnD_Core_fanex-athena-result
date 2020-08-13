@@ -140,7 +140,7 @@
             var viewModel = new NumberGameViewModel(_numberGame, _setting);
 
             // Assert
-            Assert.AreEqual("03", viewModel.LastBall);
+            Assert.AreEqual("03", viewModel.ThirdBall);
         }
 
         [Test]
@@ -153,7 +153,7 @@
             var viewModel = new NumberGameViewModel(_numberGame, _setting);
 
             // Assert
-            Assert.AreEqual("-", viewModel.LastBall);
+            Assert.AreEqual("-", viewModel.ThirdBall);
         }
 
         [Test]
@@ -224,19 +224,6 @@
 
             // Assert
             Assert.AreEqual("Completed", viewModel.EventStatus);
-        }
-
-        [TestCase(0, "00")]
-        [TestCase(01, "01")]
-        [TestCase(10, "10")]
-        [TestCase(100, "100")]
-        public void ShowBall_FromBall_ReturnsExpectedFormattedTwoDigits(int ball, string expectedBall)
-        {
-            // Act
-            var formattedBall = NumberGameViewModel.ShowBall(ball);
-
-            // Assert
-            Assert.AreEqual(expectedBall, formattedBall);
-        }
+        }        
     }
 }

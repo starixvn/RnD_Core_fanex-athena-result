@@ -256,12 +256,13 @@ table.number-game {
 table.number-game .cl-result {
   width: 150px;
 }
-table.number-game .cl-warrior,
-table.number-game .cl-lblOEFT,
-table.number-game .cl-lbl1stball,
-table.number-game .cl-lastball {
-  width: 70px;
-}
+    table.number-game .cl-warrior,
+    table.number-game .cl-lblOEFT,
+    table.number-game .cl-lbl1stball,
+    table.number-game .cl-lbl2ndball,
+    table.number-game .cl-lastball {
+        width: 70px;
+    }
 table.number-game span.ball {
   padding: 5px 5px;
   background: -moz-linear-gradient(top, #f2f2f2 0%, #ffffff 25%, #ffffff 50%, #ffffff 75%, #d1cdcd);

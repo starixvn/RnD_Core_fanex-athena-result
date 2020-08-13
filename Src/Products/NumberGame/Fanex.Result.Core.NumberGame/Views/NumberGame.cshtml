@@ -1,7 +1,7 @@
 ﻿@{
     var viewModel = (Fanex.Result.Core.Base.ViewModels.RazorBinderModel)Model;
 
-    var colspan = viewModel.VisibleMatchCodeIDColumn ? 9 : 8;
+    var colspan = viewModel.VisibleMatchCodeIDColumn ? 8 : 7;
     var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
 
 }
@@ -24,38 +24,35 @@
                         </th>
                     </tr>
                 }
-                <tr class="header">
-                    @if (viewModel.VisibleMatchCodeIDColumn)
-                    {
-                        <th class="cl-m-code">
-                            @LangResource.MatchCode/@LangResource.ID
+                    <tr class="header">
+                        @if (viewModel.VisibleMatchCodeIDColumn)
+                        {
+                            <th class="cl-m-code">
+                                @LangResource.MatchCode/@LangResource.ID
+                            </th>
+                        }
+                        <th class="cl-ko-time">
+                            @LangResource.KickOffTime
                         </th>
-                    }
-                    <th class="cl-ko-time">
-                        @LangResource.KickOffTime
-                    </th>
-                    <th class="cl-match">
-                        @Raw(LangResource.Match)
-                    </th>
-                    <th class="cl-result">
-                        @Raw(LangResource.Result)
-                    </th>
-                    <th class="cl-warrior">
-                        @Raw(LangResource.Warrior)
-                    </th>
-                    <th class="cl-lblOEFT">
-                        @Raw(LangResource.LblOEFT)
-                    </th>
-                    <th class="cl-lbl1stball">
-                        @Raw(LangResource.Lbl1stBall)
-                    </th>
-                    <th class="cl-lastball">
-                        @LangResource.LastBall
-                    </th>
-                    <th class="cl-status">
-                        @LangResource.Status
-                    </th>
-                </tr>
+                        <th class="cl-match">
+                            @Raw(LangResource.Match)
+                        </th>
+                        <th class="cl-lblOEFT">
+                            @Raw(LangResource.LblFTOE)
+                        </th>
+                        <th class="cl-lbl1stball">
+                            @Raw(LangResource.Lbl1stBall)
+                        </th>
+                        <th class="cl-lbl2ndball">
+                            @Raw(LangResource.Lbl2ndBall)
+                        </th>
+                        <th class="cl-lastball">
+                            @LangResource.LblThirdBall
+                        </th>
+                        <th class="cl-status">
+                            @LangResource.Status
+                        </th>
+                    </tr>
             </thead>
         </table>
     </div>
@@ -79,38 +76,36 @@
                     </th>
                 </tr>
             }
-            <tr class="header">
-                @if (viewModel.VisibleMatchCodeIDColumn)
-                {
-                    <th class="cl-m-code">
-                        @LangResource.MatchCode/@LangResource.ID
+                <tr class="header">
+                    @if (viewModel.VisibleMatchCodeIDColumn)
+                    {
+                        <th class="cl-m-code">
+                            @LangResource.MatchCode/@LangResource.ID
+                        </th>
+                    }
+                    <th class="cl-ko-time">
+                        @LangResource.KickOffTime
                     </th>
-                }
-                <th class="cl-ko-time">
-                    @LangResource.KickOffTime
-                </th>
-                <th class="cl-match">
-                    @Raw(LangResource.Match)
-                </th>
-                <th class="cl-result">
-                    @Raw(LangResource.Result)
-                </th>
-                <th class="cl-warrior">
-                    @Raw(LangResource.Warrior)
-                </th>
-                <th class="cl-lblOEFT">
-                    @Raw(LangResource.LblOEFT)
-                </th>
-                <th class="cl-lbl1stball">
-                    @Raw(LangResource.Lbl1stBall)
-                </th>
-                <th class="cl-lastball">
-                    @LangResource.LastBall
-                </th>
-                <th class="cl-status">
-                    @LangResource.Status
-                </th>
-            </tr>
+                    <th class="cl-match">
+                        @Raw(LangResource.Match)
+                    </th>
+
+                    <th class="cl-lblOEFT">
+                        @Raw(LangResource.LblFTOE)
+                    </th>
+                    <th class="cl-lbl1stball">
+                        @Raw(LangResource.Lbl1stBall)
+                    </th>
+                    <th class="cl-lbl2ndball">
+                        @Raw(LangResource.Lbl2ndBall)
+                    </th>
+                    <th class="cl-lastball">
+                        @LangResource.LblThirdBall
+                    </th>
+                    <th class="cl-status">
+                        @LangResource.Status
+                    </th>
+                </tr>
         </thead>
     }
     <tbody>
@@ -123,13 +118,11 @@
 
                 if (!viewModel.IsPopUp)
                 {
-
                     <tr class="data">
                         <td colspan="@colspan" class="cl-league">
                             @group.Data[0].LeagueName
                         </td>
                     </tr>
-
                 }
                 foreach (var temp in group.Data)
                 {
@@ -154,23 +147,18 @@
                         <td class="cl-match">
                             @LangResource.NumberGameNo&nbsp;@item.GameNo
                         </td>
-                        <td class="cl-result">
-                            @foreach (var ball in item.Result)
-                            {
-                                <span class="ball">@ball</span>
-                            }
-                        </td>
-                        <td class="cl-warrior">
-                            @item.Warrior
-                        </td>
+
                         <td class="cl-lblOEFT">
                             @item.OEFT
                         </td>
                         <td class="cl-lbl1stball">
-                            <span class="ball">@item.FirstBall</span>
+                            <span class="lottoBall @NumberGameViewModel.GetBallColor(item.FirstBall)">@item.FirstBall</span>
+                        </td>
+                        <td class="cl-lbl2ndball">
+                            <span class="lottoBall @NumberGameViewModel.GetBallColor(item.SecondBall)">@item.SecondBall</span>
                         </td>
                         <td class="cl-lastball">
-                            <span class="ball">@item.LastBall</span>
+                            <span class="lottoBall @NumberGameViewModel.GetBallColor(item.ThirdBall)">@item.ThirdBall</span>
                         </td>
                         <td class="cl-status @item.EventStatusBackground">
                             @item.EventStatus

@@ -723,4 +723,13 @@
   <data name="2HScore" xml:space="preserve">
     <value>下半场总分</value>
   </data>
+  <data name="Lbl2ndBall" xml:space="preserve">
+    <value>第二球</value>
+  </data>
+  <data name="LblThirdBall" xml:space="preserve">
+    <value>第三球</value>
+  </data>
+  <data name="LblFTOE" xml:space="preserve">
+    <value>全场单/双</value>
+  </data>
 </root>

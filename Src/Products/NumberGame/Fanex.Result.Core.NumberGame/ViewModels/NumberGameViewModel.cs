@@ -40,26 +40,46 @@
         public string GameNo => numberGame.MatchCode;
 
         public string FirstBall
-            => numberGame.Ball.Count > 0 ? Helper.FormatTwoDigit(numberGame.Ball[0]) : ConstantValue.Hyphen;
+            => numberGame.Ball.Count > 0 ? Helper.FormatTwoDigit(numberGame.Ball[0]) : ConstantValue.DoubleZero;
 
-        public string LastBall
-            => numberGame.Ball.Count > 0 ? Helper.FormatTwoDigit(numberGame.Ball[numberGame.Ball.Count - 1]) : ConstantValue.Hyphen;
+        public string SecondBall
+        {
+            get
+            {
+                const int secondBallIndex = 2;
 
-        public string Warrior
-            => numberGame.Ball.Count > 2 ? numberGame.Ball[1] > numberGame.Ball[2]
-                       ? LangResource.Warrior2ndBall : LangResource.Warrior3rdBall :
-                       ConstantValue.Hyphen;
+                return numberGame.Ball.Count >= secondBallIndex ? Helper.FormatTwoDigit(numberGame.Ball[secondBallIndex - 1]) : ConstantValue.DoubleZero;
+            }
+        }
 
+        public string ThirdBall
+        {
+            get
+            {
+                const int thirdBallIndex = 3;
+
+                return numberGame.Ball.Count >= thirdBallIndex ? Helper.FormatTwoDigit(numberGame.Ball[thirdBallIndex - 1]) : ConstantValue.DoubleZero;
+            }
+        }
+        
         public string OEFT
-            => (uint)numberGame.Ball.Sum() % 2 == 1 ? LangResource.Odd : LangResource.Even;
-
-        public IList<string> Result
-            => numberGame.Ball.Select(i => Helper.FormatTwoDigit(i)).ToSafeList();
+            => (uint)numberGame.Ball.Sum() % 2 == 1 ? LangResource.Odd : LangResource.Even;        
 
         public override string EventStatus
             => MapEventStatus.MapEventStatusString(numberGame.EventStatus, numberGame.IsPending);
 
-        public static string ShowBall(int ball)
-            => Helper.FormatTwoDigit(ball);
+        public static string GetBallColor(string ballNumber)
+        {
+            if (ballNumber.Equals(ConstantValue.DoubleZero))
+            {
+                return "disable";
+            }
+
+            var redBall = new List<string> { "01", "03", "04", "06", "08", "10", "12", "15", "17", "20",
+                "21", "23", "26", "29", "31", "33", "34", "35", "38", "40", "42", "44", "45", "47", "49",
+                "51", "53", "56", "58", "59", "62", "65", "67", "70", "71", "73", "74" };
+
+            return redBall.Contains(ballNumber) ? "red" : "blue";
+        }
     }
 }

@@ -24,6 +24,7 @@
         public const string Void = "Void";
         public const string PenaltyLabel = "PS:";
         public const string Zero = "0";
+        public const string DoubleZero = "00";
         public const string WinFormat = "win";
 
         public const string None = "None";

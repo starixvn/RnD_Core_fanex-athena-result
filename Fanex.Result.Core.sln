@@ -176,6 +176,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WM", "WM", "{B7E7539A-7D08-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.WM", "Src\Products\WM\Fanex.Result.Core.WM\Fanex.Result.Core.WM.csproj", "{71425240-2B92-4088-94B8-FD977263AC20}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.SabaClub.Tests", "Src\Products\SabaClub\Fanex.Result.Core.SabaClub.Tests\Fanex.Result.Core.SabaClub.Tests.csproj", "{E1BCBD1F-C690-4478-994F-FF2B9714DF74}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -394,6 +396,10 @@ Global
 		{71425240-2B92-4088-94B8-FD977263AC20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71425240-2B92-4088-94B8-FD977263AC20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{71425240-2B92-4088-94B8-FD977263AC20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1BCBD1F-C690-4478-994F-FF2B9714DF74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1BCBD1F-C690-4478-994F-FF2B9714DF74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1BCBD1F-C690-4478-994F-FF2B9714DF74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1BCBD1F-C690-4478-994F-FF2B9714DF74}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -477,10 +483,11 @@ Global
 		{93B00892-1670-4FBC-8E33-F45ED57B8403} = {A9CBF946-B2C1-4861-8CBB-D5133EA191AD}
 		{B7E7539A-7D08-489A-B877-2B299870E4E0} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{71425240-2B92-4088-94B8-FD977263AC20} = {B7E7539A-7D08-489A-B877-2B299870E4E0}
+		{E1BCBD1F-C690-4478-994F-FF2B9714DF74} = {EA8B7953-6699-46A0-9814-C59F16BDC631}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		LessCompiler = ebd31f24-8f67-4e36-bd6d-1bb78a71e54b
 		SolutionGuid = {4BF11104-7EAE-4BB6-A235-1C10DB35CE8B}
+		LessCompiler = ebd31f24-8f67-4e36-bd6d-1bb78a71e54b
 	EndGlobalSection
 	GlobalSection(JSLint) = preSolution
 		SolutionConfigurationLocation = JSLintOptions.xml

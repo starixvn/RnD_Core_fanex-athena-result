@@ -6,11 +6,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{713A1FFA-D287-4E15-BD1D-423C9456C010}</ProjectGuid>
+    <ProjectGuid>{E1BCBD1F-C690-4478-994F-FF2B9714DF74}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Fanex.Result.Core.Casino.Tests</RootNamespace>
-    <AssemblyName>Fanex.Result.Core.Casino.Tests</AssemblyName>
+    <RootNamespace>Fanex.Result.Core.SabaClub.Tests</RootNamespace>
+    <AssemblyName>Fanex.Result.Core.SabaClub.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
@@ -58,7 +58,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PPResultTests.cs" />
+    <Compile Include="SabaClubResultTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -78,9 +78,9 @@
       <Project>{8673F024-7726-4C30-8464-5A8357F79BF0}</Project>
       <Name>Fanex.Result.Core.Base</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Fanex.Result.Core.Casino\Fanex.Result.Core.Casino.csproj">
-      <Project>{d8429add-faa0-4ca7-80a4-1dd99347df76}</Project>
-      <Name>Fanex.Result.Core.Casino</Name>
+    <ProjectReference Include="..\Fanex.Result.Core.SabaClub\Fanex.Result.Core.SabaClub.csproj">
+      <Project>{4935c15b-06b5-4c5a-9dcd-68908ac28dfc}</Project>
+      <Name>Fanex.Result.Core.SabaClub</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -22,5 +22,9 @@
 
         [DataMember]
         public string Language { get; set; }
+
+        [DataMember]
+        public bool Freebet { get; set; }
+
     }
 }

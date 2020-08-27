@@ -11,6 +11,7 @@
     public class SabaClubResult : ISabaClubResult
     {
         private const string DefaultLanguage = "en-US";
+        private const int FreebetSportTypeId = 150;
 
         private static readonly Dictionary<string, string> SupportedLanguages = new Dictionary<string, string>
         {
@@ -33,14 +34,14 @@
             _client = client ?? new JsonWebClient(_serializer);
         }
 
-        public string GetResult(string custId, string gameRoundId, string gameId, string siteId, string language = "en-US")
+        public string GetResult(string custId, string gameRoundId, string gameId, string siteId, int sportType, string language = "en-US")
         {
             CheckArgument(custId, "custId");
             CheckArgument(gameRoundId, "gameRoundId");
             CheckArgument(gameId, "gameId");
             CheckArgument(siteId, "siteId");
 
-            var requestData = GenerateRequestData(custId, gameRoundId, gameId, language, siteId);
+            var requestData = GenerateRequestData(custId, gameRoundId, gameId, language, siteId, sportType);
 
             if ((DebugMode)_configs.DebugMode == DebugMode.DontSendRequest)
             {
@@ -69,7 +70,7 @@
             }
         }
 
-        private Request GenerateRequestData(string custId, string gameRoundId, string gameId, string language, string siteId)
+        private Request GenerateRequestData(string custId, string gameRoundId, string gameId, string language, string siteId, int sportType)
         {
             return new Request
             {
@@ -79,11 +80,11 @@
                     Login = _configs.Login,
                     Password = _configs.Password,
                 },
-                Call = CreateCallObject(custId, gameRoundId, gameId, language, siteId)
+                Call = CreateCallObject(custId, gameRoundId, gameId, language, siteId, sportType)
             };
         }
 
-        private Call CreateCallObject(string custId, string gameRoundId, string gameId, string language, string siteId)
+        private Call CreateCallObject(string custId, string gameRoundId, string gameId, string language, string siteId, int sportType)
         {
             var languageCode = string.IsNullOrEmpty(language) || !SupportedLanguages.ContainsKey(language)
                                 ? SupportedLanguages[DefaultLanguage]
@@ -96,7 +97,8 @@
                 OBCustId = custId,
                 GameRoundId = gameRoundId,
                 GameId = gameId,
-                Language = languageCode
+                Language = languageCode,
+                Freebet = sportType == FreebetSportTypeId
             };
         }
 

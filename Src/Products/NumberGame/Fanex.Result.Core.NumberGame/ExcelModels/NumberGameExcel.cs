@@ -23,6 +23,8 @@
         private const int SecondBallColumnIndex = 5;
         private const int LastBallColumnIndex = 6;
         private const int RowHeight = 700;
+        private ICellStyle normalCellStyle;
+        private Dictionary<string, ICellStyle> cellStyles = new Dictionary<string, ICellStyle>();
         #endregion Fields
 
         public NumberGameExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
@@ -59,7 +61,10 @@
                 var firstItem = (NumberGameViewModel)item.FirstOrDefault();
 #pragma warning restore S3215 // "interface" instances should not be cast to concrete types
                 SetLeague(sheet, firstItem.LeagueId, firstItem.LeagueName, ref currentLeagueId, ref currentRow);
-
+                normalCellStyle = CreateCellStyle("white");
+                cellStyles.Add("red", CreateCellStyle("red"));
+                cellStyles.Add("blue", CreateCellStyle("blue"));
+                cellStyles.Add("disable", CreateCellStyle("disable"));
                 foreach (var exportRow in item.ToList().OfType<NumberGameViewModel>())
                 {
                     var rowMatch = sheet.CopyRow(TemplateSheet, RowContentTemplate, currentRow);
@@ -87,34 +92,43 @@
             }
         }
 
+        private ICellStyle CreateCellStyle(string ballColor)
+        {
+            var cellStyle = Workbook.CreateCellStyle();
+            cellStyle.Alignment = HorizontalAlignment.Center;
+            cellStyle.VerticalAlignment = VerticalAlignment.Top;
+            cellStyle.WrapText = true;
+            SetCellStyle(cellStyle, ballColor);
+
+            return cellStyle;
+        }
+
         private void SetRowValue(IRow row, int cellIndex, string firstBallColor, string secondBallColor, string lastBallColor, params string[] values)
         {
             foreach (var t in values)
             {
                 var cell = row.CreateCell(cellIndex);
-                var cellStyle = Workbook.CreateCellStyle();
-                cellStyle.Alignment = HorizontalAlignment.Center;
-                cellStyle.VerticalAlignment = VerticalAlignment.Top;
-                cellStyle.WrapText = true;
+                cell.CellStyle = normalCellStyle;
                 if (cellIndex == MatchColumnIndex || cellIndex == StatusColumnIndex)
                 {
-                    cellStyle.Alignment = HorizontalAlignment.Left;
+                    cell.CellStyle.Alignment = HorizontalAlignment.Left;
                 }
 
                 if (cellIndex == FirstBallColumnIndex)
                 {
-                    SetCellStyle(cellStyle, firstBallColor);
-                }
-                if (cellIndex == SecondBallColumnIndex)
-                {
-                    SetCellStyle(cellStyle, secondBallColor);
-                }
-                if (cellIndex == LastBallColumnIndex)
-                {
-                    SetCellStyle(cellStyle, lastBallColor);
+                    cell.CellStyle = cellStyles[firstBallColor];
                 }
 
-                cell.CellStyle = cellStyle;
+                if (cellIndex == SecondBallColumnIndex)
+                {
+                    cell.CellStyle = cellStyles[secondBallColor];
+                }
+
+                if (cellIndex == LastBallColumnIndex)
+                {
+                    cell.CellStyle = cellStyles[lastBallColor];
+                }
+
                 cell.SetCellValue(t);
                 {
                     cellIndex++;
@@ -123,23 +137,28 @@
         }
 
         private static void SetCellStyle(ICellStyle cellStyle, string color)
-        {            
+        {
             cellStyle.FillPattern = FillPattern.SolidForeground;
             if (color == "blue")
             {
                 cellStyle.FillBackgroundColor = HSSFColor.LightBlue.Index;
                 cellStyle.FillForegroundColor = HSSFColor.LightBlue.Index;
             }
-            else if(color == "red")
+            if (color == "red")
             {
                 cellStyle.FillForegroundColor = HSSFColor.Red.Index;
                 cellStyle.FillBackgroundColor = HSSFColor.Red.Index;
             }
 
-            else
+            if (color == "disable")
             {
                 cellStyle.FillForegroundColor = HSSFColor.Grey25Percent.Index;
                 cellStyle.FillBackgroundColor = HSSFColor.Grey25Percent.Index;
+            }
+            if (color == "white")
+            {
+                cellStyle.FillForegroundColor = HSSFColor.White.Index;
+                cellStyle.FillBackgroundColor = HSSFColor.White.Index;
             }
         }
     }

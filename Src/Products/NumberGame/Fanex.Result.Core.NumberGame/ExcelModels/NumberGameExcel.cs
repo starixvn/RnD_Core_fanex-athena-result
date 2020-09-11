@@ -24,7 +24,7 @@
         private const int LastBallColumnIndex = 6;
         private const int RowHeight = 700;
         private ICellStyle normalCellStyle;
-        private Dictionary<string, ICellStyle> cellStyles = new Dictionary<string, ICellStyle>();
+        private readonly Dictionary<string, ICellStyle> cellStyles = new Dictionary<string, ICellStyle>();
         #endregion Fields
 
         public NumberGameExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)

@@ -118,7 +118,7 @@
         }
 
         [Test]
-        public void FirstBall_BallHasNoData_GetHyphen()
+        public void FirstBall_BallHasNoData_Get00()
         {
             // Arrange
             _numberGame.Ball = new List<int> { };
@@ -127,7 +127,7 @@
             var viewModel = new NumberGameViewModel(_numberGame, _setting);
 
             // Assert
-            Assert.AreEqual("-", viewModel.FirstBall);
+            Assert.AreEqual("00", viewModel.FirstBall);
         }
 
         [Test]
@@ -144,7 +144,7 @@
         }
 
         [Test]
-        public void LastBall_BallHasNoData_GetHyphen()
+        public void LastBall_BallHasNoData_Get00()
         {
             // Arrange
             _numberGame.Ball = new List<int> { };
@@ -153,35 +153,8 @@
             var viewModel = new NumberGameViewModel(_numberGame, _setting);
 
             // Assert
-            Assert.AreEqual("-", viewModel.ThirdBall);
-        }
-
-        [Test]
-        public void Warrior_BallHasNoData_GetHyphen()
-        {
-            // Arrange
-            _numberGame.Ball = new List<int> { };
-
-            // Act
-            var viewModel = new NumberGameViewModel(_numberGame, _setting);
-
-            // Assert
-            Assert.AreEqual("-", viewModel.Warrior);
-        }
-
-        [TestCase(2, 1, "2nd ball win")]
-        [TestCase(1, 2, "3rd ball win")]
-        public void Warrior_BallHasValidData_WithBallValue_GetExpectedResult(int secondBall, int thirdBall, string expectedResult)
-        {
-            // Arrange
-            _numberGame.Ball = new List<int> { 1, secondBall, thirdBall };
-
-            // Act
-            var viewModel = new NumberGameViewModel(_numberGame, _setting);
-
-            // Assert
-            Assert.AreEqual(expectedResult, viewModel.Warrior);
-        }
+            Assert.AreEqual("00", viewModel.ThirdBall);
+        }  
 
         [TestCase(1, 2, 1, "Even")]
         [TestCase(2, 1, 2, "Odd")]
@@ -207,9 +180,9 @@
             var viewModel = new NumberGameViewModel(_numberGame, _setting);
 
             // Assert
-            Assert.AreEqual("01", viewModel.Result[0]);
-            Assert.AreEqual("02", viewModel.Result[1]);
-            Assert.AreEqual("03", viewModel.Result[2]);
+            Assert.AreEqual("01", viewModel.FirstBall);
+            Assert.AreEqual("02", viewModel.SecondBall);
+            Assert.AreEqual("03", viewModel.ThirdBall);
         }
 
         [Test]

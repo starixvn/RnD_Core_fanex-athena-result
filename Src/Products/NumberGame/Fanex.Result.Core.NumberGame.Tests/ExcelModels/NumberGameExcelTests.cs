@@ -34,7 +34,7 @@
             var excelViewModel = new NumberGameExcel(string.Empty, _resultSetting, _resultData.ToList());
 
             // Assert
-            Assert.AreEqual(9, excelViewModel.ColumnTemplateCount);
+            Assert.AreEqual(8, excelViewModel.ColumnTemplateCount);
         }
 
         [Test]
@@ -44,7 +44,7 @@
             var excelViewModel = new NumberGameExcel(string.Empty, _resultSetting, _resultData.ToList());
 
             // Assert
-            Assert.AreEqual(8, excelViewModel.ColumnStatus);
+            Assert.AreEqual(7, excelViewModel.ColumnStatus);
         }
 
         [Test]
@@ -71,12 +71,11 @@
             Assert.AreEqual("Match Code/ID", actualHeaderRow.Cells[0].StringCellValue);
             Assert.AreEqual("Kick Off. Time", actualHeaderRow.Cells[1].StringCellValue);
             Assert.AreEqual("Match", actualHeaderRow.Cells[2].StringCellValue);
-            Assert.AreEqual("Results", actualHeaderRow.Cells[3].StringCellValue);
-            Assert.AreEqual("Warrior", actualHeaderRow.Cells[4].StringCellValue);
-            Assert.AreEqual("O/E FT", actualHeaderRow.Cells[5].StringCellValue);
-            Assert.AreEqual("1st Ball", actualHeaderRow.Cells[6].StringCellValue);
-            Assert.AreEqual("Last Ball", actualHeaderRow.Cells[7].StringCellValue);
-            Assert.AreEqual("Status", actualHeaderRow.Cells[8].StringCellValue);
+            Assert.AreEqual("FT.O/E", actualHeaderRow.Cells[3].StringCellValue);
+            Assert.AreEqual("1st Ball", actualHeaderRow.Cells[4].StringCellValue);
+            Assert.AreEqual("2nd Ball", actualHeaderRow.Cells[5].StringCellValue);
+            Assert.AreEqual("3rd Ball", actualHeaderRow.Cells[6].StringCellValue);
+            Assert.AreEqual("Status", actualHeaderRow.Cells[7].StringCellValue);
         }
 
         [Test]
@@ -105,12 +104,11 @@
             Assert.AreEqual("1231\n1111", actualDataRow.Cells[0].StringCellValue);
             Assert.AreEqual("01/01/2017\n12:00:00 AM", actualDataRow.Cells[1].StringCellValue);
             Assert.AreEqual("Number Game No 1231", actualDataRow.Cells[2].StringCellValue);
-            Assert.AreEqual("01-02-03", actualDataRow.Cells[3].StringCellValue);
-            Assert.AreEqual("3rd ball win", actualDataRow.Cells[4].StringCellValue);
-            Assert.AreEqual("Even", actualDataRow.Cells[5].StringCellValue);
-            Assert.AreEqual("01", actualDataRow.Cells[6].StringCellValue);
-            Assert.AreEqual("03", actualDataRow.Cells[7].StringCellValue);
-            Assert.AreEqual("Completed", actualDataRow.Cells[8].StringCellValue);
+            Assert.AreEqual("Even", actualDataRow.Cells[3].StringCellValue);
+            Assert.AreEqual("01", actualDataRow.Cells[4].StringCellValue);
+            Assert.AreEqual("02", actualDataRow.Cells[5].StringCellValue);
+            Assert.AreEqual("03", actualDataRow.Cells[6].StringCellValue);
+            Assert.AreEqual("Completed", actualDataRow.Cells[7].StringCellValue);
         }
     }
 }

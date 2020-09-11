@@ -5,7 +5,6 @@
     using System.Linq;
     using Base;
     using Base.DataDomain;
-    using Base.Extension;
     using Base.Resources;
     using Base.Utilities;
     using Base.ViewModels;

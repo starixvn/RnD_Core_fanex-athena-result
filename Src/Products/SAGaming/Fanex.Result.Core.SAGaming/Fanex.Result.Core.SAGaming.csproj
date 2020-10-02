@@ -47,7 +47,9 @@
     <Compile Include="SAGamingResultBuilder.cs" />
     <Compile Include="ISAGamingResultBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TransDesc.cs" />
+    <Compile Include="TransDesc.cs" >
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj">

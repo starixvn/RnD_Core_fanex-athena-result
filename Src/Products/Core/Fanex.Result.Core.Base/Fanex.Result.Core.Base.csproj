@@ -120,6 +120,7 @@
     <Compile Include="Utilities\IRefDataHelper.cs" />
     <Compile Include="Utilities\Serializer.cs" />
     <Compile Include="Utilities\SimpleJson.cs" />
+    <Compile Include="Utilities\TransDesc.cs" />
     <Compile Include="Utilities\WebClient.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\GroupData.cs" />

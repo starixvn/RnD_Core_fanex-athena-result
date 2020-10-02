@@ -48,6 +48,35 @@
             return result;
         }
 
+        public static string GetWMTransDesc(int betType)
+        {
+            switch (betType)
+            {
+                case 3402:
+                    return "choice=11001*comms=0*site=IBC*tableCode=31*state=0*result=D;D6:T;DK*results=*winResult=*ForcedCompleted=0*ReasonCode=0*enterType=0";
+                case 3403:
+                    return "choice=12151*comms=0*site=IBC*tableCode=1*state=0*result=3*results=*winResult=*ForcedCompleted=0*ReasonCode=0*enterType=0";
+                case 3404:
+                    return "choice=13004*comms=0*site=IBC*tableCode=1*state=0*result=5;5;2*results=*winResult=*ForcedCompleted=0*ReasonCode=0*enterType=0";
+                case 3407:
+                    return "choice=16009*comms=0*site=IBC*tableCode=1*state=0*result=1*results=*winResult=*ForcedCompleted=0*ReasonCode=0*enterType=0";
+                case 3408:
+                    return "choice=17008*comms=0*site=IBC*tableCode=1*state=0*result=W;W;W;R*results=*winResult=*ForcedCompleted=0*ReasonCode=0*enterType=0";
+                case 3409:
+                    return "choice=18005*comms=0*site=IBC*tableCode=1*state=0*result=6;6;4*results=*winResult=*ForcedCompleted=0*ReasonCode=0*enterType=0";
+                case 3410:
+                    return "site=spondemo*tableCode=B001*state=0*result=B;S6;H2:P1;D10;D5:P2;D2;D1:P3;D3;D4*results=B;8:P;5*winResult=2;244";
+                case 3406:
+                    return "choice=15002*comms=0*site=IBC*tableCode=1*state=0*result=B;DQ;C8;D2:P1;H10;C3;CQ:P2;SQ;CK;D9:P3;HJ;HA;H6*results=*winResult=*ForcedCompleted=0*ReasonCode=0*enterType=0";
+                case 3405:
+                    return "choice=14002*comms=0*site=IBC*tableCode=31*state=0*result=B;S8;DA;SA;DQ;C6:P1;C4;S6;C2;H5;C7:P2;H9;S5;S9;D4;CK:P3;DJ;D10;SQ;H8;HJ*results=*winResult=*ForcedCompleted=0*ReasonCode=0*enterType=0";
+                case 3411:
+                    return "choice=20008*comms=0*site=IBC*tableCode=1*state=0*result=B;7;2:P1;4;6:P2;4;8:P3;2;W*results=*winResult=*ForcedCompleted=0*ReasonCode=0*enterType=0";
+                default:
+                    return "choice=10002*comms=0*site=IBC*tableCode=502*state=0*result=B;D3;SQ;H8:P;CK;HQ;H7*results=*winResult=*ForcedCompleted=0*ReasonCode=0*enterType=0";
+            }
+        }
+
         public static string GetSAGamingTransDesc(int betType)
         {
             switch (betType)

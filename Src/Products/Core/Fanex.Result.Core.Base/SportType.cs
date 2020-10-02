@@ -272,5 +272,8 @@
 
         [StringValue("GTCasino")]
         GTCasino = 242,
+
+        [StringValue("WM")]
+        WM = 233,
     }
 }

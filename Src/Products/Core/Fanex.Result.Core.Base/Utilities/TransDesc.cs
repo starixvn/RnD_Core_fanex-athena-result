@@ -1,0 +1,37 @@
+﻿namespace Fanex.Result.Core.Base.Utilities
+{
+    using System;
+    using System.Collections.Generic;
+
+    public class TransDesc
+    {
+        private const int ValidLengthOfFormatTag = 2;
+        private const string ResultTag = "result";
+        private const string ResultsTag = "results";
+        private const string WinResultTag = "winresult";
+
+        private readonly Dictionary<string, string> list = new Dictionary<string, string>();
+
+        public TransDesc(string transDesc)
+        {
+            if (!string.IsNullOrEmpty(transDesc))
+            {
+                var splittedTransDescParts = transDesc.Split(new[] { '*' }, StringSplitOptions.RemoveEmptyEntries);
+                foreach (var part in splittedTransDescParts)
+                {
+                    var keyValuePair = part.Split(new[] { '=' }, StringSplitOptions.RemoveEmptyEntries);
+
+                    if (keyValuePair.Length == ValidLengthOfFormatTag)
+                    {
+                        list.Add(keyValuePair[0].ToLowerInvariant(), keyValuePair[1]);
+                    }
+                }
+            }
+        }
+        public string Result => list.ContainsKey(ResultTag) ? list[ResultTag] : string.Empty;
+
+        public string Results => list.ContainsKey(ResultsTag) ? list[ResultsTag] : string.Empty;
+
+        public string WinResult => list.ContainsKey(WinResultTag) ? list[WinResultTag] : string.Empty;
+    }
+}

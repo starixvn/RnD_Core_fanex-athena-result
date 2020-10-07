@@ -401,5 +401,14 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
                 return ResourceManager.GetString("Semifinal2", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Until.
+        /// </summary>
+        public static string Until {
+            get {
+                return ResourceManager.GetString("Until", resourceCulture);
+            }
+        }
     }
 }

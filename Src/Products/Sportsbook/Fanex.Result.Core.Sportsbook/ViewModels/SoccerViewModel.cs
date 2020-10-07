@@ -54,14 +54,14 @@
             IResultDetail<SoccerGameDetailItem> fastMarketResultDetail,
             IRefDataHelper refDataHelper)
             : base(soccer, setting, refDataHelper)
-        {
-            IsShowLiveScore = DetermineShowingLiveScore(setting.IsParlayPopUp, setting.IsPopUp);
+        {            
             PenaltyMatchDetail = ExistMatchCode(PenaltyHandicapCode) ?
                 PenaltyHandicapName :
                 ExistMatchCode(PenaltyOverUnderCode) ? PenaltyOverUnderName : string.Empty;
             _resultDetail = resultDetail ?? new SoccerResultDetail(soccer, setting);
             _fastMarketResultDetail = fastMarketResultDetail ?? new FastMarketResultDetail(soccer, setting);
             betBuilderViewModel = new BetBuilderResultViewModel(soccer, setting, refDataHelper);
+            IsShowLiveScore = DetermineShowingLiveScore(setting.IsParlayPopUp, setting.IsPopUp);
         }
 
         public bool IsShowLiveScore { get; }
@@ -209,7 +209,19 @@
             if (!isParlayPopup && isPopUp)
             {
                 return (BetTypeConstants.InstantSettlementBetTypesSupportFT.Any(i => i == SPORTBOOK.Bettype) && !SPORTBOOK.Calculate) ||
-                    (BetTypeConstants.InstantSettlementBetTypesSupportHT.Any(i => i == SPORTBOOK.Bettype) && !SPORTBOOK.IsHTCal);
+                    (BetTypeConstants.InstantSettlementBetTypesSupportHT.Any(i => i == SPORTBOOK.Bettype) && !SPORTBOOK.IsHTCal) ||
+                    IsShowLiveScoreForFastMarket();
+            }
+
+            return false;
+        }
+
+        public bool IsShowLiveScoreForFastMarket()
+        {
+            var timeMachineOverUnderTime = SPORTBOOK.GameDetails.Any(i => i.ResourceId == GameResourceID.TimeMachineOverUnderStatus);
+            if (timeMachineOverUnderTime)
+            {
+                return !_fastMarketResultDetail.GetDetailItems().Any();
             }
 
             return false;

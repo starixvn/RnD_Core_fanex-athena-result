@@ -84,6 +84,9 @@
 
         public const string WhichCombinationFirstFiveMinutes = "22701";
 
+        public const string TimeMachineOverUnderStatus = "22800";
+        public const string TimeMachineOverUnderGoal = "22801";
+
         public const string CornersRace = "^486\\d{2}$";
 
         public const string FirstHaftCornerRace = "^487\\d{2}$";

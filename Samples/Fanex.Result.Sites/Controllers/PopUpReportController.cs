@@ -141,12 +141,15 @@
                     }
 
                     var data = new SportsbookResultData().GetPopupResult(sportType, licenseeId, userId, metalModel);
-                   
+
                     if (metalModel.GetDataFromExcel && metalModel.SportType != (int)SportType.Badminton)
                     {
                         data.ToList()
-                            .ForEach(x => x.GameDetails
-                                = x.GameDetails.Where(d => d.ResourceId.StartsWith(metalModel.Bettype.ToString()) || d.ResourceId.Contains("CNT")).ToList());
+                            .ForEach(x =>
+                            {
+                                x.GameDetails = x.GameDetails.Where(d => d.ResourceId.StartsWith(metalModel.Bettype.ToString()) || d.ResourceId.Contains("CNT")).ToList();
+                                x.BetID = metalModel.BetId.ToString();
+                            });
                     }
 
                     return ResultEngine.HtmlParser(data.ToList(), setting);

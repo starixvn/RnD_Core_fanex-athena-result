@@ -25,6 +25,9 @@
         {
             _refDataHelper = Substitute.For<IRefDataHelper>();
             _refDataHelper.GetBetTypeNameById(Arg.Any<string>(), "en-US").Returns("bettype");
+            _refDataHelper.GetFastMarketResult(Arg.Any<string>(), "en-US").Returns("Fast Market Result");
+            _refDataHelper.GetFastMarket225Result(Arg.Any<string>(), "en-US").Returns("Fast Market 225 Result");
+
             _sportsbookHelper = Substitute.For<ISportsbookHelperWraper>();
             _sportsbook = new Sportsbook
             {

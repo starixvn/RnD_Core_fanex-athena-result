@@ -7,12 +7,13 @@
     using Base.Utilities;
     using DataDomain;
     using Exceptions;
+    using Fanex.Result.Core.Sportsbook.Resources;
 
     internal static class SportsbookHelper
     {
         private const string ResourceIDSuffix = "RS";
         private static Regex setXGameYRegex = new Regex("^80[1-5]{1}\\d{2}$");
-        
+
         private static Regex[] setXRGameYResourceID = new[] {
             new Regex("^01\\d{2}$"),
             new Regex("^02\\d{2}$"),
@@ -122,6 +123,12 @@
             if (!isValidStartTime)
             {
                 throw new SportsbookException("Start time for Fast Markets must be integer from 0 to 89!");
+            }
+
+            if (resourceId == GameResourceID.TimeMachineOverUnderStatus ||
+                resourceId == GameResourceID.TimeMachineOverUnderGoal)
+            {
+                return $"{SportsbookResx.Until} {Helper.FormatTwoDigit(start)}:59";
             }
 
             var end =

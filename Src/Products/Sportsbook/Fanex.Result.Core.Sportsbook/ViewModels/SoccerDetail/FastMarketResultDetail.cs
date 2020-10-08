@@ -15,7 +15,7 @@
 
     public class FastMarketResultDetail : BaseResultDetail<SoccerGameDetailItem>
     {
-        private const int TimeFirstHalf = 45;
+        private const int TimeOfOneHalf = 45;
         private const int InjuryTime = 46;
         private const string SituationDetailResourceId = "221CNT0";
         private const string FastMarketRefId = "FastMarket";
@@ -123,18 +123,18 @@
                 .GameDetails
                 .FirstOrDefault(detail => detail.ResourceId.Contains(situationResultResourceId));
 
-            var situationHappenedTimes = startTime < TimeFirstHalf ? situationRecord?.HomeValue[startTime] : situationRecord?.AwayValue[startTime % 45];
+            var situationHappenedTimes = startTime < TimeOfOneHalf ? situationRecord?.HomeValue[startTime] : situationRecord?.AwayValue[startTime % 45];
 
             return situationHappenedTimes.ToString();
         }
 
         private string GetFastMarketSituation(GameDetail detailedItem, int startTime, int betType)
         {
-            var results = startTime < TimeFirstHalf
+            var results = startTime < TimeOfOneHalf
                 ? Encoding.Default.GetBytes(detailedItem.HomeValue)
                 : Encoding.Default.GetBytes(detailedItem.AwayValue);
 
-            var result = results[startTime % TimeFirstHalf];
+            var result = results[startTime % TimeOfOneHalf];
             var situation = betType == 225 ?
                 RefDataHelper.GetFastMarket225Result(result.ToString(), GetSupportedLanguage) :
                 RefDataHelper.GetFastMarketResult(result.ToString(), GetSupportedLanguage);
@@ -151,31 +151,50 @@
             if (IsTimeMachineCalculated(minute))
             {
                 var timeMachineGoal = Sportsbook.GameDetails.First(i => i.ResourceId == GameResourceID.TimeMachineOverUnderGoal);
-                var goalsString = minute < TimeFirstHalf ?
-                    timeMachineGoal.HomeValue :
-                    timeMachineGoal.HomeValue.Substring(0, InjuryTime) + timeMachineGoal.AwayValue;
-                var totalGoals = 0;
-                for (var i = 0; i <= minute; i++)
-                {
-                    totalGoals += Convert.ToInt32(goalsString[i].ToString());
-                }
+                var totalGoals = minute < TimeOfOneHalf - 1 ?
+                    TotalGoalsOfFirsHalf(timeMachineGoal, minute) :
+                    TotalGoalsFullTime(timeMachineGoal, minute);
 
-                goalDisplayText = $"{LangResource.Goal}:{totalGoals}";
+                goalDisplayText = $"{LangResource.Goal}: {totalGoals}";
             }
 
             return goalDisplayText;
         }
 
+        private static int TotalGoalsOfUntilMinute(string goals, int minute)
+        {
+            var totalGoals = 0;
+            var minIndex = minute < goals.Length + 1 ? minute : goals.Length;
+            for (var i = 0; i <= minIndex; i++)
+            {
+                totalGoals += Convert.ToInt32(goals[i].ToString());
+            }
+
+            return totalGoals;
+        }
+
+        private static int TotalGoalsOfFirsHalf(GameDetail gameDetail, int minute)
+            => TotalGoalsOfUntilMinute(gameDetail.HomeValue, minute);
+
+        private static int TotalGoalsFullTime(GameDetail gameDetail, int minute)
+        {
+            var totalGoalsInjuryTime = Convert.ToInt32(gameDetail.HomeValue[InjuryTime - 1].ToString());
+
+            return TotalGoalsOfUntilMinute(gameDetail.HomeValue, TimeOfOneHalf - 1) +
+                totalGoalsInjuryTime +
+                TotalGoalsOfUntilMinute(gameDetail.AwayValue, minute - TimeOfOneHalf);
+        }
+
         private string GetTimeMachineStatus(int minute)
         {
             var timeMachineStatus = Sportsbook.GameDetails.First(i => i.ResourceId == GameResourceID.TimeMachineOverUnderStatus);
-            var statusString = timeMachineStatus.HomeValue;
-            if (minute >= TimeFirstHalf)
+            var statusString = timeMachineStatus.HomeValue.Substring(0, TimeOfOneHalf);
+            if (minute >= TimeOfOneHalf)
             {
-                statusString = timeMachineStatus.HomeValue.Substring(0, InjuryTime) + timeMachineStatus.AwayValue;
+                statusString = timeMachineStatus.AwayValue.Substring(0, TimeOfOneHalf);
             }
 
-            return statusString[minute].ToString();
+            return statusString[minute % TimeOfOneHalf].ToString();
         }
 
         private bool IsTimeMachineCalculated(int minute)
@@ -190,6 +209,6 @@
 
         private static bool IsSituationCalculated(IEnumerable<string> situation)
             => situation.Any(i => !string.IsNullOrEmpty(i));
-        
+
     }
 }

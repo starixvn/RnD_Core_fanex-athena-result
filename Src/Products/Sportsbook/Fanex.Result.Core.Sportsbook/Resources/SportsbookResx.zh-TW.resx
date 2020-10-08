@@ -231,4 +231,7 @@
   <data name="FinalResult" xml:space="preserve">
     <value>最終結果</value>
   </data>
+  <data name="Until" xml:space="preserve">
+    <value>到{0}為止</value>
+  </data>
 </root>

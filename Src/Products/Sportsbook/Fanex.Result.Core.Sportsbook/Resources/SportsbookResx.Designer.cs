@@ -403,7 +403,7 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Until.
+        ///   Looks up a localized string similar to Until {0}.
         /// </summary>
         public static string Until {
             get {

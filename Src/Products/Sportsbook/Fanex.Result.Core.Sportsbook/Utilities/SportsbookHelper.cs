@@ -128,7 +128,7 @@
             if (resourceId == GameResourceID.TimeMachineOverUnderStatus ||
                 resourceId == GameResourceID.TimeMachineOverUnderGoal)
             {
-                return $"{SportsbookResx.Until} {Helper.FormatTwoDigit(start)}:59";
+                return string.Format(SportsbookResx.Until, $"{Helper.FormatTwoDigit(start)}:59");
             }
 
             var end =

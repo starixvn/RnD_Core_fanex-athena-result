@@ -225,4 +225,7 @@
   <data name="FinalResult" xml:space="preserve">
     <value>最终结果</value>
   </data>
+  <data name="Until" xml:space="preserve">
+    <value>到{0}为止</value>
+  </data>
 </root>

@@ -61,7 +61,7 @@ namespace Fanex.Result.Core.SAGaming
         private static string GetBaccaratLayout(string sDesc, string slang, string GameId3rd, string bettype)
         {
             var transDesc = new TransDesc(sDesc);
-            var result = transDesc.Result.Split(':');
+            var result = transDesc.Result.Replace("0", "").Split(':');
             strBankerCardValue = result[1].ToString();
             strPlayerCardValue = result[0].ToString();
             RenderTemplate();
@@ -74,7 +74,7 @@ namespace Fanex.Result.Core.SAGaming
         private static string GetDragonTigerLayout(string sDesc, string slang, string GameId3rd, string bettype)
         {
             var transDesc = new TransDesc(sDesc);
-            var result = transDesc.Result.Split(':');
+            var result = transDesc.Result.Replace("0", "").Split(':');
             strBankerCardValue = result[1].ToString();
             strPlayerCardValue = result[0].ToString();
             RenderTemplate();

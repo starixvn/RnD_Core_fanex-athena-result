@@ -28,7 +28,7 @@
                 }
             }
         }
-        public string Result => list.ContainsKey(ResultTag) ? ReplaceHardcode(list[ResultTag]).Replace("0", "") : string.Empty;
+        public string Result => list.ContainsKey(ResultTag) ? ReplaceHardcode(list[ResultTag]) : string.Empty;
 
         public string Results => list.ContainsKey(ResultsTag) ? ReplaceHardcode(list[ResultsTag]) : string.Empty;
 
@@ -36,7 +36,7 @@
 
         private static string ReplaceHardcode(string result)
             => result.Replace("B;", "")
-            .Replace("P;", "")            
+            .Replace("P;", "")
             .Replace("M;", "")
             .Replace("S;", "")
             .Replace("D;", "")

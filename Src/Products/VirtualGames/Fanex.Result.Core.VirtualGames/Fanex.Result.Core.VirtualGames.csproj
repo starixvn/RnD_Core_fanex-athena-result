@@ -62,7 +62,9 @@
     <Compile Include="Models\Result.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ultilities\Serializer\ISerializer.cs" />
-    <Compile Include="Ultilities\Serializer\JsonSerializer.cs" />
+    <Compile Include="Ultilities\Serializer\JsonSerializer.cs" >
+      <SonarQubeExclude>true</SonarQubeExclude>
+    </Compile>
     <Compile Include="Ultilities\WebClient\IWebClient.cs" />
     <Compile Include="Ultilities\WebClient\JsonWebClient.cs" />
   </ItemGroup>

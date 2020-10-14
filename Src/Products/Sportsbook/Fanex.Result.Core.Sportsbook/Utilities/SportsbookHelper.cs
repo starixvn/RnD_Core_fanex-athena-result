@@ -138,11 +138,13 @@
 
         private static bool ValidStartTime(string startMinute)
         {
+            const int fulltime = 90;
+
             var isValidStartTime = !string.IsNullOrEmpty(startMinute) && Helper.IsIntegerNumber(startMinute);
             if (isValidStartTime)
             {
                 var start = Convert.ToInt32(startMinute);
-                isValidStartTime = start >= 0 && start <= 89;
+                isValidStartTime = start >= 0 && start < fulltime;
             }
 
             return isValidStartTime;

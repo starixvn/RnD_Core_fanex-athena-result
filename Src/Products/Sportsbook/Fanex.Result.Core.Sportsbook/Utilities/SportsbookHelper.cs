@@ -111,20 +111,13 @@
 
         public static string CreateFastMarketsTimeRange(string resourceId, string startMinute)
         {
-            int start = 0;
-            var isValidStartTime = !string.IsNullOrEmpty(startMinute) && Helper.IsIntegerNumber(startMinute);
-
-            if (isValidStartTime)
-            {
-                start = Convert.ToInt32(startMinute);
-                isValidStartTime = start >= 0 && start <= 89;
-            }
-
+            var isValidStartTime = ValidStartTime(startMinute);
             if (!isValidStartTime)
             {
                 throw new SportsbookException("Start time for Fast Markets must be integer from 0 to 89!");
             }
 
+            int start = Convert.ToInt32(startMinute);
             if (resourceId == GameResourceID.TimeMachineOverUnderStatus ||
                 resourceId == GameResourceID.TimeMachineOverUnderGoal)
             {
@@ -141,6 +134,18 @@
             return IsFastMarketsResourceId(resourceId)
                 ? $"{Helper.FormatTwoDigit(start)}:00-{Helper.FormatTwoDigit(end)}:59"
                 : string.Empty;
+        }
+
+        private static bool ValidStartTime(string startMinute)
+        {
+            var isValidStartTime = !string.IsNullOrEmpty(startMinute) && Helper.IsIntegerNumber(startMinute);
+            if (isValidStartTime)
+            {
+                var start = Convert.ToInt32(startMinute);
+                isValidStartTime = start >= 0 && start <= 89;
+            }
+
+            return isValidStartTime;
         }
     }
 }

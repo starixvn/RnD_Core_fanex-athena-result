@@ -54,7 +54,7 @@
             IResultDetail<SoccerGameDetailItem> fastMarketResultDetail,
             IRefDataHelper refDataHelper)
             : base(soccer, setting, refDataHelper)
-        {            
+        {
             PenaltyMatchDetail = ExistMatchCode(PenaltyHandicapCode) ?
                 PenaltyHandicapName :
                 ExistMatchCode(PenaltyOverUnderCode) ? PenaltyOverUnderName : string.Empty;
@@ -208,9 +208,7 @@
         {
             if (!isParlayPopup && isPopUp)
             {
-                return (BetTypeConstants.InstantSettlementBetTypesSupportFT.Any(i => i == SPORTBOOK.Bettype) && !SPORTBOOK.Calculate) ||
-                    (BetTypeConstants.InstantSettlementBetTypesSupportHT.Any(i => i == SPORTBOOK.Bettype) && !SPORTBOOK.IsHTCal) ||
-                    IsShowLiveScoreForFastMarket();
+                return IsInstantSettlementFullTime() || IsInstantSettlementHaftTime() || IsShowLiveScoreForFastMarket();
             }
 
             return false;
@@ -226,6 +224,12 @@
 
             return false;
         }
+
+        private bool IsInstantSettlementFullTime()
+            => BetTypeConstants.InstantSettlementBetTypesSupportFT.Any(i => i == SPORTBOOK.Bettype) && !SPORTBOOK.Calculate;
+
+        private bool IsInstantSettlementHaftTime()
+            => BetTypeConstants.InstantSettlementBetTypesSupportHT.Any(i => i == SPORTBOOK.Bettype) && !SPORTBOOK.IsHTCal;
 
         private string CalculateScore(int? score, bool isFinalScore)
         {

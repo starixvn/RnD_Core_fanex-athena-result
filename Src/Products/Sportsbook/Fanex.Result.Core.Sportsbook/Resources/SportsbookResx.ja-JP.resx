@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -125,5 +125,11 @@
   </data>
   <data name="MatchDay" xml:space="preserve">
     <value>Match Day</value>
+  </data>
+  <data name="BeforeMinute" xml:space="preserve">
+    <value>分{0}の前</value>
+  </data>
+  <data name="TotalGoal" xml:space="preserve">
+    <value> 合計ゴール数</value>
   </data>
 </root>

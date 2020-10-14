@@ -59,6 +59,26 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
                 resourceCulture = value;
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Total Goal.
+        /// </summary>
+        public static string TotalGoal
+        {
+            get
+            {
+                return ResourceManager.GetString("TotalGoal", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Before Minute {0}.
+        /// </summary>
+        public static string BeforeMinute {
+            get {
+                return ResourceManager.GetString("BeforeMinute", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Map {0} Total Kills Score.
@@ -399,15 +419,6 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         public static string Semifinal2 {
             get {
                 return ResourceManager.GetString("Semifinal2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Until {0}.
-        /// </summary>
-        public static string Until {
-            get {
-                return ResourceManager.GetString("Until", resourceCulture);
             }
         }
     }

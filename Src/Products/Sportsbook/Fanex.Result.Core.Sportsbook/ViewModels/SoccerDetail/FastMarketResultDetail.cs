@@ -12,6 +12,7 @@
     using Fanex.Result.Core.Sportsbook.Utilities;
     using Fanex.Result.Core.Sportsbook.ViewModels.BaseDetail;
     using Fanex.Result.Core.Base.Resources;
+    using Fanex.Result.Core.Sportsbook.Resources;
 
     public class FastMarketResultDetail : BaseResultDetail<SoccerGameDetailItem>
     {
@@ -155,7 +156,7 @@
                     TotalGoalsOfFirsHalf(timeMachineGoal, minute) :
                     TotalGoalsFullTime(timeMachineGoal, minute);
 
-                goalDisplayText = $"{LangResource.Goal}: {totalGoals}";
+                goalDisplayText = $"{SportsbookResx.TotalGoal}: {totalGoals}";
             }
 
             return goalDisplayText;

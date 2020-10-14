@@ -117,11 +117,12 @@
                 throw new SportsbookException("Start time for Fast Markets must be integer from 0 to 89!");
             }
 
-            int start = Convert.ToInt32(startMinute);
+            var start = Convert.ToInt32(startMinute);
             if (resourceId == GameResourceID.TimeMachineOverUnderStatus ||
                 resourceId == GameResourceID.TimeMachineOverUnderGoal)
             {
-                return string.Format(SportsbookResx.Until, $"{Helper.FormatTwoDigit(start)}:59");
+                start += 1;
+                return string.Format(SportsbookResx.BeforeMinute, start);
             }
 
             var end =

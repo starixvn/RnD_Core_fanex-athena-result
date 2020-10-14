@@ -225,7 +225,10 @@
   <data name="FinalResult" xml:space="preserve">
     <value>最终结果</value>
   </data>
-  <data name="Until" xml:space="preserve">
-    <value>到{0}为止</value>
+  <data name="BeforeMinute" xml:space="preserve">
+    <value>在第{0}分前</value>
+  </data>
+  <data name="TotalGoal" xml:space="preserve">
+    <value>总进球</value>
   </data>
 </root>

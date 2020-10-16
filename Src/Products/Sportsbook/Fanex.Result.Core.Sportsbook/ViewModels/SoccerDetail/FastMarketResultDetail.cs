@@ -9,10 +9,9 @@
     using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Sportsbook.DataDomain;
     using Fanex.Result.Core.Sportsbook.DTO;
+    using Fanex.Result.Core.Sportsbook.Resources;
     using Fanex.Result.Core.Sportsbook.Utilities;
     using Fanex.Result.Core.Sportsbook.ViewModels.BaseDetail;
-    using Fanex.Result.Core.Base.Resources;
-    using Fanex.Result.Core.Sportsbook.Resources;
 
     public class FastMarketResultDetail : BaseResultDetail<SoccerGameDetailItem>
     {
@@ -186,7 +185,7 @@
                 TotalGoalsOfUntilMinute(gameDetail.AwayValue, minute - TimeOfOneHalf);
         }
 
-        private string GetTimeMachineStatus(int minute)
+        private int GetTimeMachineStatus(int minute)
         {
             var timeMachineStatus = Sportsbook.GameDetails.First(i => i.ResourceId == GameResourceID.TimeMachineOverUnderStatus);
             var statusString = timeMachineStatus.HomeValue.Substring(0, TimeOfOneHalf);
@@ -195,17 +194,16 @@
                 statusString = timeMachineStatus.AwayValue.Substring(0, TimeOfOneHalf);
             }
 
-            return statusString[minute % TimeOfOneHalf].ToString();
+            return Convert.ToInt32(statusString[minute % TimeOfOneHalf].ToString());
         }
 
         private bool IsTimeMachineCalculated(int minute)
         {
-            const string calculatedAutomaticallyStatus = "4";
-            const string calculatedManuallyStatus = "5";
+            const int calculatedAutomaticallyStatus = 4;
 
             var status = GetTimeMachineStatus(minute);
 
-            return status == calculatedAutomaticallyStatus || status == calculatedManuallyStatus;
+            return status >= calculatedAutomaticallyStatus;
         }
 
         private static bool IsSituationCalculated(IEnumerable<string> situation)

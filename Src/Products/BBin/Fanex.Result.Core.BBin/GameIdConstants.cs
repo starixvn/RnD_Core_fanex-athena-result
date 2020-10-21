@@ -17,5 +17,15 @@
         public const string InRunningBaccarat = "3020";
         public const string HiLo = "3021";
         public const string FightingBullBull = "3023";
+        public const string BlockChainBaccarat = "3025";
+        public const string BlockChainDragonTiger = "3026";
+        public const string BlockChainInsuranceBaccarat = "3027";
+        public const string BlockChainRoulette = "3028";
+        public const string BlockChainThreeCardPoker = "3029";
+        public const string BlockChainThreeFace = "3030";
+        public const string BlockChainBullBull = "3031";
+        public const string BlockChainSeDie = "3032";
+        public const string BlockChainSicBo = "3033";
+        public const string BlockChainFishPrawnCragDice = "3034";
     }
 }

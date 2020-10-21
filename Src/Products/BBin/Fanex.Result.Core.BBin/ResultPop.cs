@@ -38,24 +38,34 @@ namespace Fanex.Result.Core.BBin
                     case GameIdConstants.Baccarat:
                     case GameIdConstants.InRunningBaccarat:
                     case GameIdConstants.InsuranceBaccarat:
+                    case GameIdConstants.BlockChainBaccarat:
+                    case GameIdConstants.BlockChainInsuranceBaccarat:
                         return GetBaccaratLayout(TransDesc, slang, GameId3rd, gameId);
                     case GameIdConstants.DragonTiger:
+                    case GameIdConstants.BlockChainDragonTiger:
                         return GetDragonTigerLayout(TransDesc, slang, GameId3rd, gameId);
                     case GameIdConstants.SicBo:
+                    case GameIdConstants.BlockChainSicBo:
                         return GetSicBoLayout(TransDesc, slang, GameId3rd, gameId);
                     case GameIdConstants.FishPrawnCragDice:
+                    case GameIdConstants.BlockChainFishPrawnCragDice:
                         return GetFishPrawnCragDiceLayout(TransDesc, slang, GameId3rd, gameId);
                     case GameIdConstants.SeDie:
+                    case GameIdConstants.BlockChainSeDie:
                         return GetSeDieLayout(TransDesc, slang, GameId3rd, gameId);
                     case GameIdConstants.HiLo:
                         return GetHiloLayout(TransDesc, slang, GameId3rd, gameId);
                     case GameIdConstants.Roulette:
+                    case GameIdConstants.BlockChainRoulette:
                         return GetRouletteLayout(TransDesc, slang, GameId3rd, gameId);
                     case GameIdConstants.ThreeCardPoker:
+                    case GameIdConstants.BlockChainThreeCardPoker:
                         return GetThreeCardPockerLayout(TransDesc, slang, GameId3rd, gameId);
                     case GameIdConstants.BullBull:
+                    case GameIdConstants.BlockChainBullBull:
                     case GameIdConstants.FightingBullBull:
                     case GameIdConstants.ThreeFace:
+                    case GameIdConstants.BlockChainThreeFace:
                     case GameIdConstants.WenzhouPaiGow:
                         return GetBullBullLayout(TransDesc, slang, GameId3rd, gameId);
                     case GameIdConstants.FanTan:
@@ -285,6 +295,10 @@ namespace Fanex.Result.Core.BBin
                 case GameIdConstants.InRunningBaccarat:
                 case GameIdConstants.DragonTiger:
                 case GameIdConstants.ThreeCardPoker:
+                case GameIdConstants.BlockChainBaccarat:
+                case GameIdConstants.BlockChainInsuranceBaccarat:
+                case GameIdConstants.BlockChainDragonTiger:
+                case GameIdConstants.BlockChainThreeCardPoker:
                     strFinalLayout = "<div class='popWTableArea'><table width='100%' cellpadding='0' cellspacing='0' border='0' class='oddsTable info'>";
                     strFinalLayout += "<tbody><tr><td colspan='2' class='tabtitle' align='left'>{0}</td></tr></tbody>";
                     strFinalLayout += "<tbody><tr><td colspan='2' class='tabtitle' align='left'>{1}</td></tr></tbody>";
@@ -299,6 +313,10 @@ namespace Fanex.Result.Core.BBin
                 case GameIdConstants.HiLo:
                 case GameIdConstants.FishPrawnCragDice:
                 case GameIdConstants.FanTan:
+                case GameIdConstants.BlockChainRoulette:
+                case GameIdConstants.BlockChainSicBo:
+                case GameIdConstants.BlockChainSeDie:
+                case GameIdConstants.BlockChainFishPrawnCragDice:
                     strFinalLayout = "<div class='popWTableArea'><table width='100%' cellpadding='0' cellspacing='0' border='0' class='oddsTable info'>";
                     strFinalLayout += "<tbody><tr><td class='tabtitle' align='left'>{0}</td></tr></tbody>";
                     strFinalLayout += "<tbody><tr><td class='tabtitle' align='left'>{1}</td></tr></tbody>";
@@ -311,6 +329,8 @@ namespace Fanex.Result.Core.BBin
                 case GameIdConstants.FightingBullBull:
                 case GameIdConstants.ThreeFace:
                 case GameIdConstants.WenzhouPaiGow:
+                case GameIdConstants.BlockChainBullBull:
+                case GameIdConstants.BlockChainThreeFace:
                     strFinalLayout = "<div class='popWTableArea'><table width='100%' cellpadding='0' cellspacing='0' border='0' class='oddsTable info'>";
                     strFinalLayout += "<tbody><tr><td class='tabtitle' colspan='3' align='left'>{0}</td></tr></tbody>";
                     strFinalLayout += "<tbody><tr><td class='tabtitle' colspan='3' align='left'>{1}</td></tr></tbody>";

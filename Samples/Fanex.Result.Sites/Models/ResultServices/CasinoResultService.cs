@@ -171,6 +171,27 @@
                     return "choice=1002*site=IBC*tableCode=5*gamename=3021*result=C10*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
                 case 3023:
                     return "choice=1002*site=IBC*tableCode=5*gamename=3023*result=B;D4;D7;H6;S4;HA:P1;CA;C10;H3;D8;D9:P2;DQ;DJ;H5;CK;C4:P3;S1;D10;CJ;D3;S8*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3025:
+                    return "choice=1,1:0.95,40000.00,-40000.00*site=*tableCode=5*gamename=3025*result=B;D9;C3;H9:P;C9;D5;H8*results=B;1:P;2*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3026:
+                    return "choice=1,1:1,40000.00,40000.00*site=*tableCode=1*gamename=3026*result=D;DA:T;D3*results=D;1:T;3*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3027:
+                    return "choice=1,1:0.95,40000.00,-40000.00*site=*tableCode=1*gamename=3027*result=B;C10;SK;DJ:P;C7;H10*results=B;0:P;7*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3028:
+                    return "choice=151,1:1,40000.00,-40000.00*site=*tableCode=1*gamename=3028*result=2*results=2*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3029:
+                    return "choice=2,1:0.97,40000.00,-40000.00*site=*tableCode=2*gamename=3029*result=D;HJ;DA;D5:P;D4;DK;H10*results=HighCard-A,HighCard-K*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3030:
+                    return "choice=6,1:1,40000.00,40000.00*site=*tableCode=1*gamename=3030*result=B;H2;D9;SJ:P1;SQ;C6;H3:P2;CK;S7;SA:P3;H7;C9;H8*results=B;P1:P1;P9:P2;P8:P3;4*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3031:
+                    return "choice=4,1:0.95,40000.00,38000.00*site=*tableCode=2*gamename=3031*result=B;C6;SK;C8;S5;H3:P1;H6;SQ;CA;HA;H4:P2;DJ;CJ;H9;SA;H7:P3;CQ;D5;D6;H5;D10*results=B;No Bull:P1;Bull2:P2;Bull7:P3;Bull6*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3032:
+                    return "choice=5,1:0.96,40000.00,-40000.00*site=*tableCode=2*gamename=3032*result=W;W;R;R*results=W;W;R;R*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3033:
+                    return "choice=1,1:1,10000.00,10000.00@47,1:1,10000.00,-10000.00@49,1:1,10000.00,10000.00@51,1:1,10000.00,-10000.00*site=*tableCode=2*gamename=3033*result=4;1;5*results=4;1;5*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3034:
+                    return "choice=1,1:1,10000.00,-10000.00@35,1:1,10000.00,-10000.00@37,1:1,10000.00,10000.00@40,1:1,10000.00,10000.00*site=*tableCode=2*gamename=3034*result=3;5;6*results=3;5;6*winResult=*ForcedCompleted=0*ReasonCode=0";
+                
                 default:
                     return "";
             }

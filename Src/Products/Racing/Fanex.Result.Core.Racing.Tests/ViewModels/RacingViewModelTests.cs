@@ -178,13 +178,13 @@
         public void Status_Always_ReturnFromRacing()
         {
             // Arrange
-            _racing.Favourite = "ccc";
+            _racing.Status = "completed";
 
             // Act
             var viewModel = new VSHRacingViewModel(_racing, _setting, _refDataHelper);
 
             // Assert
-            Assert.AreEqual("ccc", viewModel.Status);
+            Assert.AreEqual("Completed", viewModel.Status);
         }
 
         [Test]

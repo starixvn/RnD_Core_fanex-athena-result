@@ -45,7 +45,7 @@
             var excelViewModel = new VSTennisExcel(string.Empty, _resultSetting, _resultData.ToList());
 
             // Assert
-            Assert.AreEqual(4, excelViewModel.ColumnStatus);
+            Assert.AreEqual(6, excelViewModel.ColumnStatus);
         }
 
         [Test]
@@ -71,9 +71,11 @@
             var actualHeaderRow = excelViewModel.Workbook.GetSheetAt(0).GetRow(1);
             Assert.AreEqual("Match Code/ID", actualHeaderRow.Cells[0].StringCellValue);
             Assert.AreEqual("Kick Off. Time", actualHeaderRow.Cells[1].StringCellValue);
-            Assert.AreEqual("Team", actualHeaderRow.Cells[2].StringCellValue);
-            Assert.AreEqual("Total Points", actualHeaderRow.Cells[3].StringCellValue);
-            Assert.AreEqual("Status", actualHeaderRow.Cells[4].StringCellValue);
+            Assert.AreEqual("Match", actualHeaderRow.Cells[2].StringCellValue);
+            Assert.AreEqual("Score", actualHeaderRow.Cells[3].StringCellValue);
+            Assert.AreEqual("Correct Score", actualHeaderRow.Cells[4].StringCellValue);
+            Assert.AreEqual("Total Points", actualHeaderRow.Cells[5].StringCellValue);
+            Assert.AreEqual("Status", actualHeaderRow.Cells[6].StringCellValue);
         }
 
         [Test]
@@ -82,17 +84,18 @@
             // Arrange
             _refDataHelper.GetTeamName(1, "en-US", string.Empty).Returns("Home Team Name");
             _refDataHelper.GetTeamName(2, "en-US", string.Empty).Returns("Away Team Name");
+            _refDataHelper.GetResourceDataByRefIdAndResourceId("BetChoice", "bet1235_1", "en-US", string.Empty).Returns("0-Game");
             var vsTennisViewModel = new VSTennisViewModel(new DTO.Sportsbook
             {
                 MatchCode = "1231",
                 MatchId = 1111,
-                BetStatus = "21-23,21-16,21-16,0-0,0-0",
+                BetStatus = "1",
                 HomeId = 1,
                 AwayId = 2,
                 EventStatus = "Completed",
                 KickOffTime = DateTime.Parse("01/01/2017"),
-                FinalHomeScore = 11,
-                FinalAwayScore = 12
+                FinalHomeScore = 0,
+                FinalAwayScore = 4,
             }, _resultSetting, _refDataHelper);
 
             _resultData = new List<VSTennisViewModel> { vsTennisViewModel };
@@ -106,15 +109,19 @@
             Assert.AreEqual("1231", actualHomeDataRow.Cells[0].StringCellValue);
             Assert.AreEqual("01/01/2017\n12:00:00 AM", actualHomeDataRow.Cells[1].StringCellValue);
             Assert.AreEqual("Home Team Name", actualHomeDataRow.Cells[2].StringCellValue);
-            Assert.AreEqual("11", actualHomeDataRow.Cells[3].StringCellValue);
-            Assert.AreEqual("Completed", actualHomeDataRow.Cells[4].StringCellValue);
+            Assert.AreEqual("0", actualHomeDataRow.Cells[3].StringCellValue);
+            Assert.AreEqual("0-Game", actualHomeDataRow.Cells[4].StringCellValue);
+            Assert.AreEqual("4", actualHomeDataRow.Cells[5].StringCellValue);
+            Assert.AreEqual("Completed", actualHomeDataRow.Cells[6].StringCellValue);
 
             var actualAwayDataRow = excelViewModel.Workbook.GetSheetAt(0).GetRow(4);
             Assert.AreEqual("1111", actualAwayDataRow.Cells[0].StringCellValue);
             Assert.AreEqual("01/01/2017\n12:00:00 AM", actualAwayDataRow.Cells[1].StringCellValue);
             Assert.AreEqual("Away Team Name", actualAwayDataRow.Cells[2].StringCellValue);
-            Assert.AreEqual("12", actualAwayDataRow.Cells[3].StringCellValue);
-            Assert.AreEqual("Completed", actualAwayDataRow.Cells[4].StringCellValue);
+            Assert.AreEqual("4", actualAwayDataRow.Cells[3].StringCellValue);
+            Assert.AreEqual("0-Game", actualAwayDataRow.Cells[4].StringCellValue);
+            Assert.AreEqual("4", actualAwayDataRow.Cells[5].StringCellValue);
+            Assert.AreEqual("Completed", actualAwayDataRow.Cells[6].StringCellValue);
         }
     }
 }

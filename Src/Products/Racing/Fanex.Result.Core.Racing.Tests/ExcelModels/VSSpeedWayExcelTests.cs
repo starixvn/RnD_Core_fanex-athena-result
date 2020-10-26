@@ -98,7 +98,7 @@
             Assert.AreEqual("1", actualDataRowFirst.Cells[2].StringCellValue);
             Assert.AreEqual("Team", actualDataRowFirst.Cells[3].StringCellValue);
             Assert.AreEqual("1.00", actualDataRowFirst.Cells[4].StringCellValue);
-            Assert.AreEqual("2F", actualDataRowFirst.Cells[5].StringCellValue);
+            Assert.AreEqual("Completed", actualDataRowFirst.Cells[5].StringCellValue);
 
             var actualDataRowSecond = excelViewModel.Workbook.GetSheetAt(0).GetRow(4);
             Assert.AreEqual("10/10/2017\n12:00:00 AM", actualDataRowSecond.Cells[0].StringCellValue);
@@ -106,7 +106,7 @@
             Assert.AreEqual("1", actualDataRowSecond.Cells[2].StringCellValue);
             Assert.AreEqual("Team", actualDataRowSecond.Cells[3].StringCellValue);
             Assert.AreEqual("1.00", actualDataRowSecond.Cells[4].StringCellValue);
-            Assert.AreEqual("2F", actualDataRowFirst.Cells[5].StringCellValue);
+            Assert.AreEqual("Completed", actualDataRowFirst.Cells[5].StringCellValue);
 
             var leagueRow2 = excelViewModel.Workbook.GetSheetAt(0).GetRow(5);
             Assert.AreEqual("LEAGUENAME2", leagueRow2.Cells[0].StringCellValue);
@@ -139,7 +139,8 @@
                         WinOdds = 1,
                         PlaceOdds = 5,
                         Favourite = "2F",
-                        KickOffTime = DateTime.Parse("10/10/2017")
+                        KickOffTime = DateTime.Parse("10/10/2017"),
+                        Status="completed"
                     },
                 _resultSetting,
                 _refDataHelper),
@@ -154,7 +155,8 @@
                        WinOdds = 1,
                        PlaceOdds = 5,
                        Favourite = "2F",
-                       KickOffTime = DateTime.Parse("10/10/2017")
+                       KickOffTime = DateTime.Parse("10/10/2017"),
+                       Status="completed"
                    },
                _resultSetting,
                _refDataHelper),
@@ -169,7 +171,8 @@
                        WinOdds = 1,
                        PlaceOdds = 5,
                        SCROfMatch = "1",
-                       TFOfMatch = "2"
+                       TFOfMatch = "2",
+                       Status="completed"
                    },
                _resultSetting,
                _refDataHelper),
@@ -184,7 +187,8 @@
                        WinOdds = 1,
                        PlaceOdds = 5,
                        SCROfMatch = "1",
-                       TFOfMatch = "2"
+                       TFOfMatch = "2",
+                       Status="completed"
                    },
                _resultSetting,
                _refDataHelper)};

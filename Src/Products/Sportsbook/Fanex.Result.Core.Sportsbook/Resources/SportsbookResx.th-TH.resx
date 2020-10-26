@@ -138,4 +138,7 @@
   <data name="TotalGoal" xml:space="preserve">
     <value>ประตูรวม</value>
   </data>
+  <data name="CorrectScore" xml:space="preserve">
+    <value>คะแนนที่ถูกต้อง</value>
+  </data>
 </root>

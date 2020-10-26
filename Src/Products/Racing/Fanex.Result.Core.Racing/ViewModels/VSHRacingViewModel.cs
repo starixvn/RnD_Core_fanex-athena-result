@@ -24,6 +24,6 @@
 
         public DateTime EvenTime => _racing.KickOffTime;
 
-        public string Status => _racing.Favourite;
+        public string Status => MapEventStatus.GetLogResource(_racing.Status);
     }
 }

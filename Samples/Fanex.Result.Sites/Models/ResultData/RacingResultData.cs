@@ -2,7 +2,9 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Web.Hosting;
     using Criteria;
+    using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Racing.DTO;
     using ResultServices;
 
@@ -19,6 +21,7 @@
         {
             return resultService.GetResult(new GetRacingResultCriteria
             {
+                MoveBetsDay = BaseResultService.GetBalanceUpDay().MoveBetsDay,
                 Sporttype = sportId,
                 FromDate = date,
                 isShowAll = true,
@@ -33,7 +36,7 @@
                 LicenseeID = licenseeId,
                 UserID = userId,
                 MatchID = matchId,
-                RaceNo = raceNo.Value.ToString()
+                RaceNo = raceNo.HasValue ? raceNo.Value.ToString() : null
             });
         }
     }

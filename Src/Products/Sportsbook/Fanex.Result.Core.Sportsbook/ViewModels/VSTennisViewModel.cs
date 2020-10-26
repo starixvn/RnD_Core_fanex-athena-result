@@ -21,5 +21,9 @@
         public string HomePoint => GetScore(SPORTBOOK.FinalHomeScore);
 
         public string AwayPoint => GetScore(SPORTBOOK.FinalAwayScore);
+
+        public string TotalPoint => GetScore(SPORTBOOK.FinalHomeScore + SPORTBOOK.FinalAwayScore);
+
+        public string CorrectScore => RefDataHelper.GetResourceDataByRefIdAndResourceId("BetChoice", $"bet1235_{SPORTBOOK.BetStatus}", GetSupportedLanguage, string.Empty);
     }
 }

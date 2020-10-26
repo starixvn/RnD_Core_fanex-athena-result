@@ -17,8 +17,8 @@
         public VSHRacingExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
             : base(templatePath, setting, data)
         {
-            ColumnTemplateCount = 7;
-            ColumnStatus = 6;
+            ColumnTemplateCount = 6;
+            ColumnStatus = 5;
             RowContentTemplate = 3;
             this.IsSupportMatchCode = false;
         }
@@ -30,7 +30,6 @@
             row.Cells[0].SetCellValue(LangResource.Race);
             row.Cells[colidx++].SetCellValue(LangResource.Results);
             row.Cells[colidx++].SetCellValue(LangResource.Win);
-            row.Cells[colidx++].SetCellValue(LangResource.Place);
             row.Cells[colidx].SetCellValue(LangResource.Status);
         }
 
@@ -87,6 +86,7 @@
                 {
                     endRowSpan = currentRow + rowsTopRace - 1;
                     MergeKickOffTimeCell(sheet, currentRow, endRowSpan, colSpanKichOffTime: ColumnRace);
+                    MergeKickOffTimeCell(sheet, currentRow, endRowSpan, colSpanKichOffTime: ColumnStatus);
                 }
             }
 
@@ -99,7 +99,6 @@
                 exportRow.HorseNo,
                 exportRow.Result,
                 exportRow.WinOdd,
-                exportRow.PlaceOdd,
                 exportRow.Status);
 
             currentRow++;

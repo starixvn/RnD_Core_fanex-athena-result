@@ -59,10 +59,10 @@
                 </tr>
             }
             <tr class="header">
-                <th class="cl-race" colspan="3">
+                <th class="cl-race" >
                     @LangResource.Race
                 </th>
-                <th class="cl-result">
+                <th class="cl-result" colspan="3">
                     @Raw(LangResource.Result)
                 </th>
                 <th class="cl-win">
@@ -108,7 +108,7 @@
                     {
                         currentRace = item.EvenTime;
             <tr class="data @item.Color(index, "even", "odd")">
-                <td class="cl-race-name" rowspan="@item.RowCount">
+                <td class="cl-race" rowspan="@item.RowCount">
                     @Raw(item.KickOffTime)
                 </td>
                 <td class="cl-placing">

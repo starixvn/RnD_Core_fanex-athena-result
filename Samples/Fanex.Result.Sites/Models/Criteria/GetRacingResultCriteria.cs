@@ -8,6 +8,8 @@ namespace MvcExample.Models.Criteria
 
     public class GetRacingResultCriteria : CriteriaBase
     {
+        public DateTime MoveBetsDay { get; set; }
+
         public DateTime FromDate { get; set; }
 
         public int LeagueID { get; set; }

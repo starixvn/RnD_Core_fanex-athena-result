@@ -1,10 +1,12 @@
 ﻿@using Fanex.Result.Core.Base.ViewModels;
+@using Fanex.Result.Core.Sportsbook.Resources;
 @using Fanex.Result.Core.Sportsbook.ViewModels;
 @using Fanex.Result.Core.Base.Resources;
 @{
     var viewModel = (RazorBinderModel)Model;
 
-    var colspan = viewModel.VisibleMatchCodeIDColumn ? 5 : 4;
+    var totalCol = viewModel.VisibleMatchCodeIDColumn ? 7 : 6;
+    var colspan = viewModel.IsPopUp ? totalCol - 3 : totalCol;
     var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
 }
 
@@ -27,8 +29,14 @@
             }
             <th class="cl-ko-time">@LangResource.KickOffTime</th>
             <th class="cl-match">@Raw(LangResource.Match)</th>
-            <th class="cl-totalpoint">@Raw(LangResource.TotalPoints)</th>
-            <th class="cl-status">@LangResource.Status</th>
+            <th class="cl-totalpoint">@Raw(LangResource.Score)</th>
+            @if (!viewModel.IsPopUp)
+            {
+                <th class="cl-status">@Raw(SportsbookResx.CorrectScore)</th>
+                <th class="cl-status">@Raw(LangResource.TotalPoints)</th>
+                <th class="cl-status">@LangResource.Status</th>
+            }
+
         </tr>
     </thead>
 }
@@ -73,7 +81,13 @@
                         <td class="cl-ko-time" rowspan="2">@Raw(item.KickOffTime)</td>
                         <td class="cl-match home @item.HomeWin">@Raw(item.HomeTeam)</td>
                         <td class="cl-totalpoint home">@item.HomePoint</td>
-                        <td rowspan="2" class="cl-status @item.EventStatusBackground">@item.EventStatus</td>
+                        @if (!viewModel.IsPopUp)
+                        {
+                            <td class="cl-status home" rowspan="2">@item.CorrectScore</td>
+                            <td class="cl-status home" rowspan="2">@item.TotalPoint</td>
+                            <td rowspan="2" class="cl-status @item.EventStatusBackground">@item.EventStatus</td>
+                        }
+
                     </tr>
                     <tr class="data @item.Color(index, "even", "odd")">
                         @if (viewModel.VisibleMatchCodeIDColumn)

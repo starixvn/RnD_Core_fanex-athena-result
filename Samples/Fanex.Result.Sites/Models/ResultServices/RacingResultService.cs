@@ -44,7 +44,8 @@
                 Favourite = reader["IsFavor"] != DBNull.Value ? reader["IsFavor"].ToString() : string.Empty,
                 RowCount = int.Parse(reader["rowcount"].ToString()),
                 SCROfMatch = reader["SCR"].ToString(),
-                TFOfMatch = reader["TF"].ToString()
+                TFOfMatch = reader["TF"].ToString(),
+                Status = reader["status"].ToString()
             };
         }
 

@@ -90,6 +90,10 @@
       <Project>{cebae710-7919-4fc6-8978-862a3096972c}</Project>
       <Name>Fanex.Result.Core.NumberGame</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\Src\Products\Racing\Fanex.Result.Core.Racing\Fanex.Result.Core.Racing.csproj">
+      <Project>{4869ED23-CD0C-4472-BCE6-54A9E170ED6E}</Project>
+      <Name>Fanex.Result.Core.Racing</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Src\Products\Sportsbook\Fanex.Result.Core.Sportsbook\Fanex.Result.Core.Sportsbook.csproj">
       <Project>{0469c900-5e5b-4d2c-8db3-7eaea991095b}</Project>
       <Name>Fanex.Result.Core.Sportsbook</Name>

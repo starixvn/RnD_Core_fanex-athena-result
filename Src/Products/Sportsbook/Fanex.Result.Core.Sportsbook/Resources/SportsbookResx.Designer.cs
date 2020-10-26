@@ -59,24 +59,22 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
                 resourceCulture = value;
             }
         }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Total Goal.
-        /// </summary>
-        public static string TotalGoal
-        {
-            get
-            {
-                return ResourceManager.GetString("TotalGoal", resourceCulture);
-            }
-        }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Before Minute {0}.
         /// </summary>
         public static string BeforeMinute {
             get {
                 return ResourceManager.GetString("BeforeMinute", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Correct Score.
+        /// </summary>
+        public static string CorrectScore {
+            get {
+                return ResourceManager.GetString("CorrectScore", resourceCulture);
             }
         }
         
@@ -419,6 +417,15 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         public static string Semifinal2 {
             get {
                 return ResourceManager.GetString("Semifinal2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Goal.
+        /// </summary>
+        public static string TotalGoal {
+            get {
+                return ResourceManager.GetString("TotalGoal", resourceCulture);
             }
         }
     }

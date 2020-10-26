@@ -275,7 +275,6 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Content Include="App_Data\Fanex.Result\Other.xls" />
     <Content Include="App_Data\Fanex.Result\Racing.xls" />
-    <Content Include="App_Data\Fanex.Result\VSSpeedWay.xls" />
     <Content Include="%40JSense.js" />
     <Content Include="App_Data\SpName.xml">
       <SubType>Designer</SubType>
@@ -861,6 +860,7 @@
     <Content Include="App_Data\Result_Data\BasketBall.xls" />
     <Content Include="App_Data\Result_Data\BasketBallDetail.xls" />
     <Content Include="App_Data\Result_Data\NumberGame.xls" />
+    <Content Include="App_Data\Fanex.Result\VSSpeedWay.xls" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>

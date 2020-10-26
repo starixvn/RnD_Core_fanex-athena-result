@@ -237,4 +237,7 @@
   <data name="TotalGoal" xml:space="preserve">
     <value>總進球</value>
   </data>
+  <data name="CorrectScore" xml:space="preserve">
+    <value>波膽</value>
+  </data>
 </root>

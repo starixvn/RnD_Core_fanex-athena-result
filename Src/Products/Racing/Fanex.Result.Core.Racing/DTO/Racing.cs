@@ -48,5 +48,7 @@
         public string SCROfMatch { get; set; }
 
         public string TFOfMatch { get; set; }
+
+        public string Status { get; set; }
     }
 }

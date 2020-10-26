@@ -7,16 +7,20 @@
     using Base.Resources;
     using Base.Utilities;
     using Base.ViewModels;
+    using Fanex.Result.Core.Sportsbook.Resources;
     using NPOI.SS.UserModel;
     using ViewModels;
 
     internal class VSTennisExcel : ExcelBase, IExcelModel
     {
+        private readonly int CorrectScoreIndex = 4;
+        private readonly int TotalPointsIndex = 5;
+
         public VSTennisExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
             : base(templatePath, setting, data)
         {
             ColumnTemplateCount = 5;
-            ColumnStatus = 4;
+            ColumnStatus = 6;
             RowContentTemplate = 3;
         }
 
@@ -27,7 +31,9 @@
 
             row.Cells[colidx++].SetCellValue(LangResource.MatchCode + "/" + LangResource.ID);
             row.Cells[colidx++].SetCellValue(LangResource.KickOffTime);
-            row.Cells[colidx++].SetCellValue(LangResource.Team);
+            row.Cells[colidx++].SetCellValue(LangResource.Match);
+            row.Cells[colidx++].SetCellValue(LangResource.Score);
+            row.Cells[colidx++].SetCellValue(SportsbookResx.CorrectScore);
             row.Cells[colidx++].SetCellValue(LangResource.TotalPoints);
             row.Cells[colidx].SetCellValue(LangResource.Status);
         }
@@ -44,14 +50,17 @@
             var rowAway = sheet.CopyRow(TemplateSheet, GetRowTeamWin(exportRow.AwayWin), currentRow + 1);
 
             MergeResultCells(sheet, currentRow, currentRow + 1, ColumnKickOffTime, ColumnStatus);
+            MergeResultCells(sheet, currentRow, currentRow + 1, CorrectScoreIndex, TotalPointsIndex);
 
             AssignStringData(
                 rowHome,
                 ColumnMatchCode,
                 exportRow.MatchCode,
                 Helper.ToRtfString(exportRow.KickOffTime),
-                Helper.ToRtfString(exportRow.HomeTeam),
+                Helper.ToRtfString(exportRow.HomeTeam),                
                 exportRow.HomePoint,
+                exportRow.CorrectScore,
+                exportRow.TotalPoint,
                 exportRow.EventStatus);
             currentRow++;
             AssignStringData(
@@ -61,6 +70,8 @@
                 Helper.ToRtfString(exportRow.KickOffTime),
                 Helper.ToRtfString(exportRow.AwayTeam),
                 exportRow.AwayPoint,
+                exportRow.CorrectScore,
+                exportRow.TotalPoint,
                 exportRow.EventStatus);
             currentRow++;
         }

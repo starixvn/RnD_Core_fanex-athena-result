@@ -25,10 +25,10 @@
 
         protected override void AssignHeader(ISheet sheet)
         {
-            var colidx = 3;
+            var colidx = 4;
             var row = sheet.CopyRow(TemplateSheet, RowHeaderTemplate, RowHeaderTemplate);
             row.Cells[0].SetCellValue(LangResource.Race);
-            row.Cells[colidx++].SetCellValue(LangResource.Results);
+            row.Cells[1].SetCellValue(LangResource.Result);
             row.Cells[colidx++].SetCellValue(LangResource.Win);
             row.Cells[colidx].SetCellValue(LangResource.Status);
         }

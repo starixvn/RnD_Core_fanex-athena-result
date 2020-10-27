@@ -135,10 +135,11 @@
         }
 
         [Test]
-        public void WinOdd_WinOddsIsGreaterThanZero_ReturnWinOdds()
+        public void WinOdd_FirstPlacing_WinOddsIsGreaterThanZero_ReturnWinOdds()
         {
             // Arrange
             _racing.WinOdds = 1;
+            _racing.Place = 1;
 
             // Act
             var viewModel = new VSHRacingViewModel(_racing, _setting, _refDataHelper);
@@ -148,10 +149,25 @@
         }
 
         [Test]
-        public void WinOdd_WinOddsIsZero_ReturnEmpty()
+        public void WinOdd_FirstPlacing_WinOddsIsZero_ReturnEmpty()
         {
             // Arrange
             _racing.WinOdds = 0;
+            _racing.Place = 1;
+
+            // Act
+            var viewModel = new VSHRacingViewModel(_racing, _setting, _refDataHelper);
+
+            // Assert
+            Assert.AreEqual("", viewModel.WinOdd);
+        }
+
+        [Test]
+        public void WinOdd_NoFirstPlacing_WinOddsIsZero_ReturnEmpty()
+        {
+            // Arrange
+            _racing.WinOdds = 0;
+            _racing.Place = 2;
 
             // Act
             var viewModel = new VSHRacingViewModel(_racing, _setting, _refDataHelper);

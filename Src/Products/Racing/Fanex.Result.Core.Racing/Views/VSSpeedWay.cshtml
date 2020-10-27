@@ -1,12 +1,11 @@
 ﻿@{
     var viewModel = (Fanex.Result.Core.Base.ViewModels.RazorBinderModel)Model;
-    const int colspan = 6;
+    var colspan = viewModel.IsPopUp ? 4 : 6;
     var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
 
 }
 @using Fanex.Result.Core.Base.ViewModels;
 @using Fanex.Result.Core.Racing.ViewModels;
-@using System.Collections;
 @using Fanex.Result.Core.Base.Resources;
 @if (viewModel.VisibleFreeHeader)
 {
@@ -29,12 +28,16 @@
                     <th class="cl-result">
                         @Raw(LangResource.Result)
                     </th>
-                    <th class="cl-win">
-                        @Raw(LangResource.Win)
-                    </th>
-                    <th class="cl-status">
-                        @LangResource.Status
-                    </th>
+                    @if (!viewModel.IsPopUp)
+                    {
+                        <th class="cl-win">
+                            @Raw(LangResource.Win)
+                        </th>
+                        <th class="cl-status">
+                            @LangResource.Status
+                        </th>
+                    }
+
                 </tr>
             </thead>
         </table>
@@ -59,18 +62,21 @@
                 </tr>
             }
             <tr class="header">
-                <th class="cl-race" >
+                <th class="cl-race">
                     @LangResource.Race
                 </th>
                 <th class="cl-result" colspan="3">
                     @Raw(LangResource.Result)
                 </th>
-                <th class="cl-win">
-                    @Raw(LangResource.Win)
-                </th>
-                <th class="cl-status">
-                    @LangResource.Status
-                </th>
+                @if (!viewModel.IsPopUp)
+                {
+                    <th class="cl-win">
+                        @Raw(LangResource.Win)
+                    </th>
+                    <th class="cl-status">
+                        @LangResource.Status
+                    </th>
+                }
             </tr>
         </thead>
     }
@@ -87,11 +93,11 @@
                 if (!viewModel.IsPopUp)
                 {
 
-            <tr class="data">
-                <td colspan="@colspan" class="cl-league">
-                    @group.Data[0].LeagueName
-                </td>
-            </tr>
+                    <tr class="data">
+                        <td colspan="@colspan" class="cl-league">
+                            @group.Data[0].LeagueName
+                        </td>
+                    </tr>
 
                 }
                 foreach (var temp in group.Data)
@@ -107,47 +113,54 @@
                     if (currentRace != item.EvenTime)
                     {
                         currentRace = item.EvenTime;
-            <tr class="data @item.Color(index, "even", "odd")">
-                <td class="cl-race" rowspan="@item.RowCount">
-                    @Raw(item.KickOffTime)
-                </td>
-                <td class="cl-placing">
-                    @item.Placing
-                </td>
-                <td class="cl-engine-no">
-                    @item.HorseNo
-                </td>
-                <td class="cl-result home">
-                    @item.Result
-                </td>
-                <td class="cl-win home">
-                    @item.WinOdd
-                </td>
-                <td class="cl-status @item.EventStatusBackground home">
-                    @item.Status
-                </td>
-            </tr>
+                        <tr class="data @item.Color(index, "even", "odd")">
+                            <td class="cl-race" rowspan="@item.RowCount">
+                                @Raw(item.KickOffTime)
+                            </td>
+                            <td class="cl-placing">
+                                @item.Placing
+                            </td>
+                            <td class="cl-engine-no">
+                                @item.HorseNo
+                            </td>
+                            <td class="cl-result home">
+                                @item.Result
+                            </td>
+                            @if (!viewModel.IsPopUp)
+                            {
+                                <td class="cl-win home">
+                                    @item.WinOdd
+                                </td>
+                                <td class="cl-status @item.EventStatusBackground home">
+                                    @item.Status
+                                </td>
+                            }
+
+                        </tr>
 
                     }
                     else
                     {
-            <tr class="data @item.Color(index, "even", "odd")">
-                <td class="cl-placing">
-                    @item.Placing
-                </td>
-                <td class="cl-engine-no">
-                    @item.HorseNo
-                </td>
-                <td class="cl-result away">
-                    @item.Result
-                </td>
-                <td class="cl-win away">
-                    @item.WinOdd
-                </td>
-                <td class="cl-status @item.EventStatusBackground away">
-                    @item.Status
-                </td>
-            </tr>
+                        <tr class="data @item.Color(index, "even", "odd")">
+                            <td class="cl-placing">
+                                @item.Placing
+                            </td>
+                            <td class="cl-engine-no">
+                                @item.HorseNo
+                            </td>
+                            <td class="cl-result away">
+                                @item.Result
+                            </td>
+                            @if (!viewModel.IsPopUp)
+                            {
+                                <td class="cl-win away">
+                                    @item.WinOdd
+                                </td>
+                                <td class="cl-status @item.EventStatusBackground away">
+                                    @item.Status
+                                </td>
+                            }
+                        </tr>
                     }
 
                 }

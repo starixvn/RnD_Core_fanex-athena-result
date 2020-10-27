@@ -67,7 +67,20 @@
         public string Result => DataHelper.GetHorseTeamName(_racing.EngineId, GetSupportedLanguage, string.Empty);
 
         public string WinOdd
-            => _racing.WinOdds > 0 ? Helper.DecFormat(_racing.WinOdds, 2) : string.Empty;
+        {
+            get
+            {
+                if (Placing.Equals(LangResource.Lbl1st))
+                {
+                    return _racing.WinOdds > 0 ? Helper.DecFormat(_racing.WinOdds, 2) : string.Empty;
+                }
+
+                return string.Empty;
+            }
+
+
+        }
+
 
         public string PlaceOdd
             => _racing.PlaceOdds > 0 ? Helper.DecFormat(_racing.PlaceOdds, 2) : string.Empty;

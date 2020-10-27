@@ -105,7 +105,6 @@
             Assert.AreEqual("2nd", actualDataRowSecond.Cells[1].StringCellValue);
             Assert.AreEqual("1", actualDataRowSecond.Cells[2].StringCellValue);
             Assert.AreEqual("Team", actualDataRowSecond.Cells[3].StringCellValue);
-            Assert.AreEqual("1.00", actualDataRowSecond.Cells[4].StringCellValue);
             Assert.AreEqual("Completed", actualDataRowFirst.Cells[5].StringCellValue);
 
             var leagueRow2 = excelViewModel.Workbook.GetSheetAt(0).GetRow(5);

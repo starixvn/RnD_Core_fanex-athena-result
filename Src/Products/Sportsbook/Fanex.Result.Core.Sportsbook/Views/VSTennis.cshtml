@@ -80,11 +80,11 @@
                         }
                         <td class="cl-ko-time" rowspan="2">@Raw(item.KickOffTime)</td>
                         <td class="cl-match home @item.HomeWin">@Raw(item.HomeTeam)</td>
-                        <td class="cl-totalpoint home">@item.HomePoint</td>
+                        <td class="cl-totalpoint">@item.HomePoint</td>
                         @if (!viewModel.IsPopUp)
                         {
-                            <td class="cl-status home" rowspan="2">@item.CorrectScore</td>
-                            <td class="cl-status home" rowspan="2">@item.TotalPoint</td>
+                            <td class="cl-status color-blue" rowspan="2">@item.CorrectScore</td>
+                            <td class="cl-status color-blue" rowspan="2">@item.TotalPoint</td>
                             <td rowspan="2" class="cl-status @item.EventStatusBackground">@item.EventStatus</td>
                         }
 

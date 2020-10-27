@@ -121,10 +121,11 @@
         }
 
         [Test]
-        public void WinOdd_WinOddsIsGreaterThanZero_ReturnWinOdds()
+        public void WinOdd_FirstPlacing_WinOddsIsGreaterThanZero_ReturnWinOdds()
         {
             // Arrange
             _racing.WinOdds = 1;
+            _racing.Place = 1;
 
             // Act
             var viewModel = new RacingViewModel(_racing, _setting, _refDataHelper);

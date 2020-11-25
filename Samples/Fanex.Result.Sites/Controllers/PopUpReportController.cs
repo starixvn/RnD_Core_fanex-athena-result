@@ -1,11 +1,13 @@
 ﻿namespace MvcExample.Controllers
 {
+    using System.Collections.Generic;
     using System.Globalization;
     using System.Linq;
     using System.Threading;
     using System.Web.Mvc;
     using Fanex.Result.Core;
     using Fanex.Result.Core.Base;
+    using Fanex.Result.Core.LeapGaming.DTO;
     using Models.Criteria;
     using Models.MetaModel;
     using Models.ResultData;
@@ -135,6 +137,9 @@
                 case SportType.NumberGame:
                     return ResultEngine.HtmlParser(
                         new NumberGameResultData().GetPopupResult(metalModel.MatchId, metalModel.GetDataFromExcel).ToList(), setting);
+
+                case SportType.LeapGamingVirtualSports:
+                    return ResultEngine.HtmlParser(new LeapGamingResultData().GetPopupResult(metalModel.TransDesc), setting);
 
                 default:
                     if (metalModel.Bettype == MetricGaming801)

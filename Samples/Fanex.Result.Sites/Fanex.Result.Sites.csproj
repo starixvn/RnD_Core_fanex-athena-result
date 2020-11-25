@@ -241,6 +241,7 @@
     <Compile Include="Models\MetaModel\ResultPopupMetalModel.cs" />
     <Compile Include="Models\ResultData\BBinResultData.cs" />
     <Compile Include="Models\ResultData\AllbetResultData.cs" />
+    <Compile Include="Models\ResultData\LeapGamingResultData.cs" />
     <Compile Include="Models\ResultData\WMLiveCasinoResultData.cs" />
     <Compile Include="Models\ResultData\SexyGamingResultData.cs" />
     <Compile Include="Models\ResultData\GTCasinoResultData.cs" />
@@ -1124,6 +1125,10 @@
     <ProjectReference Include="..\..\Src\Products\Happy5\Fanex.Result.Core.Happy5\Fanex.Result.Core.Happy5.csproj">
       <Project>{8ED01504-3503-43C2-8E0E-8127E36E482C}</Project>
       <Name>Fanex.Result.Core.Happy5</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Src\Products\LeapGaming\Fanex.Result.Core.LeapGaming\Fanex.Result.Core.LeapGaming.csproj">
+      <Project>{f5653cf7-59bd-424a-bfa6-de54a63dad6b}</Project>
+      <Name>Fanex.Result.Core.LeapGaming</Name>
     </ProjectReference>
     <ProjectReference Include="..\..\Src\Products\MetricGaming\Fanex.Result.Core.MetricGaming\Fanex.Result.Core.MetricGaming.csproj">
       <Project>{76cd2383-849a-4291-ad55-378f6c26836c}</Project>

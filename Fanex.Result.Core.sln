@@ -182,6 +182,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GDG", "GDG", "{0661C5A0-7AD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.GDG", "Src\Products\GDG\Fanex.Result.Core.GDG\Fanex.Result.Core.GDG.csproj", "{B8D854DD-0349-4DDA-B0CD-2846370289EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.LeapGaming.Tests", "Src\Products\LeapGaming\Fanex.Result.Core.LeapGaming.Tests\Fanex.Result.Core.LeapGaming.Tests.csproj", "{E818D59F-934B-4F8A-8D47-ADA499405EDA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LeapGaming", "LeapGaming", "{09F3FC03-4F77-4C50-950F-FD84335D3BA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.LeapGaming", "Src\Products\LeapGaming\Fanex.Result.Core.LeapGaming\Fanex.Result.Core.LeapGaming.csproj", "{F5653CF7-59BD-424A-BFA6-DE54A63DAD6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.LeapGaming.Tests", "Src\Products\LeapGaming\Fanex.Result.Core.LeapGaming.Tests\Fanex.Result.Core.LeapGaming.Tests.csproj", "{E818D59F-934B-4F8A-8D47-ADA499405EDA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -408,6 +416,14 @@ Global
 		{B8D854DD-0349-4DDA-B0CD-2846370289EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8D854DD-0349-4DDA-B0CD-2846370289EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8D854DD-0349-4DDA-B0CD-2846370289EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5653CF7-59BD-424A-BFA6-DE54A63DAD6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5653CF7-59BD-424A-BFA6-DE54A63DAD6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5653CF7-59BD-424A-BFA6-DE54A63DAD6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5653CF7-59BD-424A-BFA6-DE54A63DAD6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E818D59F-934B-4F8A-8D47-ADA499405EDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E818D59F-934B-4F8A-8D47-ADA499405EDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E818D59F-934B-4F8A-8D47-ADA499405EDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E818D59F-934B-4F8A-8D47-ADA499405EDA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -494,6 +510,9 @@ Global
 		{E1BCBD1F-C690-4478-994F-FF2B9714DF74} = {EA8B7953-6699-46A0-9814-C59F16BDC631}
 		{0661C5A0-7AD4-448F-A164-F863BE06C56C} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{B8D854DD-0349-4DDA-B0CD-2846370289EC} = {0661C5A0-7AD4-448F-A164-F863BE06C56C}
+		{09F3FC03-4F77-4C50-950F-FD84335D3BA5} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
+		{F5653CF7-59BD-424A-BFA6-DE54A63DAD6B} = {09F3FC03-4F77-4C50-950F-FD84335D3BA5}
+		{E818D59F-934B-4F8A-8D47-ADA499405EDA} = {09F3FC03-4F77-4C50-950F-FD84335D3BA5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4BF11104-7EAE-4BB6-A235-1C10DB35CE8B}

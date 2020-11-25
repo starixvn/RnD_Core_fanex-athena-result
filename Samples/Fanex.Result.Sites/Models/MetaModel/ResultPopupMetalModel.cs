@@ -35,5 +35,7 @@
         public bool IncludeTestData { get; set; }
 
         public bool GetDataFromExcel { get; set; }
+
+        public string TransDesc { get; set; }
     }
 }

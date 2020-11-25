@@ -51,6 +51,9 @@
                 case SportType.VirtualCycling:
                     return dtoName == DTOType.RACING;
 
+                case SportType.LeapGamingVirtualSports:
+                    return dtoName == DTOType.LEAPGAMING;
+
                 case SportType.NumberGame:
                     return dtoName == DTOType.NUMBERGAME;
 

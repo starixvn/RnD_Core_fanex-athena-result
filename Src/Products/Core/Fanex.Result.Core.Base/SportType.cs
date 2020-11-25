@@ -226,6 +226,8 @@
         [StringValue("VSBasketBall")]
         VirtualBasketBall = 193,
 
+        [StringValue("LeapGaming")]
+        LeapGamingVirtualSports = 231,
         #endregion VirtualSport
 
         [StringValue("BBin")]

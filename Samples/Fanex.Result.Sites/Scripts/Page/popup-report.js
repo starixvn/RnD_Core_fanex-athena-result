@@ -94,6 +94,7 @@ var popupReport = (function () {
                 languageCode: $("#language").val(),
                 Betid: $("#betid").val(),
                 Handicap2: $("#handicap2").val(),
+                TransDesc: $("#transdesc").val(),
                 IncludeTestData: $("#IncludeTestData").is(":checked"),
                 GetDataFromExcel: $("#get-data-from-excel").is(":checked")
             };

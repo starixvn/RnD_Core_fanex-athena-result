@@ -977,6 +977,7 @@
     <Content Include="App_Data\Result_Data\BasketBallDetail.xls" />
     <Content Include="App_Data\Result_Data\NumberGame.xls" />
     <Content Include="App_Data\Fanex.Result\VSSpeedWay.xls" />
+    <Content Include="App_Data\Result_Data\UpcomingSport57.xls" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>

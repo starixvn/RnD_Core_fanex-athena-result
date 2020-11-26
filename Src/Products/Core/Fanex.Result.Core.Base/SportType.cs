@@ -267,6 +267,36 @@
         [StringValue("BeachSoccer")]
         UpcomingSport55 = 55,
 
+        [StringValue("BeachSoccer")]
+        UpcomingSport57 = 57,
+
+        [StringValue("BeachSoccer")]
+        UpcomingSport58 = 58,
+
+        [StringValue("BeachSoccer")]
+        UpcomingSport59 = 59,
+
+        [StringValue("BeachSoccer")]
+        UpcomingSport60 = 60,
+
+        [StringValue("BeachSoccer")]
+        UpcomingSport61 = 61,
+
+        [StringValue("BeachSoccer")]
+        UpcomingSport62 = 62,
+
+        [StringValue("BeachSoccer")]
+        UpcomingSport63 = 63,
+
+        [StringValue("BeachSoccer")]
+        UpcomingSport64 = 64,
+        
+        [StringValue("BeachSoccer")]
+        UpcomingSport65 = 65,
+
+        [StringValue("BeachSoccer")]
+        UpcomingSport66 = 66,
+
         [StringValue("SAGaming")]
         SAGaming = 244,
 

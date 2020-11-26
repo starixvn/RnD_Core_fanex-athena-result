@@ -43,6 +43,7 @@
                 new Sport { Id = 54, Name = "Upcoming Sport 54" },
                 new Sport { Id = 55, Name = "Upcoming Sport 55" },
                 new Sport { Id = 56, Name = "Upcoming Sport 56" },
+                new Sport { Id = 57, Name = "Upcoming Sport 57" },
                 new Sport { Id = 43, Name = "ESport" },
                 new Sport { Id = 233, Name = "WM" },
                 new Sport { Id = 211, Name = "Allbet" },

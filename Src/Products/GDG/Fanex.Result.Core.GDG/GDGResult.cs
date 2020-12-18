@@ -34,11 +34,12 @@
             _configs = GdgConfigs.Configs;
         }
 
-        public string GetResult(string custId, string transId3rd, string gameId3rd, string language = "en-US", string siteId = null)
+        public string GetResult(string custId, string transId3rd, string gameId3rd, string siteId, string language = "en-US")
         {
             CheckArgument(custId, "custId");
             CheckArgument(transId3rd, "transId3rd");
             CheckArgument(gameId3rd, "gameId3rd");
+            CheckArgument(siteId, "siteId");
 
             var requestData = GenerateRequestData(custId, transId3rd, gameId3rd, language, siteId);
 
@@ -77,13 +78,13 @@
 
             var random = new Random();
             var timestampWithRandom = $"{DateTime.Now.Ticks}-{random.Next(0, int.MaxValue)}";
-            var hashedPreInfo = $"{_configs.SiteId}-{custId}-{transId3rd}-{random.Next(0, int.MaxValue)}";
+            var hashedPreInfo = $"{siteId}-{custId}-{transId3rd}-{random.Next(0, int.MaxValue)}";
             var seq = $"{timestampWithRandom}-{hashedPreInfo}";
 
             return new Dictionary<string, string>
             {
                 { "TimeStamp" ,DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff") },
-                { "SiteId", siteId ?? _configs.SiteId },
+                { "SiteId", siteId},
                 { "Seq" , seq },
                 { "OBCustId" , custId },
                 { "VendorId" , _configs.VendorId },

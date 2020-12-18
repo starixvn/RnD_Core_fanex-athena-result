@@ -20,9 +20,6 @@
         [ConfigurationProperty(URL, IsRequired = true)]
         public string Url => this[URL].ToString();
 
-        [ConfigurationProperty(SITE_ID, IsRequired = false, DefaultValue = null)]
-        public string SiteId => this[SITE_ID].ToString();
-
         [ConfigurationProperty(VENDOR_ID, IsRequired = true)]
         public string VendorId => this[VENDOR_ID].ToString();
 

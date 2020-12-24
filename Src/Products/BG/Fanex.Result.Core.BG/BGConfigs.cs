@@ -1,0 +1,35 @@
+﻿namespace Fanex.Result.Core.BG
+{
+    using System.Configuration;
+
+    public sealed class BGConfigs : ConfigurationSection
+    {
+        #region const
+        private const string RESULT_CONFIG = "BGResultConfigs";
+        private const string URL = "Url";
+        private const string VENDOR_ID = "VendorId";
+        private const string DEBUG_MODE = "Debug";
+        private const string PROXY_IP_SERVER = "ProxyIPServer";
+        private const string PROXY_PORT_SERVER = "ProxyPortServer";
+        #endregion const       
+
+        private static readonly BGConfigs _configs = ConfigurationManager.GetSection(RESULT_CONFIG) as BGConfigs;
+
+        public static BGConfigs Configs => _configs;
+
+        [ConfigurationProperty(URL, IsRequired = true)]
+        public string Url => this[URL].ToString();
+
+        [ConfigurationProperty(VENDOR_ID, IsRequired = true)]
+        public string VendorId => this[VENDOR_ID].ToString();
+
+        [ConfigurationProperty(DEBUG_MODE, IsRequired = false, DefaultValue = 0)]
+        public int DebugMode => (int)this[DEBUG_MODE];
+
+        [ConfigurationProperty(PROXY_IP_SERVER, IsRequired = false, DefaultValue = "")]
+        public string ProxyIPServer => this[PROXY_IP_SERVER].ToString();
+
+        [ConfigurationProperty(PROXY_PORT_SERVER, IsRequired = false, DefaultValue = 0)]
+        public int ProxyPortServer => (int)this[PROXY_PORT_SERVER];
+    }
+}

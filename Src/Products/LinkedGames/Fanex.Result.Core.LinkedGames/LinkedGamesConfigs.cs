@@ -1,0 +1,44 @@
+﻿namespace Fanex.Result.Core.LinkedGames
+{
+    using System.Configuration;
+
+    public sealed class LinkedGamesConfigs : ConfigurationSection
+    {
+        #region const
+        private const string RESULT_CONFIG = "LinkedGamesResultConfigs";
+        private const string URL = "Url";
+        private const string SITE_ID = "SiteId";
+        private const string VENDOR_ID = "VendorId";
+        private const string DARK_MODE = "DarkMode";
+        private const string DEBUG_MODE = "Debug";
+        private const string PROXY_IP_SERVER = "ProxyIPServer";
+        private const string PROXY_PORT_SERVER = "ProxyPortServer";
+
+        #endregion const       
+
+        private static readonly LinkedGamesConfigs _configs = ConfigurationManager.GetSection(RESULT_CONFIG) as LinkedGamesConfigs;
+
+        public static LinkedGamesConfigs Configs => _configs;
+
+        [ConfigurationProperty(URL, IsRequired = true)]
+        public string Url => this[URL].ToString();
+
+        [ConfigurationProperty(SITE_ID, IsRequired = false, DefaultValue = null)]
+        public string SiteId => this[SITE_ID].ToString();
+
+        [ConfigurationProperty(VENDOR_ID, IsRequired = true)]
+        public string VendorId => this[VENDOR_ID].ToString();
+
+        [ConfigurationProperty(DARK_MODE, IsRequired = false, DefaultValue = "0")]
+        public string DarkMode => this[DARK_MODE].ToString();
+
+        [ConfigurationProperty(DEBUG_MODE, IsRequired = false, DefaultValue = 0)]
+        public int DebugMode => (int)this[DEBUG_MODE];
+
+        [ConfigurationProperty(PROXY_IP_SERVER, IsRequired = false, DefaultValue = "")]
+        public string ProxyIPServer => this[PROXY_IP_SERVER].ToString();
+
+        [ConfigurationProperty(PROXY_PORT_SERVER, IsRequired = false, DefaultValue = 0)]
+        public int ProxyPortServer => (int)this[PROXY_PORT_SERVER];
+    }
+}

@@ -193,6 +193,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.BG", "Src\Products\BG\Fanex.Result.Core.BG\Fanex.Result.Core.BG.csproj", "{6539579A-762D-479D-B2FF-BA201BD7168D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.LinkedGames", "Src\Products\LinkedGames\Fanex.Result.Core.LinkedGames\Fanex.Result.Core.LinkedGames.csproj", "{3E1F8B18-6339-485D-91D8-7C8C2E7BDB94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.MaxGame", "Src\Products\MaxGame\Fanex.Result.Core.MaxGame\Fanex.Result.Core.MaxGame.csproj", "{3E1F8B18-6339-485D-91D8-7C8C2E7BDB94}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -531,6 +534,8 @@ Global
 		{19362B8A-B77C-425F-BE6A-F6F7A3E9C809} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{455D2455-644C-4452-84B7-38FA4D7F370D} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{6539579A-762D-479D-B2FF-BA201BD7168D} = {455D2455-644C-4452-84B7-38FA4D7F370D}
+		{61FC5E7A-BA34-483F-ADB9-071E6556E5AE} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
+		{3E1F8B18-6339-485D-91D8-7C8C2E7BDB94} = {61FC5E7A-BA34-483F-ADB9-071E6556E5AE}
 		{3E1F8B18-6339-485D-91D8-7C8C2E7BDB94} = {19362B8A-B77C-425F-BE6A-F6F7A3E9C809}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

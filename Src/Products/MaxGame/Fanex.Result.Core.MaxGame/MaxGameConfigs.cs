@@ -1,0 +1,32 @@
+﻿namespace Fanex.Result.Core.MaxGame
+{
+    using System.Configuration;
+
+    public sealed class MaxGameConfigs : ConfigurationSection
+    {
+        #region const
+        private const string RESULT_CONFIG = "MaxGameResultConfigs";
+        private const string URL = "Url";
+        private const string DEBUG_MODE = "Debug";
+        private const string PROXY_IP_SERVER = "ProxyIP";
+        private const string PROXY_PORT_SERVER = "ProxyPort";
+
+        #endregion const       
+
+        private static readonly MaxGameConfigs _configs = ConfigurationManager.GetSection(RESULT_CONFIG) as MaxGameConfigs;
+
+        public static MaxGameConfigs Configs => _configs;
+
+        [ConfigurationProperty(URL, IsRequired = true)]
+        public string Url => this[URL].ToString();
+
+        [ConfigurationProperty(DEBUG_MODE, IsRequired = false, DefaultValue = 0)]
+        public int DebugMode => (int)this[DEBUG_MODE];
+
+        [ConfigurationProperty(PROXY_IP_SERVER, IsRequired = false, DefaultValue = "")]
+        public string ProxyIPServer => this[PROXY_IP_SERVER].ToString();
+
+        [ConfigurationProperty(PROXY_PORT_SERVER, IsRequired = false, DefaultValue = 0)]
+        public int ProxyPortServer => (int)this[PROXY_PORT_SERVER];
+    }
+}

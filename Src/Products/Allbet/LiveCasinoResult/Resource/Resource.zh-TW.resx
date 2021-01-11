@@ -132,4 +132,10 @@
   <data name="Player3" xml:space="preserve">
     <value>閒3</value>
   </data>
+  <data name="Player4" xml:space="preserve">
+    <value>閒4</value>
+  </data>
+  <data name="Player5" xml:space="preserve">
+    <value>閒5</value>
+  </data>
 </root>

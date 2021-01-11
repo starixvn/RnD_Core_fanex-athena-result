@@ -71,6 +71,8 @@ namespace LiveCasinoResult
                         return GetWinThreeCardsLayout(TransDesc, slang, GameId3rd, bettype);
                     case "2407":
                         return GetBullBullLayout(TransDesc, slang, GameId3rd, bettype);
+                    case "2408":
+                        return GetPokDengLayout(TransDesc, slang, GameId3rd, bettype);
                     default:
                         return "";
                 }
@@ -136,7 +138,7 @@ namespace LiveCasinoResult
 
         private static string GetBullBullLayout(string sDesc, string slang, string GameId3rd, string bettype)
         {
-            var strRefKey = "ALLBET_PokerHand";
+            var strRefKey = "Allbet_PokerHand";
             var GameDetail = sDesc.Split('*');
             var result = GetSplitValue('=', GameDetail[5]);
             var results = GetSplitValue('=', GameDetail[6]);
@@ -145,13 +147,13 @@ namespace LiveCasinoResult
             var resultCard = result.Split(':')[0].Replace("0", "").Trim();
             var resultTitle = result.Split(':')[1].Split(';')[0].Replace("B", Resource.Resource.Banker).Replace("P", Resource.Resource.Player);
             var resultCards = result.Split(':')[1].Replace("B;", "").Replace("P;", "").Replace(";", ",").Replace("0", "");
-            var resultName = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, GetSplitValue(';', results.Split(':')[0]).Trim(), slang, "");
+            var resultName = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, $"{bettype}_{GetSplitValue(';', results.Split(':')[0]).Trim()}", slang, "");
             var player1Cards = result.Split(':')[2].Replace("P1;", "").Replace(";", ",").Replace("0", "").Insert(3, "<br/>");
-            var player1Name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, GetSplitValue(';', results.Split(':')[1]).Trim(), slang, "");
+            var player1Name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, $"{bettype}_{GetSplitValue(';', results.Split(':')[1]).Trim()}", slang, "");
             var player2Cards = result.Split(':')[3].Replace("P2;", "").Replace(";", ",").Replace("0", "").Insert(3, "<br/>"); ;
-            var player2Name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, GetSplitValue(';', results.Split(':')[2]).Trim(), slang, "");
+            var player2Name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, $"{bettype}_{GetSplitValue(';', results.Split(':')[2]).Trim()}", slang, "");
             var player3Cards = result.Split(':')[4].Replace("P3;", "").Replace(";", ",").Replace("0", "").Insert(3, "<br/>"); ;
-            var player3Name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, GetSplitValue(';', results.Split(':')[3]).Trim(), slang, "");
+            var player3Name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, $"{bettype}_{GetSplitValue(';', results.Split(':')[3]).Trim()}", slang, "");
 
             var strFinalScore = new List<string>();
             var winResults = winResult.Split(';');
@@ -176,6 +178,58 @@ namespace LiveCasinoResult
                 GetCardImgPath(player2Cards),
                 $"{Resource.Resource.Player3}: {player3Name}",
                 GetCardImgPath(player3Cards),
+                string.Join(", ", strFinalScore));
+        }
+
+        private static string GetPokDengLayout(string sDesc, string slang, string GameId3rd, string bettype)
+        {
+            var strRefKey = "Allbet_PokerHand";
+            var GameDetail = sDesc.Split('*');
+            var result = GetSplitValue('=', GameDetail[5]);
+            var results = GetSplitValue('=', GameDetail[6]);
+            var winResult = GetSplitValue('=', GameDetail[7]);
+
+            //var resultCard = result.Split(':')[0].Replace("0", "").Trim();
+            var resultTitle = result.Split(':')[0].Split(';')[0].Replace("B", Resource.Resource.Banker).Replace("P", Resource.Resource.Player);
+            var resultCards = result.Split(':')[0].Replace("B;", "").Replace("P;", "").Replace(";", ",").Replace("0", "");
+            var resultName = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, $"{bettype}_{GetSplitValue(';', results.Split(':')[0]).Trim()}", slang, "");
+            var player1Cards = result.Split(':')[1].Replace("P1;", "").Replace(";", ",").Replace("0", "");
+            var player1Name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, $"{bettype}_{GetSplitValue(';', results.Split(':')[1]).Trim()}", slang, "");
+            var player2Cards = result.Split(':')[2].Replace("P2;", "").Replace(";", ",").Replace("0", "");
+            var player2Name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, $"{bettype}_{GetSplitValue(';', results.Split(':')[2]).Trim()}", slang, "");
+            var player3Cards = result.Split(':')[3].Replace("P3;", "").Replace(";", ",").Replace("0", "");
+            var player3Name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, $"{bettype}_{GetSplitValue(';', results.Split(':')[3]).Trim()}", slang, "");
+            var player4Cards = result.Split(':')[4].Replace("P4;", "").Replace(";", ",").Replace("0", "");
+            var player4Name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, $"{bettype}_{GetSplitValue(';', results.Split(':')[4]).Trim()}", slang, "");
+            var player5Cards = result.Split(':')[5].Replace("P5;", "").Replace(";", ",").Replace("0", "");
+            var player5Name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, $"{bettype}_{GetSplitValue(';', results.Split(':')[5]).Trim()}", slang, "");
+
+            var strFinalScore = new List<string>();
+            var winResults = winResult.Split(';');
+            var strRefKeyOfWinResult = "AllBet_BT";
+            for (int j = 0; j < winResults.Length; j++)
+            {
+                var name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKeyOfWinResult, winResults[j].Trim(), slang, "");
+                strFinalScore.Add(name);
+            }
+
+            var strFinalLayout = GetFinalLayout(bettype);
+
+            return String.Format(strFinalLayout,
+                "Game ID : " + GameId3rd,
+                $"{resultTitle}: ",
+                GetCardImgPath(resultCards),
+                resultName,
+                $"{Resource.Resource.Player1}: {player1Name}",
+                GetCardImgPath(player1Cards),
+                $"{Resource.Resource.Player2}: {player2Name}",
+                GetCardImgPath(player2Cards),
+                $"{Resource.Resource.Player3}: {player3Name}",
+                GetCardImgPath(player3Cards),
+                $"{Resource.Resource.Player4}: {player4Name}",
+                GetCardImgPath(player4Cards),
+                $"{Resource.Resource.Player5}: {player5Name}",
+                GetCardImgPath(player5Cards),
                 string.Join(", ", strFinalScore));
         }
 
@@ -375,6 +429,14 @@ namespace LiveCasinoResult
                     strFinalLayout += "<td>{7}<br/>{8}</td>";
                     strFinalLayout += "<td>{9}<br/>{10}</td></tr>";
                     strFinalLayout += "<tr align='center'><td colspan='3'>{11}</td></tr>";
+                    break;
+                case "2408":
+                    strFinalLayout = "<div class='popWTableArea'><table width='100%' cellpadding='0' cellspacing='0' border='0' class='oddsTable info'>";
+                    strFinalLayout += "<tbody><tr><td class='tabtitle'>{0}</td></tr></tbody>";
+                    strFinalLayout += "<tbody><tr align='center'><td><div width='100%'>{1} {2} {3}</div></td></tr>";
+                    strFinalLayout += "<tr align='center' ><td><div style='width:33%'>{4}<br/>{5}</div><div style='width:34%' class='left-border'>{6}<br/>{7}</div><div style='width:33%' class='left-border'>{8}<br/>{9}</div></td>";
+                    strFinalLayout += "<tr  align='center' ><td><div style='width:50%'>{10}<br/>{11}</div><div style='width:50%' class='left-border'>{12}<br/>{13}</div></td></tr>";
+                    strFinalLayout += "<tr align='center'><td >{14}</td></tr>";
                     break;
             }
             return strFinalLayout;

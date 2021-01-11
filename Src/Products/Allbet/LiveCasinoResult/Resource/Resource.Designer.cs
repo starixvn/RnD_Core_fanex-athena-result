@@ -104,5 +104,23 @@ namespace LiveCasinoResult.Resource {
                 return ResourceManager.GetString("Player3", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player4.
+        /// </summary>
+        internal static string Player4 {
+            get {
+                return ResourceManager.GetString("Player4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Player5.
+        /// </summary>
+        internal static string Player5 {
+            get {
+                return ResourceManager.GetString("Player5", resourceCulture);
+            }
+        }
     }
 }

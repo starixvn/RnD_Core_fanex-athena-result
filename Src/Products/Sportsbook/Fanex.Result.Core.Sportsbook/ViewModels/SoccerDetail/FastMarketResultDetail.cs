@@ -151,7 +151,7 @@
             if (IsTimeMachineCalculated(minute))
             {
                 var timeMachineGoal = Sportsbook.GameDetails.First(i => i.ResourceId == GameResourceID.TimeMachineOverUnderGoal);
-                var totalGoals = minute < TimeOfOneHalf - 1 ?
+                var totalGoals = minute < TimeOfOneHalf?
                     TotalGoalsOfFirsHalf(timeMachineGoal, minute) :
                     TotalGoalsFullTime(timeMachineGoal, minute);
 

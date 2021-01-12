@@ -193,7 +193,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.BG", "Src\Products\BG\Fanex.Result.Core.BG\Fanex.Result.Core.BG.csproj", "{6539579A-762D-479D-B2FF-BA201BD7168D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.LinkedGames", "Src\Products\LinkedGames\Fanex.Result.Core.LinkedGames\Fanex.Result.Core.LinkedGames.csproj", "{3E1F8B18-6339-485D-91D8-7C8C2E7BDB94}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -428,6 +427,10 @@ Global
 		{3E1F8B18-6339-485D-91D8-7C8C2E7BDB94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E1F8B18-6339-485D-91D8-7C8C2E7BDB94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E1F8B18-6339-485D-91D8-7C8C2E7BDB94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5653CF7-59BD-424A-BFA6-DE54A63DAD6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5653CF7-59BD-424A-BFA6-DE54A63DAD6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5653CF7-59BD-424A-BFA6-DE54A63DAD6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5653CF7-59BD-424A-BFA6-DE54A63DAD6B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F5653CF7-59BD-424A-BFA6-DE54A63DAD6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F5653CF7-59BD-424A-BFA6-DE54A63DAD6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5653CF7-59BD-424A-BFA6-DE54A63DAD6B}.Release|Any CPU.ActiveCfg = Release|Any CPU

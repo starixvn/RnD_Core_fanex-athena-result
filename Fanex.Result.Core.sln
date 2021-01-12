@@ -182,8 +182,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GDG", "GDG", "{0661C5A0-7AD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.GDG", "Src\Products\GDG\Fanex.Result.Core.GDG\Fanex.Result.Core.GDG.csproj", "{B8D854DD-0349-4DDA-B0CD-2846370289EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.LeapGaming.Tests", "Src\Products\LeapGaming\Fanex.Result.Core.LeapGaming.Tests\Fanex.Result.Core.LeapGaming.Tests.csproj", "{E818D59F-934B-4F8A-8D47-ADA499405EDA}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LeapGaming", "LeapGaming", "{09F3FC03-4F77-4C50-950F-FD84335D3BA5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.LeapGaming", "Src\Products\LeapGaming\Fanex.Result.Core.LeapGaming\Fanex.Result.Core.LeapGaming.csproj", "{F5653CF7-59BD-424A-BFA6-DE54A63DAD6B}"
@@ -515,8 +513,8 @@ Global
 		{E818D59F-934B-4F8A-8D47-ADA499405EDA} = {09F3FC03-4F77-4C50-950F-FD84335D3BA5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {4BF11104-7EAE-4BB6-A235-1C10DB35CE8B}
 		LessCompiler = ebd31f24-8f67-4e36-bd6d-1bb78a71e54b
+		SolutionGuid = {4BF11104-7EAE-4BB6-A235-1C10DB35CE8B}
 	EndGlobalSection
 	GlobalSection(JSLint) = preSolution
 		SolutionConfigurationLocation = JSLintOptions.xml

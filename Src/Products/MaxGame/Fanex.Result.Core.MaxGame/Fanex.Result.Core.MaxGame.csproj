@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3E1F8B18-6339-485D-91D8-7C8C2E7BDB94}</ProjectGuid>
+    <ProjectGuid>{A40AE55A-DE8E-411C-B044-96014FB7A8B5}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Fanex.Result.Core.MaxGame</RootNamespace>

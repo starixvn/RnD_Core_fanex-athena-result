@@ -204,12 +204,12 @@
                     }
                     else
                     {
-                        throw new VoidbridgeException("Send request incorrectly!");
+                        throw new VoidbridgeException("Send data incorrectly!");
                     }
                 }
                 else
                 {
-                    throw new VoidbridgeException($"Send request incorrectly! Detail request: {request}; Detail response: {SerializeResponse(responseObject)}");
+                    throw new VoidbridgeException($"Send data incorrectly! Detail data: {request}; Detail response: {SerializeResponse(responseObject)}");
                 }
             }
 

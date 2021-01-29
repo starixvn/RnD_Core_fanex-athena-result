@@ -10,3 +10,5 @@
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Critical Bug", "S4275:Getters and setters should access the expected fields", Justification = "<Pending>", Scope = "member", Target = "~P:Fanex.Result.Core.LinkedGames.LinkedGamesConfigs.SiteId")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Critical Bug", "S4275:Getters and setters should access the expected fields", Justification = "<Pending>", Scope = "member", Target = "~P:Fanex.Result.Core.LinkedGames.LinkedGamesConfigs.Url")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Critical Bug", "S4275:Getters and setters should access the expected fields", Justification = "<Pending>", Scope = "member", Target = "~P:Fanex.Result.Core.LinkedGames.LinkedGamesConfigs.VendorId")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Blocker Code Smell", "S3427:Method overloads with default parameter values should not overlap ", Justification = "<Pending>", Scope = "member", Target = "~M:Fanex.Result.Core.LinkedGames.LinkedGamesResult.#ctor(Fanex.Result.Core.LinkedGames.Ultilities.WebClient.IWebClient,Fanex.Result.Core.LinkedGames.Ultilities.Serializer.ISerializer)")]
+

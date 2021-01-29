@@ -10,3 +10,5 @@
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Critical Bug", "S4275:Getters and setters should access the expected fields", Justification = "<Pending>", Scope = "member", Target = "~P:Fanex.Result.Core.MaxGame.MaxGameConfigs.SiteId")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Critical Bug", "S4275:Getters and setters should access the expected fields", Justification = "<Pending>", Scope = "member", Target = "~P:Fanex.Result.Core.MaxGame.MaxGameConfigs.Url")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Critical Bug", "S4275:Getters and setters should access the expected fields", Justification = "<Pending>", Scope = "member", Target = "~P:Fanex.Result.Core.MaxGame.MaxGameConfigs.VendorId")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Blocker Code Smell", "S3427:Method overloads with default parameter values should not overlap ", Justification = "<Pending>", Scope = "member", Target = "~M:Fanex.Result.Core.MaxGame.MaxGameResult.#ctor(Fanex.Result.Core.MaxGame.Ultilities.WebClient.IWebClient,Fanex.Result.Core.MaxGame.Ultilities.Serializer.ISerializer)")]
+

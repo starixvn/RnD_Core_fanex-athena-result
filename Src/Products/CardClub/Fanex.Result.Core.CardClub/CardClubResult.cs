@@ -157,10 +157,10 @@
                     throw new ResultCoreException(response.Result.ErrorDescription);
                 }
 
-                throw new ResultCoreException("Card Club Result send request incorrectly!");
+                throw new ResultCoreException("Card Club Result send data incorrectly!");
             }
 
-            throw new ResultCoreException($"Card Club Result send request incorrectly! Detail request:" +
+            throw new ResultCoreException($"Card Club Result send data incorrectly! Detail data:" +
                     $" {_serializer.Serialize(request)}; Detail response: {_serializer.Serialize(response)}");
         }
     }

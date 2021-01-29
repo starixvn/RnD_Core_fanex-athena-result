@@ -169,7 +169,7 @@
         {
             if (setting == null || dataList == null)
             {
-                throw new ObjectNullException("The data is null or setting is null");
+                throw new ObjectNullException("The data is null or ResultSetting is null");
             }
 
             if (string.IsNullOrEmpty(setting.LanguageCode))

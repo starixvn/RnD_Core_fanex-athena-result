@@ -7,7 +7,6 @@
         #region const
         private const string RESULT_CONFIG = "GDGResultConfigs";
         private const string URL = "Url";
-        private const string SITE_ID = "SiteId";
         private const string VENDOR_ID = "VendorId";
         private const string DEBUG_MODE = "Debug";
 

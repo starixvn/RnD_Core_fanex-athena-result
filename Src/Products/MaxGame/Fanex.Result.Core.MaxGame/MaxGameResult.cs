@@ -78,7 +78,7 @@
             }
         }
 
-        private Dictionary<string, string> GenerateRequestData(string custId, string transId3rd, int betType, string endTime, string siteId, string language)
+        private static Dictionary<string, string> GenerateRequestData(string custId, string transId3rd, int betType, string endTime, string siteId, string language)
         {
             var languageCode = string.IsNullOrEmpty(language) || !SupportedLanguages.ContainsKey(language)
                                 ? SupportedLanguages[DefaultLanguage]

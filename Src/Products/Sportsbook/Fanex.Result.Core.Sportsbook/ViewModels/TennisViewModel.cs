@@ -51,10 +51,7 @@
         {
             get
             {
-                if (_setValue == null)
-                {
-                    _setValue = new[] { Set1, Set2, Set3, Set4, Set5 };
-                }
+                _setValue = _setValue ?? new[] { Set1, Set2, Set3, Set4, Set5 };
 
                 return _setValue;
             }

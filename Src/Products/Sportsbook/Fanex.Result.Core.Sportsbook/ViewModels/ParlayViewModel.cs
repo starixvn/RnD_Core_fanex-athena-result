@@ -143,26 +143,14 @@
         /// </summary>
         private void CreateItemViewModel()
         {
-            if (_viewModelData == null)
-            {
-                _viewModelData = _parlay.Sportbook.Select(i => ViewModelConcreteFactory.Instance.GetViewModel(
-                    i, _sportSetting)).ToSafeList();
-            }
+            _viewModelData = _viewModelData ?? _parlay.Sportbook.Select(i => 
+            ViewModelConcreteFactory.Instance.GetViewModel(i, _sportSetting)).ToSafeList();
 
-            if (_bothMatchAndGameDetailItemViewModel == null)
-            {
-                _bothMatchAndGameDetailItemViewModel = _viewModelData.Where(i => i.VisibleMatchResult && i.VisibleGameDetail).ToSafeList();
-            }
+            _bothMatchAndGameDetailItemViewModel = _bothMatchAndGameDetailItemViewModel ?? _viewModelData.Where(i => i.VisibleMatchResult && i.VisibleGameDetail).ToSafeList();
 
-            if (_onlyMatchItemViewModel == null)
-            {
-                _onlyMatchItemViewModel = _viewModelData.Where(i => i.VisibleMatchResult && !i.VisibleGameDetail).ToSafeList();
-            }
+            _onlyMatchItemViewModel = _onlyMatchItemViewModel ?? _viewModelData.Where(i => i.VisibleMatchResult && !i.VisibleGameDetail).ToSafeList();
 
-            if (_onlyGameDetailItemViewModel == null)
-            {
-                _onlyGameDetailItemViewModel = _viewModelData.Where(i => !i.VisibleMatchResult && i.VisibleGameDetail).ToSafeList();
-            }
+            _onlyGameDetailItemViewModel = _onlyGameDetailItemViewModel ?? _viewModelData.Where(i => !i.VisibleMatchResult && i.VisibleGameDetail).ToSafeList();
         }
     }
 }

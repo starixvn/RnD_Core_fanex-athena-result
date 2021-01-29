@@ -71,17 +71,17 @@
         {
             if (string.IsNullOrEmpty(custId))
             {
-                throw new VoidbridgeException("custId is null or empty!");
+                throw new VoidbridgeException($"{nameof(custId)} is null or empty!");
             }
 
             if (string.IsNullOrEmpty(gamePlayId))
             {
-                throw new VoidbridgeException("gamePlayId is null or empty!");
+                throw new VoidbridgeException($"{nameof(gamePlayId)} is null or empty!");
             }
 
             if (string.IsNullOrEmpty(siteId) && string.IsNullOrEmpty(_configs.SiteId))
             {
-                throw new VoidbridgeException("siteId argument must have value or SiteId in Web.config file!");
+                throw new VoidbridgeException($"{nameof(siteId)} argument must have value or SiteId in Web.config file!");
             }
         }
 

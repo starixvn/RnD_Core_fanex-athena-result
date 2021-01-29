@@ -127,7 +127,7 @@
             {
                 if (response.Result.Seq != Seq)
                 {
-                    throw new GlobalGamingException("Send request incorrectly!");
+                    throw new GlobalGamingException("Send data incorrectly!");
                 }
 
                 if (response.Result.ErrorCode != SuccessStatus)
@@ -137,7 +137,7 @@
             }
             else
             {
-                throw new GlobalGamingException($"Send request incorrectly! Request: {SerializeJsonObject(request)}; Response: {SerializeJsonObject(response)}");
+                throw new GlobalGamingException($"Send data incorrectly! Data: {SerializeJsonObject(request)}; Response: {SerializeJsonObject(response)}");
             }
         }
     }

@@ -27,5 +27,8 @@
         public const string BlockChainSeDie = "3032";
         public const string BlockChainSicBo = "3033";
         public const string BlockChainFishPrawnCragDice = "3034";
+        public const string BlockChainHiLo = "3036";
+        public const string BlockChainFanTan = "3037";
+        public const string BlockChainWenzhouPaiGow = "3038";
     }
 }

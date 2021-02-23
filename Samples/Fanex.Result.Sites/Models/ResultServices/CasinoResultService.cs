@@ -1,9 +1,9 @@
 ﻿namespace MvcExample.Models.ResultServices
 {
-    using System;
-    using System.Collections.Generic;
     using Fanex.Data.Repository;
     using Fanex.Result.Core.AGCasino.DTO;
+    using System;
+    using System.Collections.Generic;
 
     public class CasinoResultService : IResultService<AGCasino>
     {
@@ -223,7 +223,13 @@
                     return "choice=1,1:1,10000.00,10000.00@47,1:1,10000.00,-10000.00@49,1:1,10000.00,10000.00@51,1:1,10000.00,-10000.00*site=*tableCode=2*gamename=3033*result=4;1;5*results=4;1;5*winResult=*ForcedCompleted=0*ReasonCode=0";
                 case 3034:
                     return "choice=1,1:1,10000.00,-10000.00@35,1:1,10000.00,-10000.00@37,1:1,10000.00,10000.00@40,1:1,10000.00,10000.00*site=*tableCode=2*gamename=3034*result=3;5;6*results=3;5;6*winResult=*ForcedCompleted=0*ReasonCode=0";
-                
+                case 3036:
+                    return "choice=1002*site=IBC*tableCode=5*gamename=3036*result=C10*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3037:
+                    return "choice=1002*site=IBC*tableCode=5*gamename=3037*result=4*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3038:
+                    return "choice=1002*site=IBC*tableCode=5*gamename=3038*result=B;S6;H9:P1;D8;H8:P2;D5;S1:P3;C10;H5*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
+
                 default:
                     return "";
             }

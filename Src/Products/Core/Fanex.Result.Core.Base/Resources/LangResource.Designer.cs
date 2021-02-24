@@ -124,6 +124,15 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Caught.
+        /// </summary>
+        public static string Caught {
+            get {
+                return ResourceManager.GetString("Caught", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Closed.
         /// </summary>
         public static string Closed {
@@ -489,6 +498,24 @@ namespace Fanex.Result.Core.Base.Resources {
         public static string ID {
             get {
                 return ResourceManager.GetString("ID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inns 1.
+        /// </summary>
+        public static string Inns1 {
+            get {
+                return ResourceManager.GetString("Inns1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inns 2.
+        /// </summary>
+        public static string Inns2 {
+            get {
+                return ResourceManager.GetString("Inns2", resourceCulture);
             }
         }
         
@@ -1002,6 +1029,15 @@ namespace Fanex.Result.Core.Base.Resources {
         public static string Noothers {
             get {
                 return ResourceManager.GetString("Noothers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not Caught.
+        /// </summary>
+        public static string NotCaught {
+            get {
+                return ResourceManager.GetString("NotCaught", resourceCulture);
             }
         }
         

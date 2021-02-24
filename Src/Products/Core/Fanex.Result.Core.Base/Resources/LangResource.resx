@@ -735,4 +735,16 @@
   <data name="LblFTOE" xml:space="preserve">
     <value>FT.O/E</value>
   </data>
+  <data name="Inns1" xml:space="preserve">
+    <value>Inns 1</value>
+  </data>
+  <data name="Inns2" xml:space="preserve">
+    <value>Inns 2</value>
+  </data>
+  <data name="Caught" xml:space="preserve">
+    <value>Caught</value>
+  </data>
+  <data name="NotCaught" xml:space="preserve">
+    <value>Not Caught</value>
+  </data>
 </root>

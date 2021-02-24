@@ -188,6 +188,12 @@ table.fn-rs .cl-ko-time {
 table.fn-rs .cl-result {
   text-align: center;
 }
+table.fn-rs .cl-result.homeColor {
+  color: #6678e0;
+}
+table.fn-rs .cl-result.awayColor {
+  color: #008d95;
+}
 table.fn-rs .cl-result.home {
   min-width: 150px;
 }

@@ -158,12 +158,6 @@
         Dart = 25,
 
         [StringValue("Other")]
-        Cricket = 27,
-
-        [StringValue("Other")]
-        CricketIndia = 50,
-
-        [StringValue("Other")]
         OtherSports = 99,
 
         [StringValue("Other")]
@@ -250,6 +244,9 @@
 
         [StringValue("Kabaddi")]
         Futsal = 49,
+
+        [StringValue("Cricket")]
+        Cricket = 50,
 
         [StringValue("Kabaddi")]
         UpcomingSport56 = 56,

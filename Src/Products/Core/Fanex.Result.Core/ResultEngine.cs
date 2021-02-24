@@ -27,6 +27,7 @@
 #pragma warning disable S1067 // Expressions should not be too complex
             if (setting.SportType != SportType.Tennis &&
                 setting.SportType != SportType.Soccer &&
+                setting.SportType != SportType.Cricket &&
                 setting.SportType != SportType.BasketBall &&
                 setting.SportType != SportType.VirtualBasketBall &&
                 setting.SportType != SportType.ESport &&

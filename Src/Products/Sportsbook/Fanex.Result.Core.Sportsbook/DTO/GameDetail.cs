@@ -15,5 +15,7 @@
         public int SettlementStatusID { get; set; }
 
         public string OtherInfo { get; set; }
+
+        public int BettypeId { get; set; }
     }
 }

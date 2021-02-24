@@ -1,6 +1,7 @@
 ﻿namespace MvcExample.Controllers
 {
     using System;
+    using System.Collections.Generic;
     using System.Globalization;
     using System.IO;
     using System.Linq;
@@ -8,6 +9,7 @@
     using System.Web.Mvc;
     using Fanex.Result.Core;
     using Fanex.Result.Core.Base;
+    using Fanex.Result.Core.Sportsbook.DTO;
     using Ionic.Zip;
     using Models.Criteria;
     using Models.ResultData;
@@ -67,7 +69,7 @@
                 case SportType.NumberGame:
                     htmlResult = ResultEngine.HtmlParser(
                         new NumberGameResultData().GetNormalResult(date, leagueId, getDataFromExcel).ToList(), resultSetting);
-                    break;              
+                    break;
 
                 case SportType.GoldDeluxe:
                     htmlResult = ResultEngine.HtmlParser(
@@ -96,13 +98,7 @@
         {
             Thread.CurrentThread.CurrentUICulture = new CultureInfo(languageCode);
 
-            var detailedData = new SportsbookResultService().GetGameDetail(new GetGameDetailCriteria { MatchId = matchId });
-
-            if (getDataFromExcel)
-            {
-                detailedData = new SportsbookResultData().GetResultFromExcel((SportType)sportId).FirstOrDefault(i => i.MatchId == matchId);
-            }
-
+            var detailedData = new SportsbookResultData().GetResultFromExcel((SportType)sportId).FirstOrDefault(i => i.MatchId == matchId);
             if (detailedData != null && detailedData.MatchId > 0)
             {
                 return ResultEngine.HtmlGameDetailParser(
@@ -158,7 +154,7 @@
                     excelResult = ResultEngine.ExcelParser(
                         new RacingResultData().GetNormalResult(sportId, date, leagueId).ToList(), resultSetting);
                     break;
-                    
+
                 case SportType.NumberGame:
                     excelResult = ResultEngine.ExcelParser(
                         new NumberGameResultData().GetNormalResult(date, leagueId, getDataFromExcel).ToList(), resultSetting);

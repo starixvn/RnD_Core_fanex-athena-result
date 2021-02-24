@@ -163,6 +163,17 @@
                     .GetResultData().ToList();
             }
 
+            if (filePath.Contains($"\\{SportType.Cricket.ToString()}.xls"))
+            {
+                var details = sportBooks.First().GameDetails = SportsbookDetailResultExcelReader
+                    .CreateInstance(filePath.Replace("Cricket", "CricketDetail"))
+                    .GetResultData().ToList();
+                foreach (var sb in sportBooks)
+                {
+                    sb.GameDetails = details.Where(i => i.MatchId == sb.MatchId).ToList();
+                }
+            }
+
             return sportBooks;
         }
 

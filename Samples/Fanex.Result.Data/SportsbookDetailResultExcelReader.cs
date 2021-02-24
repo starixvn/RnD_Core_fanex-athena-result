@@ -25,6 +25,7 @@
             resultData.AwayValue = row.GetCell(3)?.ToString();
             resultData.ResultStatusID = Convert.ToInt32(row.GetCell(4)?.ToString());
             resultData.SettlementStatusID = Convert.ToInt32(row.GetCell(5)?.ToString());
+            resultData.BettypeId = Convert.ToInt32(row.GetCell(11)?.ToString());
 
             return resultData;
         }

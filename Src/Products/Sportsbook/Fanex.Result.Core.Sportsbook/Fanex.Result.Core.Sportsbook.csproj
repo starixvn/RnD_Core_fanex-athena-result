@@ -48,6 +48,7 @@
     <Compile Include="DataDomain\BasketBalResourceID.cs" />
     <Compile Include="DataDomain\BetTypeID.cs" />
     <Compile Include="DataDomain\ESportResourceID.cs" />
+    <Compile Include="DataDomain\CricketResourceID.cs" />
     <Compile Include="DataDomain\GameResourceID.cs" />
     <Compile Include="DataDomain\GameResources.cs" />
     <Compile Include="DataDomain\TennisBetID.cs" />
@@ -117,6 +118,7 @@
     <Compile Include="ViewModels\SoccerDetail\SoccerDetailViewModel.cs" />
     <Compile Include="ViewModels\SoccerDetail\SoccerGameDetailItem.cs" />
     <Compile Include="ViewModels\SoccerDetail\SoccerResultDetail.cs" />
+    <Compile Include="ViewModels\CricketViewModel.cs" />
     <Compile Include="ViewModels\SoccerViewModel.cs" />
     <Compile Include="ViewModels\SportsbookBaseViewModel.cs" />
     <Compile Include="ViewModels\TennisDetail\GameValue.cs" />
@@ -186,6 +188,12 @@
     <EmbeddedResource Include="Views\SoccerDetail\PenaltyShootoutRoundThree.cshtml" />
     <EmbeddedResource Include="Views\SoccerDetail\PenaltyShootoutSuddenDeath.cshtml" />
     <EmbeddedResource Include="Views\SoccerDetail\PenaltyShootoutComboFirstTen.cshtml" />
+    <EmbeddedResource Include="Views\Cricket.cshtml">
+      <LastGenOutput>Soccer.generated.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CricketDetail\MatchWickets.cshtml" />
+    <EmbeddedResource Include="Views\CricketDetail\SuperOverWinner.cshtml" />
+    <EmbeddedResource Include="Views\CricketDetail\MatchSixes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Fanex.File">

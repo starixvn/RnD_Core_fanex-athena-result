@@ -1,7 +1,9 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.ViewModels
 {
     using System;
+    using System.IO;
     using System.Linq;
+    using System.Text;
     using System.Text.RegularExpressions;
     using Base;
     using Base.DataDomain;
@@ -13,10 +15,16 @@
     using DTO;
     using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.Utilities;
-    using Utilities;
+    using Fanex.Result.Core.Sportsbook.Models;
+    using Fanex.Result.Core.Sportsbook.ViewModels.SoccerDetail;
+    using RazorEngine;
+    using RazorEngine.Templating;
 
     public sealed class BasketBallViewModel : SportsbookBaseViewModel, IResultViewModel
     {
+        private const string TemplateNameSpace = "SoccerDetail.";
+        private readonly BetBuilderResultViewModel betBuilderViewModel;
+
         public BasketBallViewModel(
             Sportsbook sportbook,
             ResultSetting setting,
@@ -45,8 +53,10 @@
             MoreResultDetailItems = moreResultDetailItem.Concat(moreResultDetailItemWithRegex)
                 .OrderBy(item => BasketBallResourceID.MoreResultResourceIDs.ToList()
                 .FindIndex(id => id == item.ResourceID || Regex.IsMatch(item.ResourceID, id))).ToSafeList();
-        }
 
+            betBuilderViewModel = new BetBuilderResultViewModel(sportbook, setting, refDataHelper);
+        }
+        
         public string OTHome => GetOvertimeSet(true);
 
         public string OTAway => GetOvertimeSet(false);
@@ -83,6 +93,28 @@
             var result = GetResultFromGameDetails($"Q{index + 1}", isHome);
 
             return string.IsNullOrEmpty(result) ? GetResultFromBetStatus(index, isHome) : result;
+        }
+
+        public bool VisibleBetBuilderDetail => Setting.IsPopupOpenFromBetList && betBuilderViewModel.Detail.Any();
+
+        public string BetBuilderResult
+        {
+            get
+            {
+                var result = new StringBuilder();
+                const string templateName = TemplateNameSpace + "BetBuilder";
+                var templateContent = Template.Instance.GetRazorTemplate(templateName);
+
+                if (!string.IsNullOrEmpty(templateContent))
+                {
+                    using (var writer = new StringWriter(result))
+                    {
+                        Engine.Razor.RunCompile(templateContent, templateName, writer, typeof(BetBuilderResultViewModel), betBuilderViewModel);
+                    }
+                }
+
+                return result.ToString();
+            }
         }
 
         private string GetOvertimeSet(bool isHome)

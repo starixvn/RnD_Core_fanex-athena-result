@@ -2,16 +2,20 @@
 @using Fanex.Result.Core.Sportsbook.ViewModels;
 @using Fanex.Result.Core.Base.Resources;
 @using Fanex.Result.Core.Sportsbook.ViewModels.BasketBallDetail;
-
+@using Fanex.Result.Core.Sportsbook.Resources;
 @{
+    /**/
+
     var viewModel = (RazorBinderModel)Model;
     var colspan = viewModel.VisibleMatchCodeIDColumn ? 12 : 11;
     var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
+    var mainItem = viewModel.Data.Count > 0 ? (BasketBallViewModel)viewModel.Data[0].Data[0] : null;
 
 }
 
 @helper RenderHeader(RazorBinderModel viewModel, int colspan)
 {
+    /**/
     <thead>
         @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
         {
@@ -22,23 +26,23 @@
                 </th>
             </tr>
         }
-            <tr class="header">
-                @if (viewModel.VisibleMatchCodeIDColumn)
-                {
-                    <th class="cl-m-code">@LangResource.MatchCode/@LangResource.ID</th>
-                }
-                <th class="cl-ko-time">@LangResource.KickOffTime</th>
-                <th class="cl-match">@Raw(LangResource.Match)</th>
-                <th class="cl-s">@LangResource.Lbl1Q</th>
-                <th class="cl-s">@LangResource.Lbl2Q</th>
-                <th class="cl-s">@LangResource.Lbl3Q</th>
-                <th class="cl-s">@LangResource.Lbl4Q</th>
-                <th class="cl-s">@LangResource.LblOT</th>
-                <th class="cl-ht-score">@Raw(LangResource.HTScore)</th>
-                <th class="cl-ht-score">@Raw(LangResource._2HScore)</th>
-                <th class="cl-f-score">@LangResource.FinalScore</th>
-                <th class="cl-status">@LangResource.Status</th>
-            </tr>
+        <tr class="header">
+            @if (viewModel.VisibleMatchCodeIDColumn)
+            {
+                <th class="cl-m-code">@LangResource.MatchCode/@LangResource.ID</th>
+            }
+            <th class="cl-ko-time">@LangResource.KickOffTime</th>
+            <th class="cl-match">@Raw(LangResource.Match)</th>
+            <th class="cl-s">@LangResource.Lbl1Q</th>
+            <th class="cl-s">@LangResource.Lbl2Q</th>
+            <th class="cl-s">@LangResource.Lbl3Q</th>
+            <th class="cl-s">@LangResource.Lbl4Q</th>
+            <th class="cl-s">@LangResource.LblOT</th>
+            <th class="cl-ht-score">@Raw(LangResource.HTScore)</th>
+            <th class="cl-ht-score">@Raw(LangResource._2HScore)</th>
+            <th class="cl-f-score">@LangResource.FinalScore</th>
+            <th class="cl-status">@LangResource.Status</th>
+        </tr>
     </thead>
 }
 
@@ -138,7 +142,6 @@
 
 @if (viewModel.VisibleDetailResult)
 {
-    var mainItem = viewModel.Data[0].Data[0] as BasketBallViewModel;
     <br />
     <table class="fn-rs popup">
         <thead>
@@ -160,4 +163,20 @@
         </tbody>
     </table>
 
+}
+
+@if (mainItem != null && mainItem.VisibleBetBuilderDetail)
+{
+    <br />
+    <table class="fn-rs popup">
+        <thead>
+            <tr class="header">
+                <th class="cl-match">@SportsbookResx.Selection</th>
+                <th class="cl-result home">@LangResource.Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @Raw(mainItem.BetBuilderResult)
+        </tbody>
+    </table>
 }

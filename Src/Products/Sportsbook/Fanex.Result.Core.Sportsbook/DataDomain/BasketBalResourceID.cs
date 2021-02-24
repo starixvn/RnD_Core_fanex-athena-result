@@ -24,22 +24,10 @@
         public const string SecondHalfRaceTo30Points = "60730";
         public const string SecondHalfRaceToXXPoints = "607[0-9][0-9]";
 
-        public const string Quarter1RaceTo10Points = "6130110";
-        public const string Quarter1RaceTo15Points = "6130115";
-        public const string Quarter1RaceTo20Points = "6130120";
-
-        public const string Quarter2RaceTo10Points = "6130210";
-        public const string Quarter2RaceTo15Points = "6130215";
-        public const string Quarter2RaceTo20Points = "6130220";
-
-        public const string Quarter3RaceTo10Points = "6130310";
-        public const string Quarter3RaceTo15Points = "6130315";
-        public const string Quarter3RaceTo20Points = "6130320";
-
-        public const string Quarter4RaceTo10Points = "6130410";
-        public const string Quarter4RaceTo15Points = "6130415";
-        public const string Quarter4RaceTo20Points = "6130420";
-
+        public const string Quarter1RaceToXXPoints = "61301[0-9][0-9]";
+        public const string Quarter2RaceToXXPoints = "61302[0-9][0-9]";
+        public const string Quarter3RaceToXXPoints = "61303[0-9][0-9]";
+        public const string Quarter4RaceToXXPoints = "61304[0-9][0-9]";
         public const string Quarter1WhichTeamToScoreTheLastBasket = "61701";
         public const string Quarter2WhichTeamToScoreTheLastBasket = "61702";
         public const string Quarter3WhichTeamToScoreTheLastBasket = "61703";
@@ -49,26 +37,18 @@
         {
             FirstHalfRaceToXXPoints,
             SecondHalfRaceToXXPoints,
+            Quarter1RaceToXXPoints,
+            Quarter2RaceToXXPoints,
+            Quarter3RaceToXXPoints,
+            Quarter4RaceToXXPoints
         };
 
         internal static readonly string[] MoreResultResourceIDs =
         {
-            Quarter1RaceTo10Points,
-            Quarter1RaceTo15Points,
-            Quarter1RaceTo20Points,
             Quarter1WhichTeamToScoreTheLastBasket,
-            Quarter2RaceTo10Points,
-            Quarter2RaceTo15Points,
-            Quarter2RaceTo20Points,
             Quarter2WhichTeamToScoreTheLastBasket,
             FirstHalfRaceToXXPoints,
-            Quarter3RaceTo10Points,
-            Quarter3RaceTo15Points,
-            Quarter3RaceTo20Points,
             Quarter3WhichTeamToScoreTheLastBasket,
-            Quarter4RaceTo10Points,
-            Quarter4RaceTo15Points,
-            Quarter4RaceTo20Points,
             Quarter4WhichTeamToScoreTheLastBasket,
             SecondHalfRaceToXXPoints,
             FTWhichTimeToScoreTheFirstBasket,

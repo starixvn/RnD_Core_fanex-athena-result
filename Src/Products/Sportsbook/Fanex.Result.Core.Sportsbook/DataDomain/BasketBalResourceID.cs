@@ -45,10 +45,14 @@
 
         internal static readonly string[] MoreResultResourceIDs =
         {
+            Quarter1RaceToXXPoints,
             Quarter1WhichTeamToScoreTheLastBasket,
+            Quarter2RaceToXXPoints,
             Quarter2WhichTeamToScoreTheLastBasket,
             FirstHalfRaceToXXPoints,
+            Quarter3RaceToXXPoints,
             Quarter3WhichTeamToScoreTheLastBasket,
+            Quarter4RaceToXXPoints,
             Quarter4WhichTeamToScoreTheLastBasket,
             SecondHalfRaceToXXPoints,
             FTWhichTimeToScoreTheFirstBasket,

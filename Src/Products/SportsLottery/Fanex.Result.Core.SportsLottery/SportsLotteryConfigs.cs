@@ -1,0 +1,44 @@
+﻿namespace Fanex.Result.Core.SportsLottery
+{
+    using System.Configuration;
+
+    public sealed class SportsLotteryConfigs : ConfigurationSection
+    {
+        #region const
+        private const string RESULT_CONFIG = "SportsLotteryResultConfigs";
+        private const string URL_Page = "UrlPage";
+        private const string URL_Detail = "UrlDetail";
+        private const string SITE_ID = "SiteId";
+        private const string DARK_MODE = "DarkMode";
+        private const string DEBUG_MODE = "Debug";
+        private const string PROXY_IP = "ProxyIP";
+        private const string PROXY_PORT = "ProxyPort";
+
+        #endregion const       
+
+        private static readonly SportsLotteryConfigs _configs = ConfigurationManager.GetSection(RESULT_CONFIG) as SportsLotteryConfigs;
+
+        public static SportsLotteryConfigs Configs => _configs;
+
+        [ConfigurationProperty(URL_Page, IsRequired = false)]
+        public string UrlPage => this[URL_Page].ToString();
+
+        [ConfigurationProperty(URL_Detail, IsRequired = true)]
+        public string UrlDetail => this[URL_Detail].ToString();
+
+        [ConfigurationProperty(SITE_ID, IsRequired = false, DefaultValue = null)]
+        public string SiteId => this[SITE_ID].ToString();
+
+        [ConfigurationProperty(DARK_MODE, IsRequired = false, DefaultValue = "0")]
+        public string DarkMode => this[DARK_MODE].ToString();
+
+        [ConfigurationProperty(DEBUG_MODE, IsRequired = false, DefaultValue = 0)]
+        public int DebugMode => (int)this[DEBUG_MODE];
+
+        [ConfigurationProperty(PROXY_IP, IsRequired = false, DefaultValue = "")]
+        public string ProxyIP => this[PROXY_IP].ToString();
+
+        [ConfigurationProperty(PROXY_PORT, IsRequired = false, DefaultValue = 0)]
+        public int ProxyPort => (int)this[PROXY_PORT];
+    }
+}

@@ -732,4 +732,16 @@
   <data name="LblFTOE" xml:space="preserve">
     <value>全場單/雙</value>
   </data>
+  <data name="Caught" xml:space="preserve">
+    <value>接球出局</value>
+  </data>
+  <data name="NotCaught" xml:space="preserve">
+    <value>非接球出局</value>
+  </data>
+  <data name="Inns1" xml:space="preserve">
+    <value>首局</value>
+  </data>
+  <data name="Inns2" xml:space="preserve">
+    <value>次局</value>
+  </data>
 </root>

@@ -405,4 +405,16 @@
   <data name="LblThirdBall" xml:space="preserve">
     <value>Banh thứ ba</value>
   </data>
+  <data name="Caught" xml:space="preserve">
+    <value>Bắt được bóng</value>
+  </data>
+  <data name="NotCaught" xml:space="preserve">
+    <value>Không bắt được bóng</value>
+  </data>
+  <data name="Inns1" xml:space="preserve">
+    <value>Lượt đánh 1</value>
+  </data>
+  <data name="Inns2" xml:space="preserve">
+    <value>Lượt đánh 2</value>
+  </data>
 </root>

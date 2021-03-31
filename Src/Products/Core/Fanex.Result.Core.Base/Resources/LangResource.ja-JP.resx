@@ -231,4 +231,16 @@
   <data name="Penalty" xml:space="preserve">
     <value>ペナルティー</value>
   </data>
+  <data name="Inns1" xml:space="preserve">
+    <value>第1イニング</value>
+  </data>
+  <data name="Inns2" xml:space="preserve">
+    <value>第2イニング</value>
+  </data>
+  <data name="Caught" xml:space="preserve">
+    <value>キャッチされた</value>
+  </data>
+  <data name="NotCaught" xml:space="preserve">
+    <value>キャッチされてない</value>
+  </data>
 </root>

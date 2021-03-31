@@ -503,4 +503,16 @@
   <data name="LblThirdBall" xml:space="preserve">
     <value>ลูกที่สาม</value>
   </data>
+  <data name="Caught" xml:space="preserve">
+    <value>ตามทัน</value>
+  </data>
+  <data name="NotCaught" xml:space="preserve">
+    <value>ตามไม่ทัน</value>
+  </data>
+  <data name="Inns1" xml:space="preserve">
+    <value>1 อินนิ่ง</value>
+  </data>
+  <data name="Inns2" xml:space="preserve">
+    <value>2 อินนิ่ง</value>
+  </data>
 </root>

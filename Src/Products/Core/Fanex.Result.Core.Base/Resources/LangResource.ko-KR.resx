@@ -418,4 +418,16 @@
   <data name="Neither" xml:space="preserve">
     <value>양팀 모두 아닙니다</value>
   </data>
+  <data name="Inns1" xml:space="preserve">
+    <value>1번째</value>
+  </data>
+  <data name="Inns2" xml:space="preserve">
+    <value>2번째</value>
+  </data>
+  <data name="Caught" xml:space="preserve">
+    <value>코트</value>
+  </data>
+  <data name="NotCaught" xml:space="preserve">
+    <value>코트 아님</value>
+  </data>
 </root>

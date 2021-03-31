@@ -126,9 +126,6 @@
   <data name="MatchDay" xml:space="preserve">
     <value>Match Day</value>
   </data>
-  <data name="BeforeMinute" xml:space="preserve">
-    <value>분{0}이전</value>
-  </data>
   <data name="TotalGoal" xml:space="preserve">
     <value>총 득점</value>
   </data>

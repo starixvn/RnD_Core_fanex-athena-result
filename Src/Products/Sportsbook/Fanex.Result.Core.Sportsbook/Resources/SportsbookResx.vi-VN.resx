@@ -183,9 +183,6 @@
   <data name="FinalResult" xml:space="preserve">
     <value>Kết quả cuối cùng</value>
   </data>
-  <data name="BeforeMinute" xml:space="preserve">
-    <value>Trước phút {0}</value>
-  </data>
   <data name="TotalGoal" xml:space="preserve">
     <value>Tổng bàn thắng</value>
   </data>

@@ -122,7 +122,7 @@
                 resourceId == GameResourceID.TimeMachineOverUnderGoal)
             {
                 start += 1;
-                return string.Format(SportsbookResx.BeforeMinute, start);
+                return $"00:00 ~ {Helper.FormatTwoDigit(start)}:00";
             }
 
             var end =

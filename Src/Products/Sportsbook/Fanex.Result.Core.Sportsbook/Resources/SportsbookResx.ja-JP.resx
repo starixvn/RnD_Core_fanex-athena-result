@@ -126,9 +126,6 @@
   <data name="MatchDay" xml:space="preserve">
     <value>Match Day</value>
   </data>
-  <data name="BeforeMinute" xml:space="preserve">
-    <value>分{0}の前</value>
-  </data>
   <data name="TotalGoal" xml:space="preserve">
     <value> 合計ゴール数</value>
   </data>

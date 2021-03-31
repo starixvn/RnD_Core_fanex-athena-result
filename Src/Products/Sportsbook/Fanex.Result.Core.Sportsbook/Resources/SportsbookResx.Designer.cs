@@ -61,15 +61,6 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Before Minute {0}.
-        /// </summary>
-        public static string BeforeMinute {
-            get {
-                return ResourceManager.GetString("BeforeMinute", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Correct Score.
         /// </summary>
         public static string CorrectScore {

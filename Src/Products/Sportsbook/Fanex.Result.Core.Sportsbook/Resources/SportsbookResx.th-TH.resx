@@ -132,9 +132,6 @@
   <data name="FinalResult" xml:space="preserve">
     <value>ผลลัพธ์</value>
   </data>
-  <data name="BeforeMinute" xml:space="preserve">
-    <value>ก่อนนาที {0}</value>
-  </data>
   <data name="TotalGoal" xml:space="preserve">
     <value>ประตูรวม</value>
   </data>

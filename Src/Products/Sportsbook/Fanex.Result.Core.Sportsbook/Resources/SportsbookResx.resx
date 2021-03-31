@@ -231,9 +231,6 @@
   <data name="FinalResult" xml:space="preserve">
     <value>Final Result</value>
   </data>
-  <data name="BeforeMinute" xml:space="preserve">
-    <value>Before Minute {0}</value>
-  </data>
   <data name="TotalGoal" xml:space="preserve">
     <value>Total Goal</value>
   </data>

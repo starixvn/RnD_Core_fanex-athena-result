@@ -231,9 +231,6 @@
   <data name="Selection" xml:space="preserve">
     <value>选择项目</value>
   </data>
-  <data name="BeforeMinute" xml:space="preserve">
-    <value>在第{0}分前</value>
-  </data>
   <data name="TotalGoal" xml:space="preserve">
     <value>总进球</value>
   </data>

@@ -67,6 +67,7 @@
     <Compile Include="ExcelModels\MuayThaiExcel.cs" />
     <Compile Include="ExcelModels\HockeyExcel.cs" />
     <Compile Include="ExcelModels\KabaddiExcel.cs" />
+    <Compile Include="ExcelModels\CricketExcel.cs" />
     <Compile Include="ExcelModels\VSBasketBallExcel.cs" />
     <Compile Include="ExcelModels\OtherExcel.cs" />
     <Compile Include="ExcelModels\OutrightExcel.cs" />

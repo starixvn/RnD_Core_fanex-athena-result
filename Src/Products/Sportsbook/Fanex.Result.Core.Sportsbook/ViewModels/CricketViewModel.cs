@@ -39,7 +39,7 @@
             IRefDataHelper refDataHelper)
             : base(cricket, setting, refDataHelper)
         {
-            _resultDetail = resultDetail ?? new SoccerResultDetail(cricket, setting);
+            _resultDetail = resultDetail ?? new CricketResultDetail(cricket, setting);
             _detailedItemModels = new SafeList<SoccerGameDetailItem>();
         }
 
@@ -106,17 +106,27 @@
 
         private string GetRuns(string resourceId, bool isAwayTeam, bool isFinalScore)
         {
-            if (EventStatus.Equals(LangResource.Refund, StringComparison.OrdinalIgnoreCase))
-            {
-                return LangResource.Refund;
-            }
-
             var score = SPORTBOOK.GameDetails.FirstOrDefault(i => SportsbookHelper.IsValidResourceId(resourceId, i.ResourceId));
             if (score != null)
             {
+                if (score.SettlementStatusID == EventStatusID.RefundSettlementStatusID)
+                {
+                    return LangResource.Refund;
+                }
+
+                if (score.SettlementStatusID == EventStatusID.RunningSettlementStatusID)
+                {
+                    return ConstantValue.Hyphen;
+                }
+
                 return isFinalScore && isAwayTeam ? score.AwayValue : score.HomeValue;
             }
 
+            return GetOldData(isFinalScore, isAwayTeam);
+        }
+
+        private string GetOldData(bool isFinalScore, bool isAwayTeam)
+        {
             if (isFinalScore)
             {
                 return isAwayTeam ? GetScore(SPORTBOOK.FinalAwayScore) : GetScore(SPORTBOOK.FinalHomeScore);
@@ -135,97 +145,8 @@
 
         private void GetDetailedResult()
         {
-            foreach (var group in CricketResourceID.MoreResultGroup)
-            {
-                foreach (var game in group.Value)
-                {
-                    GenerateGameDetailItems(group, game);
-                }
-            }
-
+            _detailedItemModels = _resultDetail.GetDetailItems();
             _detailedItemModels = _detailedItemModels.OrderBy(item => item.ResourceID).ToList();
-        }
-
-        private void GenerateGameDetailItems(KeyValuePair<string, List<string>> group, string game)
-        {
-            var detailedGameRecords = SPORTBOOK.GameDetails
-                .Where(i => SportsbookHelper.IsValidResourceId(game, i.ResourceId)).ToSafeList();
-
-            foreach (GameDetail detailedItem in detailedGameRecords)
-            {
-                var detailedItemModel = MapDetailedGameValue(group.Key, detailedItem);
-                _detailedItemModels.Add(detailedItemModel);
-            }
-        }
-
-        private SoccerGameDetailItem MapDetailedGameValue(string groupCode, GameDetail detailedItem)
-        {
-            var item = new SoccerGameDetailItem
-            {
-                GroupCode = groupCode,
-                ResourceID = detailedItem.ResourceId,
-                ResourceName = GetResultName(detailedItem.BettypeId, Setting.LanguageCode, detailedItem.ResourceId),
-                SettlementStatusID = detailedItem.SettlementStatusID
-            };
-
-            return MapMoreDetailedGameValue(item, detailedItem);
-
-            string GetResultName(int betType, string languageCode, string resourceId)
-            {
-                const int minLength = 8;
-                const int firstIndexResourceId = 5;
-                var id = BetTypeID.CricketBettypeGroup.ContainsKey(betType) ? BetTypeID.CricketBettypeGroup[betType].ToString() : resourceId;
-                if (resourceId.Length >= minLength)
-                {
-                    resourceId = resourceId.Substring(firstIndexResourceId);
-                }
-
-                return RefDataHelper.GetBetTypeNameById(id, languageCode, resourceId);
-            }
-
-        }
-
-        private SoccerGameDetailItem MapMoreDetailedGameValue(SoccerGameDetailItem soccerItem, GameDetail gameDetail)
-        {
-            switch (gameDetail.SettlementStatusID)
-            {
-                case EventStatusID.RefundSettlementStatusID:
-                    soccerItem.HomeValue = soccerItem.AwayValue = LangResource.Refund;
-                    break;
-                case EventStatusID.RunningSettlementStatusID:
-                    soccerItem.HomeValue = soccerItem.AwayValue = ConstantValue.Hyphen;
-                    break;
-                default:
-                    MapResourceGameValueByPattern(soccerItem, gameDetail);
-                    break;
-            }
-
-            return soccerItem;
-        }
-
-        private void MapResourceGameValueByPattern(SoccerGameDetailItem item, GameDetail detailedValue)
-        {
-            switch (item.ResourceID)
-            {
-                case CricketResourceID.SuperOverWinner:
-                case CricketResourceID.TossWinner:
-                    item.HomeValue = detailedValue.HomeValue == "H" ? HomeTeam : AwayTeam;
-                    item.AwayValue = HomeTeam;
-                    break;
-                default:
-                    if (SportsbookHelper.IsValidResourceId(CricketResourceID.HomeWicketXMethodOfDismissal, item.ResourceID) ||
-                        SportsbookHelper.IsValidResourceId(CricketResourceID.AwayWicketXMethodOfDismissal, item.ResourceID))
-                    {
-                        item.HomeValue = item.AwayValue = detailedValue.HomeValue == "C" ? LangResource.Caught : LangResource.NotCaught;
-                    }
-                    else
-                    {
-                        item.HomeValue = detailedValue.HomeValue;
-                        item.AwayValue = detailedValue.AwayValue;
-                    }
-
-                    break;
-            }
         }
 
         #endregion Utilities

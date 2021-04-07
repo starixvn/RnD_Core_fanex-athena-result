@@ -206,6 +206,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PPLiveCasino", "PPLiveCasin
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.PPLiveCasino", "Src\Products\PPLiveCasino\Fanex.Result.Core.PPLiveCasino\Fanex.Result.Core.PPLiveCasino.csproj", "{F3D58BD3-1158-41CD-AACF-29417DFD2256}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Habanero", "Habanero", "{C628F40E-15CE-488B-8698-B8C468BE503F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Habanero", "Src\Products\Habanero\Fanex.Result.Core.Habanero\Fanex.Result.Core.Habanero.csproj", "{45DCB0B5-3423-4634-9E86-59DD762AE580}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -456,6 +460,10 @@ Global
 		{F3D58BD3-1158-41CD-AACF-29417DFD2256}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3D58BD3-1158-41CD-AACF-29417DFD2256}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3D58BD3-1158-41CD-AACF-29417DFD2256}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45DCB0B5-3423-4634-9E86-59DD762AE580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45DCB0B5-3423-4634-9E86-59DD762AE580}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45DCB0B5-3423-4634-9E86-59DD762AE580}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45DCB0B5-3423-4634-9E86-59DD762AE580}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -554,10 +562,12 @@ Global
 		{AF77AC91-F927-4E54-BAA5-F0653C2A53F1} = {75136911-EE7A-49F8-8563-130EFBD6B9DC}
 		{650D8843-02CF-49B2-A205-79FD222C7498} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{F3D58BD3-1158-41CD-AACF-29417DFD2256} = {650D8843-02CF-49B2-A205-79FD222C7498}
+		{C628F40E-15CE-488B-8698-B8C468BE503F} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
+		{45DCB0B5-3423-4634-9E86-59DD762AE580} = {C628F40E-15CE-488B-8698-B8C468BE503F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		LessCompiler = ebd31f24-8f67-4e36-bd6d-1bb78a71e54b
 		SolutionGuid = {4BF11104-7EAE-4BB6-A235-1C10DB35CE8B}
+		LessCompiler = ebd31f24-8f67-4e36-bd6d-1bb78a71e54b
 	EndGlobalSection
 	GlobalSection(JSLint) = preSolution
 		SolutionConfigurationLocation = JSLintOptions.xml

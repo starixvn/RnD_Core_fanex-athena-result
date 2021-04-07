@@ -4,6 +4,7 @@
     using System.Globalization;
     using System.Text.RegularExpressions;
     using DataDomain;
+    using Fanex.Result.Core.Base.Exception;
 
     public static class Helper
     {
@@ -53,6 +54,14 @@
             }
 
             return NumberPattern.IsMatch(inputvalue);
+        }
+
+        public static void CheckArgument(string arg, string argName)
+        {
+            if (string.IsNullOrEmpty(arg))
+            {
+                throw new ResultCoreException($"{argName} can not be null or emtpy");
+            }
         }
     }
 }

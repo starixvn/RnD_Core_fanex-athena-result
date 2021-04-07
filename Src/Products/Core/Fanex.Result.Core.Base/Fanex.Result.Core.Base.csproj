@@ -119,6 +119,7 @@
     <Compile Include="ResultSetting.cs" />
     <Compile Include="SportType.cs" />
     <Compile Include="Utilities\Helper.cs" />
+    <Compile Include="Utilities\Language.cs" />
     <Compile Include="Utilities\MapEventStatus.cs" />
     <Compile Include="Utilities\IRefDataHelper.cs" />
     <Compile Include="Utilities\Serializer.cs" />

@@ -1,6 +1,7 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.Utilities
 {
     using System;
+    using System.Collections.Generic;
     using System.Text;
     using System.Text.RegularExpressions;
     using Base.Resources;
@@ -118,11 +119,14 @@
             }
 
             var start = Convert.ToInt32(startMinute);
-            if (resourceId == GameResourceID.TimeMachineOverUnderStatus ||
-                resourceId == GameResourceID.TimeMachineOverUnderGoal)
+            var resourceIDTimeMachine = new List<string> {
+                GameResourceID.TimeMachineOverUnderStatus,
+                GameResourceID.TimeMachineHDPStatus
+            };
+            if (resourceIDTimeMachine.Contains(resourceId))
             {
                 start += 1;
-                return $"00:00 ~ {Helper.FormatTwoDigit(start)}:00";
+                return $"00:00 - {Helper.FormatTwoDigit(start)}:00";
             }
 
             var end =

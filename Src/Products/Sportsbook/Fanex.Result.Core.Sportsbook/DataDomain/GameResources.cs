@@ -132,8 +132,8 @@
             GameResourceID.NextOneMinuteSetPiece,
             GameResourceID.WhichCombinationFirstOneMinutes,
             GameResourceID.WhichCombinationFirstFiveMinutes,
-            GameResourceID.TimeMachineOverUnderGoal,
-            GameResourceID.TimeMachineOverUnderStatus
+            GameResourceID.TimeMachineOverUnderStatus,
+            GameResourceID.TimeMachineHDPStatus
         };
 
         public static IDictionary<string, List<string>> BetRadar => _betRadar;

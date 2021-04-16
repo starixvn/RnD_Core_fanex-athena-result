@@ -35,7 +35,7 @@
                 .Where(i => SportsbookHelper.IsFastMarketsResourceId(i.ResourceId))
                 .Select(item => CreateGameDetailItem(item));
 
-            return RemoveDuplicatedForTimeMachineOverUnder(detailItems).ToSafeList();
+            return detailItems.ToSafeList();
         }
 
         protected override SoccerGameDetailItem CreateGameDetailItem(GameDetail detailItem)
@@ -81,9 +81,14 @@
                     item.SituationValue = new List<string> { GetFastMarketSituation(detailItem, startTime, Sportsbook.Bettype) };
                     break;
 
-                case GameResourceID.TimeMachineOverUnderGoal:
                 case GameResourceID.TimeMachineOverUnderStatus:
-                    item.SituationValue = new List<string> { GetTotalGoalOfTimeMachine(startTime) };
+                    item.SituationValue = new List<string> { GetTotalGoalOfTimeMachineOU(startTime, GameResourceID.TimeMachineOverUnderGoal) };
+                    break;
+
+                case GameResourceID.TimeMachineHDPStatus:
+                    item.HomeValue = GetTotalGoalOfTimeMachineHDP(startTime, isHomeTeam: true);
+                    item.AwayValue = GetTotalGoalOfTimeMachineHDP(startTime, isHomeTeam: false);
+                    item.SituationValue = new List<string> { item.HomeValue, item.AwayValue };
                     break;
                 default:
                     base.MapGameValueByPattern(item, detailItem);
@@ -142,23 +147,29 @@
             return situation;
         }
 
-        private static IEnumerable<SoccerGameDetailItem> RemoveDuplicatedForTimeMachineOverUnder(IEnumerable<SoccerGameDetailItem> detailItems)
-            => detailItems.Where(i => i.ResourceID != GameResourceID.TimeMachineOverUnderGoal && IsSituationCalculated(i.SituationValue));
-
-        private string GetTotalGoalOfTimeMachine(int minute)
+        private string GetTotalGoalOfTimeMachineHDP(int minute, bool isHomeTeam)
         {
-            var goalDisplayText = string.Empty;
+            var resourceId = isHomeTeam ? GameResourceID.TimeMachineHDPGoalForHome : GameResourceID.TimeMachineHDPGoalForAway;
+
+            return GetTotalGoalOfTimeMachine(minute, resourceId);
+        }
+
+        private string GetTotalGoalOfTimeMachineOU(int minute, string resourceId)
+            => $"{SportsbookResx.TotalGoal}: {GetTotalGoalOfTimeMachine(minute, resourceId)}";
+
+        private string GetTotalGoalOfTimeMachine(int minute, string resourceId)
+        {
             if (IsTimeMachineCalculated(minute))
             {
-                var timeMachineGoal = Sportsbook.GameDetails.First(i => i.ResourceId == GameResourceID.TimeMachineOverUnderGoal);
-                var totalGoals = minute < TimeOfOneHalf?
+                var timeMachineGoal = Sportsbook.GameDetails.First(i => i.ResourceId == resourceId);
+                var totalGoals = minute < TimeOfOneHalf ?
                     TotalGoalsOfFirsHalf(timeMachineGoal, minute) :
                     TotalGoalsFullTime(timeMachineGoal, minute);
 
-                goalDisplayText = $"{SportsbookResx.TotalGoal}: {totalGoals}";
+                return totalGoals.ToString();
             }
 
-            return goalDisplayText;
+            return string.Empty;
         }
 
         private static int TotalGoalsOfUntilMinute(string goals, int minute)
@@ -187,7 +198,12 @@
 
         private int GetTimeMachineStatus(int minute)
         {
-            var timeMachineStatus = Sportsbook.GameDetails.First(i => i.ResourceId == GameResourceID.TimeMachineOverUnderStatus);
+            var timeMachineStatusResourceId = new List<string>
+            {
+                GameResourceID.TimeMachineOverUnderStatus,
+                GameResourceID.TimeMachineHDPStatus
+            };
+            var timeMachineStatus = Sportsbook.GameDetails.First(i => timeMachineStatusResourceId.Contains(i.ResourceId));
             var statusString = timeMachineStatus.HomeValue.Substring(0, TimeOfOneHalf);
             if (minute >= TimeOfOneHalf)
             {
@@ -205,9 +221,5 @@
 
             return status >= calculatedAutomaticallyStatus;
         }
-
-        private static bool IsSituationCalculated(IEnumerable<string> situation)
-            => situation.Any(i => !string.IsNullOrEmpty(i));
-
     }
 }

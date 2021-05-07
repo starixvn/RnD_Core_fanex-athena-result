@@ -48,8 +48,9 @@ namespace Fanex.Result.Core.BBin
                     case GameIdConstants.BlockChainSicBo:
                         return GetSicBoLayout(TransDesc, slang, GameId3rd, gameId);
                     case GameIdConstants.FishPrawnCragDice:
-                    case GameIdConstants.BlockChainFishPrawnCragDice:
                         return GetFishPrawnCragDiceLayout(TransDesc, slang, GameId3rd, gameId);
+                    case GameIdConstants.BlockChainFishPrawnCragDice:
+                        return GetBlockChainFishPrawnCrabDiceLayout(TransDesc, slang, GameId3rd, gameId);
                     case GameIdConstants.SeDie:
                     case GameIdConstants.BlockChainSeDie:
                         return GetSeDieLayout(TransDesc, slang, GameId3rd, gameId);
@@ -67,12 +68,15 @@ namespace Fanex.Result.Core.BBin
                     case GameIdConstants.FightingBullBull:
                     case GameIdConstants.ThreeFace:
                     case GameIdConstants.BlockChainThreeFace:
-                    case GameIdConstants.WenzhouPaiGow:
-                    case GameIdConstants.BlockChainWenzhouPaiGow:
+                    case GameIdConstants.WenzhouPaiGow:                    
                         return GetBullBullLayout(TransDesc, slang, GameId3rd, gameId);
+                    case GameIdConstants.BlockChainWenzhouPaiGow:
+                        return GetBlockChainWenzhouPaiGowLayout(TransDesc, slang, GameId3rd, gameId);
                     case GameIdConstants.FanTan:
                     case GameIdConstants.BlockChainFanTan:
                         return GetFanTanLayout(TransDesc, slang, GameId3rd, gameId);
+                    case GameIdConstants.BlockChainVNFishFrawnCrag:
+                        return GetVNFishPrawnCragDiceLayout(TransDesc, slang, GameId3rd, gameId);
                     default:
                         return NoInformation();
                 }
@@ -157,6 +161,30 @@ namespace Fanex.Result.Core.BBin
             return String.Format(strFinalLayout, $"{GameNameText} {gameName}", $"{GameIdText} {GameId3rd}", "Results", strImgUrl);
         }
 
+        private static string GetBlockChainFishPrawnCrabDiceLayout(string sDesc, string slang, string GameId3rd, string gameId)
+        {
+            var gameName = refDataHelper.GetResourceDataByRefIdAndResourceId(GameTypeRefKey, gameId.ToString(), slang, string.Empty);
+            var gameDetail = sDesc.Split('*');
+            var strImgValue = GetSplitValue('=', gameDetail[4].ToString());
+            var strImgUrl = GenImgUrl("BlockChainFishPrawnCrabDice", strImgValue);
+
+            string strFinalLayout = GetFinalLayout(gameId);
+
+            return String.Format(strFinalLayout, $"{GameNameText} {gameName}", $"{GameIdText} {GameId3rd}", "Results", strImgUrl);
+        }
+
+        private static string GetVNFishPrawnCragDiceLayout(string sDesc, string slang, string GameId3rd, string gameId)
+        {
+            var gameName = refDataHelper.GetResourceDataByRefIdAndResourceId(GameTypeRefKey, gameId.ToString(), slang, string.Empty);
+            var gameDetail = sDesc.Split('*');
+            var strImgValue = GetSplitValue('=', gameDetail[4].ToString());
+            var strImgUrl = GenImgUrl("BlockChainVietnamFishFrawnCrag", strImgValue);
+
+            string strFinalLayout = GetFinalLayout(gameId);
+
+            return String.Format(strFinalLayout, $"{GameNameText} {gameName}", $"{GameIdText} {GameId3rd}", "Results", strImgUrl);
+        }
+
         private static string GetDragonTigerLayout(string sDesc, string slang, string GameId3rd, string gameId)
         {
             var gameName = refDataHelper.GetResourceDataByRefIdAndResourceId(GameTypeRefKey, gameId.ToString(), slang, string.Empty);
@@ -213,6 +241,35 @@ namespace Fanex.Result.Core.BBin
                 GetCardImgPath(player2Cards),
                 $"Player3",
                 GetCardImgPath(player3Cards));
+        }
+
+        private static string GetBlockChainWenzhouPaiGowLayout(string sDesc, string slang, string GameId3rd, string gameId)
+        {
+            var gameName = refDataHelper.GetResourceDataByRefIdAndResourceId(GameTypeRefKey, gameId.ToString(), slang, string.Empty);
+            var GameDetail = sDesc.Split('*');
+            var result = GetSplitValue('=', GameDetail[4]);
+
+            var resultTitle = result.Split(':')[0].Split(';')[0].Replace("B", "Banker").Replace("P", "Player");
+            var resultCards = result.Split(':')[0].Replace("B;", "").Replace("P;", "");
+            var player1Cards = result.Split(':')[1].Replace("P1;", "");
+            var player2Cards = result.Split(':')[2].Replace("P2;", "");
+            var player3Cards = result.Split(':')[3].Replace("P3;", "");
+            var folderName = "BlockChainWenzhouPaiGow";
+
+
+            var strFinalLayout = GetFinalLayout(gameId);
+
+            return String.Format(strFinalLayout,
+                $"{GameNameText} {gameName}",
+                $"{GameIdText} {GameId3rd}",
+                $"{resultTitle}: ",
+                GenImgUrl(folderName, resultCards),
+                $"Player1",
+                GenImgUrl(folderName, player1Cards),
+                $"Player2",
+                GenImgUrl(folderName, player2Cards),
+                $"Player3",
+                GenImgUrl(folderName, player3Cards));
         }
 
         private static string GetFanTanLayout(string sDesc, string slang, string GameId3rd, string gameId)
@@ -276,6 +333,14 @@ namespace Fanex.Result.Core.BBin
                     sImgUrl += "<img  src=\"" + skinroot_path + "ball.png\"  align=\"absmiddle\" border=\"0\"  height=\"38\" width=\"38\"/>";
                 }
             }
+            else if(sMode == "BlockChainWenzhouPaiGow")
+            {
+                string[] strResult = sResult.Split(';');
+                for (int j = 0; j < strResult.Length; j++)
+                {
+                    sImgUrl += "<img  src=\"" + skinroot_path + strResult[j].ToString() + ".png\"  align=\"absmiddle\" border=\"0\" height=\"76\" width=\"38\"/>";
+                }
+            }
             else
             {
                 string[] strResult = sResult.Split(';');
@@ -322,6 +387,7 @@ namespace Fanex.Result.Core.BBin
                 case GameIdConstants.BlockChainFishPrawnCragDice:
                 case GameIdConstants.BlockChainHiLo:
                 case GameIdConstants.BlockChainFanTan:
+                case GameIdConstants.BlockChainVNFishFrawnCrag:
                     strFinalLayout = "<div class='popWTableArea'><table width='100%' cellpadding='0' cellspacing='0' border='0' class='oddsTable info'>";
                     strFinalLayout += "<tbody><tr><td class='tabtitle' align='left'>{0}</td></tr></tbody>";
                     strFinalLayout += "<tbody><tr><td class='tabtitle' align='left'>{1}</td></tr></tbody>";

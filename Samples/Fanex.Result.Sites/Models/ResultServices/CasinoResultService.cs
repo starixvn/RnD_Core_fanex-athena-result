@@ -228,7 +228,9 @@
                 case 3037:
                     return "choice=1002*site=IBC*tableCode=5*gamename=3037*result=4*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
                 case 3038:
-                    return "choice=1002*site=IBC*tableCode=5*gamename=3038*result=B;S6;H9:P1;D8;H8:P2;D5;S1:P3;C10;H5*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
+                    return "choice=4,1:0.95,40000.00,38000.00*site=*tableCode=2*gamename=3038*result=B;55;16:P1;26;22:P2;12;11:P3;66;55*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3039:
+                    return "choice=1,1:1,10000.00,-10000.00@35,1:1,10000.00,-10000.00@37,1:1,10000.00,10000.00@40,1:1,10000.00,10000.00*site=*tableCode=2*gamename=3039*result=3;5;6*results=3;5;6*winResult=*ForcedCompleted=0*ReasonCode=0";
 
                 default:
                     return "";

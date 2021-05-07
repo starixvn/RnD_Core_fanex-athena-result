@@ -30,5 +30,6 @@
         public const string BlockChainHiLo = "3036";
         public const string BlockChainFanTan = "3037";
         public const string BlockChainWenzhouPaiGow = "3038";
+        public const string BlockChainVNFishFrawnCrag = "3039";
     }
 }

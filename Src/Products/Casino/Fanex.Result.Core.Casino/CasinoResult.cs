@@ -37,7 +37,7 @@
             _configs = ConfigurationManager.GetSection(sectionName) as CasinoConfigs;
         }
 
-        public string GetCasinoResult(string custId, string gamePlayId, string language = "en-US", string siteId = null)
+        public string GetCasinoResult(string custId, string gamePlayId, string language = "en-US")
         {
             CheckArgument(custId, "custId");
             CheckArgument(gamePlayId, "gamePlayId");

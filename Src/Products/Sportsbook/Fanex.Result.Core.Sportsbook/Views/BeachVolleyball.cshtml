@@ -1,0 +1,127 @@
+﻿@using Fanex.Result.Core.Sportsbook.ViewModels.Badminton;
+@using Fanex.Result.Core.Base.ViewModels;
+@using Fanex.Result.Core.Sportsbook.ViewModels;
+@using Fanex.Result.Core.Base.Resources;
+@{
+    var viewModel = (RazorBinderModel)Model;
+    var colspan = viewModel.VisibleMatchCodeIDColumn ? 9 : 8;
+    var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
+    var gameName = string.Empty;
+}
+
+@helper RenderHeader(RazorBinderModel viewModel, int colspan)
+{
+    <thead>
+        @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+        {
+            var item = viewModel.Data[0].Data[0];
+            <tr class="row-title">
+                <th class="cl-title" colspan="@colspan">
+                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                </th>
+            </tr>
+        }
+        <tr class="header">
+            @if (viewModel.VisibleMatchCodeIDColumn)
+            {
+                <th class="cl-m-code">@LangResource.MatchCode/@LangResource.ID</th>
+            }
+            <th class="cl-ko-time">@LangResource.KickOffTime</th>
+            <th class="cl-match">@Raw(LangResource.Match)</th>
+            <th class="cl-s">@LangResource.Lbl1S</th>
+            <th class="cl-s">@LangResource.Lbl2S</th>
+            <th class="cl-s">@LangResource.Lbl3S</th>
+            <th class="cl-totalgames">@LangResource.TotalPoints</th>
+            <th class="cl-totalset">@LangResource.TotalSet</th>
+            <th class="cl-status">@LangResource.Status</th>
+        </tr>
+    </thead>
+}
+
+@if (viewModel.VisibleFreeHeader)
+{
+    <div class="fn-rs-content-header">
+        <table class="fn-rs @popupCss">
+            @RenderHeader(viewModel, colspan)
+        </table>
+    </div>
+}
+@if (viewModel.VisibleFreeHeader)
+{
+    @Raw("<div class=\"fn-rs-content-scroll\">")
+
+}
+<table class="fn-rs @popupCss">
+    @if (!viewModel.VisibleFreeHeader)
+    {
+        @RenderHeader(viewModel, colspan)
+    }
+    <tbody>
+        <!--RowData-->
+        @if (viewModel.Data.Count > 0)
+        {
+            var index = 0;
+            foreach (var group in viewModel.Data)
+            {
+                if (!viewModel.IsPopUp)
+                {
+                    <tr class="data">
+                        <td colspan="@colspan" class="cl-league">
+                            @group.Data[0].LeagueName
+                        </td>
+                    </tr>
+                }
+                foreach (BeachVolleyballViewModel item in group.Data)
+                {
+                    index++;
+
+                    <tr class="data @item.Color(index, "even", "odd")">
+                        @if (viewModel.VisibleMatchCodeIDColumn)
+                        {
+                            <td class="cl-m-code">
+                                <div class="m-code">@item.MatchCode</div>
+                            </td>
+                        }
+                        <td class="cl-ko-time" rowspan="2">@Raw(item.KickOffTime)</td>
+                        <td class="cl-match home @item.HomeWin">@Raw(item.HomeTeam)</td>
+                        @for (var s = 0; s < 3; s++)
+                        {
+                            <td class="cl-s">@item.GetHomeAwaySet(s, isHome: true)</td>
+                        }
+                        <td class="cl-totalgames">@item.TotalPointHome</td>
+                        <td class="cl-totalset">@item.TotalSetsHome</td>
+                        <td rowspan="2" class="cl-status @item.EventStatusBackground">
+                            @item.EventStatus
+                        </td>
+                    </tr>
+                    <tr class="data @item.Color(index, "even", "odd")">
+                        @if (viewModel.VisibleMatchCodeIDColumn)
+                        {
+                            <td class="cl-m-code">@item.MatchId</td>
+                        }
+                        <td class="cl-match away @item.AwayWin">@Raw(item.AwayTeam)</td>
+                        @for (var s = 0; s < 3; s++)
+                        {
+                            <td class="cl-s">@item.GetHomeAwaySet(s, isHome: false)</td>
+                        }
+                        <td class="cl-totalgames">@item.TotalPointAway</td>
+                        <td class="cl-totalset">@item.TotalSetsAway</td>
+                    </tr>
+                }
+            }
+            <!--/RowData-->
+        }
+        else
+        {
+            <!--NoInfo-->
+            <tr class="row-noinfo">
+                <td colspan="@colspan">@LangResource.NoInfo</td>
+            </tr>
+            <!--/NoInfo-->
+        }
+    </tbody>
+</table>
+@if (viewModel.VisibleFreeHeader)
+{
+    @Raw("</div>")
+}

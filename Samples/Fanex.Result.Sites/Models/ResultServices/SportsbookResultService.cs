@@ -174,6 +174,17 @@
                 }
             }
 
+            if (filePath.Contains($"\\{SportType.BeachVolleyball.ToString()}.xls"))
+            {
+                var details = sportBooks.First().GameDetails = SportsbookDetailResultExcelReader
+                    .CreateInstance(filePath.Replace("BeachVolleyball", "BeachVolleyballDetail"))
+                    .GetResultData().ToList();
+                foreach (var sb in sportBooks)
+                {
+                    sb.GameDetails = details.Where(i => i.MatchId == sb.MatchId).ToList();
+                }
+            }
+
             return sportBooks;
         }
 

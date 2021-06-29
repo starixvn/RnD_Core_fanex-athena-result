@@ -1888,7 +1888,7 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Total Set.
+        ///   Looks up a localized string similar to Total Sets.
         /// </summary>
         public static string TotalSet {
             get {

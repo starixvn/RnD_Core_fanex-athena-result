@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Constants\BetTypeConstants.cs" />
     <Compile Include="Constants\TennisConstants.cs" />
+    <Compile Include="DataDomain\BeachVolleyballResourceID.cs" />
     <Compile Include="DataDomain\BadmintonResourceID.cs" />
     <Compile Include="DataDomain\BasketBalResourceID.cs" />
     <Compile Include="DataDomain\BetTypeID.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="DTO\Outright.cs" />
     <Compile Include="DTO\Parlay.cs" />
     <Compile Include="DTO\Sportsbook.cs" />
+    <Compile Include="ExcelModels\BeachVolleyballExcel.cs" />
     <Compile Include="ExcelModels\BadmintonExcel.cs" />
     <Compile Include="ExcelModels\BaseBallExcel.cs" />
     <Compile Include="ExcelModels\ESportExcel.cs" />
@@ -89,6 +91,8 @@
     <Compile Include="Utilities\SportsbookHelper.cs" />
     <Compile Include="Utilities\ISportsbookHelperWraper.cs" />
     <Compile Include="Utilities\SportsbookHelperWraper.cs" />
+    <Compile Include="ViewModels\BeachVolleyballViewModel.cs" />
+    <Compile Include="ViewModels\BeachVolleyballDetail\BeachVolleyballResultDetail.cs" />
     <Compile Include="ViewModels\BadmintonViewModel.cs" />
     <Compile Include="ViewModels\Badminton\BadmintonResultDetail.cs" />
     <Compile Include="ViewModels\Badminton\BadmintonlGameDetailItem.cs" />
@@ -196,6 +200,7 @@
     <EmbeddedResource Include="Views\CricketDetail\MatchWickets.cshtml" />
     <EmbeddedResource Include="Views\CricketDetail\SuperOverWinner.cshtml" />
     <EmbeddedResource Include="Views\CricketDetail\MatchSixes.cshtml" />
+    <EmbeddedResource Include="Views\BeachVolleyball.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Fanex.File">

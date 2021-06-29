@@ -304,5 +304,8 @@
 
         [StringValue("WM")]
         WM = 233,
+
+        [StringValue("BeachVolleyball")]
+        BeachVolleyball = 45,
     }
 }

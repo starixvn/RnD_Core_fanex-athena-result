@@ -77,7 +77,7 @@
             Assert.AreEqual("4S", actualHeaderRow.Cells[6].StringCellValue);
             Assert.AreEqual("5S", actualHeaderRow.Cells[7].StringCellValue);
             Assert.AreEqual("Total Games", actualHeaderRow.Cells[8].StringCellValue);
-            Assert.AreEqual("Total Set", actualHeaderRow.Cells[9].StringCellValue);
+            Assert.AreEqual("Total Sets", actualHeaderRow.Cells[9].StringCellValue);
             Assert.AreEqual("Status", actualHeaderRow.Cells[10].StringCellValue);
         }
 

@@ -185,6 +185,17 @@
                 }
             }
 
+            if (filePath.Contains($"\\{SportType.Tennis.ToString()}.xls"))
+            {
+                var details = sportBooks.First().GameDetails = SportsbookDetailResultExcelReader
+                    .CreateInstance(filePath.Replace("Tennis", "TennisDetail"))
+                    .GetResultData().ToList();
+                foreach (var sb in sportBooks)
+                {
+                    sb.GameDetails = details.Where(i => i.MatchId == sb.MatchId).ToList();
+                }
+            }
+
             return sportBooks;
         }
 

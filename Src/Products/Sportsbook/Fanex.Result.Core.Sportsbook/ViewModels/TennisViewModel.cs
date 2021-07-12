@@ -304,7 +304,6 @@
                 switch (game.SettlementStatusID)
                 {
                     case EventStatusID.CompletedSettlementStatusID:
-                    case EventStatusID.RunningSettlementStatusID:
                         item.HomeValue = game.HomeValue;
                         item.AwayValue = game.AwayValue;
                         break;
@@ -346,7 +345,6 @@
                     switch (set.SettlementStatusID)
                     {
                         case EventStatusID.CompletedSettlementStatusID:
-                        case EventStatusID.RunningSettlementStatusID:
                             SetHomeAwaySet(i, set);
 
                             break;

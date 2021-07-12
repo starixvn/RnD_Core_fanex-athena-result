@@ -74,8 +74,8 @@
             Assert.AreEqual("-", homeAwaySet);
         }
 
-        [TestCase(true, "10")]
-        [TestCase(false, "12")]
+        [TestCase(true, "-")]
+        [TestCase(false, "-")]
         public void GetHomeAwaySet_FromIndexLessThan5AndFirstElementOfGameDetailsHasResourceIdIsEqualToIndexPlus1AndSettlementStatusIDIsRunning_ReturnsExpectedSet(
             bool isHome,
             string expectedSet)

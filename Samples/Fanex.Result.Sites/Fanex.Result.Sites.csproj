@@ -985,6 +985,8 @@
     <Content Include="App_Data\Fanex.Result\BeachVolleyball.xls" />
     <Content Include="App_Data\Result_Data\BeachVolleyball.xls" />
     <Content Include="App_Data\Result_Data\BeachVolleyballDetail.xls" />
+    <Content Include="App_Data\Result_Data\Tennis.xls" />
+    <Content Include="App_Data\Result_Data\TennisDetail.xls" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>

@@ -5,6 +5,7 @@
     using Base.DataDomain;
     using DTO;
     using Fanex.Result.Core.Base.Utilities;
+    using Fanex.Result.Core.Sportsbook.Constants;
     using Fanex.Result.Core.Sportsbook.ViewModels.SoccerDetail;
     using NSubstitute;
     using NUnit.Framework;
@@ -25,6 +26,66 @@
             _soccer = new Sportsbook();
             _refDataHelper = Substitute.For<IRefDataHelper>();
             ResultCoreManager.RegisterRefDataHelper(_refDataHelper);
+        }
+
+        [TestCase("Refund")]
+        [TestCase("Refund HT")]
+        [TestCase("Refund FT")]
+        [TestCase("Abandoned 1H")]
+        [TestCase("Abandoned 2H")]
+        public void IsShowLiveScore_BetTypeHT_RefundOrAbandoned_ReturnFalse(string betStatus)
+        {
+            // Arrange
+            _setting.IsParlayPopUp = false;
+            _setting.IsPopUp = true;
+            _soccer.Bettype = BetTypeConstants.OverUnder1H;
+            _soccer.BetStatus = betStatus;
+            _soccer.EventStatus = "Completed";
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting);
+
+            // Assert
+            Assert.False(viewModel.IsShowLiveScore);
+        }
+
+        [TestCase("Refund")]
+        [TestCase("Refund FT")]
+        [TestCase("Abandoned 1H")]
+        [TestCase("Abandoned 2H")]
+        public void IsShowLiveScore_BetTypeFTAndRefundOrAbandoned_ReturnFalse(string betStatus)
+        {
+            // Arrange
+            _setting.IsParlayPopUp = false;
+            _setting.IsPopUp = true;
+            _soccer.Bettype = BetTypeConstants.OverUnder;
+            _soccer.BetStatus = betStatus;
+            _soccer.EventStatus = "Completed";
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting);
+
+            // Assert
+            Assert.False(viewModel.IsShowLiveScore);
+        }
+
+        [TestCase("Refund HT", true, false)]
+        [TestCase("Refund HT", false, true)]
+        public void IsShowLiveScore_BetTypeFT_RefundHT_ReturnNotCalculate(string betStatus, bool calculate, bool isShow)
+        {
+            // Arrange
+            _setting.IsParlayPopUp = false;
+            _setting.IsPopUp = true;
+            _soccer.Bettype = BetTypeConstants.OverUnder;
+            _soccer.BetStatus = betStatus;
+            _soccer.Calculate = calculate;
+            _soccer.EventStatus = "Completed";
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting);
+
+            // Assert
+            Assert.AreEqual(viewModel.IsShowLiveScore, isShow);
         }
 
         [TestCase(true, true)]

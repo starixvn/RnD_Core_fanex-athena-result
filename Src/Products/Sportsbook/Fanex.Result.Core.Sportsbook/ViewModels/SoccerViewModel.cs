@@ -186,6 +186,11 @@
 
         private bool EventStatusIsRefundFT => EventStatus.Equals(LangResource.Refundft, StringComparison.OrdinalIgnoreCase);
 
+        private bool EventStatusIsRefund
+            => EventStatusIsRefundFT
+            || EventStatus.Equals(LangResource.Refundht, StringComparison.OrdinalIgnoreCase)
+            || EventStatus.Equals(LangResource.Refund, StringComparison.OrdinalIgnoreCase);
+
         private bool EventStatusIsAbandoned
             => EventStatus.Equals(LangResource.Abandoned1h, StringComparison.OrdinalIgnoreCase)
                 || EventStatus.Equals(LangResource.Abandoned2h, StringComparison.OrdinalIgnoreCase);
@@ -208,13 +213,13 @@
         {
             if (!isParlayPopup && isPopUp)
             {
-                return IsInstantSettlementFullTime() || IsInstantSettlementHaftTime() || IsShowLiveScoreForFastMarket();
+                return ShowLiveScoreForFTBettype() || ShowLiveScoreForHTBettype() || ShowLiveScoreForFastMarket();
             }
 
             return false;
         }
 
-        public bool IsShowLiveScoreForFastMarket()
+        public bool ShowLiveScoreForFastMarket()
         {
             var timeMachineOverUnderTime = SPORTBOOK.GameDetails.Any(i => i.ResourceId == GameResourceID.TimeMachineOverUnderStatus);
             if (timeMachineOverUnderTime)
@@ -225,11 +230,35 @@
             return false;
         }
 
-        private bool IsInstantSettlementFullTime()
-            => BetTypeConstants.InstantSettlementBetTypesSupportFT.Any(i => i == SPORTBOOK.Bettype) && !SPORTBOOK.Calculate;
+        private bool ShowLiveScoreForFTBettype()
+        {
+            var isInstantSettlementBetTypesSupportFT = BetTypeConstants.InstantSettlementBetTypesSupportFT.Any(i => i == SPORTBOOK.Bettype);
+            if (isInstantSettlementBetTypesSupportFT)
+            {
+                if (EventStatusIsAbandoned
+                    || EventStatusIsRefundFT
+                    || EventStatus.Equals(LangResource.Refund, StringComparison.OrdinalIgnoreCase))
+                {
+                    return false;
+                }
 
-        private bool IsInstantSettlementHaftTime()
-            => BetTypeConstants.InstantSettlementBetTypesSupportHT.Any(i => i == SPORTBOOK.Bettype) && !SPORTBOOK.IsHTCal;
+                return !SPORTBOOK.Calculate;
+            }
+
+            return false;
+        }
+
+        private bool ShowLiveScoreForHTBettype()
+        {
+            var isRefundOrAbandonedEvent = EventStatusIsRefund || EventStatusIsAbandoned;
+            var isInstantSettlementBetTypesSupportHT = BetTypeConstants.InstantSettlementBetTypesSupportHT.Any(i => i == SPORTBOOK.Bettype);
+            if (isInstantSettlementBetTypesSupportHT)
+            {
+                return isRefundOrAbandonedEvent ? false : !SPORTBOOK.IsHTCal;
+            }
+
+            return false;
+        }
 
         private string CalculateScore(int? score, bool isFinalScore)
         {

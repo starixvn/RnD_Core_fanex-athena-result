@@ -12,6 +12,7 @@
         public const string AGCASINO = "AGCasino";
         public const string ALLBETCASINO = "AllBetCasino";
         public const string HAPPY5 = "Happy5";
+        public const string BITCOIN = "Bitcoin";
         public const string LEAPGAMING = "LeapGaming";
     }
 }

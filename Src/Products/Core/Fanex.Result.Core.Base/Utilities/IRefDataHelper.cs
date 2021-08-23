@@ -12,6 +12,8 @@
 
         string GetLeagueName(int leagueId, string lang, string defaultValue);
 
+        string GetLeague3rdName(int leagueId, string lang, string defaultValue);
+
         string GetSportName(int sportType, string lang, string defaultValue);
 
         string GetResourceDataByRefIdAndResourceId(string refId, string resourceId, string lang, string defaultValue);

@@ -69,6 +69,8 @@
                 case SportType.Happy5:
                     return dtoName == DTOType.HAPPY5;
 
+                case SportType.Bitcoin:
+                    return dtoName == DTOType.BITCOIN;
                 default:
                     return dtoName == DTOType.SPORTSBOOK || dtoName == DTOType.METRICGAMING;
             }

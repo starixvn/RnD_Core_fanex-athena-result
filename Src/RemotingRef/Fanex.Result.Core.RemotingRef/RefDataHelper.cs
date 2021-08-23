@@ -28,6 +28,9 @@
         public string GetLeagueName(int leagueId, string lang, string defaultValue)
             => remotingRefService.GetLeagueName(leagueId.ToString(CultureInfo.InvariantCulture), lang, defaultValue);
 
+        public string GetLeague3rdName(int leagueId, string lang, string defaultValue)
+            => remotingRefService.GetLeagueName3rd(leagueId.ToString(CultureInfo.InvariantCulture), lang, defaultValue);
+
         public string GetSportName(int sportType, string lang, string defaultValue)
             => remotingRefService.GetSportName(sportType.ToString(CultureInfo.InvariantCulture), lang, defaultValue);
 

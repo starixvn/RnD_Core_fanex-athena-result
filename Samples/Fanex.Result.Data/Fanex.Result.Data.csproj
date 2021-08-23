@@ -60,8 +60,10 @@
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="NumberGameResultExcelReader.cs" />
     <Compile Include="BetBuilderDetailResultExcelReader.cs" />
+    <Compile Include="BitcoinDetailResultExcelReader.cs" />
     <Compile Include="SportsbookDetailResultExcelReader.cs" />
     <Compile Include="OutrightResultExcelReader.cs" />
+    <Compile Include="BitcoinResultExcelReader.cs" />
     <Compile Include="SportsbookResultExcelReader.cs" />
     <Compile Include="ResultExcelReader.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

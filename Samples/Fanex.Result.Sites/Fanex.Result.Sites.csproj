@@ -242,6 +242,7 @@
     <Compile Include="Models\ResultData\BBinResultData.cs" />
     <Compile Include="Models\ResultData\AllbetResultData.cs" />
     <Compile Include="Models\ResultData\LeapGamingResultData.cs" />
+    <Compile Include="Models\ResultData\BitcoinResultData.cs" />
     <Compile Include="Models\ResultData\WMLiveCasinoResultData.cs" />
     <Compile Include="Models\ResultData\SexyGamingResultData.cs" />
     <Compile Include="Models\ResultData\GTCasinoResultData.cs" />
@@ -262,6 +263,7 @@
     <Compile Include="Models\ResultServices\ParlayResultService.cs" />
     <Compile Include="Models\ResultServices\OutRightResultService.cs" />
     <Compile Include="Models\ResultServices\BetBuilderResultService.cs" />
+    <Compile Include="Models\ResultServices\BitcoinResultService.cs" />
     <Compile Include="Models\ResultServices\SportsbookResultService.cs" />
     <Compile Include="Models\ResultServices\NumberGameResultService.cs" />
     <Compile Include="Models\ResultServices\RacingResultService.cs" />
@@ -987,6 +989,9 @@
     <Content Include="App_Data\Result_Data\BeachVolleyballDetail.xls" />
     <Content Include="App_Data\Result_Data\Tennis.xls" />
     <Content Include="App_Data\Result_Data\TennisDetail.xls" />
+    <Content Include="App_Data\Fanex.Result\Bitcoin.xls" />
+    <Content Include="App_Data\Result_Data\Bitcoin.xls" />
+    <Content Include="App_Data\Result_Data\BitcoinDetail.xls" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>

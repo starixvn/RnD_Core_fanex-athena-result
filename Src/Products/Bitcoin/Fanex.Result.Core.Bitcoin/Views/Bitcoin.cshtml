@@ -1,0 +1,137 @@
+﻿@{
+    var viewModel = (Fanex.Result.Core.Base.ViewModels.RazorBinderModel)Model;
+
+    var colspan = 4;
+    var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
+
+}
+@using Fanex.Result.Core.Bitcoin.ViewModels;
+@using Fanex.Result.Core.Bitcoin.Resources;
+@using Fanex.Result.Core.Base.ViewModels;
+@using Fanex.Result.Core.Base.Resources;
+@if (viewModel.VisibleFreeHeader)
+{
+    <div class="fn-rs-content-header">
+        <table class="fn-rs bitcoin @popupCss">
+            <thead>
+                @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+                {
+                    var item = ((GroupData)viewModel.Data[0]).Data[0];
+
+                    <tr class="row-title">
+                        <th class="cl-title" colspan="@colspan">
+                            <span class="leagueName">@item.LeagueName</span>
+                        </th>
+                    </tr>
+                }
+                    <tr class="header">
+                        <th class="cl-ko-time">
+                            @BitcoinResources.Date
+                        </th>
+                        <th class="cl-match">
+                            @Raw(LangResource.Match)
+                        </th>
+                        <th class="cl-m-code">
+                            @Raw(BitcoinResources.ResultPrice)
+                        </th>
+                        
+                        <th class="cl-status">
+                            @LangResource.Status
+                        </th>
+                    </tr>
+            </thead>
+        </table>
+    </div>
+}
+@if (viewModel.VisibleFreeHeader)
+{
+    @Raw("<div class=\"fn-rs-content-scroll\">")
+
+}
+<table class="fn-rs bitcoin @popupCss">
+    @if (!viewModel.VisibleFreeHeader)
+    {
+        <thead>
+            @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+            {
+                var item = ((GroupData)viewModel.Data[0]).Data[0];
+
+                <tr class="row-title">
+                    <th class="cl-title" colspan="@colspan">
+                        <span class="leagueName">@item.LeagueName</span>
+                    </th>
+                </tr>
+            }
+                <tr class="header">
+                    <th class="cl-ko-time">
+                        @BitcoinResources.Date
+                    </th>
+                    <th class="cl-match">
+                        @Raw(LangResource.Match)
+                    </th>
+
+                    <th class="cl-m-code">
+                        @Raw(BitcoinResources.ResultPrice)
+                    </th>
+                    <th class="cl-status">
+                        @LangResource.Status
+                    </th>
+                </tr>
+        </thead>
+    }
+    <tbody>
+        @if (viewModel.Data.Count > 0)
+        {
+            var index = 0;
+            foreach (var itemObj in viewModel.Data)
+            {
+                var group = (GroupData)itemObj;
+
+                if (!viewModel.IsPopUp)
+                {
+                    <tr class="data">
+                        <td colspan="@colspan" class="cl-league">
+                            @group.Data[0].LeagueName
+                        </td>
+                    </tr>
+                }
+                foreach (var temp in group.Data)
+                {
+                    var item = (BitcoinViewModel)temp;
+                    index++;
+
+                    <tr class="data @item.Color(index, "even", "odd")">
+                        <td class="cl-ko-time">
+                            @Raw(item.KickOffTime)
+                        </td>
+                        <td class="cl-match win">
+                            @item.MatchId
+                        </td>
+
+                        <td class="cl-price">
+                            @item.ResultPrice
+                        </td>
+                        <td class="cl-status @item.EventStatusBackground">
+                            @item.EventStatus
+                        </td>
+                    </tr>
+
+                }
+            }
+        }
+        else
+        {
+            <!--NoInfo-->
+            <tr class="row-noinfo">
+                <td colspan="@colspan">
+                    @LangResource.NoInfo
+                </td>
+            </tr>
+            <!--/NoInfo-->
+        }
+    </tbody>
+</table>
+@if (viewModel.VisibleFreeHeader)
+{
+    @Raw("</div>")
+}

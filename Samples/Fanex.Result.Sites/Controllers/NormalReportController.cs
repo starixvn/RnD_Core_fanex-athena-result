@@ -76,6 +76,10 @@
                         new GoldDeluxeResultData().GetNormalResult(getDataFromExcel).ToList(), resultSetting);
                     break;
 
+                case SportType.Bitcoin:
+                    htmlResult = ResultEngine.HtmlParser(
+                        new BitcoinResultData().GetResult(sportId).ToList(), resultSetting);
+                    break;
                 default:
                     htmlResult = ResultEngine.HtmlParser(
                         new SportsbookResultData().GetNormalResult(date, sportId, leagueId, getDataFromExcel).ToList(), resultSetting);
@@ -164,7 +168,10 @@
                     excelResult = ResultEngine.ExcelParser(
                         new GoldDeluxeResultData().GetNormalResult(getDataFromExcel).ToList(), resultSetting);
                     break;
-
+                case SportType.Bitcoin:
+                    excelResult = ResultEngine.ExcelParser(
+                        new BitcoinResultData().GetResult(sportId).ToList(), resultSetting);
+                    break;
                 default:
                     excelResult = ResultEngine.ExcelParser(
                         new SportsbookResultData().GetNormalResult(date, sportId, leagueId, getDataFromExcel).ToList(), resultSetting);

@@ -138,6 +138,10 @@
                     return ResultEngine.HtmlParser(
                         new NumberGameResultData().GetPopupResult(metalModel.MatchId, metalModel.GetDataFromExcel).ToList(), setting);
 
+                case SportType.Bitcoin:
+                    return ResultEngine.HtmlParser(
+                        new BitcoinResultData().GetPopupResult((int)sportType, metalModel).ToList(), setting);
+
                 case SportType.LeapGamingVirtualSports:
                     return ResultEngine.HtmlParser(new LeapGamingResultData().GetPopupResult(metalModel.TransDesc), setting);
 

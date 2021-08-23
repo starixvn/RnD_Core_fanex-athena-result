@@ -218,6 +218,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "KenoLotteryTG", "KenoLotter
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.KenoLotteryTG", "Src\Products\KenoLotteryTG\Fanex.Result.Core.KenoLotteryTG\Fanex.Result.Core.KenoLotteryTG.csproj", "{FC6EF81F-5D81-469A-ADD5-5C7BCCF69E58}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bitcoin", "Bitcoin", "{D1C16410-9E08-4321-9455-12F7D4B3EB72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Bitcoin", "Src\Products\Bitcoin\Fanex.Result.Core.Bitcoin\Fanex.Result.Core.Bitcoin.csproj", "{75CF0202-4D7F-49FF-9E7F-2D235A66378C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -480,6 +484,10 @@ Global
 		{FC6EF81F-5D81-469A-ADD5-5C7BCCF69E58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC6EF81F-5D81-469A-ADD5-5C7BCCF69E58}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FC6EF81F-5D81-469A-ADD5-5C7BCCF69E58}.Release|Any CPU.Build.0 = Release|Any CPU
+		{75CF0202-4D7F-49FF-9E7F-2D235A66378C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{75CF0202-4D7F-49FF-9E7F-2D235A66378C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{75CF0202-4D7F-49FF-9E7F-2D235A66378C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{75CF0202-4D7F-49FF-9E7F-2D235A66378C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -584,6 +592,8 @@ Global
 		{269C9BF8-A164-4AD9-87D0-50DC230C0608} = {FE0E61FF-F22E-48F3-837E-D6DD255B1EAA}
 		{361D12CB-9FD7-4DB8-AE03-E9CC4C8A07EF} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{FC6EF81F-5D81-469A-ADD5-5C7BCCF69E58} = {361D12CB-9FD7-4DB8-AE03-E9CC4C8A07EF}
+		{D1C16410-9E08-4321-9455-12F7D4B3EB72} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
+		{75CF0202-4D7F-49FF-9E7F-2D235A66378C} = {D1C16410-9E08-4321-9455-12F7D4B3EB72}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		LessCompiler = ebd31f24-8f67-4e36-bd6d-1bb78a71e54b

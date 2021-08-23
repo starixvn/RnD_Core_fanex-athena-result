@@ -113,6 +113,9 @@
         [StringValue("Happy5")]
         Happy5 = 164,
 
+        [StringValue("Bitcoin")]
+        Bitcoin = 175,
+
         #region Other
 
         [StringValue("Other")]

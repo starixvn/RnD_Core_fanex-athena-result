@@ -22,6 +22,10 @@
 
         public const string TossWinner = "9401";
 
+        public const string HighestOpeningPartnership = "9442";
+
+        public const string HighestScoreInOver = "9443";
+
         public const string MatchFours = "9446";
 
         public const string MatchSixes = "9447";
@@ -62,7 +66,8 @@
                     HomeGroupXRuns, AwayGroupXRuns, HomeScoreAfterOverXBallY, AwayScoreAfterOverXBallY,
                     HomeFallOfWicketX, AwayFallOfWicketX, HomeWicketXMethodOfDismissal, AwayWicketXMethodOfDismissal,
                     HomeInnsFours, AwayInnsFours, HomeInnsSixes, AwayInnsSixes, HomeOverXExactRuns,
-                    AwayOverXExactRuns, HomeOverXBallYExactRuns, AwayOverXBallYExactRuns
+                    AwayOverXExactRuns, HomeOverXBallYExactRuns, AwayOverXBallYExactRuns,
+                    HighestOpeningPartnership, HighestScoreInOver
                 }
             },
             { "MatchWickets", new List<string> { MatchWickets } }

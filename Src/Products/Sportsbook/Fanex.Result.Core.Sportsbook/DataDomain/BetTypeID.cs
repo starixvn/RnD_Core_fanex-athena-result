@@ -102,6 +102,15 @@ namespace Fanex.Result.Core.Sportsbook.DataDomain
         public const int HomeOverXBallYExactRuns = 9490;
         public const int AwayOverXBallYExactRuns = 9491;
 
+        public const int HomeOverXRuns = 9607;
+        public const int AwayOverXRuns = 9608;
+        public const int Home1stInnsOverXRuns = 9609;
+        public const int Away1stInnsOverXRuns = 9610;
+        public const int Home2ndInnsOverXRuns = 9611;
+        public const int Away2ndInnsOverXRuns = 9612;
+        public const int HomeOverXBallYRuns = 9613;
+        public const int AwayOverXBallYRuns = 9614;
+
         public static IDictionary<int, int> CricketBettypeGroup => _cricketBettypeGroup;
         private readonly static IDictionary<int, int> _cricketBettypeGroup = new Dictionary<int, int>
         {
@@ -181,7 +190,15 @@ namespace Fanex.Result.Core.Sportsbook.DataDomain
             { HomeOverXExactRuns, HomeOverXExactRuns },
             { AwayOverXExactRuns, AwayOverXExactRuns },
             { HomeOverXBallYExactRuns, HomeOverXBallYExactRuns },
-            { AwayOverXBallYExactRuns, AwayOverXBallYExactRuns }
+            { AwayOverXBallYExactRuns, AwayOverXBallYExactRuns },
+            { HomeOverXRuns, HomeOverXRuns},
+            { AwayOverXRuns, AwayOverXRuns},
+            { Home1stInnsOverXRuns, Home1stInnsOverXRuns},
+            { Away1stInnsOverXRuns, Away1stInnsOverXRuns},
+            { Home2ndInnsOverXRuns, Home2ndInnsOverXRuns},
+            { Away2ndInnsOverXRuns, Away2ndInnsOverXRuns},
+            { HomeOverXBallYRuns, HomeOverXBallYRuns},
+            { AwayOverXBallYRuns, AwayOverXBallYRuns}
         };
     }
 }

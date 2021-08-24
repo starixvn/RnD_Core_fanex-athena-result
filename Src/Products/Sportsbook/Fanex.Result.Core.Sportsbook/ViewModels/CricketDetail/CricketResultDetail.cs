@@ -71,6 +71,8 @@
             {
                 case CricketResourceID.SuperOverWinner:
                 case CricketResourceID.TossWinner:
+                case CricketResourceID.HighestOpeningPartnership:
+                case CricketResourceID.HighestScoreInOver:
                     item.HomeValue = detailItem.HomeValue == "H" ? HomeTeam : AwayTeam;
                     item.AwayValue = HomeTeam;
                     break;

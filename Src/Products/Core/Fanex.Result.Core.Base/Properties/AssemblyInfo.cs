@@ -42,3 +42,4 @@ using System.Runtime.InteropServices;
 [assembly: InternalsVisibleTo("Fanex.Result.Core.Racing.Tests")]
 [assembly: InternalsVisibleTo("Fanex.Result.Core.NumberGame.Tests")]
 [assembly: InternalsVisibleTo("Fanex.Result.Core.Happy5.Tests")]
+[assembly: InternalsVisibleTo("Fanex.Result.Core.Bitcoin.Tests")]

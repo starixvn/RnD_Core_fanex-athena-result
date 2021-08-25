@@ -63,8 +63,10 @@
                 {
                     return LangResource.Refund;
                 }
-
-                return ConstantValue.Hyphen;
+                else
+                {
+                    return ConstantValue.Hyphen;
+                }
             }
         }
 

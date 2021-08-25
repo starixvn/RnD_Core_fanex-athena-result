@@ -74,6 +74,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Src\Products\Bitcoin\Fanex.Result.Core.Bitcoin\Fanex.Result.Core.Bitcoin.csproj">
+      <Project>{75cf0202-4d7f-49ff-9e7f-2d235a66378c}</Project>
+      <Name>Fanex.Result.Core.Bitcoin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\Src\Products\Core\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj">
       <Project>{8673f024-7726-4c30-8464-5a8357f79bf0}</Project>
       <Name>Fanex.Result.Core.Base</Name>

@@ -24,7 +24,7 @@
     <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>Fanex.Result.Core.NumberGame.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>Fanex.Result.Core.Bitcoin.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -34,7 +34,7 @@
     <DefineConstants>TRACE;CODE_ANALYSIS</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>Fanex.Result.Core.NumberGame.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>Fanex.Result.Core.Bitcoin.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
@@ -75,6 +75,11 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>BitcoinResources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\BitcoinResources.th-TH.resx" />
+    <EmbeddedResource Include="Resources\BitcoinResources.vi-VN.resx" />
+    <EmbeddedResource Include="Resources\BitcoinResources.zh-CN.resx" />
+    <EmbeddedResource Include="Resources\BitcoinResources.zh-Hans.resx" />
+    <EmbeddedResource Include="Resources\BitcoinResources.zh-TW.resx" />
     <EmbeddedResource Include="Views\Bitcoin.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -85,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <None Include="Fanex.Result.Core.Bitcoin.ruleset" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>

@@ -40,10 +40,10 @@
 
         public string TotalSetsAway => GetTotalSets(isHome: false);
 
-        public override string GetHomeAwaySet(int setIndex, bool isHome)
+        public override string GetHomeAwaySet(int index, bool isHome)
         {
             const int maxIndex = 2;
-            if (setIndex > maxIndex)
+            if (index > maxIndex)
             {
                 return ConstantValue.Hyphen;
             }
@@ -58,7 +58,7 @@
                 GenerateHomeAwaySetValue();
             }
 
-            return isHome ? HomeSet[setIndex] : AwaySet[setIndex];
+            return isHome ? HomeSet[index] : AwaySet[index];
         }
 
         private void GenerateHomeAwaySetValue()

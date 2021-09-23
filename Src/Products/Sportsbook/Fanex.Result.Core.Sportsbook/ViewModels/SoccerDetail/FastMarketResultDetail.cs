@@ -35,7 +35,10 @@
                 .Where(i => SportsbookHelper.IsFastMarketsResourceId(i.ResourceId))
                 .Select(item => CreateGameDetailItem(item));
 
-            return detailItems.ToSafeList();
+            var overUnderHasResultDetail = detailItems.Where(i => i.ResourceID == GameResourceID.TimeMachineOverUnderStatus && i.SituationValue.Any());
+            var othersBetType = detailItems.Where(i => i.ResourceID != GameResourceID.TimeMachineOverUnderStatus);            
+
+            return othersBetType.Concat(overUnderHasResultDetail).ToSafeList();
         }
 
         protected override SoccerGameDetailItem CreateGameDetailItem(GameDetail detailItem)
@@ -82,7 +85,13 @@
                     break;
 
                 case GameResourceID.TimeMachineOverUnderStatus:
-                    item.SituationValue = new List<string> { GetTotalGoalOfTimeMachineOU(startTime, GameResourceID.TimeMachineOverUnderGoal) };
+                    var result = GetTotalGoalOfTimeMachineOU(startTime, GameResourceID.TimeMachineOverUnderGoal);
+                    item.SituationValue = new List<string>();
+                    if (!string.IsNullOrEmpty(result))
+                    {
+                        item.SituationValue.Add(result);
+                    }
+
                     break;
 
                 case GameResourceID.TimeMachineHDPStatus:
@@ -155,7 +164,11 @@
         }
 
         private string GetTotalGoalOfTimeMachineOU(int minute, string resourceId)
-            => $"{SportsbookResx.TotalGoal}: {GetTotalGoalOfTimeMachine(minute, resourceId)}";
+        {
+            var result = GetTotalGoalOfTimeMachine(minute, resourceId);
+
+            return string.IsNullOrEmpty(result) ? string.Empty : $"{SportsbookResx.TotalGoal}: {result}";
+        }
 
         private string GetTotalGoalOfTimeMachine(int minute, string resourceId)
         {

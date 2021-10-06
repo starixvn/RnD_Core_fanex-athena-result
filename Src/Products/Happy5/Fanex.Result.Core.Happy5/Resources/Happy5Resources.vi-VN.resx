@@ -120,4 +120,7 @@
   <data name="Total" xml:space="preserve">
     <value>Tổng cộng </value>
   </data>
+  <data name="Soccer5Tooltip" xml:space="preserve">
+    <value>Xem thêm</value>
+  </data>
 </root>

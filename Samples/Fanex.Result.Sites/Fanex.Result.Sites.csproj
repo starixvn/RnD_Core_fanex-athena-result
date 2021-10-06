@@ -243,6 +243,7 @@
     <Compile Include="Models\ResultData\AllbetResultData.cs" />
     <Compile Include="Models\ResultData\LeapGamingResultData.cs" />
     <Compile Include="Models\ResultData\BitcoinResultData.cs" />
+    <Compile Include="Models\ResultData\Happy5ResultData.cs" />
     <Compile Include="Models\ResultData\WMLiveCasinoResultData.cs" />
     <Compile Include="Models\ResultData\SexyGamingResultData.cs" />
     <Compile Include="Models\ResultData\GTCasinoResultData.cs" />
@@ -268,6 +269,7 @@
     <Compile Include="Models\ResultServices\NumberGameResultService.cs" />
     <Compile Include="Models\ResultServices\RacingResultService.cs" />
     <Compile Include="Models\ResultServices\LeaguesResultService.cs" />
+    <Compile Include="Models\ResultServices\Happy5ResultService.cs" />
     <Compile Include="Models\ResultServices\SportsResultService.cs" />
     <Compile Include="Models\Voidbridge\Request.cs" />
     <Compile Include="Models\Voidbridge\Response.cs" />
@@ -403,6 +405,7 @@
     <Content Include="Content\Fanex.Result\BBin\template\public\game_result\Sicbo\4.png" />
     <Content Include="Content\Fanex.Result\BBin\template\public\game_result\Sicbo\5.png" />
     <Content Include="Content\Fanex.Result\BBin\template\public\game_result\Sicbo\6.png" />
+    <Content Include="Content\Fanex.Result\images\info-icon.png" />
     <Content Include="Content\Fanex.Result\WM\css\table_w.css" />
     <Content Include="Content\Fanex.Result\WM\images\FanTan\ball.png" />
     <Content Include="Content\Fanex.Result\WM\images\FishPrawnCrab\1.png" />

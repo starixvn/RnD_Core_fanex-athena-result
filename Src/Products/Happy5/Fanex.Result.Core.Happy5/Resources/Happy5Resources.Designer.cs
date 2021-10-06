@@ -124,6 +124,24 @@ namespace Fanex.Result.Core.Happy5.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Soccer 5.
+        /// </summary>
+        public static string Soccer5 {
+            get {
+                return ResourceManager.GetString("Soccer5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to See more.
+        /// </summary>
+        public static string Soccer5Tooltip {
+            get {
+                return ResourceManager.GetString("Soccer5Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Total.
         /// </summary>
         public static string Total {

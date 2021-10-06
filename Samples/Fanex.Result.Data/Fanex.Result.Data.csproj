@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="GoldDeluxeResultExcelReader.cs" />
     <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Happy5ResultExcelReader.cs" />
     <Compile Include="NumberGameResultExcelReader.cs" />
     <Compile Include="BetBuilderDetailResultExcelReader.cs" />
     <Compile Include="BitcoinDetailResultExcelReader.cs" />

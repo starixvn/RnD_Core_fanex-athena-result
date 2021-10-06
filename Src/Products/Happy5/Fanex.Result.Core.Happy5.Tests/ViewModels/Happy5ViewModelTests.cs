@@ -4,6 +4,7 @@ namespace Fanex.Result.Core.Happy5.Tests.ViewModels
     using System.Collections.Generic;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.Utilities;
+    using Fanex.Result.Core.Happy5.Resources;
     using Fanex.Result.Core.Happy5.ViewModels;
     using NSubstitute;
     using NUnit.Framework;
@@ -535,6 +536,95 @@ namespace Fanex.Result.Core.Happy5.Tests.ViewModels
 
             // Assert
             Assert.True(actualValue);
+        }
+
+        [Test]
+        public void Soccer5_StatusIsRefund_ReturnNA()
+        {
+            // Arrange
+            var resultData = new DTO.Happy5 { EventStatus = "Refund" };
+            var viewModel = new Happy5ViewModel(resultData, subResultSetting, subRefDataHelper);
+
+            // Act
+            var actualValue = viewModel.Soccer5;
+
+            // Assert
+            Assert.AreEqual(Happy5Resources.NA, actualValue);
+        }
+
+        [Test]
+        public void Soccer5_StatusIsCompleted_ReturnEmpty()
+        {
+            // Arrange
+            var resultData = new DTO.Happy5 { EventStatus = "Completed" };
+            var viewModel = new Happy5ViewModel(resultData, subResultSetting, subRefDataHelper);
+
+            // Act
+            var actualValue = viewModel.Soccer5;
+
+            // Assert
+            Assert.AreEqual(string.Empty, actualValue);
+        }
+
+        [Test]
+        public void Soccer5Class_StatusIsRefund_ReturnEmpty()
+        {
+            // Arrange
+            var resultData = new DTO.Happy5 { EventStatus = "Refund" };
+            var viewModel = new Happy5ViewModel(resultData, subResultSetting, subRefDataHelper);
+
+            // Act
+            var actualValue = viewModel.Soccer5Class;
+
+            // Assert
+            Assert.AreEqual(string.Empty, actualValue);
+        }
+
+        [Test]
+        public void Soccer5Class_StatusIsCompleted_ReturnInfo()
+        {
+            // Arrange
+            var resultData = new DTO.Happy5 { EventStatus = "Completed" };
+            var viewModel = new Happy5ViewModel(resultData, subResultSetting, subRefDataHelper);
+
+            // Act
+            var actualValue = viewModel.Soccer5Class;
+
+            // Assert
+            Assert.AreEqual("info", actualValue);
+        }
+
+        [Test]
+        public void Soccer5Function_StatusIsRefund_ReturnEmpty()
+        {
+            // Arrange
+            var resultData = new DTO.Happy5 { EventStatus = "Refund" };
+            var viewModel = new Happy5ViewModel(resultData, subResultSetting, subRefDataHelper);
+
+            // Act
+            var actualValue = viewModel.Soccer5Function;
+
+            // Assert
+            Assert.AreEqual(string.Empty, actualValue);
+        }
+
+        [Test]
+        public void Soccer5Function_StatusIsCompleted_ReturnJavascriptFunction()
+        {
+            // Arrange
+            var resultData = new DTO.Happy5
+            {
+                MatchId =123,
+                EventStatus = "Completed",
+                Ball = new List<int> { 1, 2, 3, 4, 5 }
+            };
+            var viewModel = new Happy5ViewModel(resultData, subResultSetting, subRefDataHelper);
+
+            // Act
+            var actualValue = viewModel.Soccer5Function;
+
+            // Assert
+            Assert.IsTrue(actualValue.Contains("showSoccer5Result(123, '1, 2, 3, 4, 5')"));
         }
     }
 }

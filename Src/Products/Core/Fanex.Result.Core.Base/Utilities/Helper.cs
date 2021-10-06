@@ -1,7 +1,9 @@
 ﻿namespace Fanex.Result.Core.Base.Utilities
 {
     using System;
+    using System.Collections.Generic;
     using System.Globalization;
+    using System.Text;
     using System.Text.RegularExpressions;
     using DataDomain;
     using Fanex.Result.Core.Base.Exception;
@@ -62,6 +64,17 @@
             {
                 throw new ResultCoreException($"{argName} can not be null or emtpy");
             }
+        }
+
+        public static string DictionaryToString(Dictionary<string, string> dictionary)
+        {
+            var dictionaryString = new StringBuilder();
+            foreach (KeyValuePair<string, string> keyValues in dictionary)
+            {
+                dictionaryString.Append($"{keyValues.Key}={keyValues.Value}&");
+            }
+
+            return dictionaryString.ToString();
         }
     }
 }

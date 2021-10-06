@@ -26,16 +26,32 @@
         }
 
         [Test]
-        public void HtmlBuilder_Always_GetExpectedHtml()
+        public void HtmlBuilder_ResultPage_ShowSoccer5Column()
         {
             // Arrange
             var builder = new Builder();
+            resultSetting.IsPopUp = false;
 
             // Act
             var actualHtml = builder.HtmlBuilder(dataList, resultSetting);
 
             // Assert
-            var expectedHtml = File.ReadAllText(FilePath.ExpectedHtmlFilePath);
+            var expectedHtml = File.ReadAllText(FilePath.ExpectedResultPageHtmlFilePath);
+            Assert.AreEqual(RemoveEndLineSymbolHtml(expectedHtml), RemoveEndLineSymbolHtml(actualHtml));
+        }
+
+        [Test]
+        public void HtmlBuilder_ResultPopup_HideSoccer5Column()
+        {
+            // Arrange
+            var builder = new Builder();
+            resultSetting.IsPopUp = true;
+
+            // Act
+            var actualHtml = builder.HtmlBuilder(dataList, resultSetting);
+
+            // Assert
+            var expectedHtml = File.ReadAllText(FilePath.ExpectedResultPopupPageHtmlFilePath);
             Assert.AreEqual(RemoveEndLineSymbolHtml(expectedHtml), RemoveEndLineSymbolHtml(actualHtml));
         }
 

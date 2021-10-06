@@ -53,12 +53,6 @@
     <Compile Include="LinkedGamesResult.cs" />
     <Compile Include="Models\Response.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Ultilities\Serializer\ISerializer.cs" />
-    <Compile Include="Ultilities\Serializer\JsonSerializer.cs">
-      <SonarQubeExclude>true</SonarQubeExclude>
-    </Compile>
-    <Compile Include="Ultilities\WebClient\IWebClient.cs" />
-    <Compile Include="Ultilities\WebClient\JsonWebClient.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj">

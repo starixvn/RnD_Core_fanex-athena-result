@@ -1,33 +1,20 @@
 ﻿namespace Fanex.Result.Core.LinkedGames
 {
-    using System;
     using System.Collections.Generic;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.Exception;
+    using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.LinkedGames.Models;
-    using Fanex.Result.Core.LinkedGames.Ultilities.Serializer;
-    using Fanex.Result.Core.LinkedGames.Ultilities.WebClient;
 
     public interface ILinkedGamesResult
     {
         string GetResult(string custId, string transId3rd, bool isDesktop, string language = "en-US");
+
+        string GetSoccer5Result(string matchId, string balls, bool isDesktop, string language = "en-US", int bettypeId = 3604);
     }
 
     public class LinkedGamesResult : ILinkedGamesResult
     {
-        private const string DefaultLanguage = "en-US";
-
-        private static readonly Dictionary<string, string> SupportedLanguages = new Dictionary<string, string>
-        {
-            { "en-US", "en" },
-            { "zh-CN", "cs" },
-            { "zh-TW", "ch" },
-            { "zh-Hans", "zhcn" },
-            { "th-TH", "th" },
-            { "vi-VN", "vn" },
-            { "id-ID", "id" }
-        };
-
         private readonly LinkedGamesConfigs _configs;
         private readonly IWebClient _client;
         private readonly ISerializer _serializer;
@@ -43,12 +30,43 @@
             _configs = LinkedGamesConfigs.Configs;
         }
 
+        public string GetSoccer5Result(string matchId, string balls, bool isDesktop, string language = "en-US", int bettypeId = 3604)
+        {
+            Helper.CheckArgument(matchId, "matchId");
+            Helper.CheckArgument(balls, "balls");
+
+            var requestData = GenerateRequestData();
+            if ((DebugMode)_configs.DebugMode == DebugMode.DontSendRequest)
+            {
+                throw new LinkedGamesException("Request data:" + _serializer.Serialize(requestData));
+            }
+            else
+            {
+                return $"{_configs.UrlSoccer5}?{Helper.DictionaryToString(requestData)}";
+            }
+
+            Dictionary<string, string> GenerateRequestData()
+            {
+                var languageCode = Language.GetLanguageCode(language);
+                return new Dictionary<string, string>
+                {
+                    { "MatchId", matchId},
+                    { "SiteId", _configs.SiteId },
+                    { "LangCode" , languageCode },
+                    { "Balllist" , balls },
+                    { "BettypeId" , bettypeId.ToString() },
+                    { "Platform" , isDesktop ? "D" : "M" },
+                    { "DarkMode" , _configs.DarkMode},
+                };
+            }
+        }
+
         public string GetResult(string custId, string transId3rd, bool isDesktop, string language = "en-US")
         {
-            CheckArgument(custId, "custId");
-            CheckArgument(transId3rd, "transId3rd");
+            Helper.CheckArgument(custId, "custId");
+            Helper.CheckArgument(transId3rd, "transId3rd");
 
-            var requestData = GenerateRequestData(custId, transId3rd, isDesktop, language);
+            var requestData = GenerateRequestData();
 
             if ((DebugMode)_configs.DebugMode == DebugMode.DontSendRequest)
             {
@@ -58,66 +76,49 @@
             {
                 var responseData = _client.QueryString<Response>(_configs.Url, requestData, _configs.ProxyIPServer, _configs.ProxyPortServer);
 
-                if (ValidateResponse(responseData, requestData))
+                if (ValidateResponse(responseData))
                 {
-                    return !string.IsNullOrWhiteSpace(responseData.Url) ?
-                        responseData.Url.Replace("http:", string.Empty) :
-                        string.Empty;
+                    return RemoveWebProtocol(responseData.Url);
                 }
             }
 
             return string.Empty;
-        }
 
-        private static void CheckArgument(string arg, string argName)
-        {
-            if (string.IsNullOrEmpty(arg))
+            Dictionary<string, string> GenerateRequestData()
             {
-                throw new ResultCoreException($"{argName} can not be null or emtpy");
-            }
-        }
-
-        private Dictionary<string, string> GenerateRequestData(string custId, string transId3rd, bool isDesktop, string language)
-        {
-            var languageCode = string.IsNullOrEmpty(language) || !SupportedLanguages.ContainsKey(language)
-                                ? SupportedLanguages[DefaultLanguage]
-                                : SupportedLanguages[language];
-            return new Dictionary<string, string>
-            {
-                { "SiteId", _configs.SiteId },
-                { "ObCustId" , custId },
-                { "VendorId" , _configs.VendorId },
-                { "Language" , languageCode },
-                { "TranId3rd" , transId3rd },
-                { "Platform" , isDesktop ? "D" : "M" },
-                { "DarkMode" , _configs.DarkMode},
-            };
-        }
-
-        private bool ValidateResponse(Response responseData, Dictionary<string, string> requestData)
-        {
-            if (responseData.VendorId != requestData["VendorId"] ||
-                responseData.ErrorCode != "0")
-            {
-                if ((DebugMode)_configs.DebugMode == DebugMode.None)
+                var languageCode = Language.GetLanguageCode(language);
+                return new Dictionary<string, string>
                 {
-                    if (responseData.ErrorCode != "0")
+                    { "SiteId", _configs.SiteId },
+                    { "ObCustId" , custId },
+                    { "VendorId" , _configs.VendorId },
+                    { "Language" , languageCode },
+                    { "TranId3rd" , transId3rd },
+                    { "Platform" , isDesktop ? "D" : "M" },
+                    { "DarkMode" , _configs.DarkMode},
+                };
+            }
+
+            bool ValidateResponse(Response responseData)
+            {
+                if (responseData.ErrorCode != 0)
+                {
+                    if ((DebugMode)_configs.DebugMode == DebugMode.None)
                     {
                         throw new ResultCoreException(responseData.ErrorMsg);
                     }
                     else
                     {
-                        throw new ResultCoreException($"Url of LinkedGames send request incorrectly!");
+                        throw new ResultCoreException($"Url of LinkedGames send request incorrectly! Detail request:" +
+                            $" {Helper.DictionaryToString(requestData)}; \n Detail response: {_serializer.Serialize(responseData)}");
                     }
                 }
-                else
-                {
-                    throw new ResultCoreException($"Url of LinkedGames send request incorrectly! Detail request:" +
-                        $" {_serializer.Serialize(requestData)}; \n Detail response: {_serializer.Serialize(responseData)}");
-                }
-            }
 
-            return true;
+                return true;
+            }
         }
+
+        private static string RemoveWebProtocol(string url)
+            => !string.IsNullOrWhiteSpace(url) ? url.Replace("http:", string.Empty) : string.Empty;
     }
 }

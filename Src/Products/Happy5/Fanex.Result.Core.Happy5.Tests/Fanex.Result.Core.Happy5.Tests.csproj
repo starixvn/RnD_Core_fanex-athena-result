@@ -83,6 +83,7 @@
     <Compile Include="ViewModels\Happy5ViewModelTests.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Template\Html\Happy5Popup.html" />
     <Content Include="Template\Html\Happy5.html" />
     <None Include="packages.config" />
     <Content Include="Template\Excel\Happy5.xls" />

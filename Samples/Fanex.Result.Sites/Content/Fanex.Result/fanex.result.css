@@ -556,6 +556,14 @@ table .row-noinfo {
   color: #999;
   background-position: 0 -60px;
 }
+.info {
+  background: url("images/info-icon.png");
+  width: 20px;
+  height: 20px;
+  background-size: cover;
+  display: inline-block;
+  cursor: pointer;
+}
 .sicbo-result {
   padding: 6px 0px;
 }

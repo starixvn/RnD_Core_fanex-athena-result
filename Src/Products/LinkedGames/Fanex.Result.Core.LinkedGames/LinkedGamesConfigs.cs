@@ -8,6 +8,7 @@ namespace Fanex.Result.Core.LinkedGames
         #region const
         private const string RESULT_CONFIG = "LinkedGamesResultConfigs";
         private const string URL = "Url";
+        private const string URL_SOCCER5 = "UrlSoccer5";
         private const string SITE_ID = "SiteId";
         private const string VENDOR_ID = "VendorId";
         private const string DARK_MODE = "DarkMode";
@@ -23,6 +24,9 @@ namespace Fanex.Result.Core.LinkedGames
 
         [ConfigurationProperty(URL, IsRequired = true)]
         public string Url => this[URL].ToString();
+
+        [ConfigurationProperty(URL_SOCCER5, IsRequired = false)]
+        public string UrlSoccer5 => this[URL_SOCCER5].ToString();
 
         [ConfigurationProperty(SITE_ID, IsRequired = false, DefaultValue = null)]
         public string SiteId => this[SITE_ID].ToString();

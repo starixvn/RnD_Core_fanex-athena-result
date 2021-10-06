@@ -141,4 +141,10 @@
   <data name="NA" xml:space="preserve">
     <value>無</value>
   </data>
+  <data name="Soccer5" xml:space="preserve">
+    <value>足球PK 5</value>
+  </data>
+  <data name="Soccer5Tooltip" xml:space="preserve">
+    <value>看更多</value>
+  </data>
 </root>

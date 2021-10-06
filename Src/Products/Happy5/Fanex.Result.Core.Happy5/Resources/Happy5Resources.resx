@@ -141,4 +141,10 @@
   <data name="NA" xml:space="preserve">
     <value>N/A</value>
   </data>
+  <data name="Soccer5" xml:space="preserve">
+    <value>Soccer 5</value>
+  </data>
+  <data name="Soccer5Tooltip" xml:space="preserve">
+    <value>See more</value>
+  </data>
 </root>

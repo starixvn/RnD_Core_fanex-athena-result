@@ -6,7 +6,7 @@
 
     public interface ILinkedGamesResult
     {
-        string GetSoccer5Result(string matchId, string balls, bool isDesktop, string language = "en-US", int bettypeId = 3604);
+        string GetSoccer5Result(string matchId, string balls, bool isDesktop, bool isDarkMode = false, string language = "en-US", int bettypeId = 3604);
     }
 
     public class LinkedGamesResult : ILinkedGamesResult
@@ -24,7 +24,7 @@
             _configs = LinkedGamesConfigs.Configs;
         }
 
-        public string GetSoccer5Result(string matchId, string balls, bool isDesktop, string language = "en-US", int bettypeId = 3604)
+        public string GetSoccer5Result(string matchId, string balls, bool isDesktop, bool isDarkMode = false, string language = "en-US", int bettypeId = 3604)
         {
             Helper.CheckArgument(matchId, "matchId");
             Helper.CheckArgument(balls, "balls");
@@ -50,7 +50,7 @@
                     { "Balllist" , balls },
                     { "BettypeId" , bettypeId.ToString() },
                     { "Platform" , isDesktop ? "D" : "M" },
-                    { "DarkMode" , _configs.DarkMode},
+                    { "DarkMode" , isDarkMode ? "1" : "0"},
                 };
             }
         }

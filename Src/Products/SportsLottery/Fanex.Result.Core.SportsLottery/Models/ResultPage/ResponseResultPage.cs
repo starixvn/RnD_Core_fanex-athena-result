@@ -22,7 +22,7 @@
         public string Url { get; set; }
 
         [DataMember]
-        public string ErrorCode { get; set; }
+        public int ErrorCode { get; set; }
 
         [DataMember]
         public string ErrorDescription { get; set; }

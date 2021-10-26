@@ -30,9 +30,6 @@ namespace Fanex.Result.Core.LinkedGames
         [ConfigurationProperty(VENDOR_ID, IsRequired = true)]
         public string VendorId => this[VENDOR_ID].ToString();
 
-        [ConfigurationProperty(DARK_MODE, IsRequired = false, DefaultValue = "0")]
-        public string DarkMode => this[DARK_MODE].ToString();
-
         [ConfigurationProperty(DEBUG_MODE, IsRequired = false, DefaultValue = 0)]
         public int DebugMode => (int)this[DEBUG_MODE];
 

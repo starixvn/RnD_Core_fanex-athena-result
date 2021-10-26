@@ -1,14 +1,14 @@
 ﻿namespace Fanex.Result.Core.SportsLottery
 {
     using System;
+    using System.Collections.Generic;
     using Fanex.Result.Core.Base;
+    using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.SportsLottery.Models;
-    using Fanex.Result.Core.SportsLottery.Ultilities.Serializer;
-    using Fanex.Result.Core.SportsLottery.Ultilities.WebClient;
 
     public interface ISportsLotteryResult
     {
-        string GetResultPage(bool isDesktop, string language = SportsLotteryConstants.DefaultLanguage);
+        string GetResultPage(bool isDesktop, string language = SportsLotteryConstants.DefaultLanguage, bool isDarkMode = false);
     }
 
     public class SportsLotteryResult : ISportsLotteryResult
@@ -28,9 +28,9 @@
             _configs = SportsLotteryConfigs.Configs;
         }
 
-        public string GetResultPage(bool isDesktop, string language = SportsLotteryConstants.DefaultLanguage)
+        public string GetResultPage(bool isDesktop, string language = SportsLotteryConstants.DefaultLanguage, bool isDarkMode = false)
         {
-            var languageCode = SportsLotteryConstants.GetLanguageCode(language);
+            var languageCode = Language.GetLanguageCode(language);
             var requestData = GenerateRequestPage(languageCode);
 
             if ((DebugMode)_configs.DebugMode == DebugMode.DontSendRequest)
@@ -69,7 +69,7 @@
 
         private bool ValidateResponsePage<TIn>(ResponseResultPage responseData, TIn requestData)
         {
-            if (responseData.Result.ErrorCode != "0")
+            if (responseData.Result.ErrorCode != 0)
             {
                 if ((DebugMode)_configs.DebugMode == DebugMode.None)
                 {

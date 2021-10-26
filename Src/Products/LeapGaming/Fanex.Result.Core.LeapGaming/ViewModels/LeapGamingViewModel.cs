@@ -32,18 +32,5 @@
         }
 
         public List<LeapGamingDetail> Details { get; }
-
-        public string GetHomeTeam(LeapGamingDetail match)
-            => $"{match.HomeTeam} {GetMatchInfo(match)}";
-
-        public string GetMatchInfo(LeapGamingDetail match)
-        {
-            const string RefResource = "LG_STMT";
-            var matchDateText = RefDataHelper.GetResourceDataByRefIdAndResourceId(RefResource, "md", GetSupportedLanguage, string.Empty);
-            var matchIdText = RefDataHelper.GetResourceDataByRefIdAndResourceId(RefResource, "mid", GetSupportedLanguage, string.Empty);
-            var seasonText = RefDataHelper.GetResourceDataByRefIdAndResourceId(RefResource, "se", GetSupportedLanguage, string.Empty);
-
-            return $"({matchDateText} {match.MatchDate}, {matchIdText} {match.MatchId}, {seasonText} {match.Season})";
-        }
     }
 }

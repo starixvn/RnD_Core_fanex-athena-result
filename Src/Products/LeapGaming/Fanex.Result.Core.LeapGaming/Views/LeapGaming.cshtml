@@ -35,8 +35,7 @@
                         index++;
                         <tr class="data @item.Color(index, "even", "odd")">
                             <td class="cl-match home">
-                                @Raw(detail.HomeTeam)&nbsp;
-                                <span style="color:#000; font-weight:normal">@Raw(item.GetMatchInfo(detail))</span>
+                                @detail.HomeTeam
                             </td>
                             <td class="cl-ht-score">
                                 @detail.HomeHTScore

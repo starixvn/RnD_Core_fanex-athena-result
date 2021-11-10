@@ -556,7 +556,7 @@ table .row-noinfo {
   color: #999;
   background-position: 0 -60px;
 }
-.info {
+.cl-detail-result .info {
   background: url("images/info-icon.png");
   width: 20px;
   height: 20px;

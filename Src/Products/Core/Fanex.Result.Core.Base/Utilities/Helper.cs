@@ -66,6 +66,14 @@
             }
         }
 
+        public static void CheckNotZero(int arg, string argName)
+        {
+            if (arg == 0)
+            {
+                throw new ResultCoreException($"{argName} can not be zero");
+            }
+        }
+
         public static string DictionaryToString(Dictionary<string, string> dictionary)
         {
             var dictionaryString = new StringBuilder();

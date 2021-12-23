@@ -53,7 +53,6 @@
                 new Sport { Id = 211, Name = "Allbet" },
                 new Sport { Id = 244, Name = "SA Gaming" },
                 new Sport { Id = 243, Name = "SexyGaming" },
-                new Sport { Id = 241, Name = "BBin" },
                 new Sport { Id = 242, Name = "GTCasino" }
             };
         }

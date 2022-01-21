@@ -237,4 +237,139 @@
   <data name="CorrectScore" xml:space="preserve">
     <value>Correct Score</value>
   </data>
+  <data name="ESports_90900X" xml:space="preserve">
+    <value>Map {0} First Blood Time</value>
+  </data>
+  <data name="ESports_90890X0K" xml:space="preserve">
+    <value>Map {0} First to {1} Kills Time</value>
+  </data>
+  <data name="ESports_90910X" xml:space="preserve">
+    <value>Map {0} Total Kills at 10 Mins</value>
+  </data>
+  <data name="ESports_90930X" xml:space="preserve">
+    <value>Map {0} Total Kills at 20 Mins</value>
+  </data>
+  <data name="ESports_91340X" xml:space="preserve">
+    <value>Map {0} First Tower Time</value>
+  </data>
+  <data name="ESports_91150X" xml:space="preserve">
+    <value>Map {0} Total Gold</value>
+  </data>
+  <data name="ESports_91360X" xml:space="preserve">
+    <value>Map {0} First Roshan Time</value>
+  </data>
+  <data name="ESports_91370X" xml:space="preserve">
+    <value>Map {0} First Barrack Time</value>
+  </data>
+  <data name="ESports_91310X" xml:space="preserve">
+    <value>Map {0} First Dragon Time</value>
+  </data>
+  <data name="ESports_91320X" xml:space="preserve">
+    <value>Map {0} Will Elder Dragon Be Killed</value>
+  </data>
+  <data name="ESports_91330X" xml:space="preserve">
+    <value>Map {0} Will First Aegis Be Snatched</value>
+  </data>
+  <data name="ESports_91270X" xml:space="preserve">
+    <value>Map {0} First Baron Time</value>
+  </data>
+  <data name="ESports_91280X" xml:space="preserve">
+    <value>Map {0} First Baron No. Players Buff</value>
+  </data>
+  <data name="ESports_91290X" xml:space="preserve">
+    <value>Map {0} First Inhibitor Time</value>
+  </data>
+  <data name="ESports_91210X" xml:space="preserve">
+    <value>Map {0} First Tyrant Time</value>
+  </data>
+  <data name="ESports_91230X" xml:space="preserve">
+    <value>Map {0} First Overlord Time</value>
+  </data>
+  <data name="ESports_91240X" xml:space="preserve">
+    <value>Map {0} Will Storm Dragon Be Killed</value>
+  </data>
+  <data name="ESports_91260X" xml:space="preserve">
+    <value>Map {0} First Herald Time</value>
+  </data>
+  <data name="ESports_91010X0K" xml:space="preserve">
+    <value>Map {0} {1} Kill</value>
+  </data>
+  <data name="FirstNumber" xml:space="preserve">
+    <value>1st</value>
+  </data>
+  <data name="SecondNumber" xml:space="preserve">
+    <value>2nd</value>
+  </data>
+  <data name="ThirdNumber" xml:space="preserve">
+    <value>3rd</value>
+  </data>
+  <data name="FourthNumber" xml:space="preserve">
+    <value>4th</value>
+  </data>
+  <data name="FifthNumber" xml:space="preserve">
+    <value>5th</value>
+  </data>
+  <data name="SixthNumber" xml:space="preserve">
+    <value>6th</value>
+  </data>
+  <data name="SeventhNumber" xml:space="preserve">
+    <value>7th</value>
+  </data>
+  <data name="EighthNumber" xml:space="preserve">
+    <value>8th</value>
+  </data>
+  <data name="NinthNumber" xml:space="preserve">
+    <value>9th</value>
+  </data>
+  <data name="TenthNumber" xml:space="preserve">
+    <value>10th</value>
+  </data>
+  <data name="fifteenthNumber" xml:space="preserve">
+    <value>15th</value>
+  </data>
+  <data name="TwentiethNumber" xml:space="preserve">
+    <value>20th</value>
+  </data>
+  <data name="ESports_91010X0Y" xml:space="preserve">
+    <value>Map {0} {1} Kill</value>
+  </data>
+  <data name="ESports_91390X" xml:space="preserve">
+    <value>Map {0} Total Bomb Detonations (Excl. OT)</value>
+  </data>
+  <data name="ESports_91400X" xml:space="preserve">
+    <value>Map {0} Total Bomb Defuses (Excl. OT)</value>
+  </data>
+  <data name="ESports_91420X" xml:space="preserve">
+    <value>Map {0} First Turret Location</value>
+  </data>
+  <data name="ESports_91410X" xml:space="preserve">
+    <value>Map {0} Lane With Most Turrets Destroyed</value>
+  </data>
+  <data name="TopMid" xml:space="preserve">
+    <value>Top or Mid</value>
+  </data>
+  <data name="MidBottom" xml:space="preserve">
+    <value>Mid or Bottom</value>
+  </data>
+  <data name="Overlord" xml:space="preserve">
+    <value>Overlord</value>
+  </data>
+  <data name="Tyrant" xml:space="preserve">
+    <value>Tyrant</value>
+  </data>
+  <data name="OverlordMiddle" xml:space="preserve">
+    <value>Overlord or Middle</value>
+  </data>
+  <data name="Mid" xml:space="preserve">
+    <value>Mid</value>
+  </data>
+  <data name="Top" xml:space="preserve">
+    <value>Top</value>
+  </data>
+  <data name="Bottom" xml:space="preserve">
+    <value>Bottom</value>
+  </data>
+  <data name="TopBottom" xml:space="preserve">
+    <value>Top or Bottom</value>
+  </data>
 </root>

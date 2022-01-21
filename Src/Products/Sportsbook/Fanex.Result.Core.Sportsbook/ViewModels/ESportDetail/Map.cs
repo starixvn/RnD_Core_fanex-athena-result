@@ -1,5 +1,6 @@
 ﻿namespace Fanex.Result.Core.ESport.DTO
 {
+    using System.Collections.Generic;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.Resources;
@@ -67,6 +68,28 @@
 
             if (!string.IsNullOrWhiteSpace(localResource))
             {
+                if (mapResultItem.MapXOrdinalY)
+                {
+                    var ordinalList = new Dictionary<int, string>
+                    {
+                        { 1, SportsbookResx.FirstNumber},
+                        { 2, SportsbookResx.SecondNumber},
+                        { 3, SportsbookResx.ThirdNumber},
+                        { 4, SportsbookResx.FourthNumber},
+                        { 5, SportsbookResx.FifthNumber},
+                        { 6, SportsbookResx.SixthNumber},
+                        { 7, SportsbookResx.SeventhNumber},
+                        { 8, SportsbookResx.EighthNumber},
+                        { 9, SportsbookResx.NinthNumber},
+                        { 10, SportsbookResx.TenthNumber},
+                        { 15, SportsbookResx.fifteenthNumber},
+                        { 20, SportsbookResx.TwentiethNumber},
+                    };
+                    var ordinalNumber = ordinalList.ContainsKey(roundId) ? ordinalList[roundId] : roundId.ToString();
+
+                    return string.Format(localResource, mapId, ordinalNumber);
+                }
+
                 return roundId > 0
                     ? string.Format(localResource, mapId, roundId)
                     : string.Format(localResource, mapId);
@@ -125,23 +148,43 @@
         private void HandleSingleResult(MapResult item, GameDetail detailItem)
         {
             var homeValue = detailItem?.HomeValue?.ToLowerInvariant();
+            var result = new Dictionary<string, string>
+            {
+                { "d", LangResource.Draw},
+                { "y", LangResource.Yes},
+                { "m", SportsbookResx.Mid},
+                { "nm", SportsbookResx.TopBottom},
+                { "t", SportsbookResx.Top},
+                { "b", SportsbookResx.Bottom},
+                { "nb", SportsbookResx.TopMid},
+                { "nt", SportsbookResx.MidBottom},
+                { "o", SportsbookResx.Overlord},
+            };
             var isHomeTeam = homeValue == "h";
             var isNoneOrNo = homeValue == "n";
-            var isDraw = homeValue == "d";
-            var isYes = homeValue == "y";
             item.IsDisplaySingleTeam = true;
 
             if (isNoneOrNo)
             {
                 HandleNoOrNoneResult(item);
             }
-            else if (isDraw)
+            else if (result.ContainsKey(homeValue))
             {
-                item.HomeValue = LangResource.Draw;
+                var resultOverlordTyrant = new Dictionary<string, string>
+                {
+                    { "o", SportsbookResx.Overlord},
+                    { "t", SportsbookResx.Tyrant},
+                    { "nt", SportsbookResx.OverlordMiddle},
+                };
+                item.HomeValue = MapResultMetadata.ResultTypeOrder.Keys.Contains(item.BetTypeId)
+                                        && MapResultMetadata.ResultTypeOrder[item.BetTypeId].IsOverlordTyrant ?
+                                        resultOverlordTyrant[homeValue] : 
+                                        result[homeValue];
             }
-            else if (isYes)
+            else if ( MapResultMetadata.ResultTypeOrder.Keys.Contains(item.BetTypeId)
+                                        && MapResultMetadata.ResultTypeOrder[item.BetTypeId].IsSingleScore)
             {
-                item.HomeValue = LangResource.Yes;
+                item.HomeValue = homeValue;
             }
             else
             {

@@ -7,41 +7,60 @@ namespace Fanex.Result.Core.ESport.DTO
     {
 #pragma warning disable S3887 // Mutable, non-private fields should not be "readonly"
 #pragma warning disable S2386 // Mutable fields should not be "public static"
-        public static readonly IDictionary<int, MapResultMetadata> ResultTypeOrder = 
+        public static readonly IDictionary<int, MapResultMetadata> ResultTypeOrder =
             new Dictionary<int, MapResultMetadata>
         {
             { 9006, new MapResultMetadata(100, true) },
+            { 9090, new MapResultMetadata(150, true, isDuration: true, localResourceKey: "ESports_90900X") },
             { 9007, new MapResultMetadata(200, true) },
+            { 9089, new MapResultMetadata(220, true, isDuration: true, localResourceKey: "ESports_90890X0K") },
+            { 9091, new MapResultMetadata(230, false, localResourceKey: "ESports_90910X") },
+            { 9093, new MapResultMetadata(240, false, localResourceKey: "ESports_90930X") },
+            { 9101, new MapResultMetadata(280, true, mapXOrdinalY: true, localResourceKey: "ESports_91010X0Y") },
             { 9002, new MapResultMetadata(300, false, localResourceKey: "ESports_90020X") },
             { 9011, new MapResultMetadata(400, true) },
+            { 9134, new MapResultMetadata(410, true, isDuration: true, localResourceKey: "ESports_91340X") },
+            { 9135, new MapResultMetadata(420, true, isPosition: true) },
             { 9008, new MapResultMetadata(500, false, localResourceKey: "ESports_90080X") },
-            { 9015, new MapResultMetadata(600, true) },
+            { 9015, new MapResultMetadata(600, true, localResourceKey: "ESports_91150X") },
+            { 9136, new MapResultMetadata(610, true, isDuration: true, localResourceKey: "ESports_91360X") },
             { 9016, new MapResultMetadata(700, true) },
             { 9017, new MapResultMetadata(800, true) },
             { 9012, new MapResultMetadata(900, false, localResourceKey: "ESports_90120X") },
             { 9021, new MapResultMetadata(1000, true) },
             { 9022, new MapResultMetadata(1100, true) },
             { 9023, new MapResultMetadata(1200, true) },
+            { 9137, new MapResultMetadata(1210, true, isDuration: true, localResourceKey: "ESports_91370X") },
+            { 9138, new MapResultMetadata(1220, true, isPosition: true) },
             { 9018, new MapResultMetadata(1300, false, localResourceKey: "ESports_90180X") },
             { 9027, new MapResultMetadata(1400, true) },
+            { 9113, new MapResultMetadata(1420, true, isPosition: true) },
+            { 9114, new MapResultMetadata(1440, true, isPosition: true) },
             { 9024, new MapResultMetadata(1500, false, localResourceKey: "ESports_90240X") },
             { 9031, new MapResultMetadata(1600, true) },
-            { 9032, new MapResultMetadata(1700, true) },
-            { 9033, new MapResultMetadata(1800, true) },
+            { 9131, new MapResultMetadata(1620, true, isDuration: true, localResourceKey: "ESports_91310X") },
+            { 9032, new MapResultMetadata(1700, true, localResourceKey: "ESports_91320X") },
+            { 9033, new MapResultMetadata(1800, true, localResourceKey: "ESports_91330X") },
             { 9028, new MapResultMetadata(1900, false, localResourceKey: "ESports_90280X") },
             { 9037, new MapResultMetadata(2000, true) },
+            { 9127, new MapResultMetadata(2050, true, isDuration: true, localResourceKey: "ESports_91270X") },
+            { 9128, new MapResultMetadata(2080, true, isSingleScore: true, localResourceKey: "ESports_91280X") },
             { 9038, new MapResultMetadata(2100, true) },
             { 9039, new MapResultMetadata(2200, true) },
             { 9034, new MapResultMetadata(2300, false, localResourceKey: "ESports_90340X") },
             { 9043, new MapResultMetadata(2400, true) },
+            { 9129, new MapResultMetadata(2450, true, isDuration: true, localResourceKey: "ESports_91290X") },
+            { 9130, new MapResultMetadata(2480, true, isPosition: true) },
             { 9044, new MapResultMetadata(2500, true) },
             { 9045, new MapResultMetadata(2600, true) },
             { 9040, new MapResultMetadata(2700, false, localResourceKey: "ESports_90400X") },
             { 9049, new MapResultMetadata(2800, true) },
+            { 9121, new MapResultMetadata(2850, true, isDuration: true, localResourceKey: "ESports_91210X") },
             { 9050, new MapResultMetadata(2900, true) },
             { 9051, new MapResultMetadata(3000, true) },
             { 9046, new MapResultMetadata(3100, false, localResourceKey: "ESports_90460X") },
             { 9055, new MapResultMetadata(3200, true) },
+            { 9123, new MapResultMetadata(3250, true, isDuration: true, localResourceKey: "ESports_91230X") },
             { 9056, new MapResultMetadata(3300, true) },
             { 9057, new MapResultMetadata(3400, true) },
             { 9052, new MapResultMetadata(3500, false, localResourceKey: "ESports_90520X") },
@@ -54,45 +73,73 @@ namespace Fanex.Result.Core.ESport.DTO
             { 9074, new MapResultMetadata(4200, false, localResourceKey: "ESports_90740X") },
             { 9065, new MapResultMetadata(4300, false, localResourceKey: "ESports_90650X") },
             { 9066, new MapResultMetadata(4400, false, localResourceKey: "ESports_90660X") },
+            { 9115, new MapResultMetadata(4410, false, localResourceKey: "ESports_91150X") },
+            { 9122, new MapResultMetadata(4420, true) },
+            { 9124, new MapResultMetadata(4430, true, isYesNo: true, localResourceKey: "ESports_91240X") },
+            { 9125, new MapResultMetadata(4440, true) },
+            { 9126, new MapResultMetadata(4450, true, isDuration: true, localResourceKey: "ESports_91260X") },
+            { 9132, new MapResultMetadata(4460, true, isYesNo: true) },
+            { 9133, new MapResultMetadata(4470, true, isYesNo: true) },
             { 9068, new MapResultMetadata(4500, true, localResourceKey: "ESports_90680X0Y", mapXRoundYType: true) },
             { 9072, new MapResultMetadata(4600, true, mapXRoundYType: true) },
             { 9069, new MapResultMetadata(4700, false, localResourceKey: "ESports_90690X0Y", mapXRoundYType: true) },
             { 9073, new MapResultMetadata(4800, true, isYesNo: true, mapXRoundYType: true) },
             { 9075, new MapResultMetadata(4900, true, isYesNo: true, isLastResult: true)  },
-            { 9087, new MapResultMetadata(5000, true, isYesNo: true, isLastResult: true) }
+            { 9087, new MapResultMetadata(5000, true, isYesNo: true, isLastResult: true) },
+            { 9139, new MapResultMetadata(5100, true, isSingleScore: true, localResourceKey: "ESports_91390X") },
+            { 9140, new MapResultMetadata(5200, true, isSingleScore: true, localResourceKey: "ESports_91400X") },
+            { 9141, new MapResultMetadata(5300, true, isOverlordTyrant: true, localResourceKey: "ESports_91410X") },
+            { 9142, new MapResultMetadata(5400, true, isOverlordTyrant: true, localResourceKey: "ESports_91420X") }
+
         };
 #pragma warning restore S2386 // Mutable fields should not be "public static"
 #pragma warning restore S3887 // Mutable, non-private fields should not be "readonly"
 
         public MapResultMetadata(
-            int order, 
-            bool isSingleResult, 
-            bool isYesNo = false, 
+            int order,
+            bool isSingleResult,
+            bool isYesNo = false,
             bool isDuration = false,
             string localResourceKey = "",
             bool mapXRoundYType = false,
-            bool isLastResult = false)
+            bool isLastResult = false,
+            bool isPosition = false,
+            bool mapXOrdinalY = false,
+            bool isSingleScore = false,
+            bool isOverlordTyrant = false)
         {
             Order = order;
+            IsOverlordTyrant = isOverlordTyrant;
             IsSingleResult = isSingleResult;
+            IsSingleScore = isSingleScore;
             IsYesNo = isYesNo;
             IsDuration = isDuration;
             LocalResourceKey = localResourceKey;
             MapXRoundYType = mapXRoundYType;
             IsLastResult = isLastResult;
+            IsPosition = isPosition;
+            MapXOrdinalY = mapXOrdinalY;
         }
 
         public int Order { get; }
 
         public bool IsSingleResult { get; }
 
+        public bool IsSingleScore { get; }
+
+        public bool IsOverlordTyrant { get; }
+
         public bool IsYesNo { get; }
 
         public bool IsDuration { get; }
 
+        public bool IsPosition { get; }
+
         public string LocalResourceKey { get; }
 
         public bool MapXRoundYType { get; }
+
+        public bool MapXOrdinalY { get; }
 
         public bool IsLastResult { get; }
     }

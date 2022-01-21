@@ -61,11 +61,29 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bottom.
+        /// </summary>
+        public static string Bottom {
+            get {
+                return ResourceManager.GetString("Bottom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Correct Score.
         /// </summary>
         public static string CorrectScore {
             get {
                 return ResourceManager.GetString("CorrectScore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 8th.
+        /// </summary>
+        public static string EighthNumber {
+            get {
+                return ResourceManager.GetString("EighthNumber", resourceCulture);
             }
         }
         
@@ -223,6 +241,240 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Map {0} First to {1} Kills Time.
+        /// </summary>
+        public static string ESports_90890X0K {
+            get {
+                return ResourceManager.GetString("ESports_90890X0K", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} First Blood Time.
+        /// </summary>
+        public static string ESports_90900X {
+            get {
+                return ResourceManager.GetString("ESports_90900X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} Total Kills at 10 Mins.
+        /// </summary>
+        public static string ESports_90910X {
+            get {
+                return ResourceManager.GetString("ESports_90910X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} Total Kills at 20 Mins.
+        /// </summary>
+        public static string ESports_90930X {
+            get {
+                return ResourceManager.GetString("ESports_90930X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} {1} Kill.
+        /// </summary>
+        public static string ESports_91010X0K {
+            get {
+                return ResourceManager.GetString("ESports_91010X0K", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} {1} Kill.
+        /// </summary>
+        public static string ESports_91010X0Y {
+            get {
+                return ResourceManager.GetString("ESports_91010X0Y", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} Total Gold.
+        /// </summary>
+        public static string ESports_91150X {
+            get {
+                return ResourceManager.GetString("ESports_91150X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} First Tyrant Time.
+        /// </summary>
+        public static string ESports_91210X {
+            get {
+                return ResourceManager.GetString("ESports_91210X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} First Overlord Time.
+        /// </summary>
+        public static string ESports_91230X {
+            get {
+                return ResourceManager.GetString("ESports_91230X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} Will Storm Dragon Be Killed.
+        /// </summary>
+        public static string ESports_91240X {
+            get {
+                return ResourceManager.GetString("ESports_91240X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} First Herald Time.
+        /// </summary>
+        public static string ESports_91260X {
+            get {
+                return ResourceManager.GetString("ESports_91260X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} First Baron Time.
+        /// </summary>
+        public static string ESports_91270X {
+            get {
+                return ResourceManager.GetString("ESports_91270X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} First Baron No. Players Buff.
+        /// </summary>
+        public static string ESports_91280X {
+            get {
+                return ResourceManager.GetString("ESports_91280X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} First Inhibitor Time.
+        /// </summary>
+        public static string ESports_91290X {
+            get {
+                return ResourceManager.GetString("ESports_91290X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} First Dragon Time.
+        /// </summary>
+        public static string ESports_91310X {
+            get {
+                return ResourceManager.GetString("ESports_91310X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} Will Elder Dragon Be Killed.
+        /// </summary>
+        public static string ESports_91320X {
+            get {
+                return ResourceManager.GetString("ESports_91320X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} Will First Aegis Be Snatched.
+        /// </summary>
+        public static string ESports_91330X {
+            get {
+                return ResourceManager.GetString("ESports_91330X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} First Tower Time.
+        /// </summary>
+        public static string ESports_91340X {
+            get {
+                return ResourceManager.GetString("ESports_91340X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} First Roshan Time.
+        /// </summary>
+        public static string ESports_91360X {
+            get {
+                return ResourceManager.GetString("ESports_91360X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} First Barrack Time.
+        /// </summary>
+        public static string ESports_91370X {
+            get {
+                return ResourceManager.GetString("ESports_91370X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} Total Bomb Detonations (Excl. OT).
+        /// </summary>
+        public static string ESports_91390X {
+            get {
+                return ResourceManager.GetString("ESports_91390X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} Total Bomb Defuses (Excl. OT).
+        /// </summary>
+        public static string ESports_91400X {
+            get {
+                return ResourceManager.GetString("ESports_91400X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} Lane With Most Turrets Destroyed.
+        /// </summary>
+        public static string ESports_91410X {
+            get {
+                return ResourceManager.GetString("ESports_91410X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Map {0} First Turret Location.
+        /// </summary>
+        public static string ESports_91420X {
+            get {
+                return ResourceManager.GetString("ESports_91420X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 15th.
+        /// </summary>
+        public static string fifteenthNumber {
+            get {
+                return ResourceManager.GetString("fifteenthNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 5th.
+        /// </summary>
+        public static string FifthNumber {
+            get {
+                return ResourceManager.GetString("FifthNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Final.
         /// </summary>
         public static string Final {
@@ -237,6 +489,24 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         public static string FinalResult {
             get {
                 return ResourceManager.GetString("FinalResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1st.
+        /// </summary>
+        public static string FirstNumber {
+            get {
+                return ResourceManager.GetString("FirstNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 4th.
+        /// </summary>
+        public static string FourthNumber {
+            get {
+                return ResourceManager.GetString("FourthNumber", resourceCulture);
             }
         }
         
@@ -340,11 +610,56 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Mid.
+        /// </summary>
+        public static string Mid {
+            get {
+                return ResourceManager.GetString("Mid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mid or Bottom.
+        /// </summary>
+        public static string MidBottom {
+            get {
+                return ResourceManager.GetString("MidBottom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nations Cup.
         /// </summary>
         public static string NationsCup {
             get {
                 return ResourceManager.GetString("NationsCup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 9th.
+        /// </summary>
+        public static string NinthNumber {
+            get {
+                return ResourceManager.GetString("NinthNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overlord.
+        /// </summary>
+        public static string Overlord {
+            get {
+                return ResourceManager.GetString("Overlord", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overlord or Middle.
+        /// </summary>
+        public static string OverlordMiddle {
+            get {
+                return ResourceManager.GetString("OverlordMiddle", resourceCulture);
             }
         }
         
@@ -385,6 +700,15 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 2nd.
+        /// </summary>
+        public static string SecondNumber {
+            get {
+                return ResourceManager.GetString("SecondNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Selection.
         /// </summary>
         public static string Selection {
@@ -412,11 +736,92 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 7th.
+        /// </summary>
+        public static string SeventhNumber {
+            get {
+                return ResourceManager.GetString("SeventhNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 6th.
+        /// </summary>
+        public static string SixthNumber {
+            get {
+                return ResourceManager.GetString("SixthNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 10th.
+        /// </summary>
+        public static string TenthNumber {
+            get {
+                return ResourceManager.GetString("TenthNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3rd.
+        /// </summary>
+        public static string ThirdNumber {
+            get {
+                return ResourceManager.GetString("ThirdNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Top.
+        /// </summary>
+        public static string Top {
+            get {
+                return ResourceManager.GetString("Top", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Top or Bottom.
+        /// </summary>
+        public static string TopBottom {
+            get {
+                return ResourceManager.GetString("TopBottom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Top or Mid.
+        /// </summary>
+        public static string TopMid {
+            get {
+                return ResourceManager.GetString("TopMid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Total Goal.
         /// </summary>
         public static string TotalGoal {
             get {
                 return ResourceManager.GetString("TotalGoal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 20th.
+        /// </summary>
+        public static string TwentiethNumber {
+            get {
+                return ResourceManager.GetString("TwentiethNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tyrant.
+        /// </summary>
+        public static string Tyrant {
+            get {
+                return ResourceManager.GetString("Tyrant", resourceCulture);
             }
         }
     }

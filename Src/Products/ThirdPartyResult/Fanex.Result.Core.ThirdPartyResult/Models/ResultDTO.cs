@@ -8,7 +8,7 @@
             Language = "en-US";
         }
 
-        public ResultRequest(int custId, string tranId3rd, string gameId3rd, int currencyId, string language = "en-US")
+        public ResultRequest(int custId, string tranId3rd, string gameId3rd, int currencyId, string siteId, string language = "en-US")
             : this()
         {
             CustId = custId;
@@ -16,9 +16,10 @@
             GameId3rd = gameId3rd;
             Language = language;
             CurrencyId = currencyId;
+            SiteId = siteId;
         }
 
-        public string SiteId { get; set; }
+        public string SiteId { get; }
 
         public int CustId { get; }
 
@@ -38,7 +39,7 @@
 
         public string Platform { get; set; }
 
-        public bool IsDarkMode { get; set; }
+        public string IsDarkMode { get; set; }
 
         public string GMT { get; set; }
     }

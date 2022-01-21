@@ -6,24 +6,20 @@ namespace Fanex.Result.Core.LinkedGames
     public sealed class LinkedGamesConfigs : ConfigurationSection
     {
         #region const
-        private const string RESULT_CONFIG = "LinkedGamesResultConfigs";
-        private const string URL = "Url";
+        private const string RESULT_CONFIG = "Soccer5ResultConfigs";
         private const string URL_SOCCER5 = "UrlSoccer5";
         private const string SITE_ID = "SiteId";
         private const string VENDOR_ID = "VendorId";
         private const string DARK_MODE = "DarkMode";
         private const string DEBUG_MODE = "Debug";
-        private const string PROXY_IP_SERVER = "ProxyIPServer";
-        private const string PROXY_PORT_SERVER = "ProxyPortServer";
+        private const string PROXY_IP_SERVER = "ProxyIP";
+        private const string PROXY_PORT_SERVER = "ProxyPort";
 
         #endregion const       
 
         private static readonly LinkedGamesConfigs _configs = ConfigurationManager.GetSection(RESULT_CONFIG) as LinkedGamesConfigs;
 
         public static LinkedGamesConfigs Configs => _configs;
-
-        [ConfigurationProperty(URL, IsRequired = true)]
-        public string Url => this[URL].ToString();
 
         [ConfigurationProperty(URL_SOCCER5, IsRequired = false)]
         public string UrlSoccer5 => this[URL_SOCCER5].ToString();

@@ -37,7 +37,6 @@
         {
             Helper.CheckNotZero(resultRequest.CustId, "custId");
             Helper.CheckArgument(resultRequest.TranId3rd, "transId3rd");
-            Helper.CheckArgument(resultRequest.GameId3rd, "gameId3rd");
 
             var requestData = GenerateRequestData(resultRequest);
 
@@ -64,13 +63,12 @@
         {
             Helper.CheckNotZero(resultRequest.CustId, "custId");
             Helper.CheckArgument(resultRequest.TranId3rd, "transId3rd");
-            Helper.CheckArgument(resultRequest.GameId3rd, "gameId3rd");
 
             var requestData = GenerateRequestData();
 
             if ((DebugMode)_configs.DebugMode == DebugMode.DontSendRequest)
             {
-                throw new ResultCoreException("Request data:" + _serializer.Serialize(requestData));
+                throw new ResultCoreException("Request data:" + Helper.DictionaryToString(requestData));
             }
             else
             {
@@ -95,12 +93,14 @@
                         var message = $"{SectionName} Result API: {responseData.ErrorMsg}";
                         message += $"\n Detail request: {Helper.DictionaryToString(requestData)}";
                         message += $"\n Detail response: {_serializer.Serialize(responseData)}";
+                        message += $"\n Url: {_configs.Url}";
                         throw new ResultCoreException(message);
                     }
                     else
                     {
                         throw new ResultCoreException($"Url of {SectionName} send request incorrectly! Detail request:" +
-                            $" {Helper.DictionaryToString(requestData)}; \n Detail response: {_serializer.Serialize(responseData)}");
+                            $" {Helper.DictionaryToString(requestData)}; \n Detail response: {_serializer.Serialize(responseData)}" +
+                            $" \n Url: {_configs.Url}");
                     }
                 }
 
@@ -130,7 +130,7 @@
                     { "EndTime" , resultRequest.EndTime },
                     { "OwTransId" , resultRequest.OwTransId },
                     { "Platform" , resultRequest.Platform},
-                    { "DarkMode" , resultRequest.IsDarkMode ? "1" : "0" },
+                    { "DarkMode" , resultRequest.IsDarkMode},
                     { "GMT" , resultRequest.GMT},
                 };
             }
@@ -160,7 +160,7 @@
                 OwTransId = result.OwTransId,
                 LangCode = languageCode,
                 Platform = result.Platform,
-                DarkMode = result.IsDarkMode ? "1" : "0",
+                DarkMode = result.IsDarkMode,
                 GMT = result.GMT
             };
         }
@@ -174,12 +174,14 @@
                     var message = $"{SectionName} Result API: {responseData.ErrorMsg}";
                     message += $"\n Detail request: {_serializer.Serialize(requestData)}";
                     message += $"\n Detail response: {_serializer.Serialize(responseData)}";
+                    message += $"\n Url: {_configs.Url}";
                     throw new ResultCoreException(message);
                 }
                 else
                 {
                     throw new ResultCoreException($"Url of {SectionName} send request incorrectly! Detail request:" +
-                        $" {_serializer.Serialize(requestData)}; \n Detail response: {_serializer.Serialize(responseData)}");
+                        $" {_serializer.Serialize(requestData)}; \n Detail response: {_serializer.Serialize(responseData)}" +
+                         $" \n Url: {_configs.Url}");
                 }
             }
 

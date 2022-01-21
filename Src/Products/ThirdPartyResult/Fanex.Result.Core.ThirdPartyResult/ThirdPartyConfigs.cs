@@ -22,7 +22,7 @@
         [ConfigurationProperty(VENDORID, IsRequired = false, DefaultValue = 0)]
         public int VendorId => (int)this[VENDORID];
 
-        [ConfigurationProperty(SITEID, IsRequired = false, DefaultValue = "0")]
+        [ConfigurationProperty(SITEID, IsRequired = false, DefaultValue = "")]
         public string SiteId => this[SITEID].ToString();
 
         [ConfigurationProperty(PROXY_IP_SERVER, IsRequired = false, DefaultValue = "")]

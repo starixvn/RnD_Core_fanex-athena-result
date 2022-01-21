@@ -51,7 +51,6 @@
     <Compile Include="LinkedGamesConfigs.cs" />
     <Compile Include="LinkedGamesException.cs" />
     <Compile Include="LinkedGamesResult.cs" />
-    <Compile Include="Models\Response.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

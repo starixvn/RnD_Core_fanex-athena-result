@@ -186,4 +186,112 @@
   <data name="TotalGoal" xml:space="preserve">
     <value>Tổng bàn thắng</value>
   </data>
+  <data name="ESports_90890X0K" xml:space="preserve">
+    <value>Bản Đồ {0} Thời Gian Diệt {1} Mạng Trước</value>
+  </data>
+  <data name="ESports_90900X" xml:space="preserve">
+    <value>Bản Đồ {0} Thời Gian Lập Chiến Công Đầu</value>
+  </data>
+  <data name="ESports_90910X" xml:space="preserve">
+    <value>Bản Đồ {0} Tổng Số Hạ Gục Lúc 10 Phút</value>
+  </data>
+  <data name="ESports_90930X" xml:space="preserve">
+    <value>Bản Đồ {0} Tổng Số Hạ Gục Lúc 20 Phút</value>
+  </data>
+  <data name="ESports_91150X" xml:space="preserve">
+    <value>Bản Đồ {0} Tổng Vàng</value>
+  </data>
+  <data name="ESports_91210X" xml:space="preserve">
+    <value>Bản Đồ {0} Mạng Đầu Tiên</value>
+  </data>
+  <data name="ESports_91230X" xml:space="preserve">
+    <value>Bản Đồ {0} Thời Gian Diệt Overlord Đầu Tiên</value>
+  </data>
+  <data name="ESports_91240X" xml:space="preserve">
+    <value>Bản Đồ {0} Storm Dragon Sẽ Bị Tiêu Diệt?</value>
+  </data>
+  <data name="ESports_91260X" xml:space="preserve">
+    <value>Bản Đồ {0} Thời Gian Diệt Sứ Giả Đầu Tiên</value>
+  </data>
+  <data name="ESports_91270X" xml:space="preserve">
+    <value>Bản Đồ {0} Thời Gian Diệt Baron Đầu Tiên</value>
+  </data>
+  <data name="ESports_91280X" xml:space="preserve">
+    <value>Bản Đồ {0} Số Người Chơi Được Buff Baron Đầu Tiên</value>
+  </data>
+  <data name="ESports_91290X" xml:space="preserve">
+    <value>Bản Đồ {0} Thời Gian Phá Nhà Lính Đầu Tiên</value>
+  </data>
+  <data name="ESports_91310X" xml:space="preserve">
+    <value>Bản Đồ {0} Thời Gian Diệt Rồng Đầu Tiên</value>
+  </data>
+  <data name="ESports_91320X" xml:space="preserve">
+    <value>Bản Đồ {0} Rồng Ngàn Tuổi Sẽ Bị Diệt?</value>
+  </data>
+  <data name="ESports_91330X" xml:space="preserve">
+    <value>Bản Đồ {0} Aegis Đầu Tiên Sẽ Bị Cướp?</value>
+  </data>
+  <data name="ESports_91340X" xml:space="preserve">
+    <value>Bản Đồ {0} Thời Gian Phá Trụ Đầu Tiên</value>
+  </data>
+  <data name="ESports_91360X" xml:space="preserve">
+    <value>Bản Đồ {0} Thời Gian Diệt Roshan Đầu Tiên - Tài/Xỉu</value>
+  </data>
+  <data name="ESports_91370X" xml:space="preserve">
+    <value>Bản Đồ {0} Thời Gian Diệt Nhà Lính Đầu Tiên - Tài/Xỉu</value>
+  </data>
+  <data name="ESports_91390X" xml:space="preserve">
+    <value>Bản Đồ {0} - Tổng Số Bom Nổ (Không Tính Hiệp Phụ)</value>
+  </data>
+  <data name="ESports_91400X" xml:space="preserve">
+    <value>Bản Đồ {0} - Tổng Số Bom Gỡ (Không Tính Hiệp Phụ)</value>
+  </data>
+  <data name="ESports_91010X0K" xml:space="preserve">
+    <value>Bản Đồ {0} Mạng {1}</value>
+  </data>
+  <data name="ESports_91010X0Y" xml:space="preserve">
+    <value>Bản Đồ {0} Mạng {1}</value>
+  </data>
+  <data name="ESports_91410X" xml:space="preserve">
+    <value>Bản Đồ {0} Đường Có Nhiều Trụ Bị Phá Nhất</value>
+  </data>
+  <data name="ESports_91420X" xml:space="preserve">
+    <value>Bản Đồ {0} Vị Trí Trụ Đầu Tiên Bị Phá</value>
+  </data>
+  <data name="FirstNumber" xml:space="preserve">
+    <value>Đầu Tiên</value>
+  </data>
+  <data name="SecondNumber" xml:space="preserve">
+    <value>Thứ 2</value>
+  </data>
+  <data name="ThirdNumber" xml:space="preserve">
+    <value>Thứ 3</value>
+  </data>
+  <data name="FourthNumber" xml:space="preserve">
+    <value>Thứ 4</value>
+  </data>
+  <data name="FifthNumber" xml:space="preserve">
+    <value>Thứ 5</value>
+  </data>
+  <data name="fifteenthNumber" xml:space="preserve">
+    <value>Thứ 15</value>
+  </data>
+  <data name="NinthNumber" xml:space="preserve">
+    <value>Thứ 9</value>
+  </data>
+  <data name="SeventhNumber" xml:space="preserve">
+    <value>Thứ 7</value>
+  </data>
+  <data name="SixthNumber" xml:space="preserve">
+    <value>Thứ 6</value>
+  </data>
+  <data name="TenthNumber" xml:space="preserve">
+    <value>Thứ 10</value>
+  </data>
+  <data name="TwentiethNumber" xml:space="preserve">
+    <value>Thứ 20</value>
+  </data>
+  <data name="EighthNumber" xml:space="preserve">
+    <value>Thứ 8</value>
+  </data>
 </root>

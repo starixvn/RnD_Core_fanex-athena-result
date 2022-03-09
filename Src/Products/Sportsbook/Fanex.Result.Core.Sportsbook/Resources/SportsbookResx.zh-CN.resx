@@ -231,4 +231,112 @@
   <data name="CorrectScore" xml:space="preserve">
     <value>波胆</value>
   </data>
+  <data name="ESports_90890X0K" xml:space="preserve">
+    <value>地图 {0} 最先击杀 {1} 数量时间</value>
+  </data>
+  <data name="ESports_90900X" xml:space="preserve">
+    <value>地图 {0} 第一滴血时间</value>
+  </data>
+  <data name="ESports_90910X" xml:space="preserve">
+    <value>地图 {0} 10分钟击杀总数</value>
+  </data>
+  <data name="ESports_90930X" xml:space="preserve">
+    <value>地图 {0} 20分钟击杀总数</value>
+  </data>
+  <data name="ESports_91150X" xml:space="preserve">
+    <value>地图 {0} 总金钱</value>
+  </data>
+  <data name="ESports_91210X" xml:space="preserve">
+    <value>地图 {0} 第一个暴君时间</value>
+  </data>
+  <data name="ESports_91230X" xml:space="preserve">
+    <value>地图 {0} 第一个主宰时间</value>
+  </data>
+  <data name="ESports_91240X" xml:space="preserve">
+    <value>地图 {0} 风暴龙王被杀</value>
+  </data>
+  <data name="ESports_91260X" xml:space="preserve">
+    <value>地图 {0} 第一个峡谷先锋时间</value>
+  </data>
+  <data name="ESports_91270X" xml:space="preserve">
+    <value>地圖 {0} 第一個男爵時間</value>
+  </data>
+  <data name="ESports_91280X" xml:space="preserve">
+    <value>地图 {0} 第一个男爵Buff选手总数</value>
+  </data>
+  <data name="ESports_91290X" xml:space="preserve">
+    <value>地图 {0} 第一个水晶时间</value>
+  </data>
+  <data name="ESports_91310X" xml:space="preserve">
+    <value>地图 {0} 第一个巨龙</value>
+  </data>
+  <data name="ESports_91320X" xml:space="preserve">
+    <value>地图 {0} 远古巨龙被杀</value>
+  </data>
+  <data name="ESports_91330X" xml:space="preserve">
+    <value>地图 {0} 不朽守护被夺走</value>
+  </data>
+  <data name="ESports_91340X" xml:space="preserve">
+    <value>地图 {0} 第一个防御塔时间</value>
+  </data>
+  <data name="ESports_91360X" xml:space="preserve">
+    <value>地图 {0} 第一个肉山大魔王时间</value>
+  </data>
+  <data name="ESports_91370X" xml:space="preserve">
+    <value>地图 {0} 第一个兵营时间</value>
+  </data>
+  <data name="ESports_91390X" xml:space="preserve">
+    <value>地图 {0} 炸弹引爆总数(排除加时)</value>
+  </data>
+  <data name="ESports_91400X" xml:space="preserve">
+    <value>地图 {0} 炸弹拆除总数(排除加时)</value>
+  </data>
+  <data name="ESports_91010X0K" xml:space="preserve">
+    <value>地图 {0} 第{1}击杀</value>
+  </data>
+  <data name="ESports_91010X0Y" xml:space="preserve">
+    <value>地图 {0} 第{1}击杀</value>
+  </data>
+  <data name="ESports_91410X" xml:space="preserve">
+    <value>地图 {0} 最多炮塔被摧毁路线</value>
+  </data>
+  <data name="ESports_91420X" xml:space="preserve">
+    <value>地图 {0} 第一炮塔位置</value>
+  </data>
+  <data name="FirstNumber" xml:space="preserve">
+    <value>一</value>
+  </data>
+  <data name="SecondNumber" xml:space="preserve">
+    <value>二</value>
+  </data>
+  <data name="ThirdNumber" xml:space="preserve">
+    <value>三</value>
+  </data>
+  <data name="FourthNumber" xml:space="preserve">
+    <value>四</value>
+  </data>
+  <data name="FifthNumber" xml:space="preserve">
+    <value>五</value>
+  </data>
+  <data name="fifteenthNumber" xml:space="preserve">
+    <value>十五</value>
+  </data>
+  <data name="NinthNumber" xml:space="preserve">
+    <value>九</value>
+  </data>
+  <data name="SeventhNumber" xml:space="preserve">
+    <value>七</value>
+  </data>
+  <data name="SixthNumber" xml:space="preserve">
+    <value>六</value>
+  </data>
+  <data name="TenthNumber" xml:space="preserve">
+    <value>十</value>
+  </data>
+  <data name="TwentiethNumber" xml:space="preserve">
+    <value>二十</value>
+  </data>
+  <data name="EighthNumber" xml:space="preserve">
+    <value>八</value>
+  </data>
 </root>

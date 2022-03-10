@@ -294,4 +294,31 @@
   <data name="EighthNumber" xml:space="preserve">
     <value>Thứ 8</value>
   </data>
+  <data name="Mid" xml:space="preserve">
+    <value>Giữa</value>
+  </data>
+  <data name="MidBottom" xml:space="preserve">
+    <value>Giữa/Dưới</value>
+  </data>
+  <data name="Overlord" xml:space="preserve">
+    <value>Overlord</value>
+  </data>
+  <data name="OverlordMiddle" xml:space="preserve">
+    <value>Overlord/Giữa</value>
+  </data>
+  <data name="Top" xml:space="preserve">
+    <value>Trên</value>
+  </data>
+  <data name="TopBottom" xml:space="preserve">
+    <value>Trên/Dưới</value>
+  </data>
+  <data name="TopMid" xml:space="preserve">
+    <value>Trên/Giữa</value>
+  </data>
+  <data name="Tyrant" xml:space="preserve">
+    <value>Tyrant</value>
+  </data>
+  <data name="Bottom" xml:space="preserve">
+    <value>Dưới</value>
+  </data>
 </root>

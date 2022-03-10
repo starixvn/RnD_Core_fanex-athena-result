@@ -339,4 +339,31 @@
   <data name="EighthNumber" xml:space="preserve">
     <value>八</value>
   </data>
+  <data name="Mid" xml:space="preserve">
+    <value>中路</value>
+  </data>
+  <data name="MidBottom" xml:space="preserve">
+    <value>中路/下路</value>
+  </data>
+  <data name="Overlord" xml:space="preserve">
+    <value>主宰</value>
+  </data>
+  <data name="OverlordMiddle" xml:space="preserve">
+    <value>主宰/中路</value>
+  </data>
+  <data name="Top" xml:space="preserve">
+    <value>上路</value>
+  </data>
+  <data name="TopBottom" xml:space="preserve">
+    <value>上路/下路</value>
+  </data>
+  <data name="TopMid" xml:space="preserve">
+    <value>上路/中路</value>
+  </data>
+  <data name="Tyrant" xml:space="preserve">
+    <value>暴君</value>
+  </data>
+  <data name="Bottom" xml:space="preserve">
+    <value>下路</value>
+  </data>
 </root>

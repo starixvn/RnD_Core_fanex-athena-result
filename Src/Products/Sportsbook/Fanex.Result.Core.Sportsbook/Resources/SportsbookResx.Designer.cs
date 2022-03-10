@@ -70,6 +70,24 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Bowled.
+        /// </summary>
+        public static string Bowled {
+            get {
+                return ResourceManager.GetString("Bowled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Caught.
+        /// </summary>
+        public static string Caught {
+            get {
+                return ResourceManager.GetString("Caught", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Correct Score.
         /// </summary>
         public static string CorrectScore {
@@ -520,6 +538,15 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to LBW.
+        /// </summary>
+        public static string LBW {
+            get {
+                return ResourceManager.GetString("LBW", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Match Day.
         /// </summary>
         public static string MatchDay {
@@ -646,6 +673,15 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Others.
+        /// </summary>
+        public static string Others {
+            get {
+                return ResourceManager.GetString("Others", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Overlord.
         /// </summary>
         public static string Overlord {
@@ -687,6 +723,15 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         public static string Round162 {
             get {
                 return ResourceManager.GetString("Round162", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Run Out.
+        /// </summary>
+        public static string RunOut {
+            get {
+                return ResourceManager.GetString("RunOut", resourceCulture);
             }
         }
         
@@ -750,6 +795,15 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         public static string SixthNumber {
             get {
                 return ResourceManager.GetString("SixthNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stumped.
+        /// </summary>
+        public static string Stumped {
+            get {
+                return ResourceManager.GetString("Stumped", resourceCulture);
             }
         }
         

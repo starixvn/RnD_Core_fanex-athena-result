@@ -201,6 +201,9 @@ table.fn-rs .cl-result.awayColor {
 table.fn-rs .cl-result.home {
   min-width: 150px;
 }
+table.fn-rs .cl-result.home .match-info {
+  color: #000000;
+}
 table.fn-rs .cl-result.away {
   min-width: 150px;
 }

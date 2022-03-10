@@ -372,4 +372,22 @@
   <data name="Bottom" xml:space="preserve">
     <value>下路</value>
   </data>
+  <data name="Bowled" xml:space="preserve">
+    <value>投殺</value>
+  </data>
+  <data name="LBW" xml:space="preserve">
+    <value>觸身</value>
+  </data>
+  <data name="RunOut" xml:space="preserve">
+    <value>追殺</value>
+  </data>
+  <data name="Stumped" xml:space="preserve">
+    <value>擊殺</value>
+  </data>
+  <data name="Others" xml:space="preserve">
+    <value>其他</value>
+  </data>
+  <data name="Caught" xml:space="preserve">
+    <value>接殺</value>
+  </data>
 </root>

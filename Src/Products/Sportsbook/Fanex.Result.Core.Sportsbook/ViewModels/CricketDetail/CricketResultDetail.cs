@@ -1,5 +1,6 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.ViewModels.SoccerDetail
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using Base;
@@ -9,6 +10,7 @@
     using DataDomain;
     using DTO;
     using Fanex.Result.Core.Base.Utilities;
+    using Fanex.Result.Core.Sportsbook.Resources;
     using Utilities;
 
     public class CricketResultDetail : BaseResultDetail<SoccerGameDetailItem>
@@ -73,22 +75,80 @@
                 case CricketResourceID.TossWinner:
                 case CricketResourceID.HighestOpeningPartnership:
                 case CricketResourceID.HighestScoreInOver:
-                    item.HomeValue = detailItem.HomeValue == "H" ? HomeTeam : AwayTeam;
+                    var values = new Dictionary<string, string>
+                    {
+                        { "h", HomeTeam},
+                        { "a", AwayTeam},
+                        { "n", LangResource.None},
+                    };
+                    var key = detailItem.HomeValue.ToLowerInvariant();
+                    var homeValue = values.ContainsKey(key) ? values[key] : detailItem.HomeValue;                    
+                    item.HomeValue = homeValue;
                     item.AwayValue = HomeTeam;
                     break;
                 default:
-                    if (SportsbookHelper.IsValidResourceId(CricketResourceID.HomeWicketXMethodOfDismissal, item.ResourceID) ||
-                        SportsbookHelper.IsValidResourceId(CricketResourceID.AwayWicketXMethodOfDismissal, item.ResourceID))
-                    {
-                        item.HomeValue = item.AwayValue = detailItem.HomeValue == "C" ? LangResource.Caught : LangResource.NotCaught;
-                    }
-                    else
-                    {
-                        item.HomeValue = detailItem.HomeValue;
-                        item.AwayValue = detailItem.AwayValue;
-                    }
-
+                    MapResourceGameValueLikePattern(detailItem, item);
                     break;
+            }
+        }
+        private void MapResourceGameValueLikePattern(GameDetail detailItem, SoccerGameDetailItem item)
+        {
+            if (SportsbookHelper.IsValidResourceId(CricketResourceID.HomeWicketXMethodOfDismissal6Way, item.ResourceID) ||
+                SportsbookHelper.IsValidResourceId(CricketResourceID.AwayWicketXMethodofDismissal6Way, item.ResourceID))
+            {
+                var dismissalValue = new Dictionary<string, string>
+                        {
+                            { "c", SportsbookResx.Caught },
+                            { "b",  SportsbookResx.Bowled },
+                            { "lbw", SportsbookResx.LBW },
+                            { "ro", SportsbookResx.RunOut },
+                            { "s", SportsbookResx.Stumped },
+                            { "ot", SportsbookResx.Others }
+                        };
+                var homevalue = detailItem.HomeValue.ToLowerInvariant();
+                item.HomeValue = item.AwayValue = dismissalValue.ContainsKey(homevalue) ? dismissalValue[homevalue] : homevalue;
+            }
+            else if (SportsbookHelper.IsValidResourceId(CricketResourceID.HomeWicketXMethodOfDismissal, item.ResourceID) ||
+                        SportsbookHelper.IsValidResourceId(CricketResourceID.AwayWicketXMethodOfDismissal, item.ResourceID))
+            {
+                item.HomeValue = item.AwayValue = detailItem.HomeValue == "C" ? LangResource.Caught : LangResource.NotCaught;
+            }
+            else if (CricketResourceID.BatsmanResourceList.Any(i => SportsbookHelper.IsValidResourceId(i, item.ResourceID)))
+            {
+                item.HomeValue = RefDataHelper.GetTeamName(detailItem.OtherInfo, LanguageCode, string.Empty);
+                item.AwayValue = detailItem.HomeValue;
+            }
+            else if (CricketResourceID.BatsmansResourceList.Any(i => SportsbookHelper.IsValidResourceId(i, item.ResourceID)))
+            {
+                var ids = detailItem.OtherInfo.Split(',');
+                var names = new List<string>();
+                foreach (var id in ids)
+                {
+                    names.Add(RefDataHelper.GetTeamName(id.Trim(), LanguageCode, string.Empty));
+                }
+                item.HomeValue = string.Join(", ", names);
+            }
+            else if (CricketResourceID.YesNoResourceList.Any(i => SportsbookHelper.IsValidResourceId(i, item.ResourceID)))
+            {
+                item.HomeValue = detailItem.HomeValue.ToLowerInvariant() == "y" ? LangResource.Yes : LangResource.No;
+            }
+            else if (CricketResourceID.ManOutResourceList.Any(i => SportsbookHelper.IsValidResourceId(i, item.ResourceID)))
+            {
+                var ids = detailItem.HomeValue.Split(',');
+                var names = new List<string>();
+                foreach (var id in ids)
+                {
+                    names.Add(RefDataHelper.GetTeamName(id.Trim(), LanguageCode, string.Empty));
+                }                
+                item.HomeValue = string.Join(" & ", names);
+                item.AwayValue = string.IsNullOrEmpty(detailItem.OtherInfo)?
+                    LangResource.None:
+                    RefDataHelper.GetTeamName(detailItem.OtherInfo, LanguageCode, string.Empty);
+            }
+            else
+            {
+                item.HomeValue = detailItem.HomeValue;
+                item.AwayValue = detailItem.AwayValue;
             }
         }
 
@@ -96,7 +156,9 @@
         {
             const int minLength = 8;
             const int firstIndexResourceId = 5;
+            betType = GetBetTypeFromResourceId(betType, resourceId);
             var id = BetTypeID.CricketBettypeGroup.ContainsKey(betType) ? BetTypeID.CricketBettypeGroup[betType].ToString() : resourceId;
+
             var betId = string.Empty;
             if (resourceId.Length >= minLength)
             {
@@ -104,6 +166,17 @@
             }
 
             return RefDataHelper.GetBetTypeNameById(id, languageCode, betId);
+        }
+
+        private static int GetBetTypeFromResourceId(int betType, string resourceId)
+        {
+            const int maxLengthOfBettypeCricket = 4;
+            if (betType == 0 && resourceId.Length >= maxLengthOfBettypeCricket)
+            {
+                return int.Parse(resourceId.Substring(0, maxLengthOfBettypeCricket));
+            }
+
+            return betType;
         }
     }
 }

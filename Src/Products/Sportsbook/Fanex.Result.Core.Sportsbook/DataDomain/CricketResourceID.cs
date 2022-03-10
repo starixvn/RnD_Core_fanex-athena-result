@@ -37,7 +37,9 @@
         public const string HighestIndividualScore = "9452";
 
         public const string HighestOverScore = "9453";
-
+        public const string MostRunOuts = "96151";
+        public const string MatchDotBalls = "94511";
+        
         public const string HomeGroupXRuns = "^9410\\d{4}$";
         public const string AwayGroupXRuns = "^9411\\d{4}$";
         public const string HomeScoreAfterOverXBallY = "^9422\\d{6}$";
@@ -54,23 +56,52 @@
         public const string AwayOverXExactRuns = "^9485\\d{4}$";
         public const string HomeOverXBallYExactRuns = "^9490\\d{6}$";
         public const string AwayOverXBallYExactRuns = "^9491\\d{6}$";
+        public const string HomeWicketXMethodOfDismissal6Way = "^9636\\d{4}$";
+        public const string AwayWicketXMethodofDismissal6Way = "^9637\\d{4}$";
+
+        public static readonly List<string> BatsmanResourceList = new List<string>
+        {
+            "^9680\\d{4}$", "^9690\\d{4}$", "^96761\\d{3}$", "^96861\\d{3}$", "^9730\\d{4}$", "^9731\\d{4}$", "^9736\\d{4}$", "^9737\\d{4}$"
+        };
+
+        public static readonly List<string> BatsmansResourceList = new List<string>
+        {
+            "96681", "96711", "96501", "96502", "96511", "96512", "96721", "96751", "96561", "96562", "96571", "96572"
+        };
+
+        public static readonly List<string> YesNoResourceList = new List<string>
+        {
+            "^96241\\d{3}$", "^96242\\d{3}$", "^96251\\d{3}$", "^96252\\d{3}$", "^96301\\d{3}$", "^96302\\d{3}$", "^96311\\d{3}$", "^96312\\d{3}$"
+        };
+        public static readonly List<string> ManOutResourceList = new List<string>
+        {
+            "^9662\\d{4}$", "^9663\\d{4}$"
+        };
 
         public static IDictionary<string, List<string>> MoreResultGroup => _moreResultGroup;
 
         private readonly static IDictionary<string, List<string>> _moreResultGroup = new Dictionary<string, List<string>>
         {
             { "SuperOverWinner", new List<string>{ SuperOverWinner, TossWinner } },
-            { "MatchSixes", new List<string>
+            { "MatchSixes", new List<string> // one column
                 {
-                    MatchFours, MatchSixes, MatchExtras, HighestIndividualScore, HighestOverScore,
+                    MatchExtras, HighestIndividualScore, HighestOverScore,
                     HomeGroupXRuns, AwayGroupXRuns, HomeScoreAfterOverXBallY, AwayScoreAfterOverXBallY,
                     HomeFallOfWicketX, AwayFallOfWicketX, HomeWicketXMethodOfDismissal, AwayWicketXMethodOfDismissal,
                     HomeInnsFours, AwayInnsFours, HomeInnsSixes, AwayInnsSixes, HomeOverXExactRuns,
                     AwayOverXExactRuns, HomeOverXBallYExactRuns, AwayOverXBallYExactRuns,
-                    HighestOpeningPartnership, HighestScoreInOver
+                    HighestOpeningPartnership, HighestScoreInOver, HomeWicketXMethodOfDismissal6Way, AwayWicketXMethodofDismissal6Way,
+                    "97081", "97091", "^96161\\d{5}$", "^96171\\d{5}$",
+                    "^96241\\d{3}$", "^96242\\d{3}$", "^96251\\d{3}$", "^96252\\d{3}$", "^96301\\d{3}$", "^96302\\d{3}$", "^96311\\d{3}$", "^96312\\d{3}$"
                 }
             },
-            { "MatchWickets", new List<string> { MatchWickets } }
+            { "MatchWickets", new List<string> { MatchFours, MatchSixes, MatchWickets, MostRunOuts, MatchDotBalls } },
+            { "Batsman", BatsmanResourceList },
+            { "Batsmans", BatsmansResourceList },
+            { "ManOut", ManOutResourceList}
         };
+
+        
+            
     }
 }

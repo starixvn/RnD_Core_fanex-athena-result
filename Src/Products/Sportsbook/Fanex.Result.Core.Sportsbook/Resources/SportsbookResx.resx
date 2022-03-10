@@ -372,4 +372,22 @@
   <data name="TopBottom" xml:space="preserve">
     <value>Top or Bottom</value>
   </data>
+  <data name="Bowled" xml:space="preserve">
+    <value>Bowled</value>
+  </data>
+  <data name="LBW" xml:space="preserve">
+    <value>LBW</value>
+  </data>
+  <data name="RunOut" xml:space="preserve">
+    <value>Run Out</value>
+  </data>
+  <data name="Stumped" xml:space="preserve">
+    <value>Stumped</value>
+  </data>
+  <data name="Others" xml:space="preserve">
+    <value>Others</value>
+  </data>
+  <data name="Caught" xml:space="preserve">
+    <value>Caught</value>
+  </data>
 </root>

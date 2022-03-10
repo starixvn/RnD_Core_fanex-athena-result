@@ -201,6 +201,9 @@
     <EmbeddedResource Include="Views\CricketDetail\SuperOverWinner.cshtml" />
     <EmbeddedResource Include="Views\CricketDetail\MatchSixes.cshtml" />
     <EmbeddedResource Include="Views\BeachVolleyball.cshtml" />
+    <EmbeddedResource Include="Views\CricketDetail\Batsman.cshtml" />
+    <EmbeddedResource Include="Views\CricketDetail\Batsmans.cshtml" />
+    <EmbeddedResource Include="Views\CricketDetail\ManOut.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Fanex.File">

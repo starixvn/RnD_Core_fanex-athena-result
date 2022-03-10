@@ -6,7 +6,6 @@ namespace Fanex.Result.Core.Sportsbook.DataDomain
     {
         public const int SetXGameYWinner = 1324;
         public const int NextOneMinuteSetPiece = 225;
-
         public const int SuperOverWinner = 9400;
         public const int SuperOverWinnerBackLay = 9540;
         public const int TossWinner = 9401;
@@ -101,7 +100,6 @@ namespace Fanex.Result.Core.Sportsbook.DataDomain
         public const int AwayOverXExactRuns = 9485;
         public const int HomeOverXBallYExactRuns = 9490;
         public const int AwayOverXBallYExactRuns = 9491;
-
         public const int HomeOverXRuns = 9607;
         public const int AwayOverXRuns = 9608;
         public const int Home1stInnsOverXRuns = 9609;
@@ -110,7 +108,155 @@ namespace Fanex.Result.Core.Sportsbook.DataDomain
         public const int Away2ndInnsOverXRuns = 9612;
         public const int HomeOverXBallYRuns = 9613;
         public const int AwayOverXBallYRuns = 9614;
-
+        public const int FirstInnsHighestOpeningPartnership = 9710;
+        public const int FirstInnsHighestScoreinOver1 = 9711;
+        public const int HomeInnsRunsFancy = 9541;
+        public const int Home1stInnsRunsFancy = 9543;
+        public const int Home2ndInnsRunsFancy = 9545;
+        public const int AwayInnsRunsFancy = 9542;
+        public const int Away1stInnsRunsFancy = 9544;
+        public const int Away2ndInnsRunsFancy = 9546;
+        public const int MostFours = 9440;
+        public const int MostSixes = 9441;
+        public const int FirstInnsHighestIndividualScore = 9708;
+        public const int FirstInnsHighestIndividualScoreFancy = 9729;
+        public const int FirstInnsHighestOverScore = 9709;
+        public const int FirstInnsHighestOverScoreFancy = 9728;
+        public const int Home1stInnsFours = 9456;
+        public const int Home2ndInnsFours = 9458;
+        public const int Home1stInnsFoursOE = 9534;
+        public const int Home2ndInnsFoursOE = 9536;
+        public const int Home1stInnsFoursFancy = 9576;
+        public const int Home2ndInnsFoursFancy = 9578;
+        public const int Away1stInnsFours = 9457;
+        public const int Away2ndInnsFours = 9459;
+        public const int Away1stInnsFoursOE = 9535;
+        public const int Away2ndInnsFoursOE = 9537;
+        public const int Away1stInnsFoursFancy = 9577;
+        public const int Away2ndInnsFoursFancy = 9579;
+        public const int Home1stInnsSixes = 9462;
+        public const int Home2ndInnsSixes = 9464;
+        public const int Home1stInnsSixesFancy = 9582;
+        public const int Home2ndInnsSixesFancy = 9584;
+        public const int Away1stInnsSixes = 9463;
+        public const int Away2ndInnsSixes = 9465;
+        public const int Away1stInnsSixesFancy = 9583;
+        public const int Away2ndInnsSixesFancy = 9585;
+        public const int Home1stInnsOverXExactRuns = 9486;
+        public const int Home2ndInnsOverXExactRuns = 9488;
+        public const int HomeOverXRunsOE = 9618;
+        public const int Home1stInnsOverXRunsOE = 9620;
+        public const int Home2ndInnsOverXRunsOE = 9622;
+        public const int HomeOverXRunsFancy = 9722;
+        public const int Home1stInnsOverXRunsFancy = 9724;
+        public const int Home2ndInnsOverXRunsFancy = 9726;
+        public const int Away1stInnsOverXExactRuns = 9487;
+        public const int Away2ndInnsOverXExactRuns = 9489;
+        public const int AwayOverXRunsOE = 9619;
+        public const int Away1stInnsOverXRunsOE = 9621;
+        public const int Away2ndInnsOverXRunsOE = 9623;
+        public const int AwayOverXRunsFancy = 9723;
+        public const int Away1stInnsOverXRunsFancy = 9725;
+        public const int Away2ndInnsOverXRunsFancy = 9727;
+        public const int MostRunOuts = 9615;
+        public const int MatchRunOuts = 9448;
+        public const int MatchRunOutsOE = 9529;
+        public const int MatchDotBalls = 9451;
+        public const int MatchDotBallsOE = 9531;
+        public const int HomeBatsmanRuns = 9680;
+        public const int HomeBatsmanRunsFancy = 9714;
+        public const int HomeBatsmanRunsOE = 9681;
+        public const int HomeBatsmanMilestones = 9698;
+        public const int Home1stInnsBatsmanRuns = 9682;
+        public const int Home2ndInnsBatsmanRuns = 9684;
+        public const int Home1stInnsBatsmanMilestones = 9702;
+        public const int Home2ndInnsBatsmanMilestones = 9704;
+        public const int Home1stInnsBatsmanRunsFancy = 9715;
+        public const int Home2ndInnsBatsmanRunsFancy = 9716;
+        public const int Home1stInnsBatsmanRunsOE = 9683;
+        public const int Home2ndInnsBatsmanRunsOE = 9685;
+        public const int AwayBatsmanRuns = 9690;
+        public const int AwayBatsmanRunsFancy = 9719;
+        public const int AwayBatsmanRunsOE = 9691;
+        public const int AwayBatsmanMilestones = 9699;
+        public const int Away1stInnsBatsmanRuns = 9692;
+        public const int Away2ndInnsBatsmanRuns = 9694;
+        public const int Away2ndInnsBatsmanMilestones = 9705;
+        public const int Away1stInnsBatsmanMilestones = 9703;
+        public const int Away1stInnsBatsmanRunsFancy = 9720;
+        public const int Away2ndInnsBatsmanRunsFancy = 9721;
+        public const int Away1stInnsBatsmanRunsOE = 9693;
+        public const int Away2ndInnsBatsmanRunsOE = 9695;
+        public const int HomeNextManOut = 9662;
+        public const int Home1stInnsNextManOut = 9664;
+        public const int Home2ndInnsNextManOut = 9666;
+        public const int AwayNextManOut = 9663;
+        public const int Away1stInnsNextManOut = 9665;
+        public const int Away2ndInnsNextManOut = 9667;
+        public const int HomePlayerRuns = 9676;
+        public const int Home1stInnsPlayerRuns = 9678;
+        public const int HomePlayerRunsFancy = 9712;
+        public const int Home1stInnsPlayerRunsFancy = 9713;
+        public const int HomePlayerRunsOE = 9677;
+        public const int Home1stInnsPlayerRunsOE = 9679;
+        public const int AwayPlayerRuns = 9686;
+        public const int AwayPlayerRunsFancy = 9717;
+        public const int Away1stInnsPlayerRuns = 9688;
+        public const int Away1stInnsPlayerRunsFancy = 9718;
+        public const int AwayPlayerRunsOE = 9687;
+        public const int Away1stInnsPlayerRunsOE = 9689;
+        public const int HomePrematchTopBatsman = 9668;
+        public const int Home1stInnsPrematchTopBatsman = 9670;
+        public const int AwayPrematchTopBatsman = 9669;
+        public const int Away1stInnsPrematchTopBatsman = 9671;
+        public const int HomeTopBatsman = 9650;
+        public const int Home1stInnsTopBatsman = 9652;
+        public const int Home2ndInnsTopBatsman = 9654;
+        public const int AwayTopBatsman = 9651;
+        public const int Away1stInnsTopBatsman = 9653;
+        public const int Away2ndInnsTopBatsman = 9655;
+        public const int HomePrematchTopBowler = 9672;
+        public const int Home1stInnsPrematchTopBowler = 9674;
+        public const int AwayPrematchTopBowler = 9673;
+        public const int Away1stInnsPrematchTopBowler = 9675;
+        public const int HomeTopBowler = 9656;
+        public const int Home1stInnsTopBowler = 9658;
+        public const int Home2ndInnsTopBowler = 9660;
+        public const int AwayTopBowler = 9657;
+        public const int Away1stInnsTopBowler = 9659;
+        public const int Away2ndInnsTopBowler = 9661;
+        public const int HomeWicketXMethodofDismissal6Way = 9636;
+        public const int Home1stInnsWicketXMethodofDismissal6Way = 9638;
+        public const int Home2ndInnsWicketXMethodofDismissal6Way = 9640;
+        public const int AwayWicketXMethodofDismissal6Way = 9637;
+        public const int Away1stInnsWicketXMethodofDismissal6Way = 9639;
+        public const int Away2ndInnsWicketXMethodofDismissal6Way = 9641;
+        public const int HomeOverXDeliveryYRuns = 9616;
+        public const int AwayOverXDeliveryYRuns = 9617;
+        public const int WilltherebeaBoundaryFoursinHomeOverX = 9624;
+        public const int WilltherebeaBoundaryFoursinHome1stInnsOverX = 9626;
+        public const int WilltherebeaBoundaryFoursinHome2ndInnsOverX = 9628;
+        public const int WilltherebeaBoundaryFoursinAwayOverX = 9625;
+        public const int WilltherebeaBoundaryFoursinAway1stInnsOverX = 9627;
+        public const int WilltherebeaBoundaryFoursinAway2ndInnsOverX = 9629;
+        public const int WilltherebeaBoundarySixesinHomeOverX = 9630;
+        public const int WilltherebeaBoundarySixesinHome1stInnsOverX = 9632;
+        public const int WilltherebeaBoundarySixesinHome2ndInnsOverX = 9634;
+        public const int WilltherebeaBoundarySixesinAwayOverX = 9631;
+        public const int WilltherebeaBoundarySixesinAway1stInnsOverX = 9633;
+        public const int WilltherebeaBoundarySixesinAway2ndInnsOverX = 9635;
+        public const int HomeBatsmanSixes = 9730;
+        public const int Home1stInnsBatsmanSixes = 9732;
+        public const int Home2ndInnsBatsmanSixes = 9734;
+        public const int AwayBatsmanSixes = 9731;
+        public const int Away1stInnsBatsmanSixes = 9733;
+        public const int Away2ndInnsBatsmanSixes = 9735;
+        public const int HomeBatsmanFours = 9736;
+        public const int Home1stInnsBatsmanFours = 9738;
+        public const int Home2ndInnsBatsmanFours = 9696;
+        public const int AwayBatsmanFours = 9737;
+        public const int Away1stInnsBatsmanFours = 9739;
+        public const int Away2ndInnsBatsmanFours = 9697;
         public static IDictionary<int, int> CricketBettypeGroup => _cricketBettypeGroup;
         private readonly static IDictionary<int, int> _cricketBettypeGroup = new Dictionary<int, int>
         {
@@ -187,8 +333,7 @@ namespace Fanex.Result.Core.Sportsbook.DataDomain
             { HomeInnsSixesFancy, HomeInnsSixes },
             { AwayInnsSixes, AwayInnsSixes },
             { AwayInnsSixesFancy, AwayInnsSixes },
-            { HomeOverXExactRuns, HomeOverXExactRuns },
-            { AwayOverXExactRuns, AwayOverXExactRuns },
+            { HomeOverXExactRuns, HomeOverXRuns },
             { HomeOverXBallYExactRuns, HomeOverXBallYExactRuns },
             { AwayOverXBallYExactRuns, AwayOverXBallYExactRuns },
             { HomeOverXRuns, HomeOverXRuns},
@@ -198,7 +343,149 @@ namespace Fanex.Result.Core.Sportsbook.DataDomain
             { Home2ndInnsOverXRuns, Home2ndInnsOverXRuns},
             { Away2ndInnsOverXRuns, Away2ndInnsOverXRuns},
             { HomeOverXBallYRuns, HomeOverXBallYRuns},
-            { AwayOverXBallYRuns, AwayOverXBallYRuns}
+            { AwayOverXBallYRuns, AwayOverXBallYRuns},
+            { FirstInnsHighestOpeningPartnership, FirstInnsHighestOpeningPartnership},
+            { FirstInnsHighestScoreinOver1, FirstInnsHighestScoreinOver1},
+            { FirstInnsHighestIndividualScore, FirstInnsHighestIndividualScore},
+            { FirstInnsHighestIndividualScoreFancy, FirstInnsHighestIndividualScore},
+            { FirstInnsHighestOverScore, FirstInnsHighestOverScore},
+            { FirstInnsHighestOverScoreFancy, FirstInnsHighestOverScore},
+            { Home1stInnsFours, Home1stInnsFours},
+            { Home1stInnsFoursOE, Home1stInnsFours},
+            { Home1stInnsFoursFancy, Home1stInnsFours},
+            { Home2ndInnsFours, Home2ndInnsFours},
+            { Home2ndInnsFoursOE, Home2ndInnsFours},
+            { Home2ndInnsFoursFancy, Home2ndInnsFours},
+            { Away1stInnsFours, Away1stInnsFours},
+            { Away1stInnsFoursOE, Away1stInnsFours},
+            { Away1stInnsFoursFancy, Away1stInnsFours},
+            { Away2ndInnsFours, Away2ndInnsFours},
+            { Away2ndInnsFoursOE, Away2ndInnsFours},
+            { Away2ndInnsFoursFancy, Away2ndInnsFours},
+            { Home1stInnsSixes, Home1stInnsSixes},
+            { Home1stInnsSixesFancy, Home1stInnsSixes},
+            { Home2ndInnsSixes, Home2ndInnsSixes},
+            { Home2ndInnsSixesFancy, Home2ndInnsSixes},
+            { Away1stInnsSixes, Away1stInnsSixes},
+            { Away1stInnsSixesFancy, Away1stInnsSixes},
+            { Away2ndInnsSixes, Away2ndInnsSixes},
+            { Away2ndInnsSixesFancy, Away2ndInnsSixes},
+            { HomeOverXRunsOE, HomeOverXRuns},
+            { HomeOverXRunsFancy, HomeOverXRuns},
+            { Home2ndInnsOverXExactRuns, Home2ndInnsOverXRuns},
+            { Home2ndInnsOverXRunsOE, Home2ndInnsOverXRuns},
+            { Home2ndInnsOverXRunsFancy, Home2ndInnsOverXRuns},
+            { AwayOverXExactRuns, AwayOverXRuns},
+            { AwayOverXRunsOE, AwayOverXRuns},
+            { AwayOverXRunsFancy, AwayOverXRuns},
+            { Away1stInnsOverXExactRuns, Away1stInnsOverXRuns},
+            { Away1stInnsOverXRunsOE, Away1stInnsOverXRuns},
+            { Away1stInnsOverXRunsFancy, Away1stInnsOverXRuns},
+            { Away2ndInnsOverXExactRuns, Away2ndInnsOverXRuns},
+            { Away2ndInnsOverXRunsOE, Away2ndInnsOverXRuns},
+            { Away2ndInnsOverXRunsFancy, Away2ndInnsOverXRuns},
+            { MostRunOuts, MatchRunOuts},
+            { MatchRunOuts, MatchRunOuts},
+            { MatchRunOutsOE, MatchRunOuts},
+            { MatchDotBalls, MatchDotBalls},
+            { MatchDotBallsOE, MatchDotBalls},
+            { HomeBatsmanRuns, HomeBatsmanRuns},
+            { HomeBatsmanRunsFancy, HomeBatsmanRuns},
+            { HomeBatsmanRunsOE, HomeBatsmanRuns},
+            { HomeBatsmanMilestones, HomeBatsmanRuns},
+            { Home1stInnsBatsmanRuns, Home1stInnsBatsmanRuns},
+            { Home1stInnsBatsmanMilestones, Home1stInnsBatsmanRuns},
+            { Home1stInnsBatsmanRunsFancy, Home1stInnsBatsmanRuns},
+            { Home1stInnsBatsmanRunsOE, Home1stInnsBatsmanRuns},
+            { Home2ndInnsBatsmanRuns, Home2ndInnsBatsmanRuns},
+            { Home2ndInnsBatsmanMilestones, Home2ndInnsBatsmanRuns},
+            { Home2ndInnsBatsmanRunsFancy, Home2ndInnsBatsmanRuns},
+            { Home2ndInnsBatsmanRunsOE, Home2ndInnsBatsmanRuns},
+            { AwayBatsmanRuns, AwayBatsmanRuns},
+            { AwayBatsmanRunsFancy, AwayBatsmanRuns},
+            { AwayBatsmanRunsOE, AwayBatsmanRuns},
+            { AwayBatsmanMilestones, AwayBatsmanRuns},
+            { Away1stInnsBatsmanRuns, Away1stInnsBatsmanRuns},
+            { Away1stInnsBatsmanMilestones, Away1stInnsBatsmanRuns},
+            { Away1stInnsBatsmanRunsFancy, Away1stInnsBatsmanRuns},
+            { Away1stInnsBatsmanRunsOE, Away1stInnsBatsmanRuns},
+            { Away2ndInnsBatsmanRuns, Away2ndInnsBatsmanRuns},
+            { Away2ndInnsBatsmanMilestones, Away2ndInnsBatsmanRuns},
+            { Away2ndInnsBatsmanRunsFancy, Away2ndInnsBatsmanRuns},
+            { Away2ndInnsBatsmanRunsOE, Away2ndInnsBatsmanRuns},
+            { HomeNextManOut, HomeNextManOut},
+            { Home1stInnsNextManOut, Home1stInnsNextManOut},
+            { Home2ndInnsNextManOut, Home2ndInnsNextManOut},
+            { AwayNextManOut, AwayNextManOut},
+            { Away1stInnsNextManOut, Away1stInnsNextManOut},
+            { Away2ndInnsNextManOut, Away2ndInnsNextManOut},
+            { HomePlayerRuns, HomePlayerRuns },
+            { HomePlayerRunsFancy, HomePlayerRuns},
+            { HomePlayerRunsOE, HomePlayerRuns},
+            { Home1stInnsPlayerRuns, Home1stInnsPlayerRuns},
+            { Home1stInnsPlayerRunsFancy, Home1stInnsPlayerRuns},
+            { Home1stInnsPlayerRunsOE, Home1stInnsPlayerRuns},
+            { AwayPlayerRuns, AwayPlayerRuns},
+            { AwayPlayerRunsOE, AwayPlayerRuns},
+            { AwayPlayerRunsFancy, AwayPlayerRuns},
+            { Away1stInnsPlayerRuns, Away1stInnsPlayerRuns},
+            { Away1stInnsPlayerRunsFancy, Away1stInnsPlayerRuns},
+            { Away1stInnsPlayerRunsOE, Away1stInnsPlayerRuns},
+            { HomePrematchTopBatsman, HomePrematchTopBatsman},
+            { Home1stInnsPrematchTopBatsman, Home1stInnsPrematchTopBatsman},
+            { AwayPrematchTopBatsman, AwayPrematchTopBatsman},
+            { Away1stInnsPrematchTopBatsman, Away1stInnsPrematchTopBatsman},
+            { HomeTopBatsman, HomeTopBatsman},
+            { Home1stInnsTopBatsman, Home1stInnsTopBatsman},
+            { Home2ndInnsTopBatsman, Home2ndInnsTopBatsman},
+            { AwayTopBatsman, AwayTopBatsman},
+            { Away1stInnsTopBatsman, Away1stInnsTopBatsman},
+            { Away2ndInnsTopBatsman, Away2ndInnsTopBatsman},
+            { HomePrematchTopBowler, HomePrematchTopBowler},
+            { Home1stInnsPrematchTopBowler, Home1stInnsPrematchTopBowler},
+            { AwayPrematchTopBowler, AwayPrematchTopBowler},
+            { Away1stInnsPrematchTopBowler, Away1stInnsPrematchTopBowler},
+            { HomeTopBowler, HomeTopBowler},
+            { Home2ndInnsTopBowler, Home2ndInnsTopBowler},
+            { Home1stInnsTopBowler, Home1stInnsTopBowler},
+            { AwayTopBowler, AwayTopBowler},
+            { Away1stInnsTopBowler, Away1stInnsTopBowler},
+            { Away2ndInnsTopBowler, Away2ndInnsTopBowler},
+            { HomeWicketXMethodofDismissal6Way, HomeWicketXMethodofDismissal6Way},
+            { Home1stInnsWicketXMethodofDismissal6Way, Home1stInnsWicketXMethodofDismissal6Way},
+            { Home2ndInnsWicketXMethodofDismissal6Way, Home2ndInnsWicketXMethodofDismissal6Way},
+            { AwayWicketXMethodofDismissal6Way, AwayWicketXMethodofDismissal6Way},
+            { Away1stInnsWicketXMethodofDismissal6Way, Away1stInnsWicketXMethodofDismissal6Way},
+            { Away2ndInnsWicketXMethodofDismissal6Way, Away2ndInnsWicketXMethodofDismissal6Way},
+            { HomeOverXDeliveryYRuns, HomeOverXDeliveryYRuns},
+            { AwayOverXDeliveryYRuns, AwayOverXDeliveryYRuns},
+            { WilltherebeaBoundaryFoursinHomeOverX, WilltherebeaBoundaryFoursinHomeOverX},
+            { WilltherebeaBoundaryFoursinHome1stInnsOverX, WilltherebeaBoundaryFoursinHome1stInnsOverX},
+            { WilltherebeaBoundaryFoursinHome2ndInnsOverX, WilltherebeaBoundaryFoursinHome2ndInnsOverX },
+            { WilltherebeaBoundaryFoursinAwayOverX, WilltherebeaBoundaryFoursinAwayOverX},
+            { WilltherebeaBoundaryFoursinAway1stInnsOverX, WilltherebeaBoundaryFoursinAway1stInnsOverX},
+            { WilltherebeaBoundaryFoursinAway2ndInnsOverX, WilltherebeaBoundaryFoursinAway2ndInnsOverX},
+            { WilltherebeaBoundarySixesinHomeOverX, WilltherebeaBoundarySixesinHomeOverX},
+            { WilltherebeaBoundarySixesinHome1stInnsOverX, WilltherebeaBoundarySixesinHome1stInnsOverX},
+            { WilltherebeaBoundarySixesinHome2ndInnsOverX, WilltherebeaBoundarySixesinHome2ndInnsOverX},
+            { WilltherebeaBoundarySixesinAwayOverX, WilltherebeaBoundarySixesinAwayOverX},
+            { WilltherebeaBoundarySixesinAway1stInnsOverX, WilltherebeaBoundarySixesinAway1stInnsOverX},
+            { WilltherebeaBoundarySixesinAway2ndInnsOverX, WilltherebeaBoundarySixesinAway2ndInnsOverX},
+            { HomeBatsmanSixes, HomeBatsmanSixes},
+            { Home1stInnsBatsmanSixes, Home1stInnsBatsmanSixes},
+            { Home2ndInnsBatsmanSixes, Home2ndInnsBatsmanSixes},
+            { AwayBatsmanSixes, AwayBatsmanSixes},
+            { Away1stInnsBatsmanSixes, Away1stInnsBatsmanSixes},
+            { Away2ndInnsBatsmanSixes, Away2ndInnsBatsmanSixes},
+            { HomeBatsmanFours, HomeBatsmanFours},
+            { Home1stInnsBatsmanFours, Home1stInnsBatsmanFours},
+            { Home2ndInnsBatsmanFours, Home2ndInnsBatsmanFours},
+            { AwayBatsmanFours, AwayBatsmanFours},
+            { Away1stInnsBatsmanFours, Away1stInnsBatsmanFours},
+            { Away2ndInnsBatsmanFours, Away2ndInnsBatsmanFours},
+            { Home1stInnsOverXExactRuns,  Home1stInnsOverXRuns},
+            { Home1stInnsOverXRunsOE,  Home1stInnsOverXRuns},
+            { Home1stInnsOverXRunsFancy,  Home1stInnsOverXRuns}
         };
     }
 }

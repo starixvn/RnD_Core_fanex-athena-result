@@ -4,9 +4,21 @@
 }
 @foreach (var item in itemViewModel.DetailItems)
 {
-    <tr class="data">
-        <td class="cl-match">@item.ResourceName</td>
-        <td class="cl-result home">@item.HomeValue</td>
-        <td class="cl-result away">@item.AwayValue</td>
-    </tr>
+    if (string.IsNullOrEmpty(item.AwayValue))
+    {
+        <tr class="data">
+            <td class="cl-match">@item.ResourceName</td>
+            <td class="cl-result home" colspan="2">@item.HomeValue</td>
+        </tr>
+    }
+    else
+    {
+        <tr class="data">
+            <td class="cl-match">@item.ResourceName</td>
+            <td class="cl-result home">@item.HomeValue</td>
+            <td class="cl-result away">@item.AwayValue</td>
+        </tr>
+    }
+
+
 }

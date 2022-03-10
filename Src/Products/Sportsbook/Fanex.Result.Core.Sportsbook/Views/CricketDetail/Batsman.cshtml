@@ -1,0 +1,23 @@
+﻿@using Fanex.Result.Core.Sportsbook.ViewModels.SoccerDetail;
+@using Fanex.Result.Core.Base.DataDomain;
+
+@{
+    var itemViewModel = (SoccerDetailViewModel)Model;
+}
+@foreach (var item in itemViewModel.DetailItems)
+{
+    <tr class="data">
+        <td class="cl-match">@item.ResourceName</td>
+        <td class="cl-result home" colspan="2">
+            @if (item.SettlementStatusID == EventStatusID.RefundSettlementStatusID)
+            {
+                @item.HomeValue
+            }
+            else
+            {
+                <span class="match-info">@item.HomeValue:&nbsp;</span>@item.AwayValue
+            }
+
+        </td>
+    </tr>
+}

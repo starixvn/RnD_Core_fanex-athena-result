@@ -86,8 +86,8 @@ namespace Fanex.Result.Core.ESport.DTO
             { 9073, new MapResultMetadata(4800, true, isYesNo: true, mapXRoundYType: true) },
             { 9075, new MapResultMetadata(4900, true, isYesNo: true, isLastResult: true)  },
             { 9087, new MapResultMetadata(5000, true, isYesNo: true, isLastResult: true) },
-            { 9139, new MapResultMetadata(5100, true, isSingleScore: true, localResourceKey: "ESports_91390X") },
-            { 9140, new MapResultMetadata(5200, true, isSingleScore: true, localResourceKey: "ESports_91400X") },
+            { 9139, new MapResultMetadata(5100, false, localResourceKey: "ESports_91390X") },
+            { 9140, new MapResultMetadata(5200, false, localResourceKey: "ESports_91400X") },
             { 9141, new MapResultMetadata(5300, true, isOverlordTyrant: true, localResourceKey: "ESports_91410X") },
             { 9142, new MapResultMetadata(5400, true, isOverlordTyrant: true, localResourceKey: "ESports_91420X") }
 

@@ -46,11 +46,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BetTypeConstants.cs" />
+    <Compile Include="Layout\GoldenFlower.cs" />
     <Compile Include="Layout\MahjongTiles.cs" />
     <Compile Include="Layout\FanTan.cs" />
     <Compile Include="Layout\Dragon.cs" />
     <Compile Include="Layout\Bacarrat.cs" />
     <Compile Include="Layout\OneColumn.cs" />
+    <Compile Include="Layout\AndarBahar.cs" />
     <Compile Include="Layout\ThreeColumn.cs" />
     <Compile Include="Layout\TwoColumn.cs" />
     <Compile Include="Layout\BaseModel.cs" />

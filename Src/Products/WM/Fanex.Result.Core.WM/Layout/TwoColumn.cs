@@ -26,6 +26,8 @@
 
         public string TigerText => RefDataHelper.GetResourceDataByRefIdAndResourceId(ResourceKey, "11002", Language, "Tiger");
 
+        public string PhoenixText => RefDataHelper.GetResourceDataByRefIdAndResourceId(ResourceKey, "20014", Language, "Phoenix");
+
         public TwoColumn(string transDesc, string gameId3rd, string imagePath, IRefDataHelper refDataHelper, string slang)
         {
             TransDesc = new TransDesc(transDesc);

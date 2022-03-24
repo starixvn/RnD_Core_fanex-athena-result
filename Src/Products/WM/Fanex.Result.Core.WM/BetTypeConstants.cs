@@ -35,6 +35,12 @@ namespace Fanex.Result.Core.WM
         WenzhouPaiGow = 3410,
 
         [StringValue("MahjongTiles")]
-        MahjongTiles = 3411
+        MahjongTiles = 3411,
+
+        [StringValue("GoldenFlower")]
+        GoldenFlower = 3412,
+
+        [StringValue("AndarBahar")]
+        AndarBahar = 3413
     }
 }

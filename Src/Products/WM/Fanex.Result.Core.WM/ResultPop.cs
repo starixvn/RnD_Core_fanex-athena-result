@@ -39,6 +39,8 @@
                     { (int)BetType.Samgong,  new ThreeColumn(TransDesc, GameId3rd, _ImgPath, refDataHelper, slang)},
                     { (int)BetType.WenzhouPaiGow,  new ThreeColumn(TransDesc, GameId3rd, _ImgPath, refDataHelper, slang)},
                     { (int)BetType.MahjongTiles,  new MahjongTiles(TransDesc, GameId3rd, _ImgPath, refDataHelper, slang)},
+                    { (int)BetType.GoldenFlower,  new GoldendFlower(TransDesc, GameId3rd, _ImgPath, refDataHelper, slang)},
+                    { (int)BetType.AndarBahar,  new AndarBahar(TransDesc, GameId3rd, _ImgPath, refDataHelper, slang)},
                 };
 
                 if (bettypeModels.ContainsKey(bettype))

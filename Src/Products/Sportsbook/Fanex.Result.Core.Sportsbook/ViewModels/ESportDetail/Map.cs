@@ -159,6 +159,7 @@
                 { "nb", SportsbookResx.TopMid},
                 { "nt", SportsbookResx.MidBottom},
                 { "o", SportsbookResx.Overlord},
+                { "none", LangResource.None},
             };
             var isHomeTeam = homeValue == "h";
             var isNoneOrNo = homeValue == "n";

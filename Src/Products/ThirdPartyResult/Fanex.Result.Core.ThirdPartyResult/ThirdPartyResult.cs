@@ -132,6 +132,7 @@
                     { "Platform" , resultRequest.Platform},
                     { "DarkMode" , resultRequest.IsDarkMode},
                     { "GMT" , resultRequest.GMT},
+                    { "Location" , resultRequest.Location},
                 };
             }
         }
@@ -161,7 +162,8 @@
                 LangCode = languageCode,
                 Platform = result.Platform,
                 DarkMode = result.IsDarkMode,
-                GMT = result.GMT
+                GMT = result.GMT,
+                Location = result.Location
             };
         }
 

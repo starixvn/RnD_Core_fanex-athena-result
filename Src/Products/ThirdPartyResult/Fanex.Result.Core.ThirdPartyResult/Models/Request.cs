@@ -33,5 +33,7 @@
         public string DarkMode { get; set; }
 
         public string GMT { get; set; }
+
+        public string Location { get; set; }
     }
 }

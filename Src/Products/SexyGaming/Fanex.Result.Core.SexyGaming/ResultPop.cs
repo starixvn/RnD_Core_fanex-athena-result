@@ -56,6 +56,7 @@ namespace Fanex.Result.Core.SexyGaming
         {
             string[] GameDetail = sDesc.Split('*');
             string s1 = GetSplitValue('=', GameDetail[3].ToString());
+            s1 = ReplaceSpecialCharacter(s1);
             string[] CardValue = s1.Replace("B;", "").Replace("P;", "").Replace("0", "").Replace("C11", "CJ").Replace(";", ",").Split(':');
             strBankerCardValue = CardValue[0].ToString();
             strPlayerCardValue = CardValue[1].ToString();
@@ -71,6 +72,7 @@ namespace Fanex.Result.Core.SexyGaming
             string[] GameDetail = sDesc.Split('*');
 
             string strImgValue = GetSplitValue('=', GameDetail[3].ToString());
+            strImgValue = ReplaceSpecialCharacter(strImgValue);
             string strImgUrl = GenImgUrl("Roulette", strImgValue);
             string strFinalLayout = GetFinalLayout(bettype);
 
@@ -82,6 +84,7 @@ namespace Fanex.Result.Core.SexyGaming
             string[] GameDetail = sDesc.Split('*');
 
             string strImgValue = GetSplitValue('=', GameDetail[3].ToString());
+            strImgValue = ReplaceSpecialCharacter(strImgValue);
             string strImgUrl = GenImgUrl("Sicbo", strImgValue);
             string strFinalLayout = GetFinalLayout(bettype);
 
@@ -92,6 +95,7 @@ namespace Fanex.Result.Core.SexyGaming
         {
             string[] GameDetail = sDesc.Split('*');
             string s1 = GetSplitValue('=', GameDetail[3].ToString());
+            s1 = ReplaceSpecialCharacter(s1);
             string[] CardValue = s1.Replace("D;", "").Replace("T;", "").Replace("0", "").Split(':');
             strBankerCardValue = CardValue[1].ToString();
             strPlayerCardValue = CardValue[0].ToString();
@@ -108,8 +112,8 @@ namespace Fanex.Result.Core.SexyGaming
 
             string strImgValue = GetSplitValue('=', GameDetail[3].ToString());
             string[] CardValue = strImgValue.Replace("R;", "d").Replace("B;", "b").Replace("0", "").Split(':');
-            var red = GenImgUrl("RedBlueDuel", CardValue[0].ToString());
-            var blue = GenImgUrl("RedBlueDuel", CardValue[1].ToString());
+            var red = GenImgUrl("RedBlueDuel", ReplaceSpecialCharacter(CardValue[0].ToString()));
+            var blue = GenImgUrl("RedBlueDuel", ReplaceSpecialCharacter(CardValue[1].ToString()));
 
             string strFinalLayout = GetFinalLayout(bettype);
 
@@ -137,7 +141,7 @@ namespace Fanex.Result.Core.SexyGaming
             string[] strCard = CardValue.Split(',');
             for (int j = 0; j < strCard.Length; j++)
             {
-                if(!string.IsNullOrEmpty(strCard[j]))
+                if (!string.IsNullOrEmpty(strCard[j]))
                 {
                     if (strCard[j].Contains("<br/>"))
                     {
@@ -148,7 +152,7 @@ namespace Fanex.Result.Core.SexyGaming
                     {
                         strCardImg += @"<img src='" + SkinPath + "Poker/" + strCard[j].ToString() + ".png' align='absmiddle' border='0' class='code' />";
                     }
-                }                
+                }
 
                 //strCardImg += @"<img src='" + AppDomain.CurrentDomain.BaseDirectory + SkinPath + "Poker/" + strCard[j].ToString() + ".jpg' align='absmiddle' border='0' class='code' />";
 
@@ -221,6 +225,8 @@ namespace Fanex.Result.Core.SexyGaming
             return strFinalLayout;
         }
 
+        private static string ReplaceSpecialCharacter(string text)
+            => text.Replace("[", "").Replace("]", "");
     }
 
 }

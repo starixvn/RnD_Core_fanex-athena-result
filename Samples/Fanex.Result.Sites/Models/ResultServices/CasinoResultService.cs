@@ -156,7 +156,7 @@
             switch (betType)
             {
                 case 3101:
-                    return "choice=1002*site=IBC*tableCode=5*result=B;SQ;S9;:P;S4;D3;*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
+                    return "choice=1002*site=IBC*tableCode=5*result=[B];SQ;S9;:P;S4;D3;*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
 
                 case 3102:
                     return "choice=2001*site=IBC*tableCode=31*result=D;CQ:T;C7*results=*winResult=*ForcedCompleted=0*ReasonCode=0";

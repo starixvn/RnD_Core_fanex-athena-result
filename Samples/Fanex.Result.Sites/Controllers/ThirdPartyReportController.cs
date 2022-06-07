@@ -2,16 +2,14 @@
 {
     using System;
     using System.Web.Mvc;
+    using Fanex.Result.Core.CardClub;
     using Fanex.Result.Core.Casino;
     using Fanex.Result.Core.GlobalGaming;
     using Fanex.Result.Core.GlobalGaming.DTO;
-    using Fanex.Result.Core.CardClub;
-    using Fanex.Result.Core.CardClub.Models;
     using Fanex.Result.Core.PP;
     using Fanex.Result.Core.Voidbridge;
     using Newtonsoft.Json;
     using Newtonsoft.Json.Linq;
-    using Fanex.Result.Core.VirtualGames;
 
     public class ThirdPartyReportController : Controller
     {
@@ -88,21 +86,6 @@
             {
                 var sgResult = new CasinoResult("SpadegamingResultConfigs");
                 return sgResult.GetCasinoResult(custId, gamePlayId, language);
-            }
-            catch (Exception e)
-            {
-                return e.Message;
-            }
-        }
-
-        [HttpGet]
-        public string VirtualGamesResult()
-        {
-            try
-            {
-                var sgResult = new VirtualGamesResult();
-
-                return sgResult.GetDetailResult("SB032003020057", "d");
             }
             catch (Exception e)
             {

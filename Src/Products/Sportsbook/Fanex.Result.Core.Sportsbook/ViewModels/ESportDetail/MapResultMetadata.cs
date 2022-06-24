@@ -10,6 +10,7 @@ namespace Fanex.Result.Core.ESport.DTO
         public static readonly IDictionary<int, MapResultMetadata> ResultTypeOrder =
             new Dictionary<int, MapResultMetadata>
         {
+            { 9001, new MapResultMetadata(10, false, localResourceKey: "ESports_90010X") },
             { 9006, new MapResultMetadata(100, true) },
             { 9090, new MapResultMetadata(150, true, isDuration: true, localResourceKey: "ESports_90900X") },
             { 9007, new MapResultMetadata(200, true) },

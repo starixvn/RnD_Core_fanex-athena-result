@@ -106,6 +106,15 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Map {0} Result.
+        /// </summary>
+        public static string ESports_90010X {
+            get {
+                return ResourceManager.GetString("ESports_90010X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Map {0} Total Kills Score.
         /// </summary>
         public static string ESports_90020X {

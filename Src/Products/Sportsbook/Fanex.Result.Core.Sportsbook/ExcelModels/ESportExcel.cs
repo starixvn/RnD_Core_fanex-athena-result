@@ -15,8 +15,8 @@
         public ESportExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
             : base(templatePath, setting, data)
         {
-            ColumnTemplateCount = 14;
-            ColumnStatus = 13;
+            ColumnTemplateCount = 5;
+            ColumnStatus = 4;
             RowContentTemplate = 3;
         }
 
@@ -27,12 +27,6 @@
             row.Cells[colidx++].SetCellValue(LangResource.MatchCode + "/" + LangResource.ID);
             row.Cells[colidx++].SetCellValue(LangResource.KickOffTime);
             row.Cells[colidx++].SetCellValue(LangResource.Match);
-
-            for (int i = 0; i < ESportViewModel.MaxNumberOfMaps; i++)
-            {
-                row.Cells[colidx++].SetCellValue($"M{i + 1}");
-            }
-
             row.Cells[colidx++].SetCellValue(LangResource.FinalScore);
             row.Cells[colidx].SetCellValue(LangResource.Status);
         }
@@ -56,15 +50,6 @@
                 exportRow.MatchCode,
                 Helper.ToRtfString(exportRow.KickOffTime),
                 Helper.ToRtfString(exportRow.HomeTeam),
-                exportRow.GetHomeAwaySet(0, true),
-                exportRow.GetHomeAwaySet(1, true),
-                exportRow.GetHomeAwaySet(2, true),
-                exportRow.GetHomeAwaySet(3, true),
-                exportRow.GetHomeAwaySet(4, true),
-                exportRow.GetHomeAwaySet(5, true),
-                exportRow.GetHomeAwaySet(6, true),
-                exportRow.GetHomeAwaySet(7, true),
-                exportRow.GetHomeAwaySet(8, true),
                 exportRow.FinalHomeScore,
                 exportRow.EventStatus);
             currentRow++;
@@ -75,15 +60,6 @@
                 exportRow.MatchId,
                 Helper.ToRtfString(exportRow.KickOffTime),
                 Helper.ToRtfString(exportRow.AwayTeam),
-                exportRow.GetHomeAwaySet(0, false),
-                exportRow.GetHomeAwaySet(1, false),
-                exportRow.GetHomeAwaySet(2, false),
-                exportRow.GetHomeAwaySet(3, false),
-                exportRow.GetHomeAwaySet(4, false),
-                exportRow.GetHomeAwaySet(5, false),
-                exportRow.GetHomeAwaySet(6, false),
-                exportRow.GetHomeAwaySet(7, false),
-                exportRow.GetHomeAwaySet(8, false),
                 exportRow.FinalAwayScore,
                 exportRow.EventStatus);
             currentRow++;

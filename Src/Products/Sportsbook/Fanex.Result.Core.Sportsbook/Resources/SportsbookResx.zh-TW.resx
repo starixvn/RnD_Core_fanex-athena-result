@@ -390,4 +390,7 @@
   <data name="Caught" xml:space="preserve">
     <value>接殺</value>
   </data>
+  <data name="ESports_90010X" xml:space="preserve">
+    <value>地圖 {0} 賽果</value>
+  </data>
 </root>

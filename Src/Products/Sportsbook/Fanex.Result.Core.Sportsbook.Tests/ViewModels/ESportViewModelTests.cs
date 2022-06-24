@@ -43,40 +43,6 @@
             Assert.AreEqual("-", homeAwaySet);
         }
 
-        [TestCase(0, true, "1")]
-        [TestCase(1, true, "R")]
-        [TestCase(2, true, "3")]
-        [TestCase(3, true, "-")]
-        [TestCase(4, true, "-")]
-        [TestCase(5, true, "-")]
-        [TestCase(6, true, "7")]
-        [TestCase(7, true, "8")]
-        [TestCase(8, true, "9")]
-        [TestCase(9, true, "-")]
-        [TestCase(10, true, "-")]
-        [TestCase(0, false, "3")]
-        [TestCase(1, false, "R")]
-        [TestCase(2, false, "6")]
-        [TestCase(3, false, "-")]
-        [TestCase(4, false, "-")]
-        [TestCase(5, false, "-")]
-        [TestCase(6, false, "2")]
-        [TestCase(7, false, "1")]
-        [TestCase(8, false, "3")]
-        [TestCase(9, false, "-")]
-        [TestCase(10, false, "-")]
-        public void GetHomeAwaySet_Alway_ReturnData(int mapIndex, bool isHome, string expectedValue)
-        {
-            // Arrange
-            var viewModel = new ESportViewModel(StubSportsbook(), new ResultSetting(), null, _refDataHelper);
-
-            // Act
-            var homeAwaySet = viewModel.GetHomeAwaySet(mapIndex, isHome);
-
-            // Assert
-            Assert.AreEqual(expectedValue, homeAwaySet);
-        }
-
         [Test]
         public void FinalHomeScore_GameDetailsHasData_ReturnDataFromGameDetails()
         {
@@ -141,9 +107,9 @@
             var moreResult = viewModel.MoreResultDetailByMap;
 
             // Assert
-            Assert.AreEqual(3, moreResult.Count);
-            Assert.AreEqual(56, moreResult[1].Count);
-            Assert.AreEqual(4, moreResult[2].Count);
+            Assert.AreEqual(7, moreResult.Count);
+            Assert.AreEqual(57, moreResult[1].Count);
+            Assert.AreEqual(5, moreResult[2].Count);
             Assert.AreEqual(1, moreResult[4].Count);
         }
 
@@ -158,7 +124,7 @@
 
             // Assert
             var expectedOrderResultTypeList = new string[] {
-                "900601", "90070102", "900201", "90110102", "900801", "901501",
+                "M1", "900601", "90070102", "900201", "90110102", "900801", "901501",
                 "901601", "901701", "901201", "902101", "902201", "902301",
                 "901801", "90270101", "90270102", "90270103", "902401", "903101",
                 "903201", "903301", "902801", "903701", "903801", "903901", "903401",

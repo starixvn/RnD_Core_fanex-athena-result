@@ -14,8 +14,6 @@
 
     public sealed class ESportViewModel : SportsbookBaseViewModel, IResultViewModel
     {
-        public const int MaxNumberOfMaps = 9;
-
         public ESportViewModel(
             Sportsbook sportbook,
             ResultSetting setting)
@@ -76,20 +74,6 @@
         public SafeList<MapResult> ResultDetailItems { get; }
 
         public Dictionary<int, List<MapResult>> MoreResultDetailByMap { get; }
-
-        public override string GetHomeAwaySet(int index, bool isHome)
-        {
-            if (index > MaxNumberOfMaps)
-            {
-                return ConstantValue.Hyphen;
-            }
-
-            var result = GetResultFromGameDetails($"M{index + 1}", isHome);
-
-            return string.IsNullOrEmpty(result)
-                ? ConstantValue.Hyphen
-                : result;
-        }
 
         private string GetResultFromGameDetails(string resourceId, bool isHome)
         {

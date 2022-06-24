@@ -1,5 +1,6 @@
 ﻿namespace Fanex.Result.Core.ESport.DTO
 {
+    using System;
     using System.Collections.Generic;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.DataDomain;
@@ -41,6 +42,17 @@
                 mapResult.MapId = int.Parse(detailItem.ResourceId.Substring(4, 2));
                 mapResult.RoundId = GetRoundId(detailItem.ResourceId);
                 mapResult.ResourceName = GetResourceName(mapResult, betTypeId, resourceId, mapResultItem);
+                mapResult.Visible = detailItem.SettlementStatusID > 0;
+            }
+
+            if(!string.IsNullOrWhiteSpace(detailItem.ResourceId) 
+                && detailItem.ResourceId.StartsWith("M", StringComparison.CurrentCultureIgnoreCase))
+            {
+                const int mainBettype = 9001;
+                var mapResultItem = MapResultMetadata.ResultTypeOrder[mainBettype];
+                mapResult.BetTypeId = mainBettype;
+                mapResult.MapId = int.Parse(detailItem.ResourceId.Substring(1));
+                mapResult.ResourceName = string.Format(SportsbookResx.ResourceManager.GetString(mapResultItem.LocalResourceKey), mapResult.MapId);
                 mapResult.Visible = detailItem.SettlementStatusID > 0;
             }
 

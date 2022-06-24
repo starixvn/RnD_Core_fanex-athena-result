@@ -6,7 +6,7 @@
     var viewModel = (RazorBinderModel)Model;
 
 
-    var colspan = viewModel.VisibleMatchCodeIDColumn ? 14 : 13;
+    var colspan = viewModel.VisibleMatchCodeIDColumn ? 5 : 4;
 
     var popupCss = viewModel.IsPopUp || viewModel.IsDetail ? "popup" : string.Empty;
 }
@@ -30,17 +30,6 @@
             }
             <th class="cl-ko-time">@LangResource.KickOffTime</th>
             <th class="cl-match">@Raw(LangResource.Match)</th>
-
-            <th class="cl-s">@LangResource.M1</th>
-            <th class="cl-s">@LangResource.M2</th>
-            <th class="cl-s">@LangResource.M3</th>
-            <th class="cl-s">@LangResource.M4</th>
-            <th class="cl-s">@LangResource.M5</th>
-            <th class="cl-s">@LangResource.M6</th>
-            <th class="cl-s">@LangResource.M7</th>
-            <th class="cl-s">@LangResource.M8</th>
-            <th class="cl-s">@LangResource.M9</th>
-
             <th class="cl-totalset">@LangResource.FinalScore</th>
             <th class="cl-status">@LangResource.Status</th>
         </tr>
@@ -92,14 +81,6 @@
 
                             <td class="cl-ko-time" rowspan="2">@Raw(item.KickOffTime)</td>
                             <td class="cl-match home @item.HomeWin">@Raw(item.HomeTeam)</td>
-
-                            @for (var s = 0; s < ESportViewModel.MaxNumberOfMaps; s++)
-                            {
-                                <td class="cl-s">
-                                    @item.GetHomeAwaySet(s, true)
-                                </td>
-                            }
-
                             <td class="cl-totalset">@item.FinalHomeScore</td>
                             <td rowspan="2" class="cl-status @item.EventStatusBackground">
                                 @item.EventStatus
@@ -118,15 +99,9 @@
                             {
                                 <td class="cl-m-code">@item.MatchId</td>
                             }
-
                             <td class="cl-match away @item.AwayWin">
                                 @Raw(item.AwayTeam)
                             </td>
-
-                            @for (var s = 0; s < ESportViewModel.MaxNumberOfMaps; s++)
-                            {
-                                <td class="cl-s">@item.GetHomeAwaySet(s, false)</td>
-                            }
                             <td class="cl-totalset">@item.FinalAwayScore</td>
                         </tr>
                     }
@@ -180,7 +155,7 @@
 
                         if (!item.IsPopupOpenFromBetList)
                         {
-                            <tr>
+                            <tr class="cl-group-name">
                                 <td></td>
                                 <td colspan="2" class="map">@LangResource.Map @(map.Key)</td>
                             </tr>

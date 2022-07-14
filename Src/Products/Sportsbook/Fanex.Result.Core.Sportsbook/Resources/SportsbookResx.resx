@@ -393,4 +393,13 @@
   <data name="ESports_90010X" xml:space="preserve">
     <value>Map {0} Result</value>
   </data>
+  <data name="Volleyball_3903XXYY" xml:space="preserve">
+    <value>Set {0} Race to {1} Points</value>
+  </data>
+  <data name="Volleyball_3909XXYY" xml:space="preserve">
+    <value>Set {0} Point {1} Winner</value>
+  </data>
+  <data name="Volleyball_3915XXYY" xml:space="preserve">
+    <value>Set {0} {1} Points Played</value>
+  </data>
 </root>

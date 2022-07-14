@@ -31,7 +31,8 @@
                 setting.SportType != SportType.BasketBall &&
                 setting.SportType != SportType.VirtualBasketBall &&
                 setting.SportType != SportType.ESport &&
-                setting.SportType != SportType.Badminton)
+                setting.SportType != SportType.Badminton &&
+                setting.SportType != SportType.VolleyBall)
 #pragma warning restore S1067 // Expressions should not be too complex
             {
                 throw new ObjectUnSupportedException(string.Format(CoreResourceConfig.UNSUPPORTSPORTTYPEARGUEMENTMES, setting.SportType.StringMe()));

@@ -137,7 +137,16 @@
                     badminton.GameDetails = details.Where(i => i.MatchId == badminton.MatchId).ToList();
                 }
             }
-
+            if (filePath.Contains($"\\{SportType.VolleyBall.ToString()}.xls"))
+            {
+                var details = SportsbookDetailResultExcelReader
+                    .CreateInstance(filePath.Replace("VolleyBall", "VolleyBallDetail"))
+                    .GetResultData().ToList();
+                foreach (var badminton in sportBooks)
+                {
+                    badminton.GameDetails = details.Where(i => i.MatchId == badminton.MatchId).ToList();
+                }
+            }
             if (filePath.Contains($"\\{SportType.Soccer.ToString()}.xls"))
             {
                 var details = sportBooks.First().GameDetails = SportsbookDetailResultExcelReader

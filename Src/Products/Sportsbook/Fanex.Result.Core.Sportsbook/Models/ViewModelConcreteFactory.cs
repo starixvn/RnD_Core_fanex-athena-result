@@ -95,7 +95,6 @@
 
         private static bool SportsUseBadmintonViewModel(SportType sportType)
             => sportType == SportType.Badminton ||
-                sportType == SportType.VolleyBall ||
                 sportType == SportType.Squash ||
                 sportType == SportType.SepakTakraw;
     }

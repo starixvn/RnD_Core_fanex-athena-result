@@ -882,6 +882,9 @@
     <Content Include="App_Data\Fanex.Result\Bitcoin.xls" />
     <Content Include="App_Data\Result_Data\Bitcoin.xls" />
     <Content Include="App_Data\Result_Data\BitcoinDetail.xls" />
+    <Content Include="App_Data\Result_Data\Volleyball.xls" />
+    <Content Include="App_Data\Result_Data\VolleyballDetail.xls" />
+    <Content Include="App_Data\Fanex.Result\Volleyball.xls" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>

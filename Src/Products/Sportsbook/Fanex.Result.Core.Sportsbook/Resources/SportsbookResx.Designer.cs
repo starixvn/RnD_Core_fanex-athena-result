@@ -887,5 +887,32 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
                 return ResourceManager.GetString("Tyrant", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set {0} Race to {1} Points.
+        /// </summary>
+        public static string Volleyball_3903XXYY {
+            get {
+                return ResourceManager.GetString("Volleyball_3903XXYY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set {0} Point {1} Winner.
+        /// </summary>
+        public static string Volleyball_3909XXYY {
+            get {
+                return ResourceManager.GetString("Volleyball_3909XXYY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set {0} {1} Points Played.
+        /// </summary>
+        public static string Volleyball_3915XXYY {
+            get {
+                return ResourceManager.GetString("Volleyball_3915XXYY", resourceCulture);
+            }
+        }
     }
 }

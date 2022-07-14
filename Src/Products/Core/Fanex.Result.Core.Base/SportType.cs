@@ -41,7 +41,7 @@
 
         #region Badminton
 
-        [StringValue("Badminton")]
+        [StringValue("Volleyball")]
         VolleyBall = 6,
 
         [StringValue("Badminton")]

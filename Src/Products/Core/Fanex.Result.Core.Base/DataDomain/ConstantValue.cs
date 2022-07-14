@@ -38,5 +38,10 @@
         public const string Abandoned2H = "Abandoned 2H";
 
         public const string Completed = "Completed";
+
+        public const string N = "n";
+
+        public const string Home = "h";
+        public const string Y = "y";
     }
 }

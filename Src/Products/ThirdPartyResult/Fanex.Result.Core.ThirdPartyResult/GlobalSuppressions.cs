@@ -10,3 +10,5 @@
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Critical Bug", "S4275:Getters and setters should access the expected fields", Justification = "<Pending>", Scope = "member", Target = "~P:Fanex.Result.Core.Habanero.HabaneroConfigs.SiteId")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Critical Bug", "S4275:Getters and setters should access the expected fields", Justification = "<Pending>", Scope = "member", Target = "~P:Fanex.Result.Core.Habanero.HabaneroConfigs.Url")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Critical Bug", "S4275:Getters and setters should access the expected fields", Justification = "<Pending>", Scope = "member", Target = "~P:Fanex.Result.Core.Habanero.HabaneroConfigs.VendorId")]
+
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Critical Code Smell", "S3776:Cognitive Complexity of methods should not be too high", Justification = "<Pending>", Scope = "member", Target = "~M:Fanex.Result.Core.ThirdParty.ThirdPartyResult.GetResultGET(Fanex.Result.Core.ThirdParty.Models.ResultRequest)~System.String")]

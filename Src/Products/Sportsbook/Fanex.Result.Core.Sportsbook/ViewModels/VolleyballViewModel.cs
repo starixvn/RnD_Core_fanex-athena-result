@@ -10,7 +10,6 @@
     using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.Extension;
     using Fanex.Result.Core.Base.Utilities;
-    using Fanex.Result.Core.ESport.DTO;
     using Fanex.Result.Core.Sportsbook.DataDomain;
     using Fanex.Result.Core.Sportsbook.ViewModels.BaseDetail;
     using Fanex.Result.Core.Volleyball.DTO;

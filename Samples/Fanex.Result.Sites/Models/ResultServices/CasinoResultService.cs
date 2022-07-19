@@ -76,8 +76,6 @@
                     return "choice=20013*comms=0*site=IBC*tableCode=1*state=0*result=P;S3;H3;HK:D;S10;C3;D6*results=*winResult=*ForcedCompleted=0*ReasonCode=0*enterType=0";
                 case 3413:
                     return "choice=20020*comms=0*site=IBC*tableCode=1*state=0*result=J;S7:A;C7:B*results=*winResult=*ForcedCompleted=0*ReasonCode=0*enterType=0";
-                    //return "choice=20021*comms=0*site=IBC*tableCode=1*state=0*result=J;DQ:A;D7;H9;HK;C10;D9;H4;C8;CA;S8;H5;H10;S10;D7;H9;HK;C10;D9;H4;C8;CA;S8;H5;H10:B;D7;H9;HK;C10;D9;H4;C8;CA;S8;H5;H10;C4;C7;S4;C5;H2;CK;H8;S9;SK;C9;DJ;HQ*results=*winResult=*ForcedCompleted=0*ReasonCode=0*enterType=0";
-                    //return "choice=20020*comms=0*site=IBC*tableCode=1*state=0*result=J;HA:A;CJ;D10:B;C2;CA*results=*winResult=*ForcedCompleted=0*ReasonCode=0*enterType=0";
                 default:
                     return "choice=10002*comms=0*site=IBC*tableCode=502*state=0*result=B;D3;SQ;H8:P;CK;HQ;H7*results=*winResult=*ForcedCompleted=0*ReasonCode=0*enterType=0";
             }

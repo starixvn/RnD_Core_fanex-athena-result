@@ -38,7 +38,7 @@
                 var mapResultItem = MapVolleyballResultMetadata.GetMapByBettypeId(mapResult.BetTypeId);
                 if (mapResultItem != null)
                 {
-                    
+                    mapResult.IsDisplaySingleTeam = mapResultItem.IsSingleResult;
                     mapResult.SetNumber = GetSetValue(detailItem.ResourceId);
                     mapResult.Point = GetPointValue(detailItem.ResourceId);
                     mapResult.ResourceName = GetResourceName(mapResult, betTypeId, resourceId, mapResultItem);

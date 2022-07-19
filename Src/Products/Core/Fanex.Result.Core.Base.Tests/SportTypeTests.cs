@@ -27,7 +27,7 @@
             {4, "Hockey"},
             {28, "Hockey"},
             {5, "Tennis"},
-            {6, "Badminton"},
+            {6, "Volleyball"},
             {9, "Badminton"},
             {30, "Badminton"},
             {48, "Badminton"},

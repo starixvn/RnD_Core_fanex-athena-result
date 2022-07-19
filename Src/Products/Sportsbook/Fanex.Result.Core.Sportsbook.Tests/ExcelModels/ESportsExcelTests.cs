@@ -34,7 +34,7 @@
             var excelViewModel = new ESportExcel(string.Empty, _resultSetting, _resultData.ToList());
 
             // Assert
-            Assert.AreEqual(14, excelViewModel.ColumnTemplateCount);
+            Assert.AreEqual(5, excelViewModel.ColumnTemplateCount);
         }
 
         [Test]
@@ -44,7 +44,7 @@
             var excelViewModel = new ESportExcel(string.Empty, _resultSetting, _resultData.ToList());
 
             // Assert
-            Assert.AreEqual(13, excelViewModel.ColumnStatus);
+            Assert.AreEqual(4, excelViewModel.ColumnStatus);
         }
 
         [Test]
@@ -71,17 +71,8 @@
             Assert.AreEqual("Match Code/ID", actualHeaderRow.Cells[0].StringCellValue);
             Assert.AreEqual("Kick Off. Time", actualHeaderRow.Cells[1].StringCellValue);
             Assert.AreEqual("Match", actualHeaderRow.Cells[2].StringCellValue);
-            Assert.AreEqual("M1", actualHeaderRow.Cells[3].StringCellValue);
-            Assert.AreEqual("M2", actualHeaderRow.Cells[4].StringCellValue);
-            Assert.AreEqual("M3", actualHeaderRow.Cells[5].StringCellValue);
-            Assert.AreEqual("M4", actualHeaderRow.Cells[6].StringCellValue);
-            Assert.AreEqual("M5", actualHeaderRow.Cells[7].StringCellValue);
-            Assert.AreEqual("M6", actualHeaderRow.Cells[8].StringCellValue);
-            Assert.AreEqual("M7", actualHeaderRow.Cells[9].StringCellValue);
-            Assert.AreEqual("M8", actualHeaderRow.Cells[10].StringCellValue);
-            Assert.AreEqual("M9", actualHeaderRow.Cells[11].StringCellValue);
-            Assert.AreEqual("Final Score", actualHeaderRow.Cells[12].StringCellValue);
-            Assert.AreEqual("Status", actualHeaderRow.Cells[13].StringCellValue);
+            Assert.AreEqual("Final Score", actualHeaderRow.Cells[3].StringCellValue);
+            Assert.AreEqual("Status", actualHeaderRow.Cells[4].StringCellValue);
         }
     }
 }

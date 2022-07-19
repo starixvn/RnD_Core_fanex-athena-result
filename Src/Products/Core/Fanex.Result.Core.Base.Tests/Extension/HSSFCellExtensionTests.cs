@@ -96,7 +96,7 @@
             _cell.SetCellValue((object)false);
 
             // Assert
-            Assert.AreEqual(false, _cell.BooleanCellValue);
+            Assert.IsFalse(_cell.BooleanCellValue);
         }
 
         [Test]

@@ -13,3 +13,5 @@
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Blocker Code Smell", "S3427:Method overloads with default parameter values should not overlap ", Justification = "<Pending>", Scope = "member", Target = "~M:Fanex.Result.Core.LinkedGames.LinkedGamesResult.#ctor(Fanex.Result.Core.LinkedGames.Ultilities.WebClient.IWebClient,Fanex.Result.Core.LinkedGames.Ultilities.Serializer.ISerializer)")]
 
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Blocker Code Smell", "S3427:Method overloads with default parameter values should not overlap ", Justification = "<Pending>", Scope = "member", Target = "~M:Fanex.Result.Core.LinkedGames.LinkedGamesResult.#ctor(Fanex.Result.Core.Base.Utilities.IWebClient,Fanex.Result.Core.Base.Utilities.ISerializer)")]
+
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Blocker Code Smell", "S3427:Method overloads with default parameter values should not overlap ", Justification = "<Pending>", Scope = "member", Target = "~M:Fanex.Result.Core.LinkedGames.LinkedGamesResult.#ctor(Fanex.Result.Core.Base.Utilities.ISerializer)")]

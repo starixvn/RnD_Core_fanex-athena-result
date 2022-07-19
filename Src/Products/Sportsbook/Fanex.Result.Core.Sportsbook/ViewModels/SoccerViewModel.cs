@@ -232,7 +232,7 @@
 
         private bool ShowLiveScoreForFTBettype()
         {
-            var isInstantSettlementBetTypesSupportFT = BetTypeConstants.InstantSettlementBetTypesSupportFT.Any(i => i == SPORTBOOK.Bettype);
+            var isInstantSettlementBetTypesSupportFT = BetTypeConstants.IsInstantSettlementBetTypesSupportFT(SPORTBOOK.Bettype);
             if (isInstantSettlementBetTypesSupportFT)
             {
                 if (EventStatusIsAbandoned
@@ -251,7 +251,7 @@
         private bool ShowLiveScoreForHTBettype()
         {
             var isRefundOrAbandonedEvent = EventStatusIsRefund || EventStatusIsAbandoned;
-            var isInstantSettlementBetTypesSupportHT = BetTypeConstants.InstantSettlementBetTypesSupportHT.Any(i => i == SPORTBOOK.Bettype);
+            var isInstantSettlementBetTypesSupportHT = BetTypeConstants.IsInstantSettlementBetTypesSupportHT(SPORTBOOK.Bettype);
             if (isInstantSettlementBetTypesSupportHT)
             {
                 return isRefundOrAbandonedEvent ? false : !SPORTBOOK.IsHTCal;

@@ -165,7 +165,7 @@
             }
             else
             {
-                HandleTeamNameResult(item, isHomeTeam, isNoneOrNo);
+                HandleTeamNameResult(item, isHomeTeam);
             }
         }
 
@@ -177,7 +177,7 @@
                                         : LangResource.None;
         }
 
-        private void HandleTeamNameResult(MapVolleyballResult item, bool isHomeTeam, bool isNoneOrNo)
+        private void HandleTeamNameResult(MapVolleyballResult item, bool isHomeTeam)
         {
             var result = isHomeTeam ? HomeTeam : AwayTeam;
             item.HomeValue = result;

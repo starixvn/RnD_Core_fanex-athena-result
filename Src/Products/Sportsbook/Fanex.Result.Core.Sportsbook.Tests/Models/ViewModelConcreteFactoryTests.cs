@@ -129,7 +129,7 @@
         [TestCase(2, "BasketBallExcel")]
         [TestCase(4, "HockeyExcel")]
         [TestCase(5, "TennisExcel")]
-        [TestCase(6, "BadmintonExcel")]
+        [TestCase(6, "VolleyballExcel")]
         [TestCase(8, "BaseBallExcel")]
         [TestCase(10, "BilliardExcel")]
         [TestCase(32, "BasketBallExcel")]

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Fanex.Result.Core.Sportsbook.Constants
 {
@@ -24,7 +25,10 @@ namespace Fanex.Result.Core.Sportsbook.Constants
         public const int HomeTeamOverUnder1HCorners = 484;
         public const int AwayTeamOverUnder1HCorners = 485;
 
-        public static readonly List<int> InstantSettlementBetTypesSupportFT = new List<int>
+        public static bool IsInstantSettlementBetTypesSupportFT(int bettype)
+            => InstantSettlementBetTypesSupportFT.Any(i => i == bettype);
+
+        private static readonly List<int> InstantSettlementBetTypesSupportFT = new List<int>
         {
             OverUnder,
             OverUnder2H,
@@ -39,7 +43,10 @@ namespace Fanex.Result.Core.Sportsbook.Constants
             AwayTeamOverUnderCorners
         };
 
-        public static readonly List<int> InstantSettlementBetTypesSupportHT = new List<int>
+        public static bool IsInstantSettlementBetTypesSupportHT(int bettype)
+            => InstantSettlementBetTypesSupportHT.Any(i => i == bettype);
+
+        private static readonly List<int> InstantSettlementBetTypesSupportHT = new List<int>
         {
             OverUnder1H,
             HomeTeamOverUnder1H,

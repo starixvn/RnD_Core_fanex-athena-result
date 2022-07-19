@@ -113,12 +113,12 @@
             {
                 item.HomeValue = item.AwayValue = detailItem.HomeValue == "C" ? LangResource.Caught : LangResource.NotCaught;
             }
-            else if (CricketResourceID.BatsmanResourceList.Any(i => SportsbookHelper.IsValidResourceId(i, item.ResourceID)))
+            else if (CricketResourceID.IsBatsmanResource(item.ResourceID))
             {
                 item.HomeValue = RefDataHelper.GetTeamName(detailItem.OtherInfo, LanguageCode, string.Empty);
                 item.AwayValue = detailItem.HomeValue;
             }
-            else if (CricketResourceID.BatsmansResourceList.Any(i => SportsbookHelper.IsValidResourceId(i, item.ResourceID)))
+            else if (CricketResourceID.IsBatsmansResource(item.ResourceID))
             {
                 var ids = detailItem.OtherInfo.Split(',');
                 var names = new List<string>();
@@ -128,11 +128,11 @@
                 }
                 item.HomeValue = string.Join(", ", names);
             }
-            else if (CricketResourceID.YesNoResourceList.Any(i => SportsbookHelper.IsValidResourceId(i, item.ResourceID)))
+            else if (CricketResourceID.IsYesNoResource(item.ResourceID))
             {
                 item.HomeValue = detailItem.HomeValue.ToLowerInvariant() == "y" ? LangResource.Yes : LangResource.No;
             }
-            else if (CricketResourceID.ManOutResourceList.Any(i => SportsbookHelper.IsValidResourceId(i, item.ResourceID)))
+            else if (CricketResourceID.IsManOutResource(item.ResourceID))
             {
                 var ids = detailItem.HomeValue.Split(',');
                 var names = new List<string>();

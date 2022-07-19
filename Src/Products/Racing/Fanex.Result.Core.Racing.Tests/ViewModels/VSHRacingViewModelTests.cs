@@ -171,7 +171,7 @@
             var viewModel = new RacingViewModel(_racing, _setting, _refDataHelper);
 
             // Assert
-            Assert.AreEqual(true, viewModel.IsSCR);
+            Assert.IsTrue(viewModel.IsSCR);
         }
 
         [Test]
@@ -184,7 +184,7 @@
             var viewModel = new RacingViewModel(_racing, _setting, _refDataHelper);
 
             // Assert
-            Assert.AreEqual(true, viewModel.IsFavor);
+            Assert.IsTrue(viewModel.IsFavor);
         }
 
         [Test]

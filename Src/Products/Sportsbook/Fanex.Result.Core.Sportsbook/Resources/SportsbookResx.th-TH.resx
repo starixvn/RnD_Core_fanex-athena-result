@@ -138,4 +138,13 @@
   <data name="CorrectScore" xml:space="preserve">
     <value>คะแนนที่ถูกต้อง</value>
   </data>
+  <data name="Volleyball_3903XXYY" xml:space="preserve">
+    <value>คะแนนแข่งขันจนถึง {1} เซ็ต {0}</value>
+  </data>
+  <data name="Volleyball_3909XXYY" xml:space="preserve">
+    <value>ผู้ชนะ {1} คะแนนเซ็ต {0}</value>
+  </data>
+  <data name="Volleyball_3915XXYY" xml:space="preserve">
+    <value>ทีม คะแนน {1} เซ็ต {0}</value>
+  </data>
 </root>

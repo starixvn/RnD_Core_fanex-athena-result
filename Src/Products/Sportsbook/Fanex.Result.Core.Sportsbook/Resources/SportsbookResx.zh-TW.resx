@@ -393,4 +393,13 @@
   <data name="ESports_90010X" xml:space="preserve">
     <value>地圖 {0} 賽果</value>
   </data>
+  <data name="Volleyball_3903XXYY" xml:space="preserve">
+    <value>第 {0} 局先得 {1} 分盤</value>
+  </data>
+  <data name="Volleyball_3909XXYY" xml:space="preserve">
+    <value>第 {0} 局第 {1} 分勝負盤</value>
+  </data>
+  <data name="Volleyball_3915XXYY" xml:space="preserve">
+    <value>第 {0} 局第 {1} 分球隊</value>
+  </data>
 </root>

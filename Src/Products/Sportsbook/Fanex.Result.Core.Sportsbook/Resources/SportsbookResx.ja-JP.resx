@@ -129,4 +129,10 @@
   <data name="TotalGoal" xml:space="preserve">
     <value> 合計ゴール数</value>
   </data>
+  <data name="Volleyball_3903XXYY" xml:space="preserve">
+    <value>第 {0} セットの {1} ポイント先取</value>
+  </data>
+  <data name="Volleyball_3909XXYY" xml:space="preserve">
+    <value>第 {0} セットの {1} ポイントの勝者</value>
+  </data>
 </root>

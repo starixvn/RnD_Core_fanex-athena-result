@@ -240,4 +240,13 @@
   <data name="ESports_90010X" xml:space="preserve">
     <value>地图 {0} 赛果</value>
   </data>
+  <data name="Volleyball_3903XXYY" xml:space="preserve">
+    <value>第 {0} 局先得 {1} 分盘</value>
+  </data>
+  <data name="Volleyball_3909XXYY" xml:space="preserve">
+    <value>第 {0} 局第 {1} 分胜负盘</value>
+  </data>
+  <data name="Volleyball_3915XXYY" xml:space="preserve">
+    <value>第 {0} 局第 {1} 分球队</value>
+  </data>
 </root>

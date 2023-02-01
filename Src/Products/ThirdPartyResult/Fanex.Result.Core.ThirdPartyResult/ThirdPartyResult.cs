@@ -128,7 +128,7 @@
                     { "CurrencyId" , resultRequest.CurrencyId.ToString() },
                     { "BetType" , resultRequest.BetTypeId.ToString() },
                     { "EndTime" , resultRequest.EndTime },
-                    { "OwTransId" , resultRequest.OwTransId },
+                    { "OwTransId" , resultRequest.OwTransId.ToString() },
                     { "Platform" , resultRequest.Platform},
                     { "DarkMode" , resultRequest.IsDarkMode},
                     { "GMT" , resultRequest.GMT},

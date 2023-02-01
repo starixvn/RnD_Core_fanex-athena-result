@@ -24,7 +24,7 @@
 
         public string EndTime { get; set; }
 
-        public string OwTransId { get; set; }
+        public int OwTransId { get; set; }
 
         public string LangCode { get; set; }
 

@@ -60,7 +60,7 @@
 
         #region Billiard
 
-        [StringValue("Billiard")]
+        [StringValue("Golf")]
         Golf = 10,
 
         [StringValue("Billiard")]

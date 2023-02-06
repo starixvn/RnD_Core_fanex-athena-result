@@ -31,7 +31,7 @@
             {9, "Badminton"},
             {30, "Badminton"},
             {48, "Badminton"},
-            {10, "Billiard"},
+            {10, "Golf"},
             {11, "Billiard"},
             {7, "Billiard"},
             {33, "Billiard"},

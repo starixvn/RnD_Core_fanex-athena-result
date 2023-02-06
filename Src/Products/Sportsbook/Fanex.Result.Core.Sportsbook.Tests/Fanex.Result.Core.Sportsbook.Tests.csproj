@@ -110,6 +110,7 @@
     <Compile Include="ViewModels\BadmintonViewModelTests.cs" />
     <Compile Include="ViewModels\Badminton\BadmintonlGameDetailItemTests.cs" />
     <Compile Include="ViewModels\BeachSoccerViewModelTests.cs" />
+    <Compile Include="ViewModels\GolfViewModelTests.cs" />
     <Compile Include="ViewModels\ESportDetail\MapTests.cs" />
     <Compile Include="ViewModels\ESportViewModelTests.cs" />
     <Compile Include="ViewModels\MuayThaiViewModelTests.cs" />

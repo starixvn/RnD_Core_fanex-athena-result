@@ -10,7 +10,7 @@
     using NPOI.SS.UserModel;
     using ViewModels;
 
-    internal sealed class BilliardExcel : ExcelBase, IExcelModel
+    internal class BilliardExcel : ExcelBase, IExcelModel
     {
         public BilliardExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
             : base(templatePath, setting, data)

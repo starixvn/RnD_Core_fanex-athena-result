@@ -54,7 +54,7 @@
 
         [TestCase(1, "SoccerViewModel")]
         [TestCase(2, "BasketBallViewModel")]
-        [TestCase(10, "BilliardViewModel")]
+        [TestCase(10, "GolfViewModel")]
         [TestCase(32, "BasketBallViewModel")]
         [TestCase(44, "MuayThaiViewModel")]
         [TestCase(186, "VSTennisViewModel")]
@@ -131,7 +131,7 @@
         [TestCase(5, "TennisExcel")]
         [TestCase(6, "VolleyballExcel")]
         [TestCase(8, "BaseBallExcel")]
-        [TestCase(10, "BilliardExcel")]
+        [TestCase(10, "GolfExcel")]
         [TestCase(32, "BasketBallExcel")]
         [TestCase(44, "MuayThaiExcel")]
         [TestCase(186, "VSTennisExcel")]

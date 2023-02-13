@@ -97,6 +97,15 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DNF.
+        /// </summary>
+        public static string Dnf {
+            get {
+                return ResourceManager.GetString("Dnf", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 8th.
         /// </summary>
         public static string EighthNumber {

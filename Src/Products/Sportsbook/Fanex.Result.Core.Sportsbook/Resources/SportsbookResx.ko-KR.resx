@@ -135,4 +135,7 @@
   <data name="Volleyball_3909XXYY" xml:space="preserve">
     <value>세트 {0} 포인트 {1} 승자</value>
   </data>
+  <data name="Dnf" xml:space="preserve">
+    <value>종료되지 않았습니다</value>
+  </data>
 </root>

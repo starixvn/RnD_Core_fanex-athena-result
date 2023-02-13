@@ -402,4 +402,7 @@
   <data name="Volleyball_3915XXYY" xml:space="preserve">
     <value>Set {0} {1} Points Played</value>
   </data>
+  <data name="Dnf" xml:space="preserve">
+    <value>DNF</value>
+  </data>
 </root>

@@ -147,4 +147,7 @@
   <data name="Volleyball_3915XXYY" xml:space="preserve">
     <value>ทีม คะแนน {1} เซ็ต {0}</value>
   </data>
+  <data name="Dnf" xml:space="preserve">
+    <value>ยังไม่เสร็จสิ้น</value>
+  </data>
 </root>

@@ -324,4 +324,7 @@
   <data name="ESports_90010X" xml:space="preserve">
     <value>Bản Đồ {0} - Kết Quả</value>
   </data>
+  <data name="Dnf" xml:space="preserve">
+    <value>Không hoàn thành</value>
+  </data>
 </root>

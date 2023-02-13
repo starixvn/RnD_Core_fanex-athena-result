@@ -135,4 +135,7 @@
   <data name="Volleyball_3909XXYY" xml:space="preserve">
     <value>第 {0} セットの {1} ポイントの勝者</value>
   </data>
+  <data name="Dnf" xml:space="preserve">
+    <value>未完了</value>
+  </data>
 </root>

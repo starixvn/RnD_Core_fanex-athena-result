@@ -396,4 +396,7 @@
   <data name="Volleyball_3915XXYY" xml:space="preserve">
     <value>第 {0} 局第 {1} 分球队</value>
   </data>
+  <data name="Dnf" xml:space="preserve">
+    <value>未完赛</value>
+  </data>
 </root>

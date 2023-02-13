@@ -3,13 +3,19 @@
     using Base;
     using Base.ViewModels;
     using DTO;
+    using Fanex.Result.Core.Base.DataDomain;
     using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.Utilities;
+    using Fanex.Result.Core.Sportsbook.Resources;
+    using System;
+    using System.Collections.Generic;
 
     public sealed class GolfViewModel : SportsbookBaseViewModel, IResultViewModel
     {
-        private const int ScoreWin = 1;
-        private const int ScoreLose = 0;
+        private const int ScoreWin = 0;
+        private const int ScoreLose = 1;
+        private const int ScoreRetire = 999;
+        
 
         public GolfViewModel(Sportsbook sportbook, ResultSetting setting)
             : this(sportbook, setting, null)
@@ -22,43 +28,59 @@
         }
 
         public string FinalAwayScore
-        {
-            get
-            {
-                if (HasFinalScoreText(SPORTBOOK.FinalHomeScore, SPORTBOOK.FinalAwayScore))
-                {
-                    return ScoreToText(SPORTBOOK.FinalAwayScore.Value);
-                }
-
-                return GetScore(SPORTBOOK.FinalAwayScore);
-            }
-        }
+            => CalculateScore(SPORTBOOK.FinalAwayScore);
 
         public string FinalHomeScore
-        {
-            get
-            {
-                if (HasFinalScoreText(SPORTBOOK.FinalHomeScore, SPORTBOOK.FinalAwayScore))
-                {
-                    return ScoreToText(SPORTBOOK.FinalHomeScore.Value);
-                }
+            => CalculateScore(SPORTBOOK.FinalHomeScore);
 
-                return GetScore(SPORTBOOK.FinalHomeScore);
+        protected override string GetScore(int? score)
+        {
+            if (HasFinalScoreText(score))
+            {
+                return ScoreToText(score.Value);
             }
+
+            return base.GetScore(score);
         }
 
-        private static bool HasFinalScoreText(int? homeScore, int? awayScore)
+        private bool HasFinalScoreText(int? score)
         {
-            if (homeScore.HasValue && awayScore.HasValue)
+            if (score.HasValue && score.Value.Equals(ScoreRetire))
             {
-                return (homeScore.Value.Equals(ScoreWin) && awayScore.Value.Equals(ScoreLose)) ||
-                    (homeScore.Value.Equals(ScoreLose) && awayScore.Value.Equals(ScoreWin));
+                return true;
+            }
+
+            if (SPORTBOOK.FinalHomeScore.HasValue && SPORTBOOK.FinalAwayScore.HasValue)
+            {
+                var sumScore = SPORTBOOK.FinalHomeScore + SPORTBOOK.FinalAwayScore;
+                return sumScore.Equals(ScoreLose);
             }
 
             return false;
         }
 
+        private string CalculateScore(int? score)
+        {
+            if (SPORTBOOK.BetStatus.IndexOf(ConstantValue.Refund, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                SPORTBOOK.BetStatus.IndexOf(LangResource.Abandoned1h, StringComparison.OrdinalIgnoreCase) >= 0 ||
+                SPORTBOOK.BetStatus.IndexOf(LangResource.Abandoned2h, StringComparison.OrdinalIgnoreCase) >= 0)
+            {
+                return LangResource.Refund;
+            }
+
+            return GetScore(score);
+        }
+
         private static string ScoreToText(int score)
-            => score == ScoreWin ? LangResource.Won : LangResource.Lose;
+        {
+            var SpecialScore = new Dictionary<int, string>
+            {
+                {ScoreWin, LangResource.Won},
+                {ScoreLose, LangResource.Lose},
+                {ScoreRetire, SportsbookResx.Dnf}
+            };
+
+            return SpecialScore[score];
+        }
     }
 }

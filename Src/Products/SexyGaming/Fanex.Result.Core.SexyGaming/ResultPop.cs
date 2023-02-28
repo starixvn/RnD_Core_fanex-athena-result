@@ -36,6 +36,7 @@ namespace Fanex.Result.Core.SexyGaming
                     case "3102":
                         return GetDragonTigerLayout(TransDesc, slang, GameId3rd, bettype);
                     case "3103":
+                    case "3108":
                         return GetSicBoLayout(TransDesc, slang, GameId3rd, bettype);
                     case "3104":
                         return GetRouletteLayout(TransDesc, slang, GameId3rd, bettype);
@@ -201,7 +202,7 @@ namespace Fanex.Result.Core.SexyGaming
             {
                 case "3101":
                 case "3102":
-                case "3105":
+                case "3105":                
                     strFinalLayout = "<div class='popWTableArea'><table width='100%' cellpadding='0' cellspacing='0' border='0' class='oddsTable info'>";
                     strFinalLayout += "<tbody><tr><td colspan='2' class='tabtitle'>{0}</td></tr></tbody>";
                     strFinalLayout += "<tbody>";
@@ -213,6 +214,7 @@ namespace Fanex.Result.Core.SexyGaming
                     break;
                 case "3103":
                 case "3104":
+                case "3108":
                     strFinalLayout = "<div class='popWTableArea'><table width='100%' cellpadding='0' cellspacing='0' border='0' class='oddsTable info'>";
                     strFinalLayout += "<tbody><tr><td class='tabtitle'>{0}</td></tr></tbody>";
                     strFinalLayout += "<tbody>";

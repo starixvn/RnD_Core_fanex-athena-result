@@ -160,6 +160,7 @@
                     return "choice=2001*site=IBC*tableCode=31*result=D;CQ:T;C7*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
 
                 case 3103:
+                case 3108:
                     return "choice=3040*site=IBC*tableCode=51*result=5;6;6*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
 
                 case 3104:

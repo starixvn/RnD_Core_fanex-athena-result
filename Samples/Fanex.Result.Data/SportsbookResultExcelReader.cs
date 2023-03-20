@@ -39,8 +39,8 @@
             resultData.HtAwayScore = Convert.ToInt32(row.GetCell(20)?.ToString());
             resultData.GoalRecord = row.GetCell(35)?.ToString();
             resultData.BetID = "3";
-            resultData.SettlementStatus = Convert.ToByte(string.IsNullOrEmpty(row.GetCell(17)?.ToString()) ? "0" : row.GetCell(17)?.ToString());            
-            
+            resultData.SettlementStatus = Convert.ToByte(string.IsNullOrEmpty(row.GetCell(17)?.ToString()) ? "0" : row.GetCell(17)?.ToString());
+            resultData.NoHTScore = Convert.ToBoolean(Convert.ToInt16(row.GetCell(45).ToString()));
 
             return resultData;
         }

@@ -21,8 +21,8 @@
 
         [TestCase(1, 0, "Lose")]
         [TestCase(0, 1, "Won")]
-        [TestCase(999, 1, "Dnf")]
-        [TestCase(999, 2, "Dnf")]
+        [TestCase(999, 1, "DNF")]
+        [TestCase(999, 2, "DNF")]
         public void FinalHomeScore_ScoreHasScoreText_ShowText(int? homeScoreValue, int? awayScoreValue, string expectedScoreValue)
         {
             // Arrange
@@ -55,8 +55,8 @@
 
         [TestCase(1, 0, "Won")]
         [TestCase(0, 1, "Lose")]
-        [TestCase(0, 999, "Dnf")]
-        [TestCase(2, 999, "Dnf")]
+        [TestCase(0, 999, "DNF")]
+        [TestCase(2, 999, "DNF")]
         public void FinalAwayScore_ScoreHasScoreText_ShowText(int? homeScoreValue, int? awayScoreValue, string expectedScoreValue)
         {
             // Arrange

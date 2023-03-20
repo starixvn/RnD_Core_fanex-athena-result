@@ -104,5 +104,7 @@
         public int Handicap2 { get; set; }
 
         public byte SettlementStatus { get; set; }
+
+        public bool NoHTScore { get; set; }
     }
 }

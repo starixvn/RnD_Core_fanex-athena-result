@@ -93,11 +93,11 @@
 
         public bool IsShowedFirstHalfLGAway => GetGoalInfo().Visible1stLGAway;
 
-        public string HTHomeScore => CalculateScore(SPORTBOOK.HtHomeScore, false);
+        public string HTHomeScore => CalculateHTScore(SPORTBOOK.HtHomeScore);
 
         public string FinalHomeScore => CalculateScore(SPORTBOOK.FinalHomeScore, true);
 
-        public string HTAwayScore => CalculateScore(SPORTBOOK.HtAwayScore, false);
+        public string HTAwayScore => CalculateHTScore(SPORTBOOK.HtAwayScore);
 
         public string FinalAwayScore => CalculateScore(SPORTBOOK.FinalAwayScore, true);
 
@@ -259,6 +259,9 @@
 
             return false;
         }
+
+        private string CalculateHTScore(int? score)
+            => SPORTBOOK.NoHTScore ? ConstantValue.Hyphen : CalculateScore(score, false);
 
         private string CalculateScore(int? score, bool isFinalScore)
         {

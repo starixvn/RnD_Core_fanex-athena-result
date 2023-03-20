@@ -1901,5 +1901,31 @@
 
             Assert.AreEqual(TemplateFileUtils.RemoveEndLineSymbolHtml(expectedHtml), TemplateFileUtils.RemoveEndLineSymbolHtml(viewModel.DetailedResult));
         }
+
+        [Test]
+        public void HTAwayScore_NoHTScore_ShowHyphen()
+        {
+            // Arrange
+            _soccer.NoHTScore = true;
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting);
+
+            // Assert
+            Assert.AreEqual("-", viewModel.HTAwayScore);
+        }
+
+        [Test]
+        public void HTHomeScore_NoHTScore_ShowHyphen()
+        {
+            // Arrange
+            _soccer.NoHTScore = true;
+
+            // Act
+            var viewModel = new SoccerViewModel(_soccer, _setting);
+
+            // Assert
+            Assert.AreEqual("-", viewModel.HTHomeScore);
+        }
     }
 }

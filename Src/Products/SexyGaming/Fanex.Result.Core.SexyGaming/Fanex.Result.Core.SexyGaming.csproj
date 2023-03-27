@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BetTypeConstants.cs" />
+    <Compile Include="Resource\SexyGamingResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SexyGamingResource.resx</DependentUpon>
+    </Compile>
     <Compile Include="ResultPop.cs" />
     <Compile Include="SexyGamingException.cs" />
     <Compile Include="SexyGamingResultBuilder.cs" />
@@ -72,6 +78,17 @@
     <Analyzer Include="..\..\..\..\packages\SonarAnalyzer.CSharp.8.34.0.42011\analyzers\SonarAnalyzer.CFG.dll" />
     <Analyzer Include="..\..\..\..\packages\SonarAnalyzer.CSharp.8.34.0.42011\analyzers\SonarAnalyzer.CSharp.dll" />
     <Analyzer Include="..\..\..\..\packages\SonarAnalyzer.CSharp.8.34.0.42011\analyzers\SonarAnalyzer.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resource\SexyGamingResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SexyGamingResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resource\SexyGamingResource.th-TH.resx" />
+    <EmbeddedResource Include="Resource\SexyGamingResource.vi-VN.resx" />
+    <EmbeddedResource Include="Resource\SexyGamingResource.zh-CN.resx" />
+    <EmbeddedResource Include="Resource\SexyGamingResource.zh-Hans.resx" />
+    <EmbeddedResource Include="Resource\SexyGamingResource.zh-TW.resx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

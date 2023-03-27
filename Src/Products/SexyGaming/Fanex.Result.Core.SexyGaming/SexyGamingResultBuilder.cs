@@ -10,7 +10,7 @@
         private const string InvalidTransDescErrorMessage = "tranDesc is invalid!";
         private const string InvalidBetTypeErrorMessage = "betType is invalid!";
         private const string InvalidImagePathErrorMessage = "not found SexyGaming image path configuration!";
-        private readonly bool useOriginalPath;       
+        private readonly bool useOriginalPath;
 
         private IResultPopup _resultPopup;
 
@@ -26,14 +26,14 @@
 
         public virtual string GetTemplatePath => ConfigurationManager.AppSettings["SexyGamingResultImagePath"];
 
-        public string Render(string transDesc, string gameId3rd, string betType, string languageCode = "en-US")
+        public string Render(string transDesc, string gameId3rd, int betType, string languageCode = "en-US")
         {
             if (string.IsNullOrWhiteSpace(transDesc))
             {
                 throw new SexyGamingException(InvalidTransDescErrorMessage);
             }
 
-            if (string.IsNullOrWhiteSpace(betType))
+            if (betType == 0)
             {
                 throw new SexyGamingException(InvalidBetTypeErrorMessage);
             }

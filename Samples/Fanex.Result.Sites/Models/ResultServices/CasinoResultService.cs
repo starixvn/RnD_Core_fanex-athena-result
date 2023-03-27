@@ -168,7 +168,12 @@
 
                 case 3105:
                     return "choice=3001*site=spondemo*tableCode=B001*result=R;1:B;5*results=*winResult=";
-
+                case 3106:
+                    return "choice=6011*site=IBC*tableCode=121*result=3;4;5*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3107:
+                    return "choice=7017*site=IBC*tableCode=126*result=3;3;6*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
+                case 3109:
+                    return "choice=9002*site=IBC*tableCode=101*result=J;H7:A;S10;DJ;SA;H10;D9;CK;DA;D7;D7;D7;D7;D7;D7;D7;D7;D7:B;H4;D8;S6;S4;DK;H9;C4*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
                 default:
                     return "choice=1002*site=IBC*tableCode=5*result=B;SQ;S9;:P;S4;D3;*results=*winResult=*ForcedCompleted=0*ReasonCode=0";
             }

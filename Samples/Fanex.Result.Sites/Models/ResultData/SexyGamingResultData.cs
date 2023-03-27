@@ -11,7 +11,7 @@
             var transDesc = CasinoResultService.GetSexyGamingTransDesc(betType);
             var matchCode = "123456";
 
-            return service.Render(transDesc, matchCode, betType.ToString(), languageCode);
+            return service.Render(transDesc, matchCode, betType, languageCode);
         }
     }
 }

@@ -4,10 +4,11 @@ namespace Fanex.Result.Core.SexyGaming
     using System;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.Utilities;
+    using Fanex.Result.Core.SexyGaming.Resource;
 
     public interface IResultPopup
     {
-        string genResultPopHtml(string TransDesc, string GameId3rd, string slang, string bettype);
+        string genResultPopHtml(string TransDesc, string GameId3rd, string slang, int bettype);
     }
 
     public class ResultPop : IResultPopup
@@ -25,24 +26,28 @@ namespace Fanex.Result.Core.SexyGaming
             ResultPop.refDataHelper = refDataHelper ?? ResultCoreManager.RefDataHelper;
         }
 
-        public string genResultPopHtml(string TransDesc, string GameId3rd, string slang, string bettype)
+        public string genResultPopHtml(string TransDesc, string GameId3rd, string slang, int bettype)
         {
             try
             {
                 switch (bettype)
                 {
-                    case "3101":
+                    case (int)BetType.Baccarat:
                         return GetBaccaratLayout(TransDesc, slang, GameId3rd, bettype);
-                    case "3102":
+                    case (int)BetType.DragonTiger:
                         return GetDragonTigerLayout(TransDesc, slang, GameId3rd, bettype);
-                    case "3103":
-                    case "3108":
+                    case (int)BetType.Sicbo:
+                    case (int)BetType.ExtraSicbo:
+                    case (int)BetType.ThaiHilo:
                         return GetSicBoLayout(TransDesc, slang, GameId3rd, bettype);
-                    case "3104":
+                    case (int)BetType.Roulette:
                         return GetRouletteLayout(TransDesc, slang, GameId3rd, bettype);
-                    case "3105":
+                    case (int)BetType.RedBlueDuel:
                         return GetRedBlueDuelLayout(TransDesc, slang, GameId3rd, bettype);
-
+                    case (int)BetType.ThaiFishPrawnCrab:
+                        return GetFishPrawnCrabLayout(TransDesc, slang, GameId3rd, bettype);
+                    case (int)BetType.ExtraAndarBahar:
+                        return GetExtraAndarBaharLayout(TransDesc, slang, GameId3rd, bettype);
                     default:
                         return "";
                 }
@@ -53,7 +58,7 @@ namespace Fanex.Result.Core.SexyGaming
             }
         }
 
-        private static string GetBaccaratLayout(string sDesc, string slang, string GameId3rd, string bettype)
+        private static string GetBaccaratLayout(string sDesc, string slang, string GameId3rd, int bettype)
         {
             string[] GameDetail = sDesc.Split('*');
             string s1 = GetSplitValue('=', GameDetail[3].ToString());
@@ -68,7 +73,7 @@ namespace Fanex.Result.Core.SexyGaming
             return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Player", "Banker", strPlayerImg, strBankerImg);
         }
 
-        private static string GetRouletteLayout(string sDesc, string slang, string GameId3rd, string bettype)
+        private static string GetRouletteLayout(string sDesc, string slang, string GameId3rd, int bettype)
         {
             string[] GameDetail = sDesc.Split('*');
 
@@ -80,7 +85,7 @@ namespace Fanex.Result.Core.SexyGaming
             return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Results", strImgUrl);
         }
 
-        private static string GetSicBoLayout(string sDesc, string slang, string GameId3rd, string bettype)
+        private static string GetSicBoLayout(string sDesc, string slang, string GameId3rd, int bettype)
         {
             string[] GameDetail = sDesc.Split('*');
 
@@ -92,11 +97,42 @@ namespace Fanex.Result.Core.SexyGaming
             return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Results", strImgUrl);
         }
 
-        private static string GetDragonTigerLayout(string sDesc, string slang, string GameId3rd, string bettype)
+        private static string GetExtraAndarBaharLayout(string sDesc, string slang, string GameId3rd, int bettype)
+        {
+            string[] GameDetail = sDesc.Split('*');
+            const int firstIndexData = 2;
+            string strImgValue = GetSplitValue('=', GameDetail[3].ToString());
+            strImgValue = strImgValue.Replace("0", "").Replace("C11", "CJ");
+            var results = strImgValue.Split(':');
+            var jokerData = results.Length > 0 ? results[0] : string.Empty;
+            jokerData = jokerData.Length > firstIndexData ? jokerData.Substring(firstIndexData) : string.Empty;
+            var andarData = results.Length > 1 ? results[1] : string.Empty;
+            andarData = andarData.Length > firstIndexData ? andarData.Substring(firstIndexData) : string.Empty;
+            var baharData = results.Length > 2 ? results[2] : string.Empty;
+            baharData = baharData.Length > firstIndexData ? baharData.Substring(firstIndexData) : string.Empty;
+            var imageJoker = GenImgUrl("ExtraAndarBaha", jokerData);
+            var imageAndar = GenImgUrl("ExtraAndarBaha", andarData);
+            var imageBahar = GenImgUrl("ExtraAndarBaha", baharData);
+            string strFinalLayout = GetFinalLayout(bettype);
+
+            return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Results", imageJoker, imageAndar, imageBahar);
+
+        }
+        private static string GetFishPrawnCrabLayout(string sDesc, string slang, string GameId3rd, int bettype)
+        {
+            string[] GameDetail = sDesc.Split('*');
+
+            string strImgValue = GetSplitValue('=', GameDetail[3].ToString());
+            string strImgUrl = GenImgUrl("FishPrawnCrab", strImgValue);
+            string strFinalLayout = GetFinalLayout(bettype);
+
+            return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Results", strImgUrl);
+        }
+
+        private static string GetDragonTigerLayout(string sDesc, string slang, string GameId3rd, int bettype)
         {
             string[] GameDetail = sDesc.Split('*');
             string s1 = GetSplitValue('=', GameDetail[3].ToString());
-            s1 = ReplaceSpecialCharacter(s1);
             string[] CardValue = s1.Replace("D;", "").Replace("T;", "").Replace("0", "").Split(':');
             strBankerCardValue = CardValue[1].ToString();
             strPlayerCardValue = CardValue[0].ToString();
@@ -107,7 +143,7 @@ namespace Fanex.Result.Core.SexyGaming
             return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Dragon", "Tiger", strPlayerImg, strBankerImg);
         }
 
-        private static string GetRedBlueDuelLayout(string sDesc, string slang, string GameId3rd, string bettype)
+        private static string GetRedBlueDuelLayout(string sDesc, string slang, string GameId3rd, int bettype)
         {
             string[] GameDetail = sDesc.Split('*');
 
@@ -154,9 +190,6 @@ namespace Fanex.Result.Core.SexyGaming
                         strCardImg += @"<img src='" + SkinPath + "Poker/" + strCard[j].ToString() + ".png' align='absmiddle' border='0' class='code' />";
                     }
                 }
-
-                //strCardImg += @"<img src='" + AppDomain.CurrentDomain.BaseDirectory + SkinPath + "Poker/" + strCard[j].ToString() + ".jpg' align='absmiddle' border='0' class='code' />";
-
             }
             return strCardImg;
         }
@@ -181,6 +214,28 @@ namespace Fanex.Result.Core.SexyGaming
                     sImgUrl += "<img  src=\"" + skinroot_path + temp + strResult[j].ToString() + ".png\"  align=\"absmiddle\" border=\"0\" height=\"38\" width=\"38\"/>";
                 }
             }
+            else if (sMode == "ExtraAndarBaha")
+            {
+                skinroot_path += @"Poker\";
+                string[] strResult = sResult.Split(';');
+                for (int j = 0; j < strResult.Length; j++)
+                {
+                    if (j != 0 && j % 15 == 0)
+                    {
+                        sImgUrl += "</br>";
+                    }
+                    sImgUrl += "<img  src=\"" + skinroot_path + strResult[j].ToString() + ".png\"  align=\"absmiddle\" border=\"0\" height=\"38\" width=\"38\"/>";
+                }
+            }
+            else if (sMode == "FishPrawnCrab")
+            {
+                skinroot_path += @"FishPrawnCrab\";
+                string[] strResult = sResult.Split(';');
+                for (int j = 0; j < strResult.Length; j++)
+                {
+                    sImgUrl += "<img  src=\"" + skinroot_path + strResult[j].ToString() + "_FPC_TH.png\"  align=\"absmiddle\" border=\"0\" height=\"38\" width=\"38\"/>";
+                }
+            }
             else
             {
                 skinroot_path += @"RedBlueDuel\";
@@ -195,32 +250,41 @@ namespace Fanex.Result.Core.SexyGaming
             return sImgUrl;
         }
 
-        private static string GetFinalLayout(string bettype)
+        private static string GetFinalLayout(int bettype)
         {
             string strFinalLayout = "";
             switch (bettype)
             {
-                case "3101":
-                case "3102":
-                case "3105":                
+                case (int)BetType.Baccarat:
+                case (int)BetType.DragonTiger:
+                case (int)BetType.RedBlueDuel:
                     strFinalLayout = "<div class='popWTableArea'><table width='100%' cellpadding='0' cellspacing='0' border='0' class='oddsTable info'>";
                     strFinalLayout += "<tbody><tr><td colspan='2' class='tabtitle'>{0}</td></tr></tbody>";
                     strFinalLayout += "<tbody>";
                     strFinalLayout += "<tr align='center'><th>{1}</th><th>{2}</th></tr>";
                     strFinalLayout += "<tr align='center' class='bgcpe'><td width='50%'>{3}</td><td width='50%'>{4}</td></tr>";
-                    //strFinalLayout += "<tr align='center'> <td style='height: 24px;'>{5}</td> <td>{6}</td></tr>";
-                    //strFinalLayout += "<tr align='center'><td colspan='2' style='height: 24px; vertical-align:bottom;'>{7}</td></tr>";
                     strFinalLayout += "</tbody></table></div>";
                     break;
-                case "3103":
-                case "3104":
-                case "3108":
+                case (int)BetType.Sicbo:
+                case (int)BetType.Roulette:
+                case (int)BetType.ThaiHilo:
+                case (int)BetType.ThaiFishPrawnCrab:
+                case (int)BetType.ExtraSicbo:
                     strFinalLayout = "<div class='popWTableArea'><table width='100%' cellpadding='0' cellspacing='0' border='0' class='oddsTable info'>";
                     strFinalLayout += "<tbody><tr><td class='tabtitle'>{0}</td></tr></tbody>";
                     strFinalLayout += "<tbody>";
                     strFinalLayout += "<tr align='center'><th>{1}</th></tr>";
                     strFinalLayout += "<tr align='center' class='bgcpe'><td>{2}</td></tr>";
-                    //strFinalLayout += "<tr align='center' class='bgcpe'><td><b>{3}</b></td></tr>";
+                    strFinalLayout += "</tbody></table></div>";
+                    break;
+                case (int)BetType.ExtraAndarBahar:
+                    strFinalLayout = "<div class='popWTableArea'><table width='100%' cellpadding='0' cellspacing='0' border='0' class='oddsTable info'>";
+                    strFinalLayout += "<tbody><tr><td class='tabtitle'>{0}</td></tr></tbody>";
+                    strFinalLayout += "<tbody>";
+                    strFinalLayout += "<tr align='center'><th>{1}</th></tr>";
+                    strFinalLayout += "<tr align='center' class='bgcpe'><td>" + SexyGamingResource.MainCard + ": {2}</td></tr>";
+                    strFinalLayout += "<tr align='center' class='bgcpe'><td>" + SexyGamingResource.Andar + "<br/>{3}</td></tr>";
+                    strFinalLayout += "<tr align='center' class='bgcpe'><td>" + SexyGamingResource.Bahar + "<br/>{4}</td></tr>";
                     strFinalLayout += "</tbody></table></div>";
                     break;
             }

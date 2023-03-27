@@ -293,6 +293,12 @@
     <Content Include="Content\Core\img\sprites.png" />
     <Content Include="Content\Core\img\user.png" />
     <Content Include="Content\Fanex.Result\images\info-icon.png" />
+    <Content Include="Content\Fanex.Result\SexyGaming\template\public\game_result\FishPrawnCrab\1_FPC_TH.png" />
+    <Content Include="Content\Fanex.Result\SexyGaming\template\public\game_result\FishPrawnCrab\2_FPC_TH.png" />
+    <Content Include="Content\Fanex.Result\SexyGaming\template\public\game_result\FishPrawnCrab\3_FPC_TH.png" />
+    <Content Include="Content\Fanex.Result\SexyGaming\template\public\game_result\FishPrawnCrab\4_FPC_TH.png" />
+    <Content Include="Content\Fanex.Result\SexyGaming\template\public\game_result\FishPrawnCrab\5_FPC_TH.png" />
+    <Content Include="Content\Fanex.Result\SexyGaming\template\public\game_result\FishPrawnCrab\6_FPC_TH.png" />
     <Content Include="Content\Fanex.Result\WM\css\table_w.css" />
     <Content Include="Content\Fanex.Result\WM\images\FanTan\ball.png" />
     <Content Include="Content\Fanex.Result\WM\images\FishPrawnCrab\1.png" />

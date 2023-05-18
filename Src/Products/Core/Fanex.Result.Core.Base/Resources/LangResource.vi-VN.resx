@@ -151,10 +151,10 @@
     <value>Trạng thái</value>
   </data>
   <data name="TotalGames" xml:space="preserve">
-    <value>Tổng số Game đấu</value>
+    <value>Tổng Game</value>
   </data>
   <data name="NoInfo" xml:space="preserve">
-    <value>Thông tin chưa được cập nhật</value>
+    <value>Không có thông tin</value>
   </data>
   <data name="Score" xml:space="preserve">
     <value>Tỷ số</value>
@@ -196,10 +196,10 @@
     <value>Bị khóa</value>
   </data>
   <data name="Refundft" xml:space="preserve">
-    <value>Hoàn Tiền FT</value>
+    <value>Hoàn Tiền toàn trận</value>
   </data>
   <data name="Refundht" xml:space="preserve">
-    <value>Hoàn Tiền HT</value>
+    <value>Hoàn Tiền hiệp 1</value>
   </data>
   <data name="HTScore" xml:space="preserve">
     <value>Tỷ số hiệp 1</value>
@@ -235,10 +235,10 @@
     <value>Bản Đồ</value>
   </data>
   <data name="RS479" xml:space="preserve">
-    <value>Thời gian phạt góc đầu tiên</value>
+    <value>Thời gian phạt góc đầu</value>
   </data>
   <data name="RS481" xml:space="preserve">
-    <value>Thời gian phạt góc đầu tiên Hiệp 2</value>
+    <value>Thời gian phạt góc đầu Hiệp 2</value>
   </data>
   <data name="RS09" xml:space="preserve">
     <value>Chuỗi - Hiệp 1</value>
@@ -259,10 +259,10 @@
     <value>Phạt góc đầu tiên</value>
   </data>
   <data name="RS489" xml:space="preserve">
-    <value>Phạt góc đầu tiên Hiệp 1</value>
+    <value>Phạt góc đầu Hiệp 1</value>
   </data>
   <data name="RS490" xml:space="preserve">
-    <value>Phạt góc đầu tiên Hiệp 2</value>
+    <value>Phạt góc đầu Hiệp 2</value>
   </data>
   <data name="Neither" xml:space="preserve">
     <value>Không bên nào</value>
@@ -277,16 +277,16 @@
     <value>Loạt sút luân lưu – Chẵn/Lẻ (10 Lượt sút đầu)</value>
   </data>
   <data name="RS387" xml:space="preserve">
-    <value>Loạt sút luân lưu – Đội Nhà Tài/Xỉu (10 Lượt sút đầu)</value>
+    <value>Loạt luân lưu của Đội Nhà Tài/Xỉu (10 Lượt sút đầu)</value>
   </data>
   <data name="RS386" xml:space="preserve">
-    <value>Loạt sút luân lưu – Đội Khách Tài/Xỉu (10 Lượt sút đầu)</value>
+    <value>Loạt luân lưu của Đội Khách Tài/Xỉu (10 Lượt sút đầu)</value>
   </data>
   <data name="RS391" xml:space="preserve">
-    <value>Loạt sút luân lưu – Tổng số bàn thắng chính xác  (10 Lượt sút đầu)</value>
+    <value>Tổng số bàn thắng luân lưu chính xác (10 Lượt sút đầu)</value>
   </data>
   <data name="RS390" xml:space="preserve">
-    <value>Loạt sút luân lưu sẽ kéo dài đến các lượt sút loại trực tiếp</value>
+    <value>Loạt luân lưu sẽ kéo dài đến Bàn Thắng Vàng</value>
   </data>
   <data name="ExtraTime" xml:space="preserve">
     <value>Hiệp Phụ</value>
@@ -298,25 +298,25 @@
     <value>Cách Thức Ghi Bàn {0}</value>
   </data>
   <data name="PenaltyShootoutRoundFive" xml:space="preserve">
-    <value>Loạt Sút Luân Lưu – Vòng 5</value>
+    <value>Loạt Luân Lưu – Vòng 5</value>
   </data>
   <data name="PenaltyShootoutRoundFour" xml:space="preserve">
-    <value>Loạt Sút Luân Lưu – Vòng 4</value>
+    <value>Loạt Luân Lưu – Vòng 4</value>
   </data>
   <data name="PenaltyShootoutRoundThree" xml:space="preserve">
-    <value>Loạt Sút Luân Lưu – Vòng 3</value>
+    <value>Loạt Luân Lưu – Vòng 3</value>
   </data>
   <data name="PenaltyShootoutRoundTwo" xml:space="preserve">
-    <value>Loạt Sút Luân Lưu – Vòng 2</value>
+    <value>Loạt Luân Lưu – Vòng 2</value>
   </data>
   <data name="PenaltyShootoutRoundOne" xml:space="preserve">
-    <value>Loạt Sút Luân Lưu – Vòng 1</value>
+    <value>Loạt Luân Lưu – Vòng 1</value>
   </data>
   <data name="RS381" xml:space="preserve">
-    <value>Vòng {0} - Bàn Thắng/Hụt</value>
+    <value>Vòng {0} - Ghi bàn/Hụt</value>
   </data>
   <data name="RS382" xml:space="preserve">
-    <value>Vòng {0} - Bàn Thắng/Hụt</value>
+    <value>Vòng {0} - Ghi bàn/Hụt</value>
   </data>
   <data name="RS385" xml:space="preserve">
     <value>Vòng {0} - 1X2</value>
@@ -328,10 +328,10 @@
     <value>Vòng {0} - Dội Trúng Khung Thành</value>
   </data>
   <data name="PenaltyShootoutSuddenDeath" xml:space="preserve">
-    <value>Loạt sút luân lưu - Bàn thắng vàng</value>
+    <value>Loạt luân lưu - Bàn thắng vàng</value>
   </data>
   <data name="PenaltyShootoutFirstTen" xml:space="preserve">
-    <value>Loạt sút luân lưu –10 Lượt sút đầu</value>
+    <value>Loạt luân lưu – 10 Lượt sút đầu</value>
   </data>
   <data name="Miss" xml:space="preserve">
     <value>Hụt</value>
@@ -394,7 +394,7 @@
     <value>Bàn Thắng</value>
   </data>
   <data name="RS376" xml:space="preserve">
-    <value>Vòng {0} - Bàn Thắng/Hụt</value>
+    <value>Vòng {0} - Ghi bàn/Hụt</value>
   </data>
   <data name="2HScore" xml:space="preserve">
     <value>Điểm Hiệp 2</value>
@@ -406,15 +406,339 @@
     <value>Banh thứ ba</value>
   </data>
   <data name="Caught" xml:space="preserve">
-    <value>Bắt được bóng</value>
+    <value>Bắt bóng</value>
   </data>
   <data name="NotCaught" xml:space="preserve">
-    <value>Không bắt được bóng</value>
+    <value>Bắt hụt</value>
   </data>
   <data name="Inns1" xml:space="preserve">
     <value>Lượt đánh 1</value>
   </data>
   <data name="Inns2" xml:space="preserve">
     <value>Lượt đánh 2</value>
+  </data>
+  <data name="Banker" xml:space="preserve">
+    <value>Nhà cái</value>
+  </data>
+  <data name="Corner" xml:space="preserve">
+    <value>Phạt góc</value>
+  </data>
+  <data name="Dragon" xml:space="preserve">
+    <value>Rồng</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>[i]</value>
+  </data>
+  <data name="FirstLastCorners" xml:space="preserve">
+    <value>Phạt góc đầu/cuối</value>
+  </data>
+  <data name="GameID" xml:space="preserve">
+    <value>Game ID</value>
+  </data>
+  <data name="GameResult" xml:space="preserve">
+    <value>Kết quả trận đấu</value>
+  </data>
+  <data name="GoalRecord" xml:space="preserve">
+    <value>Bàn thắng ghi nhận</value>
+  </data>
+  <data name="Goals" xml:space="preserve">
+    <value>Bàn thắng</value>
+  </data>
+  <data name="GoalScorer" xml:space="preserve">
+    <value>Người ghi bàn</value>
+  </data>
+  <data name="GoalTime" xml:space="preserve">
+    <value>Thời gian ghi bàn</value>
+  </data>
+  <data name="HomeAwayPlayerSentOff" xml:space="preserve">
+    <value>Đội Nhà/Đội Khách - Cầu thủ bị đuổi</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Internal" xml:space="preserve">
+    <value>Nội bộ</value>
+  </data>
+  <data name="IsNeutral" xml:space="preserve">
+    <value>(N)</value>
+  </data>
+  <data name="Lbl1P" xml:space="preserve">
+    <value>Hiệp 1</value>
+  </data>
+  <data name="Lbl1Q" xml:space="preserve">
+    <value>Hiệp 1</value>
+  </data>
+  <data name="Lbl1S" xml:space="preserve">
+    <value>Set 1</value>
+  </data>
+  <data name="Lbl1st" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="Lbl2nd" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="Lbl2P" xml:space="preserve">
+    <value>Hiệp 2</value>
+  </data>
+  <data name="Lbl2Q" xml:space="preserve">
+    <value>Hiệp 2</value>
+  </data>
+  <data name="Lbl2S" xml:space="preserve">
+    <value>Set 2</value>
+  </data>
+  <data name="Lbl3P" xml:space="preserve">
+    <value>Hiệp 3</value>
+  </data>
+  <data name="Lbl3Q" xml:space="preserve">
+    <value>Hiệp 3</value>
+  </data>
+  <data name="Lbl3rd" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="Lbl3S" xml:space="preserve">
+    <value>Set 3</value>
+  </data>
+  <data name="Lbl4Q" xml:space="preserve">
+    <value>Hiệp 4</value>
+  </data>
+  <data name="Lbl4S" xml:space="preserve">
+    <value>Set 4</value>
+  </data>
+  <data name="Lbl4th" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="Lbl5S" xml:space="preserve">
+    <value>Set 5</value>
+  </data>
+  <data name="LblOEFT" xml:space="preserve">
+    <value>Chẵn/Lẽ Toàn trận</value>
+  </data>
+  <data name="LblOT" xml:space="preserve">
+    <value>Bù giờ</value>
+  </data>
+  <data name="MatchCode" xml:space="preserve">
+    <value>Mã Trận đấu</value>
+  </data>
+  <data name="Min" xml:space="preserve">
+    <value>Tối thiểu</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>Không có</value>
+  </data>
+  <data name="NumberGameNo" xml:space="preserve">
+    <value>Number Game Số</value>
+  </data>
+  <data name="Place" xml:space="preserve">
+    <value>Địa điểm</value>
+  </data>
+  <data name="Player" xml:space="preserve">
+    <value>Cầu thủ</value>
+  </data>
+  <data name="PlayerSentOff" xml:space="preserve">
+    <value>Cầu thủ bị đuổi</value>
+  </data>
+  <data name="RegularTime" xml:space="preserve">
+    <value>Thời gian thi đấu</value>
+  </data>
+  <data name="RS04" xml:space="preserve">
+    <value>Toàn trận</value>
+  </data>
+  <data name="RS05" xml:space="preserve">
+    <value>Hiệp 1</value>
+  </data>
+  <data name="RS135" xml:space="preserve">
+    <value>Đá luân lưu Có/không</value>
+  </data>
+  <data name="RS160" xml:space="preserve">
+    <value>Toàn trận - Ghi {0} bàn</value>
+  </data>
+  <data name="RS164" xml:space="preserve">
+    <value>Hiệp phụ - Ghi {0} bàn</value>
+  </data>
+  <data name="RS168" xml:space="preserve">
+    <value>Ai sẽ vào vòng tiếp theo</value>
+  </data>
+  <data name="RS169" xml:space="preserve">
+    <value>Ghi {0} bàn</value>
+  </data>
+  <data name="RS173" xml:space="preserve">
+    <value>Bù giờ Có/Không</value>
+  </data>
+  <data name="RS174" xml:space="preserve">
+    <value>Bù giờ và Ghi bàn</value>
+  </data>
+  <data name="RS175" xml:space="preserve">
+    <value>Phương thức quyết định kết quả</value>
+  </data>
+  <data name="RS176" xml:space="preserve">
+    <value>10 phút đầu tiên 1X2</value>
+  </data>
+  <data name="RS180" xml:space="preserve">
+    <value>Hiệp 1 - Ghi {0} bàn</value>
+  </data>
+  <data name="RS192" xml:space="preserve">
+    <value>Ghi bàn đầu (trong 10')</value>
+  </data>
+  <data name="RS193" xml:space="preserve">
+    <value>Ghi bàn đầu (trong 15')</value>
+  </data>
+  <data name="RS206" xml:space="preserve">
+    <value>Toàn Trận - Phạt Góc Đầu</value>
+  </data>
+  <data name="RS207" xml:space="preserve">
+    <value>Hiệp 1 - Phạt Góc Đầu</value>
+  </data>
+  <data name="RS208" xml:space="preserve">
+    <value>Toàn Trận - Phạt Góc Cuối</value>
+  </data>
+  <data name="RS209" xml:space="preserve">
+    <value>Hiệp 1 - Phạt Góc Cuối</value>
+  </data>
+  <data name="RS210" xml:space="preserve">
+    <value>Toàn trận</value>
+  </data>
+  <data name="RS211" xml:space="preserve">
+    <value>Hiệp 1</value>
+  </data>
+  <data name="RS212" xml:space="preserve">
+    <value>Toàn trận</value>
+  </data>
+  <data name="RS213" xml:space="preserve">
+    <value>Hiệp 1</value>
+  </data>
+  <data name="RS214" xml:space="preserve">
+    <value>Toàn trận</value>
+  </data>
+  <data name="RS215" xml:space="preserve">
+    <value>Hiệp 1</value>
+  </data>
+  <data name="RS216" xml:space="preserve">
+    <value>Ghi bàn {0}</value>
+  </data>
+  <data name="RS217" xml:space="preserve">
+    <value>Bàn thắng đầu</value>
+  </data>
+  <data name="Set" xml:space="preserve">
+    <value>Set</value>
+  </data>
+  <data name="Special" xml:space="preserve">
+    <value>Đặc biệt</value>
+  </data>
+  <data name="Tiger" xml:space="preserve">
+    <value>Hổ</value>
+  </data>
+  <data name="VS" xml:space="preserve">
+    <value>vs</value>
+  </data>
+  <data name="Warrior" xml:space="preserve">
+    <value>Chiến binh</value>
+  </data>
+  <data name="Warrior2ndBall" xml:space="preserve">
+    <value>Thắng bóng thứ 2</value>
+  </data>
+  <data name="Warrior3rdBall" xml:space="preserve">
+    <value>Thắng bóng thứ 3</value>
+  </data>
+  <data name="Win" xml:space="preserve">
+    <value>Thắng</value>
+  </data>
+  <data name="FiveRoundsCompleted" xml:space="preserve">
+    <value>Hoàn thành 5 vòng</value>
+  </data>
+  <data name="KOInRound" xml:space="preserve">
+    <value>Hạ gục ở vòng {0}</value>
+  </data>
+  <data name="RS424" xml:space="preserve">
+    <value>Phương thức ghi bàn đầu</value>
+  </data>
+  <data name="FreeKick" xml:space="preserve">
+    <value>Phạt đền</value>
+  </data>
+  <data name="Header" xml:space="preserve">
+    <value>Đánh đầu</value>
+  </data>
+  <data name="OwnGoal" xml:space="preserve">
+    <value>Phản lưới nhà</value>
+  </data>
+  <data name="Shot" xml:space="preserve">
+    <value>Sút</value>
+  </data>
+  <data name="RS455" xml:space="preserve">
+    <value>Thời Gian Ghi Bàn Đầu</value>
+  </data>
+  <data name="M1" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="M2" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="M3" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="M4" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="M5" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="M6" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="M7" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="M8" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="M9" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="EI" xml:space="preserve">
+    <value>Lượt phụ</value>
+  </data>
+  <data name="Lbl1G" xml:space="preserve">
+    <value>Ván 1</value>
+  </data>
+  <data name="Lbl2G" xml:space="preserve">
+    <value>Ván 2</value>
+  </data>
+  <data name="Lbl3G" xml:space="preserve">
+    <value>Ván 3</value>
+  </data>
+  <data name="Lbl4G" xml:space="preserve">
+    <value>Ván 4</value>
+  </data>
+  <data name="Lbl5G" xml:space="preserve">
+    <value>Ván 5</value>
+  </data>
+  <data name="Game01" xml:space="preserve">
+    <value>Ván 1</value>
+  </data>
+  <data name="Game02" xml:space="preserve">
+    <value>Ván 2</value>
+  </data>
+  <data name="Game03" xml:space="preserve">
+    <value>Ván 3</value>
+  </data>
+  <data name="Game04" xml:space="preserve">
+    <value>Ván 4</value>
+  </data>
+  <data name="Game05" xml:space="preserve">
+    <value>Ván 5</value>
+  </data>
+  <data name="RS486" xml:space="preserve">
+    <value>Hưởng {0} quả phạt góc</value>
+  </data>
+  <data name="RS487" xml:space="preserve">
+    <value>Hiệp 1 hưởng {0} quả phạt góc</value>
+  </data>
+  <data name="RefundWithSettleDetermined" xml:space="preserve">
+    <value>Xác định vô điều kiện</value>
+  </data>
+  <data name="PenaltyShootoutComboFirstTen" xml:space="preserve">
+    <value>Chuỗi luân lưu (10 lượt đầu)</value>
+  </data>
+  <data name="LblFTOE" xml:space="preserve">
+    <value>Toàn trận Chẵn/Lẻ</value>
   </data>
 </root>

@@ -72,6 +72,7 @@
       <LastGenOutput>GTCasinoResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resource\GTCasinoResource.th-TH.resx" />
+    <EmbeddedResource Include="Resource\GTCasinoResource.vi-VN.resx" />
     <EmbeddedResource Include="Resource\GTCasinoResource.zh-CN.resx" />
     <EmbeddedResource Include="Resource\GTCasinoResource.zh-Hans.resx" />
     <EmbeddedResource Include="Resource\GTCasinoResource.zh-TW.resx" />

@@ -120,4 +120,7 @@
   <data name="Date" xml:space="preserve">
     <value>Ngày</value>
   </data>
+  <data name="ResultPrice" xml:space="preserve">
+    <value>Giá trị kết quả</value>
+  </data>
 </root>

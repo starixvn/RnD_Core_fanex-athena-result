@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Season" xml:space="preserve">
-    <value>Season</value>
+    <value>ฤดูกาล</value>
   </data>
   <data name="NationsCup" xml:space="preserve">
-    <value>Nations Cup</value>
+    <value>ถ้วยระดับชาติ</value>
   </data>
   <data name="MatchDay" xml:space="preserve">
-    <value>Match Day</value>
+    <value>วันแข่งขัน</value>
   </data>
   <data name="Selection" xml:space="preserve">
     <value>ตัวเลือก</value>
@@ -139,15 +139,270 @@
     <value>คะแนนที่ถูกต้อง</value>
   </data>
   <data name="Volleyball_3903XXYY" xml:space="preserve">
-    <value>คะแนนแข่งขันจนถึง {1} เซ็ต {0}</value>
+    <value>เซ็ต {0} แข่งขันจนถึง {1} คะแนน</value>
   </data>
   <data name="Volleyball_3909XXYY" xml:space="preserve">
-    <value>ผู้ชนะ {1} คะแนนเซ็ต {0}</value>
+    <value>เซ็ต {0} ผู้ชนะ {1} คะแนน</value>
   </data>
   <data name="Volleyball_3915XXYY" xml:space="preserve">
-    <value>ทีม คะแนน {1} เซ็ต {0}</value>
+    <value>เซ็ต {0} เล่นแล้ว {1} คะแนน </value>
   </data>
   <data name="Dnf" xml:space="preserve">
     <value>ยังไม่เสร็จสิ้น</value>
+  </data>
+  <data name="Final" xml:space="preserve">
+    <value>รอบชิงชนะเลิศ</value>
+  </data>
+  <data name="MatchDay1GroupAB" xml:space="preserve">
+    <value>แข่งวันที่ 1 กลุ่ม A&amp;B</value>
+  </data>
+  <data name="MatchDay1GroupCD" xml:space="preserve">
+    <value>แข่งวันที่ 1 กลุ่ม C&amp;D</value>
+  </data>
+  <data name="MatchDay1GroupEF" xml:space="preserve">
+    <value>แข่งวันที่ 1 กลุ่ม E&amp;F</value>
+  </data>
+  <data name="MatchDay2GroupAB" xml:space="preserve">
+    <value>แข่งวันที่ 2 กลุ่ม A&amp;B</value>
+  </data>
+  <data name="MatchDay2GroupCD" xml:space="preserve">
+    <value>แข่งวันที่ 2 กลุ่ม C&amp;D</value>
+  </data>
+  <data name="MatchDay2GroupEF" xml:space="preserve">
+    <value>แข่งวันที่ 2 กลุ่ม E&amp;F</value>
+  </data>
+  <data name="MatchDay3GroupAB" xml:space="preserve">
+    <value>แข่งวันที่ 3 กลุ่ม A&amp;B</value>
+  </data>
+  <data name="MatchDay3GroupCD" xml:space="preserve">
+    <value>แข่งวันที่ 3 กลุ่ม C&amp;D</value>
+  </data>
+  <data name="MatchDay3GroupEF" xml:space="preserve">
+    <value>แข่งวันที่ 3 กลุ่ม E&amp;F</value>
+  </data>
+  <data name="Quarterfinal" xml:space="preserve">
+    <value>รอบ 8 ทีม</value>
+  </data>
+  <data name="Round161" xml:space="preserve">
+    <value>รอบ 16 - 1</value>
+  </data>
+  <data name="Round162" xml:space="preserve">
+    <value>รอบ 16 - 2</value>
+  </data>
+  <data name="Semifinal1" xml:space="preserve">
+    <value>รอบ 4 ทีม ส่วนที่ 1</value>
+  </data>
+  <data name="Semifinal2" xml:space="preserve">
+    <value>รอบ 4 ทีม ส่วนที่ 2</value>
+  </data>
+  <data name="FT" xml:space="preserve">
+    <value>เต็มเวลา</value>
+  </data>
+  <data name="ESports_90020X" xml:space="preserve">
+    <value>แผนที่ {0} แต้มรวมการฆ่า</value>
+  </data>
+  <data name="ESports_90080X" xml:space="preserve">
+    <value>แผนที่ {0} แต้มหอคอย</value>
+  </data>
+  <data name="ESports_90120X" xml:space="preserve">
+    <value>แผนที่ {0} แต้ม Roshan</value>
+  </data>
+  <data name="ESports_90180X" xml:space="preserve">
+    <value>แผนที่ {0} แต้ม Barrack</value>
+  </data>
+  <data name="ESports_90240X" xml:space="preserve">
+    <value>แผนที่ {0} แต้มป้อมปราการ</value>
+  </data>
+  <data name="ESports_90280X" xml:space="preserve">
+    <value>แผนที่ {0} แต้มมังกร</value>
+  </data>
+  <data name="ESports_90340X" xml:space="preserve">
+    <value>แผนที่ {0} แต้ม Baron</value>
+  </data>
+  <data name="ESports_90400X" xml:space="preserve">
+    <value>แผนที่ {0} แต้ม Inhibitor</value>
+  </data>
+  <data name="ESports_90460X" xml:space="preserve">
+    <value>แผนที่ {0} แต้ม Tyrant</value>
+  </data>
+  <data name="ESports_90520X" xml:space="preserve">
+    <value>แผนที่ {0} แต้ม Overlord</value>
+  </data>
+  <data name="ESports_90580X" xml:space="preserve">
+    <value>แผนที่ {0} ระยะเวลา</value>
+  </data>
+  <data name="ESports_90590X" xml:space="preserve">
+    <value>แผนที่ {0} แต้มรอบ</value>
+  </data>
+  <data name="ESports_90650X" xml:space="preserve">
+    <value>แผนที่ {0} จำนวน First Kill</value>
+  </data>
+  <data name="ESports_90660X" xml:space="preserve">
+    <value>แผนที่ {0} แต้ม Clutch</value>
+  </data>
+  <data name="ESports_90690X0Y" xml:space="preserve">
+    <value>แผนที่ {0} รอบ {1} จำนวนการฆ่า</value>
+  </data>
+  <data name="ESports_90740X" xml:space="preserve">
+    <value>แผนที่ {0} แต้มรอบ (รวมต่อเวลา)</value>
+  </data>
+  <data name="ESports_90680X0Y" xml:space="preserve">
+    <value>แผนที่ {0} รอบ {1} ผู้ชนะ</value>
+  </data>
+  <data name="ESports_90900X" xml:space="preserve">
+    <value>แผนที่ {0} เวลา First Blood</value>
+  </data>
+  <data name="ESports_90890X0K" xml:space="preserve">
+    <value>แผนที่ {0} ฆ่าถึง {1} เป็นคนแรก</value>
+  </data>
+  <data name="ESports_90910X" xml:space="preserve">
+    <value>แผนที่ {0} ยอดการฆ่าที่ 10 นาที</value>
+  </data>
+  <data name="ESports_90930X" xml:space="preserve">
+    <value>แผนที่ {0} ยอดการฆ่าที่ 20 นาที</value>
+  </data>
+  <data name="ESports_91340X" xml:space="preserve">
+    <value>แผนที่ {0} เวลาหอคอยแรก</value>
+  </data>
+  <data name="ESports_91150X" xml:space="preserve">
+    <value>แผนที่ {0} ทองทั้งหมด</value>
+  </data>
+  <data name="ESports_91360X" xml:space="preserve">
+    <value>แผนที่ {0} เวลา Roshan แรก</value>
+  </data>
+  <data name="ESports_91370X" xml:space="preserve">
+    <value>แผนที่ {0} เวลา Barrack แรก</value>
+  </data>
+  <data name="ESports_91310X" xml:space="preserve">
+    <value>แผนที่ {0} เวลามังกรแรก</value>
+  </data>
+  <data name="ESports_91320X" xml:space="preserve">
+    <value>แผนที่ {0} Elder Dragon ถูกฆ่าไหม</value>
+  </data>
+  <data name="ESports_91330X" xml:space="preserve">
+    <value>แผนที่ {0} Aegis แรกจะถูกแย่งไหม</value>
+  </data>
+  <data name="ESports_91270X" xml:space="preserve">
+    <value>แผนที่ {0} เวลา Baron แรก</value>
+  </data>
+  <data name="ESports_91280X" xml:space="preserve">
+    <value>แผนที่ {0} จำนวนผู้เล่นได้ Baron Buff ครั้งแรก</value>
+  </data>
+  <data name="ESports_91290X" xml:space="preserve">
+    <value>แผนที่ {0} เวลา Inhibitor แรก</value>
+  </data>
+  <data name="ESports_91210X" xml:space="preserve">
+    <value>แผนที่ {0} เวลา Tyrant แรก</value>
+  </data>
+  <data name="ESports_91230X" xml:space="preserve">
+    <value>แผนที่ {0} เวลา Overlord แรก</value>
+  </data>
+  <data name="ESports_91240X" xml:space="preserve">
+    <value>แผนที่ {0} Storm Dragon ถูกฆ่าไหม</value>
+  </data>
+  <data name="ESports_91260X" xml:space="preserve">
+    <value>แผนที่ {0} เวลา Herald แรก</value>
+  </data>
+  <data name="ESports_91010X0K" xml:space="preserve">
+    <value>แผนที่ {0} ฆ่า {1}</value>
+  </data>
+  <data name="FirstNumber" xml:space="preserve">
+    <value>ที่ 1</value>
+  </data>
+  <data name="SecondNumber" xml:space="preserve">
+    <value>ที่ 2</value>
+  </data>
+  <data name="ThirdNumber" xml:space="preserve">
+    <value>ที่ 3</value>
+  </data>
+  <data name="FourthNumber" xml:space="preserve">
+    <value>ที่ 4</value>
+  </data>
+  <data name="FifthNumber" xml:space="preserve">
+    <value>ที่ 5</value>
+  </data>
+  <data name="SixthNumber" xml:space="preserve">
+    <value>ที่ 6</value>
+  </data>
+  <data name="SeventhNumber" xml:space="preserve">
+    <value>ที่ 7</value>
+  </data>
+  <data name="EighthNumber" xml:space="preserve">
+    <value>ที่ 8</value>
+  </data>
+  <data name="NinthNumber" xml:space="preserve">
+    <value>ที่ 9</value>
+  </data>
+  <data name="TenthNumber" xml:space="preserve">
+    <value>ที่ 10</value>
+  </data>
+  <data name="fifteenthNumber" xml:space="preserve">
+    <value>ที่ 15</value>
+  </data>
+  <data name="TwentiethNumber" xml:space="preserve">
+    <value>ที่ 20</value>
+  </data>
+  <data name="ESports_91010X0Y" xml:space="preserve">
+    <value>แผนที่ {0} ฆ่า {1}</value>
+  </data>
+  <data name="ESports_91390X" xml:space="preserve">
+    <value>แผนที่ {0} จำนวนการระเบิด (ไม่รวมต่อเวลา)</value>
+  </data>
+  <data name="ESports_91400X" xml:space="preserve">
+    <value>แผนที่ {0} จำนวนปลดฉนวนระเบิด (ไม่รวมต่อเวลา)</value>
+  </data>
+  <data name="ESports_91420X" xml:space="preserve">
+    <value>แผนที่ {0} ที่ตั้งป้อมปราการแรก</value>
+  </data>
+  <data name="ESports_91410X" xml:space="preserve">
+    <value>แผนที่ {0} เลนที่ป้อมปราการถูกทำลายมากที่สุด</value>
+  </data>
+  <data name="TopMid" xml:space="preserve">
+    <value>บนหรือกลาง</value>
+  </data>
+  <data name="MidBottom" xml:space="preserve">
+    <value>กลางหรือล่าง</value>
+  </data>
+  <data name="Overlord" xml:space="preserve">
+    <value>Tyrant</value>
+  </data>
+  <data name="Tyrant" xml:space="preserve">
+    <value>Overlord</value>
+  </data>
+  <data name="OverlordMiddle" xml:space="preserve">
+    <value>Overlord หรือกลาง</value>
+  </data>
+  <data name="Mid" xml:space="preserve">
+    <value>กลาง</value>
+  </data>
+  <data name="Top" xml:space="preserve">
+    <value>บน</value>
+  </data>
+  <data name="Bottom" xml:space="preserve">
+    <value>ล่าง</value>
+  </data>
+  <data name="TopBottom" xml:space="preserve">
+    <value>บนหรือล่าง</value>
+  </data>
+  <data name="Bowled" xml:space="preserve">
+    <value>Bowled</value>
+  </data>
+  <data name="LBW" xml:space="preserve">
+    <value>LBW</value>
+  </data>
+  <data name="RunOut" xml:space="preserve">
+    <value>Run Out</value>
+  </data>
+  <data name="Stumped" xml:space="preserve">
+    <value>Stumped</value>
+  </data>
+  <data name="Others" xml:space="preserve">
+    <value>อื่นๆ</value>
+  </data>
+  <data name="Caught" xml:space="preserve">
+    <value>Caught</value>
+  </data>
+  <data name="ESports_90010X" xml:space="preserve">
+    <value>แผนที่ {0} ผลลัพธ์</value>
   </data>
 </root>

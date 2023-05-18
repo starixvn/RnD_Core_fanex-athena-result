@@ -83,6 +83,7 @@
       <LastGenOutput>WMResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Resource\WMResource.th-TH.resx" />
+    <EmbeddedResource Include="Resource\WMResource.vi-VN.resx" />
     <EmbeddedResource Include="Resource\WMResource.zh-CN.resx" />
     <EmbeddedResource Include="Resource\WMResource.zh-Hans.resx" />
     <EmbeddedResource Include="Resource\WMResource.zh-TW.resx" />

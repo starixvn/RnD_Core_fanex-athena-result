@@ -123,4 +123,28 @@
   <data name="Soccer5Tooltip" xml:space="preserve">
     <value>ดูข้อมูลเพิ่มเติม</value>
   </data>
+  <data name="No" xml:space="preserve">
+    <value>เลขที่</value>
+  </data>
+  <data name="BigSmall" xml:space="preserve">
+    <value>ใหญ่/เล็ก</value>
+  </data>
+  <data name="OddEven" xml:space="preserve">
+    <value>คู่/คี่</value>
+  </data>
+  <data name="FourSeasons" xml:space="preserve">
+    <value>ชุด 4</value>
+  </data>
+  <data name="MoreOddMoreEven" xml:space="preserve">
+    <value>คู่เยอะ/คู่เยอะ</value>
+  </data>
+  <data name="Combo" xml:space="preserve">
+    <value>คอมโบ</value>
+  </data>
+  <data name="NA" xml:space="preserve">
+    <value>N/A</value>
+  </data>
+  <data name="Soccer5" xml:space="preserve">
+    <value>Soccer 5</value>
+  </data>
 </root>

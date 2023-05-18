@@ -515,4 +515,229 @@
   <data name="Inns2" xml:space="preserve">
     <value>2 อินนิ่ง</value>
   </data>
+  <data name="Banker" xml:space="preserve">
+    <value>Banker</value>
+  </data>
+  <data name="Corner" xml:space="preserve">
+    <value>มุม</value>
+  </data>
+  <data name="Dragon" xml:space="preserve">
+    <value>มังกร</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>[i]</value>
+  </data>
+  <data name="FirstLastCorners" xml:space="preserve">
+    <value>มุมแรก/สุดท้าย</value>
+  </data>
+  <data name="GameID" xml:space="preserve">
+    <value>Game ID</value>
+  </data>
+  <data name="GameResult" xml:space="preserve">
+    <value>ผลลัพธ์เกม</value>
+  </data>
+  <data name="GoalRecord" xml:space="preserve">
+    <value>บันทึกประตู</value>
+  </data>
+  <data name="Goals" xml:space="preserve">
+    <value>ประตู</value>
+  </data>
+  <data name="GoalScorer" xml:space="preserve">
+    <value>ผู้ทำประตู</value>
+  </data>
+  <data name="GoalTime" xml:space="preserve">
+    <value>เวลาประตู</value>
+  </data>
+  <data name="HomeAwayPlayerSentOff" xml:space="preserve">
+    <value>เหย้า/เยือน - ผู้เล่นถูกส่งออก</value>
+  </data>
+  <data name="ID" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="LblOEFT" xml:space="preserve">
+    <value>คู่/คี่ เต็มเวลา</value>
+  </data>
+  <data name="MatchCode" xml:space="preserve">
+    <value>โค็ดคู่แข่งขัน</value>
+  </data>
+  <data name="Min" xml:space="preserve">
+    <value>Min</value>
+  </data>
+  <data name="None" xml:space="preserve">
+    <value>ไม่มี</value>
+  </data>
+  <data name="Noothers" xml:space="preserve">
+    <value>th</value>
+  </data>
+  <data name="Player" xml:space="preserve">
+    <value>ผู้เล่น</value>
+  </data>
+  <data name="PlayerSentOff" xml:space="preserve">
+    <value>ผู้เล่นถูกส่งออก</value>
+  </data>
+  <data name="RegularTime" xml:space="preserve">
+    <value>เวลาปกติ</value>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>ผลลัพธ์</value>
+  </data>
+  <data name="Results" xml:space="preserve">
+    <value>ผลลัพธ์</value>
+  </data>
+  <data name="RS04" xml:space="preserve">
+    <value>เต็มเวลา</value>
+  </data>
+  <data name="RS05" xml:space="preserve">
+    <value>ครึ่งเวลาแรก</value>
+  </data>
+  <data name="RS135" xml:space="preserve">
+    <value>ยิงลูกโทษ ใช่/ไม่ใช่</value>
+  </data>
+  <data name="RS160" xml:space="preserve">
+    <value>เต็มเวลา - ประตู {0}</value>
+  </data>
+  <data name="RS164" xml:space="preserve">
+    <value>ต่อเวลา - ประตู {0}</value>
+  </data>
+  <data name="RS168" xml:space="preserve">
+    <value>ผู้ที่ผ่านเข้ารอบถัดไป</value>
+  </data>
+  <data name="RS169" xml:space="preserve">
+    <value>ประตู {0}</value>
+  </data>
+  <data name="RS173" xml:space="preserve">
+    <value>ต่อเวลา ใช่/ไม่ใช่</value>
+  </data>
+  <data name="RS174" xml:space="preserve">
+    <value>ต่อเวลาและมีประตู</value>
+  </data>
+  <data name="RS175" xml:space="preserve">
+    <value>ผลแพ้ชนะโดย</value>
+  </data>
+  <data name="RS176" xml:space="preserve">
+    <value>1X2 ของ 10 นาทีแรก</value>
+  </data>
+  <data name="RS180" xml:space="preserve">
+    <value>ครึ่งแรก - ประตู {0}</value>
+  </data>
+  <data name="RS192" xml:space="preserve">
+    <value>เวลาประตูแรก (10 นาที)</value>
+  </data>
+  <data name="RS193" xml:space="preserve">
+    <value>เวลาประตูแรก (15 นาที)</value>
+  </data>
+  <data name="RS206" xml:space="preserve">
+    <value>เต็มเวลา - มุมแรก</value>
+  </data>
+  <data name="RS207" xml:space="preserve">
+    <value>ครึ่งแรก - มุมแรก</value>
+  </data>
+  <data name="RS208" xml:space="preserve">
+    <value>เต็มเวลา - มุมสุดท้าย</value>
+  </data>
+  <data name="RS209" xml:space="preserve">
+    <value>ครึ่งแรก - มุมสุดท้าย</value>
+  </data>
+  <data name="RS210" xml:space="preserve">
+    <value>เต็มเวลา</value>
+  </data>
+  <data name="RS211" xml:space="preserve">
+    <value>ครื่งแรก</value>
+  </data>
+  <data name="RS212" xml:space="preserve">
+    <value>เต็มเวลา</value>
+  </data>
+  <data name="RS213" xml:space="preserve">
+    <value>ครื่งแรก</value>
+  </data>
+  <data name="RS214" xml:space="preserve">
+    <value>เต็มเวลา</value>
+  </data>
+  <data name="RS215" xml:space="preserve">
+    <value>ครื่งแรก</value>
+  </data>
+  <data name="RS216" xml:space="preserve">
+    <value>ประตูู {0}</value>
+  </data>
+  <data name="RS217" xml:space="preserve">
+    <value>ประตูแรก</value>
+  </data>
+  <data name="Set" xml:space="preserve">
+    <value>Set</value>
+  </data>
+  <data name="Special" xml:space="preserve">
+    <value>พิเศษ</value>
+  </data>
+  <data name="Tiger" xml:space="preserve">
+    <value>เสือ</value>
+  </data>
+  <data name="VS" xml:space="preserve">
+    <value>vs</value>
+  </data>
+  <data name="FiveRoundsCompleted" xml:space="preserve">
+    <value>ครบ 5 ยก</value>
+  </data>
+  <data name="KOInRound" xml:space="preserve">
+    <value>KO ในยกที่ {0}</value>
+  </data>
+  <data name="RS424" xml:space="preserve">
+    <value>วิธีทำประตูแรก</value>
+  </data>
+  <data name="FreeKick" xml:space="preserve">
+    <value>ฟรีคิก</value>
+  </data>
+  <data name="Header" xml:space="preserve">
+    <value>โหม่ง</value>
+  </data>
+  <data name="OwnGoal" xml:space="preserve">
+    <value>เข้าประตูตัวเอง</value>
+  </data>
+  <data name="Shot" xml:space="preserve">
+    <value>เตะ</value>
+  </data>
+  <data name="RS455" xml:space="preserve">
+    <value>เวลาประตูแรก</value>
+  </data>
+  <data name="Map" xml:space="preserve">
+    <value>แผนที่</value>
+  </data>
+  <data name="MinSec" xml:space="preserve">
+    <value>{0} นาที {1} วินาที</value>
+  </data>
+  <data name="M1" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="M2" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="M3" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="M4" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="M5" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="M6" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="M7" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="M8" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="M9" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="EI" xml:space="preserve">
+    <value>E.I</value>
+  </data>
+  <data name="PenaltyShootoutComboFirstTen" xml:space="preserve">
+    <value>ผลการยิงลูกโทษ (10 ลูกแรก)</value>
+  </data>
+  <data name="LblFTOE" xml:space="preserve">
+    <value>คู่/คี่ เต็มเวลา</value>
+  </data>
 </root>

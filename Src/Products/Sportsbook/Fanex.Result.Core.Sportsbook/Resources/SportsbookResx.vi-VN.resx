@@ -118,43 +118,43 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Season" xml:space="preserve">
-    <value>Season</value>
+    <value>Mùa</value>
   </data>
   <data name="NationsCup" xml:space="preserve">
-    <value>Nations Cup</value>
+    <value>Cúp Quốc Gia</value>
   </data>
   <data name="MatchDay" xml:space="preserve">
-    <value>Match Day</value>
+    <value>Ngày thi đấu</value>
   </data>
   <data name="ESports_90020X" xml:space="preserve">
-    <value>Bản Đồ {0} Tỷ Số Kill</value>
+    <value>Bản Đồ {0} Tỷ Số Hạ Gục</value>
   </data>
   <data name="ESports_90080X" xml:space="preserve">
-    <value>Bản Đồ {0} Tỷ Số Tower</value>
+    <value>Bản Đồ {0} Số Trụ Bị Phá</value>
   </data>
   <data name="ESports_90120X" xml:space="preserve">
-    <value>Bản Đồ {0} Tỷ Số Roshan</value>
+    <value>Bản Đồ {0} Số Lần diệt Roshan</value>
   </data>
   <data name="ESports_90180X" xml:space="preserve">
-    <value>Bản Đồ {0} Tỷ Số Barrack</value>
+    <value>Bản Đồ {0} Số Nhà Lính Bị Phá</value>
   </data>
   <data name="ESports_90240X" xml:space="preserve">
-    <value>Bản Đồ {0} Tỷ Số Turret</value>
+    <value>Bản Đồ {0} Số Trụ Bị Phá</value>
   </data>
   <data name="ESports_90280X" xml:space="preserve">
-    <value>Bản Đồ {0} Tỷ Số Dragon</value>
+    <value>Bản Đồ {0} Số Lần diệt Rồng</value>
   </data>
   <data name="ESports_90340X" xml:space="preserve">
-    <value>Bản Đồ {0} Tỷ Số Baron</value>
+    <value>Bản Đồ {0} Số Lần diệt Baron</value>
   </data>
   <data name="ESports_90400X" xml:space="preserve">
-    <value>Bản Đồ {0} Tỷ Số Inhibitor</value>
+    <value>Bản Đồ {0} Số Nhà Lính Bị Phá</value>
   </data>
   <data name="ESports_90460X" xml:space="preserve">
-    <value>Bản Đồ {0} Tỷ Số Tyrant</value>
+    <value>Bản Đồ {0} Tổng Số Tyrant</value>
   </data>
   <data name="ESports_90520X" xml:space="preserve">
-    <value>Bản Đồ {0} Tỷ Số Overlord</value>
+    <value>Bản Đồ {0} Tổng Số Overlord</value>
   </data>
   <data name="ESports_90580X" xml:space="preserve">
     <value>Bản Đồ {0} Thời Lượng Tài/Xỉu</value>
@@ -163,7 +163,7 @@
     <value>Bản Đồ {0} Số Vòng Đấu</value>
   </data>
   <data name="ESports_90650X" xml:space="preserve">
-    <value>Bản Đồ {0} Tổng Kill Đầu Tiên</value>
+    <value>Bản Đồ {0} Tổng số Chiến công đầu</value>
   </data>
   <data name="ESports_90660X" xml:space="preserve">
     <value>Bản Đồ {0} Tỷ Số Clutch</value>
@@ -172,7 +172,7 @@
     <value>Bản Đồ {0} Vòng {1} Người Thắng Cuộc</value>
   </data>
   <data name="ESports_90690X0Y" xml:space="preserve">
-    <value>Bản Đồ {0} Vòng {1} Tổng Kill</value>
+    <value>Bản Đồ {0} Vòng {1} Tổng Hạ Gục</value>
   </data>
   <data name="ESports_90740X" xml:space="preserve">
     <value>Bản Đồ {0} Số Vòng Đấu (gồm Hiệp Phụ)</value>
@@ -187,28 +187,28 @@
     <value>Tổng bàn thắng</value>
   </data>
   <data name="ESports_90890X0K" xml:space="preserve">
-    <value>Bản Đồ {0} Thời Gian Diệt {1} Mạng Trước</value>
+    <value>Bản Đồ {0} Thời Gian Hạ Gục {1} Mạng Đầu</value>
   </data>
   <data name="ESports_90900X" xml:space="preserve">
     <value>Bản Đồ {0} Thời Gian Lập Chiến Công Đầu</value>
   </data>
   <data name="ESports_90910X" xml:space="preserve">
-    <value>Bản Đồ {0} Tổng Số Hạ Gục Lúc 10 Phút</value>
+    <value>Bản đồ {0} Tổng Mạng Hạ Gục Phút thứ 10</value>
   </data>
   <data name="ESports_90930X" xml:space="preserve">
-    <value>Bản Đồ {0} Tổng Số Hạ Gục Lúc 20 Phút</value>
+    <value>Bản đồ {0} Tổng Mạng Hạ Gục Phút thứ 20</value>
   </data>
   <data name="ESports_91150X" xml:space="preserve">
-    <value>Bản Đồ {0} Tổng Vàng</value>
+    <value>Bản Đồ {0} Tổng Số Vàng</value>
   </data>
   <data name="ESports_91210X" xml:space="preserve">
-    <value>Bản Đồ {0} Mạng Đầu Tiên</value>
+    <value>Bản Đồ {0} Thời Gian Diệt Tyrant Đầu Tiên</value>
   </data>
   <data name="ESports_91230X" xml:space="preserve">
     <value>Bản Đồ {0} Thời Gian Diệt Overlord Đầu Tiên</value>
   </data>
   <data name="ESports_91240X" xml:space="preserve">
-    <value>Bản Đồ {0} Storm Dragon Sẽ Bị Tiêu Diệt?</value>
+    <value>Bản Đồ {0} Rồng Bão Tố Sẽ Bị Tiêu Diệt?</value>
   </data>
   <data name="ESports_91260X" xml:space="preserve">
     <value>Bản Đồ {0} Thời Gian Diệt Sứ Giả Đầu Tiên</value>
@@ -238,7 +238,7 @@
     <value>Bản Đồ {0} Thời Gian Diệt Roshan Đầu Tiên - Tài/Xỉu</value>
   </data>
   <data name="ESports_91370X" xml:space="preserve">
-    <value>Bản Đồ {0} Thời Gian Diệt Nhà Lính Đầu Tiên - Tài/Xỉu</value>
+    <value>Bản Đồ {0} Thời Gian Phá Nhà Lính Đầu Tiên - Tài/Xỉu</value>
   </data>
   <data name="ESports_91390X" xml:space="preserve">
     <value>Bản Đồ {0} - Tổng Số Bom Nổ (Không Tính Hiệp Phụ)</value>
@@ -298,10 +298,10 @@
     <value>Giữa</value>
   </data>
   <data name="MidBottom" xml:space="preserve">
-    <value>Giữa/Dưới</value>
+    <value>Dưới</value>
   </data>
   <data name="Overlord" xml:space="preserve">
-    <value>Overlord</value>
+    <value>Tyrant</value>
   </data>
   <data name="OverlordMiddle" xml:space="preserve">
     <value>Overlord/Giữa</value>
@@ -316,7 +316,7 @@
     <value>Trên/Giữa</value>
   </data>
   <data name="Tyrant" xml:space="preserve">
-    <value>Tyrant</value>
+    <value>Overlord</value>
   </data>
   <data name="Bottom" xml:space="preserve">
     <value>Dưới</value>
@@ -326,5 +326,83 @@
   </data>
   <data name="Dnf" xml:space="preserve">
     <value>Không hoàn thành</value>
+  </data>
+  <data name="Final" xml:space="preserve">
+    <value>Chung kết</value>
+  </data>
+  <data name="MatchDay1GroupAB" xml:space="preserve">
+    <value>Ngày thi đấu thứ 1 của nhóm A&amp;B</value>
+  </data>
+  <data name="MatchDay1GroupCD" xml:space="preserve">
+    <value>Ngày thi đấu thứ 1 của nhóm C&amp;D</value>
+  </data>
+  <data name="MatchDay1GroupEF" xml:space="preserve">
+    <value>Ngày thi đấu thứ 1 của nhóm E&amp;F</value>
+  </data>
+  <data name="MatchDay2GroupAB" xml:space="preserve">
+    <value>Ngày thi đấu thứ 2 của nhóm A&amp;B</value>
+  </data>
+  <data name="MatchDay2GroupCD" xml:space="preserve">
+    <value>Ngày thi đấu thứ 2 của nhóm C&amp;D</value>
+  </data>
+  <data name="MatchDay2GroupEF" xml:space="preserve">
+    <value>Ngày thi đấu thứ 2 của nhóm E&amp;F</value>
+  </data>
+  <data name="MatchDay3GroupAB" xml:space="preserve">
+    <value>Ngày thi đấu thứ 3 của nhóm A&amp;B</value>
+  </data>
+  <data name="MatchDay3GroupCD" xml:space="preserve">
+    <value>Ngày thi đấu thứ 3 của nhóm C&amp;D</value>
+  </data>
+  <data name="MatchDay3GroupEF" xml:space="preserve">
+    <value>Ngày thi đấu thứ 3 của nhóm E&amp;F</value>
+  </data>
+  <data name="Quarterfinal" xml:space="preserve">
+    <value>Tứ kết</value>
+  </data>
+  <data name="Round161" xml:space="preserve">
+    <value>Vòng 16-1</value>
+  </data>
+  <data name="Round162" xml:space="preserve">
+    <value>Vòng 16-2</value>
+  </data>
+  <data name="Semifinal1" xml:space="preserve">
+    <value>Bán kết Phần 1</value>
+  </data>
+  <data name="Semifinal2" xml:space="preserve">
+    <value>Bán kết Phần 2</value>
+  </data>
+  <data name="FT" xml:space="preserve">
+    <value>Toàn trận</value>
+  </data>
+  <data name="CorrectScore" xml:space="preserve">
+    <value>Tỷ Số Chính Xác</value>
+  </data>
+  <data name="Bowled" xml:space="preserve">
+    <value>Bowled</value>
+  </data>
+  <data name="LBW" xml:space="preserve">
+    <value>Chân chắn bóng</value>
+  </data>
+  <data name="RunOut" xml:space="preserve">
+    <value>Run Out</value>
+  </data>
+  <data name="Stumped" xml:space="preserve">
+    <value>Stumped</value>
+  </data>
+  <data name="Others" xml:space="preserve">
+    <value>Khác</value>
+  </data>
+  <data name="Caught" xml:space="preserve">
+    <value>Bắt Bóng</value>
+  </data>
+  <data name="Volleyball_3903XXYY" xml:space="preserve">
+    <value>Set {0} ghi trước {1} điểm</value>
+  </data>
+  <data name="Volleyball_3909XXYY" xml:space="preserve">
+    <value>Set {0} Đội Thắng đạt {1} Điểm</value>
+  </data>
+  <data name="Volleyball_3915XXYY" xml:space="preserve">
+    <value>Set {0} {1} Điểm</value>
   </data>
 </root>

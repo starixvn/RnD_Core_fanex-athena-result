@@ -55,7 +55,7 @@
         protected virtual string LoadImage(string images)
         {
             var strCardImg = new StringBuilder();
-            var strCard = images.Split(';');
+            var strCard = images.Split(new[] { ";" }, StringSplitOptions.RemoveEmptyEntries);
             foreach (var card in strCard)
             {
                 strCardImg.Append($"<img src='{ImagePath}Poker/{card}.png' align='absmiddle' border='0' class='code' width='38' height='38'/>");

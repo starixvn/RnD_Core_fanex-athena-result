@@ -29,8 +29,10 @@
                 var bettypeModels = new Dictionary<int, IBaseModel>
                 {
                     { (int)BetType.Baccarat,  new Bacarrat(TransDesc, GameId3rd, _ImgPath, refDataHelper, slang)},
+                    { (int)BetType.Baccarat_YB,  new Bacarrat(TransDesc, GameId3rd, _ImgPath, refDataHelper, slang)},
                     { (int)BetType.DragonTiger,  new Dragon(TransDesc, GameId3rd, _ImgPath, refDataHelper, slang)},
                     { (int)BetType.Roulette,  new OneColumn(TransDesc, GameId3rd, BetType.Roulette, _ImgPath)},
+                    { (int)BetType.Roulette_YB,  new OneColumn(TransDesc, GameId3rd, BetType.Roulette, _ImgPath)},
                     { (int)BetType.Sicbo,  new OneColumn(TransDesc, GameId3rd, BetType.Sicbo, _ImgPath)},
                     { (int)BetType.SeDie,  new OneColumn(TransDesc, GameId3rd, BetType.SeDie, _ImgPath)},
                     { (int)BetType.FanTan,  new FanTan(TransDesc, GameId3rd, _ImgPath)},

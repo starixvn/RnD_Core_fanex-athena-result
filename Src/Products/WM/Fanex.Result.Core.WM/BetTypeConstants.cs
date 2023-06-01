@@ -7,11 +7,17 @@ namespace Fanex.Result.Core.WM
         [StringValue("Baccarat")]
         Baccarat = 3401,
 
+        [StringValue("Baccarat")]
+        Baccarat_YB = 3151,
+
         [StringValue("DragonTiger")]
         DragonTiger = 3402,
 
         [StringValue("Roulette")]
         Roulette = 3403,
+
+        [StringValue("Roulette")]
+        Roulette_YB = 3152,
 
         [StringValue("Sicbo")]
         Sicbo = 3404,

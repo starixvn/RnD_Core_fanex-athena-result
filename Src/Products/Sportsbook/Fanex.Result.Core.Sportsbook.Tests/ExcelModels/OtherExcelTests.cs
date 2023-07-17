@@ -123,5 +123,56 @@
             Assert.AreEqual("12", actualAwayDataRow.Cells[4].StringCellValue);
             Assert.AreEqual("Completed", actualAwayDataRow.Cells[5].StringCellValue);
         }
+
+        [Test]
+        public void SetDataForMatch_VirtualFootballCup_SetRowValue()
+        {
+            // Arrange
+            _refDataHelper.GetTeamName(1, "en-US", string.Empty).Returns("Home Team Name");
+            _refDataHelper.GetTeamName(2, "en-US", string.Empty).Returns("Away Team Name");
+            _refDataHelper.GetResourceDataByRefIdAndResourceId("LVS_MatchCode", "2", Arg.Any<string>(), Arg.Any<string>()).Returns("Match Day");
+            _refDataHelper.GetResourceDataByRefIdAndResourceId("LVS_MatchCode", "1", Arg.Any<string>(), Arg.Any<string>()).Returns("Cup");
+            _refDataHelper.GetResourceDataByRefIdAndResourceId("LVS_MatchCode", "102", Arg.Any<string>(), Arg.Any<string>()).Returns("Group A");
+
+            _resultSetting.SportType = SportType.VirtualFootballCup;
+
+            var otherViewModel = new OtherViewModel(new DTO.Sportsbook
+            {
+                MatchCode = "{2} 23, {102}, {1} 6666",
+                MatchId = 1111,
+                BetStatus = "21-23,21-16,21-16,0-0,0-0",
+                HomeId = 1,
+                AwayId = 2,
+                EventStatus = "Completed",
+                KickOffTime = DateTime.Parse("01/01/2017"),
+                HtHomeScore = 9,
+                HtAwayScore = 10,
+                FinalHomeScore = 11,
+                FinalAwayScore = 12,
+            }, _resultSetting, _refDataHelper);
+
+            _resultData = new List<OtherViewModel> { otherViewModel };
+            var excelViewModel = new OtherExcel(TemplateFileUtils.GetExcelTemplatePath("Other.xls"), _resultSetting, _resultData.ToList());
+
+            // Act
+            excelViewModel.Export();
+
+            // Assert
+            var actualHomeDataRow = excelViewModel.Workbook.GetSheetAt(0).GetRow(3);
+            Assert.AreEqual("Match Day 23, Group A, Cup 6666", actualHomeDataRow.Cells[0].StringCellValue);
+            Assert.AreEqual("01/01/2017\n12:00:00 AM", actualHomeDataRow.Cells[1].StringCellValue);
+            Assert.AreEqual("Home Team Name (Match Day 23, Group A, Cup 6666)", actualHomeDataRow.Cells[2].StringCellValue);
+            Assert.AreEqual("9", actualHomeDataRow.Cells[3].StringCellValue);
+            Assert.AreEqual("11", actualHomeDataRow.Cells[4].StringCellValue);
+            Assert.AreEqual("Completed", actualHomeDataRow.Cells[5].StringCellValue);
+
+            var actualAwayDataRow = excelViewModel.Workbook.GetSheetAt(0).GetRow(4);
+            Assert.AreEqual("1111", actualAwayDataRow.Cells[0].StringCellValue);
+            Assert.AreEqual("01/01/2017\n12:00:00 AM", actualAwayDataRow.Cells[1].StringCellValue);
+            Assert.AreEqual("Away Team Name", actualAwayDataRow.Cells[2].StringCellValue);
+            Assert.AreEqual("10", actualAwayDataRow.Cells[3].StringCellValue);
+            Assert.AreEqual("12", actualAwayDataRow.Cells[4].StringCellValue);
+            Assert.AreEqual("Completed", actualAwayDataRow.Cells[5].StringCellValue);
+        }
     }
 }

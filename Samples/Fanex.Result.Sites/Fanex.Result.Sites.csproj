@@ -893,6 +893,7 @@
     <Content Include="App_Data\Fanex.Result\Volleyball.xls" />
     <Content Include="App_Data\Result_Data\Golf.xls" />
     <Content Include="App_Data\Fanex.Result\Golf.xls" />
+    <Content Include="App_Data\Result_Data\VirtualFootballCup.xls" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>

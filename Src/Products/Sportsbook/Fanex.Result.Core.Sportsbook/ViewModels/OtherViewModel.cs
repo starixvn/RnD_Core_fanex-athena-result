@@ -1,11 +1,10 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.ViewModels
 {
-    using System.Collections.Generic;
     using Base;
     using Base.ViewModels;
     using DTO;
     using Fanex.Result.Core.Base.Utilities;
-    using Utilities;
+    using System.Collections.Generic;
 
     public sealed class OtherViewModel : SportsbookBaseViewModel, IResultViewModel
     {
@@ -15,7 +14,9 @@
             IRefDataHelper refDataHelper = null)
             : base(sportbook, setting, refDataHelper)
         {
-            sportbook.MatchCode = RefDataHelper.GetBetRadarMatchCodeFormat(sportbook.MatchCode, GetSupportedLanguage);
+            sportbook.MatchCode = Setting.SportType == SportType.VirtualFootballCup ?
+                GetMatchInfoOfVS3(sportbook.MatchCode) :
+                RefDataHelper.GetBetRadarMatchCodeFormat(sportbook.MatchCode, GetSupportedLanguage);
         }
 
         public string HTHomeScore => GetScore(SPORTBOOK.HtHomeScore);
@@ -38,10 +39,29 @@
                 SportType.VirtualSoccerAsianCup,
                 SportType.VirtualSoccerEnglishPremier,
                 SportType.VirtualSoccerChampionsCup,
-                SportType.VirtualSoccerEuroCup
+                SportType.VirtualSoccerEuroCup,
+                SportType.VirtualFootballCup
             };
 
             return virtualSoccer.Contains(sportType);
+        }
+
+        private string GetMatchInfoOfVS3(string matchCode)
+        {
+            var str1 = matchCode;
+            var chArray = new[] { '{' };
+            foreach (string str2 in str1.Split(chArray))
+            {
+                var length = str2.IndexOf('}');
+                if (length != -1)
+                {
+                    var ResourceId = str2.Substring(0, length);
+                    var refIdAndResourceId = RefDataHelper.GetResourceDataByRefIdAndResourceId("LVS_MatchCode", ResourceId, GetSupportedLanguage, string.Empty);
+                    matchCode = matchCode.Replace("{" + ResourceId + "}", refIdAndResourceId);
+                }
+            }
+
+            return matchCode;
         }
     }
 }

@@ -103,5 +103,25 @@
             // Assert
             Assert.AreEqual(expectedMatchInfo, actualHomeTeam);
         }
+
+        [TestCase(178, "{2} 23, {102},  {1} 6666", "(Match Day 23, Group A, Cup 6666)")]
+        public void MatchInfo_IfSportTypeIsVirtualFootballCup_AddMatchInfo(int sportType, string matchCode, string expectedMatchInfo)
+        {
+            // Arrange
+            var sportsbookDto = new Sportsbook { HomeId = 1, MatchCode = matchCode };
+            var resultSetting = new ResultSetting { SportType = (SportType)sportType, LanguageCode = "en-US" };
+            _refDataHelper.GetTeamName(Arg.Any<int>(), Arg.Any<string>(), Arg.Any<string>()).Returns("Home Team Name");
+            _refDataHelper.GetResourceDataByRefIdAndResourceId("LVS_MatchCode", "2", Arg.Any<string>(), Arg.Any<string>()).Returns("Match Day");
+            _refDataHelper.GetResourceDataByRefIdAndResourceId("LVS_MatchCode", "1", Arg.Any<string>(), Arg.Any<string>()).Returns("Cup");
+            _refDataHelper.GetResourceDataByRefIdAndResourceId("LVS_MatchCode", "102", Arg.Any<string>(), Arg.Any<string>()).Returns("Group A");
+
+            var viewModel = new OtherViewModel(sportsbookDto, resultSetting, _refDataHelper);
+
+            // Act
+            var actualHomeTeam = viewModel.MatchInfo;
+
+            // Assert
+            Assert.AreEqual(expectedMatchInfo, actualHomeTeam);
+        }
     }
 }

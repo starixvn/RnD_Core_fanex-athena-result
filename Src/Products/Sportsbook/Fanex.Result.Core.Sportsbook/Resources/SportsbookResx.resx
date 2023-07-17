@@ -405,4 +405,28 @@
   <data name="Dnf" xml:space="preserve">
     <value>DNF</value>
   </data>
+  <data name="Abandoned00" xml:space="preserve">
+    <value>Abandoned FT</value>
+  </data>
+  <data name="Abandoned01" xml:space="preserve">
+    <value>Abandoned HT</value>
+  </data>
+  <data name="Abandoned02" xml:space="preserve">
+    <value>Abandoned FT</value>
+  </data>
+  <data name="AbandonedOT" xml:space="preserve">
+    <value>Abandoned OT</value>
+  </data>
+  <data name="AbandonedQ1" xml:space="preserve">
+    <value>Abandoned Q1</value>
+  </data>
+  <data name="AbandonedQ2" xml:space="preserve">
+    <value>Abandoned Q2</value>
+  </data>
+  <data name="AbandonedQ3" xml:space="preserve">
+    <value>Abandoned Q3</value>
+  </data>
+  <data name="AbandonedQ4" xml:space="preserve">
+    <value>Abandoned Q4</value>
+  </data>
 </root>

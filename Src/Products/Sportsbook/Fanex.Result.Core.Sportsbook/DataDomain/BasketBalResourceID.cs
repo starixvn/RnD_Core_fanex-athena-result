@@ -63,5 +63,10 @@
         {
             FullTime, FirstHalf, SecondHalf, Quarter1, Quarter2, Quarter3, Quarter4, OverTime
         };
+
+        internal static readonly string[] AbandonedResourceIDs =
+        {
+            Quarter1, Quarter2, Quarter3, Quarter4, OverTime, FirstHalf, FullTime, SecondHalf
+        };
     }
 }

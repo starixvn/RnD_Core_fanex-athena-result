@@ -23,7 +23,7 @@
         {
             // Arrange
             var matchCode = string.Empty;
-            var betType = "3101";
+            var betType = 3101;
             var expectedExceptionMessage = "SexyGaming Result API Exception. Exception: tranDesc is invalid!";
 
             // Assert
@@ -32,10 +32,8 @@
                 Throws.Exception.TypeOf<SexyGamingException>().With.Property("Message").EqualTo(expectedExceptionMessage));
         }
 
-        [TestCase(null)]
-        [TestCase("")]
-        [TestCase("  ")]
-        public void Render_WhenInvalidBetType_ThrowSexyGamingCasinoException(string betType)
+        [TestCase(0)]
+        public void Render_WhenInvalidBetType_ThrowSexyGamingCasinoException(int betType)
         {
             // Arrange
             var transDesc = "transDesc";
@@ -54,7 +52,7 @@
             // Arrange
             var transDesc = "transDesc";
             var matchCode = string.Empty;
-            var betType = "3101";
+            var betType = 3101;
             var expectedMessage = "SexyGaming Result API Exception. Exception: not found SexyGaming image path configuration!";
 
             // Assert
@@ -69,9 +67,9 @@
             // Arrange
             var transDesc = "transDesc";
             var matchCode = string.Empty;
-            var betType = "3101";
+            var betType = 3101;
             var resultPopup = Substitute.For<IResultPopup>();
-            resultPopup.genResultPopHtml(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<string>(), Arg.Any<string>()).Returns("Test");
+            resultPopup.genResultPopHtml(Arg.Any<string>(), Arg.Any<string>(), Arg.Any<string>(), Arg.Any<int>()).Returns("Test");
             var builder = new SexyGamingResultBuilder(resultPopup);
 
             // Assert
@@ -84,7 +82,7 @@
             // Arrange
             var transDesc = "transDesc";
             var matchCode = string.Empty;
-            var betType = "3101";
+            var betType = 3101;
             var builder = new SexyGamingResultBuilder();
 
             // Act

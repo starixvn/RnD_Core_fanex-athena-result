@@ -15,8 +15,8 @@
         public BasketBallExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
             : base(templatePath, setting, data)
         {
-            ColumnTemplateCount = 11;
-            ColumnStatus = 10;
+            ColumnTemplateCount = 12;
+            ColumnStatus = 11;
             RowContentTemplate = 3;
         }
 
@@ -33,6 +33,7 @@
             row.Cells[colidx++].SetCellValue(LangResource.Lbl4Q);
             row.Cells[colidx++].SetCellValue(LangResource.LblOT);
             row.Cells[colidx++].SetCellValue(LangResource.HTScore);
+            row.Cells[colidx++].SetCellValue(LangResource._2HScore);
             row.Cells[colidx++].SetCellValue(LangResource.FinalScore);
             row.Cells[colidx].SetCellValue(LangResource.Status);
         }
@@ -62,6 +63,7 @@
                 exportRow.GetHomeAwaySet(3, true),
                 exportRow.OTHome,
                 exportRow.HTHomeScore,
+                exportRow.SecondHaftHomeScore,
                 exportRow.FinalHomeScore,
                 exportRow.EventStatus);
             currentRow++;
@@ -78,6 +80,7 @@
                 exportRow.GetHomeAwaySet(3, false),
                 exportRow.OTAway,
                 exportRow.HTAwayScore,
+                exportRow.SecondHaftAwayScore,
                 exportRow.FinalAwayScore,
                 exportRow.EventStatus);
             currentRow++;

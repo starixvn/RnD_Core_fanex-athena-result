@@ -61,6 +61,78 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Abandoned FT.
+        /// </summary>
+        public static string Abandoned00 {
+            get {
+                return ResourceManager.GetString("Abandoned00", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Abandoned HT.
+        /// </summary>
+        public static string Abandoned01 {
+            get {
+                return ResourceManager.GetString("Abandoned01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Abandoned FT.
+        /// </summary>
+        public static string Abandoned02 {
+            get {
+                return ResourceManager.GetString("Abandoned02", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Abandoned OT.
+        /// </summary>
+        public static string AbandonedOT {
+            get {
+                return ResourceManager.GetString("AbandonedOT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Abandoned Q1.
+        /// </summary>
+        public static string AbandonedQ1 {
+            get {
+                return ResourceManager.GetString("AbandonedQ1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Abandoned Q2.
+        /// </summary>
+        public static string AbandonedQ2 {
+            get {
+                return ResourceManager.GetString("AbandonedQ2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Abandoned Q3.
+        /// </summary>
+        public static string AbandonedQ3 {
+            get {
+                return ResourceManager.GetString("AbandonedQ3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Abandoned Q4.
+        /// </summary>
+        public static string AbandonedQ4 {
+            get {
+                return ResourceManager.GetString("AbandonedQ4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bottom.
         /// </summary>
         public static string Bottom {

@@ -40,18 +40,28 @@
 
         protected override BasketBallGameDetailItem MapGameValueByStatusId(BasketBallGameDetailItem item, GameDetail detailItem)
         {
-            var newItem = base.MapGameValueByStatusId(item, detailItem);
-
-            newItem.HomeValue = string.IsNullOrEmpty(newItem.HomeValue) ? "-" : newItem.HomeValue;
-            newItem.AwayValue = string.IsNullOrEmpty(newItem.AwayValue) ? "-" : newItem.AwayValue;
-
-            if (detailItem.SettlementStatusID == EventStatusID.RunningSettlementStatusID)
+            switch (detailItem.SettlementStatusID)
             {
-                newItem.HomeValue = ConstantValue.Hyphen;
-                newItem.AwayValue = ConstantValue.Hyphen;
+                case EventStatusID.CompletedSettlementStatusID:
+                case EventStatusID.RefundWithSettleDetermined:
+                    MapGameValueByPattern(item, detailItem);
+                    break;
+                
+                case EventStatusID.RefundSettlementStatusID:
+                    item.HomeValue = LangResource.Refund;
+                    item.AwayValue = LangResource.Refund;
+                    break;              
+
+                default:
+                    item.HomeValue = ConstantValue.Hyphen;
+                    item.AwayValue = ConstantValue.Hyphen;
+                    break;
             }
 
-            return newItem;
+            item.HomeValue = string.IsNullOrEmpty(item.HomeValue) ? "-" : item.HomeValue;
+            item.AwayValue = string.IsNullOrEmpty(item.AwayValue) ? "-" : item.AwayValue;
+
+            return item;
         }
 
         protected override void MapGameValueByPattern(BasketBallGameDetailItem item, GameDetail detailItem)

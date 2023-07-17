@@ -10,6 +10,7 @@
     using Sportsbook.ViewModels;
     using Sportsbook.ViewModels.BaseDetail;
     using Sportsbook.ViewModels.BasketBallDetail;
+    using System;
 
     [TestFixture]
     public class BasketBallViewModelTests
@@ -527,12 +528,13 @@
             Assert.AreEqual("-", actualValue);
         }
 
-        [TestCase("10","2","8")]
-        [TestCase("Refund","Refund","Refund")]
-        [TestCase("","","-")]
-        public void SecondHaftHomeScore_Awlays_ReturnExpectedValue(string fullScore, string haftScore, string expectedValue)
+        [TestCase("10", "2", "8")]
+        [TestCase("Refund", "Refund", "Refund")]
+        [TestCase("", "", "-")]
+        public void SecondHaftHomeScore_BeforeCutOfDate_ReturnExpectedValue(string fullScore, string haftScore, string expectedValue)
         {
             // Arrange
+            _sportsbook.EventDate = new DateTime(2022, 9, 1);
             _resultDetail.GetDetailItems().Returns(new SafeList<BasketBallGameDetailItem>
             {
                 new BasketBallGameDetailItem{ ResourceID = "00", HomeValue = fullScore, AwayValue = fullScore},
@@ -550,13 +552,52 @@
         [TestCase("10", "2", "8")]
         [TestCase("Refund", "Refund", "Refund")]
         [TestCase("", "", "-")]
-        public void SecondHaftAwayScore_Awlays_ReturnExpectedValue(string fullScore, string haftScore, string expectedValue)
+        public void SecondHaftAwayScore_BeforeCutOfDate_ReturnExpectedValue(string fullScore, string haftScore, string expectedValue)
         {
             // Arrange
+            _sportsbook.EventDate = new DateTime(2022, 9, 1);
             _resultDetail.GetDetailItems().Returns(new SafeList<BasketBallGameDetailItem>
             {
                 new BasketBallGameDetailItem{ ResourceID = "00", HomeValue = fullScore, AwayValue = fullScore},
                 new BasketBallGameDetailItem{ ResourceID = "01", HomeValue = haftScore, AwayValue = haftScore}
+            });
+            var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
+
+            // Act
+            var actualValue = viewModel.SecondHaftAwayScore;
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestCase("10","10")]
+        [TestCase("Refund","Refund")]
+        public void SecondHaftHomeScore_AfterCutOffDate_ReturnExpectedValue(string fullScore, string expectedValue)
+        {
+            // Arrange
+            _sportsbook.EventDate = new DateTime(2023, 9, 1);
+            _resultDetail.GetDetailItems().Returns(new SafeList<BasketBallGameDetailItem>
+            {
+                new BasketBallGameDetailItem{ ResourceID = "02", HomeValue = fullScore, AwayValue = fullScore}
+            });
+            var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
+
+            // Act
+            var actualValue = viewModel.SecondHaftHomeScore;
+
+            // Assert
+            Assert.AreEqual(expectedValue, actualValue);
+        }
+
+        [TestCase("10", "10")]
+        [TestCase("Refund", "Refund")]
+        public void SecondHaftAwayScore_AfterCutOffDate_ReturnExpectedValue(string fullScore, string expectedValue)
+        {
+            // Arrange
+            _sportsbook.EventDate = new DateTime(2023, 9, 1);
+            _resultDetail.GetDetailItems().Returns(new SafeList<BasketBallGameDetailItem>
+            {
+                new BasketBallGameDetailItem{ ResourceID = "02", HomeValue = fullScore, AwayValue = fullScore}
             });
             var viewModel = new BasketBallViewModel(_sportsbook, _setting, _resultDetail);
 

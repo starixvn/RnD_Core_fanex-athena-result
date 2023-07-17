@@ -1,6 +1,7 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.ViewModels
 {
     using System;
+    using System.Collections;
     using System.IO;
     using System.Linq;
     using System.Text;
@@ -16,6 +17,7 @@
     using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Sportsbook.Models;
+    using Fanex.Result.Core.Sportsbook.Resources;
     using Fanex.Result.Core.Sportsbook.ViewModels.SoccerDetail;
     using RazorEngine;
     using RazorEngine.Templating;
@@ -56,7 +58,33 @@
 
             betBuilderViewModel = new BetBuilderResultViewModel(sportbook, setting, refDataHelper);
         }
-        
+
+
+        public override string EventStatus
+        {
+            get
+            {
+                var abandonedQuater = SPORTBOOK.GameDetails
+                    .OrderBy(i => BasketBallResourceID.AbandonedResourceIDs.ToList()
+                    .FindIndex(id => id == i.ResourceId))
+                    .FirstOrDefault(i => i.SettlementStatusID == EventStatusID.RefundWithSettleDetermined);
+                var bits = GetBitArray(SPORTBOOK.SettlementStatus);
+                var isAbandoned = bits[0] == 0;
+                if (abandonedQuater != null && isAbandoned)
+                {
+                    var key = $"Abandoned{abandonedQuater.ResourceId}";
+                    var text = SportsbookResx.ResourceManager.GetString(key);
+                    return string.IsNullOrWhiteSpace(text) ? key : text;
+                }
+
+                return MapEventStatus.MapEventStatusString(
+                    SPORTBOOK.SettlementStatus,
+                    SPORTBOOK.EventStatus,
+                    SPORTBOOK.BetStatus);
+            }
+        }
+
+
         public string OTHome => GetOvertimeSet(true);
 
         public string OTAway => GetOvertimeSet(false);
@@ -148,6 +176,16 @@
 
         private string GetSecondHaftScore(bool isHome)
         {
+            var cutoffdate = new DateTime(2023, 7, 11);
+
+            return SPORTBOOK.EventDate < cutoffdate ?
+                GetSecondHaftScoreByOldData(isHome) :
+                GetResultFromGameDetails(BasketBallResourceID.SecondHalf, isHome);
+        }
+
+
+        private string GetSecondHaftScoreByOldData(bool isHome)
+        {
             if (!int.TryParse(HTHomeScore, out int HHome) ||
                 !int.TryParse(HTAwayScore, out int HAway))
             {
@@ -187,5 +225,10 @@
         }
 
         private bool HasGameDetailData() => MoreResultDetailItems.Any();
+
+        private static int[] GetBitArray(byte number)
+           => new BitArray(new[] { number })
+               .Cast<bool>().Select(bit => bit ? 1 : 0)
+               .ToArray();
     }
 }

@@ -35,7 +35,7 @@
             var excelViewModel = new BasketBallExcel(string.Empty, _resultSetting, _resultData.ToList());
 
             // Assert
-            Assert.AreEqual(11, excelViewModel.ColumnTemplateCount);
+            Assert.AreEqual(12, excelViewModel.ColumnTemplateCount);
         }
 
         [Test]
@@ -45,7 +45,7 @@
             var excelViewModel = new BasketBallExcel(string.Empty, _resultSetting, _resultData.ToList());
 
             // Assert
-            Assert.AreEqual(10, excelViewModel.ColumnStatus);
+            Assert.AreEqual(11, excelViewModel.ColumnStatus);
         }
 
         [Test]
@@ -78,8 +78,9 @@
             Assert.AreEqual("4Q", actualHeaderRow.Cells[6].StringCellValue);
             Assert.AreEqual("OT", actualHeaderRow.Cells[7].StringCellValue);
             Assert.AreEqual("HT Score", actualHeaderRow.Cells[8].StringCellValue);
-            Assert.AreEqual("Final Score", actualHeaderRow.Cells[9].StringCellValue);
-            Assert.AreEqual("Status", actualHeaderRow.Cells[10].StringCellValue);
+            Assert.AreEqual("2H Score", actualHeaderRow.Cells[9].StringCellValue);
+            Assert.AreEqual("Final Score", actualHeaderRow.Cells[10].StringCellValue);
+            Assert.AreEqual("Status", actualHeaderRow.Cells[11].StringCellValue);
         }
 
         [Test]
@@ -100,7 +101,7 @@
                 HtHomeScore = 9,
                 HtAwayScore = 10,
                 FinalHomeScore = 11,
-                FinalAwayScore = 12
+                FinalAwayScore = 12,
             }, _resultSetting, null, _refDataHelper);
 
             _resultData = new List<BasketBallViewModel> { basketballViewModel };
@@ -120,8 +121,9 @@
             Assert.AreEqual("0", actualHomeDataRow.Cells[6].StringCellValue);
             Assert.AreEqual("1", actualHomeDataRow.Cells[7].StringCellValue);
             Assert.AreEqual("9", actualHomeDataRow.Cells[8].StringCellValue);
-            Assert.AreEqual("11", actualHomeDataRow.Cells[9].StringCellValue);
-            Assert.AreEqual("Completed", actualHomeDataRow.Cells[10].StringCellValue);
+            Assert.AreEqual("2", actualHomeDataRow.Cells[9].StringCellValue);
+            Assert.AreEqual("11", actualHomeDataRow.Cells[10].StringCellValue);
+            Assert.AreEqual("Completed", actualHomeDataRow.Cells[11].StringCellValue);
 
             var actualAwayDataRow = excelViewModel.Workbook.GetSheetAt(0).GetRow(4);
             Assert.AreEqual("1111", actualAwayDataRow.Cells[0].StringCellValue);
@@ -133,8 +135,9 @@
             Assert.AreEqual("0", actualAwayDataRow.Cells[6].StringCellValue);
             Assert.AreEqual("1", actualAwayDataRow.Cells[7].StringCellValue);
             Assert.AreEqual("10", actualAwayDataRow.Cells[8].StringCellValue);
-            Assert.AreEqual("12", actualAwayDataRow.Cells[9].StringCellValue);
-            Assert.AreEqual("Completed", actualAwayDataRow.Cells[10].StringCellValue);
+            Assert.AreEqual("2", actualAwayDataRow.Cells[9].StringCellValue);
+            Assert.AreEqual("12", actualAwayDataRow.Cells[10].StringCellValue);
+            Assert.AreEqual("Completed", actualAwayDataRow.Cells[11].StringCellValue);
         }
     }
 }

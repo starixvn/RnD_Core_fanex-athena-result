@@ -263,36 +263,6 @@
             // Assert
             var detailItem = resultDetail.GetDetailItems().First();
             Assert.IsTrue(detailItem.HomeValue == expectedResultValue && detailItem.AwayValue == expectedResultValue);
-        }
-
-        [Test, TestCaseSource("MainResultResourceIdsTestCase")]
-        public void MapGameValueByPattern_IsMainResultResourceId_HasRefundHTSettlementStatusID_ShowValue(string resourceId)
-        {
-            // Arrange
-            var expectedResultValue = "Refund HT";
-            _sportsBook.GameDetails.Add(new GameDetail { ResourceId = resourceId, SettlementStatusID = EventStatusID.RefundHTSettlementStatusID });
-
-            // Act
-            var resultDetail = new BasketBallResultDetail(_sportsBook, _setting, _refDataHelper, _sportsBookHelper);
-
-            // Assert
-            var detailItem = resultDetail.GetDetailItems().First();
-            Assert.IsTrue(detailItem.HomeValue == expectedResultValue && detailItem.AwayValue == expectedResultValue);
-        }
-
-        [Test, TestCaseSource("MainResultResourceIdsTestCase")]
-        public void MapGameValueByPattern_IsMainResultResourceId_HasRefundFTSettlementStatusID_ShowValue(string resourceId)
-        {
-            // Arrange
-            var expectedResultValue = "Refund FT";
-            _sportsBook.GameDetails.Add(new GameDetail { ResourceId = resourceId, SettlementStatusID = EventStatusID.RefundFTSettlementStatusID });
-
-            // Act
-            var resultDetail = new BasketBallResultDetail(_sportsBook, _setting, _refDataHelper, _sportsBookHelper);
-
-            // Assert
-            var detailItem = resultDetail.GetDetailItems().First();
-            Assert.IsTrue(detailItem.HomeValue == expectedResultValue && detailItem.AwayValue == expectedResultValue);
-        }
+        }        
     }
 }

@@ -176,7 +176,7 @@
 
         private string GetSecondHaftScore(bool isHome)
         {
-            var cutoffdate = new DateTime(2023, 7, 11);
+            var cutoffdate = new DateTime(2023, 7, 26);
 
             return SPORTBOOK.EventDate < cutoffdate ?
                 GetSecondHaftScoreByOldData(isHome) :

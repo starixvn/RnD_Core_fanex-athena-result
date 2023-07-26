@@ -405,4 +405,28 @@
   <data name="Volleyball_3915XXYY" xml:space="preserve">
     <value>Set {0} {1} Điểm</value>
   </data>
+  <data name="AbandonedQ1" xml:space="preserve">
+    <value>Hủy vào Ván 1</value>
+  </data>
+  <data name="AbandonedQ2" xml:space="preserve">
+    <value>Hủy vào Ván 2</value>
+  </data>
+  <data name="AbandonedQ3" xml:space="preserve">
+    <value>Hủy vào Ván 3</value>
+  </data>
+  <data name="AbandonedQ4" xml:space="preserve">
+    <value>Hủy vào Ván 4</value>
+  </data>
+  <data name="Abandoned01" xml:space="preserve">
+    <value>Hủy vào Hiệp 1</value>
+  </data>
+  <data name="AbandonedOT" xml:space="preserve">
+    <value>Hủy vào Ván Phụ</value>
+  </data>
+  <data name="Abandoned02" xml:space="preserve">
+    <value>Hủy Toàn Trận</value>
+  </data>
+  <data name="Abandoned00" xml:space="preserve">
+    <value>Hủy Toàn Trận</value>
+  </data>
 </root>

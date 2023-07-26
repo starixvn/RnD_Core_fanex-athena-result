@@ -405,4 +405,28 @@
   <data name="Dnf" xml:space="preserve">
     <value>未完賽</value>
   </data>
+  <data name="AbandonedQ1" xml:space="preserve">
+    <value>在第一節中止</value>
+  </data>
+  <data name="AbandonedQ2" xml:space="preserve">
+    <value>在第二節中止</value>
+  </data>
+  <data name="AbandonedQ3" xml:space="preserve">
+    <value>在第三節中止</value>
+  </data>
+  <data name="AbandonedQ4" xml:space="preserve">
+    <value>在第四節中止</value>
+  </data>
+  <data name="Abandoned01" xml:space="preserve">
+    <value>在半場中止</value>
+  </data>
+  <data name="Abandoned00" xml:space="preserve">
+    <value>在全場中止</value>
+  </data>
+  <data name="Abandoned02" xml:space="preserve">
+    <value>在全場中止</value>
+  </data>
+  <data name="AbandonedOT" xml:space="preserve">
+    <value>在加時中止</value>
+  </data>
 </root>

@@ -249,4 +249,28 @@
   <data name="Volleyball_3915XXYY" xml:space="preserve">
     <value>第 {0} 局第 {1} 分球队</value>
   </data>
+  <data name="AbandonedQ1" xml:space="preserve">
+    <value>在第一节中止</value>
+  </data>
+  <data name="AbandonedQ2" xml:space="preserve">
+    <value>在第二节中止</value>
+  </data>
+  <data name="AbandonedQ3" xml:space="preserve">
+    <value>在第三节中止</value>
+  </data>
+  <data name="AbandonedQ4" xml:space="preserve">
+    <value>在第四节中止</value>
+  </data>
+  <data name="Abandoned01" xml:space="preserve">
+    <value>在半场中止</value>
+  </data>
+  <data name="Abandoned00" xml:space="preserve">
+    <value>在全场中止</value>
+  </data>
+  <data name="Abandoned02" xml:space="preserve">
+    <value>在全场中止</value>
+  </data>
+  <data name="AbandonedOT" xml:space="preserve">
+    <value>在加时中止</value>
+  </data>
 </root>

@@ -1,4 +1,12 @@
-﻿namespace Fanex.Result.Core.Base.ExcelModels
+﻿using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("Fanex.Result.Core.Sportsbook.Tests")]
+[assembly: InternalsVisibleTo("Fanex.Result.Core.GoldDeluxe.Tests")]
+[assembly: InternalsVisibleTo("Fanex.Result.Core.Racing.Tests")]
+[assembly: InternalsVisibleTo("Fanex.Result.Core.NumberGame.Tests")]
+[assembly: InternalsVisibleTo("Fanex.Result.Core.Happy5.Tests")]
+[assembly: InternalsVisibleTo("Fanex.Result.Core.Bitcoin.Tests")]
+namespace Fanex.Result.Core.Base.ExcelModels
 {
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;

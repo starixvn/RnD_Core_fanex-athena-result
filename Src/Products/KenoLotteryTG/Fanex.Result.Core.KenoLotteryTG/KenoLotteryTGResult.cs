@@ -2,7 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Configuration;
+    using Fanex.Result.Core.ConfigurationHelper;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.Exception;
     using Fanex.Result.Core.Base.Utilities;
@@ -20,16 +20,16 @@
         private readonly ISerializer _serializer;
         private readonly string SectionName;
 
-        public KenoLotteryTGResult(string sectionName) : this(sectionName, null, null)
+        public KenoLotteryTGResult(string sectionName, IConfigurationHelper configHelper) : this(sectionName, configHelper, null, null)
         {
         }
 
-        protected KenoLotteryTGResult(string sectionName, IWebClient client = null, ISerializer serializer = null)
+        protected KenoLotteryTGResult(string sectionName, IConfigurationHelper configHelper, IWebClient client = null, ISerializer serializer = null)
         {
             _serializer = serializer ?? new JsonSerializer();
             _client = client ?? new JsonWebClient(_serializer);
             SectionName = sectionName;
-            _configs = ConfigurationManager.GetSection(sectionName) as KenoLotteryTGConfigs;
+            _configs = configHelper.GetSection(sectionName) as KenoLotteryTGConfigs;
         }
 
         public string GetResult(string custId, bool isDesktop, DateTime eventDate, string homeUrl, string language = "en-US")

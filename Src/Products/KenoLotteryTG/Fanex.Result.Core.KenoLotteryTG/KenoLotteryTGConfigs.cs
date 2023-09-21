@@ -6,19 +6,13 @@ namespace Fanex.Result.Core.KenoLotteryTG
     public sealed class KenoLotteryTGConfigs : ConfigurationSection
     {
         #region const
-        private const string RESULT_CONFIG = "KenoLotteryTGResultConfigs";
         private const string URL = "Url";
         private const string SITE_ID = "SiteId";
         private const string DEBUG_MODE = "Debug";
         private const string PROXY_IP_SERVER = "ProxyIP";
         private const string PROXY_PORT_SERVER = "ProxyPort";
 
-        #endregion const       
-
-        private static readonly KenoLotteryTGConfigs _configs = ConfigurationManager.GetSection(RESULT_CONFIG) as KenoLotteryTGConfigs;
-
-        public static KenoLotteryTGConfigs Configs => _configs;
-
+        #endregion const
         [ConfigurationProperty(URL, IsRequired = true)]
         public string Url => this[URL].ToString();
 

@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net461;netstandard2.1;net7.0</TargetFrameworks> 
+    <OutputType>Library</OutputType>
+    <RestorePackages>true</RestorePackages>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <AssemblyTitle>Fanex.Result.Core.ConfigurationHelper</AssemblyTitle>
+    <Product>Fanex.Result.Core.ConfigurationHelper</Product>
+    <Copyright>Copyright ©  2022</Copyright>
+    <Version>1.0.0.0-beta-04</Version>
+    <PackageReleaseNotes>Support .net Core for Result Core package (#191539)</PackageReleaseNotes>
+  </PropertyGroup>
+  <PropertyGroup />
+  <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="6.0.1" />
+  </ItemGroup>
+</Project>

@@ -1,7 +1,6 @@
-﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{8BA10E20-6612-4CCB-A759-5E18D6726760}"
 	ProjectSection(SolutionItems) = preProject
@@ -24,197 +23,113 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Products", "Products", "{FA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AGCasino", "AGCasino", "{18523677-5E3E-4ED3-B556-845ECB6D2209}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.AGCasino.Tests", "Src\Products\AGCasino\Fanex.Result.Core.AGCasino.Tests\Fanex.Result.Core.AGCasino.Tests.csproj", "{65FEAFB9-6241-4856-BE05-6B686EB93BE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.AGCasino.Tests", "Src\Products\AGCasino\Fanex.Result.Core.AGCasino.Tests\Fanex.Result.Core.AGCasino.Tests.csproj", "{65FEAFB9-6241-4856-BE05-6B686EB93BE1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.AGCasino", "Src\Products\AGCasino\Fanex.Result.Core.AGCasino\Fanex.Result.Core.AGCasino.csproj", "{0A57E89B-3C07-498A-A704-E893C2C3F7E9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.AGCasino", "Src\Products\AGCasino\Fanex.Result.Core.AGCasino\Fanex.Result.Core.AGCasino.csproj", "{0A57E89B-3C07-498A-A704-E893C2C3F7E9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Allbet", "Allbet", "{561B98E8-E022-491F-AA9F-D425FE1BA095}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Allbet", "Src\Products\Allbet\Fanex.Result.Core.Allbet\Fanex.Result.Core.Allbet.csproj", "{D9303680-11B8-41C1-9EB2-2AE37D02FFB1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.Allbet", "Src\Products\Allbet\Fanex.Result.Core.Allbet\Fanex.Result.Core.Allbet.csproj", "{D9303680-11B8-41C1-9EB2-2AE37D02FFB1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Allbet.Tests", "Src\Products\Allbet\Fanex.Result.Core.Allbet.Tests\Fanex.Result.Core.Allbet.Tests.csproj", "{067456C0-086C-46A8-B37F-1405717B7BFC}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cockfigting", "Cockfigting", "{57B6B8AB-1BC2-4DA6-84A7-4A6AD8410B57}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.CockFighting", "Src\Products\Cockfighting\Fanex.Result.Core.CockFighting\Fanex.Result.Core.CockFighting.csproj", "{29F23CC1-8D52-4E0B-84C9-6F463BC0A80C}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GlobalGaming", "GlobalGaming", "{74E847A2-9434-405B-917A-515D48611B05}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.GlobalGaming", "Src\Products\GlobalGaming\Fanex.Result.Core.GlobalGaming\Fanex.Result.Core.GlobalGaming.csproj", "{24011D8B-9445-4377-8B70-E7D4049F372F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.GlobalGaming.Tests", "Src\Products\GlobalGaming\Fanex.Result.Core.GlobalGaming.Tests\Fanex.Result.Core.GlobalGaming.Tests.csproj", "{33F7C38E-0814-46D8-80BF-E1401DF29135}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GoldDeluxe", "GoldDeluxe", "{9E13D86A-E136-4D47-8B10-FCBD979314DA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.GoldDeLuxe", "Src\Products\GoldDeluxe\Fanex.Result.Core.GoldDeLuxe\Fanex.Result.Core.GoldDeLuxe.csproj", "{DBD59404-19D9-422C-83F1-8F20E02545ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.Allbet.Tests", "Src\Products\Allbet\Fanex.Result.Core.Allbet.Tests\Fanex.Result.Core.Allbet.Tests.csproj", "{067456C0-086C-46A8-B37F-1405717B7BFC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Happy5", "Happy5", "{9ED63C04-0DAD-4736-845E-370605BDA830}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Happy5", "Src\Products\Happy5\Fanex.Result.Core.Happy5\Fanex.Result.Core.Happy5.csproj", "{8ED01504-3503-43C2-8E0E-8127E36E482C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.Happy5", "Src\Products\Happy5\Fanex.Result.Core.Happy5\Fanex.Result.Core.Happy5.csproj", "{8ED01504-3503-43C2-8E0E-8127E36E482C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Happy5.Tests", "Src\Products\Happy5\Fanex.Result.Core.Happy5.Tests\Fanex.Result.Core.Happy5.Tests.csproj", "{A4C011CD-F469-4246-833B-A22088541DCB}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MetricGaming", "MetricGaming", "{0630B1BC-4CBE-4A12-AAB6-54EE0A7085E5}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.MetricGaming", "Src\Products\MetricGaming\Fanex.Result.Core.MetricGaming\Fanex.Result.Core.MetricGaming.csproj", "{76CD2383-849A-4291-AD55-378F6C26836C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.MetricGaming.Tests", "Src\Products\MetricGaming\Fanex.Result.Core.MetricGaming.Tests\Fanex.Result.Core.MetricGaming.Tests.csproj", "{F20A6D32-94E0-4486-8C66-320F3EF970D2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.Happy5.Tests", "Src\Products\Happy5\Fanex.Result.Core.Happy5.Tests\Fanex.Result.Core.Happy5.Tests.csproj", "{A4C011CD-F469-4246-833B-A22088541DCB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NumberGame", "NumberGame", "{A925CE5C-CB8C-44EF-898F-2C0164FF0D32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.NumberGame", "Src\Products\NumberGame\Fanex.Result.Core.NumberGame\Fanex.Result.Core.NumberGame.csproj", "{CEBAE710-7919-4FC6-8978-862A3096972C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.NumberGame", "Src\Products\NumberGame\Fanex.Result.Core.NumberGame\Fanex.Result.Core.NumberGame.csproj", "{CEBAE710-7919-4FC6-8978-862A3096972C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.NumberGame.Tests", "Src\Products\NumberGame\Fanex.Result.Core.NumberGame.Tests\Fanex.Result.Core.NumberGame.Tests.csproj", "{400A42FF-5785-4CBA-9499-0F659DD4F688}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CardClub", "CardClub", "{EEF16602-74C4-4CD1-ABC7-482E87150A98}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.CardClub", "Src\Products\CardClub\Fanex.Result.Core.CardClub\Fanex.Result.Core.CardClub.csproj", "{D0C14C69-33F8-4B76-BB9A-109F3DCFFC57}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.CardClub.Tests", "Src\Products\CardClub\Fanex.Result.Core.CardClub.Tests\Fanex.Result.Core.CardClub.Tests.csproj", "{3645FF8C-C788-46D2-AF72-148CED908FBC}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PP", "PP", "{1FA9F643-D6F3-4FB0-8C55-97EAA64DFC36}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.PP", "Src\Products\PP\Fanex.Result.Core.PP\Fanex.Result.Core.PP.csproj", "{05AA0490-7266-489A-9E2D-84C9D2F2FB39}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.PP.Tests", "Src\Products\PP\Fanex.Result.Core.PP.Tests\Fanex.Result.Core.PP.Tests.csproj", "{60145A0D-B862-490C-B954-449C243811BB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.NumberGame.Tests", "Src\Products\NumberGame\Fanex.Result.Core.NumberGame.Tests\Fanex.Result.Core.NumberGame.Tests.csproj", "{400A42FF-5785-4CBA-9499-0F659DD4F688}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Racing", "Racing", "{9487A572-0D4B-4E8C-97F8-C80FA887DE56}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Racing", "Src\Products\Racing\Fanex.Result.Core.Racing\Fanex.Result.Core.Racing.csproj", "{4869ED23-CD0C-4472-BCE6-54A9E170ED6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.Racing", "Src\Products\Racing\Fanex.Result.Core.Racing\Fanex.Result.Core.Racing.csproj", "{4869ED23-CD0C-4472-BCE6-54A9E170ED6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Racing.Tests", "Src\Products\Racing\Fanex.Result.Core.Racing.Tests\Fanex.Result.Core.Racing.Tests.csproj", "{B58DE44F-DD85-4C29-ACC8-58F2FC0751A2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.Racing.Tests", "Src\Products\Racing\Fanex.Result.Core.Racing.Tests\Fanex.Result.Core.Racing.Tests.csproj", "{B58DE44F-DD85-4C29-ACC8-58F2FC0751A2}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sportsbook", "Sportsbook", "{CE3AD8D9-8812-4325-9945-33BBFF77D150}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Sportsbook", "Src\Products\Sportsbook\Fanex.Result.Core.Sportsbook\Fanex.Result.Core.Sportsbook.csproj", "{0469C900-5E5B-4D2C-8DB3-7EAEA991095B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.Sportsbook", "Src\Products\Sportsbook\Fanex.Result.Core.Sportsbook\Fanex.Result.Core.Sportsbook.csproj", "{0469C900-5E5B-4D2C-8DB3-7EAEA991095B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Sportsbook.Tests", "Src\Products\Sportsbook\Fanex.Result.Core.Sportsbook.Tests\Fanex.Result.Core.Sportsbook.Tests.csproj", "{978D3D90-0029-43DD-8791-E9D3368C735B}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VoidBridge", "VoidBridge", "{721839FB-0AD9-467F-8CDA-DD888CA5BAC4}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Voidbridge", "Src\Products\VoidBridge\Fanex.Result.Core.Voidbridge\Fanex.Result.Core.Voidbridge.csproj", "{394FFBAB-DD32-4EA6-9C4E-D513ADC51A74}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.VoidBridge.Tests", "Src\Products\VoidBridge\Fanex.Result.Core.VoidBridge.Tests\Fanex.Result.Core.VoidBridge.Tests.csproj", "{1F27A95D-99AE-4884-99F2-E59C37E1CD7B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.Sportsbook.Tests", "Src\Products\Sportsbook\Fanex.Result.Core.Sportsbook.Tests\Fanex.Result.Core.Sportsbook.Tests.csproj", "{978D3D90-0029-43DD-8791-E9D3368C735B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RemotingRef", "RemotingRef", "{FDBD763F-5380-4A74-BCB9-C53FFDD9A550}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.RemotingRef", "Src\RemotingRef\Fanex.Result.Core.RemotingRef\Fanex.Result.Core.RemotingRef.csproj", "{B899F4AE-2360-45B1-96D0-423C7328E8EA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.RemotingRef", "Src\RemotingRef\Fanex.Result.Core.RemotingRef\Fanex.Result.Core.RemotingRef.csproj", "{B899F4AE-2360-45B1-96D0-423C7328E8EA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.RemotingRef.Tests", "Src\RemotingRef\Fanex.Result.Core.RemotingRef.Tests\Fanex.Result.Core.RemotingRef.Tests.csproj", "{266EB456-C4F5-4E6D-B7D5-B851D1810DFB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.RemotingRef.Tests", "Src\RemotingRef\Fanex.Result.Core.RemotingRef.Tests\Fanex.Result.Core.RemotingRef.Tests.csproj", "{266EB456-C4F5-4E6D-B7D5-B851D1810DFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Data", "Samples\Fanex.Result.Data\Fanex.Result.Data.csproj", "{15E2D2EC-E10D-4900-984F-B818011620DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Data", "Samples\Fanex.Result.Data\Fanex.Result.Data.csproj", "{15E2D2EC-E10D-4900-984F-B818011620DA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.UI", "Samples\Fanex.Result.UI\Fanex.Result.UI.csproj", "{FA14D5CB-B702-4D24-A938-A091E3032D06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Sites", "Samples\Fanex.Result.Sites\Fanex.Result.Sites.csproj", "{EBD31F24-8F67-4E36-BD6D-1BB78A71E54B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Sites", "Samples\Fanex.Result.Sites\Fanex.Result.Sites.csproj", "{EBD31F24-8F67-4E36-BD6D-1BB78A71E54B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core", "Src\Products\Core\Fanex.Result.Core\Fanex.Result.Core.csproj", "{73AAEA31-C52D-47D2-BC47-087A06794F55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core", "Src\Products\Core\Fanex.Result.Core\Fanex.Result.Core.csproj", "{73AAEA31-C52D-47D2-BC47-087A06794F55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Base", "Src\Products\Core\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj", "{8673F024-7726-4C30-8464-5A8357F79BF0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.Base", "Src\Products\Core\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj", "{8673F024-7726-4C30-8464-5A8357F79BF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Base.Tests", "Src\Products\Core\Fanex.Result.Core.Base.Tests\Fanex.Result.Core.Base.Tests.csproj", "{77EA5F5D-52E9-47D8-BF8C-7974A2F00AF7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.Base.Tests", "Src\Products\Core\Fanex.Result.Core.Base.Tests\Fanex.Result.Core.Base.Tests.csproj", "{77EA5F5D-52E9-47D8-BF8C-7974A2F00AF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Tests.Utils", "Src\Products\Core\Fanex.Result.Core.Tests.Utils\Fanex.Result.Core.Tests.Utils.csproj", "{055D46DB-5556-4A00-902B-CF7C4B8225BA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.GoldDeluxe.Tests", "Src\Products\GoldDeluxe\Fanex.Result.Core.GoldDeluxe.Tests\Fanex.Result.Core.GoldDeluxe.Tests.csproj", "{B7E1ABCF-0E52-4BD8-813C-68EEE351DE58}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.CockFighting.Tests", "Src\Products\Cockfighting\Fanex.Result.Core.CockFighting.Tests\Fanex.Result.Core.CockFighting.Tests.csproj", "{9B472221-EF3F-4833-B71F-CD9402C8519F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveCasinoResult", "Src\Products\Allbet\LiveCasinoResult\LiveCasinoResult.csproj", "{E8D9E9B2-5DD6-4612-98A8-24320F21A95A}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Casino", "Casino", "{23B58884-E486-4A85-BA71-3DFFAB3B1A4D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Casino", "Src\Products\Casino\Fanex.Result.Core.Casino\Fanex.Result.Core.Casino.csproj", "{D8429ADD-FAA0-4CA7-80A4-1DD99347DF76}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Casino.Tests", "Src\Products\Casino\Fanex.Result.Core.Casino.Tests\Fanex.Result.Core.Casino.Tests.csproj", "{713A1FFA-D287-4E15-BD1D-423C9456C010}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.Tests.Utils", "Src\Products\Core\Fanex.Result.Core.Tests.Utils\Fanex.Result.Core.Tests.Utils.csproj", "{055D46DB-5556-4A00-902B-CF7C4B8225BA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SAGaming", "SAGaming", "{9E8C9BFF-2BE5-402F-95A9-90B98A3EE71A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SexyGaming", "SexyGaming", "{D3915803-B54D-4CCB-BB6E-B659C6BD64AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.SAGaming", "Src\Products\SAGaming\Fanex.Result.Core.SAGaming\Fanex.Result.Core.SAGaming.csproj", "{45E45C87-3B5E-418A-85AA-642E025CE2A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.SAGaming", "Src\Products\SAGaming\Fanex.Result.Core.SAGaming\Fanex.Result.Core.SAGaming.csproj", "{45E45C87-3B5E-418A-85AA-642E025CE2A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.SexyGaming.Tests", "Src\Products\SexyGaming\Fanex.Result.Core.Allbet.Tests\Fanex.Result.Core.SexyGaming.Tests.csproj", "{7B9F2E62-A661-4197-A67F-B3426C63B4E3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.SexyGaming", "Src\Products\SexyGaming\Fanex.Result.Core.SexyGaming\Fanex.Result.Core.SexyGaming.csproj", "{E6D50668-1731-4EB1-9112-8D47203080DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.SexyGaming", "Src\Products\SexyGaming\Fanex.Result.Core.SexyGaming\Fanex.Result.Core.SexyGaming.csproj", "{E6D50668-1731-4EB1-9112-8D47203080DC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.SAGaming.Tests", "Src\Products\SAGaming\Fanex.Result.Core.SAGaming.Tests\Fanex.Result.Core.SAGaming.Tests.csproj", "{93B7E42F-E441-49F1-917F-0DF2D2655223}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.SAGaming.Tests", "Src\Products\SAGaming\Fanex.Result.Core.SAGaming.Tests\Fanex.Result.Core.SAGaming.Tests.csproj", "{93B7E42F-E441-49F1-917F-0DF2D2655223}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GTCasino", "GTCasino", "{03E240EE-32B3-47E7-AA6A-9EA4E2A8436D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.GTCasino", "Src\Products\GTCasino\Fanex.Result.Core.GTCasino\Fanex.Result.Core.GTCasino.csproj", "{CE6304E8-CB53-4C0F-AA9B-E24337DE2926}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.GTCasino", "Src\Products\GTCasino\Fanex.Result.Core.GTCasino\Fanex.Result.Core.GTCasino.csproj", "{CE6304E8-CB53-4C0F-AA9B-E24337DE2926}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.GTCasino.Tests", "Src\Products\GTCasino\Fanex.Result.Core.GTCasino.Tests\Fanex.Result.Core.GTCasino.Tests.csproj", "{6CF80F6A-9CA4-45DD-BFCF-5009B687D706}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.GTCasino.Tests", "Src\Products\GTCasino\Fanex.Result.Core.GTCasino.Tests\Fanex.Result.Core.GTCasino.Tests.csproj", "{6CF80F6A-9CA4-45DD-BFCF-5009B687D706}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SabaClub", "SabaClub", "{EA8B7953-6699-46A0-9814-C59F16BDC631}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.SabaClub", "Src\Products\SabaClub\Fanex.Result.Core.SabaClub\Fanex.Result.Core.SabaClub.csproj", "{4935C15B-06B5-4C5A-9DCD-68908AC28DFC}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Joker", "Joker", "{86A9105B-744F-4D20-8668-5A35DA7F85AF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Joker", "Src\Products\Joker\Fanex.Result.Core.Joker\Fanex.Result.Core.Joker.csproj", "{A153227F-6FB4-49B8-8CFE-134566DC6961}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Joker.Tests", "Src\Products\Joker\Fanex.Result.Core.Joker.Tests\Fanex.Result.Core.Joker.Tests.csproj", "{D5A391B1-63FC-4871-B823-6C93357C3806}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PGSoft", "PGSoft", "{A9CBF946-B2C1-4861-8CBB-D5133EA191AD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.PGSoft", "Src\Products\PGSoft\Fanex.Result.Core.PGSoft\Fanex.Result.Core.PGSoft.csproj", "{93B00892-1670-4FBC-8E33-F45ED57B8403}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.SabaClub", "Src\Products\SabaClub\Fanex.Result.Core.SabaClub\Fanex.Result.Core.SabaClub.csproj", "{4935C15B-06B5-4C5A-9DCD-68908AC28DFC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WM", "WM", "{B7E7539A-7D08-489A-B877-2B299870E4E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.WM", "Src\Products\WM\Fanex.Result.Core.WM\Fanex.Result.Core.WM.csproj", "{71425240-2B92-4088-94B8-FD977263AC20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.WM", "Src\Products\WM\Fanex.Result.Core.WM\Fanex.Result.Core.WM.csproj", "{71425240-2B92-4088-94B8-FD977263AC20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.SabaClub.Tests", "Src\Products\SabaClub\Fanex.Result.Core.SabaClub.Tests\Fanex.Result.Core.SabaClub.Tests.csproj", "{E1BCBD1F-C690-4478-994F-FF2B9714DF74}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GDG", "GDG", "{0661C5A0-7AD4-448F-A164-F863BE06C56C}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.GDG", "Src\Products\GDG\Fanex.Result.Core.GDG\Fanex.Result.Core.GDG.csproj", "{B8D854DD-0349-4DDA-B0CD-2846370289EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.SabaClub.Tests", "Src\Products\SabaClub\Fanex.Result.Core.SabaClub.Tests\Fanex.Result.Core.SabaClub.Tests.csproj", "{E1BCBD1F-C690-4478-994F-FF2B9714DF74}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LeapGaming", "LeapGaming", "{09F3FC03-4F77-4C50-950F-FD84335D3BA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.LeapGaming", "Src\Products\LeapGaming\Fanex.Result.Core.LeapGaming\Fanex.Result.Core.LeapGaming.csproj", "{F5653CF7-59BD-424A-BFA6-DE54A63DAD6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.LeapGaming", "Src\Products\LeapGaming\Fanex.Result.Core.LeapGaming\Fanex.Result.Core.LeapGaming.csproj", "{F5653CF7-59BD-424A-BFA6-DE54A63DAD6B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LinkedGames", "LinkedGames", "{19362B8A-B77C-425F-BE6A-F6F7A3E9C809}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BG", "BG", "{455D2455-644C-4452-84B7-38FA4D7F370D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.BG", "Src\Products\BG\Fanex.Result.Core.BG\Fanex.Result.Core.BG.csproj", "{6539579A-762D-479D-B2FF-BA201BD7168D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.LinkedGames", "Src\Products\LinkedGames\Fanex.Result.Core.LinkedGames\Fanex.Result.Core.LinkedGames.csproj", "{3E1F8B18-6339-485D-91D8-7C8C2E7BDB94}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.MaxGame", "Src\Products\MaxGame\Fanex.Result.Core.MaxGame\Fanex.Result.Core.MaxGame.csproj", "{A40AE55A-DE8E-411C-B044-96014FB7A8B5}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MaxGame", "MaxGame", "{37B99752-458F-4B80-8B0B-A5D074C1F49F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.LinkedGames", "Src\Products\LinkedGames\Fanex.Result.Core.LinkedGames\Fanex.Result.Core.LinkedGames.csproj", "{3E1F8B18-6339-485D-91D8-7C8C2E7BDB94}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SportsLottery", "SportsLottery", "{75136911-EE7A-49F8-8563-130EFBD6B9DC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.SportsLottery", "Src\Products\SportsLottery\Fanex.Result.Core.SportsLottery\Fanex.Result.Core.SportsLottery.csproj", "{AF77AC91-F927-4E54-BAA5-F0653C2A53F1}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PPLiveCasino", "PPLiveCasino", "{650D8843-02CF-49B2-A205-79FD222C7498}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.PPLiveCasino", "Src\Products\PPLiveCasino\Fanex.Result.Core.PPLiveCasino\Fanex.Result.Core.PPLiveCasino.csproj", "{F3D58BD3-1158-41CD-AACF-29417DFD2256}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Habanero", "Habanero", "{C628F40E-15CE-488B-8698-B8C468BE503F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Habanero", "Src\Products\Habanero\Fanex.Result.Core.Habanero\Fanex.Result.Core.Habanero.csproj", "{45DCB0B5-3423-4634-9E86-59DD762AE580}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VGaming", "VGaming", "{FE0E61FF-F22E-48F3-837E-D6DD255B1EAA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.VGaming", "Src\Products\VGaming\Fanex.Result.Core.VGaming\Fanex.Result.Core.VGaming.csproj", "{269C9BF8-A164-4AD9-87D0-50DC230C0608}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.SportsLottery", "Src\Products\SportsLottery\Fanex.Result.Core.SportsLottery\Fanex.Result.Core.SportsLottery.csproj", "{AF77AC91-F927-4E54-BAA5-F0653C2A53F1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "KenoLotteryTG", "KenoLotteryTG", "{361D12CB-9FD7-4DB8-AE03-E9CC4C8A07EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.KenoLotteryTG", "Src\Products\KenoLotteryTG\Fanex.Result.Core.KenoLotteryTG\Fanex.Result.Core.KenoLotteryTG.csproj", "{FC6EF81F-5D81-469A-ADD5-5C7BCCF69E58}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.KenoLotteryTG", "Src\Products\KenoLotteryTG\Fanex.Result.Core.KenoLotteryTG\Fanex.Result.Core.KenoLotteryTG.csproj", "{FC6EF81F-5D81-469A-ADD5-5C7BCCF69E58}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Bitcoin", "Bitcoin", "{D1C16410-9E08-4321-9455-12F7D4B3EB72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Bitcoin", "Src\Products\Bitcoin\Fanex.Result.Core.Bitcoin\Fanex.Result.Core.Bitcoin.csproj", "{75CF0202-4D7F-49FF-9E7F-2D235A66378C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.Bitcoin", "Src\Products\Bitcoin\Fanex.Result.Core.Bitcoin\Fanex.Result.Core.Bitcoin.csproj", "{75CF0202-4D7F-49FF-9E7F-2D235A66378C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.Bitcoin.Tests", "Src\Products\Bitcoin\Fanex.Result.Core.Bitcoin.Tests\Fanex.Result.Core.Bitcoin.Tests.csproj", "{CC278485-4A04-47DF-BB58-3D916DB145BF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.Bitcoin.Tests", "Src\Products\Bitcoin\Fanex.Result.Core.Bitcoin.Tests\Fanex.Result.Core.Bitcoin.Tests.csproj", "{CC278485-4A04-47DF-BB58-3D916DB145BF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThirdParty", "ThirdParty", "{7E816749-1C6E-485F-A0E3-5C6C47EAC3C3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.ThirdParty", "Src\Products\ThirdPartyResult\Fanex.Result.Core.ThirdPartyResult\Fanex.Result.Core.ThirdParty.csproj", "{F3891F99-7A03-4FB4-AC89-F7C4BFE03DB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.ThirdParty", "Src\Products\ThirdPartyResult\Fanex.Result.Core.ThirdPartyResult\Fanex.Result.Core.ThirdParty.csproj", "{F3891F99-7A03-4FB4-AC89-F7C4BFE03DB5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.SexyGaming.Tests", "Src\Products\SexyGaming\Fanex.Result.Core.SexyGaming.Tests\Fanex.Result.Core.SexyGaming.Tests.csproj", "{1303F219-D6B3-479F-BA36-D3F40953B444}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -238,22 +153,6 @@ Global
 		{067456C0-086C-46A8-B37F-1405717B7BFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{067456C0-086C-46A8-B37F-1405717B7BFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{067456C0-086C-46A8-B37F-1405717B7BFC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{29F23CC1-8D52-4E0B-84C9-6F463BC0A80C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{29F23CC1-8D52-4E0B-84C9-6F463BC0A80C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{29F23CC1-8D52-4E0B-84C9-6F463BC0A80C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{29F23CC1-8D52-4E0B-84C9-6F463BC0A80C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{24011D8B-9445-4377-8B70-E7D4049F372F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{24011D8B-9445-4377-8B70-E7D4049F372F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{24011D8B-9445-4377-8B70-E7D4049F372F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{24011D8B-9445-4377-8B70-E7D4049F372F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{33F7C38E-0814-46D8-80BF-E1401DF29135}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{33F7C38E-0814-46D8-80BF-E1401DF29135}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{33F7C38E-0814-46D8-80BF-E1401DF29135}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{33F7C38E-0814-46D8-80BF-E1401DF29135}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DBD59404-19D9-422C-83F1-8F20E02545ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DBD59404-19D9-422C-83F1-8F20E02545ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DBD59404-19D9-422C-83F1-8F20E02545ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DBD59404-19D9-422C-83F1-8F20E02545ED}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8ED01504-3503-43C2-8E0E-8127E36E482C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8ED01504-3503-43C2-8E0E-8127E36E482C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8ED01504-3503-43C2-8E0E-8127E36E482C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -262,14 +161,6 @@ Global
 		{A4C011CD-F469-4246-833B-A22088541DCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4C011CD-F469-4246-833B-A22088541DCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4C011CD-F469-4246-833B-A22088541DCB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{76CD2383-849A-4291-AD55-378F6C26836C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{76CD2383-849A-4291-AD55-378F6C26836C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{76CD2383-849A-4291-AD55-378F6C26836C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{76CD2383-849A-4291-AD55-378F6C26836C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F20A6D32-94E0-4486-8C66-320F3EF970D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F20A6D32-94E0-4486-8C66-320F3EF970D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F20A6D32-94E0-4486-8C66-320F3EF970D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F20A6D32-94E0-4486-8C66-320F3EF970D2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CEBAE710-7919-4FC6-8978-862A3096972C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CEBAE710-7919-4FC6-8978-862A3096972C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEBAE710-7919-4FC6-8978-862A3096972C}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -278,22 +169,6 @@ Global
 		{400A42FF-5785-4CBA-9499-0F659DD4F688}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{400A42FF-5785-4CBA-9499-0F659DD4F688}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{400A42FF-5785-4CBA-9499-0F659DD4F688}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D0C14C69-33F8-4B76-BB9A-109F3DCFFC57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D0C14C69-33F8-4B76-BB9A-109F3DCFFC57}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D0C14C69-33F8-4B76-BB9A-109F3DCFFC57}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D0C14C69-33F8-4B76-BB9A-109F3DCFFC57}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3645FF8C-C788-46D2-AF72-148CED908FBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3645FF8C-C788-46D2-AF72-148CED908FBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3645FF8C-C788-46D2-AF72-148CED908FBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3645FF8C-C788-46D2-AF72-148CED908FBC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{05AA0490-7266-489A-9E2D-84C9D2F2FB39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{05AA0490-7266-489A-9E2D-84C9D2F2FB39}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{05AA0490-7266-489A-9E2D-84C9D2F2FB39}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{05AA0490-7266-489A-9E2D-84C9D2F2FB39}.Release|Any CPU.Build.0 = Release|Any CPU
-		{60145A0D-B862-490C-B954-449C243811BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{60145A0D-B862-490C-B954-449C243811BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{60145A0D-B862-490C-B954-449C243811BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{60145A0D-B862-490C-B954-449C243811BB}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4869ED23-CD0C-4472-BCE6-54A9E170ED6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{4869ED23-CD0C-4472-BCE6-54A9E170ED6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4869ED23-CD0C-4472-BCE6-54A9E170ED6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -310,14 +185,6 @@ Global
 		{978D3D90-0029-43DD-8791-E9D3368C735B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{978D3D90-0029-43DD-8791-E9D3368C735B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{978D3D90-0029-43DD-8791-E9D3368C735B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{394FFBAB-DD32-4EA6-9C4E-D513ADC51A74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{394FFBAB-DD32-4EA6-9C4E-D513ADC51A74}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{394FFBAB-DD32-4EA6-9C4E-D513ADC51A74}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{394FFBAB-DD32-4EA6-9C4E-D513ADC51A74}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1F27A95D-99AE-4884-99F2-E59C37E1CD7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1F27A95D-99AE-4884-99F2-E59C37E1CD7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1F27A95D-99AE-4884-99F2-E59C37E1CD7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1F27A95D-99AE-4884-99F2-E59C37E1CD7B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B899F4AE-2360-45B1-96D0-423C7328E8EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B899F4AE-2360-45B1-96D0-423C7328E8EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B899F4AE-2360-45B1-96D0-423C7328E8EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -354,34 +221,10 @@ Global
 		{055D46DB-5556-4A00-902B-CF7C4B8225BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{055D46DB-5556-4A00-902B-CF7C4B8225BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{055D46DB-5556-4A00-902B-CF7C4B8225BA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B7E1ABCF-0E52-4BD8-813C-68EEE351DE58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B7E1ABCF-0E52-4BD8-813C-68EEE351DE58}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B7E1ABCF-0E52-4BD8-813C-68EEE351DE58}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B7E1ABCF-0E52-4BD8-813C-68EEE351DE58}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9B472221-EF3F-4833-B71F-CD9402C8519F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9B472221-EF3F-4833-B71F-CD9402C8519F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9B472221-EF3F-4833-B71F-CD9402C8519F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9B472221-EF3F-4833-B71F-CD9402C8519F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E8D9E9B2-5DD6-4612-98A8-24320F21A95A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E8D9E9B2-5DD6-4612-98A8-24320F21A95A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E8D9E9B2-5DD6-4612-98A8-24320F21A95A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E8D9E9B2-5DD6-4612-98A8-24320F21A95A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D8429ADD-FAA0-4CA7-80A4-1DD99347DF76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D8429ADD-FAA0-4CA7-80A4-1DD99347DF76}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D8429ADD-FAA0-4CA7-80A4-1DD99347DF76}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D8429ADD-FAA0-4CA7-80A4-1DD99347DF76}.Release|Any CPU.Build.0 = Release|Any CPU
-		{713A1FFA-D287-4E15-BD1D-423C9456C010}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{713A1FFA-D287-4E15-BD1D-423C9456C010}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{713A1FFA-D287-4E15-BD1D-423C9456C010}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{713A1FFA-D287-4E15-BD1D-423C9456C010}.Release|Any CPU.Build.0 = Release|Any CPU
 		{45E45C87-3B5E-418A-85AA-642E025CE2A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{45E45C87-3B5E-418A-85AA-642E025CE2A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45E45C87-3B5E-418A-85AA-642E025CE2A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45E45C87-3B5E-418A-85AA-642E025CE2A1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7B9F2E62-A661-4197-A67F-B3426C63B4E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7B9F2E62-A661-4197-A67F-B3426C63B4E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7B9F2E62-A661-4197-A67F-B3426C63B4E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7B9F2E62-A661-4197-A67F-B3426C63B4E3}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E6D50668-1731-4EB1-9112-8D47203080DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E6D50668-1731-4EB1-9112-8D47203080DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6D50668-1731-4EB1-9112-8D47203080DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -402,18 +245,6 @@ Global
 		{4935C15B-06B5-4C5A-9DCD-68908AC28DFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4935C15B-06B5-4C5A-9DCD-68908AC28DFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4935C15B-06B5-4C5A-9DCD-68908AC28DFC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A153227F-6FB4-49B8-8CFE-134566DC6961}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A153227F-6FB4-49B8-8CFE-134566DC6961}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A153227F-6FB4-49B8-8CFE-134566DC6961}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A153227F-6FB4-49B8-8CFE-134566DC6961}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D5A391B1-63FC-4871-B823-6C93357C3806}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D5A391B1-63FC-4871-B823-6C93357C3806}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D5A391B1-63FC-4871-B823-6C93357C3806}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D5A391B1-63FC-4871-B823-6C93357C3806}.Release|Any CPU.Build.0 = Release|Any CPU
-		{93B00892-1670-4FBC-8E33-F45ED57B8403}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{93B00892-1670-4FBC-8E33-F45ED57B8403}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{93B00892-1670-4FBC-8E33-F45ED57B8403}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{93B00892-1670-4FBC-8E33-F45ED57B8403}.Release|Any CPU.Build.0 = Release|Any CPU
 		{71425240-2B92-4088-94B8-FD977263AC20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{71425240-2B92-4088-94B8-FD977263AC20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{71425240-2B92-4088-94B8-FD977263AC20}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -422,42 +253,18 @@ Global
 		{E1BCBD1F-C690-4478-994F-FF2B9714DF74}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E1BCBD1F-C690-4478-994F-FF2B9714DF74}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E1BCBD1F-C690-4478-994F-FF2B9714DF74}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B8D854DD-0349-4DDA-B0CD-2846370289EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B8D854DD-0349-4DDA-B0CD-2846370289EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B8D854DD-0349-4DDA-B0CD-2846370289EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B8D854DD-0349-4DDA-B0CD-2846370289EC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{F5653CF7-59BD-424A-BFA6-DE54A63DAD6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F5653CF7-59BD-424A-BFA6-DE54A63DAD6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5653CF7-59BD-424A-BFA6-DE54A63DAD6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5653CF7-59BD-424A-BFA6-DE54A63DAD6B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6539579A-762D-479D-B2FF-BA201BD7168D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6539579A-762D-479D-B2FF-BA201BD7168D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6539579A-762D-479D-B2FF-BA201BD7168D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6539579A-762D-479D-B2FF-BA201BD7168D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3E1F8B18-6339-485D-91D8-7C8C2E7BDB94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3E1F8B18-6339-485D-91D8-7C8C2E7BDB94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E1F8B18-6339-485D-91D8-7C8C2E7BDB94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E1F8B18-6339-485D-91D8-7C8C2E7BDB94}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A40AE55A-DE8E-411C-B044-96014FB7A8B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A40AE55A-DE8E-411C-B044-96014FB7A8B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A40AE55A-DE8E-411C-B044-96014FB7A8B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A40AE55A-DE8E-411C-B044-96014FB7A8B5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AF77AC91-F927-4E54-BAA5-F0653C2A53F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AF77AC91-F927-4E54-BAA5-F0653C2A53F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF77AC91-F927-4E54-BAA5-F0653C2A53F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF77AC91-F927-4E54-BAA5-F0653C2A53F1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F3D58BD3-1158-41CD-AACF-29417DFD2256}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F3D58BD3-1158-41CD-AACF-29417DFD2256}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F3D58BD3-1158-41CD-AACF-29417DFD2256}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F3D58BD3-1158-41CD-AACF-29417DFD2256}.Release|Any CPU.Build.0 = Release|Any CPU
-		{45DCB0B5-3423-4634-9E86-59DD762AE580}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{45DCB0B5-3423-4634-9E86-59DD762AE580}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{45DCB0B5-3423-4634-9E86-59DD762AE580}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{45DCB0B5-3423-4634-9E86-59DD762AE580}.Release|Any CPU.Build.0 = Release|Any CPU
-		{269C9BF8-A164-4AD9-87D0-50DC230C0608}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{269C9BF8-A164-4AD9-87D0-50DC230C0608}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{269C9BF8-A164-4AD9-87D0-50DC230C0608}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{269C9BF8-A164-4AD9-87D0-50DC230C0608}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FC6EF81F-5D81-469A-ADD5-5C7BCCF69E58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FC6EF81F-5D81-469A-ADD5-5C7BCCF69E58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC6EF81F-5D81-469A-ADD5-5C7BCCF69E58}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -474,6 +281,10 @@ Global
 		{F3891F99-7A03-4FB4-AC89-F7C4BFE03DB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3891F99-7A03-4FB4-AC89-F7C4BFE03DB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3891F99-7A03-4FB4-AC89-F7C4BFE03DB5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1303F219-D6B3-479F-BA36-D3F40953B444}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1303F219-D6B3-479F-BA36-D3F40953B444}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1303F219-D6B3-479F-BA36-D3F40953B444}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1303F219-D6B3-479F-BA36-D3F40953B444}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -486,37 +297,18 @@ Global
 		{561B98E8-E022-491F-AA9F-D425FE1BA095} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{D9303680-11B8-41C1-9EB2-2AE37D02FFB1} = {561B98E8-E022-491F-AA9F-D425FE1BA095}
 		{067456C0-086C-46A8-B37F-1405717B7BFC} = {561B98E8-E022-491F-AA9F-D425FE1BA095}
-		{57B6B8AB-1BC2-4DA6-84A7-4A6AD8410B57} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
-		{29F23CC1-8D52-4E0B-84C9-6F463BC0A80C} = {57B6B8AB-1BC2-4DA6-84A7-4A6AD8410B57}
-		{74E847A2-9434-405B-917A-515D48611B05} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
-		{24011D8B-9445-4377-8B70-E7D4049F372F} = {74E847A2-9434-405B-917A-515D48611B05}
-		{33F7C38E-0814-46D8-80BF-E1401DF29135} = {74E847A2-9434-405B-917A-515D48611B05}
-		{9E13D86A-E136-4D47-8B10-FCBD979314DA} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
-		{DBD59404-19D9-422C-83F1-8F20E02545ED} = {9E13D86A-E136-4D47-8B10-FCBD979314DA}
 		{9ED63C04-0DAD-4736-845E-370605BDA830} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{8ED01504-3503-43C2-8E0E-8127E36E482C} = {9ED63C04-0DAD-4736-845E-370605BDA830}
 		{A4C011CD-F469-4246-833B-A22088541DCB} = {9ED63C04-0DAD-4736-845E-370605BDA830}
-		{0630B1BC-4CBE-4A12-AAB6-54EE0A7085E5} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
-		{76CD2383-849A-4291-AD55-378F6C26836C} = {0630B1BC-4CBE-4A12-AAB6-54EE0A7085E5}
-		{F20A6D32-94E0-4486-8C66-320F3EF970D2} = {0630B1BC-4CBE-4A12-AAB6-54EE0A7085E5}
 		{A925CE5C-CB8C-44EF-898F-2C0164FF0D32} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{CEBAE710-7919-4FC6-8978-862A3096972C} = {A925CE5C-CB8C-44EF-898F-2C0164FF0D32}
 		{400A42FF-5785-4CBA-9499-0F659DD4F688} = {A925CE5C-CB8C-44EF-898F-2C0164FF0D32}
-		{EEF16602-74C4-4CD1-ABC7-482E87150A98} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
-		{D0C14C69-33F8-4B76-BB9A-109F3DCFFC57} = {EEF16602-74C4-4CD1-ABC7-482E87150A98}
-		{3645FF8C-C788-46D2-AF72-148CED908FBC} = {EEF16602-74C4-4CD1-ABC7-482E87150A98}
-		{1FA9F643-D6F3-4FB0-8C55-97EAA64DFC36} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
-		{05AA0490-7266-489A-9E2D-84C9D2F2FB39} = {1FA9F643-D6F3-4FB0-8C55-97EAA64DFC36}
-		{60145A0D-B862-490C-B954-449C243811BB} = {1FA9F643-D6F3-4FB0-8C55-97EAA64DFC36}
 		{9487A572-0D4B-4E8C-97F8-C80FA887DE56} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{4869ED23-CD0C-4472-BCE6-54A9E170ED6E} = {9487A572-0D4B-4E8C-97F8-C80FA887DE56}
 		{B58DE44F-DD85-4C29-ACC8-58F2FC0751A2} = {9487A572-0D4B-4E8C-97F8-C80FA887DE56}
 		{CE3AD8D9-8812-4325-9945-33BBFF77D150} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{0469C900-5E5B-4D2C-8DB3-7EAEA991095B} = {CE3AD8D9-8812-4325-9945-33BBFF77D150}
 		{978D3D90-0029-43DD-8791-E9D3368C735B} = {CE3AD8D9-8812-4325-9945-33BBFF77D150}
-		{721839FB-0AD9-467F-8CDA-DD888CA5BAC4} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
-		{394FFBAB-DD32-4EA6-9C4E-D513ADC51A74} = {721839FB-0AD9-467F-8CDA-DD888CA5BAC4}
-		{1F27A95D-99AE-4884-99F2-E59C37E1CD7B} = {721839FB-0AD9-467F-8CDA-DD888CA5BAC4}
 		{FDBD763F-5380-4A74-BCB9-C53FFDD9A550} = {056CB47B-8797-4C93-BF01-5E4B6EE25EB7}
 		{B899F4AE-2360-45B1-96D0-423C7328E8EA} = {FDBD763F-5380-4A74-BCB9-C53FFDD9A550}
 		{266EB456-C4F5-4E6D-B7D5-B851D1810DFB} = {FDBD763F-5380-4A74-BCB9-C53FFDD9A550}
@@ -527,16 +319,9 @@ Global
 		{8673F024-7726-4C30-8464-5A8357F79BF0} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{77EA5F5D-52E9-47D8-BF8C-7974A2F00AF7} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{055D46DB-5556-4A00-902B-CF7C4B8225BA} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
-		{B7E1ABCF-0E52-4BD8-813C-68EEE351DE58} = {9E13D86A-E136-4D47-8B10-FCBD979314DA}
-		{9B472221-EF3F-4833-B71F-CD9402C8519F} = {57B6B8AB-1BC2-4DA6-84A7-4A6AD8410B57}
-		{E8D9E9B2-5DD6-4612-98A8-24320F21A95A} = {561B98E8-E022-491F-AA9F-D425FE1BA095}
-		{23B58884-E486-4A85-BA71-3DFFAB3B1A4D} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
-		{D8429ADD-FAA0-4CA7-80A4-1DD99347DF76} = {23B58884-E486-4A85-BA71-3DFFAB3B1A4D}
-		{713A1FFA-D287-4E15-BD1D-423C9456C010} = {23B58884-E486-4A85-BA71-3DFFAB3B1A4D}
 		{9E8C9BFF-2BE5-402F-95A9-90B98A3EE71A} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{D3915803-B54D-4CCB-BB6E-B659C6BD64AC} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{45E45C87-3B5E-418A-85AA-642E025CE2A1} = {9E8C9BFF-2BE5-402F-95A9-90B98A3EE71A}
-		{7B9F2E62-A661-4197-A67F-B3426C63B4E3} = {D3915803-B54D-4CCB-BB6E-B659C6BD64AC}
 		{E6D50668-1731-4EB1-9112-8D47203080DC} = {D3915803-B54D-4CCB-BB6E-B659C6BD64AC}
 		{93B7E42F-E441-49F1-917F-0DF2D2655223} = {9E8C9BFF-2BE5-402F-95A9-90B98A3EE71A}
 		{03E240EE-32B3-47E7-AA6A-9EA4E2A8436D} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
@@ -544,32 +329,15 @@ Global
 		{6CF80F6A-9CA4-45DD-BFCF-5009B687D706} = {03E240EE-32B3-47E7-AA6A-9EA4E2A8436D}
 		{EA8B7953-6699-46A0-9814-C59F16BDC631} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{4935C15B-06B5-4C5A-9DCD-68908AC28DFC} = {EA8B7953-6699-46A0-9814-C59F16BDC631}
-		{86A9105B-744F-4D20-8668-5A35DA7F85AF} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
-		{A153227F-6FB4-49B8-8CFE-134566DC6961} = {86A9105B-744F-4D20-8668-5A35DA7F85AF}
-		{D5A391B1-63FC-4871-B823-6C93357C3806} = {86A9105B-744F-4D20-8668-5A35DA7F85AF}
-		{A9CBF946-B2C1-4861-8CBB-D5133EA191AD} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
-		{93B00892-1670-4FBC-8E33-F45ED57B8403} = {A9CBF946-B2C1-4861-8CBB-D5133EA191AD}
 		{B7E7539A-7D08-489A-B877-2B299870E4E0} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{71425240-2B92-4088-94B8-FD977263AC20} = {B7E7539A-7D08-489A-B877-2B299870E4E0}
 		{E1BCBD1F-C690-4478-994F-FF2B9714DF74} = {EA8B7953-6699-46A0-9814-C59F16BDC631}
-		{0661C5A0-7AD4-448F-A164-F863BE06C56C} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
-		{B8D854DD-0349-4DDA-B0CD-2846370289EC} = {0661C5A0-7AD4-448F-A164-F863BE06C56C}
 		{09F3FC03-4F77-4C50-950F-FD84335D3BA5} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{F5653CF7-59BD-424A-BFA6-DE54A63DAD6B} = {09F3FC03-4F77-4C50-950F-FD84335D3BA5}
 		{19362B8A-B77C-425F-BE6A-F6F7A3E9C809} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
-		{455D2455-644C-4452-84B7-38FA4D7F370D} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
-		{6539579A-762D-479D-B2FF-BA201BD7168D} = {455D2455-644C-4452-84B7-38FA4D7F370D}
 		{3E1F8B18-6339-485D-91D8-7C8C2E7BDB94} = {19362B8A-B77C-425F-BE6A-F6F7A3E9C809}
-		{A40AE55A-DE8E-411C-B044-96014FB7A8B5} = {37B99752-458F-4B80-8B0B-A5D074C1F49F}
-		{37B99752-458F-4B80-8B0B-A5D074C1F49F} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{75136911-EE7A-49F8-8563-130EFBD6B9DC} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{AF77AC91-F927-4E54-BAA5-F0653C2A53F1} = {75136911-EE7A-49F8-8563-130EFBD6B9DC}
-		{650D8843-02CF-49B2-A205-79FD222C7498} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
-		{F3D58BD3-1158-41CD-AACF-29417DFD2256} = {650D8843-02CF-49B2-A205-79FD222C7498}
-		{C628F40E-15CE-488B-8698-B8C468BE503F} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
-		{45DCB0B5-3423-4634-9E86-59DD762AE580} = {C628F40E-15CE-488B-8698-B8C468BE503F}
-		{FE0E61FF-F22E-48F3-837E-D6DD255B1EAA} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
-		{269C9BF8-A164-4AD9-87D0-50DC230C0608} = {FE0E61FF-F22E-48F3-837E-D6DD255B1EAA}
 		{361D12CB-9FD7-4DB8-AE03-E9CC4C8A07EF} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{FC6EF81F-5D81-469A-ADD5-5C7BCCF69E58} = {361D12CB-9FD7-4DB8-AE03-E9CC4C8A07EF}
 		{D1C16410-9E08-4321-9455-12F7D4B3EB72} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
@@ -577,10 +345,11 @@ Global
 		{CC278485-4A04-47DF-BB58-3D916DB145BF} = {D1C16410-9E08-4321-9455-12F7D4B3EB72}
 		{7E816749-1C6E-485F-A0E3-5C6C47EAC3C3} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{F3891F99-7A03-4FB4-AC89-F7C4BFE03DB5} = {7E816749-1C6E-485F-A0E3-5C6C47EAC3C3}
+		{1303F219-D6B3-479F-BA36-D3F40953B444} = {D3915803-B54D-4CCB-BB6E-B659C6BD64AC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {4BF11104-7EAE-4BB6-A235-1C10DB35CE8B}
 		LessCompiler = ebd31f24-8f67-4e36-bd6d-1bb78a71e54b
+		SolutionGuid = {4BF11104-7EAE-4BB6-A235-1C10DB35CE8B}
 	EndGlobalSection
 	GlobalSection(JSLint) = preSolution
 		SolutionConfigurationLocation = JSLintOptions.xml

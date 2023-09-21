@@ -1,4 +1,7 @@
-﻿namespace Fanex.Result.Core.Sportsbook.ExcelModels
+﻿using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("Fanex.Result.Core.Sportsbook.Tests")]
+namespace Fanex.Result.Core.Sportsbook.ExcelModels
 {
     using System.Collections.Generic;
     using Base;
@@ -9,6 +12,7 @@
     using Base.ViewModels;
     using NPOI.SS.UserModel;
     using ViewModels;
+
 
     internal sealed class KabaddiExcel : ExcelBase, IExcelModel
     {

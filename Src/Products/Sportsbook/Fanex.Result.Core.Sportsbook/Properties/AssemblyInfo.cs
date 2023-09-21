@@ -8,12 +8,6 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1014:MarkAssembliesWithClsCompliant")]
-[assembly: AssemblyTitle("Fanex.Result.Core.Sportsbook")]
-[assembly: AssemblyDescription("")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Fanex.Result.Core.Sportsbook")]
-[assembly: AssemblyCopyright("Copyright ©  2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 // Setting ComVisible to false makes the types in this assembly not visible
@@ -23,18 +17,5 @@ using System.Runtime.InteropServices;
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("e89717b4-2863-44f4-9dda-66694e713308")]
-
-// Version information for an assembly consists of the following four values:
-//
-//      Major Version
-//      Minor Version
-//      Build Number
-//      Revision
-//
-// You can specify all the values or you can default the Build and Revision Numbers
-// by using the '*' as shown below:
-// [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.3.0.2")]
-[assembly: AssemblyFileVersion("1.3.0.2")]
 [assembly: InternalsVisibleTo("Fanex.Result.Core.Sportsbook.Tests")]
 [assembly: InternalsVisibleTo("Fanex.Result.Core.Base.Tests")]

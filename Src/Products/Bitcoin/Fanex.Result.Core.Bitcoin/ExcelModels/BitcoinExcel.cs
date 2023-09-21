@@ -1,4 +1,6 @@
-﻿namespace Fanex.Result.Core.Bitcoin.ExcelModels
+﻿using System.Runtime.CompilerServices;
+
+namespace Fanex.Result.Core.Bitcoin.ExcelModels
 {
     using System.Collections.Generic;
     using System.Linq;

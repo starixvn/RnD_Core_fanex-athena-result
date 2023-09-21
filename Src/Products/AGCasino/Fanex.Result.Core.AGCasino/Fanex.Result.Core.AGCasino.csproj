@@ -1,91 +1,19 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{0A57E89B-3C07-498A-A704-E893C2C3F7E9}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Fanex.Result.Core.AGCasino</RootNamespace>
-    <AssemblyName>Fanex.Result.Core.AGCasino</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
-    <RestorePackages>true</RestorePackages>
-    <TargetFrameworkProfile />
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>Fanex.Result.Core.AGCasino.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>Fanex.Result.Core.AGCasino.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
+    <TargetFrameworks>net461;netstandard2.1;net7.0</TargetFrameworks> 
+    <OutputType>Library</OutputType>    
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>    
+    <AssemblyTitle>Fanex.Result.Core.AGCasino</AssemblyTitle>
+    <Product>Fanex.Result.Core.AGCasino</Product>
+    <Copyright>Copyright ©  2015</Copyright>    
+    <Version>2.0.0.0-beta-05</Version>
+    <PackageReleaseNotes>Support .net Core for Result Core package (#191539)</PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <PackageReference Include="Fanex.Result.Core-NPOI.2.0.6" Version="3.0.0.0-beta-10" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="DataDomain\AGCasinoBettype.cs" />
-    <Compile Include="DTO\AGCasino.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
-    <Compile Include="Models\Builder.cs" />
-    <Compile Include="Models\Template.cs" />
-    <Compile Include="Models\ViewModelConcreteFactory.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utilities\AGCasinoHelper.cs" />
-    <Compile Include="ViewModels\AGCasinoViewModel.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="Fanex.Result.Core.AGCasino.ruleset" />
+
+  <ItemGroup>    
     <EmbeddedResource Include="Views\AGCasino.cshtml" />
-    <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Core\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj">
-      <Project>{8673f024-7726-4c30-8464-5a8357f79bf0}</Project>
-      <Name>Fanex.Result.Core.Base</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <AdditionalFiles Include="..\..\..\..\SonarQube\result.core\CSharp\SonarLint.xml">
-      <Link>SonarLint.xml</Link>
-    </AdditionalFiles>
-  </ItemGroup>
-  <ItemGroup>
-    <Analyzer Include="..\..\..\..\packages\SonarAnalyzer.CSharp.8.34.0.42011\analyzers\Google.Protobuf.dll" />
-    <Analyzer Include="..\..\..\..\packages\SonarAnalyzer.CSharp.8.34.0.42011\analyzers\SonarAnalyzer.CFG.dll" />
-    <Analyzer Include="..\..\..\..\packages\SonarAnalyzer.CSharp.8.34.0.42011\analyzers\SonarAnalyzer.CSharp.dll" />
-    <Analyzer Include="..\..\..\..\packages\SonarAnalyzer.CSharp.8.34.0.42011\analyzers\SonarAnalyzer.dll" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

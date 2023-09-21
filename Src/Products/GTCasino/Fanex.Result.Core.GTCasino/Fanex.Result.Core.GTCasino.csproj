@@ -1,99 +1,18 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CE6304E8-CB53-4C0F-AA9B-E24337DE2926}</ProjectGuid>
+  <TargetFrameworks>net461;netstandard2.1;net7.0</TargetFrameworks> 
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Fanex.Result.Core.GTCasino</RootNamespace>
-    <AssemblyName>Fanex.Result.Core.GTCasino</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
+    <RestorePackages>true</RestorePackages>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <AssemblyTitle>Fanex.Result.Core.GTCasino</AssemblyTitle>
+    <Product>Fanex.Result.Core.GTCasino</Product>
+    <Copyright>Copyright ©  2020</Copyright>
+    <Version>2.0.0.0-beta-04</Version>
+    <PackageReleaseNotes>Support .net Core for Result Core package (#191539)</PackageReleaseNotes>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>Fanex.Result.Core.GTCasino.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>Fanex.Result.Core.GTCasino.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
+  
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.configuration" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
+    <PackageReference Include="Fanex.Result.Core-NPOI.2.0.6" Version="3.0.0-beta-10" />
+    <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters" Version="1.1.0" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="GTCasinoException.cs" />
-    <Compile Include="GTCasinoResultBuilder.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resource\GTCasinoResource.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>GTCasinoResource.resx</DependentUpon>
-    </Compile>
-    <Compile Include="ResultPop.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Core\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj">
-      <Project>{8673f024-7726-4c30-8464-5a8357f79bf0}</Project>
-      <Name>Fanex.Result.Core.Base</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
-    <None Include="Fanex.Result.Core.GTCasino.ruleset" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Resource\GTCasinoResource.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>GTCasinoResource.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resource\GTCasinoResource.th-TH.resx" />
-    <EmbeddedResource Include="Resource\GTCasinoResource.vi-VN.resx" />
-    <EmbeddedResource Include="Resource\GTCasinoResource.zh-CN.resx" />
-    <EmbeddedResource Include="Resource\GTCasinoResource.zh-Hans.resx" />
-    <EmbeddedResource Include="Resource\GTCasinoResource.zh-TW.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <AdditionalFiles Include="..\..\..\..\SonarQube\result.core\CSharp\SonarLint.xml">
-      <Link>SonarLint.xml</Link>
-    </AdditionalFiles>
-  </ItemGroup>
-  <ItemGroup>
-    <Analyzer Include="..\..\..\..\packages\SonarAnalyzer.CSharp.8.34.0.42011\analyzers\Google.Protobuf.dll" />
-    <Analyzer Include="..\..\..\..\packages\SonarAnalyzer.CSharp.8.34.0.42011\analyzers\SonarAnalyzer.CFG.dll" />
-    <Analyzer Include="..\..\..\..\packages\SonarAnalyzer.CSharp.8.34.0.42011\analyzers\SonarAnalyzer.CSharp.dll" />
-    <Analyzer Include="..\..\..\..\packages\SonarAnalyzer.CSharp.8.34.0.42011\analyzers\SonarAnalyzer.dll" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

@@ -1,7 +1,6 @@
 ﻿namespace Fanex.Result.AllBetCasino.Tests
 {
     using Core.AllBetCasino;
-    using LiveCasinoResult;
     using NSubstitute;
     using NUnit.Framework;
 

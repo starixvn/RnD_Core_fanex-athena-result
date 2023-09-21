@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<configuration>
-  <configSections>
-    <section name="CardClubResultConfigs" type="Fanex.Result.Core.CardClub.CardClubResultConfigs, Fanex.Result.Core.CardClub" />
-  </configSections>
-  <CardClubResultConfigs Url="http://172.16.4.132:9083/api/CardClubInternal/ShowStatement" Login="Login" Password="L2FDRUxCNm1LYkkzWUUvTG9FWTFVZz09" SiteId="4100200" Debug="0" />
-</configuration>

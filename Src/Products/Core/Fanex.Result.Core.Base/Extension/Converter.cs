@@ -1,4 +1,7 @@
-﻿namespace Fanex.Result.Core.Base.Extension
+﻿using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("Fanex.Result.Core.Base.Tests")]
+namespace Fanex.Result.Core.Base.Extension
 {
     using System;
     using System.Diagnostics;

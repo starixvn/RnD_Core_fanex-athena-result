@@ -25,22 +25,5 @@
             _refDataHelper.GetResourceDataByRefIdAndResourceId("LG_STMT", "mid", "en-US", string.Empty).Returns("Match");
             _refDataHelper.GetResourceDataByRefIdAndResourceId("LG_STMT", "se", "en-US", string.Empty).Returns("Season");
         }
-
-
-        [Test]
-        public void GetHomeTeam_Always_ReturnHomeTeamAndMatchInfo()
-        {
-            // Arrange
-            _leapGaming.TransDesc = "md=10;mid=745237;se=3097;m=Turin:Glasgow;s=S03 : Glasgow;o=4.75";
-            var detail = new LeapGamingDetail(_leapGaming.TransDesc);
-            var viewModel = new LeapGamingViewModel(_leapGaming, _setting, _refDataHelper);
-            var expectedHomeName = "Turin (Match day 10, Match 745237, Season 3097)";
-
-            // Act
-            var act = viewModel.GetHomeTeam(detail);
-
-            // Assert
-            Assert.AreEqual(expectedHomeName, act);
-        }
     }
 }

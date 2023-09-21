@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.Utilities;
+    using Fanex.Result.Core.ConfigurationHelper;
 
     public interface ILinkedGamesResult
     {
@@ -14,14 +15,10 @@
         private readonly LinkedGamesConfigs _configs;
         private readonly ISerializer _serializer;
 
-        public LinkedGamesResult() : this(null)
-        {
-        }
-
-        protected LinkedGamesResult(ISerializer serializer = null)
+        public LinkedGamesResult(IConfigurationHelper configHelper, ISerializer serializer = null)
         {
             _serializer = serializer ?? new JsonSerializer();
-            _configs = LinkedGamesConfigs.Configs;
+            _configs = configHelper.GetSection("Soccer5ResultConfigs") as LinkedGamesConfigs;
         }
 
         public string GetSoccer5Result(string matchId, string balls, bool isDesktop, bool isDarkMode = false, string language = "en-US", int bettypeId = 3604)

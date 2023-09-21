@@ -1,230 +1,25 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\..\..\..\packages\NUnit.3.11.0\build\NUnit.props" Condition="Exists('..\..\..\..\packages\NUnit.3.11.0\build\NUnit.props')" />
-  <Import Project="..\packages\NUnit.3.10.1\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.10.1\build\NUnit.props')" />
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{978D3D90-0029-43DD-8791-E9D3368C735B}</ProjectGuid>
+    <TargetFrameworks>netstandard2.1;net7.0</TargetFrameworks> 
     <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Fanex.Result.Core.Sportsbook.Tests</RootNamespace>
-    <AssemblyName>Fanex.Result.Core.Sportsbook.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
     <SonarQubeTestProject>True</SonarQubeTestProject>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <AssemblyTitle>Fanex.Result.Core.SportsbookUnitTests</AssemblyTitle>
+    <Company>Microsoft</Company>
+    <Product>Fanex.Result.Core.SportsbookUnitTests</Product>
+    <Copyright>Copyright © Microsoft 2016</Copyright>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Castle.Core, Version=4.0.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\Castle.Core.4.2.0\lib\net45\Castle.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\NPOI.2.0.6\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
-    </Reference>
-    <Reference Include="KellermanSoftware.Compare-NET-Objects, Version=4.57.0.0, Culture=neutral, PublicKeyToken=d970ace04cc85217, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\CompareNETObjects.4.57.0\lib\net46\KellermanSoftware.Compare-NET-Objects.dll</HintPath>
-    </Reference>
-    <Reference Include="NPOI, Version=2.0.6.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\NPOI.2.0.6\lib\net40\NPOI.dll</HintPath>
-    </Reference>
-    <Reference Include="NPOI.OOXML, Version=2.0.6.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
-      <HintPath>..\packages\NPOI.2.0.6\lib\net40\NPOI.OOXML.dll</HintPath>
-    </Reference>
-    <Reference Include="NPOI.OpenXml4Net, Version=2.0.6.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
-      <HintPath>..\packages\NPOI.2.0.6\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
-    </Reference>
-    <Reference Include="NPOI.OpenXmlFormats, Version=2.0.6.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
-      <HintPath>..\packages\NPOI.2.0.6\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
-    </Reference>
-    <Reference Include="NPOI.OOXML, Version=2.0.6.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\NPOI.2.0.6\lib\net40\NPOI.OOXML.dll</HintPath>
-    </Reference>
-    <Reference Include="NPOI.OpenXml4Net, Version=2.0.6.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\NPOI.2.0.6\lib\net40\NPOI.OpenXml4Net.dll</HintPath>
-    </Reference>
-    <Reference Include="NPOI.OpenXmlFormats, Version=2.0.6.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\NPOI.2.0.6\lib\net40\NPOI.OpenXmlFormats.dll</HintPath>
-    </Reference>
-    <Reference Include="NSubstitute, Version=3.1.0.0, Culture=neutral, PublicKeyToken=92dd2e9066daa5ca, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\NSubstitute.3.1.0\lib\net46\NSubstitute.dll</HintPath>
-    </Reference>
-    <Reference Include="nunit.framework, Version=3.11.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\NUnit.3.11.0\lib\net45\nunit.framework.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
+    <ProjectReference Include="..\..\Core\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj" />
+    <ProjectReference Include="..\Fanex.Result.Core.Sportsbook\Fanex.Result.Core.Sportsbook.csproj" />
+    <ProjectReference Include="..\..\Core\Fanex.Result.Core.Tests.Utils\Fanex.Result.Core.Tests.Utils.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DTOTest\SportsbookTests.cs" />
-    <Compile Include="DTOTest\GameDetailTests.cs" />
-    <Compile Include="ExcelModels\BeackSoccerExcelTests.cs" />
-    <Compile Include="ExcelModels\ESportsExcelTests.cs" />
-    <Compile Include="ExcelModels\KabaddiExcelTests.cs" />
-    <Compile Include="ExcelModels\SoccerExcelTests.cs" />
-    <Compile Include="ExcelModels\OtherExcelTests.cs" />
-    <Compile Include="ExcelModels\VSTennisExcelTests.cs" />
-    <Compile Include="ExcelModels\TennisExcelTests.cs" />
-    <Compile Include="ExcelModels\MuayThaiExcelTests.cs" />
-    <Compile Include="ExcelModels\HockeyExcelTests.cs" />
-    <Compile Include="ExcelModels\BasketballExcelTests.cs" />
-    <Compile Include="ExcelModels\BaseBallExcelTests.cs" />
-    <Compile Include="ExcelModels\BilliardExcelTests.cs" />
-    <Compile Include="ExcelModels\BadmintonExcelTests.cs" />
-    <Compile Include="ExcelModels\OutRightExcelTests.cs" />
-    <Compile Include="Exceptions\SportsbookExceptionTests.cs" />
-    <Compile Include="Models\BuilderTests.cs" />
-    <Compile Include="Models\ViewModelConcreteFactoryTests.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utilities\SportsbookHelperTests.cs" />
-    <Compile Include="ViewModels\BadmintonViewModelTests.cs" />
-    <Compile Include="ViewModels\Badminton\BadmintonlGameDetailItemTests.cs" />
-    <Compile Include="ViewModels\BeachSoccerViewModelTests.cs" />
-    <Compile Include="ViewModels\GolfViewModelTests.cs" />
-    <Compile Include="ViewModels\ESportDetail\MapTests.cs" />
-    <Compile Include="ViewModels\ESportViewModelTests.cs" />
-    <Compile Include="ViewModels\MuayThaiViewModelTests.cs" />
-    <Compile Include="ViewModels\KabaddiViewModelTests.cs" />
-    <Compile Include="ViewModels\OtherViewModelTests.cs" />
-    <Compile Include="ViewModels\SoccerDetail\FastMarketResultDetailTests.cs" />
-    <Compile Include="ViewModels\SoccerDetail\SoccerDetailItemTests.cs" />
-    <Compile Include="ViewModels\SoccerDetail\SoccerResultDetailTests.cs" />
-    <Compile Include="ViewModels\OutrightViewModelTests.cs" />
-    <Compile Include="ViewModels\SoccerViewModelTests.cs" />
-    <Compile Include="ViewModels\VSBasketBallDetail\VSBasketBallResultDetailTests.cs" />
-    <Compile Include="ViewModels\VSBasketBallViewModelTests.cs" />
-    <Compile Include="ViewModels\VSTennisViewModelTests.cs" />
-    <Compile Include="ViewModels\BilliardViewModelTests.cs" />
-    <Compile Include="ViewModels\BaseBallViewModelTests.cs" />
-    <Compile Include="ViewModels\BaseDetail\BaseResultDetailTests.cs" />
-    <Compile Include="ViewModels\BasketBallDetail\BasketBallDetailViewModelTests.cs" />
-    <Compile Include="ViewModels\HockeyViewModelTests.cs" />
-    <Compile Include="ViewModels\BasketBallViewModelTests.cs" />
-    <Compile Include="ViewModels\ParlayViewModelTests.cs" />
-    <Compile Include="ViewModels\BasketBallDetail\BasketBallResultDetailTests.cs" />
-    <Compile Include="ViewModels\SportsbookBaseViewModelTests.cs" />
-    <Compile Include="ViewModels\TennisViewModelTests.cs" />
+    <PackageReference Include="Castle.Core" Version="4.2.0" />
+    <PackageReference Include="CompareNETObjects" Version="4.57.0" />    
+    <PackageReference Include="NSubstitute" Version="3.1.0" />
+    <PackageReference Include="NUnit" Version="3.11.0" />    
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-    <Content Include="TestTemplate\excel\Outright.xls" />
-    <Content Include="TestTemplate\excel\Badminton.xls" />
-    <Content Include="TestTemplate\excel\BaseBall.xls" />
-    <Content Include="TestTemplate\excel\Basketball.xls" />
-    <Content Include="TestTemplate\excel\Billiard.xls" />
-    <Content Include="TestTemplate\excel\GoldDeluxe.xls" />
-    <Content Include="TestTemplate\excel\Hockey.xls" />
-    <Content Include="TestTemplate\excel\HorseRacing.xls" />
-    <Content Include="TestTemplate\excel\LiveCasino.xls" />
-    <Content Include="TestTemplate\excel\Lucky3.xls" />
-    <Content Include="TestTemplate\excel\MuayThai.xls" />
-    <Content Include="TestTemplate\excel\NumberGame.xls" />
-    <Content Include="TestTemplate\excel\Other.xls" />
-    <Content Include="TestTemplate\excel\Racing.xls" />
-    <Content Include="TestTemplate\excel\Soccer.xls" />
-    <Content Include="TestTemplate\excel\Tennis.xls" />
-    <Content Include="TestTemplate\excel\VSHRacing.xls" />
-    <Content Include="TestTemplate\excel\VSSpeedWay.xls" />
-    <Content Include="TestTemplate\excel\VSTennis.xls" />
-    <Content Include="TestTemplate\excel\NewSports.xls" />
-    <Content Include="TestTemplate\excel\BeachSoccer.xls" />
-    <Content Include="TestTemplate\excel\ESport.xls" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\..\Core\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj">
-      <Project>{8673f024-7726-4c30-8464-5a8357f79bf0}</Project>
-      <Name>Fanex.Result.Core.Base</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Fanex.Result.Core.Sportsbook\Fanex.Result.Core.Sportsbook.csproj">
-      <Project>{0469c900-5e5b-4d2c-8db3-7eaea991095b}</Project>
-      <Name>Fanex.Result.Core.Sportsbook</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Core\Fanex.Result.Core.Tests.Utils\Fanex.Result.Core.Tests.Utils.csproj">
-      <Project>{055D46DB-5556-4A00-902B-CF7C4B8225BA}</Project>
-      <Name>Fanex.Result.Core.Tests.Utils</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="AppReadme\Compare-NET-Objects-Help.txt" />
-    <Content Include="TestTemplate\html\Parlay.html" />
-    <Content Include="TestTemplate\html\Outright.html" />
-    <Content Include="TestTemplate\html\SoccerDetail.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_AwayPenaltyShootoutOverUnderFirst10.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_PenaltyShootoutScoreMissSuddenDeathGroup.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_PenaltyShootoutComboFirstTen.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_PenaltyShootoutSuddenDeath.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_PenaltyShootoutBothOneNeither_Completed.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_PenaltyShootoutBothOneNeither_RefundWithSettleDetermined.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_PenaltyShootout1X2_RefundWithSettleDetermined.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_PenaltyShootout1X2_Completed.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_ExtraTime.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_FastMarkets221Two.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_FastMarkets222Two.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_FastMarkets225.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_PenaltyShootoutOddEvenFirst10.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_HomePenaltyShootoutOverUnderFirst10.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_PenaltyShootoutWoodwork_Completed.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_PenaltyShootoutExactTotalGoalFirst10_RefundWithSettleDetermined.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_PenaltyShootoutWoodwork_RefundWithSettled.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_PenaltyShootoutExactTotalGoalFirst10_Completed.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_PenaltyShootoutScoreMiss.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_HomeAwayPlayerSentOff.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_Special.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_GoalScorer.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_NextGoal.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_NextGoalTime.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_MatchDecidedMethod.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_FastMarkets.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_WhoAdvancesToNextRound.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_Corners.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_PlayerSentOff.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_LastCorner.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_FirstGoalScorer.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_FirstGoalTime.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_FirstGoalMethod.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_FirstCorner.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_FirstHalfAndFinalCorner.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_FirstTenMinutes1X2.html" />
-    <Content Include="TestTemplate\html\SoccerDetail_GoalSequence.html" />
-    <Content Include="TestTemplate\html\Soccer.html" />
-  </ItemGroup>
-  <ItemGroup>
-    <Analyzer Include="..\..\..\..\packages\SonarAnalyzer.CSharp.7.8.0.7320\analyzers\Google.Protobuf.dll" />
-    <Analyzer Include="..\..\..\..\packages\SonarAnalyzer.CSharp.7.8.0.7320\analyzers\SonarAnalyzer.CSharp.dll" />
-    <Analyzer Include="..\..\..\..\packages\SonarAnalyzer.CSharp.7.8.0.7320\analyzers\SonarAnalyzer.dll" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

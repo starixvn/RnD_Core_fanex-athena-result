@@ -1,32 +1,36 @@
 ﻿namespace Fanex.Result.Core.AllBetCasino
 {
     using System;
-    using System.Collections.Generic;
-    using System.Configuration;
     using System.Web;
     using Fanex.Result.Core.Base;
-    using LiveCasinoResult;
+    using Fanex.Result.Core.ConfigurationHelper;
 
     public class AllbetResultBuilder : IAllbetResultBuilder
     {
+        private readonly IConfigurationHelper configurationHelper;
+
         private const string InvalidTransDescErrorMessage = "tranDesc is invalid!";
         private const string InvalidBetTypeErrorMessage = "betType is invalid!";
         private const string InvalidImagePathErrorMessage = "not found AllBetCasino image path configuration!";
-        private readonly bool useOriginalPath;       
+        private readonly bool useOriginalPath;
 
         private IResultPopup _resultPopup;
 
-        public AllbetResultBuilder()
+        public AllbetResultBuilder() : this(null) { }
+
+        private AllbetResultBuilder(IConfigurationHelper configurationHelper = null)
         {
-            useOriginalPath = Convert.ToBoolean(ConfigurationManager.AppSettings["AllbetUseOriginalPath"] ?? "false");
+            this.configurationHelper = configurationHelper ?? new ConfigurationHelper();
+            useOriginalPath = Convert.ToBoolean(this.configurationHelper.GetValue<string>("AllbetUseOriginalPath", "false"));
         }
 
-        internal AllbetResultBuilder(IResultPopup resultPopup)
+        internal AllbetResultBuilder(IResultPopup resultPopup, IConfigurationHelper configurationHelper)
         {
+            this.configurationHelper = configurationHelper;
             _resultPopup = resultPopup;
         }
 
-        public virtual string GetTemplatePath => ConfigurationManager.AppSettings["AllbetResultImagePath"];
+        public virtual string GetTemplatePath => configurationHelper.GetValue<string>("AllbetResultImagePath", string.Empty);
 
         public string Render(string transDesc, string gameId3rd, string betType, string languageCode = "en-US")
         {

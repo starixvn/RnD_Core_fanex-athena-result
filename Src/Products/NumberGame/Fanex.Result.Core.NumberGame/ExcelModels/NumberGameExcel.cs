@@ -54,6 +54,9 @@
             var currentRow = RowLeagueTemplate;
             var currentLeagueId = 0;
             var groupData = ViewModelData.GroupBy(i => i.LeagueId).ToList();
+            cellStyles.Add("red", CreateCellStyle("red"));
+            cellStyles.Add("blue", CreateCellStyle("blue"));
+            cellStyles.Add("disable", CreateCellStyle("disable"));
 
             foreach (var item in groupData)
             {
@@ -62,22 +65,20 @@
 #pragma warning restore S3215 // "interface" instances should not be cast to concrete types
                 SetLeague(sheet, firstItem.LeagueId, firstItem.LeagueName, ref currentLeagueId, ref currentRow);
                 normalCellStyle = CreateCellStyle("white");
-                cellStyles.Add("red", CreateCellStyle("red"));
-                cellStyles.Add("blue", CreateCellStyle("blue"));
-                cellStyles.Add("disable", CreateCellStyle("disable"));
+                
                 foreach (var exportRow in item.ToList().OfType<NumberGameViewModel>())
                 {
                     var rowMatch = sheet.CopyRow(TemplateSheet, RowContentTemplate, currentRow);
                     rowMatch.Height = RowHeight;
                     var firstBallColor = NumberGameViewModel.GetBallColor(exportRow.FirstBall);
-                    var seconBallColor = NumberGameViewModel.GetBallColor(exportRow.SecondBall);
+                    var secondBallColor = NumberGameViewModel.GetBallColor(exportRow.SecondBall);
                     var lastBallColor = NumberGameViewModel.GetBallColor(exportRow.ThirdBall);
 
                     SetRowValue(
                         rowMatch,
                         ColumnMatchCode,
                         firstBallColor,
-                        seconBallColor,
+                        secondBallColor,
                         lastBallColor,
                         Helper.ToRtfString(exportRow.MatchCode + "<br/>" + exportRow.MatchId),
                         Helper.ToRtfString(exportRow.KickOffTime),

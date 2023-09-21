@@ -2,6 +2,7 @@
 {
     using System;
     using System.IO;
+    using System.Linq;
     using System.Runtime.Caching;
     using Exception;
 
@@ -45,7 +46,7 @@
                 {
                     if (stream == null)
                     {
-                        throw new ArgumentNullException(string.Format("The {0} was not found", templateName));
+                        throw new ArgumentNullException(string.Format("The {0} was not found", templateName));                        
                     }
 
                     var reader = new StreamReader(stream);

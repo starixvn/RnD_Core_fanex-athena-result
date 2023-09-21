@@ -25,7 +25,7 @@
     using RazorEngine;
     using RazorEngine.Templating;
 
-    public sealed class BasketBallViewModel : SportsbookBaseViewModel, IResultViewModel
+    public class BasketBallViewModel : SportsbookBaseViewModel, IResultViewModel
     {
         private const string TemplateNameSpace = "SoccerDetail.";
         private readonly BetBuilderResultViewModel betBuilderViewModel;

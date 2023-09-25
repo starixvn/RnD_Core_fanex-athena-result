@@ -23,7 +23,7 @@ namespace Fanex.Result.Core.ESport.DTO
             { 9134, new MapResultMetadata(410, true, isDuration: true, localResourceKey: "ESports_91340X") },
             { 9135, new MapResultMetadata(420, true, isPosition: true) },
             { 9008, new MapResultMetadata(500, false, localResourceKey: "ESports_90080X") },
-            { 9015, new MapResultMetadata(600, true, localResourceKey: "ESports_91150X") },
+            { 9015, new MapResultMetadata(600, true, localResourceKey: "ESports_90150X") },
             { 9136, new MapResultMetadata(610, true, isDuration: true, localResourceKey: "ESports_91360X") },
             { 9016, new MapResultMetadata(700, true) },
             { 9017, new MapResultMetadata(800, true) },

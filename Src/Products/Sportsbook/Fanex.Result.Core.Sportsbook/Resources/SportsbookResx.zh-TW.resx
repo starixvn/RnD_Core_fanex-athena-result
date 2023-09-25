@@ -429,4 +429,7 @@
   <data name="AbandonedOT" xml:space="preserve">
     <value>在加時中止</value>
   </data>
+  <data name="ESports_90150X" xml:space="preserve">
+    <value>地圖 {0} 第一肉山大魔王</value>
+  </data>
 </root>

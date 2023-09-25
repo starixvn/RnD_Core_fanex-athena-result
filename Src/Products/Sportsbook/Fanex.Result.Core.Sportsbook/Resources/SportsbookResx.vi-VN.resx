@@ -429,4 +429,7 @@
   <data name="Abandoned00" xml:space="preserve">
     <value>Hủy Toàn Trận</value>
   </data>
+  <data name="ESports_90150X" xml:space="preserve">
+    <value>Bản Đồ {0} Diệt Roshan Thứ 1</value>
+  </data>
 </root>

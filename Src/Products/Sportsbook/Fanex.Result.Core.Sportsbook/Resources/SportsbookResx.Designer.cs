@@ -223,6 +223,15 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Map {0} 1st Roshan.
+        /// </summary>
+        public static string ESports_90150X {
+            get {
+                return ResourceManager.GetString("ESports_90150X", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Map {0} Barracks Score.
         /// </summary>
         public static string ESports_90180X {

@@ -14,7 +14,7 @@
             IRefDataHelper refDataHelper = null)
             : base(sportbook, setting, refDataHelper)
         {
-            sportbook.MatchCode = Setting.SportType == SportType.VirtualFootballCup ?
+            sportbook.MatchCode = SportTypeOfVirutalSport3.Contains(Setting.SportType) ?
                 GetMatchInfoOfVS3(sportbook.MatchCode) :
                 RefDataHelper.GetBetRadarMatchCodeFormat(sportbook.MatchCode, GetSupportedLanguage);
         }
@@ -39,12 +39,13 @@
                 SportType.VirtualSoccerAsianCup,
                 SportType.VirtualSoccerEnglishPremier,
                 SportType.VirtualSoccerChampionsCup,
-                SportType.VirtualSoccerEuroCup,
-                SportType.VirtualFootballCup
+                SportType.VirtualSoccerEuroCup
             };
 
-            return virtualSoccer.Contains(sportType);
+            return virtualSoccer.Contains(sportType) || SportTypeOfVirutalSport3.Contains(sportType);
         }
+
+        private static readonly List<SportType> SportTypeOfVirutalSport3 = new List<SportType> { SportType.VirtualFootballCup, SportType.VirtualFootballLeague };
 
         private string GetMatchInfoOfVS3(string matchCode)
         {

@@ -13,6 +13,9 @@ namespace Fanex.Result.Core.WM
         [StringValue("DragonTiger")]
         DragonTiger = 3402,
 
+        [StringValue("DragonTiger")]
+        DragonTiger_YB = 3153,
+
         [StringValue("Roulette")]
         Roulette = 3403,
 

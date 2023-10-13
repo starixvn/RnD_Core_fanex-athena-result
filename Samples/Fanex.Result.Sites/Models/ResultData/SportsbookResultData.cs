@@ -74,10 +74,10 @@
                 }
             }
 
-            if (sportType == SportType.BasketBall)
+            /*if (sportType == SportType.BasketBall)
             {
                 GenerateGameDetailForBasketBall(metaModel, data);
-            }
+            }*/
 
             return data;
         }
@@ -95,7 +95,7 @@
 
             foreach (var sportsbook in resultData)
             {
-                sportsbook.GameDetails = sportsbook.GameDetails.Where(d => d.ResourceId.Contains(metaModel.Bettype.ToString()) && d.ResourceId.Contains(resourceId)).ToList();
+                sportsbook.GameDetails = sportsbook.GameDetails.Where(d =>  d.ResourceId.Contains(resourceId)).ToList();
             }
         }
     }

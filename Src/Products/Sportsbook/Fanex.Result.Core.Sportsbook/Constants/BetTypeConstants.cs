@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Fanex.Result.Core.Sportsbook.DataDomain;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Fanex.Result.Core.Sportsbook.Constants
@@ -24,6 +25,11 @@ namespace Fanex.Result.Core.Sportsbook.Constants
         public const int AwayTeamOverUnderCorners = 483;
         public const int HomeTeamOverUnder1HCorners = 484;
         public const int AwayTeamOverUnder1HCorners = 485;
+
+        public const int QuarterXOverUnder = 610;
+        public const int QuarterXHomeTeamOverUnder = 615;
+        public const int QuarterXAwayTeamOverUnder = 616;
+        public const int MatchHandicapTotal = 646;
 
         public static bool IsInstantSettlementBetTypesSupportFT(int bettype)
             => InstantSettlementBetTypesSupportFT.Any(i => i == bettype);
@@ -56,6 +62,20 @@ namespace Fanex.Result.Core.Sportsbook.Constants
             AlternativeCorners1H,
             HomeTeamOverUnder1HCorners,
             AwayTeamOverUnder1HCorners
+        };
+
+        public static readonly Dictionary<int, string> BetTypeBasketballShowLiveScore = new Dictionary<int, string>
+        {
+            { OverUnder, BasketBallResourceID.FullTime },
+            { OverUnder1H, BasketBallResourceID.FirstHalf },
+            { HomeTeamOverUnder, BasketBallResourceID.FullTime },
+            { AwayTeamOverUnder, BasketBallResourceID.FullTime },
+            { HomeTeamOverUnder1H, BasketBallResourceID.FirstHalf },
+            { AwayTeamOverUnder1H, BasketBallResourceID.FirstHalf },
+            { QuarterXOverUnder, "QX" },
+            { QuarterXHomeTeamOverUnder, "QX" },
+            { QuarterXAwayTeamOverUnder, "QX" },
+            { MatchHandicapTotal, BasketBallResourceID.FullTime },
         };
     }
 }

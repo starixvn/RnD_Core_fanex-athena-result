@@ -8,10 +8,23 @@
     var popupCss = viewModel.IsPopUp || viewModel.IsDetail ? "popup" : string.Empty;
     var firstMatch = viewModel.Data.Count > 0 ? (SoccerViewModel)viewModel.Data[0].Data[0] : null;
     var colspan = viewModel.VisibleMatchCodeIDColumn ? 6 : 5;
-    colspan += firstMatch != null && firstMatch.IsShowLiveScore ? 1 : 0;
+
+    var isShowLiveScore = false;
+    foreach (var data in viewModel.Data)
+    {
+        foreach (SoccerViewModel item in data.Data)
+        {
+            if(item.IsShowLiveScore)
+            {
+                isShowLiveScore = item.IsShowLiveScore;
+            }
+        }
+    }
+
+    colspan += isShowLiveScore ? 1 : 0;
 }
 
-@helper RenderHeader(RazorBinderModel viewModel, SoccerViewModel firstMatch, int colspan)
+@helper RenderHeader(RazorBinderModel viewModel, SoccerViewModel firstMatch, int colspan, bool isShowLiveScore)
 {
     <thead>
         @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
@@ -31,7 +44,7 @@
             <th class="cl-match">@LangResource.Match</th>
             <th class="cl-ht-score">@LangResource.HTScore</th>
             <th class="cl-f-score">@LangResource.FinalScore</th>
-            @if (firstMatch != null && firstMatch.IsShowLiveScore)
+            @if (isShowLiveScore)
             {
                 <th class="cl-f-score">@LangResource.LiveScore</th>
             }
@@ -44,7 +57,7 @@
 {
     <div class="fn-rs-content-header">
         <table class="fn-rs @popupCss">
-            @RenderHeader(viewModel, firstMatch, colspan)
+            @RenderHeader(viewModel, firstMatch, colspan, isShowLiveScore)
         </table>
     </div>
 }
@@ -56,7 +69,7 @@
 <table class="fn-rs @popupCss">
     @if (!viewModel.VisibleFreeHeader)
     {
-        @RenderHeader(viewModel, firstMatch, colspan)
+        @RenderHeader(viewModel, firstMatch, colspan, isShowLiveScore)
     }
     <tbody>
         @if (viewModel.Data.Count > 0)
@@ -105,7 +118,7 @@
                         </td>
                         <td class="cl-ht-score">@item.HTHomeScore</td>
                         <td class="cl-f-score">@item.FinalHomeScore</td>
-                        @if (firstMatch.IsShowLiveScore)
+                        @if (isShowLiveScore)
                         {
                             <td class="cl-f-score">@item.LiveHomeScore</td>
                         }
@@ -148,7 +161,7 @@
                         </td>
                         <td class="cl-ht-score">@item.HTAwayScore</td>
                         <td class="cl-f-score">@item.FinalAwayScore</td>
-                        @if (firstMatch.IsShowLiveScore)
+                        @if (isShowLiveScore)
                         {
                             <td class="cl-f-score">@item.LiveAwayScore</td>
                         }

@@ -61,7 +61,7 @@
             _resultDetail = resultDetail ?? new SoccerResultDetail(soccer, setting);
             _fastMarketResultDetail = fastMarketResultDetail ?? new FastMarketResultDetail(soccer, setting);
             betBuilderViewModel = new BetBuilderResultViewModel(soccer, setting, refDataHelper);
-            IsShowLiveScore = DetermineShowingLiveScore(setting.IsParlayPopUp, setting.IsPopUp);
+            IsShowLiveScore = DetermineShowingLiveScore(setting.IsPopUp);
         }
 
         public bool IsShowLiveScore { get; }
@@ -102,12 +102,12 @@
         public string FinalAwayScore => CalculateScore(SPORTBOOK.FinalAwayScore, true);
 
         public string LiveHomeScore
-            => SPORTBOOK.LiveHomeScore.HasValue ?
+            => SPORTBOOK.LiveHomeScore.HasValue && IsShowLiveScore ?
             SPORTBOOK.LiveHomeScore.Value.ToString(CultureInfo.InvariantCulture) :
             ConstantValue.Hyphen;
 
         public string LiveAwayScore
-            => SPORTBOOK.LiveAwayScore.HasValue ?
+            => SPORTBOOK.LiveAwayScore.HasValue && IsShowLiveScore ?
             SPORTBOOK.LiveAwayScore.Value.ToString(CultureInfo.InvariantCulture) :
             ConstantValue.Hyphen;
 
@@ -209,9 +209,9 @@
             }
         }
 
-        private bool DetermineShowingLiveScore(bool isParlayPopup, bool isPopUp)
+        private bool DetermineShowingLiveScore(bool isPopUp)
         {
-            if (!isParlayPopup && isPopUp)
+            if (isPopUp)
             {
                 return ShowLiveScoreForFTBettype() || ShowLiveScoreForHTBettype() || ShowLiveScoreForFastMarket();
             }

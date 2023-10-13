@@ -10,39 +10,54 @@
     var colspan = viewModel.VisibleMatchCodeIDColumn ? 12 : 11;
     var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
     var mainItem = viewModel.Data.Count > 0 ? (BasketBallViewModel)viewModel.Data[0].Data[0] : null;
+    var isShowLiveScore = false;
+    foreach(var data in viewModel.Data)
+    {
+        foreach(BasketBallViewModel item in data.Data)
+        {
+            if(item.IsShowLiveScore)
+            {
+                isShowLiveScore = item.IsShowLiveScore;
+            }
+        }
+    }
 
+    colspan += isShowLiveScore ? 1 : 0;
 }
 
-@helper RenderHeader(RazorBinderModel viewModel, int colspan)
+@helper RenderHeader(RazorBinderModel viewModel, BasketBallViewModel firstMatch, int colspan, bool isShowLiveScore)
 {
     /**/
     <thead>
         @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
         {
-            var item = viewModel.Data[0].Data[0];
             <tr class="row-title">
                 <th class="cl-title" colspan="@colspan">
-                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                    <span class="sport">@firstMatch.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@firstMatch.LeagueName</span>
                 </th>
             </tr>
         }
-        <tr class="header">
-            @if (viewModel.VisibleMatchCodeIDColumn)
-            {
-                <th class="cl-m-code">@LangResource.MatchCode/@LangResource.ID</th>
-            }
-            <th class="cl-ko-time">@LangResource.KickOffTime</th>
-            <th class="cl-match">@Raw(LangResource.Match)</th>
-            <th class="cl-s">@LangResource.Lbl1Q</th>
-            <th class="cl-s">@LangResource.Lbl2Q</th>
-            <th class="cl-s">@LangResource.Lbl3Q</th>
-            <th class="cl-s">@LangResource.Lbl4Q</th>
-            <th class="cl-s">@LangResource.LblOT</th>
-            <th class="cl-ht-score">@Raw(LangResource.HTScore)</th>
-            <th class="cl-ht-score">@Raw(LangResource._2HScore)</th>
-            <th class="cl-f-score">@LangResource.FinalScore</th>
-            <th class="cl-status">@LangResource.Status</th>
-        </tr>
+            <tr class="header">
+                @if (viewModel.VisibleMatchCodeIDColumn)
+                {
+                    <th class="cl-m-code">@LangResource.MatchCode/@LangResource.ID</th>
+                }
+                <th class="cl-ko-time">@LangResource.KickOffTime</th>
+                <th class="cl-match">@Raw(LangResource.Match)</th>
+                <th class="cl-s">@LangResource.Lbl1Q</th>
+                <th class="cl-s">@LangResource.Lbl2Q</th>
+                <th class="cl-s">@LangResource.Lbl3Q</th>
+                <th class="cl-s">@LangResource.Lbl4Q</th>
+                <th class="cl-s">@LangResource.LblOT</th>
+                <th class="cl-ht-score">@Raw(LangResource.HTScore)</th>
+                <th class="cl-ht-score">@Raw(LangResource._2HScore)</th>
+                <th class="cl-f-score">@LangResource.FinalScore</th>
+                @if (isShowLiveScore)
+                {
+                    <th class="cl-f-score">@LangResource.LiveScore</th>
+                }
+                <th class="cl-status">@LangResource.Status</th>
+            </tr>
     </thead>
 }
 
@@ -50,7 +65,7 @@
 {
     <div class="fn-rs-content-header">
         <table class="fn-rs @popupCss">
-            @RenderHeader(viewModel, colspan)
+            @RenderHeader(viewModel, mainItem, colspan, isShowLiveScore)
         </table>
     </div>
 
@@ -60,7 +75,7 @@
 <table class="fn-rs @popupCss">
     @if (!viewModel.VisibleFreeHeader)
     {
-        @RenderHeader(viewModel, colspan)
+        @RenderHeader(viewModel, mainItem, colspan, isShowLiveScore)
     }
     <tbody>
         @if (viewModel.Data.Count > 0)
@@ -95,6 +110,10 @@
                         <td class="cl-ht-score">@item.HTHomeScore</td>
                         <td class="cl-ht-score">@item.SecondHaftHomeScore</td>
                         <td class="cl-f-score">@item.FinalHomeScore</td>
+                        @if (isShowLiveScore)
+                        {
+                            <td class="cl-f-score">@item.LiveHomeScore</td>
+                        }
                         <td rowspan="2" class="cl-status @item.EventStatusBackground">
                             @item.EventStatus
                             @if (item.VisibleDetailedLink && !viewModel.IsPopUp)
@@ -121,6 +140,10 @@
                         <td class="cl-ht-score">@item.HTAwayScore</td>
                         <td class="cl-ht-score">@item.SecondHaftAwayScore</td>
                         <td class="cl-f-score">@item.FinalAwayScore</td>
+                        @if (isShowLiveScore)
+                        {
+                            <td class="cl-f-score">@item.LiveAwayScore</td>
+                        }
                     </tr>
                 }
             }

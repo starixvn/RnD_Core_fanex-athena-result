@@ -2,6 +2,8 @@
 {
     using System;
     using System.Collections;
+    using System.Collections.Generic;
+    using System.Globalization;
     using System.IO;
     using System.Linq;
     using System.Text;
@@ -16,6 +18,7 @@
     using DTO;
     using Fanex.Result.Core.Base.Resources;
     using Fanex.Result.Core.Base.Utilities;
+    using Fanex.Result.Core.Sportsbook.Constants;
     using Fanex.Result.Core.Sportsbook.Models;
     using Fanex.Result.Core.Sportsbook.Resources;
     using Fanex.Result.Core.Sportsbook.ViewModels.SoccerDetail;
@@ -57,6 +60,8 @@
                 .FindIndex(id => id == item.ResourceID || Regex.IsMatch(item.ResourceID, id))).ToSafeList();
 
             betBuilderViewModel = new BetBuilderResultViewModel(sportbook, setting, refDataHelper);
+
+            IsShowLiveScore = DetermineShowingLiveScore();
         }
 
 
@@ -84,6 +89,7 @@
             }
         }
 
+        public bool IsShowLiveScore { get; }
 
         public string OTHome => GetOvertimeSet(true);
 
@@ -108,7 +114,7 @@
         public SafeList<BasketBallGameDetailItem> ResultDetailItems { get; }
 
         public SafeList<BasketBallGameDetailItem> MoreResultDetailItems { get; }
-
+        
         public override string GetHomeAwaySet(int index, bool isHome)
         {
             const int maxIndex = 4;
@@ -160,6 +166,16 @@
                 ? result : ConstantValue.Hyphen;
         }
 
+        public string LiveHomeScore
+            => SPORTBOOK.LiveHomeScore.HasValue && IsShowLiveScore?
+            SPORTBOOK.LiveHomeScore.Value.ToString(CultureInfo.InvariantCulture) :
+            ConstantValue.Hyphen;
+
+        public string LiveAwayScore
+            => SPORTBOOK.LiveAwayScore.HasValue && IsShowLiveScore ?
+            SPORTBOOK.LiveAwayScore.Value.ToString(CultureInfo.InvariantCulture) :
+            ConstantValue.Hyphen;
+
         private string GetTotalScore(bool isHome, bool isFinal)
         {
             var resourceId = isFinal ? BasketBallResourceID.FullTime : BasketBallResourceID.FirstHalf;
@@ -205,7 +221,9 @@
         {
             var result = ResultDetailItems.FirstOrDefault(g => g.ResourceID == resourceId);
 
-            return isHome ? result?.HomeValue : result?.AwayValue;
+            var score = isHome ? result?.HomeValue : result?.AwayValue;
+
+            return string.IsNullOrEmpty(score) ? ConstantValue.Hyphen : score;
         }
 
         private string GetResultFromBetStatus(int index, bool isHome)
@@ -230,5 +248,26 @@
            => new BitArray(new[] { number })
                .Cast<bool>().Select(bit => bit ? 1 : 0)
                .ToArray();
+
+        private bool DetermineShowingLiveScore()
+        {
+            var betTypeSupport = BetTypeConstants.BetTypeBasketballShowLiveScore.ContainsKey(SPORTBOOK.Bettype);
+            if (betTypeSupport && Setting.IsPopUp)
+            {
+                if (!SPORTBOOK.GameDetails.Any())
+                {
+                    return true;
+                }
+
+                var resourceID = BetTypeConstants.BetTypeBasketballShowLiveScore[SPORTBOOK.Bettype];
+                var betId = SPORTBOOK.BetID.Length == 3 ? SPORTBOOK.BetID.Substring(SPORTBOOK.BetID.Length - 1) : SPORTBOOK.BetID;
+                var id = resourceID == "QX" ? resourceID.Replace("X", betId) : resourceID;
+                var gameDetail = SPORTBOOK.GameDetails.FirstOrDefault(i => i.ResourceId == id);
+
+                return gameDetail != null && gameDetail.SettlementStatusID == EventStatusID.RunningSettlementStatusID;
+            }
+
+            return false;
+        }
     }
 }

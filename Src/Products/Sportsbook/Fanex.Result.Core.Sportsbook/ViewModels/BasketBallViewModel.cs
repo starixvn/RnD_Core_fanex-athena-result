@@ -89,7 +89,7 @@
             }
         }
 
-        public bool IsShowLiveScore { get; }
+        public bool IsShowLiveScore { get; protected set; }
 
         public string OTHome => GetOvertimeSet(true);
 
@@ -217,7 +217,7 @@
             return isHome ? (FHome - HHome).ToString() : (FAway - HAway).ToString();
         }
 
-        private string GetResultFromGameDetails(string resourceId, bool isHome)
+        public virtual string GetResultFromGameDetails(string resourceId, bool isHome)
         {
             var result = ResultDetailItems.FirstOrDefault(g => g.ResourceID == resourceId);
 

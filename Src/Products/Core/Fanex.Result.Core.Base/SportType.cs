@@ -15,13 +15,13 @@
         [StringValue("BasketBall")]
         BasketBall = 2,
 
-        [StringValue("BasketBall")]
+        [StringValue("Football")]
         NetBall = 32,
 
-        [StringValue("BasketBall")]
+        [StringValue("Football")]
         FootBall = 3,
 
-        [StringValue("BasketBall")]
+        [StringValue("Football")]
         Rugby = 26,
 
         #endregion BasketBall

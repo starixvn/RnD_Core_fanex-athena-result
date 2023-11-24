@@ -1,0 +1,179 @@
+﻿@using Fanex.Result.Core.Base.ViewModels;
+@using Fanex.Result.Core.Sportsbook.ViewModels;
+@using Fanex.Result.Core.Base.Resources;
+@using Fanex.Result.Core.Sportsbook.ViewModels.BasketBallDetail;
+@using Fanex.Result.Core.Sportsbook.Resources;
+@{
+    /**/
+
+    var viewModel = (RazorBinderModel)Model;
+    var colspan = viewModel.VisibleMatchCodeIDColumn ? 11 : 10;
+    var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
+    var mainItem = viewModel.Data.Count > 0 ? (FootballViewModel)viewModel.Data[0].Data[0] : null;
+
+}
+
+@helper RenderHeader(RazorBinderModel viewModel, int colspan)
+{
+    /**/
+    <thead>
+        @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+        {
+            var item = viewModel.Data[0].Data[0];
+            <tr class="row-title">
+                <th class="cl-title" colspan="@colspan">
+                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                </th>
+            </tr>
+        }
+        <tr class="header">
+            @if (viewModel.VisibleMatchCodeIDColumn)
+            {
+                <th class="cl-m-code">@LangResource.MatchCode/@LangResource.ID</th>
+            }
+            <th class="cl-ko-time">@LangResource.KickOffTime</th>
+            <th class="cl-match">@Raw(LangResource.Match)</th>
+            <th class="cl-s">@LangResource.Lbl1Q</th>
+            <th class="cl-s">@LangResource.Lbl2Q</th>
+            <th class="cl-s">@LangResource.Lbl3Q</th>
+            <th class="cl-s">@LangResource.Lbl4Q</th>
+            <th class="cl-s">@LangResource.LblOT</th>
+            <th class="cl-ht-score">@Raw(LangResource.HTScore)</th>            
+            <th class="cl-f-score">@LangResource.FinalScore</th>
+            <th class="cl-status">@LangResource.Status</th>
+        </tr>
+    </thead>
+}
+
+@if (viewModel.VisibleFreeHeader)
+{
+    <div class="fn-rs-content-header">
+        <table class="fn-rs @popupCss">
+            @RenderHeader(viewModel, colspan)
+        </table>
+    </div>
+
+    @Raw("<div class=\"fn-rs-content-scroll\">")
+
+}
+<table class="fn-rs @popupCss">
+    @if (!viewModel.VisibleFreeHeader)
+    {
+        @RenderHeader(viewModel, colspan)
+    }
+    <tbody>
+        @if (viewModel.Data.Count > 0)
+        {
+            var index = 0;
+
+            foreach (var group in viewModel.Data)
+            {
+                if (!viewModel.IsPopUp)
+                {
+                    <tr class="data">
+                        <td colspan="@colspan" class="cl-league">@group.Data[0].LeagueName</td>
+                    </tr>
+                }
+                foreach (FootballViewModel item in group.Data)
+                {
+                    index++;
+                    <tr class="data @item.Color(index, "even", "odd")">
+                        @if (viewModel.VisibleMatchCodeIDColumn)
+                        {
+                            <td class="cl-m-code">
+                                <div class="m-code">@item.MatchCode</div>
+                            </td>
+                        }
+                        <td class="cl-ko-time" rowspan="2">@Raw(item.KickOffTime)</td>
+                        <td class="cl-match home @item.HomeWin">@Raw(item.HomeTeam)</td>
+                        @for (var s = 0; s < 4; s++)
+                        {
+                            <td class="cl-s">@item.GetHomeAwaySet(s, true)</td>
+                        }
+                        <td class="cl-s">@item.OTHome</td>
+                        <td class="cl-ht-score">@item.HTHomeScore</td>
+                        <td class="cl-f-score">@item.FinalHomeScore</td>
+                        <td rowspan="2" class="cl-status @item.EventStatusBackground">
+                            @item.EventStatus
+                            @if (item.VisibleDetailedLink && !viewModel.IsPopUp)
+                            {
+                                <div>
+                                    <span class="detail-link" data-match-id="@item.MatchId" data-league-id="@item.LeagueId">
+                                        @LangResource.Details
+                                    </span>
+                                </div>
+                            }
+                        </td>
+                    </tr>
+                    <tr class="data @item.Color(index, "even", "odd")">
+                        @if (viewModel.VisibleMatchCodeIDColumn)
+                        {
+                            <td class="cl-m-code">@item.MatchId</td>
+                        }
+                        <td class="cl-match away @item.AwayWin">@Raw(item.AwayTeam)</td>
+                        @for (var s = 0; s < 4; s++)
+                        {
+                            <td class="cl-s">@item.GetHomeAwaySet(s, false)</td>
+                        }
+                        <td class="cl-s">@item.OTAway</td>
+                        <td class="cl-ht-score">@item.HTAwayScore</td>
+                        <td class="cl-f-score">@item.FinalAwayScore</td>
+                    </tr>
+                }
+            }
+        }
+        else
+        {
+            <!--NoInfo-->
+            <tr class="row-noinfo">
+                <td colspan="@colspan">@LangResource.NoInfo</td>
+            </tr>
+            <!--/NoInfo-->
+        }
+    </tbody>
+</table>
+@if (viewModel.VisibleFreeHeader)
+{
+    @Raw("</div>")
+}
+
+@if (viewModel.VisibleDetailResult)
+{
+    <br />
+    <table class="fn-rs popup">
+        <thead>
+            <tr class="header">
+                <th class="cl-match">@LangResource.BetType</th>
+                <th class="cl-result home">@LangResource.Result</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (BasketBallGameDetailItem item in mainItem.MoreResultDetailItems)
+            {
+                <tr>
+                    <td class="cl-match">@item.ResourceName</td>
+                    <td class="cl-result @(item.IsHome ? "home" : item.IsAway ? "away": string.Empty)">
+                        @item.HomeValue
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+}
+
+@if (mainItem != null && mainItem.VisibleBetBuilderDetail)
+{
+    <br />
+    <table class="fn-rs popup">
+        <thead>
+            <tr class="header">
+                <th class="cl-match">@SportsbookResx.Selection</th>
+                <th class="cl-result home">@LangResource.Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            @Raw(mainItem.BetBuilderResult)
+        </tbody>
+    </table>
+}

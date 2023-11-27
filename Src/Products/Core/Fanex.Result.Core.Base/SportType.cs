@@ -278,7 +278,7 @@
         [StringValue("BeachSoccer")]
         UpcomingSport57 = 57,
 
-        [StringValue("BeachSoccer")]
+        [StringValue("Bandy")]
         UpcomingSport58 = 58,
 
         [StringValue("BeachSoccer")]

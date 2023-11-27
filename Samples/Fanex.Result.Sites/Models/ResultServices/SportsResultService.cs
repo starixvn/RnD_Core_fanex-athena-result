@@ -50,6 +50,7 @@
                 new Sport { Id = 55, Name = "Upcoming Sport 55" },
                 new Sport { Id = 56, Name = "Upcoming Sport 56" },
                 new Sport { Id = 57, Name = "Upcoming Sport 57" },
+                new Sport { Id = 58, Name = "Winter Sport 58" },
                 new Sport { Id = 43, Name = "ESport" },
                 new Sport { Id = 231, Name = "LG Virtual Sports" },
                 new Sport { Id = 233, Name = "WM" },

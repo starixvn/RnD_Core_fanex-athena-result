@@ -8,12 +8,9 @@
     <AssemblyTitle>Fanex.Result.Core.Sportsbook</AssemblyTitle>
     <Product>Fanex.Result.Core.Sportsbook</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>2.0.0.0-beta-10</Version>
-    <PackageReleaseNotes>Support .net Core for Result Core package (#191539)</PackageReleaseNotes>
+    <Version>2.0.0.1-bandy-01</Version>
+    <PackageReleaseNotes>- Support Bandy Result (#194661)</PackageReleaseNotes>
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Fanex.Result.Core-NPOI.2.0.6" Version="3.0.0.0-beta-13" />
-  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Badminton.cshtml" />
     <EmbeddedResource Include="Views\BaseBall.cshtml" />
@@ -64,5 +61,9 @@
     <EmbeddedResource Include="Views\Volleyball.cshtml" />
     <EmbeddedResource Include="Views\Golf.cshtml" />
     <EmbeddedResource Include="Views\Football.cshtml" />
+    <EmbeddedResource Include="Views\Bandy.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Fanex.Result.Core-NPOI.2.0.6" Version="3.0.0.1-bandy-02" />
   </ItemGroup>
 </Project>

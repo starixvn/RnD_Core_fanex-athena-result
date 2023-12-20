@@ -1,12 +1,17 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.ViewModels
 {
-    using System;
-    using Base;
-    using Base.ViewModels;
-    using DTO;
+    using System.Linq;
+    using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.DataDomain;
-    using Fanex.Result.Core.Base.Resources;
+    using Fanex.Result.Core.Base.Extension;
     using Fanex.Result.Core.Base.Utilities;
+    using Fanex.Result.Core.Base.ViewModels;
+    using Fanex.Result.Core.Sportsbook.DataDomain;
+    using Fanex.Result.Core.Sportsbook.DTO;
+    using Fanex.Result.Core.Sportsbook.Utilities;
+    using Fanex.Result.Core.Sportsbook.DataDomain;
+    using Fanex.Result.Core.Sportsbook.ViewModels.BandyDetail;
+    using Fanex.Result.Core.Sportsbook.ViewModels.SoccerDetail;
 
     public sealed class BandyViewModel : SportsbookBaseViewModel, IResultViewModel
     {
@@ -15,53 +20,34 @@
         {
         }
 
-        public BandyViewModel(Sportsbook sportbook, ResultSetting setting, IRefDataHelper refDataHelper)
+        public BandyViewModel(
+            Sportsbook sportbook,
+            ResultSetting setting,
+            IRefDataHelper refDataHelper)
             : base(sportbook, setting, refDataHelper)
         {
+            ResultDetailItems = new BandyResultDetail(sportbook, setting).GetDetailItems();
         }
 
-        public string HTHomeScore => CalculateScore(SPORTBOOK.HtHomeScore, isFinalScore: false);
+        public SafeList<SoccerGameDetailItem> ResultDetailItems { get; set; }
 
-        public string HTAwayScore => CalculateScore(SPORTBOOK.HtAwayScore, isFinalScore: false);
+        public string HTHomeScore => Score(GameResourceID.FirstHalfScore, isHome: true);
 
-        public string FinalAwayScore => CalculateScore(SPORTBOOK.FinalAwayScore, isFinalScore: true);
+        public string HTAwayScore => Score(GameResourceID.FirstHalfScore, isHome: false);
 
-        public string FinalHomeScore => CalculateScore(SPORTBOOK.FinalHomeScore, isFinalScore: true);
+        public string FinalAwayScore => Score(GameResourceID.FinalScore, isHome: false);
 
-        private string CalculateScore(int? score, bool isFinalScore)
+        public string FinalHomeScore => Score(GameResourceID.FinalScore, isHome: true);
+
+        private string Score(string resourceId, bool isHome)
         {
-            if (EventStatus.Equals(LangResource.Refund, StringComparison.OrdinalIgnoreCase)
-                && (!SPORTBOOK.IsHTCal || (SPORTBOOK.IsHTCal && isFinalScore)))
-            {
-                return LangResource.Refund;
-            }
-
-            if (EventStatus.Equals(LangResource.Refundht, StringComparison.OrdinalIgnoreCase) && !isFinalScore)
-            {
-                return LangResource.Refund;
-            }
-
-            if (ScoreIsNotCalculated(isFinalScore))
+            var item = ResultDetailItems.FirstOrDefault(i => i.ResourceID == resourceId);
+            if (item == null)
             {
                 return ConstantValue.Hyphen;
             }
 
-            return GetScore(score);
-        }
-
-        private bool ScoreIsNotCalculated(bool isFinalScore)
-        {
-            if (!isFinalScore && !SPORTBOOK.IsHTCal)
-            {
-                return true;
-            }
-
-            if (isFinalScore && !SPORTBOOK.Calculate)
-            {
-                return true;
-            }
-
-            return false;
+            return isHome ? item.HomeValue : item.AwayValue;
         }
     }
 }

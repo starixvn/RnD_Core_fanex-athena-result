@@ -35,5 +35,7 @@
         public bool VisibleFreeHeader { get; set; }
 
         public bool IsPopupOpenFromBetList { get; set; }
+
+        public bool SupportHideSabaText { get; set; }
     }
 }

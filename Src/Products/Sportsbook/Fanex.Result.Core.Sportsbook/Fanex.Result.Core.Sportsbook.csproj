@@ -8,8 +8,10 @@
     <AssemblyTitle>Fanex.Result.Core.Sportsbook</AssemblyTitle>
     <Product>Fanex.Result.Core.Sportsbook</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>2.0.0.2-bandy-03</Version>
-    <PackageReleaseNotes>- Support Bandy Result get data from ResultDetailOS (#198022)</PackageReleaseNotes>
+    <Version>2.0.0.3-saba-01</Version>
+    <PackageReleaseNotes>
+      Support Remove "Saba" text in league name (#194591)
+    </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Badminton.cshtml" />
@@ -64,6 +66,6 @@
     <EmbeddedResource Include="Views\Bandy.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Fanex.Result.Core-NPOI.2.0.6" Version="3.0.0.1" />
+    <PackageReference Include="Fanex.Result.Core-NPOI.2.0.6" Version="3.0.0.2-saba-03" />
   </ItemGroup>
 </Project>

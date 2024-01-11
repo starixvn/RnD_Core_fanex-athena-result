@@ -39,7 +39,10 @@
 
         public override int LeagueId => SPORTBOOK.LeagueId;
 
-        public override string LeagueName => GetLeagueNameByLanguage(SPORTBOOK.LeagueId);
+        public override string LeagueName
+        => Setting.SupportHideSabaText ?
+        RefDataHelper.GetLeagueName(SPORTBOOK.LeagueId, SPORTBOOK.LeagueGroupId, GetSupportedLanguage, string.Empty) :
+        RefDataHelper.GetLeagueName(SPORTBOOK.LeagueId, GetSupportedLanguage, string.Empty);
 
         public override string EventStatus
             => MapEventStatus.MapEventStatusString(

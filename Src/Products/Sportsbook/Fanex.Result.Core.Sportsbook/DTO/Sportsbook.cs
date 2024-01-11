@@ -13,6 +13,8 @@
 
         public int LeagueId { get; set; }
 
+        public int LeagueGroupId { get; set; }
+
         public int MatchId { get; set; }
 
         public string Color { get; set; } = string.Empty;

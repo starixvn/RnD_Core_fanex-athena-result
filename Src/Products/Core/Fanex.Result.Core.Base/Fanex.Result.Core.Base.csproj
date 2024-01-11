@@ -8,11 +8,13 @@
     <AssemblyTitle>Fanex.Result.Core.Base</AssemblyTitle>
     <Product>Fanex.Result.Core.Base</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>3.0.0.1-bandy-02</Version>
-    <PackageReleaseNotes>Support Bandy Result (#194661)</PackageReleaseNotes>
+    <Version>3.0.0.2-saba-03</Version>
+    <PackageReleaseNotes>
+    Add one property to Support Hide "Saba" text (#194591)
+    </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Fanex.RemotingRef" Version="1.5.1-beta-03" />
+    <PackageReference Include="Fanex.RemotingRef" Version="1.5.2-beta-02" />
     <PackageReference Include="Microsoft.AspNet.Razor" Version="3.2.9" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="NPOI" Version="2.6.1" />

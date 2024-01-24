@@ -8,9 +8,9 @@
     <AssemblyTitle>Fanex.Result.Core.Sportsbook</AssemblyTitle>
     <Product>Fanex.Result.Core.Sportsbook</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>2.0.0.3-saba-02</Version>
-    <PackageReleaseNotes>
-      Support Remove "Saba" text in league name (#194591)
+    <Version>2.0.0.4-indo-01</Version>
+    <InfomationalVersion>2.0.0.4</InfomationalVersion>
+    <PackageReleaseNotes>Support Indo Translation (#196354)</PackageReleaseNotes>
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
@@ -66,6 +66,6 @@
     <EmbeddedResource Include="Views\Bandy.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Fanex.Result.Core-NPOI.2.0.6" Version="3.0.0.2-saba-03" />
+    <PackageReference Include="Fanex.Result.Core-NPOI.2.0.6" Version="3.0.0.4-indo-01" />
   </ItemGroup>
 </Project>

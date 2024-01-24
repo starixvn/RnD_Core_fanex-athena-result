@@ -7,11 +7,12 @@
     <AssemblyTitle>Fanex.Result.Core.SexyGaming</AssemblyTitle>
     <Product>Fanex.Result.Core.SexyGaming</Product>
     <Copyright>Copyright ©  2020</Copyright>
-    <Version>2.0.0.0-beta-03</Version>
-    <PackageReleaseNotes>Support .net Core for Result Core package (#191539)</PackageReleaseNotes>
+    <Version>2.0.0.1-indo-01</Version>
+    <InfomationalVersion>2.0.0.1</InfomationalVersion>
+    <PackageReleaseNotes>Support Indo Translation (#196354)</PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Fanex.Result.Core-NPOI.2.0.6" Version="3.0.0-beta-10" />
+    <PackageReference Include="Fanex.Result.Core-NPOI.2.0.6" Version="3.0.0.4-indo-01" />
     <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters" Version="1.1.0" />
   </ItemGroup>
 </Project>

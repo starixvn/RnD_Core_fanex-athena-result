@@ -8,9 +8,9 @@
     <AssemblyTitle>Fanex.Result.Core.Base</AssemblyTitle>
     <Product>Fanex.Result.Core.Base</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>3.0.0.2-saba-03</Version>
-    <PackageReleaseNotes>
-    Add one property to Support Hide "Saba" text (#194591)
+    <Version>3.0.0.4-indo-01</Version>
+    <InfomationalVersion>3.0.0.4</InfomationalVersion>
+    <PackageReleaseNotes>Support Indo Translation (#196354)</PackageReleaseNotes>
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>

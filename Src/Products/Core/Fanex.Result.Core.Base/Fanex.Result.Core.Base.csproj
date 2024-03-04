@@ -8,12 +8,14 @@
     <AssemblyTitle>Fanex.Result.Core.Base</AssemblyTitle>
     <Product>Fanex.Result.Core.Base</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>3.0.0.4-indo-02</Version>
-    <InfomationalVersion>3.0.0.4</InfomationalVersion>
-    <PackageReleaseNotes>Support Indo Translation (#196354)</PackageReleaseNotes>
+    <Version>3.0.0.5-vs4-03</Version>
+    <InfomationalVersion>3.0.0.5</InfomationalVersion>
+    <PackageReleaseNotes>
+    	Support Virtual sports 4 result (#198619)
+    </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Fanex.RemotingRef" Version="1.5.2-beta-02" />
+    <PackageReference Include="Fanex.RemotingRef" Version="1.5.4-vs-01" />
     <PackageReference Include="Microsoft.AspNet.Razor" Version="3.2.9" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="NPOI" Version="2.6.1" />

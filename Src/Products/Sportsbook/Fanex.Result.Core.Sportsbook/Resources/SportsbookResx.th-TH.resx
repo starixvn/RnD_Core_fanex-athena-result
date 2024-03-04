@@ -429,4 +429,7 @@
   <data name="AbandonedOT" xml:space="preserve">
     <value>ยกเลิกการต่อเวลาพิเศษ</value>
   </data>
+  <data name="Winner" xml:space="preserve">
+    <value>ผู้ชนะ</value>
+  </data>
 </root>

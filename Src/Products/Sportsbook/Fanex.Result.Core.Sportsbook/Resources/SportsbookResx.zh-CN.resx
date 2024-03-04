@@ -426,4 +426,7 @@
   <data name="ESports_90150X" xml:space="preserve">
     <value>地图 {0} 第一肉山大魔王</value>
   </data>
+  <data name="Winner" xml:space="preserve">
+    <value>优胜者</value>
+  </data>
 </root>

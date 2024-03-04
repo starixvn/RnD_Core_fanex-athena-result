@@ -107,15 +107,7 @@
                             new RacingResultData().GetPopupResult(licenseeId, userId, metalModel.MatchId, metalModel.RaceNo).ToList(), setting);
                     }
                     break;
-
-                case SportType.GoldDeluxe:
-                    return ResultEngine.HtmlParser(
-                        new GoldDeluxeResultData().GetPopupResult(metalModel.RefNo, metalModel.Bettype, metalModel.GetDataFromExcel).ToList(), setting);
-
-                case SportType.AGCasino:
-                    return ResultEngine.HtmlParser(
-                        new AGCasinoResultData().GetPopupResult(metalModel.RefNo, metalModel.Bettype).ToList(), setting);
-
+               
                 case SportType.AllBetCasino:
                     return new AllbetResultData().GetPopupResult(metalModel.Bettype, metalModel.LanguageCode);
 
@@ -142,12 +134,7 @@
                 case SportType.LeapGamingVirtualSports:
                     return ResultEngine.HtmlParser(new LeapGamingResultData().GetPopupResult(metalModel.TransDesc), setting);
 
-                default:
-                    if (metalModel.Bettype == MetricGaming801)
-                    {
-                        return ResultEngine.HtmlParser(
-                            new MetricGamingResultData().GetPopupResult(metalModel.BetId).ToList(), setting);
-                    }
+                default:                   
 
                     var data = new SportsbookResultData().GetPopupResult(sportType, licenseeId, userId, metalModel);
 

@@ -1004,5 +1004,14 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
                 return ResourceManager.GetString("Volleyball_3915XXYY", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Winner.
+        /// </summary>
+        public static string Winner {
+            get {
+                return ResourceManager.GetString("Winner", resourceCulture);
+            }
+        }
     }
 }

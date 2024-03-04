@@ -61,6 +61,24 @@
     <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="BetListNPOI, Version=2.6.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\BetListNPOI.2.6.0\lib\netstandard2.0\BetListNPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="BetListNPOI.OOXML, Version=2.6.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\BetListNPOI.2.6.0\lib\netstandard2.0\BetListNPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="BetListNPOI.OpenXml4Net, Version=2.6.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\BetListNPOI.2.6.0\lib\netstandard2.0\BetListNPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="BetListNPOI.OpenXmlFormats, Version=2.6.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\BetListNPOI.2.6.0\lib\netstandard2.0\BetListNPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\BouncyCastle.Cryptography.2.2.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
     <Reference Include="BundleTransformer.Core, Version=1.9.171.0, Culture=neutral, PublicKeyToken=973c344c93aac60d, processorArchitecture=MSIL">
       <HintPath>..\..\packages\BundleTransformer.Core.1.9.171\lib\net40\BundleTransformer.Core.dll</HintPath>
     </Reference>
@@ -70,20 +88,65 @@
     <Reference Include="ClearScript, Version=5.4.5.0, Culture=neutral, PublicKeyToken=935d0c957da47c73, processorArchitecture=MSIL">
       <HintPath>..\..\packages\JavaScriptEngineSwitcher.V8.1.5.4\lib\net40\ClearScript.dll</HintPath>
     </Reference>
+    <Reference Include="Enums.NET, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7ea1c1650d506225, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Enums.NET.4.0.1\lib\net45\Enums.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.BetList.Core, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.BetList.Core.3.0.2.5-VS4-01\lib\net461\Fanex.BetList.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Fanex.Common, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Common.1.1.0.1\lib\net40\Fanex.Common.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Data, Version=0.5.404.63, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Data.0.5.404.63\lib\net40\Fanex.Data.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.RemotingRef, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.RemotingRef.1.4.0-beta1\lib\net461\Fanex.RemotingRef.dll</HintPath>
+    <Reference Include="Fanex.RemotingRef, Version=1.5.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.RemotingRef.1.5.4-vs-01\lib\net461\Fanex.RemotingRef.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Result.Core, Version=2.1.7.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.Result.Core-NPOI.2.0.6.2.1.7-beta\lib\net40\Fanex.Result.Core.dll</HintPath>
+    <Reference Include="Fanex.Result.Core.AGCasino, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core.AGCasino.2.0.0-beta-05\lib\net461\Fanex.Result.Core.AGCasino.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Result.Core.Base, Version=2.1.7.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Fanex.Result.Core-NPOI.2.0.6.2.1.7-beta\lib\net40\Fanex.Result.Core.Base.dll</HintPath>
+    <Reference Include="Fanex.Result.Core.Allbet, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core.AllBetCasino.2.0.0-beta-05\lib\net461\Fanex.Result.Core.Allbet.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.Base, Version=3.0.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core-NPOI.2.0.6.3.0.0.5-vs4-01\lib\net461\Fanex.Result.Core.Base.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.Bitcoin, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core-Bitcoin.2.0.0\lib\net461\Fanex.Result.Core.Bitcoin.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.ConfigurationHelper, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core.ConfigurationHelper.1.0.0-beta-03\lib\net461\Fanex.Result.Core.ConfigurationHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.GTCasino, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core.GTCasino.2.0.0\lib\net461\Fanex.Result.Core.GTCasino.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.LeapGaming, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core-LeapGaming.2.0.0\lib\net461\Fanex.Result.Core.LeapGaming.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.NumberGame, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core-NumberGame.2.0.0\lib\net461\Fanex.Result.Core.NumberGame.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.Racing, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core-Racing.2.0.0\lib\net461\Fanex.Result.Core.Racing.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.RemotingRef, Version=2.0.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core.RemotingRef.2.0.0.2-vs4-01\lib\net461\Fanex.Result.Core.RemotingRef.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.SAGaming, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core.SAGaming.2.0.0\lib\net461\Fanex.Result.Core.SAGaming.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.SexyGaming, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core.SexyGaming.2.0.0\lib\net461\Fanex.Result.Core.SexyGaming.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.Sportsbook, Version=2.0.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core-Sportsbook.2.0.0.5-vs4-01\lib\net461\Fanex.Result.Core.Sportsbook.dll</HintPath>
+    </Reference>
+    <Reference Include="Fanex.Result.Core.WM, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core.WM.2.0.0\lib\net461\Fanex.Result.Core.WM.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.3.3.11, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SharpZipLib.1.3.3\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="Ionic.Zip, Version=1.9.1.8, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Ionic.Zip.1.9.1.8\lib\Ionic.Zip.dll</HintPath>
@@ -97,10 +160,28 @@
     <Reference Include="JavaScriptEngineSwitcher.V8, Version=1.5.4.0, Culture=neutral, PublicKeyToken=c608b2a8cc9e4472, processorArchitecture=MSIL">
       <HintPath>..\..\packages\JavaScriptEngineSwitcher.V8.1.5.4\lib\net40\JavaScriptEngineSwitcher.V8.dll</HintPath>
     </Reference>
-    <Reference Include="MessagePack, Version=1.7.3.4, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\MessagePack.1.7.3.4\lib\net45\MessagePack.dll</HintPath>
+    <Reference Include="MathNet.Numerics, Version=4.15.0.0, Culture=neutral, PublicKeyToken=cd8b63ad3d691a37, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MathNet.Numerics.Signed.4.15.0\lib\net461\MathNet.Numerics.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagePack, Version=2.4.0.0, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MessagePack.2.4.35\lib\netstandard2.0\MessagePack.dll</HintPath>
+    </Reference>
+    <Reference Include="MessagePack.Annotations, Version=2.4.0.0, Culture=neutral, PublicKeyToken=b4a0369545f0a1be, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MessagePack.Annotations.2.4.35\lib\netstandard2.0\MessagePack.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.SystemWebAdapters, Version=1.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.AspNetCore.SystemWebAdapters.1.1.0\lib\net45\Microsoft.AspNetCore.SystemWebAdapters.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Bcl.AsyncInterfaces.6.0.0\lib\net461\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=2.3.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.IO.RecyclableMemoryStream.2.3.2\lib\netstandard2.0\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.NET.StringTools.net35, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.NET.StringTools.1.0.0\lib\net35\Microsoft.NET.StringTools.net35.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EnterpriseLibrary.Common.5.0.414.0\lib\net40\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
     </Reference>
@@ -125,20 +206,79 @@
     <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="NPOI.Core, Version=2.6.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.6.1\lib\netstandard2.0\NPOI.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.6.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.6.1\lib\netstandard2.0\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.6.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.6.1\lib\netstandard2.0\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.6.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NPOI.2.6.1\lib\netstandard2.0\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
     <Reference Include="RazorEngine, Version=3.7.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\RazorEngine.3.7.0\lib\net45\RazorEngine.dll</HintPath>
     </Reference>
+    <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SixLabors.Fonts.1.0.0-beta19\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="SixLabors.ImageSharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SixLabors.ImageSharp.2.1.4\lib\netstandard2.0\SixLabors.ImageSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Collections.Immutable, Version=1.2.5.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Collections.Immutable.1.7.1\lib\net461\System.Collections.Immutable.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration.ConfigurationManager, Version=6.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Configuration.ConfigurationManager.6.0.1\lib\net461\System.Configuration.ConfigurationManager.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.UnmanagedMemoryStream, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.IO.UnmanagedMemoryStream.4.3.0\lib\net46\System.IO.UnmanagedMemoryStream.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net" />
     <Reference Include="System.Net.Http, Version=4.1.1.3, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Net.Http.4.3.4\lib\net46\System.Net.Http.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http.Formatting, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Microsoft.AspNet.WebApi.Client.5.2.6\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Security.AccessControl.6.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
     <Reference Include="System.Security.Cryptography.Algorithms, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net461\System.Security.Cryptography.Algorithms.dll</HintPath>
     </Reference>
@@ -151,11 +291,25 @@
     <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\..\packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
     </Reference>
-    <Reference Include="System.Threading.Tasks.Extensions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\System.Threading.Tasks.Extensions.4.3.0\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    <Reference Include="System.Security.Cryptography.Xml, Version=6.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Security.Cryptography.Xml.6.0.1\lib\net461\System.Security.Cryptography.Xml.dll</HintPath>
     </Reference>
-    <Reference Include="System.ValueTuple, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\System.ValueTuple.4.3.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    <Reference Include="System.Security.Permissions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Security.Permissions.6.0.0\lib\net461\System.Security.Permissions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Text.Encoding.CodePages, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Text.Encoding.CodePages.6.0.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -180,7 +334,7 @@
       <HintPath>..\..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.6\lib\net45\System.Web.Razor.dll</HintPath>
+      <HintPath>..\..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.Routing" />
     <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -201,18 +355,20 @@
       <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="TplNetCore, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\TplNetCore.1.0.0\lib\netstandard2.0\TplNetCore.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controllers\DocsController.cs" />
-    <Compile Include="Controllers\ThirdPartyAPIController.cs" />
     <Compile Include="Controllers\NormalReportController.cs" />
     <Compile Include="Controllers\OutRightReportController.cs" />
     <Compile Include="Controllers\PopUpReportController.cs" />
-    <Compile Include="Controllers\ThirdPartyReportController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -242,33 +398,26 @@
     <Compile Include="Models\ResultData\AllbetResultData.cs" />
     <Compile Include="Models\ResultData\LeapGamingResultData.cs" />
     <Compile Include="Models\ResultData\BitcoinResultData.cs" />
-    <Compile Include="Models\ResultData\Happy5ResultData.cs" />
+    <Compile Include="Models\ResultData\RacingResultData.cs" />
     <Compile Include="Models\ResultData\WMLiveCasinoResultData.cs" />
     <Compile Include="Models\ResultData\SexyGamingResultData.cs" />
     <Compile Include="Models\ResultData\GTCasinoResultData.cs" />
     <Compile Include="Models\ResultData\Constant.cs" />
-    <Compile Include="Models\ResultData\AGCasinoResultData.cs" />
-    <Compile Include="Models\ResultData\GoldDeluxeResultData.cs" />
-    <Compile Include="Models\ResultData\MetricGamingResultData.cs" />
     <Compile Include="Models\ResultData\OutRightResultData.cs" />
     <Compile Include="Models\ResultData\SAGamingResultData.cs" />
     <Compile Include="Models\ResultData\SportsbookResultData.cs" />
     <Compile Include="Models\ResultData\NumberGameResultData.cs" />
-    <Compile Include="Models\ResultData\RacingResultData.cs" />
     <Compile Include="Models\ResultServices\BaseResultService.cs" />
     <Compile Include="Models\ResultServices\CasinoResultService.cs" />
-    <Compile Include="Models\ResultServices\MetricGamingResultService.cs" />
     <Compile Include="Models\ResultServices\IResultService.cs" />
-    <Compile Include="Models\ResultServices\GoldDeluxeResultService.cs" />
     <Compile Include="Models\ResultServices\ParlayResultService.cs" />
     <Compile Include="Models\ResultServices\OutRightResultService.cs" />
     <Compile Include="Models\ResultServices\BetBuilderResultService.cs" />
     <Compile Include="Models\ResultServices\BitcoinResultService.cs" />
+    <Compile Include="Models\ResultServices\RacingResultService.cs" />
     <Compile Include="Models\ResultServices\SportsbookResultService.cs" />
     <Compile Include="Models\ResultServices\NumberGameResultService.cs" />
-    <Compile Include="Models\ResultServices\RacingResultService.cs" />
     <Compile Include="Models\ResultServices\LeaguesResultService.cs" />
-    <Compile Include="Models\ResultServices\Happy5ResultService.cs" />
     <Compile Include="Models\ResultServices\SportsResultService.cs" />
     <Compile Include="Models\Voidbridge\Request.cs" />
     <Compile Include="Models\Voidbridge\Response.cs" />
@@ -897,6 +1046,8 @@
     <Content Include="App_Data\Fanex.Result\Football.xls" />
     <Content Include="App_Data\Result_Data\UpcomingSport58.xls" />
     <Content Include="App_Data\Fanex.Result\Bandy.xls" />
+    <Content Include="App_Data\Result_Data\VirtualCockFighting.xls" />
+    <Content Include="App_Data\Fanex.Result\VSCockFighting.xls" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>
@@ -992,117 +1143,16 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Src\Products\AGCasino\Fanex.Result.Core.AGCasino\Fanex.Result.Core.AGCasino.csproj">
-      <Project>{0A57E89B-3C07-498A-A704-E893C2C3F7E9}</Project>
-      <Name>Fanex.Result.Core.AGCasino</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\Products\Allbet\Fanex.Result.Core.Allbet\Fanex.Result.Core.Allbet.csproj">
-      <Project>{d9303680-11b8-41c1-9eb2-2ae37d02ffb1}</Project>
-      <Name>Fanex.Result.Core.Allbet</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\Products\Bitcoin\Fanex.Result.Core.Bitcoin\Fanex.Result.Core.Bitcoin.csproj">
-      <Project>{75cf0202-4d7f-49ff-9e7f-2d235a66378c}</Project>
-      <Name>Fanex.Result.Core.Bitcoin</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\Products\Casino\Fanex.Result.Core.Casino\Fanex.Result.Core.Casino.csproj">
-      <Project>{d8429add-faa0-4ca7-80a4-1dd99347df76}</Project>
-      <Name>Fanex.Result.Core.Casino</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\Products\Cockfighting\Fanex.Result.Core.CockFighting\Fanex.Result.Core.CockFighting.csproj">
-      <Project>{29f23cc1-8d52-4e0b-84c9-6f463bc0a80c}</Project>
-      <Name>Fanex.Result.Core.CockFighting</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\Products\Core\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj">
-      <Project>{8673f024-7726-4c30-8464-5a8357f79bf0}</Project>
-      <Name>Fanex.Result.Core.Base</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\Products\Core\Fanex.Result.Core\Fanex.Result.Core.csproj">
-      <Project>{73aaea31-c52d-47d2-bc47-087a06794f55}</Project>
-      <Name>Fanex.Result.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\Products\Core\Fanex.Result.Core\Fanex.Result.Core.csproj">
-      <Project>{73aaea31-c52d-47d2-bc47-087a06794f55}</Project>
-      <Name>Fanex.Result.Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\Products\GlobalGaming\Fanex.Result.Core.GlobalGaming\Fanex.Result.Core.GlobalGaming.csproj">
-      <Project>{24011d8b-9445-4377-8b70-e7d4049f372f}</Project>
-      <Name>Fanex.Result.Core.GlobalGaming</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\Products\GoldDeluxe\Fanex.Result.Core.GoldDeLuxe\Fanex.Result.Core.GoldDeLuxe.csproj">
-      <Project>{dbd59404-19d9-422c-83f1-8f20e02545ed}</Project>
-      <Name>Fanex.Result.Core.GoldDeLuxe</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\Products\GoldDeluxe\Fanex.Result.Core.GoldDeLuxe\Fanex.Result.Core.GoldDeLuxe.csproj">
-      <Project>{dbd59404-19d9-422c-83f1-8f20e02545ed}</Project>
-      <Name>Fanex.Result.Core.GoldDeLuxe</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\Products\GTCasino\Fanex.Result.Core.GTCasino\Fanex.Result.Core.GTCasino.csproj">
-      <Project>{CE6304E8-CB53-4C0F-AA9B-E24337DE2926}</Project>
-      <Name>Fanex.Result.Core.GTCasino</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\Products\Happy5\Fanex.Result.Core.Happy5\Fanex.Result.Core.Happy5.csproj">
-      <Project>{8ED01504-3503-43C2-8E0E-8127E36E482C}</Project>
-      <Name>Fanex.Result.Core.Happy5</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\Products\LeapGaming\Fanex.Result.Core.LeapGaming\Fanex.Result.Core.LeapGaming.csproj">
-      <Project>{f5653cf7-59bd-424a-bfa6-de54a63dad6b}</Project>
-      <Name>Fanex.Result.Core.LeapGaming</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\Products\MetricGaming\Fanex.Result.Core.MetricGaming\Fanex.Result.Core.MetricGaming.csproj">
-      <Project>{76cd2383-849a-4291-ad55-378f6c26836c}</Project>
-      <Name>Fanex.Result.Core.MetricGaming</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\Products\NumberGame\Fanex.Result.Core.NumberGame\Fanex.Result.Core.NumberGame.csproj">
-      <Project>{cebae710-7919-4fc6-8978-862a3096972c}</Project>
-      <Name>Fanex.Result.Core.NumberGame</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\Products\CardClub\Fanex.Result.Core.CardClub\Fanex.Result.Core.CardClub.csproj">
-      <Project>{d0c14c69-33f8-4b76-bb9a-109f3dcffc57}</Project>
-      <Name>Fanex.Result.Core.CardClub</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\Products\PP\Fanex.Result.Core.PP\Fanex.Result.Core.PP.csproj">
-      <Project>{05aa0490-7266-489a-9e2d-84c9d2f2fb39}</Project>
-      <Name>Fanex.Result.Core.PP</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\Products\Racing\Fanex.Result.Core.Racing\Fanex.Result.Core.Racing.csproj">
-      <Project>{4869ed23-cd0c-4472-bce6-54a9e170ed6e}</Project>
-      <Name>Fanex.Result.Core.Racing</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\Products\SAGaming\Fanex.Result.Core.SAGaming\Fanex.Result.Core.SAGaming.csproj">
-      <Project>{45e45c87-3b5e-418a-85aa-642e025ce2a1}</Project>
-      <Name>Fanex.Result.Core.SAGaming</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\Products\SexyGaming\Fanex.Result.Core.SexyGaming\Fanex.Result.Core.SexyGaming.csproj">
-      <Project>{e6d50668-1731-4eb1-9112-8d47203080dc}</Project>
-      <Name>Fanex.Result.Core.SexyGaming</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\Products\Sportsbook\Fanex.Result.Core.Sportsbook\Fanex.Result.Core.Sportsbook.csproj">
-      <Project>{0469c900-5e5b-4d2c-8db3-7eaea991095b}</Project>
-      <Name>Fanex.Result.Core.Sportsbook</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\Products\VoidBridge\Fanex.Result.Core.Voidbridge\Fanex.Result.Core.Voidbridge.csproj">
-      <Project>{394ffbab-dd32-4ea6-9c4e-d513adc51a74}</Project>
-      <Name>Fanex.Result.Core.Voidbridge</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\Products\WM\Fanex.Result.Core.WM\Fanex.Result.Core.WM.csproj">
-      <Project>{71425240-2b92-4088-94b8-fd977263ac20}</Project>
-      <Name>Fanex.Result.Core.WM</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\Src\RemotingRef\Fanex.Result.Core.RemotingRef\Fanex.Result.Core.RemotingRef.csproj">
-      <Project>{b899f4ae-2360-45b1-96d0-423c7328e8ea}</Project>
-      <Name>Fanex.Result.Core.RemotingRef</Name>
-    </ProjectReference>
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.8.0.7320\analyzers\Google.Protobuf.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.8.0.7320\analyzers\SonarAnalyzer.CSharp.dll" />
+    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.8.0.7320\analyzers\SonarAnalyzer.dll" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Fanex.Result.Data\Fanex.Result.Data.csproj">
       <Project>{15e2d2ec-e10d-4900-984f-b818011620da}</Project>
       <Name>Fanex.Result.Data</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.8.0.7320\analyzers\Google.Protobuf.dll" />
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.8.0.7320\analyzers\SonarAnalyzer.CSharp.dll" />
-    <Analyzer Include="..\..\packages\SonarAnalyzer.CSharp.7.8.0.7320\analyzers\SonarAnalyzer.dll" />
-  </ItemGroup>
-  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

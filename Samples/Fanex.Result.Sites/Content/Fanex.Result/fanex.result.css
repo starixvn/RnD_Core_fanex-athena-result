@@ -189,6 +189,10 @@ table.fn-rs .cl-m-code .m-code {
 table.fn-rs .cl-ko-time {
   width: 90px;
 }
+table.fn-rs .cl-winner {
+  text-align: center;
+  width: 200px;
+}
 table.fn-rs .cl-result {
   text-align: center;
 }

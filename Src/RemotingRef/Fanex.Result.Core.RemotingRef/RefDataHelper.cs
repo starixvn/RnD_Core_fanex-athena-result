@@ -16,6 +16,8 @@
 
         protected string LanguageCode { get; set; } = ConstantValue.EnglishLanguageCode;
 
+        public string GetVirtualSportMatchCodeFormat(string matchCode, string refId, string lang)
+        => remotingRefService.GetVirtualSportMatchCodeFormat(matchCode, refId, lang);
         public string GetBetTypeNameById(string betTypeId, string lang, string resourceId)
             => remotingRefService.GetBetTypeName(betTypeId, lang, string.Empty, resourceId);
 

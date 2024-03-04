@@ -273,4 +273,7 @@
   <data name="AbandonedOT" xml:space="preserve">
     <value>在加时中止</value>
   </data>
+  <data name="Winner" xml:space="preserve">
+    <value>优胜者</value>
+  </data>
 </root>

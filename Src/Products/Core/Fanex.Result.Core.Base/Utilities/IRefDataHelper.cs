@@ -2,6 +2,8 @@
 {
     public interface IRefDataHelper
     {
+        string GetVirtualSportMatchCodeFormat(string matchCode, string refId, string lang);
+
         string GetBetTypeNameById(string betTypeId, string lang);
 
         string GetBetTypeNameById(string betTypeId, string lang, string resourceId);

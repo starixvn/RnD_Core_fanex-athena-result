@@ -203,7 +203,7 @@
         VirtualFootballCup = 178,
 
         [StringValue("Other")]
-        VirtualFootballLeague = 179,
+        VirtualFootballLeague = 179,        
         #endregion Other
 
         #region VirtualSport
@@ -225,6 +225,9 @@
 
         [StringValue("VSTennis")]
         VirtualTennis = 186,
+
+        [StringValue("VSCockFighting")]
+        VirtualCockFighting = 188,
 
         [StringValue("VSBasketBall")]
         VirtualBasketBall = 193,

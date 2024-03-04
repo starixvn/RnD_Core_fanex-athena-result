@@ -10,6 +10,8 @@
 
         public int LeagueId { get; set; }
 
+        public int LeagueGroupId { get; set; }
+
         public IList<Sportsbook> Sportbook
         {
             get

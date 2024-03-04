@@ -43,13 +43,17 @@
                 SportType = (SportType)_parlay.SportId,
                 DateTimeFormat = DateTimeFormat,
                 HighlightWinnerTeam = setting.HighlightWinnerTeam,
-                VisibleMatchCodeIDColumn = setting.VisibleMatchCodeIDColumn
+                VisibleMatchCodeIDColumn = setting.VisibleMatchCodeIDColumn,
+                SupportHideSabaText = setting.SupportHideSabaText
             };
         }
 
         public override string SportName => GetSportNameByLanguage(_parlay.SportId);
 
-        public override string LeagueName => GetLeagueNameByLanguage(_parlay.LeagueId);
+        public override string LeagueName 
+        => _sportSetting.SupportHideSabaText ?
+        RefDataHelper.GetLeagueName(_parlay.LeagueId, _parlay.LeagueGroupId, GetSupportedLanguage, string.Empty):
+        RefDataHelper.GetLeagueName(_parlay.LeagueId, GetSupportedLanguage, string.Empty);
 
         public override int LeagueId => _parlay.LeagueId;
 

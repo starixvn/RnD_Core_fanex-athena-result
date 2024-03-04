@@ -8,7 +8,7 @@
     <AssemblyTitle>Fanex.Result.Core.Sportsbook</AssemblyTitle>
     <Product>Fanex.Result.Core.Sportsbook</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>2.0.0.3-saba-01</Version>
+    <Version>2.0.0.3-saba-02</Version>
     <PackageReleaseNotes>
       Support Remove "Saba" text in league name (#194591)
     </PackageReleaseNotes>

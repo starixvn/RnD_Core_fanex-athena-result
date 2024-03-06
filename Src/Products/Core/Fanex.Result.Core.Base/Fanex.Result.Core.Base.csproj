@@ -11,7 +11,6 @@
     <Version>3.0.0.4-indo-01</Version>
     <InfomationalVersion>3.0.0.4</InfomationalVersion>
     <PackageReleaseNotes>Support Indo Translation (#196354)</PackageReleaseNotes>
-    </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Fanex.RemotingRef" Version="1.5.2-beta-02" />

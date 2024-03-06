@@ -432,4 +432,7 @@
   <data name="ESports_90150X" xml:space="preserve">
     <value>Map {0} 1st Roshan</value>
   </data>
+  <data name="Winner" xml:space="preserve">
+    <value>Winner</value>
+  </data>
 </root>

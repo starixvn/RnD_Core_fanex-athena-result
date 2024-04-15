@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Functions>
   <Function Name="Result">
-    <Setting Key="Lrf_Result_SportSelByDate" SpName="Lrf_Result_SportSelByDate" DbName="DBEXT.bodb02.bodbLicenseeNet">
+    <Setting Key="Lrf_Result_SportSelByDate" SpName="Age_Result_SportSelByDate" DbName="DBEXT.bodb02.wsv_xnap">
       <Mapping DataField="sporttype" ObjectProperty="Id" />
       <Mapping DataField="sportname" ObjectProperty="Name" />
     </Setting>
-    <Setting Key="Lrf_Result_LeagueSelByDate" SpName="Lrf_Result_LeagueSelByDate" DbName="DBEXT.bodb02.bodbLicenseeNet">
+    <Setting Key="Lrf_Result_LeagueSelByDate" SpName="Age_Result_LeagueSelByDate" DbName="DBEXT.bodb02.wsv_xnap">
       <Mapping DataField="leaguename" ObjectProperty="Name" />
       <Mapping DataField="leagueid" ObjectProperty="Id" />
       <Mapping DataField="eventdate" ObjectProperty="EventDate" />
       <Mapping DataField="sporttype" ObjectProperty="SportId" />
     </Setting>
-    <Setting Key="All_BetList_MatchResultDetail3rdSel" SpName="All_BetList_MatchResultDetail3rdSel" DbName="DBACC.bodb02.BODBDownlineNet">
+    <Setting Key="All_BetList_MatchResultDetail3rdSel" SpName="All_BetList_MatchResultDetail3rdSel" DbName="DBACC.bodb02.wsv_nap">
       <Mapping ObjectProperty="LeagueId" DataField="Leagueid" />
       <Mapping ObjectProperty="MatchId" DataField="MatchID" />
       <Mapping ObjectProperty="GameId" DataField="GameID" />
@@ -22,36 +22,36 @@
       <Mapping ObjectProperty="HomeId" DataField="homeid" />
       <Mapping ObjectProperty="AwayId" DataField="awayid" />
     </Setting>
-    <Setting Key="Lrf_SelBalanceUpDay" SpName="Lrf_SelBalanceUpDay" DbName="DBEXT.bodb02.bodbLicenseeNet" />
+    <Setting Key="Lrf_SelBalanceUpDay" SpName="Age_SelBalanceUpDay" DbName="DBEXT.bodb02.wsv_xnap" />
 
-    <!--<Setting Key="Lrf_Result_MatchSelByLeague" SpName="Lrf_Result_MatchSelByLeague" DbName="DBEXT.bodb02.bodbLicenseeNet">
+    <!--<Setting Key="Lrf_Result_MatchSelByLeague" SpName="Lrf_Result_MatchSelByLeague" DbName="DBEXT.bodb02.wsv_nap">
     </Setting>
-    <Setting Key="Lrf_Result_MatchSelByLeague_Detail" SpName=" Lrf_Result_MatchSelByLeague_Detail" DbName="DBEXT.bodb02.bodbLicenseeNet">
+    <Setting Key="Lrf_Result_MatchSelByLeague_Detail" SpName=" Lrf_Result_MatchSelByLeague_Detail" DbName="DBEXT.bodb02.wsv_nap">
     </Setting>
-    <Setting Key="Lrf_BetList_SelMatchResultParlay" SpName="Lrf_BetList_SelMatchResultParlay_xpre" DbName="DBEXT.bodb02.bodbLicenseeNet">
+    <Setting Key="Lrf_BetList_SelMatchResultParlay" SpName="Lrf_BetList_SelMatchResultParlay_xpre" DbName="DBEXT.bodb02.wsv_nap">
     </Setting>
-    <Setting Key="Lrf_BetList_SelMatchResult" SpName="Lrf_BetList_SelMatchResult_xtest" DbName="DBEXT.bodb02.bodbLicenseeNet">
+    <Setting Key="Lrf_BetList_SelMatchResult" SpName="Lrf_BetList_SelMatchResult_xtest" DbName="DBEXT.bodb02.wsv_nap">
     </Setting>-->
-    <Setting Key="Lrf_Result_MatchSelByLeague" SpName="Age_Result_MatchSelByLeague_UAT2" DbName="DBACC.bodb02.BODBDownlineNet">
+    <Setting Key="Lrf_Result_MatchSelByLeague" SpName="Age_Result_MatchSelByLeague_UAT2" DbName="DBACC.bodb02.wsv_nap">
     </Setting>
-    <Setting Key="Lrf_Result_MatchSelByLeague_Detail" SpName="Age_Result_MatchSelResultDetail_xpre" DbName="DBACC.bodb02.BODBDownlineNet">
+    <Setting Key="Lrf_Result_MatchSelByLeague_Detail" SpName="Age_Result_MatchSelResultDetail_xpre" DbName="DBACC.bodb02.wsv_nap">
     </Setting>
-    <Setting Key="Lrf_BetList_SelMatchResultParlay" SpName="Age_BetList_SelMatchResultParlay_UAT2" DbName="DBACC.bodb02.BODBDownlineNet">
+    <Setting Key="Lrf_BetList_SelMatchResultParlay" SpName="Age_BetList_SelMatchResultParlay_UAT2" DbName="DBACC.bodb02.wsv_nap">
     </Setting>
-    <Setting Key="Lrf_BetList_SelMatchResult" SpName="Age_BetList_SelMatchResult_xpre" DbName="DBACC.bodb02.BODBDownlineNet">
+    <Setting Key="Lrf_BetList_SelMatchResult" SpName="Age_BetList_SelMatchResult_xpre" DbName="DBACC.bodb02.wsv_nap">
     </Setting>
-    <Setting Key="Lrf_Result_RaceSelByMeeting" SpName="Lrf_Result_RaceSelByMeeting" DbName="DBEXT.bodb02.bodbLicenseeNet">
+    <Setting Key="Lrf_Result_RaceSelByMeeting" SpName="Lrf_Result_RaceSelByMeeting" DbName="DBEXT.bodb02.wsv_xnap">
     </Setting>
-    <Setting Key="Lrf_Result_MatchSelNumberGameByLeague" SpName="Age_Result_MatchSelNumberGameByLeague" DbName="DBEXT.bodb02.bodbLicenseeNet">
+    <Setting Key="Lrf_Result_MatchSelNumberGameByLeague" SpName="Age_Result_MatchSelNumberGameByLeague" DbName="DBEXT.bodb02.wsv_xnap">
     </Setting>
-    <Setting Key="Lrf_BetList_SelMatchResultNumberGame" SpName="Lrf_BetList_SelMatchResultNumberGame_xtest" DbName="DBEXT.bodb02.bodbLicenseeNet">
+    <Setting Key="Lrf_BetList_SelMatchResultNumberGame" SpName="Lrf_BetList_SelMatchResultNumberGame" DbName="DBEXT.bodb02.wsv_xnap">
     </Setting>
-    <Setting Key="Lrf_Result_Outright" SpName="Lrf_Result_Outright" DbName="DBEXT.bodb02.bodbLicenseeNet">
+    <Setting Key="Lrf_Result_Outright" SpName="Lrf_Result_Outright" DbName="DBEXT.bodb02.wsv_xnap">
     </Setting>
-    <Setting Key="All_BetList_MatchResultGDSel" SpName="All_BetList_MatchResultGDSel" DbName="DBEXT.bodb02.bodbLicenseeNet">
+    <Setting Key="All_BetList_MatchResultGDSel" SpName="All_BetList_MatchResultGDSel" DbName="DBEXT.bodb02.wsv_xnap">
     </Setting>
-    <Setting Key="All_BetList_MatchResultAGSel" SpName="All_BetList_MatchResultAGSel" DbName="DBEXT.bodb02.bodbLicenseeNet">
+    <Setting Key="All_BetList_MatchResultAGSel" SpName="All_BetList_MatchResultAGSel" DbName="DBEXT.bodb02.wsv_xnap">
     </Setting>
-    <Setting Key="Age_TicketResult_BetBuilder" SpName="Age_TicketResult_BetBuilder_xtest" DbName="DBACC.bodb02.BODBDownlineNet.Alpha" />
+    <Setting Key="Age_TicketResult_BetBuilder" SpName="Age_TicketResult_BetBuilder_xtest" DbName="DBACC.bodb02.wsv_nap.Alpha" />
   </Function>
 </Functions>

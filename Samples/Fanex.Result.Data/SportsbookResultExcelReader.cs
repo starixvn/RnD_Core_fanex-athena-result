@@ -41,6 +41,8 @@
             resultData.BetID = "3";
             resultData.SettlementStatus = Convert.ToByte(string.IsNullOrEmpty(row.GetCell(17)?.ToString()) ? "0" : row.GetCell(17)?.ToString());
             resultData.NoHTScore = Convert.ToBoolean(Convert.ToInt16(row.GetCell(45).ToString()));
+            resultData.MainType = Convert.ToByte(row.GetCell(46).ToString());
+            resultData.SubType = Convert.ToInt32(row.GetCell(47).ToString());
 
             return resultData;
         }

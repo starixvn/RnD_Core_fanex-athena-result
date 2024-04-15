@@ -17,6 +17,8 @@
         private const string LastGoal = "L";
         private const string FirstGoalHT = "1F";
         private const string LastGoalHT = "1L";
+        private const int ColumnHTScore = 3;
+        private const int ColumnFTScore = 4;
 
         public SoccerExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
             : base(templatePath, setting, data)
@@ -50,6 +52,16 @@
             var rowAway = sheet.CopyRow(TemplateSheet, GetRowTeamWin(exportRow.AwayWin), currentRow + 1);
 
             MergeResultCells(sheet, currentRow, currentRow + 1, ColumnKickOffTime, ColumnStatus);
+            if(!string.IsNullOrEmpty(exportRow.HTLastSeriesChildMatchChoice))
+            {
+                sheet.MergeCells(currentRow, ColumnHTScore, currentRow + 1, ColumnHTScore);
+            }
+
+            if(!string.IsNullOrEmpty(exportRow.FTLastSeriesChildMatchChoice))
+            {
+                sheet.MergeCells(currentRow, ColumnFTScore, currentRow + 1, ColumnFTScore);
+            }
+
             var eventStatus = exportRow.EventStatus;
 
             AssignStringData(
@@ -58,8 +70,8 @@
                 exportRow.MatchCode,
                 Helper.ToRtfString(exportRow.KickOffTime),
                 Helper.ToRtfString(CreateHomeTeamValue(exportRow)),
-                exportRow.HTHomeScore,
-                exportRow.FinalHomeScore,
+                CreateScoreValue(exportRow.HTHomeScore, exportRow.HTLastSeriesChildMatchChoice),
+                CreateScoreValue(exportRow.FinalHomeScore, exportRow.FTLastSeriesChildMatchChoice),
                 eventStatus);
             currentRow++;
 
@@ -69,8 +81,8 @@
                 exportRow.MatchId,
                 Helper.ToRtfString(exportRow.KickOffTime),
                 Helper.ToRtfString(CreateAwayTeamValue(exportRow)),
-                exportRow.HTAwayScore,
-                exportRow.FinalAwayScore,
+                CreateScoreValue(exportRow.HTHomeScore, exportRow.HTLastSeriesChildMatchChoice),
+                CreateScoreValue(exportRow.FinalHomeScore, exportRow.FTLastSeriesChildMatchChoice),
                 eventStatus);
             currentRow++;
         }
@@ -154,6 +166,9 @@
 
             return homeTeam;
         }
+
+        private static string CreateScoreValue(string score, string lastSeriesChoice)
+            => string.IsNullOrEmpty(lastSeriesChoice) ? score : lastSeriesChoice;
 
         #endregion Assign Cell Data
     }

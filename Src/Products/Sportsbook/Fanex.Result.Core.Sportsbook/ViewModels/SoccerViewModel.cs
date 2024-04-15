@@ -101,6 +101,12 @@
 
         public string FinalAwayScore => CalculateScore(SPORTBOOK.FinalAwayScore, true);
 
+        public bool IsLastSeriesChildMatch => CheckLastSeriesChildMatch(SPORTBOOK.MainType, SPORTBOOK.SubType);
+
+        public string HTLastSeriesChildMatchChoice => GetHTLastSeriesChildMatchChoice();
+
+        public string FTLastSeriesChildMatchChoice => GetFTLastSeriesChildMatchChoice();
+
         public string LiveHomeScore
             => SPORTBOOK.LiveHomeScore.HasValue && IsShowLiveScore ?
             SPORTBOOK.LiveHomeScore.Value.ToString(CultureInfo.InvariantCulture) :
@@ -183,6 +189,8 @@
         }
 
         #region Utilities
+
+        private bool EventStatusIsRefundHT => EventStatus.Equals(LangResource.Refundht, StringComparison.OrdinalIgnoreCase);
 
         private bool EventStatusIsRefundFT => EventStatus.Equals(LangResource.Refundft, StringComparison.OrdinalIgnoreCase);
 
@@ -739,6 +747,48 @@
 
         private bool ExistMatchCode(string matchCode)
             => SPORTBOOK.MatchCode.Replace(" ", string.Empty).ToLowerInvariant().Contains(matchCode);
+
+        private static bool CheckLastSeriesChildMatch(byte? mainType, int? subType)
+        {
+            var lastSeriesChildMatchId = string.Format(SoccerConstants.LastSeriesChildMatchIdFormat, mainType, subType);
+
+            return SoccerConstants.LastSeriesChildMatchMapper.Contains(lastSeriesChildMatchId);
+        }
+
+        private string GetHTLastSeriesChildMatchChoice()
+        {
+            var htHomeScore = SPORTBOOK.HtHomeScore ?? default;
+            var htAwayScore = SPORTBOOK.HtAwayScore ?? default;
+            if(IsLastSeriesChildMatch &&
+            !EventStatusIsRefundHT &&
+            SPORTBOOK.IsHTCal &&
+            htHomeScore != htAwayScore)
+            {
+                return htHomeScore > htAwayScore ? HomeTeam : AwayTeam;
+            }
+
+            return null;
+        }
+
+        private string GetFTLastSeriesChildMatchChoice()
+        {
+            var ftHomeScore = SPORTBOOK.FinalHomeScore ?? default;
+            var ftAwayScore = SPORTBOOK.FinalAwayScore ?? default;
+            if(IsLastSeriesChildMatch && !EventStatusIsRefundFT)
+            {
+                if(SPORTBOOK.Calculate && ftHomeScore != ftAwayScore)
+                {
+                    return ftHomeScore > ftAwayScore ? HomeTeam : AwayTeam;
+                }
+                
+                if(!SPORTBOOK.Calculate && !string.IsNullOrEmpty(HTLastSeriesChildMatchChoice))
+                {
+                    return ConstantValue.Hyphen;
+                }
+            }
+
+            return null;
+        }
 
         #endregion Utilities
     }

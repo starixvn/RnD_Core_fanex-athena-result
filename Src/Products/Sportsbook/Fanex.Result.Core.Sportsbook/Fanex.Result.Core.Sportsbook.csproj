@@ -8,10 +8,10 @@
     <AssemblyTitle>Fanex.Result.Core.Sportsbook</AssemblyTitle>
     <Product>Fanex.Result.Core.Sportsbook</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>2.0.0.5-vs4-03</Version>
-    <InfomationalVersion>2.0.0.5</InfomationalVersion>
+    <Version>2.0.0.6-LastSeries-03</Version>
+    <InfomationalVersion>2.0.0.6</InfomationalVersion>
     <PackageReleaseNotes>
-      Support Virtual Sports 4 (#198619)
+      Changes display for The Last Series Of Child Match (#202484)
      </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>

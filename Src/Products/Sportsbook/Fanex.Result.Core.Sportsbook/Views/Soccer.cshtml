@@ -116,8 +116,26 @@
                             }
                             <span>@item.PenaltyMatchDetail</span>
                         </td>
-                        <td class="cl-ht-score">@item.HTHomeScore</td>
-                        <td class="cl-f-score">@item.FinalHomeScore</td>
+                        @if(!string.IsNullOrEmpty(item.HTLastSeriesChildMatchChoice))
+                        {
+                            <td class="cl-ht-score" rowspan="2">@Raw(item.HTLastSeriesChildMatchChoice)</td>
+                        }
+
+                        @if(string.IsNullOrEmpty(item.HTLastSeriesChildMatchChoice))
+                        {
+                            <td class="cl-ht-score">@item.HTHomeScore</td>
+                        }
+
+                        @if(!string.IsNullOrEmpty(item.FTLastSeriesChildMatchChoice))
+                        {
+                            <td class="cl-f-score" rowspan="2">@Raw(item.FTLastSeriesChildMatchChoice)</td>
+                        }
+
+                        @if(string.IsNullOrEmpty(item.FTLastSeriesChildMatchChoice))
+                        {
+                            <td class="cl-f-score">@item.FinalHomeScore</td>
+                        }
+
                         @if (isShowLiveScore)
                         {
                             <td class="cl-f-score">@item.LiveHomeScore</td>
@@ -159,8 +177,17 @@
                             }
                             <span>@item.PenaltyMatchDetail</span>
                         </td>
-                        <td class="cl-ht-score">@item.HTAwayScore</td>
-                        <td class="cl-f-score">@item.FinalAwayScore</td>
+
+                        @if(string.IsNullOrEmpty(item.HTLastSeriesChildMatchChoice))
+                        {
+                            <td class="cl-ht-score">@item.HTAwayScore</td>
+                        }
+
+                        @if(string.IsNullOrEmpty(item.FTLastSeriesChildMatchChoice))
+                        {
+                            <td class="cl-f-score">@item.FinalAwayScore</td>
+                        }
+                        
                         @if (isShowLiveScore)
                         {
                             <td class="cl-f-score">@item.LiveAwayScore</td>

@@ -31,7 +31,7 @@
         {
             <tr class="row-title">
                 <th class="cl-title" colspan="@colspan">
-                    <span class="sport">@firstMatch.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@firstMatch.LeagueName</span>
+                    <span class="sport">@firstMatch.SportName</span> &nbsp;- &nbsp; <span class="leagueName">@firstMatch.LeagueName</span>
                 </th>
             </tr>
         }
@@ -116,22 +116,20 @@
                             }
                             <span>@item.PenaltyMatchDetail</span>
                         </td>
-                        @if(!string.IsNullOrEmpty(item.HTLastSeriesChildMatchChoice))
+                        @if(item.IsShowHTLastSeriesChoice)
                         {
                             <td class="cl-ht-score" rowspan="2">@Raw(item.HTLastSeriesChildMatchChoice)</td>
                         }
-
-                        @if(string.IsNullOrEmpty(item.HTLastSeriesChildMatchChoice))
+                        else
                         {
                             <td class="cl-ht-score">@item.HTHomeScore</td>
                         }
 
-                        @if(!string.IsNullOrEmpty(item.FTLastSeriesChildMatchChoice))
+                        @if(item.IsShowFTLastSeriesChoice)
                         {
                             <td class="cl-f-score" rowspan="2">@Raw(item.FTLastSeriesChildMatchChoice)</td>
                         }
-
-                        @if(string.IsNullOrEmpty(item.FTLastSeriesChildMatchChoice))
+                        else
                         {
                             <td class="cl-f-score">@item.FinalHomeScore</td>
                         }
@@ -178,12 +176,12 @@
                             <span>@item.PenaltyMatchDetail</span>
                         </td>
 
-                        @if(string.IsNullOrEmpty(item.HTLastSeriesChildMatchChoice))
+                        @if(!item.IsShowHTLastSeriesChoice)
                         {
                             <td class="cl-ht-score">@item.HTAwayScore</td>
                         }
 
-                        @if(string.IsNullOrEmpty(item.FTLastSeriesChildMatchChoice))
+                        @if(!item.IsShowFTLastSeriesChoice)
                         {
                             <td class="cl-f-score">@item.FinalAwayScore</td>
                         }

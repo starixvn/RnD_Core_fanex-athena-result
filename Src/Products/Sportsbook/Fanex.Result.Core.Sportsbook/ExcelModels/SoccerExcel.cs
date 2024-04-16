@@ -52,12 +52,12 @@
             var rowAway = sheet.CopyRow(TemplateSheet, GetRowTeamWin(exportRow.AwayWin), currentRow + 1);
 
             MergeResultCells(sheet, currentRow, currentRow + 1, ColumnKickOffTime, ColumnStatus);
-            if(!string.IsNullOrEmpty(exportRow.HTLastSeriesChildMatchChoice))
+            if(exportRow.IsShowHTLastSeriesChoice)
             {
                 sheet.MergeCells(currentRow, ColumnHTScore, currentRow + 1, ColumnHTScore);
             }
 
-            if(!string.IsNullOrEmpty(exportRow.FTLastSeriesChildMatchChoice))
+            if(exportRow.IsShowFTLastSeriesChoice)
             {
                 sheet.MergeCells(currentRow, ColumnFTScore, currentRow + 1, ColumnFTScore);
             }
@@ -70,8 +70,8 @@
                 exportRow.MatchCode,
                 Helper.ToRtfString(exportRow.KickOffTime),
                 Helper.ToRtfString(CreateHomeTeamValue(exportRow)),
-                CreateScoreValue(exportRow.HTHomeScore, exportRow.HTLastSeriesChildMatchChoice),
-                CreateScoreValue(exportRow.FinalHomeScore, exportRow.FTLastSeriesChildMatchChoice),
+                CreateHTScoreValue(exportRow),
+                CreateFTScoreValue(exportRow),
                 eventStatus);
             currentRow++;
 
@@ -81,8 +81,8 @@
                 exportRow.MatchId,
                 Helper.ToRtfString(exportRow.KickOffTime),
                 Helper.ToRtfString(CreateAwayTeamValue(exportRow)),
-                CreateScoreValue(exportRow.HTHomeScore, exportRow.HTLastSeriesChildMatchChoice),
-                CreateScoreValue(exportRow.FinalHomeScore, exportRow.FTLastSeriesChildMatchChoice),
+                CreateHTScoreValue(exportRow),
+                CreateFTScoreValue(exportRow),
                 eventStatus);
             currentRow++;
         }
@@ -167,8 +167,11 @@
             return homeTeam;
         }
 
-        private static string CreateScoreValue(string score, string lastSeriesChoice)
-            => string.IsNullOrEmpty(lastSeriesChoice) ? score : lastSeriesChoice;
+        private static string CreateHTScoreValue(SoccerViewModel exportRow)
+            => exportRow.IsShowHTLastSeriesChoice ? exportRow.HTLastSeriesChildMatchChoice : exportRow.HTHomeScore;
+
+        private static string CreateFTScoreValue(SoccerViewModel exportRow)
+            => exportRow.IsShowFTLastSeriesChoice ? exportRow.FTLastSeriesChildMatchChoice : exportRow.FinalHomeScore;
 
         #endregion Assign Cell Data
     }

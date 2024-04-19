@@ -19,6 +19,7 @@
     using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Sportsbook.Constants;
     using Models;
+    using NPOI.SS.Formula.Functions;
     using RazorEngine;
     using RazorEngine.Templating;
     using SoccerDetail;
@@ -752,7 +753,7 @@
         private bool ExistMatchCode(string matchCode)
             => SPORTBOOK.MatchCode.Replace(" ", string.Empty).ToLowerInvariant().Contains(matchCode);
 
-        private static bool CheckLastSeriesChildMatch(byte? mainType, int? subType)
+        private static bool CheckLastSeriesChildMatch(byte mainType, int subType)
         {
             var lastSeriesChildMatchId = string.Format(SoccerConstants.LastSeriesChildMatchIdFormat, mainType, subType);
 
@@ -761,11 +762,10 @@
 
         private bool CheckShowHTLastSeriesChoice()
         {
-            var htHomeScore = SPORTBOOK.HtHomeScore ?? default;
-            var htAwayScore = SPORTBOOK.HtAwayScore ?? default;
             if(IsLastSeriesChildMatch &&
             !EventStatusIsRefundHT &&
-            SPORTBOOK.IsHTCal &&
+            int.TryParse(HTHomeScore, out int htHomeScore) &&
+            int.TryParse(HTAwayScore, out int htAwayScore) &&
             htHomeScore != htAwayScore)
             {
                 return true;
@@ -776,9 +776,11 @@
 
         private bool CheckShowFTLastSeriesChoice()
         {
-            var ftHomeScore = SPORTBOOK.FinalHomeScore ?? default;
-            var ftAwayScore = SPORTBOOK.FinalAwayScore ?? default;
-            if(IsLastSeriesChildMatch && !EventStatusIsRefundFT && (ftHomeScore != ftAwayScore || IsShowHTLastSeriesChoice))
+            if(IsLastSeriesChildMatch && !EventStatusIsRefundFT &&
+            (IsShowHTLastSeriesChoice ||
+            (int.TryParse(FinalHomeScore, out int ftHomeScore) &&
+            int.TryParse(FinalAwayScore, out int ftAwayScore) &&
+            ftHomeScore != ftAwayScore)))
             {
                 return true;
             }
@@ -788,11 +790,10 @@
 
         private string GetHTLastSeriesChildMatchChoice()
         {
-            if(IsShowHTLastSeriesChoice)
+            if(IsShowHTLastSeriesChoice && 
+            int.TryParse(HTHomeScore, out int htHomeScore) &&
+            int.TryParse(HTAwayScore, out int htAwayScore))
             {
-                var htHomeScore = SPORTBOOK.HtHomeScore ?? default;
-                var htAwayScore = SPORTBOOK.HtAwayScore ?? default;
-
                 return htHomeScore > htAwayScore ? HomeTeam : AwayTeam;
             }
 
@@ -807,11 +808,11 @@
                 {
                     return ConstantValue.Hyphen;
                 }
-
-                var ftHomeScore = SPORTBOOK.FinalHomeScore ?? default;
-                var ftAwayScore = SPORTBOOK.FinalAwayScore ?? default;
-
-                return ftHomeScore > ftAwayScore ? HomeTeam : AwayTeam;
+                if(int.TryParse(FinalHomeScore, out int ftHomeScore) &&
+                int.TryParse(FinalAwayScore, out int ftAwayScore))
+                {
+                    return ftHomeScore > ftAwayScore ? HomeTeam : AwayTeam;
+                }
             }
 
             return string.Empty;

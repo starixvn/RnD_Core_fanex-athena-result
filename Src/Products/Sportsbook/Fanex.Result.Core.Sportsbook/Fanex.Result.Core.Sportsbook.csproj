@@ -8,7 +8,7 @@
     <AssemblyTitle>Fanex.Result.Core.Sportsbook</AssemblyTitle>
     <Product>Fanex.Result.Core.Sportsbook</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>2.0.0.6-LastSeries-05</Version>
+    <Version>2.0.0.6-LastSeries-06</Version>
     <InfomationalVersion>2.0.0.6</InfomationalVersion>
     <PackageReleaseNotes>
       Changes display for The Last Series Of Child Match (#202484)

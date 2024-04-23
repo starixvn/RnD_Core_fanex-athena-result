@@ -19,7 +19,6 @@
     using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.Sportsbook.Constants;
     using Models;
-    using NPOI.SS.Formula.Functions;
     using RazorEngine;
     using RazorEngine.Templating;
     using SoccerDetail;
@@ -194,8 +193,6 @@
         }
 
         #region Utilities
-
-        private bool EventStatusIsRefundHT => EventStatus.Equals(LangResource.Refundht, StringComparison.OrdinalIgnoreCase);
 
         private bool EventStatusIsRefundFT => EventStatus.Equals(LangResource.Refundft, StringComparison.OrdinalIgnoreCase);
 
@@ -763,7 +760,6 @@
         private bool CheckShowHTLastSeriesChoice()
         {
             if(IsLastSeriesChildMatch &&
-            !EventStatusIsRefundHT &&
             int.TryParse(HTHomeScore, out int htHomeScore) &&
             int.TryParse(HTAwayScore, out int htAwayScore) &&
             htHomeScore != htAwayScore)
@@ -776,7 +772,7 @@
 
         private bool CheckShowFTLastSeriesChoice()
         {
-            if(IsLastSeriesChildMatch && !EventStatusIsRefundFT &&
+            if(IsLastSeriesChildMatch &&
             (IsShowHTLastSeriesChoice ||
             (int.TryParse(FinalHomeScore, out int ftHomeScore) &&
             int.TryParse(FinalAwayScore, out int ftAwayScore) &&
@@ -789,33 +785,17 @@
         }
 
         private string GetHTLastSeriesChildMatchChoice()
-        {
-            if(IsShowHTLastSeriesChoice && 
-            int.TryParse(HTHomeScore, out int htHomeScore) &&
-            int.TryParse(HTAwayScore, out int htAwayScore))
-            {
-                return htHomeScore > htAwayScore ? HomeTeam : AwayTeam;
-            }
-
-            return string.Empty;
-        }
+            => SPORTBOOK.HtHomeScore > SPORTBOOK.HtAwayScore ? HomeTeam : AwayTeam;
 
         private string GetFTLastSeriesChildMatchChoice()
         {
-            if(IsShowFTLastSeriesChoice)
+            if(int.TryParse(FinalHomeScore, out int ftHomeScore) &&
+            int.TryParse(FinalAwayScore, out int ftAwayScore))
             {
-                if(!SPORTBOOK.Calculate)
-                {
-                    return ConstantValue.Hyphen;
-                }
-                if(int.TryParse(FinalHomeScore, out int ftHomeScore) &&
-                int.TryParse(FinalAwayScore, out int ftAwayScore))
-                {
-                    return ftHomeScore > ftAwayScore ? HomeTeam : AwayTeam;
-                }
+                return ftHomeScore > ftAwayScore ? HomeTeam : AwayTeam;
             }
-
-            return string.Empty;
+            
+            return ConstantValue.Hyphen;
         }
 
         #endregion Utilities

@@ -772,7 +772,7 @@
 
         private bool CheckShowFTLastSeriesChoice()
         {
-            if(IsLastSeriesChildMatch &&
+            if(IsLastSeriesChildMatch && !EventStatusIsRefundFT &&
             (IsShowHTLastSeriesChoice ||
             (int.TryParse(FinalHomeScore, out int ftHomeScore) &&
             int.TryParse(FinalAwayScore, out int ftAwayScore) &&

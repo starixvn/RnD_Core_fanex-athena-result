@@ -17,14 +17,15 @@ namespace Fanex.Result.Core.AllBetCasino
     {
         private static string _ConnectionString = "";
         private static string _ImgPath = "";
-        private static bool bAG = false;
         private static string strPlayerCardValue = "";
         private static string strBankerCardValue = "";
         private static string strPlayerImg = "";
         private static string strBankerImg = "";
+        private static string strRefKey = "AllBet_BT";
         private static System.Web.HttpContext _Context;
-        private static int[] AGArr = { 1801, 1802, 1803, 1804 };
         private static IRefDataHelper refDataHelper;
+
+        private TransDesc TransDesc { get; }
 
         public ResultPop(System.Web.HttpContext context, string ConnectionString, string ImgPath, IRefDataHelper refDataHelper)
         {
@@ -40,26 +41,24 @@ namespace Fanex.Result.Core.AllBetCasino
         {
             try
             {
-
-                bAG = (Array.IndexOf<int>(AGArr, Convert.ToInt16(bettype)) > -1) ? true : false;
-
+                var transDesc = new TransDesc(TransDesc);
                 switch (bettype)
                 {
                     case "2401":
                     case "2402":
-                        return GetBaccaratLayout(TransDesc, slang, GameId3rd, bettype);
+                        return GetBaccaratLayout(transDesc, slang, GameId3rd, bettype);
                     case "2403":
-                        return GetRouletteLayout(TransDesc, slang, GameId3rd, bettype);
+                        return GetRouletteLayout(transDesc, slang, GameId3rd, bettype);
                     case "2404":
-                        return GetSicBoLayout(TransDesc, slang, GameId3rd, bettype);
+                        return GetSicBoLayout(transDesc, slang, GameId3rd, bettype);
                     case "2405":
-                        return GetDragonTigerLayout(TransDesc, slang, GameId3rd, bettype);
+                        return GetDragonTigerLayout(transDesc, slang, GameId3rd, bettype);
                     case "2406":
-                        return GetWinThreeCardsLayout(TransDesc, slang, GameId3rd, bettype);
+                        return GetWinThreeCardsLayout(transDesc, slang, GameId3rd, bettype);
                     case "2407":
-                        return GetBullBullLayout(TransDesc, slang, GameId3rd, bettype);
+                        return GetBullBullLayout(transDesc, slang, GameId3rd, bettype);
                     case "2408":
-                        return GetPokDengLayout(TransDesc, slang, GameId3rd, bettype);
+                        return GetPokDengLayout(transDesc, slang, GameId3rd, bettype);
                     default:
                         return "";
                 }
@@ -71,18 +70,15 @@ namespace Fanex.Result.Core.AllBetCasino
             }
         }
 
-        private static string GetBaccaratLayout(string sDesc, string slang, string GameId3rd, string bettype)
+        private static string GetBaccaratLayout(TransDesc sDesc, string slang, string GameId3rd, string bettype)
         {
-            string[] GameDetail = sDesc.Split('*');
-            string s1 = GetSplitValue('=', (bAG) ? GameDetail[5].ToString() : GameDetail[5].ToString());
-            string[] CardValue = s1.Replace("B;", "").Replace("P;", "").Replace("0", "").Replace(";", ",").Split(':');
+            string[] CardValue = sDesc.Result.Replace("B;", "").Replace("P;", "").Replace("0", "").Replace(";", ",").Split(':');
             strBankerCardValue = CardValue[0].ToString();
             strPlayerCardValue = CardValue[1].ToString();
             RenderTemplate();
 
-            string[] strResult = GetSplitValue('=', (bAG) ? GameDetail[6].ToString() : GameDetail[7].ToString()).Split(';');
+            string[] strResult = sDesc.WinResult.Split(';');
             string strFinalScore = "";
-            string strRefKey = (bAG) ? "AG_Baccarat" : "AllBet_BT";
             for (int j = 0; j < strResult.Length; j++)
             {
                 if (strFinalScore == "")
@@ -90,26 +86,22 @@ namespace Fanex.Result.Core.AllBetCasino
                 else
                     strFinalScore = strFinalScore + ", " + refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
             }
-            //string strFinalScore = GetSplitValue('=', (bAG) ? GameDetail[6].ToString() : GameDetail[6].ToString());
-            string strScoreValue = (bAG) ? GameDetail[7].ToString() : GameDetail[6].ToString();
-            string[] strScore = GetSplitValue('=', strScoreValue).Replace("B;", "").Replace("P;", "").Split(':');
+
+            string[] strScore = sDesc.Results.Replace("B;", "").Replace("P;", "").Split(':');
             string strFinalLayout = GetFinalLayout(bettype);
 
             return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Player", "Banker", strScore[1].ToString(), strPlayerImg, strBankerImg, strScore[0].ToString(), strFinalScore);
         }
 
-        private static string GetWinThreeCardsLayout(string sDesc, string slang, string GameId3rd, string bettype)
+        private static string GetWinThreeCardsLayout(TransDesc sDesc, string slang, string GameId3rd, string bettype)
         {
-            string[] GameDetail = sDesc.Split('*');
-            string s1 = GetSplitValue('=', (bAG) ? GameDetail[5].ToString() : GameDetail[5].ToString());
-            string[] CardValue = s1.Replace("D;", "").Replace("P;", "").Replace("0", "").Replace(";", ",").Split(':');
+            string[] CardValue = sDesc.Result.Replace("D;", "").Replace("P;", "").Replace("0", "").Replace(";", ",").Split(':');
             strBankerCardValue = CardValue[0].ToString();
             strPlayerCardValue = CardValue[1].ToString();
             RenderTemplate();
 
-            string[] strResult = GetSplitValue('=', (bAG) ? GameDetail[6].ToString() : GameDetail[7].ToString()).Split(';');
+            string[] strResult = sDesc.WinResult.Split(';');
             string strFinalScore = "";
-            string strRefKey = (bAG) ? "AG_Baccarat" : "AllBet_BT";
             for (int j = 0; j < strResult.Length; j++)
             {
                 if (strFinalScore == "")
@@ -123,31 +115,26 @@ namespace Fanex.Result.Core.AllBetCasino
             return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Dragon", "Phoenix", strPlayerImg, strBankerImg, strFinalScore);
         }
 
-        private static string GetBullBullLayout(string sDesc, string slang, string GameId3rd, string bettype)
+        private static string GetBullBullLayout(TransDesc sDesc, string slang, string GameId3rd, string bettype)
         {
-            var strRefKey = "Allbet_PokerHand";
-            var GameDetail = sDesc.Split('*');
-            var result = GetSplitValue('=', GameDetail[5]);
-            var results = GetSplitValue('=', GameDetail[6]);
-            var winResult = GetSplitValue('=', GameDetail[7]);
+            var strRefKeyBull = "Allbet_PokerHand";
 
-            var resultCard = result.Split(':')[0].Replace("0", "").Trim();
-            var resultTitle = result.Split(':')[1].Split(';')[0].Replace("B", AllbetResource.Banker).Replace("P", AllbetResource.Player);
-            var resultCards = result.Split(':')[1].Replace("B;", "").Replace("P;", "").Replace(";", ",").Replace("0", "");
-            var resultName = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, $"{bettype}_{GetSplitValue(';', results.Split(':')[0]).Trim()}", slang, "");
-            var player1Cards = result.Split(':')[2].Replace("P1;", "").Replace(";", ",").Replace("0", "").Insert(3, "<br/>");
-            var player1Name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, $"{bettype}_{GetSplitValue(';', results.Split(':')[1]).Trim()}", slang, "");
-            var player2Cards = result.Split(':')[3].Replace("P2;", "").Replace(";", ",").Replace("0", "").Insert(3, "<br/>"); ;
-            var player2Name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, $"{bettype}_{GetSplitValue(';', results.Split(':')[2]).Trim()}", slang, "");
-            var player3Cards = result.Split(':')[4].Replace("P3;", "").Replace(";", ",").Replace("0", "").Insert(3, "<br/>"); ;
-            var player3Name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, $"{bettype}_{GetSplitValue(';', results.Split(':')[3]).Trim()}", slang, "");
+            var resultCard = sDesc.Result.Split(':')[0].Replace("0", "").Trim();
+            var resultTitle = sDesc.Result.Split(':')[1].Split(';')[0].Replace("B", AllbetResource.Banker).Replace("P", AllbetResource.Player);
+            var resultCards = sDesc.Result.Split(':')[1].Replace("B;", "").Replace("P;", "").Replace(";", ",").Replace("0", "");
+            var resultName = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKeyBull, $"{bettype}_{GetSplitValue(';', sDesc.Results.Split(':')[0]).Trim()}", slang, "");
+            var player1Cards = sDesc.Result.Split(':')[2].Replace("P1;", "").Replace(";", ",").Replace("0", "").Insert(3, "<br/>");
+            var player1Name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKeyBull, $"{bettype}_{GetSplitValue(';', sDesc.Results.Split(':')[1]).Trim()}", slang, "");
+            var player2Cards = sDesc.Result.Split(':')[3].Replace("P2;", "").Replace(";", ",").Replace("0", "").Insert(3, "<br/>"); ;
+            var player2Name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKeyBull, $"{bettype}_{GetSplitValue(';', sDesc.Results.Split(':')[2]).Trim()}", slang, "");
+            var player3Cards = sDesc.Result.Split(':')[4].Replace("P3;", "").Replace(";", ",").Replace("0", "").Insert(3, "<br/>"); ;
+            var player3Name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKeyBull, $"{bettype}_{GetSplitValue(';', sDesc.Results.Split(':')[3]).Trim()}", slang, "");
 
             var strFinalScore = new List<string>();
-            var winResults = winResult.Split(';');
-            var strRefKeyOfWinResult = "AllBet_BT";
+            var winResults = sDesc.WinResult.Split(';');
             for (int j = 0; j < winResults.Length; j++)
             {
-                var name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKeyOfWinResult, winResults[j].Trim(), slang, "");
+                var name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, winResults[j].Trim(), slang, "");
                 strFinalScore.Add(name);
             }
 
@@ -168,35 +155,29 @@ namespace Fanex.Result.Core.AllBetCasino
                 string.Join(", ", strFinalScore));
         }
 
-        private static string GetPokDengLayout(string sDesc, string slang, string GameId3rd, string bettype)
+        private static string GetPokDengLayout(TransDesc sDesc, string slang, string GameId3rd, string bettype)
         {
-            var strRefKey = "Allbet_PokerHand";
-            var GameDetail = sDesc.Split('*');
-            var result = GetSplitValue('=', GameDetail[5]);
-            var results = GetSplitValue('=', GameDetail[6]);
-            var winResult = GetSplitValue('=', GameDetail[7]);
+            var strRefKeyPokDeng = "Allbet_PokerHand";
 
-            //var resultCard = result.Split(':')[0].Replace("0", "").Trim();
-            var resultTitle = result.Split(':')[0].Split(';')[0].Replace("B", AllbetResource.Banker).Replace("P", AllbetResource.Player);
-            var resultCards = result.Split(':')[0].Replace("B;", "").Replace("P;", "").Replace(";", ",").Replace("0", "");
-            var resultName = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, $"{bettype}_{GetSplitValue(';', results.Split(':')[0]).Trim()}", slang, "");
-            var player1Cards = result.Split(':')[1].Replace("P1;", "").Replace(";", ",").Replace("0", "");
-            var player1Name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, $"{bettype}_{GetSplitValue(';', results.Split(':')[1]).Trim()}", slang, "");
-            var player2Cards = result.Split(':')[2].Replace("P2;", "").Replace(";", ",").Replace("0", "");
-            var player2Name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, $"{bettype}_{GetSplitValue(';', results.Split(':')[2]).Trim()}", slang, "");
-            var player3Cards = result.Split(':')[3].Replace("P3;", "").Replace(";", ",").Replace("0", "");
-            var player3Name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, $"{bettype}_{GetSplitValue(';', results.Split(':')[3]).Trim()}", slang, "");
-            var player4Cards = result.Split(':')[4].Replace("P4;", "").Replace(";", ",").Replace("0", "");
-            var player4Name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, $"{bettype}_{GetSplitValue(';', results.Split(':')[4]).Trim()}", slang, "");
-            var player5Cards = result.Split(':')[5].Replace("P5;", "").Replace(";", ",").Replace("0", "");
-            var player5Name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, $"{bettype}_{GetSplitValue(';', results.Split(':')[5]).Trim()}", slang, "");
+            var resultTitle = sDesc.Result.Split(':')[0].Split(';')[0].Replace("B", AllbetResource.Banker).Replace("P", AllbetResource.Player);
+            var resultCards = sDesc.Result.Split(':')[0].Replace("B;", "").Replace("P;", "").Replace(";", ",").Replace("0", "");
+            var resultName = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKeyPokDeng, $"{bettype}_{GetSplitValue(';', sDesc.Results.Split(':')[0]).Trim()}", slang, "");
+            var player1Cards = sDesc.Result.Split(':')[1].Replace("P1;", "").Replace(";", ",").Replace("0", "");
+            var player1Name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKeyPokDeng, $"{bettype}_{GetSplitValue(';', sDesc.Results.Split(':')[1]).Trim()}", slang, "");
+            var player2Cards = sDesc.Result.Split(':')[2].Replace("P2;", "").Replace(";", ",").Replace("0", "");
+            var player2Name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKeyPokDeng, $"{bettype}_{GetSplitValue(';', sDesc.Results.Split(':')[2]).Trim()}", slang, "");
+            var player3Cards = sDesc.Result.Split(':')[3].Replace("P3;", "").Replace(";", ",").Replace("0", "");
+            var player3Name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKeyPokDeng, $"{bettype}_{GetSplitValue(';', sDesc.Results.Split(':')[3]).Trim()}", slang, "");
+            var player4Cards = sDesc.Result.Split(':')[4].Replace("P4;", "").Replace(";", ",").Replace("0", "");
+            var player4Name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKeyPokDeng, $"{bettype}_{GetSplitValue(';', sDesc.Results.Split(':')[4]).Trim()}", slang, "");
+            var player5Cards = sDesc.Result.Split(':')[5].Replace("P5;", "").Replace(";", ",").Replace("0", "");
+            var player5Name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKeyPokDeng, $"{bettype}_{GetSplitValue(';', sDesc.Results.Split(':')[5]).Trim()}", slang, "");
 
             var strFinalScore = new List<string>();
-            var winResults = winResult.Split(';');
-            var strRefKeyOfWinResult = "AllBet_BT";
+            var winResults = sDesc.WinResult.Split(';');
             for (int j = 0; j < winResults.Length; j++)
             {
-                var name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKeyOfWinResult, winResults[j].Trim(), slang, "");
+                var name = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, winResults[j].Trim(), slang, "");
                 strFinalScore.Add(name);
             }
 
@@ -220,17 +201,11 @@ namespace Fanex.Result.Core.AllBetCasino
                 string.Join(", ", strFinalScore));
         }
 
-        private static string GetRouletteLayout(string sDesc, string slang, string GameId3rd, string bettype)
+        private static string GetRouletteLayout(TransDesc sDesc, string slang, string GameId3rd, string bettype)
         {
-            string[] GameDetail = sDesc.Split('*');
-
-            //string strFinalScore = GetSplitValue('=', (bAG) ? GameDetail[5].ToString() : GameDetail[4].ToString()) + " : ";
-            string strImgValue = (bAG) ? "" : GetSplitValue('=', GameDetail[5].ToString());
-            string strImgUrl = (!bAG) ? GenImgUrl("Roulette", strImgValue) : "";
-            string strFinalScore = (bAG) ? GetSplitValue('=', GameDetail[5].ToString()) : "";
-            //string[] strResult = GetSplitValue('=', (bAG) ? GameDetail[6].ToString() : GameDetail[5].ToString()).Split(';');
-            string[] strResult = GetSplitValue('=', (bAG) ? GameDetail[6].ToString() : GameDetail[7].ToString()).Split(';');
-            string strRefKey = (bAG) ? "AG_Roulette" : "AllBet_BT";
+            string strImgUrl = GenImgUrl("Roulette", sDesc.Result);
+            string strFinalScore = sDesc.Result;
+            string[] strResult = sDesc.WinResult.Split(';');
             for (int j = 0; j < strResult.Length; j++)
             {
                 if (j == 0)
@@ -238,23 +213,16 @@ namespace Fanex.Result.Core.AllBetCasino
                 else
                     strFinalScore += ", " + refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
             }
-            //strFinalScore += GetSplitValue('=', (bAG) ? GameDetail[6].ToString() : GameDetail[6].ToString());
             string strFinalLayout = GetFinalLayout(bettype);
 
             return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Results", strImgUrl, strFinalScore);
         }
 
-        private static string GetSicBoLayout(string sDesc, string slang, string GameId3rd, string bettype)
+        private static string GetSicBoLayout(TransDesc sDesc, string slang, string GameId3rd, string bettype)
         {
-            string[] GameDetail = sDesc.Split('*');
-
-            //string strFinalScore = GetSplitValue('=', (bAG) ? GameDetail[5].ToString() : GameDetail[4].ToString()).Replace(";", " ") + " : ";
-            string strImgValue = (bAG) ? "" : GetSplitValue('=', GameDetail[5].ToString());
-            string strImgUrl = (!bAG) ? GenImgUrl("SicBo", strImgValue) : "";
-            string strFinalScore = (bAG) ? GetSplitValue('=', GameDetail[5].ToString()) : "";
-            //string[] strResult = GetSplitValue('=', (bAG) ? GameDetail[6].ToString() : GameDetail[5].ToString()).Split(';');
-            string[] strResult = GetSplitValue('=', (bAG) ? GameDetail[6].ToString() : GameDetail[7].ToString()).Split(';');
-            string strRefKey = (bAG) ? "AG_SicBo" : "AllBet_BT";
+            string strImgUrl = GenImgUrl("SicBo", sDesc.Result);
+            string strFinalScore = sDesc.Result;
+            string[] strResult = sDesc.WinResult.Split(';');
             for (int j = 0; j < strResult.Length; j++)
             {
                 if (j == 0)
@@ -262,21 +230,18 @@ namespace Fanex.Result.Core.AllBetCasino
                 else
                     strFinalScore += ", " + refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, strResult[j].ToString(), slang, "");
             }
-            //strFinalScore += GetSplitValue('=', (bAG) ? GameDetail[6].ToString() : GameDetail[6].ToString());
             string strFinalLayout = GetFinalLayout(bettype);
 
             return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Results", strImgUrl, strFinalScore);
         }
 
-        private static string GetDragonTigerLayout(string sDesc, string slang, string GameId3rd, string bettype)
+        private static string GetDragonTigerLayout(TransDesc sDesc, string slang, string GameId3rd, string bettype)
         {
-            string[] GameDetail = sDesc.Split('*');
-            string s1 = GetSplitValue('=', (bAG) ? GameDetail[5].ToString() : GameDetail[5].ToString());
-            string[] CardValue = s1.Replace("D;", "").Replace("T;", "").Replace("0", "").Split(':');
+            string[] CardValue = sDesc.Result.Replace("D;", "").Replace("T;", "").Replace("0", "").Split(':');
             try
             {
-                strBankerCardValue = (bAG) ? CardValue[0].ToString() : CardValue[1].ToString();
-                strPlayerCardValue = (bAG) ? CardValue[1].ToString() : CardValue[0].ToString();
+                strBankerCardValue = CardValue[1].ToString();
+                strPlayerCardValue = CardValue[0].ToString();
                 RenderTemplate();
             }
             catch (Exception)
@@ -285,11 +250,8 @@ namespace Fanex.Result.Core.AllBetCasino
                 throw new Exception("session1");
             }
 
-            string strRefKey = (bAG) ? "AG_DragonTiger" : "AllBet_BT";
-            string strFinalScore = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, GetSplitValue('=', (bAG) ? GameDetail[6].ToString() : GameDetail[7].ToString()), slang, "");
-            //string strFinalScore = GetSplitValue('=', (bAG) ? GameDetail[6].ToString() : GameDetail[6].ToString());
-            string strScoreValue = (bAG) ? GameDetail[7].ToString() : GameDetail[6].ToString();
-            string[] strScore = GetSplitValue('=', strScoreValue).Replace("D;", "").Replace("T;", "").Split(':');
+            string strFinalScore = refDataHelper.GetResourceDataByRefIdAndResourceId(strRefKey, sDesc.WinResult, slang, "");
+            string[] strScore = sDesc.Results.Replace("D;", "").Replace("T;", "").Split(':');
             string strFinalLayout = GetFinalLayout(bettype);
 
             return String.Format(strFinalLayout, "Game ID : " + GameId3rd, "Dragon", "Tiger", strScore[0].ToString(), strPlayerImg, strBankerImg, strScore[1].ToString(), strFinalScore);

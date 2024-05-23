@@ -7,19 +7,18 @@
     var popupCss = viewModel.IsPopUp || viewModel.IsDetail ? "popup" : string.Empty;
     var firstMatch = viewModel.Data.Count > 0 ? (CricketViewModel)viewModel.Data[0].Data[0] : null;
     var colspan = viewModel.VisibleMatchCodeIDColumn ? 7 : 6;
-}
-
-@helper RenderHeader(RazorBinderModel viewModel, CricketViewModel firstMatch, int colspan)
-{
-    <thead>
-        @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
-        {
-            <tr class="row-title">
-                <th class="cl-title" colspan="@colspan">
-                    <span class="sport">@firstMatch.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@firstMatch.LeagueName</span>
-                </th>
-            </tr>
-        }
+    void RenderHeader(RazorBinderModel viewModel, CricketViewModel firstMatch, int colspan)
+    {
+        <thead>
+            @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+            {
+                <tr class="row-title">
+                    <th class="cl-title" colspan="@colspan">
+                        <span class="sport">@firstMatch.SportName</span> &nbsp;-&nbsp; <span
+                            class="leagueName">@firstMatch.LeagueName</span>
+                    </th>
+                </tr>
+            }
             <tr class="header">
                 @if (viewModel.VisibleMatchCodeIDColumn)
                 {
@@ -32,14 +31,17 @@
                 <th class="cl-f-score">@LangResource.FinalScore</th>
                 <th class="cl-status">@LangResource.Status</th>
             </tr>
-    </thead>
+        </thead>
+    }
 }
 
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
         <table class="fn-rs @popupCss">
-            @RenderHeader(viewModel, firstMatch, colspan)
+            @{
+                RenderHeader(viewModel, firstMatch, colspan);
+            }
         </table>
     </div>
 }
@@ -51,7 +53,7 @@
 <table class="fn-rs @popupCss">
     @if (!viewModel.VisibleFreeHeader)
     {
-        @RenderHeader(viewModel, firstMatch, colspan)
+        RenderHeader(viewModel, firstMatch, colspan);
     }
     <tbody>
         @if (viewModel.Data.Count > 0)
@@ -86,7 +88,8 @@
                             @if (item.VisibleDetailedLink && !viewModel.IsPopUp)
                             {
                                 <div>
-                                    <span class="detail-link" data-match-id="@item.MatchId" data-league-id="@item.LeagueId" data-home-id="@item.HomeId" data-away-id="@item.AwayId">
+                                    <span class="detail-link" data-match-id="@item.MatchId" data-league-id="@item.LeagueId"
+                                        data-home-id="@item.HomeId" data-away-id="@item.AwayId">
                                         @LangResource.Details
                                     </span>
                                 </div>
@@ -124,7 +127,7 @@
 {
     var mainItem = viewModel.Data[0].Data[0] as CricketViewModel;
     var gameResult = mainItem.DetailedResult;
-    
+
     if (!string.IsNullOrEmpty(gameResult))
     {
         <br />
@@ -142,4 +145,3 @@
         </table>
     }
 }
-

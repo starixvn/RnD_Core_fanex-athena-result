@@ -185,10 +185,6 @@ Global
 		{266EB456-C4F5-4E6D-B7D5-B851D1810DFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{266EB456-C4F5-4E6D-B7D5-B851D1810DFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{266EB456-C4F5-4E6D-B7D5-B851D1810DFB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{73AAEA31-C52D-47D2-BC47-087A06794F55}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{73AAEA31-C52D-47D2-BC47-087A06794F55}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{73AAEA31-C52D-47D2-BC47-087A06794F55}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{73AAEA31-C52D-47D2-BC47-087A06794F55}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8673F024-7726-4C30-8464-5A8357F79BF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8673F024-7726-4C30-8464-5A8357F79BF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8673F024-7726-4C30-8464-5A8357F79BF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -241,10 +237,6 @@ Global
 		{3E1F8B18-6339-485D-91D8-7C8C2E7BDB94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E1F8B18-6339-485D-91D8-7C8C2E7BDB94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E1F8B18-6339-485D-91D8-7C8C2E7BDB94}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AF77AC91-F927-4E54-BAA5-F0653C2A53F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AF77AC91-F927-4E54-BAA5-F0653C2A53F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AF77AC91-F927-4E54-BAA5-F0653C2A53F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AF77AC91-F927-4E54-BAA5-F0653C2A53F1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FC6EF81F-5D81-469A-ADD5-5C7BCCF69E58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FC6EF81F-5D81-469A-ADD5-5C7BCCF69E58}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FC6EF81F-5D81-469A-ADD5-5C7BCCF69E58}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -332,8 +324,8 @@ Global
 		{15E2D2EC-E10D-4900-984F-B818011620DA} = {2A1EF0A1-A4C4-48AC-94B4-F32BC137EE77}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		LessCompiler = ebd31f24-8f67-4e36-bd6d-1bb78a71e54b
 		SolutionGuid = {4BF11104-7EAE-4BB6-A235-1C10DB35CE8B}
+		LessCompiler = ebd31f24-8f67-4e36-bd6d-1bb78a71e54b
 	EndGlobalSection
 	GlobalSection(JSLint) = preSolution
 		SolutionConfigurationLocation = JSLintOptions.xml

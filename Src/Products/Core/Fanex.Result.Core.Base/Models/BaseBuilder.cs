@@ -6,11 +6,11 @@
     using System.Text;
     using Core.Models;
     using Exception;
-    using Extension;
+    using Extension;    
+    using ViewModels;
     using RazorEngine;
     using RazorEngine.Templating;
-    using ViewModels;
-
+    
     public class BaseBuilder
     {
         protected virtual RazorBinderModel GenerateViewModelData<T>(IList<T> dataList, ResultSetting setting, ViewModelFactory viewModelFactory)

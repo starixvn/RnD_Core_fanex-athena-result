@@ -4,18 +4,16 @@
 @using Fanex.Result.Core.Sportsbook.ViewModels.BasketBallDetail;
 @using Fanex.Result.Core.Sportsbook.Resources;
 @{
-    /**/
-
     var viewModel = (RazorBinderModel)Model;
     var colspan = viewModel.VisibleMatchCodeIDColumn ? 12 : 11;
     var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
     var mainItem = viewModel.Data.Count > 0 ? (BasketBallViewModel)viewModel.Data[0].Data[0] : null;
     var isShowLiveScore = false;
-    foreach(var data in viewModel.Data)
+    foreach (var data in viewModel.Data)
     {
-        foreach(BasketBallViewModel item in data.Data)
+        foreach (BasketBallViewModel item in data.Data)
         {
-            if(item.IsShowLiveScore)
+            if (item.IsShowLiveScore)
             {
                 isShowLiveScore = item.IsShowLiveScore;
             }
@@ -23,20 +21,19 @@
     }
 
     colspan += isShowLiveScore ? 1 : 0;
-}
 
-@helper RenderHeader(RazorBinderModel viewModel, BasketBallViewModel firstMatch, int colspan, bool isShowLiveScore)
-{
-    /**/
-    <thead>
-        @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
-        {
-            <tr class="row-title">
-                <th class="cl-title" colspan="@colspan">
-                    <span class="sport">@firstMatch.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@firstMatch.LeagueName</span>
-                </th>
-            </tr>
-        }
+    void RenderHeader(RazorBinderModel viewModel, BasketBallViewModel firstMatch, int colspan, bool isShowLiveScore)
+    {
+        <thead>
+            @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+            {
+                <tr class="row-title">
+                    <th class="cl-title" colspan="@colspan">
+                        <span class="sport">@firstMatch.SportName</span> &nbsp;-&nbsp; <span
+                            class="leagueName">@firstMatch.LeagueName</span>
+                    </th>
+                </tr>
+            }
             <tr class="header">
                 @if (viewModel.VisibleMatchCodeIDColumn)
                 {
@@ -58,14 +55,17 @@
                 }
                 <th class="cl-status">@LangResource.Status</th>
             </tr>
-    </thead>
+        </thead>
+    }
 }
 
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
         <table class="fn-rs @popupCss">
-            @RenderHeader(viewModel, mainItem, colspan, isShowLiveScore)
+            @{
+                RenderHeader(viewModel, mainItem, colspan, isShowLiveScore);
+            }
         </table>
     </div>
 
@@ -75,7 +75,7 @@
 <table class="fn-rs @popupCss">
     @if (!viewModel.VisibleFreeHeader)
     {
-        @RenderHeader(viewModel, mainItem, colspan, isShowLiveScore)
+        RenderHeader(viewModel, mainItem, colspan, isShowLiveScore);
     }
     <tbody>
         @if (viewModel.Data.Count > 0)

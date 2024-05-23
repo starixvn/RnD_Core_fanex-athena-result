@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net461;netstandard2.1;net7.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.1;net7.0</TargetFrameworks>
     <PackageId>Fanex.Result.Core-NPOI.2.0.6</PackageId>
     <OutputType>Library</OutputType>    
     <RestorePackages>true</RestorePackages>
@@ -8,10 +8,10 @@
     <AssemblyTitle>Fanex.Result.Core.Base</AssemblyTitle>
     <Product>Fanex.Result.Core.Base</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>3.0.1.8-baseball-01</Version>
-    <InfomationalVersion>3.0.1.8</InfomationalVersion>
+    <Version>4.0.0.0-upgrade-02</Version>
+    <InfomationalVersion>4.0.0.0</InfomationalVersion>
     <PackageReleaseNotes>
-    	Support Baseball pharse 2.2 (#214733)
+    	Upgrade RazorEngine version
     </PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
@@ -20,7 +20,7 @@
     <PackageReference Include="Microsoft.AspNet.Razor" Version="3.2.9" />
     <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
     <PackageReference Include="NPOI" Version="2.6.1" />
-    <PackageReference Include="RazorEngine" Version="3.7.0" />    
+    <PackageReference Include="RazorEngine.NetCore" Version="3.1.0" />
     <PackageReference Include="System.Runtime.Caching" Version="6.0.0" />
   </ItemGroup>
   <ItemGroup>

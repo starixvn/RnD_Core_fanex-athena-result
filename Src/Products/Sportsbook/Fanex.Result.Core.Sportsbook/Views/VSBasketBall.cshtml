@@ -6,9 +6,7 @@
     var viewModel = (RazorBinderModel)Model;
     var colspan = viewModel.VisibleMatchCodeIDColumn ? 6 : 5;
     var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
-}
-
-@helper RenderHeader(RazorBinderModel viewModel, int colspan)
+    void RenderHeader(RazorBinderModel viewModel, int colspan)
     {
         <thead>
             @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
@@ -32,13 +30,16 @@
                 <th class="cl-status">@LangResource.Status</th>
             </tr>
         </thead>
+    }
 }
 
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
         <table class="fn-rs @popupCss">
-            @RenderHeader(viewModel, colspan)
+            @{
+                RenderHeader(viewModel, colspan);
+            }
         </table>
     </div>
 
@@ -47,7 +48,7 @@
 <table class="fn-rs @popupCss">
     @if (!viewModel.VisibleFreeHeader)
     {
-        @RenderHeader(viewModel, colspan)
+        RenderHeader(viewModel, colspan);
     }
     <tbody>
         @if (viewModel.Data.Count > 0)
@@ -86,7 +87,8 @@
                             @if (item.VisibleDetailedLink && !viewModel.IsPopUp)
                             {
                                 <div>
-                                    <span class="detail-link" data-match-id="@item.MatchId" data-league-id="@item.LeagueId" data-home-id="@item.HomeId" data-away-id="@item.AwayId">
+                                    <span class="detail-link" data-match-id="@item.MatchId" data-league-id="@item.LeagueId"
+                                        data-home-id="@item.HomeId" data-away-id="@item.AwayId">
                                         @LangResource.Details
                                     </span>
                                 </div>

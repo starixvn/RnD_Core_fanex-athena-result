@@ -3,35 +3,36 @@
 @using Fanex.Result.Core.Base.Resources;
 @{
     var viewModel = (RazorBinderModel)Model;
-
     const int colspan = 5;
     var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
-}
-@helper RenderHeader(RazorBinderModel viewModel, int colspan)
-{
-    <thead>
-        @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
-        {
-            var item = viewModel.Data[0].Data[0];
-            <tr class="row-title">
-                <th class="cl-title" colspan="@colspan">
-                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
-                </th>
+    void RenderHeader(RazorBinderModel viewModel, int colspan)
+    {
+        <thead>
+            @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+            {
+                var item = viewModel.Data[0].Data[0];
+                <tr class="row-title">
+                    <th class="cl-title" colspan="@colspan">
+                        <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                    </th>
+                </tr>
+            }
+            <tr class="header">
+                <th class="cl-time">@LangResource.Time</th>
+                <th class="cl-team">@LangResource.Team</th>
+                <th class="cl-result">@LangResource.Result</th>
             </tr>
-        }
-        <tr class="header">
-            <th class="cl-time">@LangResource.Time</th>
-            <th class="cl-team">@LangResource.Team</th>
-            <th class="cl-result">@LangResource.Result</th>
-        </tr>
-    </thead>
+        </thead>
+    }
 }
 
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
         <table class="fn-rs @popupCss">
-            @RenderHeader(viewModel, colspan)
+            @{
+                RenderHeader(viewModel, colspan);
+            }
         </table>
     </div>
 
@@ -41,7 +42,7 @@
 <table class="fn-rs @popupCss">
     @if (!viewModel.VisibleFreeHeader)
     {
-        @RenderHeader(viewModel, colspan)
+        RenderHeader(viewModel, colspan);
     }
     <tbody>
         <!--RowData-->
@@ -60,14 +61,14 @@
                 foreach (OutrightViewModel item in group.Data)
                 {
                     index++;
-            <!--Row-->
+                    <!--Row-->
                     <tr class="data @item.Color(index, "even", "odd")">
                         <td class="cl-ko-time">@Raw(item.KickOffTime)</td>
                         <td class="cl-team">@item.Team</td>
                         <td class="cl-result @item.EventStatusBackground">@item.EventStatus</td>
                     </tr>
-            <!--/Row-->
-            <!--/RowData-->
+                    <!--/Row-->
+                    <!--/RowData-->
                 }
             }
         }

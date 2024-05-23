@@ -4,48 +4,48 @@
 @using Fanex.Result.Core.Base.Resources;
 @{
     var viewModel = (RazorBinderModel)Model;
-
     var totalCol = viewModel.VisibleMatchCodeIDColumn ? 7 : 6;
     var colspan = viewModel.IsPopUp ? totalCol - 3 : totalCol;
     var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
-}
+    void RenderHeader(RazorBinderModel viewModel, int colspan)
+    {
+        <thead>
+            @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+            {
+                var item = viewModel.Data[0].Data[0];
+                <tr class="row-title">
+                    <th class="cl-title" colspan="@colspan">
+                        <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                    </th>
+                </tr>
+            }
+            <tr class="header">
+                @if (viewModel.VisibleMatchCodeIDColumn)
+                {
+                    <th class="cl-m-code">@LangResource.MatchCode/@LangResource.ID</th>
+                }
+                <th class="cl-ko-time">@LangResource.KickOffTime</th>
+                <th class="cl-match">@Raw(LangResource.Match)</th>
+                <th class="cl-totalpoint">@Raw(LangResource.Score)</th>
+                @if (!viewModel.IsPopUp)
+                {
+                    <th class="cl-status">@Raw(SportsbookResx.CorrectScore)</th>
+                    <th class="cl-status">@Raw(LangResource.TotalPoints)</th>
+                    <th class="cl-status">@LangResource.Status</th>
+                }
 
-@helper RenderHeader(RazorBinderModel viewModel, int colspan)
-{
-    <thead>
-        @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
-        {
-            var item = viewModel.Data[0].Data[0];
-            <tr class="row-title">
-                <th class="cl-title" colspan="@colspan">
-                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
-                </th>
             </tr>
-        }
-        <tr class="header">
-            @if (viewModel.VisibleMatchCodeIDColumn)
-            {
-                <th class="cl-m-code">@LangResource.MatchCode/@LangResource.ID</th>
-            }
-            <th class="cl-ko-time">@LangResource.KickOffTime</th>
-            <th class="cl-match">@Raw(LangResource.Match)</th>
-            <th class="cl-totalpoint">@Raw(LangResource.Score)</th>
-            @if (!viewModel.IsPopUp)
-            {
-                <th class="cl-status">@Raw(SportsbookResx.CorrectScore)</th>
-                <th class="cl-status">@Raw(LangResource.TotalPoints)</th>
-                <th class="cl-status">@LangResource.Status</th>
-            }
-
-        </tr>
-    </thead>
+        </thead>
+    }
 }
 
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
         <table class="fn-rs @popupCss">
-            @RenderHeader(viewModel, colspan)
+            @{
+                RenderHeader(viewModel, colspan);
+            }
         </table>
     </div>
 
@@ -54,7 +54,7 @@
 <table class="fn-rs @popupCss">
     @if (!viewModel.VisibleFreeHeader)
     {
-        @RenderHeader(viewModel, colspan)
+        RenderHeader(viewModel, colspan);
     }
     <tbody>
         @if (viewModel.Data.Count > 0)

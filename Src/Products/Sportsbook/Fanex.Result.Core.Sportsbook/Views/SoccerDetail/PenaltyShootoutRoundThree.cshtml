@@ -5,6 +5,22 @@
 
 @{
     var itemViewModel = (SoccerDetailViewModel)Model;
+    void RenderScoreMiss(SoccerDetailViewModel itemViewModel, SoccerGameDetailItem item)
+    {
+        var awayValue = itemViewModel.GetAwayResourceId(item.ResourceID);
+        if (!string.IsNullOrEmpty(awayValue))
+        {
+            <tr class="data">
+                <td class="cl-match">@item.ResourceName</td>
+                <td class="cl-result home">
+                    @item.HomeValue
+                </td>
+                <td class="cl-result home">
+                    @awayValue
+                </td>
+            </tr>
+        }
+    }
 }
 
 <tr class="data cl-group-name">
@@ -18,7 +34,7 @@
     {
         if (item.ResourceID == GameResourceID.HomePenaltyShootoutRound3)
         {
-            @RenderScoreMiss(itemViewModel, item);
+            RenderScoreMiss(itemViewModel, item);
         }
 
         if (item.ResourceID == GameResourceID.PenaltyShootoutWoodworkRound3)
@@ -31,7 +47,7 @@
         }
 
         if (item.ResourceID == GameResourceID.PenaltyShootoutBothOneNeitherRound3 ||
-            item.ResourceID == GameResourceID.PenaltyShootout1X2Round3)
+        item.ResourceID == GameResourceID.PenaltyShootout1X2Round3)
         {
             <tr class="data">
                 <td class="cl-match">@item.ResourceName</td>
@@ -57,9 +73,9 @@
     else
     {
         if (item.ResourceID == GameResourceID.HomePenaltyShootoutRound3 ||
-            item.ResourceID == GameResourceID.AwayPenaltyShootoutRound3)
+        item.ResourceID == GameResourceID.AwayPenaltyShootoutRound3)
         {
-            @RenderScoreMiss(itemViewModel, item);
+            RenderScoreMiss(itemViewModel, item);
         }
         else
         {
@@ -69,23 +85,4 @@
             </tr>
         }
     }
-
 }
-
-@helper RenderScoreMiss(SoccerDetailViewModel itemViewModel, SoccerGameDetailItem item)
-{
-    var awayValue = itemViewModel.GetAwayResourceId(item.ResourceID);
-    if (!string.IsNullOrEmpty(awayValue))
-    {
-        <tr class="data">
-            <td class="cl-match">@item.ResourceName</td>
-            <td class="cl-result home">
-                @item.HomeValue
-            </td>
-            <td class="cl-result home">
-                @awayValue
-            </td>
-        </tr>
-    }
-}
-

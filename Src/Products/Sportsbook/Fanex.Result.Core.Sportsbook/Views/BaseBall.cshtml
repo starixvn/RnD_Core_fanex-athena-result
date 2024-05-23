@@ -10,21 +10,19 @@
     var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;    
     
     
-}
-
 @helper RenderHeader(RazorBinderModel viewModel, BaseBallViewModel item, int colspan)
-{
-    <thead>
+    {
+        <thead>
     @if(viewModel.Data.Count > 0)
     {
         if (viewModel.VisiblePopUpTitle)
-        {
-            <tr class="row-title">
-                <th class="cl-title" colspan="@colspan">
-                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
-                </th>
-            </tr>
-        }
+            {
+                <tr class="row-title">
+                    <th class="cl-title" colspan="@colspan">
+                        <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                    </th>
+                </tr>
+            }
 
         if(item.IsSeriesMatch)
         {
@@ -66,7 +64,8 @@
             </tr>
         }
     }
-    </thead>
+        </thead>
+    }
 }
 
 @if (viewModel.VisibleFreeHeader)
@@ -74,6 +73,8 @@
     <div class="fn-rs-content-header">
         <table class="fn-rs baseball @popupCss">
             @RenderHeader(viewModel, firstMatch, colspan)
+                RenderHeader(viewModel, colspan);
+            }
         </table>
     </div>
 
@@ -185,9 +186,9 @@
         else
         {
             <!--NoInfo-->
-        <tr class="row-noinfo">
-            <td colspan="@colspan">@LangResource.NoInfo</td>
-        </tr>
+            <tr class="row-noinfo">
+                <td colspan="@colspan">@LangResource.NoInfo</td>
+            </tr>
             <!--/NoInfo-->
         }
     </tbody>

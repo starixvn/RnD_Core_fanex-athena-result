@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using Fanex.Result.Core.ConfigurationHelper;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.Exception;
     using Fanex.Result.Core.Base.Utilities;
@@ -18,18 +17,16 @@
         private readonly KenoLotteryTGConfigs _configs;
         private readonly IWebClient _client;
         private readonly ISerializer _serializer;
-        private readonly string SectionName;
 
-        public KenoLotteryTGResult(string sectionName, IConfigurationHelper configHelper) : this(sectionName, configHelper, null, null)
+        public KenoLotteryTGResult(KenoLotteryTGConfigs configs) : this(configs, null, null)
         {
         }
 
-        protected KenoLotteryTGResult(string sectionName, IConfigurationHelper configHelper, IWebClient client = null, ISerializer serializer = null)
+        protected KenoLotteryTGResult(KenoLotteryTGConfigs configs, IWebClient client = null, ISerializer serializer = null)
         {
             _serializer = serializer ?? new JsonSerializer();
             _client = client ?? new JsonWebClient(_serializer);
-            SectionName = sectionName;
-            _configs = configHelper.GetSection(sectionName) as KenoLotteryTGConfigs;
+            _configs = configs;
         }
 
         public string GetResult(string custId, bool isDesktop, DateTime eventDate, string homeUrl, string language = "en-US")
@@ -38,13 +35,13 @@
 
             var requestData = GenerateRequestData(custId, isDesktop, eventDate, language, homeUrl);
 
-            if ((DebugMode)_configs.DebugMode == DebugMode.DontSendRequest)
+            if ((DebugMode)_configs.Debug == DebugMode.DontSendRequest)
             {
                 throw new ResultCoreException("Request data:" + _serializer.Serialize(requestData));
             }
             else
             {
-                var responseData = _client.QueryString<Response>(_configs.Url, requestData, _configs.ProxyIPServer, _configs.ProxyPortServer);
+                var responseData = _client.QueryString<Response>(_configs.Url, requestData, _configs.ProxyIP, _configs.ProxyPort);
 
                 if (ValidateResponse(responseData, requestData))
                 {
@@ -84,13 +81,13 @@
         {
             if (responseData.ErrorCode != 0)
             {
-                if ((DebugMode)_configs.DebugMode == DebugMode.None)
+                if ((DebugMode)_configs.Debug == DebugMode.None)
                 {
                     throw new ResultCoreException(responseData.ErrorMsg);
                 }
                 else
                 {
-                    throw new ResultCoreException($"Url of {SectionName} send request incorrectly! Detail request:" +
+                    throw new ResultCoreException($"Configuraion {_serializer.Serialize(_configs)} send request incorrectly! Detail request:" +
                         $" {_serializer.Serialize(requestData)}; \n Detail response: {_serializer.Serialize(responseData)}");
                 }
             }

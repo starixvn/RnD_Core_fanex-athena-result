@@ -1,7 +1,6 @@
 ﻿namespace Fanex.Result.Core.SportsLottery
 {
     using System;
-    using System.Collections.Generic;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.Utilities;
     using Fanex.Result.Core.SportsLottery.Models;
@@ -17,15 +16,15 @@
         private readonly IWebClient _client;
         private readonly ISerializer _serializer;
 
-        public SportsLotteryResult() : this(null, null)
+        public SportsLotteryResult(SportsLotteryConfigs configs) : this(configs, null, null)
         {
         }
 
-        protected SportsLotteryResult(IWebClient client = null, ISerializer serializer = null)
+        protected SportsLotteryResult(SportsLotteryConfigs configs, IWebClient client = null, ISerializer serializer = null)
         {
             _serializer = serializer ?? new JsonSerializer();
             _client = client ?? new JsonWebClient(_serializer);
-            _configs = SportsLotteryConfigs.Configs;
+            _configs = configs;
         }
 
         public string GetResultPage(bool isDesktop, string language = SportsLotteryConstants.DefaultLanguage, bool isDarkMode = false)
@@ -33,7 +32,7 @@
             var languageCode = Language.GetLanguageCode(language);
             var requestData = GenerateRequestPage(languageCode);
 
-            if ((DebugMode)_configs.DebugMode == DebugMode.DontSendRequest)
+            if ((DebugMode)_configs.Debug == DebugMode.DontSendRequest)
             {
                 throw new SportsLotteryException("Request Result Page data:" + _serializer.Serialize(requestData));
             }
@@ -61,8 +60,8 @@
             return new RequestResultPage
             {
                 TimeStamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"),
-                Seq = seq,
-                SiteId = _configs.SiteId,
+                //Seq = seq,
+                //SiteId = _configs.SiteId,
                 Language = languageCode
             };
         }
@@ -71,7 +70,7 @@
         {
             if (responseData.Result.ErrorCode != 0)
             {
-                if ((DebugMode)_configs.DebugMode == DebugMode.None)
+                if ((DebugMode)_configs.Debug == DebugMode.None)
                 {
                     throw new SportsLotteryException(responseData.Result.ErrorDescription);
                 }

@@ -24,14 +24,15 @@
             { "id-ID", "id" }
         };
 
-        private readonly SabaClubConfigs _configs = SabaClubConfigs.Configs;
+        private readonly SabaClubConfigs _configs;
         private readonly IWebClient _client;
         private readonly ISerializer _serializer;
 
-        public SabaClubResult(IWebClient client = null, ISerializer serializer = null)
+        public SabaClubResult(SabaClubConfigs configs, IWebClient client = null, ISerializer serializer = null)
         {
             _serializer = serializer ?? new JsonSerializer();
             _client = client ?? new JsonWebClient(_serializer);
+            _configs = configs;
         }
 
         public string GetResult(string custId, string gameRoundId, string gameId, string siteId, int sportType, string language = "en-US")
@@ -43,7 +44,7 @@
 
             var requestData = GenerateRequestData(custId, gameRoundId, gameId, language, siteId, sportType);
 
-            if ((DebugMode)_configs.DebugMode == DebugMode.DontSendRequest)
+            if ((DebugMode)_configs.Debug == DebugMode.DontSendRequest)
             {
                 throw new SabaClubException("Request data:" + _serializer.Serialize(requestData));
             }
@@ -107,7 +108,7 @@
             if (responseData.Result.Seq != requestData.Call.Seq ||
                 responseData.Result.ErrorCode != "0")
             {
-                if ((DebugMode)_configs.DebugMode == DebugMode.None)
+                if ((DebugMode)_configs.Debug == DebugMode.None)
                 {
                     if (responseData.Result.ErrorCode != "0")
                     {

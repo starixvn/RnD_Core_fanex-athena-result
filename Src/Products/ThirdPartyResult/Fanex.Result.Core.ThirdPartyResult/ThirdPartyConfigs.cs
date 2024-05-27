@@ -1,34 +1,19 @@
 ﻿namespace Fanex.Result.Core.ThirdParty
 {
-    using System.Configuration;
-
-    public sealed class ThirdPartyConfigs : ConfigurationSection
+    public sealed class ThirdPartyConfigs
     {
-        #region const
-        private const string URL = "Url";
-        private const string DEBUG_MODE = "Debug";
-        private const string VENDORID = "VendorId";
-        private const string SITEID = "SiteId";
-        private const string PROXY_IP_SERVER = "ProxyIP";
-        private const string PROXY_PORT_SERVER = "ProxyPort";
-        #endregion const       
+        public string Url { get; set; }
 
-        [ConfigurationProperty(URL, IsRequired = true)]
-        public string Url => this[URL].ToString();
+        public int Debug { get; set; }
 
-        [ConfigurationProperty(DEBUG_MODE, IsRequired = false, DefaultValue = 0)]
-        public int DebugMode => (int)this[DEBUG_MODE];
+        public int VendorId { get; set; }
 
-        [ConfigurationProperty(VENDORID, IsRequired = false, DefaultValue = 0)]
-        public int VendorId => (int)this[VENDORID];
+        public string SiteId { get; set; }
 
-        [ConfigurationProperty(SITEID, IsRequired = false, DefaultValue = "")]
-        public string SiteId => this[SITEID].ToString();
+        public string ProxyIP { get; set; }
 
-        [ConfigurationProperty(PROXY_IP_SERVER, IsRequired = false, DefaultValue = "")]
-        public string ProxyIP => this[PROXY_IP_SERVER].ToString();
+        public int ProxyPort { get; set; }
 
-        [ConfigurationProperty(PROXY_PORT_SERVER, IsRequired = false, DefaultValue = 0)]
-        public int ProxyPort => (int)this[PROXY_PORT_SERVER];
+        public string Name { get; set; }
     }
 }

@@ -6,15 +6,77 @@
 @{
     var viewModel = Model as RazorBinderModel;
     var colSpan = viewModel.VisibleMatchCodeIDColumn ? 11 : 10;
-    colSpan = viewModel.IsPopUp ? colSpan : colSpan+1;
+    colSpan = viewModel.IsPopUp ? colSpan : colSpan + 1;
     var popupStyleClass = viewModel.IsPopUp ? "popup" : string.Empty;
+    void RenderTableHeader(RazorBinderModel viewModel, int colSpan)
+    {
+        <thead>
+            @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+            {
+                var item = viewModel.Data[0].Data[0];
+
+                <tr class="row-title">
+                    <th class="cl-title" colspan="@colSpan">
+                        <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
+                    </th>
+                </tr>
+            }
+            <tr class="header">
+                @if (viewModel.VisibleMatchCodeIDColumn)
+                {
+                    <th class="cl-m-code">
+                        @LangResource.MatchCode/@LangResource.ID
+                    </th>
+                }
+                <th class="cl-ko-time">
+                    @LangResource.KickOffTime
+                </th>
+                <th class="cl-match">
+                    @Raw(LangResource.Match)
+                </th>
+                <th class="cl-result">
+                    @Raw(LangResource.Result)
+                </th>
+                <th class="cl-detail-result">
+                    @Raw(Happy5Resources.Total)
+                </th>
+                <th class="cl-detail-result">
+                    @Happy5Resources.BigSmall
+                </th>
+                <th class="cl-detail-result">
+                    @Happy5Resources.OddEven
+                </th>
+                <th class="cl-detail-result">
+                    @Happy5Resources.FourSeasons
+                </th>
+                <th class="cl-detail-result">
+                    @Happy5Resources.MoreOddMoreEven
+                </th>
+                <th class="cl-detail-result">
+                    @Happy5Resources.Combo
+                </th>
+                @if (!viewModel.IsPopUp)
+                {
+                    <th class="cl-detail-result">
+                        @Happy5Resources.Soccer5
+                    </th>
+                }
+
+                <th class="cl-status">
+                    @LangResource.Status
+                </th>
+            </tr>
+        </thead>
+    }
 }
 
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
         <table class="fn-rs happy5 @popupStyleClass">
-            @RenderTableHeader(viewModel, colSpan)
+            @{
+                RenderTableHeader(viewModel, colSpan);
+            }
         </table>
     </div>
     @Raw("<div class=\"fn-rs-content-scroll\">")
@@ -23,7 +85,7 @@
 <table class="fn-rs happy5 @popupStyleClass">
     @if (!viewModel.VisibleFreeHeader)
     {
-        @RenderTableHeader(viewModel, colSpan)
+        RenderTableHeader(viewModel, colSpan);
     }
     <tbody>
         @if (viewModel.Data.Count > 0)
@@ -99,7 +161,8 @@
                         @if (!viewModel.IsPopUp)
                         {
                             <td class="cl-detail-result">
-                                <div title="@Happy5Resources.Soccer5Tooltip" class="@item.Soccer5Class" @Raw(item.Soccer5Function)>@item.Soccer5</div>
+                                <div title="@Happy5Resources.Soccer5Tooltip" class="@item.Soccer5Class" @Raw(item.Soccer5Function)>
+                                    @item.Soccer5</div>
                             </td>
                         }
 
@@ -112,11 +175,11 @@
         }
         else
         {
-        <!--NoInfo-->
+            <!--NoInfo-->
             <tr class="row-noinfo">
                 <td colspan="@colSpan">@LangResource.NoInfo</td>
             </tr>
-        <!--/ NoInfo-->
+            <!--/ NoInfo-->
         }
     </tbody>
 </table>
@@ -124,65 +187,4 @@
 @if (viewModel.VisibleFreeHeader)
 {
     @Raw("</div>")
-}
-
-@helper RenderTableHeader(RazorBinderModel viewModel, int colSpan)
-{
-    <thead>
-        @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
-        {
-            var item = viewModel.Data[0].Data[0];
-
-            <tr class="row-title">
-                <th class="cl-title" colspan="@colSpan">
-                    <span class="sport">@item.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@item.LeagueName</span>
-                </th>
-            </tr>
-        }
-            <tr class="header">
-                @if (viewModel.VisibleMatchCodeIDColumn)
-                {
-                    <th class="cl-m-code">
-                        @LangResource.MatchCode/@LangResource.ID
-                    </th>
-                }
-                <th class="cl-ko-time">
-                    @LangResource.KickOffTime
-                </th>
-                <th class="cl-match">
-                    @Raw(LangResource.Match)
-                </th>
-                <th class="cl-result">
-                    @Raw(LangResource.Result)
-                </th>
-                <th class="cl-detail-result">
-                    @Raw(Happy5Resources.Total)
-                </th>
-                <th class="cl-detail-result">
-                    @Happy5Resources.BigSmall
-                </th>
-                <th class="cl-detail-result">
-                    @Happy5Resources.OddEven
-                </th>
-                <th class="cl-detail-result">
-                    @Happy5Resources.FourSeasons
-                </th>
-                <th class="cl-detail-result">
-                    @Happy5Resources.MoreOddMoreEven
-                </th>
-                <th class="cl-detail-result">
-                    @Happy5Resources.Combo
-                </th>
-                @if (!viewModel.IsPopUp)
-                {
-                    <th class="cl-detail-result">
-                        @Happy5Resources.Soccer5
-                    </th>
-                }
-
-                <th class="cl-status">
-                    @LangResource.Status
-                </th>
-            </tr>
-    </thead>
 }

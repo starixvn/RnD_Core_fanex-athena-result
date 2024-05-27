@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Configuration;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Base.Exception;
     using Fanex.Result.Core.Base.Utilities;
@@ -19,18 +18,16 @@
         private readonly ThirdPartyConfigs _configs;
         private readonly IWebClient _client;
         private readonly ISerializer _serializer;
-        private readonly string SectionName;
 
-        public ThirdPartyResult(string sectionName) : this(sectionName, null, null)
+        public ThirdPartyResult(ThirdPartyConfigs configs) : this(configs, null, null)
         {
-            SectionName = sectionName;
         }
 
-        protected ThirdPartyResult(string sectionName, IWebClient client, ISerializer serializer)
+        protected ThirdPartyResult(ThirdPartyConfigs configs, IWebClient client, ISerializer serializer)
         {
             _serializer = serializer ?? new JsonSerializer();
             _client = client ?? new JsonWebClient(_serializer);
-            _configs = ConfigurationManager.GetSection(sectionName) as ThirdPartyConfigs;
+            _configs = configs;
         }
 
         public string GetResultPOST(ResultRequest resultRequest)
@@ -40,7 +37,7 @@
 
             var requestData = GenerateRequestData(resultRequest);
 
-            if ((DebugMode)_configs.DebugMode == DebugMode.DontSendRequest)
+            if ((DebugMode)_configs.Debug == DebugMode.DontSendRequest)
             {
                 throw new ResultCoreException("Request data:" + _serializer.Serialize(requestData));
             }
@@ -66,7 +63,7 @@
 
             var requestData = GenerateRequestData();
 
-            if ((DebugMode)_configs.DebugMode == DebugMode.DontSendRequest)
+            if ((DebugMode)_configs.Debug == DebugMode.DontSendRequest)
             {
                 throw new ResultCoreException("Request data:" + Helper.DictionaryToString(requestData));
             }
@@ -88,9 +85,9 @@
             {
                 if (responseData.ErrorCode != 0)
                 {
-                    if ((DebugMode)_configs.DebugMode == DebugMode.None)
+                    if ((DebugMode)_configs.Debug == DebugMode.None)
                     {
-                        var message = $"{SectionName} Result API: {responseData.ErrorMsg}";
+                        var message = $"{_configs.Name} Result API: {responseData.ErrorMsg}";
                         message += $"\n Detail request: {Helper.DictionaryToString(requestData)}";
                         message += $"\n Detail response: {_serializer.Serialize(responseData)}";
                         message += $"\n Url: {_configs.Url}";
@@ -98,7 +95,7 @@
                     }
                     else
                     {
-                        throw new ResultCoreException($"Url of {SectionName} send request incorrectly! Detail request:" +
+                        throw new ResultCoreException($"Url of {_configs.Name} send request incorrectly! Detail request:" +
                             $" {Helper.DictionaryToString(requestData)}; \n Detail response: {_serializer.Serialize(responseData)}" +
                             $" \n Url: {_configs.Url}");
                     }
@@ -175,9 +172,9 @@
         {
             if (responseData.ErrorCode != 0)
             {
-                if ((DebugMode)_configs.DebugMode == DebugMode.None)
+                if ((DebugMode)_configs.Debug == DebugMode.None)
                 {
-                    var message = $"{SectionName} Result API: {responseData.ErrorMsg}";
+                    var message = $"{_configs.Name} Result API: {responseData.ErrorMsg}";
                     message += $"\n Detail request: {_serializer.Serialize(requestData)}";
                     message += $"\n Detail response: {_serializer.Serialize(responseData)}";
                     message += $"\n Url: {_configs.Url}";
@@ -185,7 +182,7 @@
                 }
                 else
                 {
-                    throw new ResultCoreException($"Url of {SectionName} send request incorrectly! Detail request:" +
+                    throw new ResultCoreException($"Url of {_configs.Name} send request incorrectly! Detail request:" +
                         $" {_serializer.Serialize(requestData)}; \n Detail response: {_serializer.Serialize(responseData)}" +
                          $" \n Url: {_configs.Url}");
                 }

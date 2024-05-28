@@ -759,10 +759,9 @@
 
         private bool CheckShowHTLastSeriesChoice()
         {
-            if(IsLastSeriesChildMatch &&
-            int.TryParse(HTHomeScore, out int htHomeScore) &&
-            int.TryParse(HTAwayScore, out int htAwayScore) &&
-            htHomeScore != htAwayScore)
+            if (IsLastSeriesChildMatch &&
+            int.TryParse(HTHomeScore, out _) &&
+            int.TryParse(HTAwayScore, out _))
             {
                 return true;
             }
@@ -772,11 +771,10 @@
 
         private bool CheckShowFTLastSeriesChoice()
         {
-            if(IsLastSeriesChildMatch && !EventStatusIsRefundFT &&
+            if (IsLastSeriesChildMatch && !EventStatusIsRefundFT &&
             (IsShowHTLastSeriesChoice ||
-            (int.TryParse(FinalHomeScore, out int ftHomeScore) &&
-            int.TryParse(FinalAwayScore, out int ftAwayScore) &&
-            ftHomeScore != ftAwayScore)))
+            (int.TryParse(FinalHomeScore, out _) &&
+            int.TryParse(FinalAwayScore, out _))))
             {
                 return true;
             }
@@ -785,13 +783,25 @@
         }
 
         private string GetHTLastSeriesChildMatchChoice()
-            => SPORTBOOK.HtHomeScore > SPORTBOOK.HtAwayScore ? HomeTeam : AwayTeam;
+        {
+            if (SPORTBOOK.HtHomeScore != null && SPORTBOOK.HtAwayScore != null && SPORTBOOK.HtHomeScore == SPORTBOOK.HtAwayScore)
+            {
+                return LangResource.None;
+            }
+
+            return SPORTBOOK.HtHomeScore > SPORTBOOK.HtAwayScore ? HomeTeam : AwayTeam; 
+        }
 
         private string GetFTLastSeriesChildMatchChoice()
         {
-            if(int.TryParse(FinalHomeScore, out int ftHomeScore) &&
+            if (int.TryParse(FinalHomeScore, out int ftHomeScore) &&
             int.TryParse(FinalAwayScore, out int ftAwayScore))
             {
+                if (ftHomeScore == ftAwayScore)
+                {
+                    return LangResource.None;
+                }
+
                 return ftHomeScore > ftAwayScore ? HomeTeam : AwayTeam;
             }
             

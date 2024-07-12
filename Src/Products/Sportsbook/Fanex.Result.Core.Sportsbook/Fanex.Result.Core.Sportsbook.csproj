@@ -71,9 +71,6 @@
     <EmbeddedResource Include="Views\BetbyBasketball.cshtml" />    
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Fanex.Result.Core-NPOI.2.0.6" Version="4.0.0.0-upgrade-01" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Update="Resources\SportsbookResx.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -85,5 +82,8 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>SportsbookResx.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Fanex.Result.Core-NPOI.2.0.6" Version="4.0.0.0-upgrade-01" />
   </ItemGroup>
 </Project>

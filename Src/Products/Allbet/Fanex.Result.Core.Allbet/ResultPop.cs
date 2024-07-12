@@ -15,23 +15,19 @@ namespace Fanex.Result.Core.AllBetCasino
 
     public class ResultPop : IResultPopup
     {
-        private static string _ConnectionString = "";
         private static string _ImgPath = "";
         private static string strPlayerCardValue = "";
         private static string strBankerCardValue = "";
         private static string strPlayerImg = "";
         private static string strBankerImg = "";
-        private static string strRefKey = "AllBet_BT";
-        private static System.Web.HttpContext _Context;
+        private static string strRefKey = "AllBet_BT";        
         private static IRefDataHelper refDataHelper;
 
         private TransDesc TransDesc { get; }
 
-        public ResultPop(System.Web.HttpContext context, string ConnectionString, string ImgPath, IRefDataHelper refDataHelper)
+        public ResultPop(string ImgPath, IRefDataHelper refDataHelper)
         {
-            _ConnectionString = ConnectionString;
             _ImgPath = ImgPath;
-            _Context = context;
             ResultPop.refDataHelper = refDataHelper ?? ResultCoreManager.RefDataHelper;
         }
        

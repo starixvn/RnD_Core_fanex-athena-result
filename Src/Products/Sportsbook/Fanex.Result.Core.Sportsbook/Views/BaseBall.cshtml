@@ -1,6 +1,7 @@
 ﻿@using Fanex.Result.Core.Base.ViewModels;
 @using Fanex.Result.Core.Sportsbook.ViewModels;
 @using Fanex.Result.Core.Base.Resources;
+@using Fanex.Result.Core.Sportsbook.Resources;
 @{
     var viewModel = (RazorBinderModel)Model;
 
@@ -33,8 +34,8 @@
                 <th class="cl-s">@s</th>
             }
             <th class="cl-ei">@LangResource.EI</th>
-            <th class="cl-ht-score">@Raw(LangResource.HTScore)</th>
-            <th class="cl-f-score">@LangResource.FinalScore</th>
+            <th class="cl-f-score">@SportsbookResx.Runs</th>
+            <th class="cl-ht-score">@Raw(SportsbookResx.Hits)</th>
             <th class="cl-status">@LangResource.Status</th>
         </tr>
     </thead>
@@ -43,7 +44,7 @@
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
-        <table class="fn-rs @popupCss">
+        <table class="fn-rs baseball @popupCss">
             @RenderHeader(viewModel, colspan)
         </table>
     </div>
@@ -51,7 +52,7 @@
     @Raw("<div class=\"fn-rs-content-scroll\">")
 }
 
-<table class="fn-rs @popupCss">
+<table class="fn-rs baseball @popupCss">
     @if (!viewModel.VisibleFreeHeader)
     {
         @RenderHeader(viewModel, colspan)
@@ -81,14 +82,24 @@
                         }
                         <td class="cl-ko-time" rowspan="2">@Raw(item.KickOffTime)</td>
                         <td class="cl-match home @item.HomeWin">@Raw(item.HomeTeam)</td>
-                        @for (var s = 0; s < 9; s++)
+                        @for (var s = 1; s <= 9; s++)
                         {
                             <td class="cl-s">@item.GetHomeAwaySet(s, true)</td>
                         }
-                        <td class="cl-ei">@item.EIHome</td>
-                        <td class="cl-ht-score">@item.HTHomeScore</td>
+                        <td class="cl-ei">@item.HomeExtraTime</td>
                         <td class="cl-f-score">@item.FinalHomeScore</td>
-                        <td rowspan="2" class="cl-status @item.EventStatusBackground">@item.EventStatus</td>
+                        <td class="cl-ht-score">@item.HomeHits</td>                        
+                        <td rowspan="2" class="cl-status @item.EventStatusBackground">
+                            @item.EventStatus
+                             @if (item.VisibleDetailedLink && !viewModel.IsPopUp)
+                            {
+                                <div>
+                                    <span class="detail-link" data-match-id="@item.MatchId" data-league-id="@item.LeagueId">
+                                        @LangResource.Details
+                                    </span>
+                                </div>
+                            }
+                        </td>
                     </tr>
                     <tr class="data @item.Color(index, "even", "odd")">
                         @if (viewModel.VisibleMatchCodeIDColumn)
@@ -96,13 +107,13 @@
                             <td class="cl-m-code">@item.MatchId</td>
                         }
                         <td class="cl-match away @item.AwayWin">@Raw(item.AwayTeam)</td>
-                        @for (var s = 0; s < 9; s++)
+                        @for (var s = 1; s <= 9; s++)
                         {
                             <td class="cl-s">@item.GetHomeAwaySet(s, false)</td>
                         }
-                        <td class="cl-ei">@item.EIAway</td>
-                        <td class="cl-ht-score">@item.HTAwayScore</td>
+                        <td class="cl-ei">@item.AwayExtraTime</td>
                         <td class="cl-f-score">@item.FinalAwayScore</td>
+                        <td class="cl-ht-score">@item.AwayHits</td>                        
                     </tr>
 
                 }
@@ -122,3 +133,57 @@
 {
     @Raw("</div>")
 }
+
+<!--Detail-->
+
+@if (viewModel.VisibleDetailResult)
+{
+    <br />
+
+    if (viewModel.Data.Count > 0 && viewModel.Data[0].Data.Count > 0)
+    {
+
+        BaseBallViewModel item = (BaseBallViewModel)viewModel.Data[0].Data[0];
+
+
+        <table class="fn-rs popup">
+            <thead>
+                <tr class="header">
+                    <th class="width-40">@LangResource.MoreResults</th>
+                    <th class="width-30">@item.HomeTeam</th>
+                    <th class="width-30">@item.AwayTeam</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                @if (item.MoreResultDetail.Count > 0)
+                {
+                    foreach (var mapResult in item.MoreResultDetail)
+                    {                        
+                        <tr class="data">
+                            <td class="cl-match">@mapResult.ResourceName</td>
+
+                            @if (mapResult.IsDisplaySingleTeam)
+                            {
+                                <td colspan="2" class="single-result color-blue">@mapResult.HomeValue</td>
+                            }
+                            else
+                            {
+                                <td class="cl-result home">@mapResult.HomeValue</td>
+                                <td class="cl-result away">@mapResult.AwayValue</td>
+                            }
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr class="row-noinfo">
+                        <td colspan="3">@LangResource.NoInfo</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    }
+}
+<!--/Detail-->

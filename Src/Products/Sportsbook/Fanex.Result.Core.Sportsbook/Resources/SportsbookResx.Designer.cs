@@ -133,6 +133,15 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to X Inning Hits.
+        /// </summary>
+        public static string Baseball_8823XX {
+            get {
+                return ResourceManager.GetString("Baseball_8823XX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bottom.
         /// </summary>
         public static string Bottom {
@@ -637,6 +646,15 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Hits.
+        /// </summary>
+        public static string Hits {
+            get {
+                return ResourceManager.GetString("Hits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to LBW.
         /// </summary>
         public static string LBW {
@@ -831,6 +849,15 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         public static string RunOut {
             get {
                 return ResourceManager.GetString("RunOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Runs.
+        /// </summary>
+        public static string Runs {
+            get {
+                return ResourceManager.GetString("Runs", resourceCulture);
             }
         }
         

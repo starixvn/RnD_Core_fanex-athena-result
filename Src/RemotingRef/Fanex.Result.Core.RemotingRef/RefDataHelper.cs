@@ -18,6 +18,10 @@
 
         public string GetVirtualSportMatchCodeFormat(string matchCode, string refId, string lang)
         => remotingRefService.GetVirtualSportMatchCodeFormat(matchCode, refId, lang);
+
+        public string GetDisplayedBetTypeName(string betTypeId, string lang, string resourceId)
+            => remotingRefService.GetDisplayedBetTypeName(betTypeId, resourceId, lang, string.Empty);
+
         public string GetBetTypeNameById(string betTypeId, string lang, string resourceId)
             => remotingRefService.GetBetTypeName(betTypeId, lang, string.Empty, resourceId);
 
@@ -41,6 +45,9 @@
 
         public string GetBetTypeNameById(string betTypeId, string lang)
             => remotingRefService.GetBetTypeName(betTypeId, lang);
+
+        public string GetDisplayTypeNameById(string betTypeId)
+            => remotingRefService.GetDisplayedTypeId(betTypeId);
 
         public string GetResourceDataByRefIdAndResourceId(string refId, string resourceId, string lang, string defaultValue)
             => remotingRefService.GetResourceDataByRefIdAndResourceId(refId, resourceId, lang, defaultValue);

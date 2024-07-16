@@ -432,4 +432,13 @@
   <data name="Winner" xml:space="preserve">
     <value>ผู้ชนะ</value>
   </data>
+  <data name="Hits" xml:space="preserve">
+    <value>ตีอ</value>
+  </data>
+  <data name="Baseball_8823XX" xml:space="preserve">
+    <value>ตีอินอินนิ่ง X</value>
+  </data>
+  <data name="Runs" xml:space="preserve">
+    <value>รัน</value>
+  </data>
 </root>

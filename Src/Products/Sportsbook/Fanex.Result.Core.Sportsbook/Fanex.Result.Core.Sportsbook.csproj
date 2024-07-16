@@ -8,10 +8,10 @@
     <AssemblyTitle>Fanex.Result.Core.Sportsbook</AssemblyTitle>
     <Product>Fanex.Result.Core.Sportsbook</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>2.0.0.8-LastSeries-01</Version>
-    <InfomationalVersion>2.0.0.8</InfomationalVersion>
+    <Version>2.0.1.0-baseball-12</Version>
+    <InfomationalVersion>2.0.1.0</InfomationalVersion>
     <PackageReleaseNotes>
-      Display 'None' when score draw for the Last Series of Child Match(#205681)
+      Support Baseball AIO (#207707)
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
@@ -68,6 +68,19 @@
     <EmbeddedResource Include="Views\VSCockFighting.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Fanex.Result.Core-NPOI.2.0.6" Version="3.0.0.5-vs4-03" />
+    <PackageReference Include="Fanex.Result.Core-NPOI.2.0.6" Version="3.0.0.7-baseball-04" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources\SportsbookResx.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>SportsbookResx.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\SportsbookResx.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SportsbookResx.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

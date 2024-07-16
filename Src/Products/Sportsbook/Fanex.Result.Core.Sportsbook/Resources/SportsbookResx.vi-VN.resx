@@ -435,4 +435,13 @@
   <data name="Winner" xml:space="preserve">
     <value> Đội thắng trận</value>
   </data>
+  <data name="Baseball_8823XX" xml:space="preserve">
+    <value>Lượt Đánh Hiệp X</value>
+  </data>
+  <data name="Hits" xml:space="preserve">
+    <value>Cú đánh</value>
+  </data>
+  <data name="Runs" xml:space="preserve">
+    <value>Điểm số</value>
+  </data>
 </root>

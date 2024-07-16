@@ -435,4 +435,13 @@
   <data name="Winner" xml:space="preserve">
     <value>優勝者</value>
   </data>
+  <data name="Hits" xml:space="preserve">
+    <value>安打</value>
+  </data>
+  <data name="Baseball_8823XX" xml:space="preserve">
+    <value>第X局安打</value>
+  </data>
+  <data name="Runs" xml:space="preserve">
+    <value>得分</value>
+  </data>
 </root>

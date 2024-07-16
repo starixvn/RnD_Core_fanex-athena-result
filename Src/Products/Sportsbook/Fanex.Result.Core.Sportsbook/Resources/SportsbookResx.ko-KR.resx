@@ -138,4 +138,13 @@
   <data name="Dnf" xml:space="preserve">
     <value>종료되지 않았습니다</value>
   </data>
+  <data name="Runs" xml:space="preserve">
+    <value>실행</value>
+  </data>
+  <data name="Baseball_8823XX" xml:space="preserve">
+    <value>X이닝 안타</value>
+  </data>
+  <data name="Hits" xml:space="preserve">
+    <value>히트</value>
+  </data>
 </root>

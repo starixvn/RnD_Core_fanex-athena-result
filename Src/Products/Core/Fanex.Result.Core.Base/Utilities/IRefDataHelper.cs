@@ -6,6 +6,10 @@
 
         string GetBetTypeNameById(string betTypeId, string lang);
 
+        string GetDisplayTypeNameById(string betTypeId);
+
+        string GetDisplayedBetTypeName(string betTypeId, string lang, string resourceId);        
+
         string GetBetTypeNameById(string betTypeId, string lang, string resourceId);
 
         string GetTeamName(string teamId, string lang, string defaultValue);

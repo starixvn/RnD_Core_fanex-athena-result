@@ -129,7 +129,7 @@
             var viewModel = new BaseBallViewModel(sportsbookDto, new ResultSetting());
 
             // Act
-            var actualValue = viewModel.EIAway;
+            var actualValue = viewModel.AwayExtraTime;
 
             // Assert
             Assert.AreEqual(expectedValue, actualValue);
@@ -146,7 +146,7 @@
             var viewModel = new BaseBallViewModel(sportsbookDto, new ResultSetting());
 
             // Act
-            var actualValue = viewModel.EIHome;
+            var actualValue = viewModel.HomeExtraTime;
 
             // Assert
             Assert.AreEqual(expectedValue, actualValue);

@@ -14,8 +14,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj" />
     <ProjectReference Include="..\..\Sportsbook\Fanex.Result.Core.Sportsbook\Fanex.Result.Core.Sportsbook.csproj" />
-    <ProjectReference Include="..\Fanex.Result.Core.Tests.Utils\Fanex.Result.Core.Tests.Utils.csproj" />
-    <ProjectReference Include="..\Fanex.Result.Core\Fanex.Result.Core.csproj" />
+    <ProjectReference Include="..\Fanex.Result.Core.Tests.Utils\Fanex.Result.Core.Tests.Utils.csproj" />    
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Castle.Core" Version="4.2.0" />    

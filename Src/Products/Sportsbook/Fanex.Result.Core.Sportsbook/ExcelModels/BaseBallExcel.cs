@@ -7,6 +7,7 @@
     using Base.Resources;
     using Base.Utilities;
     using Base.ViewModels;
+    using Fanex.Result.Core.Sportsbook.Resources;
     using NPOI.SS.UserModel;
     using ViewModels;
 
@@ -31,8 +32,9 @@
             row.Cells[colidx].SetCellValue(LangResource.Event);
 
             colidx = ColumnHTScore;
-            row.Cells[colidx++].SetCellValue(LangResource.HTScore);
-            row.Cells[colidx++].SetCellValue(LangResource.FinalScore);
+            row.Cells[colidx-1].SetCellValue(LangResource.EI);
+            row.Cells[colidx++].SetCellValue(SportsbookResx.Runs);
+            row.Cells[colidx++].SetCellValue(SportsbookResx.Hits);
             row.Cells[colidx].SetCellValue(LangResource.Status);
         }
 
@@ -54,8 +56,7 @@
                 ColumnMatchCode,
                 exportRow.MatchCode,
                 Helper.ToRtfString(exportRow.KickOffTime),
-                Helper.ToRtfString(exportRow.HomeTeam),
-                exportRow.GetHomeAwaySet(0, true),
+                Helper.ToRtfString(exportRow.HomeTeam),                
                 exportRow.GetHomeAwaySet(1, true),
                 exportRow.GetHomeAwaySet(2, true),
                 exportRow.GetHomeAwaySet(3, true),
@@ -64,9 +65,10 @@
                 exportRow.GetHomeAwaySet(6, true),
                 exportRow.GetHomeAwaySet(7, true),
                 exportRow.GetHomeAwaySet(8, true),
-                exportRow.EIHome,
-                exportRow.HTHomeScore,
+                exportRow.GetHomeAwaySet(9, true),
+                exportRow.HomeExtraTime,
                 exportRow.FinalHomeScore,
+                exportRow.HomeHits,                
                 exportRow.EventStatus);
             currentRow++;
 
@@ -75,8 +77,7 @@
                 ColumnMatchCode,
                 exportRow.MatchId,
                 Helper.ToRtfString(exportRow.KickOffTime),
-                Helper.ToRtfString(exportRow.AwayTeam),
-                exportRow.GetHomeAwaySet(0, false),
+                Helper.ToRtfString(exportRow.AwayTeam),                
                 exportRow.GetHomeAwaySet(1, false),
                 exportRow.GetHomeAwaySet(2, false),
                 exportRow.GetHomeAwaySet(3, false),
@@ -85,9 +86,10 @@
                 exportRow.GetHomeAwaySet(6, false),
                 exportRow.GetHomeAwaySet(7, false),
                 exportRow.GetHomeAwaySet(8, false),
-                exportRow.EIAway,
-                exportRow.HTAwayScore,
+                exportRow.GetHomeAwaySet(9, false),
+                exportRow.AwayExtraTime,
                 exportRow.FinalAwayScore,
+                exportRow.AwayHits,                
                 exportRow.EventStatus);
             currentRow++;
         }

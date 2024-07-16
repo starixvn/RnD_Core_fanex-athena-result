@@ -435,4 +435,13 @@
   <data name="Winner" xml:space="preserve">
     <value>Pemenang</value>
   </data>
+  <data name="Baseball_8823XX" xml:space="preserve">
+    <value>Pukulan Inning X</value>
+  </data>
+  <data name="Hits" xml:space="preserve">
+    <value>Pukulan</value>
+  </data>
+  <data name="Runs" xml:space="preserve">
+    <value>Skor</value>
+  </data>
 </root>

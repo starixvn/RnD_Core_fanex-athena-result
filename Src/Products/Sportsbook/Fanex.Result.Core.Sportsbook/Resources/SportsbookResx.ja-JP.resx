@@ -138,4 +138,13 @@
   <data name="Dnf" xml:space="preserve">
     <value>未完了</value>
   </data>
+  <data name="Runs" xml:space="preserve">
+    <value>ラン</value>
+  </data>
+  <data name="Baseball_8823XX" xml:space="preserve">
+    <value>X回に安打</value>
+  </data>
+  <data name="Hits" xml:space="preserve">
+    <value>安打</value>
+  </data>
 </root>

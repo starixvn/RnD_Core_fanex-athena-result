@@ -16,6 +16,8 @@
 
     public sealed class BaseBallViewModel : SportsbookBaseViewModel, IResultViewModel
     {
+        readonly DateTime cutOfDate = new DateTime(2024, 8, 1);
+
         public BaseBallViewModel(Sportsbook sportbook, ResultSetting setting)
             : this(sportbook, setting, null)
         {
@@ -99,6 +101,11 @@
         }
 
         public override string GetHomeAwaySet(int index, bool isHome)
+        => UsingOldData() ?
+            GetHomeAwaySetByOldData(index - 1, isHome) :
+            Score($"010{index}", isHome);
+
+        private string GetHomeAwaySetByOldData(int index, bool isHome)
         {
             var value = Score($"010{index}", isHome);
 
@@ -144,6 +151,17 @@
             }
 
             return ConstantValue.Hyphen;
+        }
+
+        private string Score(string resourceId, bool isHome)
+        {
+            var item = ResultDetailItems.FirstOrDefault(i => i.ResourceID == resourceId);
+            if (item == null)
+            {
+                return ConstantValue.Hyphen;
+            }
+
+            return isHome ? item.HomeValue : item.AwayValue;
         }
 
         private string Score(string resourceId, bool isHome)

@@ -31,7 +31,7 @@
             row.Cells[colidx++].SetCellValue(LangResource.KickOffTime);
             row.Cells[colidx].SetCellValue(LangResource.Event);
 
-            colidx = ColumnHTScore;
+            colidx = ColumnHTScore;            
             row.Cells[colidx-1].SetCellValue(LangResource.EI);
             row.Cells[colidx++].SetCellValue(SportsbookResx.Runs);
             row.Cells[colidx++].SetCellValue(SportsbookResx.Hits);

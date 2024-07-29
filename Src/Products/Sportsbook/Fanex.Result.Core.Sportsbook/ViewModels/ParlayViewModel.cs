@@ -50,10 +50,7 @@
 
         public override string SportName => GetSportNameByLanguage(_parlay.SportId);
 
-        public override string LeagueName 
-        => _sportSetting.SupportHideSabaText ?
-        RefDataHelper.GetLeagueName(_parlay.LeagueId, _parlay.LeagueGroupId, GetSupportedLanguage, string.Empty):
-        RefDataHelper.GetLeagueName(_parlay.LeagueId, GetSupportedLanguage, string.Empty);
+        public override string LeagueName => GetLeagueName();
 
         public override int LeagueId => _parlay.LeagueId;
 
@@ -147,7 +144,7 @@
         /// </summary>
         private void CreateItemViewModel()
         {
-            _viewModelData = _viewModelData ?? _parlay.Sportbook.Select(i => 
+            _viewModelData = _viewModelData ?? _parlay.Sportbook.Select(i =>
             ViewModelConcreteFactory.Instance.GetViewModel(i, _sportSetting)).ToSafeList();
 
             _bothMatchAndGameDetailItemViewModel = _bothMatchAndGameDetailItemViewModel ?? _viewModelData.Where(i => i.VisibleMatchResult && i.VisibleGameDetail).ToSafeList();
@@ -156,5 +153,18 @@
 
             _onlyGameDetailItemViewModel = _onlyGameDetailItemViewModel ?? _viewModelData.Where(i => !i.VisibleMatchResult && i.VisibleGameDetail).ToSafeList();
         }
+
+        private string GetLeagueName()
+        {
+            if (SportId == (int)SportType.VirtuallySports)
+            {
+                return RefDataHelper.GetLeague3rdName(_parlay.LeagueId, GetSupportedLanguage, string.Empty);
+            }
+
+            return _sportSetting.SupportHideSabaText ?
+                        RefDataHelper.GetLeagueName(_parlay.LeagueId, _parlay.LeagueGroupId, GetSupportedLanguage, string.Empty) :
+                        RefDataHelper.GetLeagueName(_parlay.LeagueId, GetSupportedLanguage, string.Empty);
+        }
+
     }
 }

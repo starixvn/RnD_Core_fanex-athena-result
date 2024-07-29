@@ -31,8 +31,8 @@
             resultData.BetStatus = row.GetCell(9)?.ToString();
             resultData.LiveHomeScore = Convert.ToInt32(row.GetCell(10)?.ToString());
             resultData.LiveAwayScore = Convert.ToInt32(row.GetCell(11)?.ToString());
-            resultData.FinalHomeScore = Convert.ToInt32(row.GetCell(12)?.ToString());
-            resultData.FinalAwayScore = Convert.ToInt32(row.GetCell(13)?.ToString());
+            resultData.FinalHomeScore = ToNullableInt(row.GetCell(12)?.ToString());
+            resultData.FinalAwayScore = ToNullableInt(row.GetCell(13)?.ToString());
             resultData.MatchCode = row.GetCell(15)?.ToString();
             resultData.KickOffTime = Convert.ToDateTime(row.GetCell(16)?.ToString());
             resultData.HtHomeScore = Convert.ToInt32(row.GetCell(19)?.ToString());
@@ -46,6 +46,15 @@
             resultData.SessionTime = Convert.ToInt32(row.GetCell(48).ToString());
 
             return resultData;
+
+            int? ToNullableInt(string s)
+            {
+                int i;
+                if (int.TryParse(s, out i)) return i;
+                return null;
+            }
         }
+
+        
     }
 }

@@ -322,5 +322,9 @@
 
         [StringValue("BeachVolleyball")]
         BeachVolleyball = 45,
+
+        
+        [StringValue("VirtuallySports")]
+        VirtuallySports = 147
     }
 }

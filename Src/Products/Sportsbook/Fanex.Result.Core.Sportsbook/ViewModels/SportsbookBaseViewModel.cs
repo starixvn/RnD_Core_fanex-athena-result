@@ -66,7 +66,7 @@
 
         public virtual string HomeTeam => GetSportbookHomeTeam(SPORTBOOK.HomeId, SPORTBOOK.IsNeutral);
 
-        public string AwayTeam => GetSportbookAwayTeam(SPORTBOOK.AwayId);
+        public virtual string AwayTeam => GetSportbookAwayTeam(SPORTBOOK.AwayId);
 
         public virtual string HomeWin => GetWonTeam(true);
 

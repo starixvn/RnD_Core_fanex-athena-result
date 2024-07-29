@@ -90,7 +90,7 @@
         public static bool IsPending(string eventStatus)
             => Pending.Equals(eventStatus, StringComparison.OrdinalIgnoreCase);
 
-        private static bool IsCompleted(string eventStatus)
+        public static bool IsCompleted(string eventStatus)
             => ConstantValue.Completed.Equals(eventStatus, StringComparison.OrdinalIgnoreCase);
 
         private static bool IsInternal(string eventStatus)
@@ -104,7 +104,7 @@
                 .Cast<bool>().Select(bit => bit ? 1 : 0)
                 .ToArray();
 
-        private static string GetRefund(string betStatus)
+        public static string GetRefund(string betStatus)
         {
             if (betStatus.IndexOf(ConstantValue.RefundFT, StringComparison.OrdinalIgnoreCase) >= 0)
             {

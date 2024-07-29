@@ -8,10 +8,10 @@
     <AssemblyTitle>Fanex.Result.Core.Sportsbook</AssemblyTitle>
     <Product>Fanex.Result.Core.Sportsbook</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>2.0.1.4</Version>
-    <InfomationalVersion>2.0.1.4</InfomationalVersion>
+    <Version>2.0.1.6-vs5-01</Version>
+    <InfomationalVersion>2.0.1.6</InfomationalVersion>
     <PackageReleaseNotes>
-      HF show wrong Away value of EI Baseball (#212721)
+      Support VS 5 - Virtually sports 5 result (#207589)
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
@@ -66,9 +66,10 @@
     <EmbeddedResource Include="Views\Football.cshtml" />
     <EmbeddedResource Include="Views\Bandy.cshtml" />
     <EmbeddedResource Include="Views\VSCockFighting.cshtml" />
+    <EmbeddedResource Include="Views\VirtuallySports.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Fanex.Result.Core-NPOI.2.0.6" Version="3.0.1.1" />
+    <PackageReference Include="Fanex.Result.Core-NPOI.2.0.6" Version="3.0.1.5-vs5-01" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Resources\SportsbookResx.Designer.cs">

@@ -1,0 +1,103 @@
+﻿@using Fanex.Result.Core.Base.Resources;
+@using Fanex.Result.Core.Sportsbook.Resources;
+@using Fanex.Result.Core.Base.ViewModels;
+@using Fanex.Result.Core.Sportsbook.ViewModels;
+@{
+    var viewModel = (RazorBinderModel)Model;
+
+    var popupCss = viewModel.IsPopUp || viewModel.IsDetail ? "popup" : string.Empty;
+    var firstMatch = viewModel.Data.Count > 0 ? (VirtuallySportsViewModel)viewModel.Data[0].Data[0] : null;
+    var colspan = 5;
+}
+
+@helper RenderHeader(RazorBinderModel viewModel, VirtuallySportsViewModel firstMatch, int colspan)
+{
+    <thead>
+        @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+        {
+            <tr class="row-title">
+                <th class="cl-title" colspan="@colspan">
+                    <span class="sport">@firstMatch.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@firstMatch.LeagueName</span>
+                </th>
+            </tr>
+        }
+        <tr class="header">
+            <th class="cl-ko-time">@LangResource.KickOffTime</th>
+            <th class="cl-match">@LangResource.Match</th>
+            <th class="cl-ht-score">@LangResource.HTScore</th>
+            <th class="cl-f-score">@LangResource.FinalScore</th>          
+            <th class="cl-status">@LangResource.Status</th>
+        </tr>
+    </thead>
+}
+
+@if (viewModel.VisibleFreeHeader)
+{
+    <div class="fn-rs-content-header">
+        <table class="fn-rs @popupCss">
+            @RenderHeader(viewModel, firstMatch, colspan)
+        </table>
+    </div>
+}
+
+@if (viewModel.VisibleFreeHeader)
+{
+    @Raw("<div class=\"fn-rs-content-scroll\">")
+}
+<table class="fn-rs @popupCss">
+    @if (!viewModel.VisibleFreeHeader)
+    {
+        @RenderHeader(viewModel, firstMatch, colspan)
+    }
+    <tbody>
+        @if (viewModel.Data.Count > 0)
+        {
+            var index = 0;
+            foreach (var group in viewModel.Data)
+            {
+                if (!viewModel.IsPopUp)
+                {
+                    <tr class="data">
+                        <td colspan="@colspan" class="cl-league">@group.Data[0].LeagueName</td>
+                    </tr>
+                }
+
+                foreach (VirtuallySportsViewModel item in group.Data)
+                {
+                    index++;
+                    <tr class="data @item.Color(index, "even", "odd")">
+                        <td class="cl-ko-time" rowspan="2">@Raw(item.KickOffTime)</td>
+                        <td class="cl-match home">
+                            @Raw(item.HomeTeam)&nbsp;
+                            <span style="color:#000; font-weight:normal">@Raw(item.MatchInfo)</span>
+                        </td>
+                        <td class="cl-ht-score">@item.HTHomeScore</td>
+                        <td class="cl-f-score">@item.FinalHomeScore</td>
+                        <td rowspan="2" class="cl-status @item.EventStatusBackground">
+                            <div>@item.EventStatus</div>                           
+                        </td>
+                    </tr>
+                    <tr class="data @item.Color(index, "even", "odd")">                        
+                        <td class="cl-match away @item.AwayWin">
+                            @Raw(item.AwayTeam)
+                        </td>
+                         <td class="cl-ht-score">@item.HTAwayScore</td>
+                         <td class="cl-f-score">@item.FinalAwayScore</td>
+                    </tr>
+                }
+            }
+        }
+        else
+        {
+            <!--NoInfo-->
+            <tr class="row-noinfo">
+                <td colspan="@colspan">@LangResource.NoInfo</td>
+            </tr>
+            <!--/NoInfo-->
+        }
+    </tbody>
+</table>
+@if (viewModel.VisibleFreeHeader)
+{
+    @Raw("</div>")
+}

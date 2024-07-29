@@ -8,10 +8,10 @@
     <AssemblyTitle>Fanex.Result.Core.Base</AssemblyTitle>
     <Product>Fanex.Result.Core.Base</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>3.0.1.3</Version>
-    <InfomationalVersion>3.0.1.3</InfomationalVersion>
+    <Version>3.0.1.5-vs5-01</Version>
+    <InfomationalVersion>3.0.1.5</InfomationalVersion>
     <PackageReleaseNotes>
-    	Update Translation THAI language (#206048)
+    	Support VS 5 - Virtually sports 5 result (#207589)
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>

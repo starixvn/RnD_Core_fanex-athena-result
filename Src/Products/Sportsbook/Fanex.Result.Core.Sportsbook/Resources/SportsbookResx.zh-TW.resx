@@ -444,4 +444,7 @@
   <data name="Runs" xml:space="preserve">
     <value>得分</value>
   </data>
+  <data name="SeriesMatch" xml:space="preserve">
+    <value>系列比賽</value>
+  </data>
 </root>

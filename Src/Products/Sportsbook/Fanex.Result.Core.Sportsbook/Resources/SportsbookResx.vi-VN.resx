@@ -444,4 +444,7 @@
   <data name="Runs" xml:space="preserve">
     <value>Điểm số</value>
   </data>
+  <data name="SeriesMatch" xml:space="preserve">
+    <value>Loạt Trận Đấu</value>
+  </data>
 </root>

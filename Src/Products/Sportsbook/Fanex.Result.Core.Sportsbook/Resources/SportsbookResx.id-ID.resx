@@ -444,4 +444,7 @@
   <data name="Runs" xml:space="preserve">
     <value>Skor</value>
   </data>
+  <data name="SeriesMatch" xml:space="preserve">
+    <value>Pertandingan Seri</value>
+  </data>
 </root>

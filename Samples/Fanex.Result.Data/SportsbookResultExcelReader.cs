@@ -43,6 +43,7 @@
             resultData.NoHTScore = Convert.ToBoolean(Convert.ToInt16(row.GetCell(45).ToString()));
             resultData.MainType = Convert.ToByte(row.GetCell(46).ToString());
             resultData.SubType = Convert.ToInt32(row.GetCell(47).ToString());
+            resultData.SessionTime = Convert.ToInt32(row.GetCell(48).ToString());
 
             return resultData;
         }

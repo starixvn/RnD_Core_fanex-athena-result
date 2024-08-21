@@ -430,4 +430,7 @@
   <data name="NotCaught" xml:space="preserve">
     <value>코트 아님</value>
   </data>
+  <data name="BaseballTotalGames" xml:space="preserve">
+    <value>총 게임</value>
+  </data>
 </root>

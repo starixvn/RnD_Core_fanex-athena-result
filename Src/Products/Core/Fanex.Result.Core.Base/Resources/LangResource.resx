@@ -747,4 +747,28 @@
   <data name="NotCaught" xml:space="preserve">
     <value>Not Caught</value>
   </data>
+  <data name="BaseballGame01" xml:space="preserve">
+    <value>Game 1</value>
+  </data>
+  <data name="BaseballGame02" xml:space="preserve">
+    <value>Game 2</value>
+  </data>
+  <data name="BaseballGame03" xml:space="preserve">
+    <value>Game 3</value>
+  </data>
+  <data name="BaseballGame04" xml:space="preserve">
+    <value>Game 4</value>
+  </data>
+  <data name="BaseballGame05" xml:space="preserve">
+    <value>Game 5</value>
+  </data>
+  <data name="BaseballGame06" xml:space="preserve">
+    <value>Game 6</value>
+  </data>
+  <data name="BaseballGame07" xml:space="preserve">
+    <value>Game 7</value>
+  </data>
+  <data name="BaseballTotalGames" xml:space="preserve">
+    <value>Total Games</value>
+  </data>
 </root>

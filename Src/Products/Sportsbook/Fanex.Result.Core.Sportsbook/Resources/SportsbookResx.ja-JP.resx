@@ -147,4 +147,7 @@
   <data name="Hits" xml:space="preserve">
     <value>安打</value>
   </data>
+  <data name="SeriesMatch" xml:space="preserve">
+    <value>シリーズマッチ</value>
+  </data>
 </root>

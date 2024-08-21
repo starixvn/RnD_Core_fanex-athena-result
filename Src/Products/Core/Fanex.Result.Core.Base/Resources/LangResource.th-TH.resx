@@ -740,4 +740,28 @@
   <data name="LblFTOE" xml:space="preserve">
     <value>คู่/คี่ เต็มเวลา</value>
   </data>
+  <data name="BaseballGame01" xml:space="preserve">
+    <value>เกม 1</value>
+  </data>
+  <data name="BaseballGame02" xml:space="preserve">
+    <value>เกม 2</value>
+  </data>
+  <data name="BaseballGame03" xml:space="preserve">
+    <value>เกม 3</value>
+  </data>
+  <data name="BaseballGame04" xml:space="preserve">
+    <value>เกม 4</value>
+  </data>
+  <data name="BaseballGame05" xml:space="preserve">
+    <value>เกม 5</value>
+  </data>
+  <data name="BaseballGame06" xml:space="preserve">
+    <value>เกม 6</value>
+  </data>
+  <data name="BaseballGame07" xml:space="preserve">
+    <value>เกม 7</value>
+  </data>
+  <data name="BaseballTotalGames" xml:space="preserve">
+    <value>เกมทั้งหมด</value>
+  </data>
 </root>

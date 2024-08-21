@@ -276,4 +276,7 @@
   <data name="Winner" xml:space="preserve">
     <value>优胜者</value>
   </data>
+  <data name="SeriesMatch" xml:space="preserve">
+    <value>系列比赛</value>
+  </data>
 </root>

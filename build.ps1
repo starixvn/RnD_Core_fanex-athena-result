@@ -9,7 +9,7 @@ Write-Host "CreatePackages: $CreatePackages"
 Write-Host "RunTests: $RunTests"
 
 $packageOutputFolder = "$PSScriptRoot\.nupkgs"
-$projectsToBuild = Get-ChildItem "$PSScriptRoot" -Include *Allbet.csproj,*Bitcoin.csproj,*GTCasino.csproj,*Happy5.csproj,*SexyGaming.csproj,*Core.Base.csproj,*Sportsbook.csproj -Exclude *Tests.csproj,*.Example.*.csproj -recurse
+$projectsToBuild = Get-ChildItem "$PSScriptRoot" -Include *Fanex.Result.Core.Base.csproj -Exclude *Tests.csproj,*.Example.*.csproj -recurse
 $testsToRun = Get-ChildItem "$PSScriptRoot" -Include *.Tests.csproj -Recurse
 
 if ($RunTests) {

@@ -568,7 +568,7 @@
     <value>(中)</value>
   </data>
   <data name="Game01" xml:space="preserve">
-    <value> 第一局</value>
+    <value>第一局</value>
   </data>
   <data name="Game02" xml:space="preserve">
     <value>第二局</value>
@@ -743,5 +743,29 @@
   </data>
   <data name="Inns2" xml:space="preserve">
     <value>次局</value>
+  </data>
+  <data name="BaseballGame01" xml:space="preserve">
+    <value>第一場比賽</value>
+  </data>
+  <data name="BaseballGame02" xml:space="preserve">
+    <value>第二場比賽</value>
+  </data>
+  <data name="BaseballGame03" xml:space="preserve">
+    <value>第三場比賽</value>
+  </data>
+  <data name="BaseballGame04" xml:space="preserve">
+    <value>第四場比賽</value>
+  </data>
+  <data name="BaseballGame05" xml:space="preserve">
+    <value>第五場比賽</value>
+  </data>
+  <data name="BaseballGame06" xml:space="preserve">
+    <value>第六場比賽</value>
+  </data>
+  <data name="BaseballGame07" xml:space="preserve">
+    <value>第七場比賽</value>
+  </data>
+  <data name="BaseballTotalGames" xml:space="preserve">
+    <value>總局數</value>
   </data>
 </root>

@@ -741,4 +741,28 @@
   <data name="LblFTOE" xml:space="preserve">
     <value>Toàn trận Chẵn/Lẻ</value>
   </data>
+  <data name="BaseballGame01" xml:space="preserve">
+    <value>Trận 1</value>
+  </data>
+  <data name="BaseballGame02" xml:space="preserve">
+    <value>Trận 2</value>
+  </data>
+  <data name="BaseballGame03" xml:space="preserve">
+    <value>Trận 3</value>
+  </data>
+  <data name="BaseballGame04" xml:space="preserve">
+    <value>Trận 4</value>
+  </data>
+  <data name="BaseballGame05" xml:space="preserve">
+    <value>Trận 5</value>
+  </data>
+  <data name="BaseballGame06" xml:space="preserve">
+    <value>Trận 6</value>
+  </data>
+  <data name="BaseballGame07" xml:space="preserve">
+    <value>Trận 7</value>
+  </data>
+  <data name="BaseballTotalGames" xml:space="preserve">
+    <value>Tổng trận thắng</value>
+  </data>
 </root>

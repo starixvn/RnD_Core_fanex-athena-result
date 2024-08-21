@@ -8,10 +8,10 @@
     <AssemblyTitle>Fanex.Result.Core.Base</AssemblyTitle>
     <Product>Fanex.Result.Core.Base</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>3.0.0.7-baseball-07</Version>
-    <InfomationalVersion>3.0.0.7</InfomationalVersion>
+    <Version>3.0.1.1</Version>
+    <InfomationalVersion>3.0.1.1</InfomationalVersion>
     <PackageReleaseNotes>
-    	Support Baseball AIO (#207707)
+    	Update Translation for Baseball AIO Phase 2(#209584)
     </PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
@@ -21,5 +21,18 @@
     <PackageReference Include="NPOI" Version="2.6.1" />
     <PackageReference Include="RazorEngine" Version="3.7.0" />    
     <PackageReference Include="System.Runtime.Caching" Version="6.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources\LangResource.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>LangResource.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\LangResource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LangResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

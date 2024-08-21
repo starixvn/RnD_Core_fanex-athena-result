@@ -106,6 +106,78 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Game 1.
+        /// </summary>
+        public static string BaseballGame01 {
+            get {
+                return ResourceManager.GetString("BaseballGame01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game 2.
+        /// </summary>
+        public static string BaseballGame02 {
+            get {
+                return ResourceManager.GetString("BaseballGame02", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game 3.
+        /// </summary>
+        public static string BaseballGame03 {
+            get {
+                return ResourceManager.GetString("BaseballGame03", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game 4.
+        /// </summary>
+        public static string BaseballGame04 {
+            get {
+                return ResourceManager.GetString("BaseballGame04", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game 5.
+        /// </summary>
+        public static string BaseballGame05 {
+            get {
+                return ResourceManager.GetString("BaseballGame05", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game 6.
+        /// </summary>
+        public static string BaseballGame06 {
+            get {
+                return ResourceManager.GetString("BaseballGame06", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Game 7.
+        /// </summary>
+        public static string BaseballGame07 {
+            get {
+                return ResourceManager.GetString("BaseballGame07", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Total Games.
+        /// </summary>
+        public static string BaseballTotalGames {
+            get {
+                return ResourceManager.GetString("BaseballTotalGames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bet Type.
         /// </summary>
         public static string BetType {
@@ -196,7 +268,7 @@ namespace Fanex.Result.Core.Base.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to E.I.
+        ///   Looks up a localized string similar to E.I..
         /// </summary>
         public static string EI {
             get {

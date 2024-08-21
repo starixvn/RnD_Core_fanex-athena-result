@@ -137,7 +137,7 @@
             var localResource = SportsbookResx.ResourceManager.GetString(localResourceKey);
             var replaceText = GetNoTextForEnglish(resourceId);
 
-            return localResource.Replace("X ", $"{replaceText} ");
+            return localResource.Replace("X", $"{replaceText}");
         }
 
         private string GetNoTextForEnglish(string resourceId)

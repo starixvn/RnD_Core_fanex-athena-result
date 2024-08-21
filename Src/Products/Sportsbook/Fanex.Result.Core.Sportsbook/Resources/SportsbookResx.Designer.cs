@@ -907,6 +907,15 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Series Match.
+        /// </summary>
+        public static string SeriesMatch {
+            get {
+                return ResourceManager.GetString("SeriesMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 7th.
         /// </summary>
         public static string SeventhNumber {

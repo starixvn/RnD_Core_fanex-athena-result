@@ -16,8 +16,6 @@
 
     public sealed class BaseBallViewModel : SportsbookBaseViewModel, IResultViewModel
     {
-        readonly DateTime cutOfDate = new DateTime(2024, 8, 1);
-
         public BaseBallViewModel(Sportsbook sportbook, ResultSetting setting)
             : this(sportbook, setting, null)
         {
@@ -41,30 +39,71 @@
 
         public override bool VisibleGameDetail => MoreResultDetail.Any();
 
-        public string AwayExtraTime => UsingOldData() ?
-            GetOverTimeScore(false) :
-            Score(BaseballResourceID.ExtraTime, isHome: false);
+        public string AwayExtraTime
+        {
+            get
+            {
+                var value = Score(BaseballResourceID.ExtraTime, isHome: true);
+                return value.Equals(ConstantValue.Hyphen) ? GetOverTimeScore(false) : value;
+            }
+        }
 
-        public string HomeExtraTime => UsingOldData() ?
-            GetOverTimeScore(true) :
-            Score(BaseballResourceID.ExtraTime, isHome: true);
+        public string HomeExtraTime
+        {
+            get
+            {
+                var value = Score(BaseballResourceID.ExtraTime, isHome: true);
 
-        public string HomeHits => Score(BaseballResourceID.Hits, isHome: true);
+                return value.Equals(ConstantValue.Hyphen) ? GetOverTimeScore(true) : value;
+            }
+        }
 
-        public string AwayHits => Score(BaseballResourceID.Hits, isHome: false);
+        public string HomeHits
+        {
+            get
+            {
+                var value = Score(BaseballResourceID.Hits, isHome: true);
 
-        public string FinalAwayScore => UsingOldData() ?
-            GetScore(SPORTBOOK.FinalAwayScore) :
-            Score(BaseballResourceID.FinalScore, isHome: false);
+                return value.Equals(ConstantValue.Hyphen) ? GetScore(SPORTBOOK.HtHomeScore) : value;
+            }
+        }
 
-        public string FinalHomeScore => UsingOldData() ?
-            GetScore(SPORTBOOK.FinalHomeScore) :
-            Score(BaseballResourceID.FinalScore, isHome: true);
+        public string AwayHits
+        {
+            get
+            {
+                var value = Score(BaseballResourceID.Hits, isHome: false);
+
+                return value.Equals(ConstantValue.Hyphen) ? GetScore(SPORTBOOK.HtAwayScore) : value;
+            }
+        }
+
+        public string FinalAwayScore
+        {
+            get
+            {
+                var value = Score(BaseballResourceID.FinalScore, isHome: false);
+
+                return value.Equals(ConstantValue.Hyphen) ? GetScore(SPORTBOOK.FinalAwayScore) : value;
+            }
+        }
+
+        public string FinalHomeScore
+        {
+            get
+            {
+                var value = Score(BaseballResourceID.FinalScore, isHome: true);
+
+                return value.Equals(ConstantValue.Hyphen) ? GetScore(SPORTBOOK.FinalHomeScore) : value;
+            }
+        }
 
         public override string GetHomeAwaySet(int index, bool isHome)
-        => UsingOldData() ?
-            GetHomeAwaySetByOldData(index - 1, isHome) :
-            Score($"010{index}", isHome);
+        {
+            var value = Score($"010{index}", isHome);
+
+            return value.Equals(ConstantValue.Hyphen) ? GetHomeAwaySetByOldData(index - 1, isHome) : value;
+        }
 
         private string GetHomeAwaySetByOldData(int index, bool isHome)
         {
@@ -117,8 +156,5 @@
 
             return isHome ? item.HomeValue : item.AwayValue;
         }
-
-        private bool UsingOldData()
-        => SPORTBOOK.EventDate < cutOfDate;
     }
 }

@@ -8,7 +8,7 @@
     <AssemblyTitle>Fanex.Result.Core.Sportsbook</AssemblyTitle>
     <Product>Fanex.Result.Core.Sportsbook</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>2.0.1.0-baseball-12</Version>
+    <Version>2.0.1.0-baseball-14</Version>
     <InfomationalVersion>2.0.1.0</InfomationalVersion>
     <PackageReleaseNotes>
       Support Baseball AIO (#207707)

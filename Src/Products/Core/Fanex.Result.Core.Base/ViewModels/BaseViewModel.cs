@@ -20,7 +20,8 @@
             { "ja-JP" },
             { "th-TH" },
             { "ko-KR" },
-            { "vi-VN" }
+            { "vi-VN" },
+            { "id-ID" }
         };
 
         protected BaseViewModel(ResultSetting setting) : this(setting, null)

@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.1;net7.0</TargetFrameworks> 
+    <OutputType>Library</OutputType>
+    <SonarQubeTestProject>True</SonarQubeTestProject>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <AssemblyTitle>Fanex.Result.Core.Racing.Tests</AssemblyTitle>
+    <Company>Microsoft</Company>
+    <Product>Fanex.Result.Core.Racing.Tests</Product>
+    <Copyright>Copyright © Microsoft 2016</Copyright>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj" />
+    <ProjectReference Include="..\Fanex.Result.Core.Racing\Fanex.Result.Core.Racing.csproj" />
+    <ProjectReference Include="..\..\Core\Fanex.Result.Core.Tests.Utils\Fanex.Result.Core.Tests.Utils.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestTemplate\html\Racing.html" />
+    <Content Include="TestTemplate\excel\VSHRacing.xls" />
+    <Content Include="TestTemplate\excel\VSSpeedWay.xls" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\..\..\..\packages\SonarAnalyzer.CSharp.7.8.0.7320\analyzers\Google.Protobuf.dll" />
+    <Analyzer Include="..\..\..\..\packages\SonarAnalyzer.CSharp.7.8.0.7320\analyzers\SonarAnalyzer.CSharp.dll" />
+    <Analyzer Include="..\..\..\..\packages\SonarAnalyzer.CSharp.7.8.0.7320\analyzers\SonarAnalyzer.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Castle.Core" Version="4.2.0" />
+    <PackageReference Include="NSubstitute" Version="3.1.0" />
+    <PackageReference Include="NUnit" Version="3.11.0" />    
+  </ItemGroup>
+</Project>

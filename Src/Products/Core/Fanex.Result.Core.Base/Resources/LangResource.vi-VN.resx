@@ -765,4 +765,13 @@
   <data name="BaseballTotalGames" xml:space="preserve">
     <value>Tổng trận thắng</value>
   </data>
+  <data name="EventTime" xml:space="preserve">
+    <value>Thời Gian Sự Kiện</value>
+  </data>
+  <data name="Lane" xml:space="preserve">
+    <value>Làn đua</value>
+  </data>
+  <data name="RacerName" xml:space="preserve">
+    <value>Tên Đội Đua</value>
+  </data>
 </root>

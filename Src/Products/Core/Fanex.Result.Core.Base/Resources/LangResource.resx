@@ -756,6 +756,15 @@
   <data name="BaseballGame03" xml:space="preserve">
     <value>Game 3</value>
   </data>
+  <data name="EventTime" xml:space="preserve">
+    <value>Event Time</value>
+  </data>
+  <data name="RacerName" xml:space="preserve">
+    <value>Racer Name</value>
+  </data>
+  <data name="Lane" xml:space="preserve">
+    <value>Lane</value>
+  </data>
   <data name="BaseballGame04" xml:space="preserve">
     <value>Game 4</value>
   </data>

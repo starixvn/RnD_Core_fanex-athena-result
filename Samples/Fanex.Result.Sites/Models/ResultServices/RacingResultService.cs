@@ -3,55 +3,36 @@
     using System;
     using System.Collections.Generic;
     using System.Data;
+    using System.Linq;
     using Fanex.Data;
     using Fanex.Data.Repository;
-    using Fanex.Result.Core.Racing.DTO;
+    using Fanex.Result.Core.VirtualRacing.DTO;
+    using Fanex.Result.Data;
 
-    public class RacingResultService : IResultService<Racing>
+    public class RacingResultService : IResultService<VirtualRacing>
     {
-        public IEnumerable<Racing> GetResult(ICriteria criteria)
-        {
-            var result = new List<Racing>();
-
-            using (var db = new ObjectDb(criteria.GetSettingKey()))
-            {
-                using (var reader = db.ExecuteReader(criteria.GetSpParams()))
-                {
-                    while (reader.Read())
-                    {
-                        result.Add(BindData(reader));
-                    }
-                }
-            }
-
-            return result;
-        }
-
-        private static Racing BindData(IDataReader reader)
-        {
-            return new Racing
-            {
-                LeagueId = int.Parse(reader["meetingid"].ToString()),
-                EngineId = reader["HorseId"].ToString(),
-                EngineNo = reader["HorseNo"].ToString(),
-                IsFavor = reader["IsFavor"] != DBNull.Value && reader["IsFavor"].ToString().Equals("1"),
-                IsSCR = reader["IsSCR"] != DBNull.Value && reader["IsSCR"].ToString().Equals("1"),
-                Place = int.Parse(reader["place"].ToString()),
-                PlaceOdds = decimal.Parse(reader["placeodds"].ToString()),
-                WinOdds = decimal.Parse(reader["odds"].ToString()),
-                RaceName = reader["racename"] != DBNull.Value ? int.Parse(reader["racename"].ToString()) : 0,
-                KickOffTime = reader["kickofftime"] != DBNull.Value ? DateTime.Parse(reader["kickofftime"].ToString()) : DateTime.MinValue,
-                Favourite = reader["IsFavor"] != DBNull.Value ? reader["IsFavor"].ToString() : string.Empty,
-                RowCount = int.Parse(reader["rowcount"].ToString()),
-                SCROfMatch = reader["SCR"].ToString(),
-                TFOfMatch = reader["TF"].ToString(),
-                Status = reader["status"].ToString()
-            };
-        }
-
-        public IEnumerable<Racing> GetResultFromExcel(string filePath)
+        public IEnumerable<VirtualRacing> GetResult(ICriteria criteria)
         {
             throw new NotImplementedException();
+        }
+
+        private static VirtualRacing BindData(IDataReader reader)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<VirtualRacing> GetResultFromExcel(string filePath)
+        {
+            var racing = RacingResultExcelReader.CreateInstance(filePath).GetResultData();
+
+            var details = RacingDetailResultExcelReader.CreateInstance(filePath.Replace("VirtualHorseRacing", "VirtualHorseRacingDetail")).GetResultData().ToList();
+
+            foreach (var item in racing)
+            {
+                item.Details = details.Where(i => i.EventId == item.EventId).ToList();
+            }
+
+            return racing;
         }
     }
 }

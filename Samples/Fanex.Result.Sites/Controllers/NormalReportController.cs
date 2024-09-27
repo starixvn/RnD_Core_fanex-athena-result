@@ -62,6 +62,7 @@
                 case SportType.VirtualMotorRacing:
                 case SportType.VirtualSpeedway:
                 case SportType.VirtualCycling:
+                case SportType.VirtualDogRacing:                
                     htmlResult = ResultEngine.HtmlParser(
                         new RacingResultData().GetNormalResult(sportId, date, leagueId).ToList(), resultSetting);
                     break;

@@ -14,5 +14,8 @@
         public const string HAPPY5 = "Happy5";
         public const string BITCOIN = "Bitcoin";
         public const string LEAPGAMING = "LeapGaming";
+
+        public const string VirtualRacing = "VirtualRacing";
     }
 }
+

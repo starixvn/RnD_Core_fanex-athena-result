@@ -3,6 +3,7 @@
     using System;
     using Base;
     using DataDomain;
+    using Org.BouncyCastle.Crypto.Prng;
 
     public sealed class Validate : IValidate
     {
@@ -44,12 +45,15 @@
         {
             switch (sportType)
             {
-                case SportType.VirtualHorseRacing:
                 case SportType.VirtualGreyhounds:
                 case SportType.VirtualMotorRacing:
                 case SportType.VirtualSpeedway:
                 case SportType.VirtualCycling:
                     return dtoName == DTOType.RACING;
+
+                case SportType.VirtualHorseRacing:
+                case SportType.VirtualDogRacing:
+                    return dtoName == DTOType.VirtualRacing;
 
                 case SportType.LeapGamingVirtualSports:
                     return dtoName == DTOType.LEAPGAMING;

@@ -557,4 +557,13 @@
   <data name="BaseballTotalGames" xml:space="preserve">
     <value>总局数</value>
   </data>
+  <data name="EventTime" xml:space="preserve">
+    <value>赛事时间</value>
+  </data>
+  <data name="Lane" xml:space="preserve">
+    <value>赛道</value>
+  </data>
+  <data name="RacerName" xml:space="preserve">
+    <value>赛车手姓名</value>
+  </data>
 </root>

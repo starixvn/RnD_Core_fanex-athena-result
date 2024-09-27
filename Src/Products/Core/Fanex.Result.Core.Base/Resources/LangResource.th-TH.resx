@@ -764,4 +764,13 @@
   <data name="BaseballTotalGames" xml:space="preserve">
     <value>เกมทั้งหมด</value>
   </data>
+  <data name="EventTime" xml:space="preserve">
+    <value>เวลากิจกรรม</value>
+  </data>
+  <data name="Lane" xml:space="preserve">
+    <value>เลน</value>
+  </data>
+  <data name="RacerName" xml:space="preserve">
+    <value>ชื่อผู้เข้าแข่งขัน</value>
+  </data>
 </root>

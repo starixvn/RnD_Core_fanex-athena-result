@@ -19,6 +19,8 @@
         {
             return new List<Sport>
             {
+                new Sport { Id = 198, Name = "Virtual Horse Racing" },
+                new Sport { Id = 177, Name = "Virtual Dog Racing" },
                 new Sport { Id = 8, Name = "Baseball" },
                 new Sport { Id = 188, Name = "VS Cock Fighting" },
                 new Sport { Id = 6, Name = "Volleyball" },

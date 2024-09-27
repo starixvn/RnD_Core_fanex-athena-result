@@ -199,6 +199,9 @@
         [StringValue("Other")]
         VirtualSoccerEuroCup = 197,
 
+        [StringValue("VirtualRacing")]
+        VirtualDogRacing = 177,
+
         [StringValue("Other")]
         VirtualFootballCup = 178,
 
@@ -206,10 +209,7 @@
         VirtualFootballLeague = 179,        
         #endregion Other
 
-        #region VirtualSport
-
-        [StringValue("VSHRacing")]
-        VirtualHorseRacing = 181,
+        #region VirtualSport       
 
         [StringValue("VSHRacing")]
         VirtualGreyhounds = 182,
@@ -231,6 +231,9 @@
 
         [StringValue("VSBasketBall")]
         VirtualBasketBall = 193,
+
+        [StringValue("VirtualRacing")]
+        VirtualHorseRacing = 198,
 
         [StringValue("LeapGaming")]
         LeapGamingVirtualSports = 231,

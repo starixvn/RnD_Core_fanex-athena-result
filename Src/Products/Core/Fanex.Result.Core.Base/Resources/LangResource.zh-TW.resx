@@ -768,4 +768,13 @@
   <data name="BaseballTotalGames" xml:space="preserve">
     <value>總局數</value>
   </data>
+  <data name="EventTime" xml:space="preserve">
+    <value>賽事時間</value>
+  </data>
+  <data name="Lane" xml:space="preserve">
+    <value>賽道</value>
+  </data>
+  <data name="RacerName" xml:space="preserve">
+    <value>賽車手姓名</value>
+  </data>
 </root>

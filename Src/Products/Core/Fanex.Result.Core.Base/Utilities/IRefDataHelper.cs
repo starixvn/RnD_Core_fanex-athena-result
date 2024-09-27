@@ -16,6 +16,10 @@
 
         string GetTeamName(int teamId, string lang, string defaultValue);
 
+        string GetTeam3rdName(string teamId, string lang, string defaultValue);
+
+        string GetTeam3rdName(int teamId, string lang, string defaultValue);
+        
         string GetLeagueName(int leagueId, int leagueGroupId, string lang, string defaultValue);
 
         string GetLeagueName(int leagueId, string lang, string defaultValue);

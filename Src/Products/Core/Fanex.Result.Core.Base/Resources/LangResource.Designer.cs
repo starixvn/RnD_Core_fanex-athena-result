@@ -19,7 +19,7 @@ namespace Fanex.Result.Core.Base.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class LangResource {
@@ -291,6 +291,15 @@ namespace Fanex.Result.Core.Base.Resources {
         public static string Event {
             get {
                 return ResourceManager.GetString("Event", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Event Time.
+        /// </summary>
+        public static string EventTime {
+            get {
+                return ResourceManager.GetString("EventTime", resourceCulture);
             }
         }
         
@@ -624,6 +633,15 @@ namespace Fanex.Result.Core.Base.Resources {
         public static string KOInRound {
             get {
                 return ResourceManager.GetString("KOInRound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lane.
+        /// </summary>
+        public static string Lane {
+            get {
+                return ResourceManager.GetString("Lane", resourceCulture);
             }
         }
         
@@ -1317,6 +1335,15 @@ namespace Fanex.Result.Core.Base.Resources {
         public static string Race {
             get {
                 return ResourceManager.GetString("Race", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Racer Name.
+        /// </summary>
+        public static string RacerName {
+            get {
+                return ResourceManager.GetString("RacerName", resourceCulture);
             }
         }
         

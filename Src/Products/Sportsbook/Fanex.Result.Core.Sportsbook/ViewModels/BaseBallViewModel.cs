@@ -45,7 +45,7 @@
         {
             get
             {
-                var value = Score(BaseballResourceID.ExtraTime, isHome: true);
+                var value = Score(BaseballResourceID.ExtraTime, isHome: false);
                 return value.Equals(ConstantValue.Hyphen) ? GetOverTimeScore(false) : value;
             }
         }

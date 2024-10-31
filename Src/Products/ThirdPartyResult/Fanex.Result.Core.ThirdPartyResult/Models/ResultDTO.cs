@@ -44,5 +44,7 @@
         public string GMT { get; set; }
 
         public string Location { get; set; }
+
+        public string Site { get; set; }
     }
 }

@@ -163,7 +163,8 @@
                 Platform = result.Platform,
                 DarkMode = result.IsDarkMode,
                 GMT = result.GMT,
-                Location = result.Location
+                Location = result.Location,
+                Site = result.Site
             };
         }
 

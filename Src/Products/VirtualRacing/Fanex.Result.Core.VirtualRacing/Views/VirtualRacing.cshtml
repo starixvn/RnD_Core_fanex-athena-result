@@ -8,41 +8,42 @@
     var viewModel = (RazorBinderModel)Model;
     var colspan = 6;
     var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
-}
 
-@helper RenderHeader(RazorBinderModel viewModel, int colspan)
-{
-    <thead>
-        @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
-        {
-            var item = ((GroupData)viewModel.Data[0]).Data[0];
-            <tr class="row-title">
-                <th class="cl-title" colspan="@colspan">
-                    <span class="leagueName">@item.LeagueName</span>
+
+    void RenderHeader(RazorBinderModel viewModel, int colspan)
+    {
+        <thead>
+            @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+            {
+                var item = ((GroupData)viewModel.Data[0]).Data[0];
+                <tr class="row-title">
+                    <th class="cl-title" colspan="@colspan">
+                        <span class="leagueName">@item.LeagueName</span>
+                    </th>
+                </tr>
+            }
+            <tr class="header">
+                <th class="cl-ko-time">
+                    @LangResource.EventTime
+                </th>
+                <th class="cl-match home">
+                    @LangResource.Race
+                </th>
+                <th class="cl-place">
+                    @LangResource.Place
+                </th>
+                <th class="cl-win">
+                    @LangResource.Lane
+                </th>
+                <th class="cl-race-name">
+                    @LangResource.RacerName
+                </th>
+                <th class="cl-status">
+                    @LangResource.Status
                 </th>
             </tr>
-        }
-        <tr class="header">
-            <th class="cl-ko-time">
-                @LangResource.EventTime
-            </th>
-            <th class="cl-match home">
-                @LangResource.Race
-            </th>
-            <th class="cl-place">
-                @LangResource.Place
-            </th>
-            <th class="cl-win">
-                @LangResource.Lane
-            </th>
-            <th class="cl-race-name">
-                @LangResource.RacerName
-            </th>
-            <th class="cl-status">
-                @LangResource.Status
-            </th>
-        </tr>
-    </thead>
+        </thead>
+    }
 }
 
 @if (viewModel.VisibleFreeHeader)
@@ -59,7 +60,7 @@
 <table class="fn-rs @popupCss racing">
     @if (!viewModel.VisibleFreeHeader)
     {
-        @RenderHeader(viewModel, colspan)
+        RenderHeader(viewModel, colspan)
     }
     <tbody>
         @if (viewModel.Data.Count > 0)

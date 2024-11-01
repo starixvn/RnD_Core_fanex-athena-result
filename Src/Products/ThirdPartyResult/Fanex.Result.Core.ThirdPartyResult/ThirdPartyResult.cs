@@ -134,6 +134,7 @@
                     { "GMT" , resultRequest.GMT},
                     { "Location" , resultRequest.Location},
                     { "Site" , resultRequest.Site},
+                    { "TransDesc" , resultRequest.TransDesc}
                 };
             }
         }
@@ -165,7 +166,8 @@
                 DarkMode = result.IsDarkMode,
                 GMT = result.GMT,
                 Location = result.Location,
-                Site = result.Site
+                Site = result.Site,
+                TransDesc = result.TransDesc
             };
         }
 

@@ -8,9 +8,9 @@
     <AssemblyTitle>Fanex.Result.Core.ThirdParty</AssemblyTitle>
     <Product>Fanex.Result.Core.ThirdParty</Product>
     <Copyright>Copyright ©  2021</Copyright>
-    <Version>2.0.0.3-beta-01</Version>    
-    <InfomationalVersion>2.0.0.3</InfomationalVersion>
-    <PackageReleaseNotes>Add new paramter Site in GET request for Sexy Gaming product (#212692)</PackageReleaseNotes>
+    <Version>2.0.0.4-beta-01</Version>
+    <InfomationalVersion>2.0.0.4</InfomationalVersion>
+    <PackageReleaseNotes>Add new paramter TransDesc in request for Jili product (#212814)</PackageReleaseNotes>
   </PropertyGroup>
   <ItemGroup>
     

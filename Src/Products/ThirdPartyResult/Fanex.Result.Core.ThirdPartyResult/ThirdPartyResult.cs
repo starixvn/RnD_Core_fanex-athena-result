@@ -133,6 +133,7 @@
                     { "DarkMode" , resultRequest.IsDarkMode},
                     { "GMT" , resultRequest.GMT},
                     { "Location" , resultRequest.Location},
+                    { "Site" , resultRequest.Site},
                 };
             }
         }

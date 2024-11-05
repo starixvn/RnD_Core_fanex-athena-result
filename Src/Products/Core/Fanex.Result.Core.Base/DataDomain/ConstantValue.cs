@@ -39,6 +39,10 @@
 
         public const string Completed = "Completed";
 
+        public const string Ended = "Ended";
+
+        public const string Running = "Running";
+        
         public const string N = "n";
 
         public const string Home = "h";

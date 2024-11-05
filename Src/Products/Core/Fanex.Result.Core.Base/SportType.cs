@@ -325,6 +325,9 @@
 
         
         [StringValue("VirtuallySports")]
-        VirtuallySports = 147
+        VirtuallySports = 147,
+
+        [StringValue("BetbyBasketball")]
+        BetbyBasketball = 134
     }
 }

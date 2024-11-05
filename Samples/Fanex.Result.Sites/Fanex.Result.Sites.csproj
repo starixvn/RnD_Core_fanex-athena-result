@@ -109,8 +109,8 @@
     <Reference Include="Fanex.Result.Core.Allbet, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Result.Core.AllBetCasino.2.0.0-beta-05\lib\net461\Fanex.Result.Core.Allbet.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Result.Core.Base, Version=3.0.0.8, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Result.Core-NPOI.2.0.6.3.0.0.8-vs5-02\lib\net461\Fanex.Result.Core.Base.dll</HintPath>
+    <Reference Include="Fanex.Result.Core.Base, Version=3.0.1.4, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core-NPOI.2.0.6.3.0.1.4-vs6-02\lib\net461\Fanex.Result.Core.Base.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.Bitcoin, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Result.Core-Bitcoin.2.0.0\lib\net461\Fanex.Result.Core.Bitcoin.dll</HintPath>
@@ -139,8 +139,8 @@
     <Reference Include="Fanex.Result.Core.SexyGaming, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Fanex.Result.Core.SexyGaming.2.0.0\lib\net461\Fanex.Result.Core.SexyGaming.dll</HintPath>
     </Reference>
-    <Reference Include="Fanex.Result.Core.Sportsbook, Version=2.0.1.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Fanex.Result.Core-Sportsbook.2.0.1.1-vs5-01\lib\net461\Fanex.Result.Core.Sportsbook.dll</HintPath>
+    <Reference Include="Fanex.Result.Core.Sportsbook, Version=2.0.1.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Fanex.Result.Core-Sportsbook.2.0.1.5-vs6-01\lib\net461\Fanex.Result.Core.Sportsbook.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.Result.Core.VirtualHorseRacing">
       <HintPath>..\..\Src\Products\VirtualHorseRacing\Fanex.Result.Core.VirtualHorseRacing\bin\Debug\net461\Fanex.Result.Core.VirtualHorseRacing.dll</HintPath>
@@ -1061,6 +1061,9 @@
     <Content Include="App_Data\Result_Data\VirtualHorseRacing.xls" />
     <Content Include="App_Data\Result_Data\VirtualHorseRacingDetail.xls" />
     <Content Include="App_Data\Fanex.Result\VirtualRacing.xls" />
+    <Content Include="App_Data\Result_Data\BetbyBasketBall.xls" />
+    <Content Include="App_Data\Result_Data\BetbyBasketBallDetail.xls" />
+    <Content Include="App_Data\Fanex.Result\BetbyBasketball.xls" />
     <None Include="BundleTransformer.Configuration.xsd">
       <SubType>Designer</SubType>
     </None>

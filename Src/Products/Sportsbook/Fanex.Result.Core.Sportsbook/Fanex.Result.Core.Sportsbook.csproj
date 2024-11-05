@@ -8,10 +8,10 @@
     <AssemblyTitle>Fanex.Result.Core.Sportsbook</AssemblyTitle>
     <Product>Fanex.Result.Core.Sportsbook</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>2.0.1.8-series-01</Version>
-    <InfomationalVersion>2.0.1.6</InfomationalVersion>
+    <Version>2.0.2.0-vs6-01</Version>
+    <InfomationalVersion>2.0.2.0</InfomationalVersion>
     <PackageReleaseNotes>
-      Exporting Away home score for Soccer is wrong (#214909)
+      Support Betby Baseball - VS6 (#212546)
     </PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
@@ -68,9 +68,10 @@
     <EmbeddedResource Include="Views\Bandy.cshtml" />
     <EmbeddedResource Include="Views\VSCockFighting.cshtml" />
     <EmbeddedResource Include="Views\VirtuallySports.cshtml" />
+    <EmbeddedResource Include="Views\BetbyBasketball.cshtml" />    
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Fanex.Result.Core-NPOI.2.0.6" Version="3.0.1.5-vs5-01" />
+    <PackageReference Include="Fanex.Result.Core-NPOI.2.0.6" Version="3.0.1.7-vs6-01" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Resources\SportsbookResx.Designer.cs">

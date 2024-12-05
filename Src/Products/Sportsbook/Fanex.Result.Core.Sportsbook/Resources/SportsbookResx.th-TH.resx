@@ -444,4 +444,34 @@
   <data name="SeriesMatch" xml:space="preserve">
     <value>การแข่งขันซีรีส์</value>
   </data>
+  <data name="Abandoned0101" xml:space="preserve">
+    <value>ยกเลิกอินนิ่งที่ 1</value>
+  </data>
+  <data name="Abandoned0102" xml:space="preserve">
+    <value>ยกเลิกอินนิ่งที่ 2</value>
+  </data>
+  <data name="Abandoned0103" xml:space="preserve">
+    <value>ยกเลิกอินนิ่งที่ 3</value>
+  </data>
+  <data name="Abandoned0104" xml:space="preserve">
+    <value>ยกเลิกอินนิ่งที่ 4</value>
+  </data>
+  <data name="Abandoned0105" xml:space="preserve">
+    <value>ยกเลิกอินนิ่งที่ 5</value>
+  </data>
+  <data name="Abandoned0106" xml:space="preserve">
+    <value>ยกเลิกอินนิ่งที่ 6</value>
+  </data>
+  <data name="Abandoned0107" xml:space="preserve">
+    <value>ยกเลิกอินนิ่งที่ 7</value>
+  </data>
+  <data name="Abandoned0108" xml:space="preserve">
+    <value>ยกเลิกอินนิ่งที่ 8</value>
+  </data>
+  <data name="Abandoned0109" xml:space="preserve">
+    <value>ยกเลิกอินนิ่งที่ 9</value>
+  </data>
+  <data name="AbandonedEI" xml:space="preserve">
+    <value>ยกเลิกช่วงต่อเวลา</value>
+  </data>
 </root>

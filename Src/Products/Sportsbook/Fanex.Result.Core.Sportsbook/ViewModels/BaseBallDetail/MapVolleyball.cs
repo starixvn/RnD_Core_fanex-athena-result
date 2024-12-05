@@ -50,24 +50,30 @@
 
         protected override MapBaseballResult MapGameValueByStatusId(MapBaseballResult item, GameDetail detailItem)
         {
-            var newItem = base.MapGameValueByStatusId(item, detailItem);
-
-            newItem.HomeValue = string.IsNullOrEmpty(newItem.HomeValue) ? ConstantValue.Hyphen : newItem.HomeValue;
-            newItem.AwayValue = string.IsNullOrEmpty(newItem.AwayValue) ? ConstantValue.Hyphen : newItem.AwayValue;
-
-            if (detailItem.SettlementStatusID == EventStatusID.RunningSettlementStatusID)
+            switch (detailItem.SettlementStatusID)
             {
-                newItem.HomeValue = ConstantValue.Hyphen;
-                newItem.AwayValue = ConstantValue.Hyphen;
+                case EventStatusID.CompletedSettlementStatusID:
+                    MapGameValueByPattern(item, detailItem);
+                    break;
+
+                case EventStatusID.RefundSettlementStatusID:
+                    item.HomeValue = LangResource.Refund;
+                    item.AwayValue = LangResource.Refund;
+                    break;
+                case EventStatusID.RefundWithSettleDetermined:
+                    detailItem.HomeValue = detailItem.OtherInfo == "A" && !string.IsNullOrEmpty(detailItem.HomeValue) ? "X" : detailItem.HomeValue;
+                    MapGameValueByPattern(item, detailItem);
+                    break;
+                default:
+                    item.HomeValue = ConstantValue.Hyphen;
+                    item.AwayValue = ConstantValue.Hyphen;
+                    break;
             }
 
-            if (detailItem.SettlementStatusID == EventStatusID.RefundSettlementStatusID)
-            {
-                newItem.HomeValue = LangResource.Refund;
-                newItem.AwayValue = LangResource.Refund;
-            }
+            item.HomeValue = string.IsNullOrEmpty(item.HomeValue) ? ConstantValue.Hyphen : item.HomeValue;
+            item.AwayValue = string.IsNullOrEmpty(item.AwayValue) ? ConstantValue.Hyphen : item.AwayValue;
 
-            return newItem;
+            return item;
         }
 
         protected override void MapGameValueByPattern(MapBaseballResult item, GameDetail detailItem)

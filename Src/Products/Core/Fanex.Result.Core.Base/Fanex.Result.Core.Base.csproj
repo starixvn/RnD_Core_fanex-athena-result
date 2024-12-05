@@ -8,10 +8,10 @@
     <AssemblyTitle>Fanex.Result.Core.Base</AssemblyTitle>
     <Product>Fanex.Result.Core.Base</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>3.0.1.7-vs6-01</Version>
-    <InfomationalVersion>3.0.1.7</InfomationalVersion>
+    <Version>3.0.1.8-baseball-01</Version>
+    <InfomationalVersion>3.0.1.8</InfomationalVersion>
     <PackageReleaseNotes>
-    	Support VS 6 - Betby Basketball (#212546)
+    	Support Baseball pharse 2.2 (#214733)
     </PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>

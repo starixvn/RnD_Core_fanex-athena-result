@@ -73,7 +73,7 @@
                     .OrderBy(i => BasketBallResourceID.AbandonedResourceIDs.ToList()
                     .FindIndex(id => id == i.ResourceId))
                     .FirstOrDefault(i => i.SettlementStatusID == EventStatusID.RefundWithSettleDetermined);
-                var bits = GetBitArray(SPORTBOOK.SettlementStatus);
+                var bits = MapEventStatus.GetBitArray(SPORTBOOK.SettlementStatus);
                 var isAbandoned = bits[0] == 0;
                 if (abandonedQuater != null && isAbandoned)
                 {
@@ -243,11 +243,6 @@
         }
 
         private bool HasGameDetailData() => MoreResultDetailItems.Any();
-
-        private static int[] GetBitArray(byte number)
-           => new BitArray(new[] { number })
-               .Cast<bool>().Select(bit => bit ? 1 : 0)
-               .ToArray();
 
         private bool DetermineShowingLiveScore()
         {

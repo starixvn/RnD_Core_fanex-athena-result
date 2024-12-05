@@ -150,4 +150,34 @@
   <data name="SeriesMatch" xml:space="preserve">
     <value>シリーズマッチ</value>
   </data>
+  <data name="Abandoned0101" xml:space="preserve">
+    <value>第1回中止</value>
+  </data>
+  <data name="Abandoned0102" xml:space="preserve">
+    <value>第2回中止</value>
+  </data>
+  <data name="Abandoned0103" xml:space="preserve">
+    <value>第3回中止</value>
+  </data>
+  <data name="Abandoned0104" xml:space="preserve">
+    <value>第4回中止</value>
+  </data>
+  <data name="Abandoned0105" xml:space="preserve">
+    <value>第5回中止</value>
+  </data>
+  <data name="Abandoned0106" xml:space="preserve">
+    <value>第6回中止</value>
+  </data>
+  <data name="Abandoned0107" xml:space="preserve">
+    <value>第7回中止</value>
+  </data>
+  <data name="Abandoned0108" xml:space="preserve">
+    <value>第8回中止</value>
+  </data>
+  <data name="Abandoned0109" xml:space="preserve">
+    <value>第9回中止</value>
+  </data>
+  <data name="AbandonedEI" xml:space="preserve">
+    <value>延長戦中止</value>
+  </data>
 </root>

@@ -447,4 +447,34 @@
   <data name="SeriesMatch" xml:space="preserve">
     <value>Pertandingan Seri</value>
   </data>
+  <data name="Abandoned0101" xml:space="preserve">
+    <value>Inning 1 Dibatalkan</value>
+  </data>
+  <data name="Abandoned0102" xml:space="preserve">
+    <value>Inning 2 Dibatalkan</value>
+  </data>
+  <data name="Abandoned0103" xml:space="preserve">
+    <value>Inning 3 Dibatalkan</value>
+  </data>
+  <data name="Abandoned0104" xml:space="preserve">
+    <value>Inning 4 Dibatalkan</value>
+  </data>
+  <data name="Abandoned0105" xml:space="preserve">
+    <value>Inning 5 Dibatalkan</value>
+  </data>
+  <data name="Abandoned0106" xml:space="preserve">
+    <value>Inning 6 Dibatalkan</value>
+  </data>
+  <data name="Abandoned0107" xml:space="preserve">
+    <value>Inning 7 Dibatalkan</value>
+  </data>
+  <data name="Abandoned0108" xml:space="preserve">
+    <value>Inning 8 Dibatalkan</value>
+  </data>
+  <data name="Abandoned0109" xml:space="preserve">
+    <value>Inning 9 Dibatalkan</value>
+  </data>
+  <data name="AbandonedEI" xml:space="preserve">
+    <value>EI Dibatalkan</value>
+  </data>
 </root>

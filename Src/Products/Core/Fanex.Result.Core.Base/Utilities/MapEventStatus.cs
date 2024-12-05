@@ -99,7 +99,7 @@
         private static bool IsRefundHT(string betStatus)
            => !string.IsNullOrEmpty(betStatus) && betStatus.IndexOf(ConstantValue.RefundHT, StringComparison.OrdinalIgnoreCase) >= 0;
 
-        private static int[] GetBitArray(byte number)
+        public static int[] GetBitArray(byte number)
             => new BitArray(new[] { number })
                 .Cast<bool>().Select(bit => bit ? 1 : 0)
                 .ToArray();

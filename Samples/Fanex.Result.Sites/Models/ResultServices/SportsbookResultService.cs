@@ -118,16 +118,16 @@
                 .CreateInstance(filePath)
                 .GetResultData();
 
-            if (filePath.Contains($"\\{SportType.BetbyBasketball.ToString()}.xls"))
-            {
-                var details = SportsbookDetailResultExcelReader
-                    .CreateInstance(filePath.Replace("BetbyBasketball", "BetbyBasketballDetail"))
-                    .GetResultData().ToList();
-                foreach (var basketball in sportBooks)
-                {
-                    basketball.GameDetails = details.Where(i => i.MatchId == basketball.MatchId).ToList();
-                }
-            }
+            //if (filePath.Contains($"\\{SportType.BetbyBasketball.ToString()}.xls"))
+            //{
+            //    var details = SportsbookDetailResultExcelReader
+            //        .CreateInstance(filePath.Replace("BetbyBasketball", "BetbyBasketballDetail"))
+            //        .GetResultData().ToList();
+            //    foreach (var basketball in sportBooks)
+            //    {
+            //        basketball.GameDetails = details.Where(i => i.MatchId == basketball.MatchId).ToList();
+            //    }
+            //}
 
             if (filePath.Contains($"\\{SportType.BaseBall.ToString()}.xls"))
             {

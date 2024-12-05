@@ -447,4 +447,34 @@
   <data name="SeriesMatch" xml:space="preserve">
     <value>Loạt Trận Đấu</value>
   </data>
+  <data name="Abandoned0101" xml:space="preserve">
+    <value>Hủy vào Hiệp 1</value>
+  </data>
+  <data name="Abandoned0102" xml:space="preserve">
+    <value>Hủy vào Hiệp 2</value>
+  </data>
+  <data name="Abandoned0103" xml:space="preserve">
+    <value>Hủy vào Hiệp 3</value>
+  </data>
+  <data name="Abandoned0104" xml:space="preserve">
+    <value>Hủy vào Hiệp 4</value>
+  </data>
+  <data name="Abandoned0105" xml:space="preserve">
+    <value>Hủy vào Hiệp 5</value>
+  </data>
+  <data name="Abandoned0106" xml:space="preserve">
+    <value>Hủy vào Hiệp 6</value>
+  </data>
+  <data name="Abandoned0107" xml:space="preserve">
+    <value>Hủy vào Hiệp 7</value>
+  </data>
+  <data name="Abandoned0108" xml:space="preserve">
+    <value>Hủy vào Hiệp 8</value>
+  </data>
+  <data name="Abandoned0109" xml:space="preserve">
+    <value>Hủy vào Hiệp 9</value>
+  </data>
+  <data name="AbandonedEI" xml:space="preserve">
+    <value>Hủy vào hiệp phụ</value>
+  </data>
 </root>

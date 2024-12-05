@@ -19,7 +19,7 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class SportsbookResx {
@@ -79,11 +79,101 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Abandoned I1.
+        /// </summary>
+        public static string Abandoned0101 {
+            get {
+                return ResourceManager.GetString("Abandoned0101", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Abandoned I2.
+        /// </summary>
+        public static string Abandoned0102 {
+            get {
+                return ResourceManager.GetString("Abandoned0102", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Abandoned I3.
+        /// </summary>
+        public static string Abandoned0103 {
+            get {
+                return ResourceManager.GetString("Abandoned0103", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Abandoned I4.
+        /// </summary>
+        public static string Abandoned0104 {
+            get {
+                return ResourceManager.GetString("Abandoned0104", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Abandoned I5.
+        /// </summary>
+        public static string Abandoned0105 {
+            get {
+                return ResourceManager.GetString("Abandoned0105", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Abandoned I6.
+        /// </summary>
+        public static string Abandoned0106 {
+            get {
+                return ResourceManager.GetString("Abandoned0106", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Abandoned I7.
+        /// </summary>
+        public static string Abandoned0107 {
+            get {
+                return ResourceManager.GetString("Abandoned0107", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Abandoned I8.
+        /// </summary>
+        public static string Abandoned0108 {
+            get {
+                return ResourceManager.GetString("Abandoned0108", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Abandoned I9.
+        /// </summary>
+        public static string Abandoned0109 {
+            get {
+                return ResourceManager.GetString("Abandoned0109", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Abandoned FT.
         /// </summary>
         public static string Abandoned02 {
             get {
                 return ResourceManager.GetString("Abandoned02", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Abandoned EI.
+        /// </summary>
+        public static string AbandonedEI {
+            get {
+                return ResourceManager.GetString("AbandonedEI", resourceCulture);
             }
         }
         

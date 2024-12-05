@@ -447,4 +447,34 @@
   <data name="SeriesMatch" xml:space="preserve">
     <value>系列比賽</value>
   </data>
+  <data name="Abandoned0101" xml:space="preserve">
+    <value>在第一局中止</value>
+  </data>
+  <data name="Abandoned0102" xml:space="preserve">
+    <value>在第二局中止</value>
+  </data>
+  <data name="Abandoned0103" xml:space="preserve">
+    <value>在第三局中止</value>
+  </data>
+  <data name="Abandoned0104" xml:space="preserve">
+    <value>在第四局中止</value>
+  </data>
+  <data name="Abandoned0105" xml:space="preserve">
+    <value>在第五局中止</value>
+  </data>
+  <data name="Abandoned0106" xml:space="preserve">
+    <value>在第六局中止</value>
+  </data>
+  <data name="Abandoned0107" xml:space="preserve">
+    <value>在第七局中止</value>
+  </data>
+  <data name="Abandoned0108" xml:space="preserve">
+    <value>在第八局中止</value>
+  </data>
+  <data name="Abandoned0109" xml:space="preserve">
+    <value>在第九局中止</value>
+  </data>
+  <data name="AbandonedEI" xml:space="preserve">
+    <value>在延長賽中止</value>
+  </data>
 </root>

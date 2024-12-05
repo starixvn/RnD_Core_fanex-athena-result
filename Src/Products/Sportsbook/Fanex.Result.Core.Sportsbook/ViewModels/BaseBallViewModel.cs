@@ -13,6 +13,8 @@
     using Fanex.Result.Core.Baseball.DTO;
     using Fanex.Result.Core.Sportsbook.DataDomain;
     using Fanex.Result.Core.Volleyball.DTO;
+    using Fanex.Result.Core.Sportsbook.Resources;
+    using System.Collections;
 
     public sealed class BaseBallViewModel : SportsbookBaseViewModel, IResultViewModel
     {
@@ -41,7 +43,32 @@
 
         public override bool VisibleGameDetail => MoreResultDetail.Any();
 
-        public string AwayExtraTime
+        public override string EventStatus
+        {
+            get
+            {
+                var abandonedQuater = SPORTBOOK.GameDetails
+                    .Where(i => BaseballResourceID.AbandonedResourceIDs.Contains(i.ResourceId))
+                    .OrderBy(i => BaseballResourceID.AbandonedResourceIDs.ToList()
+                    .FindIndex(id => id == i.ResourceId))
+                    .FirstOrDefault(i => i.SettlementStatusID == EventStatusID.RefundWithSettleDetermined);
+                var bits = MapEventStatus.GetBitArray(SPORTBOOK.SettlementStatus);
+                var isAbandoned = bits[0] == 0;
+                if (abandonedQuater != null && isAbandoned)
+                {
+                    var key = $"Abandoned{abandonedQuater.ResourceId}";
+                    var text = SportsbookResx.ResourceManager.GetString(key);
+                    return string.IsNullOrWhiteSpace(text) ? key : text;
+                }
+
+                return MapEventStatus.MapEventStatusString(
+                    SPORTBOOK.SettlementStatus,
+                    SPORTBOOK.EventStatus,
+                    SPORTBOOK.BetStatus);
+            }
+        }
+
+	    public string AwayExtraTime
         {
             get
             {

@@ -1,6 +1,6 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.ViewModels
 {
-    using System;
+    using System;    
     using System.Globalization;
     using Base;
     using Base.DataDomain;
@@ -163,7 +163,6 @@
                 }
             }
         }
-
         #endregion Utilities
     }
 }

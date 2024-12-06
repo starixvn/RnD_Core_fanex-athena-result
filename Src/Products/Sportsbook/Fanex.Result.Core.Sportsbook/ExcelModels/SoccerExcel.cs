@@ -70,8 +70,8 @@
                 exportRow.MatchCode,
                 Helper.ToRtfString(exportRow.KickOffTime),
                 Helper.ToRtfString(CreateHomeTeamValue(exportRow)),
-                CreateHTScoreValue(exportRow),
-                CreateFTScoreValue(exportRow),
+                CreateHTScoreValue(exportRow, isHome: true),
+                CreateFTScoreValue(exportRow, isHome: true),
                 eventStatus);
             currentRow++;
 
@@ -81,8 +81,8 @@
                 exportRow.MatchId,
                 Helper.ToRtfString(exportRow.KickOffTime),
                 Helper.ToRtfString(CreateAwayTeamValue(exportRow)),
-                CreateHTScoreValue(exportRow),
-                CreateFTScoreValue(exportRow),
+                CreateHTScoreValue(exportRow, isHome: false),
+                CreateFTScoreValue(exportRow, isHome: false),
                 eventStatus);
             currentRow++;
         }
@@ -167,11 +167,25 @@
             return homeTeam;
         }
 
-        private static string CreateHTScoreValue(SoccerViewModel exportRow)
-            => exportRow.IsShowHTLastSeriesChoice ? exportRow.HTLastSeriesChildMatchChoice : exportRow.HTHomeScore;
+        private static string CreateHTScoreValue(SoccerViewModel exportRow, bool isHome)
+        {
+            if(exportRow.IsShowHTLastSeriesChoice)
+            {
+                return exportRow.HTLastSeriesChildMatchChoice;
+            }
 
-        private static string CreateFTScoreValue(SoccerViewModel exportRow)
-            => exportRow.IsShowFTLastSeriesChoice ? exportRow.FTLastSeriesChildMatchChoice : exportRow.FinalHomeScore;
+            return isHome? exportRow.HTHomeScore: exportRow.HTAwayScore;
+        }
+
+        private static string CreateFTScoreValue(SoccerViewModel exportRow, bool isHome)
+        {
+            if(exportRow.IsShowFTLastSeriesChoice)
+            {
+                return exportRow.FTLastSeriesChildMatchChoice;
+            }
+
+            return isHome? exportRow.FinalHomeScore: exportRow.FinalAwayScore;
+        }
 
         #endregion Assign Cell Data
     }

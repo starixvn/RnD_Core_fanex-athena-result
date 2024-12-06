@@ -8,11 +8,12 @@
     <AssemblyTitle>Fanex.Result.Core.Sportsbook</AssemblyTitle>
     <Product>Fanex.Result.Core.Sportsbook</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>2.0.1.6-vs5-01</Version>
+    <Version>2.0.1.8-series-01</Version>
     <InfomationalVersion>2.0.1.6</InfomationalVersion>
     <PackageReleaseNotes>
-      Support VS 5 - Virtually sports 5 result (#207589)
+      Exporting Away home score for Soccer is wrong (#214909)
     </PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\Badminton.cshtml" />

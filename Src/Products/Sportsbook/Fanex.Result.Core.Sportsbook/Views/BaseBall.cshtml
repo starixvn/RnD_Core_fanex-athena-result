@@ -72,7 +72,9 @@
 {
     <div class="fn-rs-content-header">
         <table class="fn-rs baseball @popupCss">
-            @RenderHeader(viewModel, firstMatch, colspan)
+            @{
+             RenderHeader(viewModel, firstMatch, colspan);   
+            }
         </table>
     </div>
 
@@ -82,7 +84,7 @@
 <table class="fn-rs baseball @popupCss">
     @if (!viewModel.VisibleFreeHeader)
     {
-        RenderHeader(viewModel, firstMatch, colspan)
+        RenderHeader(viewModel, firstMatch, colspan);
     }
     <tbody>
         @if (viewModel.Data.Count > 0)

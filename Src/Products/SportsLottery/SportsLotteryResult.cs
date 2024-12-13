@@ -60,8 +60,8 @@
             return new RequestResultPage
             {
                 TimeStamp = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"),
-                //Seq = seq,
-                //SiteId = _configs.SiteId,
+                Seq = seq,
+                SiteId = _configs.SiteId.ToString(),
                 Language = languageCode
             };
         }

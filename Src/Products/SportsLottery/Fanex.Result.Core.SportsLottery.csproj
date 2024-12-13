@@ -1,19 +1,20 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net461;netstandard2.1;net7.0</TargetFrameworks>     
+    <TargetFrameworks>netstandard2.1;net7.0</TargetFrameworks>     
     <OutputType>Library</OutputType>
     <RestorePackages>true</RestorePackages>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <AssemblyTitle>Fanex.Result.Core.SportsLottery</AssemblyTitle>
     <Product>Fanex.Result.Core.SportsLottery</Product>
     <Copyright>Copyright ©  2021</Copyright>
-    <Version>2.0.0.0-beta-01</Version>
+    <Version>2.0.0.0-beta-02</Version>
     <PackageReleaseNotes>Support .net Core for Result Core package (#197737)</PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
     
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Fanex.Result.Core-NPOI.2.0.6" Version="3.0.0-beta-10" />
+    <PackageReference Include="Fanex.Result.Core-NPOI.2.0.6" Version="4.0.0.0-upgrade-03" />
   </ItemGroup>
 </Project>

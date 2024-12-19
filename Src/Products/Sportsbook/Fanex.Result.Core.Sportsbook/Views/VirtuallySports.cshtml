@@ -8,34 +8,36 @@
     var popupCss = viewModel.IsPopUp || viewModel.IsDetail ? "popup" : string.Empty;
     var firstMatch = viewModel.Data.Count > 0 ? (VirtuallySportsViewModel)viewModel.Data[0].Data[0] : null;
     var colspan = 5;
-}
-
-@helper RenderHeader(RazorBinderModel viewModel, VirtuallySportsViewModel firstMatch, int colspan)
-{
-    <thead>
-        @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
-        {
-            <tr class="row-title">
-                <th class="cl-title" colspan="@colspan">
-                    <span class="sport">@firstMatch.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@firstMatch.LeagueName</span>
-                </th>
+    
+    void RenderHeader(RazorBinderModel viewModel, VirtuallySportsViewModel firstMatch, int colspan)
+    {
+        <thead>
+            @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+            {
+                <tr class="row-title">
+                    <th class="cl-title" colspan="@colspan">
+                        <span class="sport">@firstMatch.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@firstMatch.LeagueName</span>
+                    </th>
+                </tr>
+            }
+            <tr class="header">
+                <th class="cl-ko-time">@LangResource.KickOffTime</th>
+                <th class="cl-match">@LangResource.Match</th>
+                <th class="cl-ht-score">@LangResource.HTScore</th>
+                <th class="cl-f-score">@LangResource.FinalScore</th>          
+                <th class="cl-status">@LangResource.Status</th>
             </tr>
-        }
-        <tr class="header">
-            <th class="cl-ko-time">@LangResource.KickOffTime</th>
-            <th class="cl-match">@LangResource.Match</th>
-            <th class="cl-ht-score">@LangResource.HTScore</th>
-            <th class="cl-f-score">@LangResource.FinalScore</th>          
-            <th class="cl-status">@LangResource.Status</th>
-        </tr>
-    </thead>
+        </thead>
+    }
 }
 
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
         <table class="fn-rs @popupCss">
-            @RenderHeader(viewModel, firstMatch, colspan)
+            @{
+                RenderHeader(viewModel, firstMatch, colspan);
+            }
         </table>
     </div>
 }
@@ -47,7 +49,7 @@
 <table class="fn-rs @popupCss">
     @if (!viewModel.VisibleFreeHeader)
     {
-        @RenderHeader(viewModel, firstMatch, colspan)
+        RenderHeader(viewModel, firstMatch, colspan);
     }
     <tbody>
         @if (viewModel.Data.Count > 0)

@@ -13,42 +13,30 @@
     public class WMResultBuilder : IWMResultBuilder
     {
         private const string InvalidImagePathErrorMessage = "not found WM image path configuration!";
-        private readonly bool useOriginalPath;
+        private readonly string imagePath;
 
         private IResultPopup _resultPopup;
 
-        public WMResultBuilder()
+        public WMResultBuilder(string imagePath)
         {
-            useOriginalPath = Convert.ToBoolean(ConfigurationManager.AppSettings["WMUseOriginalPath"] ?? "false");
+            this.imagePath = imagePath;
         }
 
-        internal WMResultBuilder(IResultPopup resultPopup)
+        internal WMResultBuilder(IResultPopup resultPopup, string imagePath) : this(imagePath)
         {
             _resultPopup = resultPopup;
         }
 
-        public virtual string GetTemplatePath => ConfigurationManager.AppSettings["WMResultImagePath"];
-
         public string Render(string transDesc, string gameId3rd, int betType, string languageCode = "en-US")
-        {            
-            var tplPath = GetTemplatePath;
-
-            if (string.IsNullOrWhiteSpace(tplPath))
+        {
+            if (string.IsNullOrWhiteSpace(imagePath))
             {
                 throw new WMException(InvalidImagePathErrorMessage);
             }
 
-            tplPath = CreateTplPath(tplPath, useOriginalPath);
-            _resultPopup = _resultPopup ?? new ResultPop(tplPath, ResultCoreManager.RefDataHelper);
+            _resultPopup = _resultPopup ?? new ResultPop(imagePath, ResultCoreManager.RefDataHelper);
 
             return _resultPopup.genResultPopHtml(transDesc, gameId3rd, languageCode, betType);
-        }
-
-        private static string CreateTplPath(string path, bool useOriginalPath = false)
-        {
-            var tplPath = useOriginalPath ? path : HttpRuntime.AppDomainAppVirtualPath + path;
-
-            return tplPath.Replace("//", "/");
         }
     }
 }

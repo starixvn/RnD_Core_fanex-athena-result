@@ -1,9 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<packages>
-<<<<<<< HEAD
-  <package id="NSubstitute" version="2.0.3" targetFramework="net40" />
-=======
-  <package id="NSubstitute" version="1.10.0.0" targetFramework="net40" />
->>>>>>> #86217 - Update NUnit package
-  <package id="NUnit" version="3.9.0" targetFramework="net40" />
-</packages>

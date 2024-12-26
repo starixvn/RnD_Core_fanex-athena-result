@@ -6,44 +6,45 @@
     var viewModel = (RazorBinderModel)Model;
     var colspan = viewModel.VisibleMatchCodeIDColumn ? 11 : 10;
     var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
-    var mainItem = viewModel.Data.Count > 0 ? (BetbyBasketballViewModel)viewModel.Data[0].Data[0] : null;    
-}
+    var mainItem = viewModel.Data.Count > 0 ? (BetbyBasketballViewModel)viewModel.Data[0].Data[0] : null;
 
-@helper RenderHeader(RazorBinderModel viewModel, BetbyBasketballViewModel firstMatch, int colspan)
-{
-    <thead>
-        @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
-        {
-            <tr class="row-title">
-                <th class="cl-title" colspan="@colspan">
-                    <span class="sport">@firstMatch.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@firstMatch.LeagueName</span>
-                </th>
-            </tr>
-        }
-            <tr class="header">
-                @if (viewModel.VisibleMatchCodeIDColumn)
-                {
-                    <th class="cl-m-code">@LangResource.MatchCode/@LangResource.ID</th>
-                }
-                <th class="cl-ko-time">@LangResource.KickOffTime</th>
-                <th class="cl-match">@Raw(LangResource.Match)</th>
-                <th class="cl-s">@LangResource.Lbl1Q</th>
-                <th class="cl-s">@LangResource.Lbl2Q</th>
-                <th class="cl-s">@LangResource.Lbl3Q</th>
-                <th class="cl-s">@LangResource.Lbl4Q</th>
-                <th class="cl-s">@LangResource.LblOT</th>
-                <th class="cl-ht-score">@Raw(LangResource.HTScore)</th>
-                <th class="cl-f-score">@LangResource.FinalScore</th>                
-                <th class="cl-status">@LangResource.Status</th>
-            </tr>
-    </thead>
+    void RenderHeader(RazorBinderModel viewModel, BetbyBasketballViewModel firstMatch, int colspan)
+    {
+        <thead>
+            @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+            {
+                <tr class="row-title">
+                    <th class="cl-title" colspan="@colspan">
+                        <span class="sport">@firstMatch.SportName</span> &nbsp;-&nbsp; <span class="leagueName">@firstMatch.LeagueName</span>
+                    </th>
+                </tr>
+            }
+                <tr class="header">
+                    @if (viewModel.VisibleMatchCodeIDColumn)
+                    {
+                        <th class="cl-m-code">@LangResource.MatchCode/@LangResource.ID</th>
+                    }
+                    <th class="cl-ko-time">@LangResource.KickOffTime</th>
+                    <th class="cl-match">@Raw(LangResource.Match)</th>
+                    <th class="cl-s">@LangResource.Lbl1Q</th>
+                    <th class="cl-s">@LangResource.Lbl2Q</th>
+                    <th class="cl-s">@LangResource.Lbl3Q</th>
+                    <th class="cl-s">@LangResource.Lbl4Q</th>
+                    <th class="cl-s">@LangResource.LblOT</th>
+                    <th class="cl-ht-score">@Raw(LangResource.HTScore)</th>
+                    <th class="cl-f-score">@LangResource.FinalScore</th>                
+                    <th class="cl-status">@LangResource.Status</th>
+                </tr>
+        </thead>
+    }
 }
-
 @if (viewModel.VisibleFreeHeader)
 {
     <div class="fn-rs-content-header">
         <table class="fn-rs @popupCss">
-            @RenderHeader(viewModel, mainItem, colspan)
+            @{
+                RenderHeader(viewModel, mainItem, colspan);
+            }
         </table>
     </div>
 

@@ -7,9 +7,10 @@
     <AssemblyTitle>Fanex.Result.Core.AllBetCasino</AssemblyTitle>
     <Product>Fanex.Result.Core.AllBetCasino</Product>
     <Copyright>Copyright ©  2016</Copyright>    
-    <Version>2.0.0.2-API-02</Version>
-    <InfomationalVersion>2.0.0.2</InfomationalVersion>
-    <PackageReleaseNotes>Support new Gaming API (#205017)</PackageReleaseNotes>
+    <Version>2.0.0.3-jp-01</Version>
+    <InfomationalVersion>2.0.0.3</InfomationalVersion>
+    <PackageReleaseNotes>Support Japanese Translation (#212931)</PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>    

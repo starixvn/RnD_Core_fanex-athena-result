@@ -120,4 +120,31 @@
   <data name="Total" xml:space="preserve">
     <value>合計</value>
   </data>
+  <data name="Combo" xml:space="preserve">
+    <value>コンボ</value>
+  </data>
+  <data name="NA" xml:space="preserve">
+    <value>該当なし</value>
+  </data>
+  <data name="Soccer5" xml:space="preserve">
+    <value>サッカー5</value>
+  </data>
+  <data name="Soccer5Tooltip" xml:space="preserve">
+    <value>詳細を見る</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>番号</value>
+  </data>
+  <data name="BigSmall" xml:space="preserve">
+    <value>大/小</value>
+  </data>
+  <data name="OddEven" xml:space="preserve">
+    <value>奇数/偶数</value>
+  </data>
+  <data name="FourSeasons" xml:space="preserve">
+    <value>セット4</value>
+  </data>
+  <data name="MoreOddMoreEven" xml:space="preserve">
+    <value>より奇数が多い/より偶数が多い</value>
+  </data>
 </root>

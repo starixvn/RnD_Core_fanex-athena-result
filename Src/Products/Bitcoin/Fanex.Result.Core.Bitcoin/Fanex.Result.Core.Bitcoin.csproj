@@ -8,9 +8,10 @@
     <AssemblyTitle>Fanex.Result.Core.Bitcoin</AssemblyTitle>
     <Product>Fanex.Result.Core.Bitcoin</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>2.0.0.1-indo-01</Version>
-    <InfomationalVersion>2.0.0.1</InfomationalVersion>
-    <PackageReleaseNotes>Support Indo Translation (#196354)</PackageReleaseNotes>
+    <Version>2.0.0.2-jp-01</Version>
+    <InfomationalVersion>2.0.0.2</InfomationalVersion>
+    <PackageReleaseNotes>Support Japanese Translation (#212931)</PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>

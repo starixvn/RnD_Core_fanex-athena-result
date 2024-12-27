@@ -118,16 +118,16 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Season" xml:space="preserve">
-    <value>Season</value>
+    <value>シーズン</value>
   </data>
   <data name="NationsCup" xml:space="preserve">
-    <value>Nations Cup</value>
+    <value>ネイションズカップ</value>
   </data>
   <data name="MatchDay" xml:space="preserve">
-    <value>Match Day</value>
+    <value>試合日</value>
   </data>
   <data name="TotalGoal" xml:space="preserve">
-    <value> 合計ゴール数</value>
+    <value>合計ゴール数</value>
   </data>
   <data name="Volleyball_3903XXYY" xml:space="preserve">
     <value>第 {0} セットの {1} ポイント先取</value>
@@ -149,6 +149,303 @@
   </data>
   <data name="SeriesMatch" xml:space="preserve">
     <value>シリーズマッチ</value>
+  </data>
+  <data name="Final" xml:space="preserve">
+    <value>決勝</value>
+  </data>
+  <data name="MatchDay1GroupAB" xml:space="preserve">
+    <value>試合日1 グループA＆B</value>
+  </data>
+  <data name="MatchDay1GroupCD" xml:space="preserve">
+    <value>試合日1 グループC＆D</value>
+  </data>
+  <data name="MatchDay1GroupEF" xml:space="preserve">
+    <value>試合日1 グループE＆F</value>
+  </data>
+  <data name="MatchDay2GroupAB" xml:space="preserve">
+    <value>試合日2 グループA＆B</value>
+  </data>
+  <data name="MatchDay2GroupCD" xml:space="preserve">
+    <value>試合日2 グループC＆D</value>
+  </data>
+  <data name="MatchDay2GroupEF" xml:space="preserve">
+    <value>試合日2 グループE＆F</value>
+  </data>
+  <data name="MatchDay3GroupAB" xml:space="preserve">
+    <value>試合日3 グループA＆B</value>
+  </data>
+  <data name="MatchDay3GroupCD" xml:space="preserve">
+    <value>試合日3 グループC＆D</value>
+  </data>
+  <data name="MatchDay3GroupEF" xml:space="preserve">
+    <value>試合日3 グループE＆F</value>
+  </data>
+  <data name="Quarterfinal" xml:space="preserve">
+    <value>準々決勝</value>
+  </data>
+  <data name="Round161" xml:space="preserve">
+    <value>ラウン16 - 1</value>
+  </data>
+  <data name="Round162" xml:space="preserve">
+    <value>ラウン16 - 2</value>
+  </data>
+  <data name="Semifinal1" xml:space="preserve">
+    <value>準決勝 パート1</value>
+  </data>
+  <data name="Semifinal2" xml:space="preserve">
+    <value>準決勝 パート2</value>
+  </data>
+  <data name="FT" xml:space="preserve">
+    <value>フルタイム</value>
+  </data>
+  <data name="ESports_90020X" xml:space="preserve">
+    <value>マップ{0} 合計キルスコア</value>
+  </data>
+  <data name="ESports_90080X" xml:space="preserve">
+    <value>マップ{0} タワースコア</value>
+  </data>
+  <data name="ESports_90120X" xml:space="preserve">
+    <value>マップ{0} ロシャンスコア</value>
+  </data>
+  <data name="ESports_90180X" xml:space="preserve">
+    <value>マップ{0} バラックススコア</value>
+  </data>
+  <data name="ESports_90240X" xml:space="preserve">
+    <value>マップ{0} タレットスコア</value>
+  </data>
+  <data name="ESports_90280X" xml:space="preserve">
+    <value>マップ{0} ドラゴンスコア</value>
+  </data>
+  <data name="ESports_90340X" xml:space="preserve">
+    <value>マップ{0} バロンスコア</value>
+  </data>
+  <data name="ESports_90400X" xml:space="preserve">
+    <value>マップ{0} インヒビタースコア</value>
+  </data>
+  <data name="ESports_90460X" xml:space="preserve">
+    <value>マップ{0} 暴君スコア</value>
+  </data>
+  <data name="ESports_90520X" xml:space="preserve">
+    <value>マップ{0} 主宰スコア</value>
+  </data>
+  <data name="ESports_90580X" xml:space="preserve">
+    <value>マップ{0} 持続時間</value>
+  </data>
+  <data name="ESports_90590X" xml:space="preserve">
+    <value>マップ{0} ラウンドスコア</value>
+  </data>
+  <data name="ESports_90650X" xml:space="preserve">
+    <value>マップ{0} 合計ファーストキル数</value>
+  </data>
+  <data name="ESports_90660X" xml:space="preserve">
+    <value>マップ{0} クラッチスコア</value>
+  </data>
+  <data name="ESports_90690X0Y" xml:space="preserve">
+    <value>マップ{0} 第{1}ラウンドの総キル数</value>
+  </data>
+  <data name="ESports_90740X" xml:space="preserve">
+    <value>マップ{0} ラウンドスコア（延長戦含む）</value>
+  </data>
+  <data name="ESports_90680X0Y" xml:space="preserve">
+    <value>マップ{0} 第{1}ラウンドの勝者</value>
+  </data>
+  <data name="Selection" xml:space="preserve">
+    <value>選択</value>
+  </data>
+  <data name="FinalResult" xml:space="preserve">
+    <value>最終結果</value>
+  </data>
+  <data name="CorrectScore" xml:space="preserve">
+    <value>正しいスコア</value>
+  </data>
+  <data name="ESports_90900X" xml:space="preserve">
+    <value>マップ{0} 最初のファーストブラッドの時間</value>
+  </data>
+  <data name="ESports_90890X0K" xml:space="preserve">
+    <value>マップ{0} 初の{1}キル達成時間</value>
+  </data>
+  <data name="ESports_90910X" xml:space="preserve">
+    <value>マップ{0} 10分時点の総キル数</value>
+  </data>
+  <data name="ESports_90930X" xml:space="preserve">
+    <value>マップ{0} 20分時点の総キル数</value>
+  </data>
+  <data name="ESports_91340X" xml:space="preserve">
+    <value>マップ{0} 初のタワーの時間</value>
+  </data>
+  <data name="ESports_91150X" xml:space="preserve">
+    <value>マップ{0} 合計ゴールド</value>
+  </data>
+  <data name="ESports_91360X" xml:space="preserve">
+    <value>マップ{0} 初のドラゴンの時間</value>
+  </data>
+  <data name="ESports_91370X" xml:space="preserve">
+    <value>マップ{0} 初のバラックの時間</value>
+  </data>
+  <data name="ESports_91310X" xml:space="preserve">
+    <value>マップ{0} 初のドラゴンの時間</value>
+  </data>
+  <data name="ESports_91320X" xml:space="preserve">
+    <value>マップ{0} エルダードラゴンは討伐されるのか</value>
+  </data>
+  <data name="ESports_91330X" xml:space="preserve">
+    <value>マップ{0} 初のエイギスは奪われるのか</value>
+  </data>
+  <data name="ESports_91270X" xml:space="preserve">
+    <value>マップ{0} 初のバロンの時間</value>
+  </data>
+  <data name="ESports_91280X" xml:space="preserve">
+    <value>マップ{0} 初のバロンバフを受けたプレイヤー数</value>
+  </data>
+  <data name="ESports_91290X" xml:space="preserve">
+    <value>マップ{0} 初のインヒビターの時間</value>
+  </data>
+  <data name="ESports_91210X" xml:space="preserve">
+    <value>マップ{0} 初の暴君の時間</value>
+  </data>
+  <data name="ESports_91230X" xml:space="preserve">
+    <value>マップ{0} 初の主宰の時間</value>
+  </data>
+  <data name="ESports_91240X" xml:space="preserve">
+    <value>マップ{0} 風暴龍王は倒されるのか</value>
+  </data>
+  <data name="ESports_91260X" xml:space="preserve">
+    <value>マップ{0} 初ヘラルドの時間</value>
+  </data>
+  <data name="ESports_91010X0K" xml:space="preserve">
+    <value>マップ{0} {1}キル</value>
+  </data>
+  <data name="FirstNumber" xml:space="preserve">
+    <value>第1</value>
+  </data>
+  <data name="SecondNumber" xml:space="preserve">
+    <value>第2</value>
+  </data>
+  <data name="ThirdNumber" xml:space="preserve">
+    <value>第3</value>
+  </data>
+  <data name="FourthNumber" xml:space="preserve">
+    <value>第4</value>
+  </data>
+  <data name="FifthNumber" xml:space="preserve">
+    <value>第5</value>
+  </data>
+  <data name="SixthNumber" xml:space="preserve">
+    <value>第6</value>
+  </data>
+  <data name="SeventhNumber" xml:space="preserve">
+    <value>第7</value>
+  </data>
+  <data name="EighthNumber" xml:space="preserve">
+    <value>第8</value>
+  </data>
+  <data name="NinthNumber" xml:space="preserve">
+    <value>第9</value>
+  </data>
+  <data name="TenthNumber" xml:space="preserve">
+    <value>第10</value>
+  </data>
+  <data name="fifteenthNumber" xml:space="preserve">
+    <value>第15</value>
+  </data>
+  <data name="TwentiethNumber" xml:space="preserve">
+    <value>第20</value>
+  </data>
+  <data name="ESports_91010X0Y" xml:space="preserve">
+    <value>マップ{0} {1}キル</value>
+  </data>
+  <data name="ESports_91390X" xml:space="preserve">
+    <value>マップ{0} 総爆弾起爆数（OT除く）</value>
+  </data>
+  <data name="ESports_91400X" xml:space="preserve">
+    <value>マップ{0} 総爆弾解除数（OT除く）</value>
+  </data>
+  <data name="ESports_91420X" xml:space="preserve">
+    <value>マップ{0} 最初のタレットの場所</value>
+  </data>
+  <data name="ESports_91410X" xml:space="preserve">
+    <value>マップ{0} タレットが最も破壊されたレーン</value>
+  </data>
+  <data name="TopMid" xml:space="preserve">
+    <value>上路または中路</value>
+  </data>
+  <data name="MidBottom" xml:space="preserve">
+    <value>中路または下路</value>
+  </data>
+  <data name="Overlord" xml:space="preserve">
+    <value>主宰</value>
+  </data>
+  <data name="Tyrant" xml:space="preserve">
+    <value>暴君</value>
+  </data>
+  <data name="OverlordMiddle" xml:space="preserve">
+    <value>主宰または中路</value>
+  </data>
+  <data name="Mid" xml:space="preserve">
+    <value>中路</value>
+  </data>
+  <data name="Top" xml:space="preserve">
+    <value>上路</value>
+  </data>
+  <data name="Bottom" xml:space="preserve">
+    <value>下路</value>
+  </data>
+  <data name="TopBottom" xml:space="preserve">
+    <value>上路か下路</value>
+  </data>
+  <data name="Bowled" xml:space="preserve">
+    <value>投球</value>
+  </data>
+  <data name="LBW" xml:space="preserve">
+    <value>レッグビフォーウィケット</value>
+  </data>
+  <data name="RunOut" xml:space="preserve">
+    <value>ランアウト</value>
+  </data>
+  <data name="Stumped" xml:space="preserve">
+    <value>スタンプト</value>
+  </data>
+  <data name="Others" xml:space="preserve">
+    <value>他の</value>
+  </data>
+  <data name="Caught" xml:space="preserve">
+    <value>捕まえた</value>
+  </data>
+  <data name="ESports_90010X" xml:space="preserve">
+    <value>マップ{0} 結果</value>
+  </data>
+  <data name="Volleyball_3915XXYY" xml:space="preserve">
+    <value>セット{0} {1}ポイントがプレイされました</value>
+  </data>
+  <data name="Abandoned00" xml:space="preserve">
+    <value>フルタイムで放棄された</value>
+  </data>
+  <data name="Abandoned01" xml:space="preserve">
+    <value>ハーフタイムで放棄された</value>
+  </data>
+  <data name="Abandoned02" xml:space="preserve">
+    <value>フルタイムで放棄された</value>
+  </data>
+  <data name="AbandonedOT" xml:space="preserve">
+    <value>延長戦で放棄された</value>
+  </data>
+  <data name="AbandonedQ1" xml:space="preserve">
+    <value>第1クォーターで放棄された</value>
+  </data>
+  <data name="AbandonedQ2" xml:space="preserve">
+    <value>第2クォーターで放棄された</value>
+  </data>
+  <data name="AbandonedQ3" xml:space="preserve">
+    <value>第3クォーターで放棄された</value>
+  </data>
+  <data name="AbandonedQ4" xml:space="preserve">
+    <value>第4クォーターで放棄された</value>
+  </data>
+  <data name="ESports_90150X" xml:space="preserve">
+    <value>マップ{0} 1stロシャン</value>
+  </data>
+  <data name="Winner" xml:space="preserve">
+    <value>勝者</value>
   </data>
   <data name="Abandoned0101" xml:space="preserve">
     <value>第1回中止</value>

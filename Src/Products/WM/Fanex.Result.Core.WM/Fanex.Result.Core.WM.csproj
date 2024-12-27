@@ -7,9 +7,10 @@
     <AssemblyTitle>Fanex.Result.Core.WM</AssemblyTitle>
     <Product>Fanex.Result.Core.WM</Product>
     <Copyright>Copyright ©  2016</Copyright>
-    <Version>2.0.0.1-indo-01</Version>
-    <InfomationalVersion>2.0.0.1</InfomationalVersion>
-    <PackageReleaseNotes>Support Indo Translation (#196354)</PackageReleaseNotes>
+    <Version>2.0.0.2-jp-01</Version>
+    <InfomationalVersion>2.0.0.2</InfomationalVersion>
+    <PackageReleaseNotes>Support Japanese Translation (#212931)</PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>    
     <PackageReference Include="Fanex.Result.Core-NPOI.2.0.6" Version="3.0.0.4-indo-02" />

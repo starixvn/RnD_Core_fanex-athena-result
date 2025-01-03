@@ -8,10 +8,10 @@
     <AssemblyTitle>Fanex.Result.Core.Sportsbook</AssemblyTitle>
     <Product>Fanex.Result.Core.Sportsbook</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>2.0.2.0-vs6-01</Version>
-    <InfomationalVersion>2.0.2.0</InfomationalVersion>
+    <Version>2.0.2.3</Version>
+    <InfomationalVersion>2.0.2.3</InfomationalVersion>
     <PackageReleaseNotes>
-      Support Betby Baseball - VS6 (#212546)
+      Show - in Hits column of BaseBall result (#216317)
     </PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>

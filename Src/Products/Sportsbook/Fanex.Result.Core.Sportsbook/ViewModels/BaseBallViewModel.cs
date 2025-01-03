@@ -60,26 +60,8 @@
             }
         }
 
-        public string HomeHits
-        {
-            get
-            {
-                var value = Score(BaseballResourceID.Hits, isHome: true);
-
-                return value.Equals(ConstantValue.Hyphen) ? GetScore(SPORTBOOK.HtHomeScore) : value;
-            }
-        }
-
-        public string AwayHits
-        {
-            get
-            {
-                var value = Score(BaseballResourceID.Hits, isHome: false);
-
-                return value.Equals(ConstantValue.Hyphen) ? GetScore(SPORTBOOK.HtAwayScore) : value;
-            }
-        }
-
+        public string HomeHits => Score(BaseballResourceID.Hits, isHome: true);
+        public string AwayHits => Score(BaseballResourceID.Hits, isHome: false);
         public string FinalAwayScore
         {
             get

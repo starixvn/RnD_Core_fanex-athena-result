@@ -50,7 +50,9 @@
 {
     <div class="fn-rs-content-header">
         <table class="fn-rs @popupCss racing">
-            @RenderHeader(viewModel, colspan)
+            @{
+                RenderHeader(viewModel, colspan);
+            }
         </table>
     </div>
 
@@ -60,7 +62,7 @@
 <table class="fn-rs @popupCss racing">
     @if (!viewModel.VisibleFreeHeader)
     {
-        RenderHeader(viewModel, colspan)
+        RenderHeader(viewModel, colspan);
     }
     <tbody>
         @if (viewModel.Data.Count > 0)

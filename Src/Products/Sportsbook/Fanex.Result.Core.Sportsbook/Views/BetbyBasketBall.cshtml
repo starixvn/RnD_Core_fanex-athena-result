@@ -54,7 +54,7 @@
 <table class="fn-rs @popupCss">
     @if (!viewModel.VisibleFreeHeader)
     {
-        @RenderHeader(viewModel, mainItem, colspan)
+        RenderHeader(viewModel, mainItem, colspan);
     }
     <tbody>
         @if (viewModel.Data.Count > 0)

@@ -39,40 +39,31 @@
     <SonarQubeExclude>true</SonarQubeExclude>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BetListNPOI, Version=2.6.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1">
-      <HintPath>..\..\packages\BetListNPOI.2.6.0\lib\netstandard2.0\BetListNPOI.dll</HintPath>
-      <Private>True</Private>
-      <SpecificVersion>True</SpecificVersion>
+    <Reference Include="BetListNPOI, Version=2.7.2.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\BetListNPOI.2.7.2.2-beta02\lib\netstandard2.0\BetListNPOI.dll</HintPath>
     </Reference>
-    <Reference Include="BetListNPOI.OOXML, Version=2.6.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1">
-      <HintPath>..\..\packages\BetListNPOI.2.6.0\lib\netstandard2.0\BetListNPOI.OOXML.dll</HintPath>
-      <Private>True</Private>
-      <SpecificVersion>True</SpecificVersion>
+    <Reference Include="BetListNPOI.OOXML, Version=2.7.2.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\BetListNPOI.2.7.2.2-beta02\lib\netstandard2.0\BetListNPOI.OOXML.dll</HintPath>
     </Reference>
-    <Reference Include="BetListNPOI.OpenXml4Net, Version=2.6.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1">
-      <HintPath>..\..\packages\BetListNPOI.2.6.0\lib\netstandard2.0\BetListNPOI.OpenXml4Net.dll</HintPath>
-      <Private>True</Private>
-      <SpecificVersion>True</SpecificVersion>
+    <Reference Include="BetListNPOI.OpenXml4Net, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\BetListNPOI.2.7.2.2-beta02\lib\netstandard2.0\BetListNPOI.OpenXml4Net.dll</HintPath>
     </Reference>
-    <Reference Include="BetListNPOI.OpenXmlFormats, Version=2.6.0.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1">
-      <HintPath>..\..\packages\BetListNPOI.2.6.0\lib\netstandard2.0\BetListNPOI.OpenXmlFormats.dll</HintPath>
-      <Private>True</Private>
-      <SpecificVersion>True</SpecificVersion>
+    <Reference Include="BetListNPOI.OpenXmlFormats, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\BetListNPOI.2.7.2.2-beta02\lib\netstandard2.0\BetListNPOI.OpenXmlFormats.dll</HintPath>
     </Reference>
     <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
       <HintPath>..\..\packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
       <Private>True</Private>
       <SpecificVersion>True</SpecificVersion>
     </Reference>
-    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938">
-      <HintPath>..\..\packages\BouncyCastle.Cryptography.2.2.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
-      <Private>True</Private>
-      <SpecificVersion>True</SpecificVersion>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\BouncyCastle.Cryptography.2.4.0\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
     </Reference>
-    <Reference Include="Enums.NET, Version=4.0.0.0, Culture=neutral, PublicKeyToken=7ea1c1650d506225">
-      <HintPath>..\..\packages\Enums.NET.4.0.1\lib\net45\Enums.NET.dll</HintPath>
-      <Private>True</Private>
-      <SpecificVersion>True</SpecificVersion>
+    <Reference Include="Enums.NET, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7ea1c1650d506225, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Enums.NET.5.0.0\lib\net461\Enums.NET.dll</HintPath>
+    </Reference>
+    <Reference Include="ExtendedNumerics.BigDecimal, Version=3000.0.1.312, Culture=neutral, PublicKeyToken=65f1315a45ad8949, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ExtendedNumerics.BigDecimal.3000.0.1.312\lib\net46\ExtendedNumerics.BigDecimal.dll</HintPath>
     </Reference>
     <Reference Include="Fanex.BetList.Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\..\packages\Fanex.BetList.Core.3.0.2.5-VS4-01\lib\net461\Fanex.BetList.Core.dll</HintPath>
@@ -144,19 +135,11 @@
       <Private>True</Private>
       <SpecificVersion>True</SpecificVersion>
     </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib, Version=1.3.3.11, Culture=neutral, PublicKeyToken=1b03e6acf1164f73">
-      <HintPath>..\..\packages\SharpZipLib.1.3.3\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
-      <Private>True</Private>
-      <SpecificVersion>True</SpecificVersion>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.4.2.13, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SharpZipLib.1.4.2\lib\netstandard2.0\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
-    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
-      <HintPath>..\packages\NPOI.2.0.6\lib\net40\ICSharpCode.SharpZipLib.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="MathNet.Numerics, Version=4.15.0.0, Culture=neutral, PublicKeyToken=cd8b63ad3d691a37">
-      <HintPath>..\..\packages\MathNet.Numerics.Signed.4.15.0\lib\net461\MathNet.Numerics.dll</HintPath>
-      <Private>True</Private>
-      <SpecificVersion>True</SpecificVersion>
+    <Reference Include="MathNet.Numerics, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cd8b63ad3d691a37, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\MathNet.Numerics.Signed.5.0.0\lib\net461\MathNet.Numerics.dll</HintPath>
     </Reference>
     <Reference Include="MessagePack, Version=2.4.0.0, Culture=neutral, PublicKeyToken=b4a0369545f0a1be">
       <HintPath>..\..\packages\MessagePack.2.4.35\lib\netstandard2.0\MessagePack.dll</HintPath>
@@ -178,10 +161,8 @@
       <Private>True</Private>
       <SpecificVersion>True</SpecificVersion>
     </Reference>
-    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=2.3.2.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
-      <HintPath>..\..\packages\Microsoft.IO.RecyclableMemoryStream.2.3.2\lib\netstandard2.0\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
-      <Private>True</Private>
-      <SpecificVersion>True</SpecificVersion>
+    <Reference Include="Microsoft.IO.RecyclableMemoryStream, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.IO.RecyclableMemoryStream.3.0.1\lib\netstandard2.0\Microsoft.IO.RecyclableMemoryStream.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.NET.StringTools.net35, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
       <HintPath>..\..\packages\Microsoft.NET.StringTools.1.0.0\lib\net35\Microsoft.NET.StringTools.net35.dll</HintPath>
@@ -217,15 +198,11 @@
       <Private>True</Private>
       <SpecificVersion>True</SpecificVersion>
     </Reference>
-    <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13">
-      <HintPath>..\..\packages\SixLabors.Fonts.1.0.0-beta19\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
-      <Private>True</Private>
-      <SpecificVersion>True</SpecificVersion>
+    <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SixLabors.Fonts.1.0.1\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
     </Reference>
-    <Reference Include="SixLabors.ImageSharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13">
-      <HintPath>..\..\packages\SixLabors.ImageSharp.2.1.4\lib\netstandard2.0\SixLabors.ImageSharp.dll</HintPath>
-      <Private>True</Private>
-      <SpecificVersion>True</SpecificVersion>
+    <Reference Include="SixLabors.ImageSharp, Version=2.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SixLabors.ImageSharp.2.1.9\lib\netstandard2.0\SixLabors.ImageSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">

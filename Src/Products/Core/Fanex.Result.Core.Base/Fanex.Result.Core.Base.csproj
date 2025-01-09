@@ -8,7 +8,7 @@
     <AssemblyTitle>Fanex.Result.Core.Base</AssemblyTitle>
     <Product>Fanex.Result.Core.Base</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>4.0.0.0-upgrade-04</Version>
+    <Version>4.0.0.0-upgrade-05</Version>
     <InfomationalVersion>4.0.0.0</InfomationalVersion>
     <PackageReleaseNotes>
     	Upgrade RazorEngine version

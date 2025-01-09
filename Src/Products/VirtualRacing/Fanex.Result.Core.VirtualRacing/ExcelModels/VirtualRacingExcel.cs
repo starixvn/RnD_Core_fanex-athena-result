@@ -15,7 +15,7 @@
 
     internal sealed class VirtualRacingExcel : ExcelBase, IExcelModel
     {
-        private const int ColumnRace = 1;
+        private const int columnRace = 1;
         private const int ColumnEventTime = 0;
         public VirtualRacingExcel(string templatePath, ResultSetting setting, IList<IResultViewModel> data)
             : base(templatePath, setting, data)
@@ -62,7 +62,7 @@
                 if (rowspan > 0)
                 {
                     sheet.MergeCells(currentRow, ColumnEventTime, currentRow + rowspan, ColumnEventTime);
-                    sheet.MergeCells(currentRow, ColumnRace, currentRow + rowspan, ColumnRace);
+                    sheet.MergeCells(currentRow, columnRace, currentRow + rowspan, columnRace);
                     sheet.MergeCells(currentRow, ColumnStatus, currentRow + rowspan, ColumnStatus);
                 }
 

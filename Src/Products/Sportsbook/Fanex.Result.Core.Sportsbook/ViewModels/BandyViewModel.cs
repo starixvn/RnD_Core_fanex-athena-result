@@ -8,8 +8,6 @@
     using Fanex.Result.Core.Base.ViewModels;
     using Fanex.Result.Core.Sportsbook.DataDomain;
     using Fanex.Result.Core.Sportsbook.DTO;
-    using Fanex.Result.Core.Sportsbook.Utilities;
-    using Fanex.Result.Core.Sportsbook.DataDomain;
     using Fanex.Result.Core.Sportsbook.ViewModels.BandyDetail;
     using Fanex.Result.Core.Sportsbook.ViewModels.SoccerDetail;
 

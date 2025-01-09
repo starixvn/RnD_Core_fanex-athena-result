@@ -71,7 +71,7 @@
         public override string HomeTeam
         => RefDataHelper.GetTeam3rdName(SPORTBOOK.HomeId, GetSupportedLanguage, SPORTBOOK.HomeId.ToString());
 
-        public string AwayTeam 
+        public override string AwayTeam 
         => RefDataHelper.GetTeam3rdName(SPORTBOOK.AwayId, GetSupportedLanguage, SPORTBOOK.AwayId.ToString());
 
         public string OTHome => GetOvertimeSet(true);

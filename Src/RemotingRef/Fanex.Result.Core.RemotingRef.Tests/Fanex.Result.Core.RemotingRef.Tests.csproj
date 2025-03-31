@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.1;net7.0</TargetFrameworks> 
+    <TargetFrameworks>net7.0</TargetFrameworks> 
     <OutputType>Library</OutputType>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <AssemblyTitle>Fanex.Result.Core.RemotingRef.Tests</AssemblyTitle>
@@ -15,7 +15,7 @@
   
   <ItemGroup>
     <PackageReference Include="Castle.Core" Version="4.2.0" />
-    <PackageReference Include="Fanex.RemotingRef" Version="1.5.1-beta-02" />
+    <PackageReference Include="Fanex.RemotingRef" Version="1.5.4" />
     <PackageReference Include="NSubstitute" Version="3.1.0" />
     <PackageReference Include="NUnit" Version="3.11.0" />
     <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />

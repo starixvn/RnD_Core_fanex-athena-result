@@ -8,10 +8,10 @@
     <AssemblyTitle>Fanex.Result.Core.Base</AssemblyTitle>
     <Product>Fanex.Result.Core.Base</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>4.0.0.0-upgrade-05</Version>
-    <InfomationalVersion>4.0.0.0</InfomationalVersion>
+    <Version>4.0.0.1-vs7-02</Version>
+    <InfomationalVersion>4.0.0.1</InfomationalVersion>
     <PackageReleaseNotes>
-    	Upgrade RazorEngine version
+      Support VS 7 (#218532)
     </PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>

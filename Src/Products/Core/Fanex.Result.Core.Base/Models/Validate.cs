@@ -53,6 +53,9 @@
 
                 case SportType.VirtualHorseRacing:
                 case SportType.VirtualDogRacing:
+                case SportType.VirtualSteepleChase:
+                case SportType.VirtualHarnessRacing:
+                case SportType.VirtualMotorRacingVS7:
                     return dtoName == DTOType.VirtualRacing;
 
                 case SportType.LeapGamingVirtualSports:

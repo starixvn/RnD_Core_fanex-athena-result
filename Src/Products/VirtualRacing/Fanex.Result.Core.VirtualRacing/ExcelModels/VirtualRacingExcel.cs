@@ -13,7 +13,7 @@
     using ViewModels;
     using Fanex.Result.Core.Base.DataDomain;
 
-    internal sealed class VirtualRacingExcel : ExcelBase, IExcelModel
+    internal class VirtualRacingExcel : ExcelBase, IExcelModel
     {
         private const int ColumnRace = 1;
         private const int ColumnEventTime = 0;

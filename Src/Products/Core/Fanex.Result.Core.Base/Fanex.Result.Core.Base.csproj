@@ -8,10 +8,10 @@
     <AssemblyTitle>Fanex.Result.Core.Base</AssemblyTitle>
     <Product>Fanex.Result.Core.Base</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>3.0.1.8-baseball-01</Version>
-    <InfomationalVersion>3.0.1.8</InfomationalVersion>
+    <Version>3.0.1.9-vs7-02</Version>
+    <InfomationalVersion>3.0.1.9</InfomationalVersion>
     <PackageReleaseNotes>
-    	Support Baseball pharse 2.2 (#214733)
+      Support VS7 (#218532)
     </PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>

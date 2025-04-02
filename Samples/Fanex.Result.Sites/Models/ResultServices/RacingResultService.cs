@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Data;
     using System.Linq;
+    using BetListNPOI.HSSF.Record.Chart;
     using Fanex.Data;
     using Fanex.Data.Repository;
     using Fanex.Result.Core.VirtualRacing.DTO;
@@ -25,7 +26,9 @@
         {
             var racing = RacingResultExcelReader.CreateInstance(filePath).GetResultData();
 
-            var details = RacingDetailResultExcelReader.CreateInstance(filePath.Replace("VirtualHorseRacing", "VirtualHorseRacingDetail")).GetResultData().ToList();
+            var detailName = filePath.Replace("VirtualHorseRacing", "VirtualHorseRacingDetail");
+            detailName = filePath.Replace("VirtualSteepleChase", "VirtualSteepleChaseDetail");
+            var details = RacingDetailResultExcelReader.CreateInstance(detailName).GetResultData().ToList();
 
             foreach (var item in racing)
             {

@@ -62,7 +62,10 @@
                 case SportType.VirtualMotorRacing:
                 case SportType.VirtualSpeedway:
                 case SportType.VirtualCycling:
-                case SportType.VirtualDogRacing:                
+                case SportType.VirtualDogRacing:
+                case SportType.VirtualSteepleChase:
+                case SportType.VirtualHarnessRacing:
+                case SportType.VirtualMotorRacingVS7:
                     htmlResult = ResultEngine.HtmlParser(
                         new RacingResultData().GetNormalResult(sportId, date, leagueId).ToList(), resultSetting);
                     break;
@@ -152,6 +155,9 @@
                 case SportType.VirtualMotorRacing:
                 case SportType.VirtualSpeedway:
                 case SportType.VirtualCycling:
+                case SportType.VirtualSteepleChase:
+                case SportType.VirtualHarnessRacing:
+                case SportType.VirtualMotorRacingVS7:
                     excelResult = ResultEngine.ExcelParser(
                         new RacingResultData().GetNormalResult(sportId, date, leagueId).ToList(), resultSetting);
                     break;

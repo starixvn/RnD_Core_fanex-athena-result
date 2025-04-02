@@ -21,7 +21,7 @@
 
             resultData.EventId = Convert.ToInt32(row.GetCell(0)?.ToString());
             resultData.LeagueId = Convert.ToInt32(row.GetCell(1)?.ToString());
-            resultData.VendorMatchId = Convert.ToInt32(row.GetCell(2)?.ToString());
+            resultData.VendorMatchId = row.GetCell(2)?.ToString();
             resultData.Distance = row.GetCell(3).ToString();
             resultData.EventTime = Convert.ToDateTime(row.GetCell(4)?.ToString());
             resultData.EventStatus = row.GetCell(5)?.ToString();

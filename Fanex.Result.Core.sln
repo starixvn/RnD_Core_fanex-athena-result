@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2026
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35825.156 d17.13
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SonarQube", "SonarQube", "{8BA10E20-6612-4CCB-A759-5E18D6726760}"
 	ProjectSection(SolutionItems) = preProject
@@ -127,6 +127,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SportsLottery", "SportsLottery", "{979C6309-D3B1-4A86-9C50-D5A705612DC7}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.Result.Core.SportsLottery", "Src\Products\SportsLottery\Fanex.Result.Core.SportsLottery.csproj", "{EA7A7146-0561-4E48-94F0-BD154A561FA3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "VirtualRacing", "VirtualRacing", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fanex.Result.Core.VirtualRacing", "Src\Products\VirtualRacing\Fanex.Result.Core.VirtualRacing\Fanex.Result.Core.VirtualRacing.csproj", "{9D277F2C-606F-DD9C-0006-3B3F1967D014}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -274,6 +278,10 @@ Global
 		{EA7A7146-0561-4E48-94F0-BD154A561FA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EA7A7146-0561-4E48-94F0-BD154A561FA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EA7A7146-0561-4E48-94F0-BD154A561FA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D277F2C-606F-DD9C-0006-3B3F1967D014}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D277F2C-606F-DD9C-0006-3B3F1967D014}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D277F2C-606F-DD9C-0006-3B3F1967D014}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D277F2C-606F-DD9C-0006-3B3F1967D014}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -333,10 +341,12 @@ Global
 		{15E2D2EC-E10D-4900-984F-B818011620DA} = {2A1EF0A1-A4C4-48AC-94B4-F32BC137EE77}
 		{979C6309-D3B1-4A86-9C50-D5A705612DC7} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
 		{EA7A7146-0561-4E48-94F0-BD154A561FA3} = {979C6309-D3B1-4A86-9C50-D5A705612DC7}
+		{02EA681E-C7D8-13C7-8484-4AC65E1B71E8} = {FAA99AF3-D4F2-4EDB-8E2F-7F9460D5E6C5}
+		{9D277F2C-606F-DD9C-0006-3B3F1967D014} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		LessCompiler = ebd31f24-8f67-4e36-bd6d-1bb78a71e54b
 		SolutionGuid = {4BF11104-7EAE-4BB6-A235-1C10DB35CE8B}
+		LessCompiler = ebd31f24-8f67-4e36-bd6d-1bb78a71e54b
 	EndGlobalSection
 	GlobalSection(JSLint) = preSolution
 		SolutionConfigurationLocation = JSLintOptions.xml

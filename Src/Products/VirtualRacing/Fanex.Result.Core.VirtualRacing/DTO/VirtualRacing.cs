@@ -16,7 +16,7 @@
 
         public int LeagueId { get; set; }
 
-        public int VendorMatchId { get; set; }
+        public string VendorMatchId { get; set; }
 
         public string Distance { get; set; }
         

@@ -1,0 +1,173 @@
+﻿
+@using Fanex.Result.Core.Base.ViewModels;
+@using Fanex.Result.Core.VirtualRacing.ViewModels;
+@using System.Collections;
+@using Fanex.Result.Core.Base.Resources;
+
+@{
+    var viewModel = (RazorBinderModel)Model;
+    var colspan = 6;
+    var popupCss = viewModel.IsPopUp ? "popup" : string.Empty;
+
+
+    void RenderHeader(RazorBinderModel viewModel, int colspan)
+    {
+        <thead>
+            @if (viewModel.VisiblePopUpTitle && viewModel.Data.Count > 0)
+            {
+                var item = ((GroupData)viewModel.Data[0]).Data[0];
+                <tr class="row-title">
+                    <th class="cl-title" colspan="@colspan">
+                        <span class="leagueName">@item.LeagueName</span>
+                    </th>
+                </tr>
+            }
+            <tr class="header">
+                <th class="cl-ko-time">
+                    @LangResource.EventTime
+                </th>
+                <th class="cl-match home">
+                    @LangResource.Race
+                </th>
+                <th class="cl-place">
+                    @LangResource.Place
+                </th>
+                <th class="cl-win">
+                    @LangResource.Lane
+                </th>
+                <th class="cl-race-name">
+                    @LangResource.RacerName
+                </th>
+                <th class="cl-status">
+                    @LangResource.Status
+                </th>
+            </tr>
+        </thead>
+    }
+}
+
+@if (viewModel.VisibleFreeHeader)
+{
+    <div class="fn-rs-content-header">
+        <table class="fn-rs @popupCss racing">
+            @{
+                RenderHeader(viewModel, colspan);
+            }
+        </table>
+    </div>
+
+    @Raw("<div class=\"fn-rs-content-scroll\">")
+}
+
+<table class="fn-rs @popupCss racing">
+    @if (!viewModel.VisibleFreeHeader)
+    {
+        RenderHeader(viewModel, colspan);
+    }
+    <tbody>
+        @if (viewModel.Data.Count > 0)
+        {        
+            var index = 0;
+            foreach (var group in viewModel.Data)
+            {
+                if (!viewModel.IsPopUp)
+                {
+                    <tr class="data">
+                        <td colspan="@colspan" class="cl-league">
+                            @group.Data[0].LeagueName
+                        </td>
+                    </tr>
+                }
+                foreach (VirtualSteepleChaseViewModel item in group.Data)
+                {
+                    index++;
+                    if(item.IsStatusRaceRefund)
+                    {
+                        <tr class="data @item.Color(index, "even", "odd")">
+                                <td class="cl-ko-time">
+                                    @Raw(item.KickOffTime)
+                                </td>
+                                <td class="cl-match home">
+                                    @item.RaceInformation
+                                </td>
+                                <td class="cl-place">
+                                    @item.GetRunnerPrice()
+                                </td>
+                                <td class="cl-win">
+                                    @item.GetLane()
+                                </td>
+                                <td class="cl-race-name">
+                                    @item.GetRunnerName()
+                                </td>
+                                <td class="cl-status @item.EventStatusBackground">
+                                    @item.Status
+                                </td>
+                            </tr>
+                    }
+                    else
+                    {
+                        var isFirstRow = true;
+                        foreach(var detail in item.Racing.Details)
+                        {
+                            if(isFirstRow)
+                            {
+                                isFirstRow = false;
+                                <tr class="data @item.Color(index, "even", "odd")">
+                                    <td class="cl-ko-time" rowspan="@item.GetNumberOfDetail">
+                                        @Raw(item.KickOffTime)
+                                    </td>
+                                    <td class="cl-match home" rowspan="@item.GetNumberOfDetail">
+                                        @item.RaceInformation
+                                    </td>
+                                    <td class="cl-place">
+                                        @item.GetRunnerPrice(detail.Placing)
+                                    </td>
+                                    <td class="cl-win">
+                                        @item.GetLane(detail.Lane)
+                                    </td>
+                                    <td class="cl-race-name">
+                                        @item.GetRunnerName(detail.RacerId)
+                                    </td>
+                                    <td class="cl-status @item.EventStatusBackground" rowspan="@item.GetNumberOfDetail">
+                                        @item.Status
+                                    </td>
+                                </tr>
+
+                            }
+                            else
+                            {
+                                <tr class="data @item.Color(index, "even", "odd")">                                
+                                    <td class="cl-place">
+                                        @item.GetRunnerPrice(detail.Placing)
+                                    </td>
+                                    <td class="cl-win">
+                                        @detail.Lane
+                                    </td>
+                                    <td class="cl-race-name">
+                                        @item.GetRunnerName(detail.RacerId)
+                                    </td>
+                                </tr>
+                            }                        
+                        } 
+                    }
+                                           
+                }
+            }
+
+        }
+        else
+        {
+            <!--NoInfo-->
+            <tr class="row-noinfo">
+                <td colspan="@colspan">
+                    @LangResource.NoInfo
+                </td>
+            </tr>
+            <!--/NoInfo-->
+        }
+    </tbody>
+</table>
+@if (viewModel.VisibleFreeHeader)
+{
+    @Raw("</div>")
+}

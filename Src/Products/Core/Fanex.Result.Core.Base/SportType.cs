@@ -178,6 +178,15 @@
         [StringValue("Other")]
         Others = 1000,
 
+        [StringValue("VirtualSteepleChase")]
+        VirtualSteepleChase = 125,
+        
+        [StringValue("VirtualSteepleChase")]
+        VirtualHarnessRacing = 126,
+        
+        [StringValue("VirtualSteepleChase")]
+        VirtualMotorRacingVS7 = 127,
+
         [StringValue("Other")]
         VirtualSoccerLeague = 190,
 

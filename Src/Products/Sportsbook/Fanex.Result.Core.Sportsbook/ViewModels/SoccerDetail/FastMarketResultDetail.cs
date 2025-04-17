@@ -144,9 +144,11 @@
 
         private string GetFastMarketSituation(GameDetail detailedItem, int startTime, int betType)
         {
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            var encoding = Encoding.GetEncoding("windows-1252");
             var results = startTime < TimeOfOneHalf
-                ? Encoding.Default.GetBytes(detailedItem.HomeValue)
-                : Encoding.Default.GetBytes(detailedItem.AwayValue);
+                ? encoding.GetBytes(detailedItem.HomeValue)
+                : encoding.GetBytes(detailedItem.AwayValue);
 
             var result = results[startTime % TimeOfOneHalf];
             var situation = betType == 225 ?

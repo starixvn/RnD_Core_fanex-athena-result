@@ -8,10 +8,10 @@
     <AssemblyTitle>Fanex.Result.Core.Sportsbook</AssemblyTitle>
     <Product>Fanex.Result.Core.Sportsbook</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>4.0.0.0-upgrade-11</Version>
-    <InfomationalVersion>4.0.0.0</InfomationalVersion>
+    <Version>4.0.0.1-fastmarket-02</Version>
+    <InfomationalVersion>4.0.0.1</InfomationalVersion>
     <PackageReleaseNotes>
-      Upgrade RazorEngine version
+      - Hotfix for Fast Market result (#223921)
     </PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>

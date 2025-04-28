@@ -8,9 +8,10 @@
     <AssemblyTitle>Fanex.Result.Core.ThirdParty</AssemblyTitle>
     <Product>Fanex.Result.Core.ThirdParty</Product>
     <Copyright>Copyright ©  2021</Copyright>
-    <Version>2.0.0.4-beta-01</Version>
-    <InfomationalVersion>2.0.0.4</InfomationalVersion>
-    <PackageReleaseNotes>Add new paramter TransDesc in request for Jili product (#212814)</PackageReleaseNotes>
+    <Version>2.0.0.5-beta-02</Version>
+    <InfomationalVersion>2.0.0.5</InfomationalVersion>
+    <PackageReleaseNotes>Add more option to init Contructor (#224687)</PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>
     

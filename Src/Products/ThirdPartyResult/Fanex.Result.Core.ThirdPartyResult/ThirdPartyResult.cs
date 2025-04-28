@@ -21,6 +21,11 @@
         private readonly ISerializer _serializer;
         private readonly string SectionName;
 
+        public ThirdPartyResult(ThirdPartyConfigs config) : this(null, null, null)
+        {
+            _configs = config;
+        }
+
         public ThirdPartyResult(string sectionName) : this(sectionName, null, null)
         {
             SectionName = sectionName;

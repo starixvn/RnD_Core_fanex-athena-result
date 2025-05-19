@@ -6,6 +6,8 @@
 
         public int Debug { get; set; }
 
+        public int SportTypeId { get; set; }
+
         public int VendorId { get; set; }
 
         public string SiteId { get; set; }

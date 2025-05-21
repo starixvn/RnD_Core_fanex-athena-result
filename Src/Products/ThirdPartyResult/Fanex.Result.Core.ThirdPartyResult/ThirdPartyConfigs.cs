@@ -18,6 +18,7 @@
         private const string URL = "Url";
         private const string DEBUG_MODE = "Debug";
         private const string VENDORID = "VendorId";
+        private const string SPORTTYPEID = "SportTypeId";
         private const string SITEID = "SiteId";
         private const string PROXY_IP_SERVER = "ProxyIP";
         private const string PROXY_PORT_SERVER = "ProxyPort";
@@ -59,6 +60,19 @@
             set
             {
                 this[VENDORID] = value;
+            }
+        }
+
+        [ConfigurationProperty(SPORTTYPEID, IsRequired = false, DefaultValue = 0)]
+        public int SportTypeId
+        {
+            get
+            {
+                return (int)this[SPORTTYPEID];
+            }
+            set
+            {
+                this[SPORTTYPEID] = value;
             }
         }
 

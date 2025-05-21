@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net461;</TargetFrameworks> 
+    <OutputType>Library</OutputType>
+    <RestorePackages>true</RestorePackages>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <AssemblyTitle>Fanex.Result.Core.WCasino</AssemblyTitle>
+    <Product>Fanex.Result.Core.WCasino</Product>
+    <Copyright>Copyright ©  2016</Copyright>
+    <Version>1.0.1-wcasino-01</Version>
+    <InfomationalVersion>1.0.1</InfomationalVersion>
+    <PackageReleaseNotes>- Support W Casino Result (#224872)</PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Fanex.Result.Core-NPOI.2.0.6" Version="3.0.2-WCasino-01" />
+    <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters" Version="1.1.0" />  
+  </ItemGroup>
+</Project> 

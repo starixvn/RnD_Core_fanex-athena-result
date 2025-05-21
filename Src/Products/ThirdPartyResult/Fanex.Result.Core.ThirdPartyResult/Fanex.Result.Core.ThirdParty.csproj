@@ -8,9 +8,9 @@
     <AssemblyTitle>Fanex.Result.Core.ThirdParty</AssemblyTitle>
     <Product>Fanex.Result.Core.ThirdParty</Product>
     <Copyright>Copyright ©  2021</Copyright>
-    <Version>2.0.0.5-beta-02</Version>
-    <InfomationalVersion>2.0.0.5</InfomationalVersion>
-    <PackageReleaseNotes>Add more option to init Contructor (#224687)</PackageReleaseNotes>
+    <Version>2.0.0.7</Version>
+    <InfomationalVersion>2.0.0.7</InfomationalVersion>
+    <PackageReleaseNotes>Add more option to ThirdPartyConfigs (#227506)</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>

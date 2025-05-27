@@ -4,6 +4,10 @@
 
     public sealed class ThirdPartyConfigs : ConfigurationSection
     {
+        public ThirdPartyConfigs()
+        {
+        }
+
         public ThirdPartyConfigs(string url, int debugMode, int vendorId, string siteId, string proxyIP, int proxyPort)
         {
             Url = url;

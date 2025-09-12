@@ -17,5 +17,7 @@
         public int ProxyPort { get; set; }
 
         public string Name { get; set; }
+
+        public bool IsPostMethod { get; set; }
     }
 }

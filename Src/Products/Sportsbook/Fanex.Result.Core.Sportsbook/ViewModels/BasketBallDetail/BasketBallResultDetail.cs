@@ -9,6 +9,7 @@
     using DataDomain;
     using DTO;
     using Fanex.Result.Core.Base.Utilities;
+    using Fanex.Result.Core.Sportsbook.Resources;
     using Utilities;
 
     public class BasketBallResultDetail : BaseResultDetail<BasketBallGameDetailItem>
@@ -33,6 +34,15 @@
                 var resourceId = detailItem?.ResourceId?.Remove(0, 3);
 
                 item.ResourceName = RefDataHelper.GetBetTypeNameById(betTypeId, GetSupportedLanguage, resourceId);
+            }
+
+            if (BasketBallResourceID.PlayerProsMoreResultResourceIDs.Any(id => Regex.IsMatch(detailItem.ResourceId, id)))
+            {
+                var betTypeId = detailItem?.ResourceId?.Substring(0, 3);
+                var key = $"Basketball_{betTypeId}";
+                var text = SportsbookResx.ResourceManager.GetString(key);
+                item.ResourceName = text;
+                item.Players =  new BasketballPlayerInfos(detailItem.OtherInfo);
             }
 
             return MapGameValueByStatusId(item, detailItem);

@@ -1,4 +1,6 @@
-﻿namespace Fanex.Result.Core.Sportsbook.DataDomain
+﻿using ICSharpCode.SharpZipLib.Zip.Compression.Streams;
+
+namespace Fanex.Result.Core.Sportsbook.DataDomain
 {
     public static class BasketBallResourceID
     {
@@ -33,6 +35,17 @@
         public const string Quarter3WhichTeamToScoreTheLastBasket = "61703";
         public const string Quarter4WhichTeamToScoreTheLastBasket = "61704";
 
+        public const string PlayerPoint = "653[0-9][0-9]";
+        public const string PlayerAssist = "656[0-9][0-9]";
+        public const string PlayerRebound = "659[0-9][0-9]";
+        public const string Player3Point = "662[0-9][0-9]";
+        public const string PlayerBlock = "665[0-9][0-9]";
+        public const string PlayerSteal = "667[0-9][0-9]";
+        public const string PlayerMostPoints = "680[0-9][0-9]";
+        public const string PlayerMostRebounds = "681[0-9][0-9]";
+        public const string PlayerMostSteals = "682[0-9][0-9]";
+        public const string PlayerMostAssists = "683[0-9][0-9]";
+        public const string PlayerMost3Point = "684[0-9][0-9]";
         internal static readonly string[] MoreResultResourceIDRegex =
         {
             FirstHalfRaceToXXPoints,
@@ -67,6 +80,21 @@
         internal static readonly string[] AbandonedResourceIDs =
         {
             Quarter1, Quarter2, Quarter3, Quarter4, OverTime, FirstHalf, FullTime, SecondHalf
+        };
+
+        internal static readonly string[] PlayerProsMoreResultResourceIDs =
+        {
+            PlayerPoint,
+            PlayerAssist,
+            PlayerRebound,
+            Player3Point,
+            PlayerBlock,
+            PlayerSteal,
+            PlayerMostPoints,
+            PlayerMostRebounds,
+            PlayerMostSteals,
+            PlayerMostAssists,
+            PlayerMost3Point
         };
     }
 }

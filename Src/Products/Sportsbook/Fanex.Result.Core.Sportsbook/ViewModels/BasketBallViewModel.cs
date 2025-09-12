@@ -48,6 +48,10 @@
             ResultDetailItems = (resultDetail ?? new BasketBallResultDetail(sportbook, setting, null, null))
                 .GetDetailItems();
 
+            PlayerProMoreResultItems = ResultDetailItems
+                .Where(item => BasketBallResourceID.PlayerProsMoreResultResourceIDs.Any(i => Regex.IsMatch(item.ResourceID, i)))
+                .ToSafeList();
+
             var moreResultDetailItem = ResultDetailItems
                 .Where(item => BasketBallResourceID.MoreResultResourceIDs.Contains(item.ResourceID));
 
@@ -115,6 +119,8 @@
 
         public SafeList<BasketBallGameDetailItem> MoreResultDetailItems { get; }
         
+        public SafeList<BasketBallGameDetailItem> PlayerProMoreResultItems { get; }
+
         public override string GetHomeAwaySet(int index, bool isHome)
         {
             const int maxIndex = 4;
@@ -242,7 +248,7 @@
             return isHome ? HomeSet[index] : AwaySet[index];
         }
 
-        private bool HasGameDetailData() => MoreResultDetailItems.Any();
+        private bool HasGameDetailData() => MoreResultDetailItems.Any() || PlayerProMoreResultItems.Any();
 
         private bool DetermineShowingLiveScore()
         {

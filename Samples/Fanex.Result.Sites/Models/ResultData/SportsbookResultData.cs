@@ -3,7 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Web.Hosting;
     using Criteria;
     using Fanex.Result.Core.Base;
     using Fanex.Result.Core.Sportsbook.DTO;

@@ -1,0 +1,136 @@
+﻿namespace Fanex.Result.Sites.NET8.Controllers
+{
+    using Fanex.Result.Core;
+    using Fanex.Result.Core.Base;
+    using Fanex.Result.Sites.NET8.Models;
+    using Fanex.Result.Sites.NET8.Models.ResultData;
+    using Fanex.Result.Sites.NET8.Models.ResultServices;
+    using Ionic.Zip;
+    using Microsoft.AspNetCore.Mvc;
+    using System.Globalization;
+
+    /// <summary>
+    /// POPUP result page.
+    /// </summary>
+    public class PopUpReportController : Controller
+    {
+        private const int MixParlayBettype = 9;
+        private const int SystemParlayBettype = 29;
+        private const int MetricGaming801 = 801;
+        private const int MixParlayVirtualSport = 2799;
+
+        [HttpGet]
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public string GenHtml(ResultPopupMetaModel metalModel)
+        {
+            Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentUICulture = new CultureInfo(metalModel.LanguageCode);
+
+            return GetPopUpData(metalModel);
+        }
+
+        /// <summary>
+        /// Get result data for POPUP page.
+        /// </summary>
+        /// <param name="metalModel">The metal model.</param>
+        /// <returns>The html result.</returns>
+        private string GetPopUpData(ResultPopupMetaModel metalModel)
+        {
+            var sportType = (SportType)metalModel.SportType;
+            var licenseeId = 1;
+            var userId = 68;
+            var setting = new ResultSetting
+            {
+                SportType = sportType,
+                IsOutright = metalModel.IsOutRight.HasValue && metalModel.IsOutRight.Value > 0,
+                IsParlayPopUp = metalModel.Bettype == MixParlayBettype ||
+                    metalModel.Bettype == SystemParlayBettype ||
+                    metalModel.Bettype == MixParlayVirtualSport,
+                IsPopUp = true,
+                VisiblePopUpTitle = true,
+                LanguageCode = metalModel.LanguageCode,
+                VisibleMatchCodeIDColumn = false,
+                VisibleFreeHeader = true,
+                VisibleDetailedLink = true,
+                IsPopupOpenFromBetList = true
+            };
+
+            return GenNormalPopUp(metalModel, sportType, licenseeId, userId, setting);
+        }
+
+        /// <summary>
+        /// Get normal POPUP result.
+        /// </summary>
+        /// <param name="metalModel">The metal model.</param>
+        /// <param name="sportType">The sport type.</param>
+        /// <param name="licenseeId">The licensee ID.</param>
+        /// <param name="userId">The user ID.</param>
+        /// <param name="setting">The result setting.</param>
+        /// <returns>The html result.</returns>
+        private static string GenNormalPopUp(ResultPopupMetaModel metalModel, SportType sportType, int licenseeId, int userId, ResultSetting setting)
+        {
+            switch (sportType)
+            {
+            //    case SportType.VirtualHorseRacing:
+            //    case SportType.VirtualMotorRacing:
+            //    case SportType.VirtualGreyhounds:
+            //    case SportType.VirtualSpeedway:
+            //    case SportType.VirtualCycling:
+            //        if (metalModel.RaceNo.HasValue)
+            //        {
+            //            return ResultEngine.HtmlParser(
+            //                new RacingResultData().GetPopupResult(licenseeId, userId, metalModel.MatchId, metalModel.RaceNo).ToList(), setting);
+            //        }
+                    //break;
+
+                //case SportType.AllBetCasino:
+                //    return new AllbetResultData().GetPopupResult(metalModel.Bettype, metalModel.LanguageCode);
+
+                //case SportType.GTCasino:
+                //    return new GTCasinoResultData().GetPopupResult(metalModel.Bettype, metalModel.LanguageCode);
+
+                //case SportType.SAGaming:
+                //    return new SAGamingResultData().GetPopupResult(metalModel.Bettype, metalModel.LanguageCode);
+
+                //case SportType.WM:
+                //    return new WMLiveCasinoResultData().GetPopupResult(metalModel.Bettype, metalModel.LanguageCode);
+
+                //case SportType.SexyGaming:
+                //    return new SexyGamingResultData().GetPopupResult(metalModel.Bettype, metalModel.LanguageCode);
+
+                //case SportType.NumberGame:
+                //    return ResultEngine.HtmlParser(
+                //        new NumberGameResultData().GetPopupResult(metalModel.MatchId, metalModel.GetDataFromExcel).ToList(), setting);
+
+                //case SportType.Bitcoin:
+                //    return ResultEngine.HtmlParser(
+                //        new BitcoinResultData().GetPopupResult((int)sportType, metalModel).ToList(), setting);
+
+                //case SportType.LeapGamingVirtualSports:
+                //    return ResultEngine.HtmlParser(new LeapGamingResultData().GetPopupResult(metalModel.TransDesc), setting);
+
+                default:
+
+                    var data = new SportsbookResultData().GetPopupResult(sportType, licenseeId, userId, metalModel);
+
+                    if (metalModel.GetDataFromExcel && metalModel.SportType != (int)SportType.Badminton)
+                    {
+                        /* data.ToList()
+                             .ForEach(x =>
+                             {
+                                 x.GameDetails = x.GameDetails.Where(d => d.ResourceId.StartsWith(metalModel.Bettype.ToString()) || d.ResourceId.Contains("CNT")).ToList();
+                                 x.BetID = metalModel.BetId.ToString();
+                             });*/
+                    }
+
+                    return ResultEngine.HtmlParser(data.ToList(), setting);
+            }
+
+            return string.Empty;
+        }
+    }
+}

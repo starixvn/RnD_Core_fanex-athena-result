@@ -1,7 +1,6 @@
 ﻿namespace Fanex.Result.Core.Sportsbook.ViewModels.BasketBallDetail
 {
     using BaseDetail;
-    using System.Collections.Generic;
 
     public class BasketBallGameDetailItem : GameDetailItem
     {
@@ -10,5 +9,11 @@
         public bool IsAway { get; set; }
 
         public BasketballPlayerInfos Players { get; set; }
+
+        public int SettlementStatusID { get; set; }
+        
+        public bool IsRefundAll { get; set; }
+
+        public bool IsRefundWithSettleDetermined { get; set; }
     }
 }

@@ -961,6 +961,15 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Players.
+        /// </summary>
+        public static string Players {
+            get {
+                return ResourceManager.GetString("Players", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Quarterfinal.
         /// </summary>
         public static string Quarterfinal {

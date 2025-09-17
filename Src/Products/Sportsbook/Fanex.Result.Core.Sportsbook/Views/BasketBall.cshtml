@@ -3,6 +3,8 @@
 @using Fanex.Result.Core.Base.Resources;
 @using Fanex.Result.Core.Sportsbook.ViewModels.BasketBallDetail;
 @using Fanex.Result.Core.Sportsbook.Resources;
+@using System.Linq;
+@using Fanex.Result.Core.Base.DataDomain;
 @{
 	var viewModel = (RazorBinderModel)Model;
 	var colspan = viewModel.VisibleMatchCodeIDColumn ? 12 : 11;
@@ -162,7 +164,7 @@
 	@Raw("</div>")
 }
 
-@if (viewModel.VisibleDetailResult && mainItem.MoreResultDetailItems.Any())
+@if (viewModel.VisibleDetailResult && mainItem.MoreResultDetailItems.Any() && mainItem.PlayerProMainResultItem == null)
 {
 	<br />
 	<table class="fn-rs popup">
@@ -186,42 +188,91 @@
 	</table>
 }
 
-@if (viewModel.VisibleDetailResult && mainItem.PlayerProMoreResultItems.Any())
+@if (mainItem.PlayerProMainResultItem != null)
 {
 	<br />
 	<table class="fn-rs popup">
 		<thead>
 			<tr class="header">
-				<th class="cl-match">@LangResource.Player</th>
-				@foreach (BasketBallGameDetailItem item in mainItem.PlayerProMoreResultItems)
+				<th class="cl-match">@(mainItem.PlayerProMainResultItem.Players.Players.Count() == 1 ? LangResource.Player : SportsbookResx.Players)</th>
+				@foreach (var item in mainItem.PlayerProHeaderItems)
 				{
-					<th class="cl-result home">@item.ResourceName</th>
+					<th class="cl-result home">@item</th>
 				}
 			</tr>
 		</thead>
 		<tbody>
-			@{
-				var firstResource = mainItem.PlayerProMoreResultItems.FirstOrDefault();				
-			}
-
-			@foreach (BasketballPlayerInfo player in firstResource.Players.Players)
-			{
+            @if(mainItem.PlayerProMainResultItem.Players.Players.Count() == 1){
 				<tr>
 					@{
-						var playerName = mainItem.RefDataHelper.GetTeamName(player.PlayerId, mainItem.GetSupportedLanguage, player.PlayerId);
-						var teamName = mainItem.RefDataHelper.GetTeamName(player.TeamId, mainItem.GetSupportedLanguage, player.TeamId);
-						var playerFormat = $"{playerName} ({teamName})";
+                        var player = mainItem.PlayerProMainResultItem.Players.Players[0];
 					}
-					<td class="cl-match">@playerFormat</td>
-					@foreach (BasketBallGameDetailItem item in mainItem.PlayerProMoreResultItems)
+
+                    <td class="cl-match" rowspan="@(mainItem.PlayerProMainResultItem.IsRefundWithSettleDetermined ? 2 : 1)">@player.PlayerName</td>
+
+					@if(mainItem.PlayerProMainResultItem.IsRefundAll)
 					{
-						<td class="cl-result home">
-							@item.HomeValue
-						</td>
+						<td class="cl-result home" rowspan="@mainItem.PlayerProHeaderItems.Length">@LangResource.Refund</td>
+					}
+					else
+					{
+						foreach(var playerResult in player.ResultDetailItems)
+						{
+							<td class="cl-result home">@playerResult.HomeValue</td>
+						}
 					}
 				</tr>
-			}
-			
+                if(mainItem.PlayerProMainResultItem.IsRefundWithSettleDetermined)
+                {
+                    <tr>
+                        <td class="cl-result home" colspan="@mainItem.PlayerProHeaderItems.Length">(@LangResource.RefundWithSettleDetermined)</td>
+                    </tr>
+                }
+            }
+            else if (mainItem.PlayerProMainResultItem.Players.Players.Count() == 2)
+            {
+                var player1 = mainItem.PlayerProMainResultItem.Players.Players[0];
+                var player2 = mainItem.PlayerProMainResultItem.Players.Players[1];
+                
+                <tr>
+                    <td class="cl-match">@player1.PlayerName</td>
+                    @if(mainItem.PlayerProMainResultItem.IsRefundAll)
+                    {
+                        <td class="cl-result home" colspan="@mainItem.PlayerProHeaderItems.Length" rowspan="2">@LangResource.Refund</td>
+                    }
+                    else
+                    {
+                        foreach(var item in player1.ResultDetailItems)
+                        {
+                            <td class="cl-result home">@(mainItem.PlayerProMainResultItem.HomeValue == LangResource.Refund ? LangResource.Refund : item.HomeValue)</td>
+                        }
+                    }
+                </tr>
+                <tr>
+                    @if(mainItem.PlayerProMainResultItem.IsRefundWithSettleDetermined)
+                    {
+                        <td class="cl-match" rowspan="2">@player2.PlayerName</td>
+                    }
+                    else
+                    {
+                        <td class="cl-match">@player2.PlayerName</td>
+                    }
+
+                    @if(!mainItem.PlayerProMainResultItem.IsRefundAll)
+                    {
+                        foreach(var item in player2.ResultDetailItems)
+                        {
+                            <td class="cl-result home">@(mainItem.PlayerProMainResultItem.HomeValue == LangResource.Refund ? LangResource.Refund : item.HomeValue)</td>
+                        }
+                    }
+                </tr>
+                if(mainItem.PlayerProMainResultItem.IsRefundWithSettleDetermined)
+                {
+                    <tr>
+                        <td class="cl-result home" colspan="@mainItem.PlayerProHeaderItems.Length">(@LangResource.RefundWithSettleDetermined)</td>
+                    </tr>
+                }
+            }
 		</tbody>
 	</table>
 }

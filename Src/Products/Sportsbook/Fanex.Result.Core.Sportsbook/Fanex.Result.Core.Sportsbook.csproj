@@ -8,10 +8,10 @@
     <AssemblyTitle>Fanex.Result.Core.Sportsbook</AssemblyTitle>
     <Product>Fanex.Result.Core.Sportsbook</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>4.0.0.1-fastmarket-02</Version>
-    <InfomationalVersion>4.0.0.1</InfomationalVersion>
+    <Version>4.0.0.3-basketball-03</Version>
+    <InfomationalVersion>4.0.0.3</InfomationalVersion>
     <PackageReleaseNotes>
-      - Hotfix for Fast Market result (#223921)
+      - Support Basketball Player Pro result (#235372)
     </PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>

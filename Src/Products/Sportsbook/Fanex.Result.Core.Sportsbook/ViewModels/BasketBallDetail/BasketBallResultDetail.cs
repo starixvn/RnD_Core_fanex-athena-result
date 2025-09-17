@@ -9,7 +9,6 @@
     using DataDomain;
     using DTO;
     using Fanex.Result.Core.Base.Utilities;
-    using Fanex.Result.Core.Sportsbook.Resources;
     using Utilities;
 
     public class BasketBallResultDetail : BaseResultDetail<BasketBallGameDetailItem>
@@ -36,14 +35,14 @@
                 item.ResourceName = RefDataHelper.GetBetTypeNameById(betTypeId, GetSupportedLanguage, resourceId);
             }
 
-            if (BasketBallResourceID.PlayerProsMoreResultResourceIDs.Any(id => Regex.IsMatch(detailItem.ResourceId, id)))
+            if (detailItem.BettypeId >= BasketBallResourceID.MinPropBettype && detailItem.BettypeId <= BasketBallResourceID.MaxPropBettype)
             {
-                var betTypeId = detailItem?.ResourceId?.Substring(0, 3);
-                var key = $"Basketball_{betTypeId}";
-                var text = SportsbookResx.ResourceManager.GetString(key);
-                item.ResourceName = text;
+                item.ResourceName = GetBasketBallPropsHeaderDetail(detailItem.ResourceId);
                 item.Players =  new BasketballPlayerInfos(detailItem.OtherInfo);
+                item.HomeValue = GetPropResultValue(detailItem);
+                item.SettlementStatusID = detailItem.SettlementStatusID;
             }
+            
 
             return MapGameValueByStatusId(item, detailItem);
         }
@@ -95,6 +94,35 @@
             item.IsHome = !isNone && isHomeTeam;
             item.IsAway = !isNone && !isHomeTeam;
             item.HomeValue = isNone ? LangResource.None : result;
+        }
+
+        private string GetBasketBallPropsHeaderDetail(string resourceId)
+        {
+            if (string.IsNullOrWhiteSpace(resourceId))
+            {
+                return string.Empty;
+            }
+            
+            foreach (var kvp in BasketBallResourceID.PlayerPropsHeaderResourceIDs)
+            {
+                if (Regex.IsMatch(resourceId, kvp.Key, RegexOptions.Compiled))
+                {
+                    return kvp.Value;
+                }
+            }
+
+            return string.Empty;
+        }
+        
+        private static string GetPropResultValue(GameDetail item)
+        {
+            return item.SettlementStatusID switch
+            {
+                EventStatusID.RefundSettlementStatusID => LangResource.Refund,
+                EventStatusID.RefundWithSettleDetermined => LangResource.RefundWithSettleDetermined,
+                EventStatusID.RunningSettlementStatusID => ConstantValue.Hyphen,
+                _ => item.HomeValue,
+            };
         }
     }
 }

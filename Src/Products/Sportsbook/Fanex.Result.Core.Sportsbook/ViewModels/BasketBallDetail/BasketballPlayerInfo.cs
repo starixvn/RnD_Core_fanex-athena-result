@@ -8,6 +8,11 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels.BasketBallDetail
         public BasketballPlayerInfos(string json)
         {
             Players = new List<BasketballPlayerInfo>();
+            if (string.IsNullOrEmpty(json))
+            {
+                return;
+            }
+
             var array = json.ToLower().Split(';', StringSplitOptions.RemoveEmptyEntries);
 
             foreach (var item in array)
@@ -23,6 +28,12 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels.BasketBallDetail
     {
         public BasketballPlayerInfo(string json)
         {
+            ResultDetailItems = new List<BasketBallGameDetailItem>();
+            if (string.IsNullOrEmpty(json))
+            {
+                return;
+            }
+            
             var array = json.ToLower().Split(',', StringSplitOptions.RemoveEmptyEntries);
             if (array.Length == 2)
             {
@@ -32,7 +43,8 @@ namespace Fanex.Result.Core.Sportsbook.ViewModels.BasketBallDetail
         }
 
         public string PlayerId { get; set; }
-
+        public string PlayerName { get; set; }
         public string TeamId { get; set; }
+        public List<BasketBallGameDetailItem> ResultDetailItems { get; set; }
     }
 }

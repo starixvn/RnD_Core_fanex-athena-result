@@ -19,7 +19,7 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class SportsbookResx {
@@ -228,6 +228,60 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         public static string Baseball_8823XX {
             get {
                 return ResourceManager.GetString("Baseball_8823XX", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Points.
+        /// </summary>
+        public static string Basketball_653 {
+            get {
+                return ResourceManager.GetString("Basketball_653", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Assists.
+        /// </summary>
+        public static string Basketball_656 {
+            get {
+                return ResourceManager.GetString("Basketball_656", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rebounds.
+        /// </summary>
+        public static string Basketball_659 {
+            get {
+                return ResourceManager.GetString("Basketball_659", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3PT FG Made.
+        /// </summary>
+        public static string Basketball_662 {
+            get {
+                return ResourceManager.GetString("Basketball_662", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Blocks.
+        /// </summary>
+        public static string Basketball_665 {
+            get {
+                return ResourceManager.GetString("Basketball_665", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Steals.
+        /// </summary>
+        public static string Basketball_667 {
+            get {
+                return ResourceManager.GetString("Basketball_667", resourceCulture);
             }
         }
         
@@ -903,6 +957,15 @@ namespace Fanex.Result.Core.Sportsbook.Resources {
         public static string OverlordMiddle {
             get {
                 return ResourceManager.GetString("OverlordMiddle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Players.
+        /// </summary>
+        public static string Players {
+            get {
+                return ResourceManager.GetString("Players", resourceCulture);
             }
         }
         

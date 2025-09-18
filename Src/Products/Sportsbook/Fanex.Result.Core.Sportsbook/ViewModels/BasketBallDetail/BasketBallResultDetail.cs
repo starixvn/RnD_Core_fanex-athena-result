@@ -9,6 +9,7 @@
     using DataDomain;
     using DTO;
     using Fanex.Result.Core.Base.Utilities;
+    using Fanex.Result.Core.Sportsbook.Resources;
     using Utilities;
 
     public class BasketBallResultDetail : BaseResultDetail<BasketBallGameDetailItem>
@@ -33,6 +34,14 @@
                 var resourceId = detailItem?.ResourceId?.Remove(0, 3);
 
                 item.ResourceName = RefDataHelper.GetBetTypeNameById(betTypeId, GetSupportedLanguage, resourceId);
+            }
+
+            if (detailItem.BettypeId >= BasketBallResourceID.MinPropBettype && detailItem.BettypeId <= BasketBallResourceID.MaxPropBettype)
+            {
+                item.ResourceName = GetBasketBallPropsHeaderDetail(detailItem.ResourceId);
+                item.Players =  new BasketballPlayerInfos(detailItem.OtherInfo);
+                item.HomeValue = GetPropResultValue(detailItem);
+                item.SettlementStatusID = detailItem.SettlementStatusID;
             }
 
             return MapGameValueByStatusId(item, detailItem);
@@ -85,6 +94,39 @@
             item.IsHome = !isNone && isHomeTeam;
             item.IsAway = !isNone && !isHomeTeam;
             item.HomeValue = isNone ? LangResource.None : result;
+        }
+
+        private string GetBasketBallPropsHeaderDetail(string resourceId)
+        {
+            if (string.IsNullOrWhiteSpace(resourceId))
+            {
+                return string.Empty;
+            }
+            
+            foreach (var kvp in BasketBallResourceID.PlayerPropsHeaderResourceIDs)
+            {
+                if (Regex.IsMatch(resourceId, kvp.Key, RegexOptions.Compiled))
+                {
+                    return kvp.Value;
+                }
+            }
+
+            return string.Empty;
+        }
+        
+        private static string GetPropResultValue(GameDetail item)
+        {
+            switch(item.SettlementStatusID)
+            {
+                case EventStatusID.RefundSettlementStatusID:
+                    return LangResource.Refund;
+                case EventStatusID.RefundWithSettleDetermined:
+                    return LangResource.RefundWithSettleDetermined;
+                case EventStatusID.RunningSettlementStatusID:
+                    return ConstantValue.Hyphen;
+                default:
+                    return item.HomeValue;
+            }   
         }
     }
 }

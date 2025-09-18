@@ -3,6 +3,9 @@
 @using Fanex.Result.Core.Base.Resources;
 @using Fanex.Result.Core.Sportsbook.ViewModels.BasketBallDetail;
 @using Fanex.Result.Core.Sportsbook.Resources;
+@using System.Linq;
+@using Fanex.Result.Core.Base.DataDomain;
+
 @{
     /**/
 
@@ -163,7 +166,7 @@
     @Raw("</div>")
 }
 
-@if (viewModel.VisibleDetailResult)
+@if (viewModel.VisibleDetailResult && mainItem.PlayerProMainResultItem == null)
 {
     <br />
     <table class="fn-rs popup">
@@ -185,7 +188,95 @@
             }
         </tbody>
     </table>
+}
 
+@if (mainItem.PlayerProMainResultItem != null)
+{
+	<br />
+	<table class="fn-rs popup">
+		<thead>
+			<tr class="header">
+				<th class="cl-match">@(mainItem.PlayerProMainResultItem.Players.Players.Count() == 1 ? LangResource.Player : SportsbookResx.Players)</th>
+				@foreach (var item in mainItem.PlayerProHeaderItems)
+				{
+					<th class="cl-result home">@item</th>
+				}
+			</tr>
+		</thead>
+		<tbody>
+            @if(mainItem.PlayerProMainResultItem.Players.Players.Count() == 1){
+				<tr>
+					@{
+                        var player = mainItem.PlayerProMainResultItem.Players.Players[0];
+					}
+
+                    <td class="cl-match" rowspan="@(mainItem.PlayerProMainResultItem.IsRefundWithSettleDetermined ? 2 : 1)">@player.PlayerName</td>
+
+					@if(mainItem.PlayerProMainResultItem.IsRefundAll)
+					{
+						<td class="cl-result home" colspan="@mainItem.PlayerProHeaderItems.Length">@LangResource.Refund</td>
+					}
+					else
+					{
+						foreach(var playerResult in player.ResultDetailItems)
+						{
+							<td class="cl-result home">@playerResult.HomeValue</td>
+						}
+					}
+				</tr>
+                if(mainItem.PlayerProMainResultItem.IsRefundWithSettleDetermined)
+                {
+                    <tr>
+                        <td class="cl-result home" colspan="@mainItem.PlayerProHeaderItems.Length">(@LangResource.RefundWithSettleDetermined)</td>
+                    </tr>
+                }
+            }
+            else if (mainItem.PlayerProMainResultItem.Players.Players.Count() == 2)
+            {
+                var player1 = mainItem.PlayerProMainResultItem.Players.Players[0];
+                var player2 = mainItem.PlayerProMainResultItem.Players.Players[1];
+                
+                <tr>
+                    <td class="cl-match">@player1.PlayerName</td>
+                    @if(mainItem.PlayerProMainResultItem.IsRefundAll)
+                    {
+                        <td class="cl-result home" rowspan="@mainItem.PlayerProHeaderItems.Length" colspan="2">@LangResource.Refund</td>
+                    }
+                    else
+                    {
+                        foreach(var item in player1.ResultDetailItems)
+                        {
+                            <td class="cl-result home">@(mainItem.PlayerProMainResultItem.HomeValue == LangResource.Refund ? LangResource.Refund : item.HomeValue)</td>
+                        }
+                    }
+                </tr>
+                <tr>
+                    @if(mainItem.PlayerProMainResultItem.IsRefundWithSettleDetermined)
+                    {
+                        <td class="cl-match" rowspan="2">@player2.PlayerName</td>
+                    }
+                    else
+                    {
+                        <td class="cl-match">@player2.PlayerName</td>
+                    }
+
+                    @if(!mainItem.PlayerProMainResultItem.IsRefundAll)
+                    {
+                        foreach(var item in player2.ResultDetailItems)
+                        {
+                            <td class="cl-result home">@(mainItem.PlayerProMainResultItem.HomeValue == LangResource.Refund ? LangResource.Refund : item.HomeValue)</td>
+                        }
+                    }
+                </tr>
+                if(mainItem.PlayerProMainResultItem.IsRefundWithSettleDetermined)
+                {
+                    <tr>
+                        <td class="cl-result home" colspan="@mainItem.PlayerProHeaderItems.Length">(@LangResource.RefundWithSettleDetermined)</td>
+                    </tr>
+                }
+            }
+		</tbody>
+	</table>
 }
 
 @if (mainItem != null && mainItem.VisibleBetBuilderDetail)

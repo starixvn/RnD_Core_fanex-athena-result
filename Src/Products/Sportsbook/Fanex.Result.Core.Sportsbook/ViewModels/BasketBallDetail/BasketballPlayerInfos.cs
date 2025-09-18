@@ -1,0 +1,46 @@
+namespace Fanex.Result.Core.Sportsbook.ViewModels.BasketBallDetail
+{
+  using System;
+  using System.Collections.Generic;
+
+  public class BasketballPlayerInfos
+  {
+    public BasketballPlayerInfos(string json)
+    {
+      Players = new List<BasketballPlayerInfo>();
+      if (string.IsNullOrEmpty(json))
+      {
+        return;
+      }
+      var array = json.ToLower().Split(new char[] { ';' }, StringSplitOptions.RemoveEmptyEntries);
+
+      foreach (var item in array)
+      {
+        Players.Add(new BasketballPlayerInfo(item));
+      }
+    }
+    public List<BasketballPlayerInfo> Players { get; set; }
+  }
+
+  public class BasketballPlayerInfo
+  {
+    public BasketballPlayerInfo(string json)
+    {
+      ResultDetailItems = new List<BasketBallGameDetailItem>();
+      if (string.IsNullOrEmpty(json))
+      {
+        return;
+      }
+      var array = json.ToLower().Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+      if (array.Length == 2)
+      {
+        PlayerId = array[0];
+        TeamId = array[1];
+      }
+    }
+    public string PlayerId { get; set; }
+    public string PlayerName { get; set; }
+    public string TeamId { get; set; }
+    public List<BasketBallGameDetailItem> ResultDetailItems { get; set; }
+  }
+}

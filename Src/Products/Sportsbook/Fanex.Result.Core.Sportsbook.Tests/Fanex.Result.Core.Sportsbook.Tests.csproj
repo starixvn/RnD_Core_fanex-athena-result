@@ -3,13 +3,7 @@
     <TargetFrameworks>netstandard2.1;net7.0</TargetFrameworks> 
     <OutputType>Library</OutputType>
     <SonarQubeTestProject>True</SonarQubeTestProject>
-    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-    <AssemblyTitle>Fanex.Result.Core.SportsbookUnitTests</AssemblyTitle>
-    <Company>Microsoft</Company>
-    <Product>Fanex.Result.Core.SportsbookUnitTests</Product>
-    <Copyright>Copyright © Microsoft 2016</Copyright>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <FileVersion>1.0.0.0</FileVersion>
+    <IsPackable>false</IsPackable>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Core\Fanex.Result.Core.Base\Fanex.Result.Core.Base.csproj" />
@@ -21,5 +15,10 @@
     <PackageReference Include="CompareNETObjects" Version="4.57.0" />    
     <PackageReference Include="NSubstitute" Version="3.1.0" />
     <PackageReference Include="NUnit" Version="3.11.0" />    
+    <PackageReference Include="NUnit3TestAdapter" Version="4.1.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="TestTemplate\**\*" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>

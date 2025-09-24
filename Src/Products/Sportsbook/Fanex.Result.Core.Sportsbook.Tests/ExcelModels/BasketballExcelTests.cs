@@ -115,7 +115,7 @@
             Assert.AreEqual("1231", actualHomeDataRow.Cells[0].StringCellValue);
             Assert.AreEqual("01/01/2017\n12:00:00 AM", actualHomeDataRow.Cells[1].StringCellValue);
             Assert.AreEqual("Home Team Name", actualHomeDataRow.Cells[2].StringCellValue);
-            Assert.AreEqual("21", actualHomeDataRow.Cells[3].StringCellValue);
+            Assert.AreEqual("-", actualHomeDataRow.Cells[3].StringCellValue);
             Assert.AreEqual("21", actualHomeDataRow.Cells[4].StringCellValue);
             Assert.AreEqual("21", actualHomeDataRow.Cells[5].StringCellValue);
             Assert.AreEqual("0", actualHomeDataRow.Cells[6].StringCellValue);

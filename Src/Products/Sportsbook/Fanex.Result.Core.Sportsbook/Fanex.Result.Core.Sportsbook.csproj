@@ -8,7 +8,7 @@
     <AssemblyTitle>Fanex.Result.Core.Sportsbook</AssemblyTitle>
     <Product>Fanex.Result.Core.Sportsbook</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>2.0.2.6-basketball-04</Version>
+    <Version>2.0.2.6-basketball-08</Version>
     <InfomationalVersion>2.0.2.6</InfomationalVersion>
     <PackageReleaseNotes>
        - Support Basketball Player Pro result (#235372)

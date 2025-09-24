@@ -2,13 +2,13 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Text;
     using System.Text.RegularExpressions;
     using Base.Resources;
     using Base.Utilities;
     using DataDomain;
     using Exceptions;
-    using Fanex.Result.Core.Sportsbook.Resources;
 
     internal static class SportsbookHelper
     {
@@ -139,6 +139,12 @@
             return IsFastMarketsResourceId(resourceId)
                 ? $"{Helper.FormatTwoDigit(start)}:00-{Helper.FormatTwoDigit(end)}:59"
                 : string.Empty;
+        }
+
+        public static bool IsBasketBallPropBettype(string resourceId)
+        {
+            return BasketBallResourceID.PlayerProsMoreResultResourceIDs.Any(id => Regex.IsMatch(resourceId, id))
+                || BasketBallResourceID.AssociatedPropsResourceIDs.Any(id => Regex.IsMatch(resourceId, id));
         }
 
         private static bool ValidStartTime(string startMinute)

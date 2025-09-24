@@ -72,15 +72,6 @@
 
         public string MoreOddMoreEven => EventStatusIsRefundOrPending ? Happy5Resources.NA : GetMoreOddMoreEvenResult();
 
-        public string Soccer5 => EventStatusIsRefundOrPending ? Happy5Resources.NA : string.Empty;
-
-        public string Soccer5Class => EventStatusIsRefundOrPending ? string.Empty : "info";
-
-        public string Soccer5Function
-            => EventStatusIsRefundOrPending ? 
-            string.Empty : 
-            $"onclick=\"showSoccer5Result({resultData.MatchId}, '{Balls}');\"";
-
         public string Combo => EventStatusIsRefundOrPending ? Happy5Resources.NA : BigSmall + OddEven;
 
         public override string EventStatus

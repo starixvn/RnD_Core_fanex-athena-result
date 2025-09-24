@@ -21,6 +21,7 @@
     using Fanex.Result.Core.Sportsbook.Constants;
     using Fanex.Result.Core.Sportsbook.Models;
     using Fanex.Result.Core.Sportsbook.Resources;
+    using Fanex.Result.Core.Sportsbook.Utilities;
     using Fanex.Result.Core.Sportsbook.ViewModels.SoccerDetail;
     using RazorEngine;
     using RazorEngine.Templating;
@@ -84,9 +85,10 @@
             get
             {
                 var abandonedQuater = SPORTBOOK.GameDetails
+                    .Where(i => !SportsbookHelper.IsBasketBallPropBettype(i.ResourceId))
                     .OrderBy(i => BasketBallResourceID.AbandonedResourceIDs.ToList()
                     .FindIndex(id => id == i.ResourceId))
-                    .FirstOrDefault(i => (BasketBallResourceID.MinPropBettype > i.BettypeId || i.BettypeId > BasketBallResourceID.MaxPropBettype) && i.SettlementStatusID == EventStatusID.RefundWithSettleDetermined);
+                    .FirstOrDefault(i => i.SettlementStatusID == EventStatusID.RefundWithSettleDetermined);
                 var bits = MapEventStatus.GetBitArray(SPORTBOOK.SettlementStatus);
                 var isAbandoned = bits[0] == 0;
                 if (abandonedQuater != null && isAbandoned)

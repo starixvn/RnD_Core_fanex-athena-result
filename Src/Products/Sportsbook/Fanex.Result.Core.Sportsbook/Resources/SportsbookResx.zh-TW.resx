@@ -477,4 +477,22 @@
   <data name="AbandonedEI" xml:space="preserve">
     <value>在延長賽中止</value>
   </data>
+  <data name="Basketball_653" xml:space="preserve">
+    <value>得分</value>
+  </data>
+  <data name="Basketball_656" xml:space="preserve">
+    <value>助攻</value>
+  </data>
+  <data name="Basketball_659" xml:space="preserve">
+    <value>籃板</value>
+  </data>
+  <data name="Basketball_665" xml:space="preserve">
+    <value>蓋帽</value>
+  </data>
+  <data name="Basketball_662" xml:space="preserve">
+    <value>三分球命中得分</value>
+  </data>
+  <data name="Basketball_667" xml:space="preserve">
+    <value>搶斷</value>
+  </data>
 </root>

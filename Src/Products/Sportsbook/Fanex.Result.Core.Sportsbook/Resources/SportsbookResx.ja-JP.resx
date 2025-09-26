@@ -180,4 +180,22 @@
   <data name="AbandonedEI" xml:space="preserve">
     <value>延長戦中止</value>
   </data>
+  <data name="Basketball_653" xml:space="preserve">
+    <value>得点</value>
+  </data>
+  <data name="Basketball_656" xml:space="preserve">
+    <value>アシスト</value>
+  </data>
+  <data name="Basketball_659" xml:space="preserve">
+    <value>リバウンド</value>
+  </data>
+  <data name="Basketball_665" xml:space="preserve">
+    <value>ブロック</value>
+  </data>
+  <data name="Basketball_662" xml:space="preserve">
+    <value>3ポイント成功</value>
+  </data>
+  <data name="Basketball_667" xml:space="preserve">
+    <value>スティール</value>
+  </data>
 </root>

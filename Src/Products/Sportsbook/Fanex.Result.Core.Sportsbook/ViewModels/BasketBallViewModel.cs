@@ -21,6 +21,7 @@
     using Fanex.Result.Core.Sportsbook.Constants;
     using Fanex.Result.Core.Sportsbook.Models;
     using Fanex.Result.Core.Sportsbook.Resources;
+    using Fanex.Result.Core.Sportsbook.Utilities;
     using Fanex.Result.Core.Sportsbook.ViewModels.SoccerDetail;
     using RazorEngine;
     using RazorEngine.Templating;
@@ -54,10 +55,7 @@
             var moreResultDetailItemWithRegex = ResultDetailItems
                 .Where(item => BasketBallResourceID.MoreResultResourceIDRegex.Any(id => Regex.IsMatch(item.ResourceID, id)))
                 .OrderBy(item => item.ResourceID);
-
-            MoreResultDetailItems = moreResultDetailItem.Concat(moreResultDetailItemWithRegex)
-                .OrderBy(item => BasketBallResourceID.MoreResultResourceIDs.ToList()
-                .FindIndex(id => id == item.ResourceID || Regex.IsMatch(item.ResourceID, id))).ToSafeList();
+                
 
             var playerProMoreResultDetailItem = ResultDetailItems
                 .Where(item => BasketBallResourceID.PlayerProsMoreResultResourceIDs.Any(id => Regex.IsMatch(item.ResourceID, id)))
@@ -73,6 +71,11 @@
                 (PlayerProMainResultItem, PlayerProHeaderItems) = BuildMainPlayerProResultItem(mainResultTicket, playerProMoreResultDetailItem);
             }
 
+            MoreResultDetailItems = moreResultDetailItem.Concat(moreResultDetailItemWithRegex)
+                .Concat(playerProMoreResultDetailItem)
+                .OrderBy(item => BasketBallResourceID.MoreResultResourceIDs.ToList()
+                .FindIndex(id => id == item.ResourceID || Regex.IsMatch(item.ResourceID, id))).ToSafeList();
+
             betBuilderViewModel = new BetBuilderResultViewModel(sportbook, setting, refDataHelper);
 
             IsShowLiveScore = DetermineShowingLiveScore();
@@ -84,9 +87,10 @@
             get
             {
                 var abandonedQuater = SPORTBOOK.GameDetails
+                    .Where(i => !SportsbookHelper.IsBasketBallPropBettype(i.ResourceId))
                     .OrderBy(i => BasketBallResourceID.AbandonedResourceIDs.ToList()
                     .FindIndex(id => id == i.ResourceId))
-                    .FirstOrDefault(i => (BasketBallResourceID.MinPropBettype > i.BettypeId || i.BettypeId > BasketBallResourceID.MaxPropBettype) && i.SettlementStatusID == EventStatusID.RefundWithSettleDetermined);
+                    .FirstOrDefault(i => i.SettlementStatusID == EventStatusID.RefundWithSettleDetermined);
                 var bits = MapEventStatus.GetBitArray(SPORTBOOK.SettlementStatus);
                 var isAbandoned = bits[0] == 0;
                 if (abandonedQuater != null && isAbandoned)

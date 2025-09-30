@@ -35,7 +35,7 @@
                 item.ResourceName = RefDataHelper.GetBetTypeNameById(betTypeId, GetSupportedLanguage, resourceId);
             }
 
-            if (detailItem.BettypeId >= BasketBallResourceID.MinPropBettype && detailItem.BettypeId <= BasketBallResourceID.MaxPropBettype)
+            if (SportsbookHelper.IsBasketBallPropBettype(detailItem.ResourceId))
             {
                 item.ResourceName = GetBasketBallPropsHeaderDetail(detailItem.ResourceId);
                 item.Players =  new BasketballPlayerInfos(detailItem.OtherInfo);

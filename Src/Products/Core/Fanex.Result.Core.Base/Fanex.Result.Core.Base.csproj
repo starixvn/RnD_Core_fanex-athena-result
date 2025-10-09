@@ -8,10 +8,10 @@
     <AssemblyTitle>Fanex.Result.Core.Base</AssemblyTitle>
     <Product>Fanex.Result.Core.Base</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>4.0.0.2-wcasino-01</Version>
-    <InfomationalVersion>4.0.0.2</InfomationalVersion>
+    <Version>4.0.0.3-eSoccer-01</Version>
+    <InfomationalVersion>4.0.0.3</InfomationalVersion>
     <PackageReleaseNotes>
-      Support method for WCasino (#227510)
+      Support Bettype for ESoccer and EVolleyball (#240845)
     </PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>

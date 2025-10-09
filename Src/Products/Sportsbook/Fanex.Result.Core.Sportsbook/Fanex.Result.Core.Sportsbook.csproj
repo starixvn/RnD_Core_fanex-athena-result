@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.1;net8.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.1;net7.0</TargetFrameworks>
     <PackageId>Fanex.Result.Core-Sportsbook</PackageId>
     <OutputType>Library</OutputType>
     <RestorePackages>true</RestorePackages>
@@ -8,10 +8,10 @@
     <AssemblyTitle>Fanex.Result.Core.Sportsbook</AssemblyTitle>
     <Product>Fanex.Result.Core.Sportsbook</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>4.0.0.3-basketball-07</Version>
-    <InfomationalVersion>4.0.0.3</InfomationalVersion>
+    <Version>4.0.0.4-eSoccer-04</Version>
+    <InfomationalVersion>4.0.0.4</InfomationalVersion>
     <PackageReleaseNotes>
-      - Support Basketball Player Pro result (#235372)
+      -Support Result for ESoccer and EVolleyball (#240845)
     </PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
@@ -68,7 +68,9 @@
     <EmbeddedResource Include="Views\Bandy.cshtml" />
     <EmbeddedResource Include="Views\VSCockFighting.cshtml" />
     <EmbeddedResource Include="Views\VirtuallySports.cshtml" />
-    <EmbeddedResource Include="Views\BetbyBasketball.cshtml" />    
+    <EmbeddedResource Include="Views\BetbyBasketball.cshtml" />
+    <EmbeddedResource Include="Views\ESoccer.cshtml" />
+    <EmbeddedResource Include="Views\EVolleyball.cshtml" />    
   </ItemGroup>
   <ItemGroup>
     <Compile Update="Resources\SportsbookResx.Designer.cs">

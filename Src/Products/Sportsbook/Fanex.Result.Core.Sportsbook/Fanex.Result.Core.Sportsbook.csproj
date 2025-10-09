@@ -8,10 +8,10 @@
     <AssemblyTitle>Fanex.Result.Core.Sportsbook</AssemblyTitle>
     <Product>Fanex.Result.Core.Sportsbook</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>2.0.2.6-basketball-08</Version>
-    <InfomationalVersion>2.0.2.6</InfomationalVersion>
+    <Version>2.0.2.7-eSoccer-03</Version>
+    <InfomationalVersion>2.0.2.7</InfomationalVersion>
     <PackageReleaseNotes>
-       - Support Basketball Player Pro result (#235372)
+      -Support Result for ESoccer and EVolleyball (#240845)
     </PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
@@ -68,7 +68,9 @@
     <EmbeddedResource Include="Views\Bandy.cshtml" />
     <EmbeddedResource Include="Views\VSCockFighting.cshtml" />
     <EmbeddedResource Include="Views\VirtuallySports.cshtml" />
-    <EmbeddedResource Include="Views\BetbyBasketball.cshtml" />    
+    <EmbeddedResource Include="Views\BetbyBasketball.cshtml" />
+    <EmbeddedResource Include="Views\ESoccer.cshtml" />
+    <EmbeddedResource Include="Views\EVolleyball.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Fanex.Result.Core-NPOI.2.0.6" Version="3.0.1.8-baseball-01" />

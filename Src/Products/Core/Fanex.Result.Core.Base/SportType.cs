@@ -337,6 +337,12 @@
         VirtuallySports = 147,
 
         [StringValue("BetbyBasketball")]
-        BetbyBasketball = 134
+        BetbyBasketball = 134,
+
+        [StringValue("ESoccer")]
+        ESoccer = 116,
+
+        [StringValue("EVolleyball")]
+        EVolleyball = 114
     }
 }

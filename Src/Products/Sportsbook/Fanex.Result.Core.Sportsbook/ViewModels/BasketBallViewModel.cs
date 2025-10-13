@@ -21,6 +21,7 @@
     using Fanex.Result.Core.Sportsbook.Constants;
     using Fanex.Result.Core.Sportsbook.Models;
     using Fanex.Result.Core.Sportsbook.Resources;
+    using Fanex.Result.Core.Sportsbook.Utilities;
     using Fanex.Result.Core.Sportsbook.ViewModels.SoccerDetail;
     using RazorEngine;
     using RazorEngine.Templating;
@@ -54,8 +55,24 @@
             var moreResultDetailItemWithRegex = ResultDetailItems
                 .Where(item => BasketBallResourceID.MoreResultResourceIDRegex.Any(id => Regex.IsMatch(item.ResourceID, id)))
                 .OrderBy(item => item.ResourceID);
+                
+
+            var playerProMoreResultDetailItem = ResultDetailItems
+                .Where(item => BasketBallResourceID.PlayerProsMoreResultResourceIDs.Any(id => Regex.IsMatch(item.ResourceID, id)))
+                .OrderBy(item => item.ResourceID).ToList();
+            var mainResultTicket = ResultDetailItems
+                .Where(item => BasketBallResourceID.AssociatedPropsResourceIDs.Any(id => Regex.IsMatch(item.ResourceID, id)))
+                .FirstOrDefault();
+
+            if(playerProMoreResultDetailItem.Any())
+            {
+                mainResultTicket = mainResultTicket ?? playerProMoreResultDetailItem.FirstOrDefault();
+
+                (PlayerProMainResultItem, PlayerProHeaderItems) = BuildMainPlayerProResultItem(mainResultTicket, playerProMoreResultDetailItem);
+            }
 
             MoreResultDetailItems = moreResultDetailItem.Concat(moreResultDetailItemWithRegex)
+                .Concat(playerProMoreResultDetailItem)
                 .OrderBy(item => BasketBallResourceID.MoreResultResourceIDs.ToList()
                 .FindIndex(id => id == item.ResourceID || Regex.IsMatch(item.ResourceID, id))).ToSafeList();
 
@@ -70,6 +87,7 @@
             get
             {
                 var abandonedQuater = SPORTBOOK.GameDetails
+                    .Where(i => !SportsbookHelper.IsBasketBallPropBettype(i.ResourceId))
                     .OrderBy(i => BasketBallResourceID.AbandonedResourceIDs.ToList()
                     .FindIndex(id => id == i.ResourceId))
                     .FirstOrDefault(i => i.SettlementStatusID == EventStatusID.RefundWithSettleDetermined);
@@ -114,7 +132,11 @@
         public SafeList<BasketBallGameDetailItem> ResultDetailItems { get; }
 
         public SafeList<BasketBallGameDetailItem> MoreResultDetailItems { get; }
-        
+
+        public BasketBallGameDetailItem PlayerProMainResultItem { get; }
+
+        public string[] PlayerProHeaderItems { get; }
+
         public override string GetHomeAwaySet(int index, bool isHome)
         {
             const int maxIndex = 4;
@@ -263,6 +285,41 @@
             }
 
             return false;
+        }
+        
+        private (BasketBallGameDetailItem, string[]) BuildMainPlayerProResultItem(BasketBallGameDetailItem mainResult, IEnumerable<BasketBallGameDetailItem> resultItems)
+        {
+            var headerItems = new List<string>();
+            if(mainResult.SettlementStatusID == EventStatusID.RefundSettlementStatusID || resultItems.All(item => item.SettlementStatusID == EventStatusID.RefundSettlementStatusID))
+            {
+                mainResult.IsRefundAll = true;
+            }
+
+            if(mainResult.SettlementStatusID == EventStatusID.RefundWithSettleDetermined || resultItems.Any(item => item.SettlementStatusID == EventStatusID.RefundWithSettleDetermined))
+            {
+                mainResult.IsRefundWithSettleDetermined = true;
+            }
+
+            foreach(var item in resultItems)
+            {
+                if(item.SettlementStatusID == EventStatusID.RefundSettlementStatusID || mainResult.SettlementStatusID == EventStatusID.RefundSettlementStatusID)
+                {
+                    item.HomeValue = LangResource.Refund;
+                }
+
+                if(!headerItems.Contains(item.ResourceName))
+                {
+                    headerItems.Add(item.ResourceName);
+                }
+            }
+
+            foreach(var player in mainResult.Players.Players)
+            {
+                player.PlayerName = RefDataHelper.GetTeamName(player.PlayerId, GetSupportedLanguage, player.PlayerId);
+                player.ResultDetailItems = new List<BasketBallGameDetailItem>(resultItems.Where(item => item.Players?.Players?.Any(p => p.PlayerId == player.PlayerId) == true).ToList());
+            }
+
+            return (mainResult, headerItems.ToArray());
         }
     }
 }

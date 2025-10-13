@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net461;netstandard2.1;net7.0</TargetFrameworks> 
+    <TargetFrameworks>net461;netstandard2.1;net8.0</TargetFrameworks> 
     <PackageId>Fanex.Result.Core-Racing</PackageId>
     <OutputType>Library</OutputType>
     <RestorePackages>true</RestorePackages>

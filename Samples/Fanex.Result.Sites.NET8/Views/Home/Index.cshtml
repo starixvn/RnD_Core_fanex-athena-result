@@ -1,0 +1,28 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Fanex Result Core</h1>
+    <p>This is the upgraded .NET 8 version of the Fanex Result application.</p>
+    
+    <div class="row">
+        <div class="col-md-4">
+            <h3>Normal Report</h3>
+            <p>View and generate normal result reports.</p>
+            <a class="btn btn-primary" href="@Url.Action("Index", "NormalReport")">Go to Normal Report</a>
+        </div>
+        
+        <div class="col-md-4">
+            <h3>Documentation</h3>
+            <p>View API documentation and usage guides.</p>
+            <a class="btn btn-primary" href="@Url.Action("Index", "PopupReport")">Go to Popup Report</a>
+        </div>
+        
+        <div class="col-md-4">
+            <h3>API Health</h3>
+            <p>Check the health status of third-party APIs.</p>
+            <a class="btn btn-primary" href="@Url.Action("Health", "ThirdPartyAPI")">Check Health</a>
+        </div>
+    </div>
+</div>

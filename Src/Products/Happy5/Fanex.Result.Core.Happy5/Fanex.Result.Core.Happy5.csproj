@@ -1,15 +1,15 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-  <TargetFrameworks>net461;netstandard2.1;net7.0</TargetFrameworks> 
+  <TargetFrameworks>net461;netstandard2.1;net8.0</TargetFrameworks> 
     <OutputType>Library</OutputType>
     <RestorePackages>true</RestorePackages>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
     <AssemblyTitle>Fanex.Result.Core.Happy5</AssemblyTitle>
     <Product>Fanex.Result.Core.Happy5</Product>
     <Copyright>Copyright ©  2018</Copyright>
-    <Version>2.0.0.2-upgrade-03</Version>
-    <InfomationalVersion>2.0.0.2</InfomationalVersion>
-    <PackageReleaseNotes>Support .net Core for Result Core package (#191539)</PackageReleaseNotes>
+    <Version>2.0.0.4-removeHappy5LinkGames-01</Version>
+    <InfomationalVersion>2.0.0.4</InfomationalVersion>
+    <PackageReleaseNotes>Remove Column Soccer 5 from Happy 5 Result Page (#237280)</PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
   <ItemGroup>

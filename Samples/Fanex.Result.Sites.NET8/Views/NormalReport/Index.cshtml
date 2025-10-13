@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Fanex.Result.Core - Normal report.";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section Headline {
+    <ul class="breadcrumb title">
+        <li>Demo</li>
+        <li class="current">Normal</li>
+    </ul>
+}
+<form role="form" action="/" class="form-inline col-sm-12 filter-form bet-setting">
+    <div class="form-group">
+        <label for="date">Date</label>
+        <input id="date" class="width-100" type="text" />
+    </div>
+    <div class="form-group">
+        <label for="sport">Sport</label>
+        <select id="sport" class="width-160"></select>
+    </div>
+    <div class="form-group">
+        <label for="league">Leagues</label>
+        <select id="league" class="width-200"></select>
+    </div>
+    <div class="form-group">
+        <label for="league">Language</label>
+        <select id="language" class="width-100">
+            <option value="en-US">en-US</option>
+            <option value="ko-KR">ko-KR</option>
+            <option value="zh-TW">zh-TW</option>
+            <option value="zh-CN">zh-CN</option>
+            <option value="zh-Hans">zh-Hans</option>
+            <option value="th-TH">th-TH</option>
+            <option value="ja-JP">ja-JP</option>
+            <option value="vi-VN">vi-VN</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="league">Show MatchCode</label>
+        <input type="checkbox" id="showmatchcode" checked="checked" />
+    </div>
+    <div class="form-group">
+        <label for="excel-data">Get Data From Excel</label>
+        <input type="checkbox" id="get-data-from-excel" />
+    </div>
+    <div class="form-group">
+        <input type="button" id="export-excel-file" value="Export Excel Data File" class="btn btn-primary" />
+    </div>
+    <div class="form-group">
+        <input type="button" id="gen-html" value="Gen Html" class="btn btn-primary" />
+    </div>
+    <div class="form-group">
+        <input type="button" id="gen-excel" value="Gen Excel" class="btn btn-primary" />
+    </div>
+</form>
+<div id="report-content">
+</div>
+<div class="visible" id="game-detail">
+</div>
+@section FooterJs
+{
+    <script src="~/js/Page/normal-report.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (typeof normalReport !== 'undefined') {
+                normalReport.setup();
+            } else {
+                console.log('normalReport object not found, initializing basic functionality');
+                // Basic initialization if normalReport is not available
+                initializeBasicFunctionality();
+            }
+        });
+        
+        function initializeBasicFunctionality() {
+            // Basic form handling
+            $('#gen-html').click(function() {
+                console.log('Generate HTML clicked');
+                // Add basic functionality here
+            });
+            
+            $('#gen-excel').click(function() {
+                console.log('Generate Excel clicked');
+                // Add basic functionality here
+            });
+        }
+    </script>
+}

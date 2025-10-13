@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Fanex.Result.Core</title>
+    <link href="~/img/favicon.ico" rel="shortcut icon">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    @RenderSection("HeadCss", false)
+    
+    <!-- Core CSS -->
+    <link rel="stylesheet" href="~/css/Core/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Fanex.Result/fanex.result.css" asp-append-version="true" />
+    
+    <!-- External CSS Libraries -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://code.jquery.com/ui/1.11.1/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    
+    <script type="text/javascript">
+        window.rootUrl = '@Url.Content("~/")';
+    </script>
+</head>
+<body>
+    <div class="container-fluid page">
+        <header class="row header">
+            <a class="logo" href="@Url.Action("Index","Home")">
+                Fanex
+                <span> Result Core</span>
+            </a>
+            @{
+                await Html.RenderPartialAsync("~/Views/Shared/_Menu.cshtml");
+            }
+            <div class="user-info">
+                <span class="info-bar">Howdy, <span class="account-name">sa</span><span class="caret"></span></span>
+                <ul class="user-dropdown">
+                    <li><a href="#">Sign Out</a></li>
+                </ul>
+            </div>
+        </header>
+        <section id="headline" class="row title-bar">
+        @RenderSection("Headline", false)
+        </section>
+        <section id="body" class="row body">          
+            @RenderBody()
+            <div id="loadingMsgBox" class="icon-loading hidden"></div>
+        </section>
+    </div>
+    @RenderSection("Foot", false)
+    
+    <!-- Core JavaScript -->
+    <script src="~/js/jquery-1.9.0.min.js" asp-append-version="true"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/js/bootstrap.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+   
+</body>
+@RenderSection("FooterJs",false)
+</html>

@@ -1,0 +1,98 @@
+/* Basic styling for the upgraded .NET 8 application */
+
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
+
+/* Legacy styles for backward compatibility */
+.container-fluid.page {
+  padding: 0;
+}
+
+.header {
+  background-color: #f8f9fa;
+  padding: 1rem 0;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.logo span {
+  color: #6c757d;
+}
+
+.main-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.main-nav li {
+  margin-right: 1rem;
+}
+
+.main-nav a {
+  color: #495057;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+}
+
+.main-nav a:hover {
+  background-color: #e9ecef;
+  color: #007bff;
+}
+
+.user-info {
+  margin-left: auto;
+}
+
+.title-bar {
+  background-color: #e9ecef;
+  padding: 1rem 0;
+}
+
+.body {
+  padding: 2rem 0;
+}
+
+.icon-loading {
+  display: none;
+}
+
+.icon-loading.hidden {
+  display: none !important;
+}

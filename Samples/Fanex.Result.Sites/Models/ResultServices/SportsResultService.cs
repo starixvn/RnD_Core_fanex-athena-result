@@ -1,9 +1,6 @@
 ﻿namespace MvcExample.Models.ResultServices
 {
     using DTO;
-    using Fanex.Data;
-    using Fanex.Data.Repository;
-    using System.Collections.Generic;
 
     public class SportsResultService : IResultService<Sport>
     {

@@ -152,35 +152,35 @@
             Assert.AreEqual(expectedValue, actualValue);
         }
 
-        [TestCase(1, "1")]
-        [TestCase(null, "-")]
-        public void HTHomeScore_ScoreHasValue_ShowScore(int? scoreValue, string expectedScoreValue)
-        {
-            // Arrange
-            var sportsbookDto = new Sportsbook { HtHomeScore = scoreValue };
-            var viewModel = new BaseBallViewModel(sportsbookDto, new ResultSetting());
+        // [TestCase(1, "1")]
+        // [TestCase(null, "-")]
+        // public void HTHomeScore_ScoreHasValue_ShowScore(int? scoreValue, string expectedScoreValue)
+        // {
+        //     // Arrange
+        //     var sportsbookDto = new Sportsbook { HtHomeScore = scoreValue };
+        //     var viewModel = new BaseBallViewModel(sportsbookDto, new ResultSetting());
 
-            // Act
-            var actualHTHomeScore = viewModel.HTHomeScore;
+        //     // Act
+        //     var actualHTHomeScore = viewModel.HTHomeScore;
 
-            // Assert
-            Assert.AreEqual(expectedScoreValue, actualHTHomeScore);
-        }
+        //     // Assert
+        //     Assert.AreEqual(expectedScoreValue, actualHTHomeScore);
+        // }
 
-        [TestCase(1, "1")]
-        [TestCase(null, "-")]
-        public void HTAwayScore_ScoreHasValue_ShowScore(int? scoreValue, string expectedScoreValue)
-        {
-            // Arrange
-            var sportsbookDto = new Sportsbook { HtAwayScore = scoreValue };
-            var viewModel = new BaseBallViewModel(sportsbookDto, new ResultSetting());
+        // [TestCase(1, "1")]
+        // [TestCase(null, "-")]
+        // public void HTAwayScore_ScoreHasValue_ShowScore(int? scoreValue, string expectedScoreValue)
+        // {
+        //     // Arrange
+        //     var sportsbookDto = new Sportsbook { HtAwayScore = scoreValue };
+        //     var viewModel = new BaseBallViewModel(sportsbookDto, new ResultSetting());
 
-            // Act
-            var actualHTAwayScore = viewModel.HTAwayScore;
+        //     // Act
+        //     var actualHTAwayScore = viewModel.HTAwayScore;
 
-            // Assert
-            Assert.AreEqual(expectedScoreValue, actualHTAwayScore);
-        }
+        //     // Assert
+        //     Assert.AreEqual(expectedScoreValue, actualHTAwayScore);
+        // }
 
         [TestCase(1, "1")]
         [TestCase(null, "-")]

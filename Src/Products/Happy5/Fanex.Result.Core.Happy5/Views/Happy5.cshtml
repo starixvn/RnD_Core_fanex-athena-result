@@ -6,7 +6,6 @@
 @{
     var viewModel = Model as RazorBinderModel;
     var colSpan = viewModel.VisibleMatchCodeIDColumn ? 11 : 10;
-    colSpan = viewModel.IsPopUp ? colSpan : colSpan + 1;
     var popupStyleClass = viewModel.IsPopUp ? "popup" : string.Empty;
     void RenderTableHeader(RazorBinderModel viewModel, int colSpan)
     {
@@ -55,13 +54,6 @@
                 <th class="cl-detail-result">
                     @Happy5Resources.Combo
                 </th>
-                @if (!viewModel.IsPopUp)
-                {
-                    <th class="cl-detail-result">
-                        @Happy5Resources.Soccer5
-                    </th>
-                }
-
                 <th class="cl-status">
                     @LangResource.Status
                 </th>
@@ -158,14 +150,6 @@
                         <td class="cl-detail-result">
                             @item.Combo
                         </td>
-                        @if (!viewModel.IsPopUp)
-                        {
-                            <td class="cl-detail-result">
-                                <div title="@Happy5Resources.Soccer5Tooltip" class="@item.Soccer5Class" @Raw(item.Soccer5Function)>
-                                    @item.Soccer5</div>
-                            </td>
-                        }
-
                         <td class="cl-status @item.EventStatusBackground">
                             @item.EventStatus
                         </td>

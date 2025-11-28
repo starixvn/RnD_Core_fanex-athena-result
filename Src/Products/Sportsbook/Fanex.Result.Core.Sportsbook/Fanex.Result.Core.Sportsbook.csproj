@@ -8,10 +8,10 @@
     <AssemblyTitle>Fanex.Result.Core.Sportsbook</AssemblyTitle>
     <Product>Fanex.Result.Core.Sportsbook</Product>
     <Copyright>Copyright ©  2015</Copyright>
-    <Version>4.0.0.3-basketball-07</Version>
-    <InfomationalVersion>4.0.0.3</InfomationalVersion>
+    <Version>4.0.0.5-basketball-01</Version>
+    <InfomationalVersion>4.0.0.5</InfomationalVersion>
     <PackageReleaseNotes>
-      - Support Basketball Player Pro result (#235372)
+      - Hide Result Detail in Basketball
     </PackageReleaseNotes>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
